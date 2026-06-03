@@ -13,14 +13,14 @@
       "900": "#0F0D0A"
     },
     "accent": {
-      "DEFAULT": "#D34A1A",
-      "soft":    "#F5C9B5",
-      "ink":     "#7A2810",
+      "DEFAULT": "#C99700",
+      "soft":    "#F8E2A0",
+      "ink":     "#5C4200",
       "sub":     "#1B3A2F"
     },
     "semantic": {
       "success": "#2E7D5E",
-      "warning": "#C99A2C",
+      "warning": "#D6A229",
       "error":   "#B23A36",
       "info":    "#3367A6"
     }

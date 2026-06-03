@@ -14,8 +14,10 @@ export function buildOrganizationSchema() {
     description: siteConfig.description,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: siteConfig.streetAddress,
       addressLocality: siteConfig.addressLocality,
       addressRegion: siteConfig.addressRegion,
+      postalCode: siteConfig.postalCode,
       addressCountry: siteConfig.addressCountry
     },
     areaServed: { '@type': 'Country', name: 'Canada' },

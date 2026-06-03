@@ -12,7 +12,7 @@ const { heading, lead, primaryCta, secondaryCta } = Astro.props;
     <h2 class="font-display font-bold text-3xl md:text-5xl leading-[1.05] text-neutral-50 mb-5">{heading}</h2>
     {lead && <p class="text-lg text-neutral-400 leading-relaxed max-w-2xl mx-auto mb-8">{lead}</p>}
     <div class="flex flex-wrap items-center justify-center gap-4">
-      <a href={primaryCta.href} class="inline-flex items-center gap-2 bg-accent text-neutral-50 px-7 py-3.5 rounded-md font-medium hover:bg-accent/90 transition-colors">
+      <a href={primaryCta.href} class="inline-flex items-center gap-2 bg-accent text-neutral-900 px-7 py-3.5 rounded-md font-medium hover:bg-warning transition-colors">
         {primaryCta.label}
       </a>
       {secondaryCta && (

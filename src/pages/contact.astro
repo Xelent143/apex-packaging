@@ -25,7 +25,7 @@ const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Contact',
             <ul class="space-y-2 text-[0.9375rem] text-neutral-700">
               <li><a class="text-accent hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
               <li><a class="text-accent hover:underline" href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a></li>
-              <li>{siteConfig.addressLocality}</li>
+              <li>{siteConfig.formattedAddress}</li>
             </ul>
           </div>
           <div class="p-6 bg-neutral-100 rounded-lg">

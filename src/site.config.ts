@@ -5,11 +5,14 @@ export const siteConfig = {
   description:
     'Apex Packaging Solutions is a Canadian custom-packaging manufacturer producing corrugated boxes and polybags with 7–14 day turnaround, 100-unit MOQs, in-house design support, and FSC-certified options.',
   legalName: 'Apex Packaging Solutions',
-  email: 'hello@apexpackagingsolutions.com',
+  email: 'sales@apexpackagingsolutions.com',
   phone: '+1-000-000-0000',
-  addressLocality: 'Canada',
+  streetAddress: '265 Brunswick Ave',
+  addressLocality: 'London',
   addressRegion: 'ON',
+  postalCode: 'N6G 5P8',
   addressCountry: 'CA',
+  formattedAddress: '265 Brunswick Ave, London ON N6G 5P8, Canada',
   defaultOgImage: '/og-default.svg',
   nav: [
     { label: 'Services', href: '/services' },
