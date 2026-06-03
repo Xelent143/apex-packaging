@@ -10,5 +10,10 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     sitemap({ changefreq: 'weekly', lastmod: new Date() })
   ],
+  vite: {
+    preview: {
+      allowedHosts: ['apex-packaging-production.up.railway.app']
+    }
+  },
   build: { assets: '_assets', inlineStylesheets: 'auto' }
 });
