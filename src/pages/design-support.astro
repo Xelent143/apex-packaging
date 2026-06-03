@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema } from '../lib/schema';
+
+const faqs = [
+  { q: 'Can I keep the dieline file if I work with a different printer?', a: 'For design-only paid engagements, yes — Apex provides the editable file. For design included with a production order, the dieline is licensed to the order; if the buyer wants portable rights, a one-time licensing fee applies.' },
+  { q: 'Do you do graphic design (artwork) too, or only structural?', a: 'Both. Structural (dieline + 3D) is the default included scope. Surface artwork is available at additional cost — typically $400–$1,500 per panel.' },
+  { q: 'What file formats do you produce?', a: 'PDF/X-4 for print production. AI / EPS native files for revisions. PNG / WEBP for 3D mockup previews.' },
+  { q: 'How does this differ from a packaging designer agency?', a: 'Agencies focus on creative direction and brand. Apex\'s design team focuses on manufacturability — making sure the box actually folds, prints, and ships at the spec the agency drew. The two are complementary.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Support',url:'/design-support'}]);
+---
+<BaseLayout
+  title="Packaging Design Support Canada — Dieline & 3D Mockup"
+  description="Send a logo and product dimensions. Apex's in-house design team returns a structural dieline plus a 3D mockup in 48–72 hours. Free with orders over MOQ."
+  schemaBlocks={[breadcrumb, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Design Support"
+    heading="Send a logo. Get a print-ready dieline and a 3D mockup in 48–72 hours."
+    lead="Most Canadian custom-packaging buyers don't have a packaging-trained designer on staff. They have a logo, a product dimension, and a launch date. Apex's in-house design team converts that into a print-ready, manufacturable spec."
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>What's included</h2>
+      <ol>
+        <li><strong>Structural design</strong> — a dieline drawn to your product dimensions and the box style that fits.</li>
+        <li><strong>Print prep</strong> — colour conversion (RGB → CMYK or spot Pantone), bleed and trim allowances, file format ready for plate or digital production.</li>
+        <li><strong>3D mockup</strong> — a rendered visualization of the finished box.</li>
+        <li><strong>Physical pre-production sample</strong> — optional, billed at sample cost, credited to the order on production.</li>
+      </ol>
+
+      <h2>Turnaround</h2>
+      <ul>
+        <li><strong>First dieline + 3D mockup</strong>: 48–72 hours from receipt of brand assets.</li>
+        <li><strong>Revisions</strong>: 24–48 hours per round.</li>
+        <li><strong>Physical sample (if requested)</strong>: 5–7 business days after digital approval.</li>
+      </ul>
+
+      <h2>What we need from you</h2>
+      <ul>
+        <li>Logo as a vector file (AI, EPS, or PDF). Raster (JPG, PNG) is fine — Apex will convert.</li>
+        <li>Brand colours as Pantone codes or hex values.</li>
+        <li>Product dimensions (length × width × height) and weight.</li>
+        <li>Quantity, target lead time, and any sustainability requirements.</li>
+        <li>Reference images — competitor packaging you like or dislike is useful.</li>
+      </ul>
+
+      <h2>What it costs</h2>
+      <ul>
+        <li><strong>Free with any order over MOQ.</strong> Two rounds of revision included.</li>
+        <li><strong>$200–$500 flat fee for design-only engagements</strong>, depending on complexity.</li>
+        <li><strong>Custom structural design</strong> (entirely new dieline, no existing reference): quoted separately, typically $400–$1,200 depending on complexity.</li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <CTABand
+    heading="To start a design engagement, send your assets."
+    lead="First dieline returns within 48–72 hours."
+    primaryCta={{ label: 'Send brand assets', href: '/contact' }}
+  />
+</BaseLayout>

@@ -1,0 +1,136 @@
+---
+import { siteConfig } from '../../site.config';
+const year = new Date().getFullYear();
+
+const infoLinks = [
+  ['Privacy Policy', '/privacy'],
+  ['Terms and Conditions', '/privacy'],
+  ['Return & Refund Policy', '/privacy'],
+  ['About Us', '/about'],
+  ['Contact Us', '/contact'],
+  ['Sitemap', '/sitemap-index.xml'],
+  ['Portfolio', '/services'],
+  ['Case Study', '/design-support']
+];
+
+const productLinks = [
+  ['Soap Boxes', '/services/mailer-boxes'],
+  ['Pillow Boxes', '/services/mailer-boxes'],
+  ['Rigid Boxes', '/services/mailer-boxes'],
+  ['Kraft Boxes', '/services/corrugated-boxes'],
+  ['Mylar Bags', '/services/polybags'],
+  ['Gable Boxes', '/services/mailer-boxes']
+];
+
+const socialLinks = ['f', 'x', 'in', 'yt', 'p', 'ig'];
+const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
+---
+<footer class="bg-neutral-100 text-neutral-900">
+  <div class="grid lg:grid-cols-[minmax(320px,0.8fr)_minmax(640px,1.55fr)]">
+    <section class="bg-neutral-800 px-8 py-12 text-neutral-50 md:px-12 lg:px-16">
+      <a href="/" class="inline-flex items-center gap-3" aria-label="Apex Packaging home">
+        <span class="relative block h-10 w-10">
+          <span class="absolute left-1 top-0 h-5 w-5 rotate-45 bg-accent"></span>
+          <span class="absolute bottom-1 left-1 h-5 w-5 rotate-45 border-2 border-neutral-50"></span>
+          <span class="absolute right-0 top-4 text-xl font-black leading-none text-neutral-50">+</span>
+        </span>
+        <span class="font-display text-3xl font-extrabold tracking-tight text-neutral-50">Apex Packaging</span>
+      </a>
+
+      <p class="mt-10 max-w-md font-display text-2xl font-extrabold leading-snug text-neutral-200">
+        We collaborate with people and brands.
+      </p>
+      <p class="mt-8 text-lg text-neutral-300">
+        Lets build something great together.
+      </p>
+
+      <form class="mt-14 max-w-md">
+        <label for="footer-email" class="mb-3 block text-lg font-medium text-neutral-300">
+          Sign up for exclusive offers and updates!
+        </label>
+        <div class="flex">
+          <input
+            id="footer-email"
+            class="min-w-0 flex-1 rounded-l-md border border-neutral-500 bg-neutral-50 px-4 py-3 text-neutral-900 placeholder:text-neutral-500"
+            placeholder="Your Email Address..."
+            type="email"
+          />
+          <button class="rounded-r-md bg-accent px-5 py-3 font-bold text-neutral-900 hover:bg-warning" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="px-8 py-12 md:px-12 lg:px-16">
+      <div class="grid gap-10 md:grid-cols-[0.9fr_1fr_1.35fr]">
+        <div>
+          <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Information</h2>
+          <ul class="space-y-3.5 text-base">
+            {infoLinks.map(([label, href]) => (
+              <li><a href={href} class="transition-colors hover:text-accent">{label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Packaging Products</h2>
+          <ul class="space-y-3.5 text-base">
+            {productLinks.map(([label, href]) => (
+              <li><a href={href} class="transition-colors hover:text-accent">{label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Contact Us</h2>
+          <ul class="space-y-5 text-base">
+            <li class="flex gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">P</span>
+              <a href={`tel:${siteConfig.phone}`} class="pt-1 font-semibold hover:text-accent">Call Apex for packaging quotes</a>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">E</span>
+              <a href={`mailto:${siteConfig.email}`} class="pt-1 hover:text-accent">{siteConfig.email}</a>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">L</span>
+              <span class="pt-1 font-semibold">{siteConfig.addressLocality}, {siteConfig.addressRegion}, {siteConfig.addressCountry}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-6 border-t border-neutral-200 pt-7 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="font-display font-extrabold">Follow Us:</span>
+          {socialLinks.map((label) => (
+            <a href="/contact" class="grid h-7 min-w-7 place-items-center rounded-sm bg-neutral-900 px-1.5 text-xs font-bold text-neutral-50 hover:bg-accent hover:text-neutral-900">
+              {label}
+            </a>
+          ))}
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="font-display font-extrabold">SSL 100% Secure Transactions:</span>
+          <div class="flex flex-wrap gap-2">
+            {paymentMarks.map((label) => (
+              <span class="rounded-sm bg-neutral-700 px-2.5 py-1 text-xs font-bold text-neutral-50">{label}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="border-t border-neutral-200 bg-neutral-50">
+    <div class="container max-w-wide flex flex-col gap-3 py-3 text-center text-sm text-neutral-700 md:flex-row md:items-center md:justify-between md:text-left">
+      <span>Copyright {year}. {siteConfig.url.replace('https://', '')}. All rights reserved.</span>
+      <div class="flex justify-center gap-5">
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+        <a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a>
+        <a href="/contact" class="hover:text-accent">Get Quote</a>
+      </div>
+    </div>
+  </section>
+</footer>

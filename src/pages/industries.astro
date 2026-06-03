@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Industries',url:'/industries'}]);
+
+const verticals = [
+  {
+    name: 'Automotive parts manufacturers',
+    image: 'automotive-parts',
+    alt: 'Apex Packaging branded corrugated cartons, VCI bags, and die-cut inserts for automotive parts',
+    meta: 'VCI protection · double-wall cartons · custom inserts',
+    tags: ['Engine components', 'Fasteners', 'OEM plant shipments'],
+    body: 'Heavy single-wall and double-wall corrugated for engine components, body panels, and aftermarket accessories. Custom dieline inserts to immobilize parts. VCI rust-prevention for ferrous components. Wicketed polybags for high-speed bagging lines on small fasteners and trim. Typical buyer: a tier-2 supplier shipping daily into an OEM plant.'
+  },
+  {
+    name: 'Food and beverage producers',
+    image: 'food-beverage',
+    alt: 'Apex Packaging branded food cartons, bread bags, produce bags, and corrugated shipper',
+    meta: 'Retail cartons · produce bags · bakery liners',
+    tags: ['Seasonal volume', 'Retail cartons', 'Food-grade films'],
+    body: 'FDA-compliant corrugated and polybag film. SQF-certified facilities on relevant lines. Wicketed produce bags, pound bags, gusseted bread bags, wicketed bakery liners. Custom-printed retail cartons. Typical buyer: a regional food brand or co-packer with seasonal volume swings.'
+  },
+  {
+    name: 'Pharmaceuticals and medical devices',
+    image: 'pharma-medical',
+    alt: 'Apex Packaging branded medical-device cartons, sterile pouches, and cold-chain insulated shipper',
+    meta: 'Validated cartons · sterile film · cold-chain shippers',
+    tags: ['Audit-ready specs', 'Tamper-evident', 'Cold-chain support'],
+    body: 'Validated corrugated for medical-device shipping. Sterile-barrier polybag film. Cold-chain insulating cartons (paired with PCM or gel inserts). Tamper-evident closures. Typical buyer: a Health Canada-licensed manufacturer with audit-ready packaging requirements.'
+  },
+  {
+    name: 'Electronics and high-tech',
+    image: 'electronics-high-tech',
+    alt: 'Apex Packaging branded electronics mailer with anti-static bags and ESD foam inserts',
+    meta: 'ESD bags · foam inserts · ISTA drop-test specs',
+    tags: ['PCBs and instruments', 'Humidity control', 'Custom-cut foam'],
+    body: 'Anti-static (pink) polybags. ESD foam inserts and corner pads. VCI bagging for sensitive metals. Custom-cut foam for instruments, PCBs, and assembled units. Drop-test specified to ISTA 1A, 2A, or 3A. Typical buyer: an OEM or contract manufacturer with humidity and ESD requirements.'
+  },
+  {
+    name: 'Industrial supply and MRO distribution',
+    image: 'industrial-mro',
+    alt: 'Apex Packaging branded bulk cartons, pallet wrap, strapping, and edge protectors',
+    meta: 'Bulk cartons · stretch film · blanket PO releases',
+    tags: ['Pallet quantities', 'Truckload programs', 'Edge protection'],
+    body: 'Bulk corrugated, stretch and shrink film at pallet quantities, edge protectors, strapping. Scheduled releases against blanket POs. Single account manager. Typical buyer: an industrial distributor running multiple monthly truckloads.'
+  },
+  {
+    name: 'E-commerce and D2C brands',
+    image: 'ecommerce-d2c',
+    alt: 'Apex Packaging branded mailer boxes, polymailer, tape, tissue paper, and insert card',
+    meta: 'Mailer boxes · polymailers · branded inserts',
+    tags: ['250-unit MOQ', 'Dieline support', 'Subscription-ready'],
+    body: 'Custom-printed mailer boxes (250-unit MOQ), custom polymailers, tissue paper, branded tape, inserts. Full design support - logo to dieline to 3D mockup in 48-72 hours. Typical buyer: a Canadian D2C brand shipping 500-10,000 units a month.'
+  }
+];
+
+const pageStats = [
+  { label: 'Verticals pictured', value: '06' },
+  { label: 'Common MOQ starts', value: '250' },
+  { label: 'Proof window', value: '48-72h' }
+];
+---
+<BaseLayout
+  title="Industries Served — Automotive, Food, Pharma, Electronics"
+  description="Apex supplies custom packaging to Canadian manufacturers across automotive, food and beverage, pharmaceutical, electronics, industrial supply, and e-commerce."
+  image="/images/industries/automotive-parts.webp"
+  schemaBlocks={[breadcrumb]}
+>
+  <PageHeader
+    eyebrow="Industries"
+    heading="Industries Apex packages for."
+    lead="Custom packaging isn't generic. The right corrugated for automotive parts is different from the right corrugated for produce, and the right polybag for electronics is different from the right polybag for apparel. The Apex team has shipped product into each of the following verticals."
+  />
+  <section class="border-b border-neutral-200 bg-[#f7f2e8] py-10">
+    <div class="container max-w-wide">
+      <div class="grid gap-5 md:grid-cols-[1.2fr_0.8fr] md:items-end">
+        <div>
+          <p class="eyebrow mb-4">Industry analysis</p>
+          <h2 class="text-3xl font-bold md:text-5xl">The package changes with the risk.</h2>
+          <p class="mt-4 max-w-3xl text-[1.0625rem] leading-[1.7] text-neutral-600">
+            Each vertical below has a different failure point: corrosion, food compliance, sterile handling, static discharge, pallet damage, or customer unboxing. The photos show the kind of branded packaging mix Apex builds around those constraints.
+          </p>
+        </div>
+        <div class="grid grid-cols-3 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50">
+          {pageStats.map((stat) => (
+            <div class="border-r border-neutral-200 p-4 last:border-r-0 md:p-5">
+              <p class="font-mono text-2xl font-bold text-accent">{stat.value}</p>
+              <p class="mt-1 text-xs font-bold uppercase leading-snug text-neutral-700">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-neutral-50 py-16 md:py-24">
+    <div class="container max-w-wide">
+      <div class="space-y-8 md:space-y-10">
+        {verticals.map((v, i) => (
+          <article class="grid overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm md:grid-cols-12">
+            <figure class={`relative min-h-[260px] bg-neutral-100 md:col-span-5 ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+              <picture>
+                <source srcset={`/images/industries/${v.image}.webp`} type="image/webp" />
+                <img
+                  src={`/images/industries/${v.image}.png`}
+                  alt={v.alt}
+                  width="1280"
+                  height="960"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  class="h-full min-h-[260px] w-full object-cover"
+                />
+              </picture>
+              <span class="absolute left-4 top-4 rounded-md bg-neutral-900 px-3 py-2 font-mono text-xs font-bold text-neutral-50">0{i + 1}</span>
+            </figure>
+            <div class="flex flex-col justify-center p-6 md:col-span-7 md:p-10 lg:p-12">
+              <p class="mb-3 text-xs font-bold uppercase text-accent">{v.meta}</p>
+              <h2 class="font-display text-2xl font-bold leading-tight text-neutral-900 md:text-4xl">{v.name}</h2>
+              <p class="mt-5 text-[1.0625rem] leading-[1.75] text-neutral-600">{v.body}</p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                {v.tags.map((tag) => (
+                  <span class="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm font-semibold text-neutral-800">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="mt-12 max-w-3xl text-[0.9375rem] leading-relaxed text-neutral-500">If your vertical isn't listed, it doesn't mean Apex hasn't shipped into it. These six are the most common. <a href="/contact" class="text-accent underline underline-offset-4">Send a brief</a> and Apex's team will confirm fit and timeline.</p>
+    </div>
+  </section>
+  <CTABand
+    heading="Get a vertical-specific recommendation."
+    lead="Send your industry, product type, and current packaging spec. Apex will recommend material, gauge, and structural approach."
+    primaryCta={{ label: 'Send a brief', href: '/contact' }}
+  />
+</BaseLayout>

@@ -1,0 +1,53 @@
+{
+  "color": {
+    "neutral": {
+      "50":  "#F7F5F1",
+      "100": "#EEEAE2",
+      "200": "#D9D2C3",
+      "300": "#B8AE9A",
+      "400": "#867D69",
+      "500": "#5C5547",
+      "600": "#3F3A30",
+      "700": "#2A261F",
+      "800": "#1A1813",
+      "900": "#0F0D0A"
+    },
+    "accent": {
+      "DEFAULT": "#D34A1A",
+      "soft":    "#F5C9B5",
+      "ink":     "#7A2810",
+      "sub":     "#1B3A2F"
+    },
+    "semantic": {
+      "success": "#2E7D5E",
+      "warning": "#C99A2C",
+      "error":   "#B23A36",
+      "info":    "#3367A6"
+    }
+  },
+  "font": {
+    "display": ["Archivo", "ui-sans-serif", "system-ui", "sans-serif"],
+    "sans":    ["Inter", "system-ui", "sans-serif"],
+    "mono":    ["JetBrains Mono", "ui-monospace", "monospace"]
+  },
+  "typeScale": {
+    "ratio": 1.25,
+    "base":  "1rem"
+  },
+  "radius": {
+    "sm": "0.25rem",
+    "md": "0.5rem",
+    "lg": "1rem",
+    "xl": "1.5rem",
+    "pill": "9999px"
+  },
+  "shadow": {
+    "card":    "0 1px 2px rgba(15,13,10,0.06), 0 4px 12px rgba(15,13,10,0.04)",
+    "popover": "0 8px 24px rgba(15,13,10,0.12)"
+  },
+  "container": {
+    "narrow":  "44rem",
+    "default": "72rem",
+    "wide":    "84rem"
+  }
+}

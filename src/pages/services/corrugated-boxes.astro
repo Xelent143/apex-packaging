@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'What is the minimum order?', a: '100 units on stock RSC styles. 250 on custom-printed flexo. 50 on digital-print samples.' },
+  { q: 'What is the lead time?', a: '7–14 days from artwork sign-off for standard runs. Rush service available for 5–7 days at a 20% surcharge.' },
+  { q: 'Can I get a sample before committing?', a: 'Yes. Apex produces pre-production samples to confirm structural fit and print colour. Sample cost is credited against the full order if you proceed.' },
+  { q: 'Do you ship across Canada?', a: 'Yes — national LTL and FTL freight. Some lanes ship same-week.' },
+  { q: 'What certifications do you carry?', a: 'FSC chain-of-custody; SQF on food-safe corrugated lines; ISO 9001.' }
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Corrugated Boxes', url: '/services/corrugated-boxes' }
+]);
+const service = buildServiceSchema({
+  name: 'Custom corrugated boxes Canada',
+  description: 'Custom corrugated boxes manufactured in Canada — RSC, FOL, die-cut, telescoping. Single-wall ECT-32 to double-wall ECT-48. MOQ from 100 units.',
+  url: '/services/corrugated-boxes'
+});
+---
+<BaseLayout
+  title="Custom Corrugated Boxes Canada — RSC, FOL, Die-Cut"
+  description="Custom corrugated boxes manufactured in Canada. Single-wall and double-wall, ECT-32 to ECT-44, MOQ from 100 units, 7–14 day lead time, FSC-certified options."
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Corrugated"
+    heading="Custom corrugated boxes manufactured in Canada — every standard style, every flute, every print option."
+    lead="MOQ starts at 100 units on stock RSC styles. Lead time is 7–14 days from artwork sign-off. Single-wall ECT-32 and double-wall ECT-44 / ECT-48 are stocked."
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Box styles Apex manufactures</h2>
+
+      <h3>RSC — Regular Slotted Carton</h3>
+      <p>The standard shipping box. One piece of corrugated, scored and slotted, with flaps meeting at the centre. The default choice for general shipping and storage across most product categories. Available in single- and double-wall.</p>
+
+      <h3>HSC — Half-Slotted Carton</h3>
+      <p>An RSC without one set of flaps. Used with a separate lid or where overhead access matters (parts bins, supply boxes).</p>
+
+      <h3>FOL — Full Overlap Slotted Carton</h3>
+      <p>Outer flaps overlap to within 1 inch of the box's width. Adds cushioning on the bottom panel and stacking strength when laid on its side. The right choice for heavy or fragile items.</p>
+
+      <h3>Five-panel wrap and cut-out wrap</h3>
+      <p>Specialty styles for long or odd-shaped items. The blank wraps around the product, removing the need for a separate carton.</p>
+
+      <h3>Telescoping boxes</h3>
+      <p>A two-piece design (tray and cover) for high-value or heavy items needing top-load access without disturbing the bottom.</p>
+
+      <h3>Die-cut and custom-shaped boxes</h3>
+      <p>Custom dieline cut from a single blank. Used for retail-display boxes, kit packaging, custom inserts, and any structural design that doesn't match a standard style.</p>
+
+      <h2>Flute and strength options</h2>
+      <table>
+        <thead>
+          <tr><th>Flute</th><th>Use case</th><th>Edge crush test</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>B-flute</td><td>Shipping inner pack, retail display</td><td>ECT-32</td></tr>
+          <tr><td>C-flute</td><td>General shipping, most RSC boxes</td><td>ECT-32 / 44</td></tr>
+          <tr><td>E-flute</td><td>Printed retail and mailer boxes</td><td>ECT-32</td></tr>
+          <tr><td>BC double-wall</td><td>Heavy goods, stacked loads</td><td>ECT-44 / 48</td></tr>
+          <tr><td>EB double-wall</td><td>Premium printed shipping</td><td>ECT-32</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Print options</h2>
+      <ul>
+        <li><strong>Flexographic</strong> — one to four colors, cost-effective at MOQ from 250 units.</li>
+        <li><strong>Digital</strong> — full-color, variable data, no plate cost, ideal for low-MOQ custom-printed runs.</li>
+        <li><strong>Litho-laminated</strong> — premium retail-grade graphics on E-flute. Used for shelf packaging and high-end mailers.</li>
+      </ul>
+
+      <h2>What is included with every order</h2>
+      <ul>
+        <li>Free structural review (Apex's design team confirms the dieline fits the product before production).</li>
+        <li>Pre-production sample on request.</li>
+        <li>FSC chain-of-custody documentation on request.</li>
+        <li>Recycled content disclosure on request (most stock lines run 30–80% PCR).</li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent
+    items={[
+      { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom-printed mailers for Canadian D2C brands. MOQ from 250.' },
+      { title: 'Protective Packaging', href: '/services/protective-packaging', description: 'Custom foam inserts and VCI rust-prevention for high-value contents.' },
+      { title: 'ECT-32 vs ECT-44 explained', href: '/blog/ect-explained', description: 'A working guide to corrugated strength ratings.' }
+    ]}
+  />
+
+  <CTABand
+    heading="Need a quote on corrugated?"
+    lead="Send dimensions, MOQ, target lead time, and sustainability requirements. Pricing returns within one business day."
+    primaryCta={{ label: 'Send your specs', href: '/contact' }}
+  />
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import ServiceMatrix from '../components/sections/ServiceMatrix.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+
+const services = [
+  { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', meta: 'RSC · FOL · die-cut', description: 'Single-wall ECT-32 and double-wall ECT-44 / 48. MOQ from 100 units on stock styles, 250 on custom-printed flexo.' },
+  { title: 'Mailer Boxes', href: '/services/mailer-boxes', meta: 'D2C · branded · printed', description: 'Custom-printed shipping boxes for Canadian e-commerce. Tuck-top, magnetic close, ZIP-tear. MOQ from 250 units.' },
+  { title: 'Polybags', href: '/services/polybags', meta: 'LDPE · HDPE · anti-static', description: 'Flat, gusseted, wicket, slider, ZIP. 1.0 to 6.0 mil. Anti-static, FDA, and EN 13432 compostable options.' },
+  { title: 'Industrial & Bulk', href: '/services/industrial-bulk-packaging', meta: 'Gaylord · stretch · shrink', description: 'Bulk corrugated, stretch and shrink film, edge protectors. Pallet-quantity pricing.' },
+  { title: 'Protective Packaging', href: '/services/protective-packaging', meta: 'Foam · VCI · void fill', description: 'Custom-cut foam inserts, Instapak®, VCI rust-prevention paper. Specified to ISTA drop-test class.' },
+  { title: 'Design Support', href: '/design-support', meta: 'Dieline · 3D · print prep', description: 'Send a logo. Apex returns a print-ready dieline plus a 3D mockup within 48–72 hours.' }
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' }
+]);
+---
+<BaseLayout
+  title="Custom Packaging Services Canada — Boxes, Polybags, Industrial"
+  description="Six packaging service lines: custom corrugated boxes, mailer boxes, polybags, industrial bulk packaging, protective packaging, and design support."
+  schemaBlocks={[breadcrumb]}
+>
+  <PageHeader
+    eyebrow="Services"
+    heading="Six service lines. One Canadian manufacturing footprint."
+    lead="Apex manufactures custom corrugated boxes, mailer boxes, polybags, industrial and bulk packaging, and protective packaging — and includes structural design support on every order over MOQ. Each service below has its own page with specs, MOQs, and lead times."
+  />
+  <ServiceMatrix heading="Pick the service that fits the job." services={services} />
+  <CTABand
+    heading="Not sure which service fits your product?"
+    lead="Send dimensions and a description. Apex will recommend the right packaging type and quote the spec."
+    primaryCta={{ label: 'Send your details', href: '/contact' }}
+  />
+</BaseLayout>

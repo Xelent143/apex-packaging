@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'How are custom foam inserts priced?', a: 'By material grade, density, and cavity complexity. CAD-driven cutting (CNC) on PU and PE; water-jet on cross-linked PE. Setup fee on first design; per-unit pricing on production runs.' },
+  { q: 'Can Apex spec to an ISTA drop-test class?', a: 'Yes — Apex\'s protective-packaging team specs to ISTA 1A, 2A, 3A, and Amazon 6-class on request. Documentation provided with the spec.' },
+  { q: 'What is the lead time on custom foam?', a: '7–10 business days from design approval. Rush available.' },
+  { q: 'Do you supply Instapak®?', a: 'Yes — both the equipment and the foam components, on a service agreement.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Protective Packaging',url:'/services/protective-packaging'}]);
+const service = buildServiceSchema({ name:'Protective packaging Canada', description:'Custom foam inserts, Instapak, bubble wrap, air pillows, VCI rust-prevention. Specified to protection level and product weight.', url:'/services/protective-packaging'});
+---
+<BaseLayout
+  title="Protective Packaging Canada — Foam Inserts, Void Fill, VCI"
+  description="Custom foam inserts, Instapak, bubble wrap, air pillows, VCI rust-prevention paper. Specified to protection level and product weight. Manufactured in Canada."
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Protective"
+    heading="Protective packaging — engineered to the protection level, not pulled off a shelf."
+    lead="For Canadian shippers moving fragile, high-value, or rust-prone product. Apex specifies, manufactures, and supplies protective packaging that matches the product's weight, drop-test class, and shipping environment."
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Custom foam inserts</h2>
+      <ul>
+        <li><strong>PE (polyethylene) foam</strong> — closed-cell, water-resistant, good for general protection at moderate weight.</li>
+        <li><strong>PU (polyurethane) foam</strong> — softer, conforms to delicate surfaces.</li>
+        <li><strong>ESD / anti-static foam</strong> — for electronics, PCBs, sensitive components.</li>
+        <li><strong>Cross-linked PE</strong> — fine-cell foam for premium presentation.</li>
+      </ul>
+      <p>Apex's design team converts product CAD or physical samples into a cavity-cut foam insert. Material grade and density are selected to product weight and drop-test requirement. Typical lead time: 7–10 business days from approved design.</p>
+
+      <h2>Void fill</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Use case</th><th>Relative cost</th></tr></thead>
+        <tbody>
+          <tr><td>Air pillows</td><td>Light fragile goods, e-commerce</td><td>low</td></tr>
+          <tr><td>Paper void fill (kraft, honeycomb)</td><td>Sustainable e-commerce</td><td>medium</td></tr>
+          <tr><td>Bubble wrap</td><td>General fragile protection</td><td>low–medium</td></tr>
+          <tr><td>Loose-fill (biodegradable)</td><td>Bulk void fill</td><td>low</td></tr>
+          <tr><td>Inflatable air-column film</td><td>Bottles, jars, heavy fragile</td><td>medium</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Cushioning systems</h2>
+      <ul>
+        <li><strong>Instapak®</strong> — foam-in-place urethane that expands around the product.</li>
+        <li><strong>Engineered corner pads</strong> — pre-cut polyethylene corner blocks.</li>
+        <li><strong>Suspension and retention packs</strong> — for premium electronics and instruments.</li>
+      </ul>
+
+      <h2>Rust prevention and corrosion protection</h2>
+      <ul>
+        <li><strong>VCI paper</strong> — releases corrosion-inhibitor vapour in sealed packaging.</li>
+        <li><strong>VCI film bags</strong> — paired with desiccant for marine and humid environments.</li>
+        <li><strong>Desiccants</strong> — silica gel, clay, in various sizes.</li>
+      </ul>
+      <p>Apex's metal-parts shipping kits combine VCI film, desiccant, foam corner protection, and the appropriate carton — pre-built or designed to spec.</p>
+
+      <h2>Drop-test and protection-class specification</h2>
+      <p>For high-value shipments, Apex specifies the packaging stack against a drop-test class (ISTA 1A, 2A, 3A, 6-Amazon, etc.). The output is a documented spec — carton + foam + void fill — that meets the test class and is reproducible across all shipments.</p>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent items={[
+    { title:'Corrugated Boxes', href:'/services/corrugated-boxes', description:'Outer carton selection paired with internal cushioning.' },
+    { title:'Industrial & Bulk', href:'/services/industrial-bulk-packaging', description:'Stretch film and edge protection at pallet quantity.' },
+    { title:'Industries served', href:'/industries', description:'Electronics, automotive, medical device packaging.' }
+  ]} />
+
+  <CTABand
+    heading="Need a protective-packaging spec?"
+    lead="Send product weight, dimensions, drop-test requirement, and freight environment."
+    primaryCta={{ label: 'Contact protective team', href: '/contact' }}
+  />
+</BaseLayout>

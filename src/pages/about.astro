@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import ProcessTimeline from '../components/sections/ProcessTimeline.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'About',url:'/about'}]);
+
+const steps = [
+  { title: 'Brief', meta: 'Day 0', description: 'Send dimensions, MOQ, target lead time, sustainability requirements via the contact page.' },
+  { title: 'Quote', meta: 'Day 1', description: 'Pricing returns within one business day.' },
+  { title: 'Design', meta: 'Day 2–4', description: 'Dieline plus 3D mockup within 48–72 hours.' },
+  { title: 'Sample (optional)', meta: 'Day 5–10', description: 'Physical pre-production sample 5–7 business days after design approval.' },
+  { title: 'Production', meta: 'Day 5–14', description: '7–14 business days from artwork sign-off.' },
+  { title: 'Ship', meta: 'Same week', description: 'National LTL or FTL; freight arranged or coordinated.' }
+];
+---
+<BaseLayout
+  title="About Apex — A Canadian Custom-Packaging Manufacturer"
+  description="Apex Packaging Solutions is a Canadian custom-packaging manufacturer producing corrugated boxes and polybags domestically with 7–14 day turnaround and 100-unit MOQs."
+  schemaBlocks={[breadcrumb]}
+>
+  <PageHeader
+    eyebrow="About"
+    heading="A packaging supplier that quotes in days, not weeks."
+    lead="Apex Packaging Solutions is a Canadian manufacturer of custom corrugated boxes, polybags, and protective packaging — built specifically for procurement teams who are tired of overseas lead times, oversized MOQs, and suppliers who don't return calls."
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>What Apex actually does</h2>
+      <ul>
+        <li>Manufactures custom corrugated boxes (RSC, FOL, die-cut, mailers, telescoping) in single-wall and double-wall configurations.</li>
+        <li>Extrudes and converts LDPE, HDPE, and PCR-content polybag film, including anti-static, food-safe, and compostable grades.</li>
+        <li>Supplies bulk packaging (Gaylord boxes, stretch and shrink film, edge protectors) to plants on blanket POs.</li>
+        <li>Builds protective packaging stacks (custom foam inserts, void fill, VCI) specified to ISTA drop-test classes.</li>
+        <li>Provides in-house structural design — dieline plus 3D mockup in 48–72 hours.</li>
+      </ul>
+
+      <h2>What Apex won't do</h2>
+      <ul>
+        <li><strong>International shipping</strong> — Apex ships within Canada. US customers are referred to our cross-border partner.</li>
+        <li><strong>Glass, metal, or rigid plastic containers</strong> — Apex is corrugated and flexible-film only.</li>
+        <li><strong>Stock-and-ship with no customization</strong> — Apex's value is custom production. For pure stock distribution, larger national distributors are a better fit.</li>
+      </ul>
+      <p>Naming what we don't do is faster than the buyer figuring it out mid-quote.</p>
+
+      <h2>Capabilities</h2>
+      <ul>
+        <li><strong>Corrugated converting</strong> — flexo, digital, and litho-laminated print. Die-cutting, scoring, slotting, gluing.</li>
+        <li><strong>Polybag extrusion and conversion</strong> — single and multi-layer film, blown and cast lines, 1.0 mil through 6.0 mil.</li>
+        <li><strong>In-house structural design</strong> — CAD-based dieline drawing, drop-test specification, ISTA pre-test.</li>
+        <li><strong>Quality systems</strong> — ISO 9001, FSC chain-of-custody, SQF on food-contact lines.</li>
+      </ul>
+
+      <h2>What sets Apex apart from larger Canadian suppliers</h2>
+      <ul>
+        <li><strong>Lead time</strong>: 7–14 days from artwork sign-off. Most competitors quote 4–6 weeks.</li>
+        <li><strong>MOQ</strong>: 100 units on stock corrugated, 250 on custom-printed flexo, 500 on custom polybags. Most competitors start at 1,000–5,000.</li>
+        <li><strong>Design support</strong>: included with orders over MOQ, not invoiced separately.</li>
+        <li><strong>Sustainability documentation</strong>: FSC numbers, PCR percentages, ink composition, EN 13432 certs — provided as part of the standard delivery package, not on request only.</li>
+      </ul>
+    </div>
+  </section>
+
+  <ProcessTimeline
+    eyebrow="A typical engagement"
+    heading="From a brief to a pallet — six steps, no surprises."
+    steps={steps}
+  />
+
+  <CTABand
+    heading="For procurement teams comparing quotes, the right next step is sending the spec."
+    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+  />
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema } from '../../lib/schema';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'ECT-32 vs ECT-44', url: '/blog/ect-explained' }
+]);
+const article = buildArticleSchema({
+  title: 'ECT-32 vs ECT-44 — what the corrugated rating actually tells you',
+  description: 'ECT (Edge Crush Test) measures the stacking strength of corrugated board. Learn when ECT-32 is enough, when you need ECT-44, and how it affects shipping cost.',
+  url: '/blog/ect-explained',
+  datePublished: '2026-06-02',
+  author: 'Apex Packaging Solutions'
+});
+---
+<BaseLayout
+  title="ECT-32 vs ECT-44 — What Corrugated Strength Ratings Mean"
+  description="ECT (Edge Crush Test) measures the stacking strength of corrugated board. Learn when ECT-32 is enough, when you need ECT-44, and how it affects shipping cost."
+  schemaBlocks={[breadcrumb, article]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Materials"
+    heading="ECT-32 vs ECT-44 — what the corrugated rating actually tells you about your box."
+    lead="If you've shopped for custom boxes in Canada, you've seen 'ECT-32' or 'ECT-44' on quote sheets and wondered if the difference is worth the price gap. This is a working procurement guide to what those numbers mean."
+  />
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>What ECT is, in one sentence</h2>
+      <p><strong>Edge Crush Test (ECT)</strong> measures the force, in pounds per linear inch, that a corrugated board can withstand on its edge before crushing. ECT-32 means 32 lb/in. ECT-44 means 44 lb/in. Higher = stronger when boxes are stacked on top of each other.</p>
+      <p>ECT replaced the older "Mullen burst test" as the standard rating for stacking strength. Mullen measures resistance to puncture; ECT measures resistance to compression. For palletized shipping, ECT is what matters.</p>
+
+      <h2>When ECT-32 is enough</h2>
+      <p>ECT-32 single-wall corrugated is the workhorse of e-commerce and light-industrial shipping. It handles:</p>
+      <ul>
+        <li>Boxes up to roughly 35 lb of contents.</li>
+        <li>Stacked pallets up to 4 high in dry, climate-controlled warehouses.</li>
+        <li>Standard parcel and LTL shipping with normal handling.</li>
+      </ul>
+
+      <h2>When you need ECT-44 (or higher)</h2>
+      <ul>
+        <li>Box contents exceed 35 lb.</li>
+        <li>Pallets stack 5+ boxes high in storage.</li>
+        <li>Humidity is a factor. Corrugated loses ~50% strength at high humidity.</li>
+        <li>Long freight times, especially cross-country LTL with multiple cross-docks.</li>
+        <li>High-value contents where damage cost outweighs the ~15–20% packaging cost premium.</li>
+      </ul>
+
+      <h2>Double-wall: BC, EB, AB</h2>
+      <p>Double-wall corrugated uses two fluted layers laminated between three liners.</p>
+      <ul>
+        <li><strong>BC double-wall</strong> (B-flute + C-flute) — ECT-44 to 48 — heavy goods, stacked loads.</li>
+        <li><strong>EB double-wall</strong> (E-flute + B-flute) — premium retail with strength.</li>
+        <li><strong>AB double-wall</strong> — used for very heavy industrial / agricultural product.</li>
+      </ul>
+
+      <h2>Practical decision rules</h2>
+      <table>
+        <thead><tr><th>Scenario</th><th>Recommended grade</th></tr></thead>
+        <tbody>
+          <tr><td>E-commerce mailer, &lt; 5 lb</td><td>ECT-32 single-wall E or B-flute</td></tr>
+          <tr><td>Standard parcel, 5–25 lb</td><td>ECT-32 C-flute</td></tr>
+          <tr><td>Heavy retail, 25–50 lb</td><td>ECT-44 C-flute</td></tr>
+          <tr><td>Industrial parts, &gt; 50 lb</td><td>BC double-wall ECT-48</td></tr>
+          <tr><td>Cold chain / outdoor storage</td><td>Always one grade up from dry equivalent</td></tr>
+        </tbody>
+      </table>
+
+      <h2>A note on weight vs strength</h2>
+      <p>ECT measures stacking strength, not puncture resistance. For sharp-edged or pointed contents, specify higher liner weight in addition to a higher ECT. For drop-test concerns, the right answer is usually internal protection (foam inserts, void fill) plus appropriate corrugated, not ECT alone.</p>
+    </div>
+  </section>
+  <RelatedContent items={[
+    { title:'RSC vs FOL box styles', href:'/blog/rsc-vs-fol-box-styles', description:'Picking the right box style for shipping fragile items.' },
+    { title:'Corrugated Boxes service', href:'/services/corrugated-boxes', description:'Specs, MOQs, and lead times for custom corrugated.' },
+    { title:'Protective Packaging', href:'/services/protective-packaging', description:'When the inside cushioning matters more than the box rating.' }
+  ]} />
+  <CTABand
+    heading="Need a spec recommendation for your product?"
+    lead="Send dimensions, weight, stacking pattern, and freight lane. Apex will spec the right grade with the math behind it."
+    primaryCta={{ label: 'Request a spec', href: '/contact' }}
+  />
+</BaseLayout>

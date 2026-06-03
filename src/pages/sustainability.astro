@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Sustainability',url:'/sustainability'}]);
+---
+<BaseLayout
+  title="Sustainable Packaging Canada — FSC, Recycled, Compostable"
+  description="FSC-certified corrugated, 30–100% recycled liner, soy-based inks, PCR polybag film, compostable EN 13432 options. Documentation provided for ESG audits."
+  schemaBlocks={[breadcrumb]}
+>
+  <PageHeader
+    eyebrow="Sustainability"
+    heading="Sustainable packaging options — with paperwork that survives an ESG audit."
+    lead="Procurement teams under sustainability targets need more than a 'made from recycled materials' claim on a website. They need certification numbers, recycled-content percentages by SKU, ink composition disclosures, and end-of-life documentation. Apex provides all four as standard."
+  />
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>FSC-certified corrugated</h2>
+      <p>Apex holds FSC chain-of-custody certification on its corrugated lines. Every order can be supplied with the certification number and a stamped chain-of-custody declaration. FSC-certified product carries the FSC label on the carton if requested.</p>
+      <p>What it means: the fibre is traceable from a responsibly managed forest through the mill, the converter, and Apex, with each link audited.</p>
+
+      <h2>Recycled content</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Typical PCR content</th><th>Maximum available</th></tr></thead>
+        <tbody>
+          <tr><td>Kraft liner (single-wall)</td><td>30 – 50%</td><td>80%</td></tr>
+          <tr><td>Medium fluting</td><td>70 – 100%</td><td>100%</td></tr>
+          <tr><td>Bleached liner</td><td>30 – 50%</td><td>50%</td></tr>
+          <tr><td>Polybag film (LDPE/HDPE)</td><td>0% (standard)</td><td>30 – 50% PCR</td></tr>
+          <tr><td>Compostable polybag film</td><td>n/a</td><td>EN 13432 certified</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Inks and coatings</h2>
+      <ul>
+        <li><strong>Soy-based and vegetable-based inks</strong> on flexo lines. Lower VOC than petroleum-based.</li>
+        <li><strong>Water-based coatings</strong> on most retail packaging.</li>
+        <li><strong>No PFAS</strong> in any of Apex's grease-resistant food-contact coatings — independently tested.</li>
+      </ul>
+
+      <h2>Compostable polybag film</h2>
+      <p>EN 13432-certified compostable polybag film for buyers with composting infrastructure. Use cases: organic food brands, garden/horticulture brands, compost-bag retail.</p>
+      <p><strong>Important note:</strong> compostable film only composts in industrial composting facilities. It is not home-compostable. Apex will clarify the right disposal pathway for your customer base.</p>
+
+      <h2>Carbon-footprint disclosure</h2>
+      <p>For large customers under Scope 3 reporting, Apex can provide a packaging-specific carbon footprint estimate using the European COMET methodology — kg CO₂-equivalent per 1,000 units, calculated against material, transport, and end-of-life. Available on standing customers with annual volume thresholds.</p>
+
+      <h2>What sustainability claims Apex will and will not make</h2>
+      <p><strong>Apex will state:</strong></p>
+      <ul>
+        <li>FSC certification number and chain-of-custody status.</li>
+        <li>PCR percentage by SKU.</li>
+        <li>Ink composition.</li>
+        <li>End-of-life classification (recyclable / compostable / landfill).</li>
+      </ul>
+      <p><strong>Apex will not state:</strong></p>
+      <ul>
+        <li>"Eco-friendly" without specifying which dimension (it's a meaningless term).</li>
+        <li>Recyclability claims without verifying local infrastructure.</li>
+        <li>Carbon-neutrality unless verified by a third party with offsets.</li>
+      </ul>
+      <p>The reason: sustainability claims face increasing regulatory scrutiny in Canada (Competition Bureau enforcement under amended Competition Act). Greenwashing has real legal exposure. Apex's claims are conservative and documented.</p>
+    </div>
+  </section>
+  <CTABand
+    heading="Have a sustainability spec to meet?"
+    lead="Send it on the contact page and Apex's team will confirm what can be supplied with documentation."
+    primaryCta={{ label: 'Send your spec', href: '/contact' }}
+  />
+</BaseLayout>

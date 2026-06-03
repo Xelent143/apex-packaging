@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import { buildBreadcrumbSchema } from '../../lib/schema';
+
+const posts = [
+  { slug: 'ect-explained', title: 'ECT-32 vs ECT-44 — what the corrugated rating actually tells you', description: 'A working guide to corrugated strength ratings, when to choose which, with weight examples.', date: '2026-06-02', read: '6 min' },
+  { slug: 'rsc-vs-fol-box-styles', title: 'RSC, FOL, or telescoping — picking the right box style', description: 'A practical guide to Regular Slotted Cartons, Full Overlap Slotted Cartons, and telescoping boxes.', date: '2026-06-02', read: '5 min' },
+  { slug: 'poly-bag-thickness-guide', title: 'Poly bag thickness — when 1.5 mil is enough and when you need 4', description: 'Practical guide to polybag gauges from 1.0 mil to 6.0 mil. Match thickness to product weight, edge sharpness, and stacking pattern.', date: '2026-06-02', read: '7 min' }
+];
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Blog',url:'/blog'}]);
+---
+<BaseLayout
+  title="Packaging Knowledge Base — Specs, Materials, Best Practices"
+  description="Articles on corrugated strength ratings, box styles, polybag thickness, and other practical packaging specifications from Apex's design and engineering team."
+  schemaBlocks={[breadcrumb]}
+>
+  <PageHeader
+    eyebrow="Knowledge base"
+    heading="Practical guides for buying custom packaging in Canada."
+    lead="Articles for procurement teams and operations buyers — corrugated ratings, polybag specs, and the trade-offs that determine which packaging actually fits the job."
+  />
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default">
+      <div class="space-y-10 md:space-y-14">
+        {posts.map((p) => (
+          <article class="pb-10 md:pb-14 border-b border-neutral-200 last:border-0">
+            <div class="flex items-center gap-4 mb-3 text-xs uppercase tracking-wider text-neutral-500 font-medium">
+              <time>{p.date}</time>
+              <span>·</span>
+              <span>{p.read} read</span>
+            </div>
+            <h2 class="font-display font-bold text-2xl md:text-3xl text-neutral-900 leading-tight mb-3 max-w-3xl">
+              <a class="hover:text-accent transition-colors" href={`/blog/${p.slug}`}>{p.title}</a>
+            </h2>
+            <p class="text-[1.0625rem] text-neutral-600 leading-relaxed max-w-3xl">{p.description}</p>
+            <a class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-accent" href={`/blog/${p.slug}`}>Read article →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

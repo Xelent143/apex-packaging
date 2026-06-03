@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'What gauge do I need?', a: 'Light retail/garment: 1.0–2.0 mil. General shipping: 2.0–4.0 mil. Heavy industrial/furniture/mattress: 4.0–6.0 mil. Apex\'s team recommends a gauge based on product weight, edge sharpness, and stacking pattern.' },
+  { q: 'Are food-grade polybags certified?', a: 'Yes — Apex\'s food-contact film carries FDA-compliant resin certification and Health Canada acceptance. Documentation provided with every order.' },
+  { q: 'Can polybags be recycled in Canada?', a: 'LDPE and HDPE bags are recyclable at film drop-off programs across most Canadian municipalities. Apex offers PCR-content film (30–50% post-consumer recycled) and compostable EN 13432 film for buyers with stricter requirements.' },
+  { q: 'What is the MOQ on custom-print?', a: '500 units on 1-color flexo. 1,000 on multi-color. Volume pricing at 10,000+.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Polybags',url:'/services/polybags'}]);
+const service = buildServiceSchema({ name:'Custom polybags Canada', description:'Custom polybags manufactured in Canada. LDPE, HDPE, anti-static, food-safe. MOQ from 500.', url:'/services/polybags'});
+---
+<BaseLayout
+  title="Custom Polybags Canada — LDPE & HDPE Manufacturer"
+  description="Custom polybags manufactured in Canada. Flat, gusseted, wicket, slider. 1.0–6.0 mil gauges. Anti-static, FDA food-safe, compostable options. MOQ from 500 units."
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Polybags"
+    heading="Custom polybags manufactured in Canada — every bag type, every gauge, every print option."
+    lead="For Canadian shippers, garment manufacturers, food producers, electronics assemblers, and industrial buyers. Apex extrudes and converts LDPE, HDPE, and PCR-content film domestically. MOQ from 500 units on custom print."
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Bag types</h2>
+      <ul>
+        <li><strong>Flat polybags</strong> — the workhorse for general shipping and product packaging.</li>
+        <li><strong>Gusseted polybags</strong> — side gussets expand to hold bulkier items.</li>
+        <li><strong>Wicket bags</strong> — pre-loaded on a wicket for high-speed bagging lines.</li>
+        <li><strong>Coreless bags</strong> — folded on rolls, dispenser-friendly.</li>
+        <li><strong>Slider and ZIP bags</strong> — reclosable, for resealable consumer products.</li>
+        <li><strong>Pre-opened bags on rolls (POR)</strong> — auto-bagger compatible.</li>
+      </ul>
+
+      <h2>Vertical-specific specs</h2>
+      <ul>
+        <li><strong>Garment bags</strong> — clear or printed, low-density, with vent holes if required.</li>
+        <li><strong>Mattress bags</strong> — heavy-gauge (4–6 mil), gusseted, 14"+ depth.</li>
+        <li><strong>Furniture bags</strong> — extra-large, reinforced seam, dust-protection grade.</li>
+        <li><strong>Produce bags</strong> — vented, FDA-compliant film, often wicket-loaded.</li>
+        <li><strong>Pound bags</strong> — pre-cut, suitable for produce and bakery weighing.</li>
+        <li><strong>PTO bags</strong> — pull-tab opening for retail dispensing.</li>
+      </ul>
+
+      <h2>Material and gauge options</h2>
+      <table>
+        <thead><tr><th>Material</th><th>Use case</th><th>Typical gauges</th></tr></thead>
+        <tbody>
+          <tr><td>LDPE</td><td>Light shipping, garment, retail</td><td>1.0 – 4.0 mil</td></tr>
+          <tr><td>HDPE</td><td>Produce, food, dispensers</td><td>0.5 – 2.0 mil</td></tr>
+          <tr><td>LLDPE</td><td>Heavy industrial, mattress, furniture</td><td>3.0 – 6.0 mil</td></tr>
+          <tr><td>MDPE</td><td>Strength-with-clarity applications</td><td>1.5 – 4.0 mil</td></tr>
+          <tr><td>PCR blends</td><td>Sustainability requirements</td><td>1.0 – 4.0 mil (30–50% PCR)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Specialty options</h2>
+      <ul>
+        <li><strong>Anti-static (pink)</strong> polybags for electronics shipping.</li>
+        <li><strong>FDA / food-safe</strong> film for direct food contact.</li>
+        <li><strong>Compostable</strong> polybags (EN 13432 certified).</li>
+        <li><strong>VCI bags</strong> for rust-prevention on metal parts.</li>
+        <li><strong>Static-shielding</strong> metallized film for sensitive electronics.</li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent items={[
+    { title: 'Polybag thickness guide', href:'/blog/poly-bag-thickness-guide', description:'When 1.5 mil is enough and when you need 4.' },
+    { title:'Industrial & Bulk', href:'/services/industrial-bulk-packaging', description:'Pallet wrap, shrink film, edge protectors.' },
+    { title:'Sustainability', href:'/sustainability', description:'PCR-content film and compostable polybag options.' }
+  ]} />
+
+  <CTABand
+    heading="Send your spec."
+    lead="Bag type, dimensions, gauge, print, and target MOQ. Pricing within one business day."
+    primaryCta={{ label: 'Request a polybag quote', href: '/contact' }}
+  />
+</BaseLayout>

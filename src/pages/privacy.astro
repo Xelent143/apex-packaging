@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+---
+<BaseLayout title="Privacy Policy" description="How Apex Packaging Solutions collects, uses, and protects information submitted through this site.">
+  <PageHeader eyebrow="Legal" heading="Privacy policy" lead={`Last updated: ${new Date().toISOString().split('T')[0]}. This page explains what information is collected on apexpackagingsolutions.com, how it is used, and how to request deletion.`} />
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>What data Apex collects</h2>
+      <p>The site collects information you provide through the contact form: name, company, email, phone, project description, and any files uploaded as part of a quote request. The site does not run third-party analytics or advertising trackers in its default configuration.</p>
+
+      <h2>How the data is used</h2>
+      <p>Submitted information is used solely to respond to your request — typically a quote, design draft, or production discussion. Files and details may be shared internally with Apex's sales, design, and production team. Information is not sold or shared with any third party for marketing purposes.</p>
+
+      <h2>How long data is retained</h2>
+      <p>Quote requests and active project files are retained for up to 7 years to support reorder requests. Closed inquiries with no follow-up are deleted after 24 months.</p>
+
+      <h2>Cookies</h2>
+      <p>The site does not set tracking cookies by default. If analytics are added in future, this policy will be updated and the cookie banner enabled.</p>
+
+      <h2>How to request deletion</h2>
+      <p>Email a deletion request to the address on the <a href="/contact">contact page</a>. Apex will confirm deletion within 30 days.</p>
+
+      <h2>Contact for privacy questions</h2>
+      <p>For any privacy concern, use the contact form or email the address on the contact page. Mark the subject line "Privacy request" for fastest routing.</p>
+    </div>
+  </section>
+</BaseLayout>

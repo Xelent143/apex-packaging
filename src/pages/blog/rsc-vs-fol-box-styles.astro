@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema } from '../../lib/schema';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'RSC vs FOL', url: '/blog/rsc-vs-fol-box-styles' }
+]);
+const article = buildArticleSchema({
+  title: 'RSC, FOL, or telescoping — picking the right box style',
+  description: 'A practical guide to Regular Slotted Cartons, Full Overlap Slotted Cartons, and telescoping boxes. When each style fits and what it costs.',
+  url: '/blog/rsc-vs-fol-box-styles',
+  datePublished: '2026-06-02',
+  author: 'Apex Packaging Solutions'
+});
+---
+<BaseLayout
+  title="RSC vs FOL vs Telescoping Boxes — Choosing the Right Style"
+  description="A practical guide to Regular Slotted Cartons (RSC), Full Overlap Slotted Cartons (FOL), and telescoping boxes. When each style fits and what it costs."
+  schemaBlocks={[breadcrumb, article]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Box styles"
+    heading="RSC, FOL, or telescoping — picking the right box style for shipping fragile items."
+    lead="There are five common corrugated box styles in Canadian shipping. Picking the wrong one wastes material on light goods or invites damage on heavy ones."
+  />
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>RSC — Regular Slotted Carton</h2>
+      <p>The default. One piece of corrugated, scored and slotted, flaps meeting at the centre. Cheapest to manufacture, most widely available, used for the majority of general shipping.</p>
+      <p><strong>Use it for</strong>: standard parcel shipping, dry goods, retail product, anything 1–35 lb.</p>
+      <p><strong>Avoid it for</strong>: items needing extra cushioning on the bottom face, very heavy single items (&gt;50 lb), and irregular shapes that don't fill the corners.</p>
+
+      <h2>HSC — Half-Slotted Carton</h2>
+      <p>RSC without one set of flaps. Used with a separate lid or for open-top bins where overhead access matters.</p>
+
+      <h2>FOL — Full Overlap Slotted Carton</h2>
+      <p>All flaps are the same length — roughly equal to the box width. When closed, the outer flaps overlap to within 1 inch of full overlap, doubling the corrugated thickness on the bottom and top panels.</p>
+      <p><strong>Use it for</strong>: heavy or fragile items where the bottom panel benefits from extra cushioning. Common in automotive shipping, industrial parts, and lay-on-side stacking patterns.</p>
+      <p><strong>Pricing</strong>: ~10–15% more than equivalent RSC due to extra material.</p>
+
+      <h2>Five-panel wrap and cut-out wrap</h2>
+      <p>The corrugated blank wraps around the product instead of folding into a box. The wrap is glued or taped on the open seam.</p>
+      <p><strong>Use it for</strong>: long or oddly shaped items where a standard box would be wasteful (rugs, framed art, long boards, rolled materials).</p>
+
+      <h2>Telescoping (two-piece)</h2>
+      <p>A bottom tray and a separate top cover that slides over it.</p>
+      <p><strong>Use it for</strong>: heavy items needing top access without disturbing the bottom (electronics, instruments, premium retail). Also for products where the buyer wants a clean lift-off unboxing.</p>
+      <p><strong>Pricing</strong>: ~30–50% more than equivalent RSC due to two-piece construction.</p>
+
+      <h2>A decision tree</h2>
+      <ol>
+        <li>Item under 5 lb, simple shape, not fragile → <strong>RSC, ECT-32</strong>.</li>
+        <li>Item 5–35 lb, standard shape → <strong>RSC, ECT-32 (light) or ECT-44 (heavy)</strong>.</li>
+        <li>Item over 35 lb OR pallet-stacked 4+ high → <strong>FOL or double-wall RSC</strong>.</li>
+        <li>Heavy fragile item, top-access preferred → <strong>telescoping</strong>.</li>
+        <li>Long or oddly shaped item → <strong>wrap-style (5-panel or cut-out)</strong>.</li>
+        <li>Anything humid, refrigerated, or long-transit → step up one ECT grade or double-wall.</li>
+      </ol>
+
+      <h2>When the box style matters less than the inside</h2>
+      <p>Box style is the structural shell. The cushioning is what saves the product on a drop. For high-value fragile items, the right answer is often an RSC plus a custom-cut foam insert — cheaper than a telescoping box and more protective.</p>
+    </div>
+  </section>
+  <RelatedContent items={[
+    { title:'ECT-32 vs ECT-44 explained', href:'/blog/ect-explained', description:'Corrugated strength rating guide.' },
+    { title:'Polybag thickness guide', href:'/blog/poly-bag-thickness-guide', description:'Choosing the right poly gauge.' },
+    { title:'Corrugated Boxes', href:'/services/corrugated-boxes', description:'All box styles with specs and MOQs.' }
+  ]} />
+  <CTABand
+    heading="Have a product on the desk and not sure which style fits?"
+    lead="Send dimensions and weight — Apex returns a spec recommendation with the math."
+    primaryCta={{ label: 'Get a recommendation', href: '/contact' }}
+  />
+</BaseLayout>

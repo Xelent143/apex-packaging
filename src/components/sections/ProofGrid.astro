@@ -1,0 +1,24 @@
+---
+interface Props {
+  items: Array<{ value: string; label: string; sub?: string }>;
+  variant?: 'light' | 'dark';
+}
+const { items, variant = 'dark' } = Astro.props;
+const wrap = variant === 'dark' ? 'bg-neutral-900 text-neutral-50' : 'bg-neutral-50 text-neutral-900';
+const labelColor = variant === 'dark' ? 'text-neutral-400' : 'text-neutral-500';
+---
+<section class={`py-16 md:py-24 ${wrap}`}>
+  <div class="container max-w-wide">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6">
+      {items.map((it) => (
+        <div>
+          <div class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight mb-3">
+            {it.value}
+          </div>
+          <div class={`text-sm uppercase tracking-wider font-semibold ${labelColor} mb-1`}>{it.label}</div>
+          {it.sub && <div class={`text-xs ${labelColor} opacity-80 leading-snug`}>{it.sub}</div>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

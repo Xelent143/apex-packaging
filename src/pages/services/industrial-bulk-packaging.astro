@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'Do you supply machinery as well as film?', a: 'Apex supplies stretch and shrink film; machinery (stretch wrappers, case sealers) is referred to partner equipment suppliers. The pallet-program team can manage machinery selection alongside the consumables order.' },
+  { q: 'What is the typical lead time on bulk Gaylords?', a: '5–10 business days on stock sizes; 10–15 on custom-dieline Gaylords.' },
+  { q: 'Can Apex hold inventory against a blanket PO?', a: 'Yes — most bulk customers operate on quarterly blanket POs with scheduled releases. Apex stocks the agreed inventory and ships against release calls.' },
+  { q: 'Do you ship across all provinces?', a: 'Yes — national LTL and FTL. Bulk shipments typically go FTL on the customer\'s regular freight lane.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Industrial & Bulk',url:'/services/industrial-bulk-packaging'}]);
+const service = buildServiceSchema({ name:'Industrial bulk packaging Canada', description:'Gaylord boxes, stretch film, shrink film, edge protectors for Canadian plants shipping pallet quantities.', url:'/services/industrial-bulk-packaging'});
+---
+<BaseLayout
+  title="Industrial & Bulk Packaging Canada — Gaylord, Stretch Film"
+  description="Bulk packaging for Canadian plants — Gaylord boxes, custom pallet wrap, stretch film, shrink film, edge protectors, void fill. Pallet-quantity pricing."
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Industrial & Bulk"
+    heading="Industrial and bulk packaging — built for plants that ship pallet quantities."
+    lead="Apex supplies bulk corrugated, stretch film, shrink film, edge protectors, and ancillary supplies to Canadian manufacturers across automotive, food, electronics, pharmaceutical, and industrial supply. Pallet-quantity pricing, scheduled releases against a blanket PO, single account manager."
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Bulk corrugated containers</h2>
+      <ul>
+        <li><strong>Gaylord boxes</strong> — common sizes 40×48×36 to 48×40×42, plus custom dimensions.</li>
+        <li><strong>Triple-wall corrugated</strong> for stacking and freight resilience.</li>
+        <li><strong>Octagonal Gaylords</strong> for bulk powder, granulate, and free-flowing materials.</li>
+        <li><strong>Liner bags</strong> for Gaylords — FDA-grade where food contact applies.</li>
+      </ul>
+
+      <h2>Stretch and shrink film</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Use case</th><th>Gauge</th></tr></thead>
+        <tbody>
+          <tr><td>Hand stretch film</td><td>Manual palletizing</td><td>70 – 100 gauge</td></tr>
+          <tr><td>Machine stretch film</td><td>Auto / semi-auto stretch wrappers</td><td>60 – 80 gauge</td></tr>
+          <tr><td>Pre-stretched film</td><td>Reduces material use 30–40%</td><td>30 – 50 gauge</td></tr>
+          <tr><td>Shrink film (PVC, POF, PE)</td><td>Bundling, retail packs</td><td>varies</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Edge protection and unitization</h2>
+      <ul>
+        <li>Edge protectors (cardboard angle boards) — standard and custom lengths.</li>
+        <li>Corner boards for furniture and appliance shipping.</li>
+        <li>Strapping (polypropylene, polyester) and steel buckles.</li>
+        <li>Pallet stretch hoods and pallet caps.</li>
+      </ul>
+
+      <h2>Custom pallet packaging programs</h2>
+      <ol>
+        <li><strong>Audit</strong> — site visit, line walk-through, current spec review.</li>
+        <li><strong>Spec proposal</strong> — material recommendations, machine compatibility check, drop-test scenarios.</li>
+        <li><strong>Pilot</strong> — small-batch trial with measurement of damage rate, wrap consumption, and labour time.</li>
+        <li><strong>Rollout</strong> — blanket PO with scheduled releases, single point of contact.</li>
+      </ol>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent items={[
+    { title:'Corrugated Boxes', href:'/services/corrugated-boxes', description:'Single- and double-wall corrugated for general shipping.' },
+    { title:'Protective Packaging', href:'/services/protective-packaging', description:'Foam, VCI, and void fill for fragile goods.' },
+    { title:'Industries served', href:'/industries', description:'Verticals Apex packages for.' }
+  ]} />
+
+  <CTABand
+    heading="Need a bulk packaging audit?"
+    lead="Send your monthly volume, current spec, and freight lane. Apex's industrial team will respond within one business day."
+    primaryCta={{ label: 'Contact the industrial team', href: '/contact' }}
+  />
+</BaseLayout>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0F0D0A"/>
+  <g transform="translate(80,80)">
+    <text x="0" y="50" font-family="Archivo, sans-serif" font-weight="700" font-size="36" fill="#D34A1A" letter-spacing="6">APEX PACKAGING</text>
+    <text x="0" y="200" font-family="Archivo, sans-serif" font-weight="700" font-size="80" fill="#F7F5F1">Custom packaging,</text>
+    <text x="0" y="290" font-family="Archivo, sans-serif" font-weight="700" font-size="80" fill="#F7F5F1">made in Canada,</text>
+    <text x="0" y="380" font-family="Archivo, sans-serif" font-weight="700" font-size="80" fill="#D34A1A">shipped in 7–14 days.</text>
+    <text x="0" y="470" font-family="Inter, sans-serif" font-weight="400" font-size="28" fill="#867D69">Corrugated boxes · polybags · industrial bulk · protective</text>
+  </g>
+</svg>

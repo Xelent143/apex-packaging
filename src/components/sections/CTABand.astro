@@ -1,0 +1,25 @@
+---
+interface Props {
+  heading: string;
+  lead?: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+}
+const { heading, lead, primaryCta, secondaryCta } = Astro.props;
+---
+<section class="py-20 md:py-28 bg-neutral-900 text-neutral-50">
+  <div class="container max-w-default text-center">
+    <h2 class="font-display font-bold text-3xl md:text-5xl leading-[1.05] text-neutral-50 mb-5">{heading}</h2>
+    {lead && <p class="text-lg text-neutral-400 leading-relaxed max-w-2xl mx-auto mb-8">{lead}</p>}
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href={primaryCta.href} class="inline-flex items-center gap-2 bg-accent text-neutral-50 px-7 py-3.5 rounded-md font-medium hover:bg-accent/90 transition-colors">
+        {primaryCta.label}
+      </a>
+      {secondaryCta && (
+        <a href={secondaryCta.href} class="inline-flex items-center gap-2 bg-transparent text-neutral-50 px-7 py-3.5 rounded-md font-medium border-2 border-neutral-700 hover:border-neutral-50 transition-colors">
+          {secondaryCta.label}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
