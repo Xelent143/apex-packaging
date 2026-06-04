@@ -68,6 +68,21 @@ const faqs = [
   { q: 'Can Apex help with artwork and dielines?', a: 'Yes. Apex can create the dieline, prepare artwork, generate a proof, and keep the final files on record for reorders.' }
 ];
 
+const heroSlides = [
+  {
+    src: '/images/home/apparel-boxes-hero-1.png',
+    alt: 'Apex Packaging apparel boxes with branded black and gold mailer packaging'
+  },
+  {
+    src: '/images/home/apparel-boxes-hero-2.png',
+    alt: 'Apex Packaging apparel subscription boxes with branded shirts and hoodie packaging'
+  },
+  {
+    src: '/images/home/apparel-boxes-hero-3.png',
+    alt: 'Apex Packaging black and gold apparel boxes with hoodie and folded shirts'
+  }
+];
+
 const schemaBlocks = [buildFAQSchema(faqs)];
 ---
 <BaseLayout
@@ -76,17 +91,21 @@ const schemaBlocks = [buildFAQSchema(faqs)];
   schemaBlocks={schemaBlocks}
 >
   <section class="relative isolate overflow-hidden bg-[#dfddda]">
-    <img
-      src="/images/home/hero-packaging-banner-apex.webp"
-      alt=""
-      width="1774"
-      height="887"
-      class="absolute inset-0 -z-10 h-full w-full origin-center object-cover object-[68%_center] opacity-35 md:translate-x-[5%] md:scale-[1.06] md:opacity-100"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-      aria-hidden="true"
-    />
+    <div class="absolute inset-0 -z-10" aria-hidden="true">
+      {heroSlides.map((slide, index) => (
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          width="1448"
+          height="1086"
+          class="hero-slide absolute inset-0 h-full w-full origin-center object-cover object-[68%_center] opacity-0 md:translate-x-[5%] md:scale-[1.06]"
+          style={`animation-delay: ${index * 5}s;`}
+          loading={index === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchpriority={index === 0 ? 'high' : 'auto'}
+        />
+      ))}
+    </div>
     <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(229,227,224,0.99)_0%,rgba(229,227,224,0.96)_38%,rgba(229,227,224,0.62)_58%,rgba(229,227,224,0.12)_80%,rgba(229,227,224,0)_100%)]"></div>
     <div class="absolute inset-y-0 left-0 -z-10 w-full bg-[linear-gradient(180deg,rgba(229,227,224,0.24)_0%,rgba(229,227,224,0)_28%,rgba(229,227,224,0.18)_100%)]"></div>
     <div class="container max-w-wide flex min-h-[560px] items-center py-14 md:min-h-[620px] md:py-16 lg:min-h-[650px]">
@@ -112,6 +131,66 @@ const schemaBlocks = [buildFAQSchema(faqs)];
       </div>
     </div>
   </section>
+
+  <style>
+    .hero-slide {
+      animation: hero-slide-fade 15s infinite;
+    }
+
+    @keyframes hero-slide-fade {
+      0%,
+      30% {
+        opacity: 0.36;
+      }
+
+      36%,
+      94% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0.36;
+      }
+    }
+
+    @media (min-width: 768px) {
+      @keyframes hero-slide-fade {
+        0%,
+        30% {
+          opacity: 1;
+        }
+
+        36%,
+        94% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide {
+        animation: none;
+      }
+
+      .hero-slide:not(:first-child) {
+        opacity: 0;
+      }
+
+      .hero-slide:first-child {
+        opacity: 0.36;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) and (min-width: 768px) {
+      .hero-slide:first-child {
+        opacity: 1;
+      }
+    }
+  </style>
 
   <section class="border-y border-neutral-200 bg-neutral-50 py-5">
     <div class="container max-w-wide overflow-hidden">
