@@ -124,7 +124,13 @@ const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
 
   <section class="border-t border-neutral-200 bg-neutral-50">
     <div class="container max-w-wide flex flex-col gap-3 py-3 text-center text-sm text-neutral-700 md:flex-row md:items-center md:justify-between md:text-left">
-      <span>Copyright {year}. {siteConfig.url.replace('https://', '')}. All rights reserved.</span>
+      <span>
+        Copyright {year}. {siteConfig.url.replace('https://', '')}. All rights reserved.
+        <span class="mx-2 hidden text-neutral-400 md:inline">|</span>
+        <span class="block md:inline">
+          Developed by <a href="https://www.sialkotaimasters.com" class="font-semibold text-neutral-900 hover:text-accent" target="_blank" rel="noopener noreferrer">Sialkot AI Masters</a>
+        </span>
+      </span>
       <div class="flex justify-center gap-5">
         <a href="/privacy" class="hover:text-accent">Privacy</a>
         <a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a>
