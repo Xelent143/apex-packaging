@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../../site.config';
+import { industryBoxes } from '../../data/industryBoxes';
 const pathname = Astro.url.pathname;
 const phoneDigits = siteConfig.phone.replace(/\D/g, '');
 const hasPhone = phoneDigits.length >= 10 && !/^1?0+$/.test(phoneDigits);
@@ -14,9 +15,9 @@ const packagingNav = [
   { label: 'Boxes By Style', href: '/services/corrugated-boxes' },
   { label: 'Blog', href: '/blog' },
   { label: 'Case Studies', href: '/design-support' },
-  { label: 'Reviews', href: '/about' },
-  { label: 'Portfolio', href: '/services' }
+  { label: 'Reviews', href: '/about' }
 ];
+const isIndustryActive = pathname === '/industries' || pathname.startsWith('/industries/');
 ---
 <header class="sticky top-0 z-30 bg-neutral-50 shadow-sm">
   <div class="container max-w-wide flex items-center justify-between gap-4 py-2 lg:py-2.5">
@@ -83,24 +84,95 @@ const packagingNav = [
     </div>
   </div>
   <div class="bg-neutral-800 text-neutral-50">
-    <div class="container max-w-wide flex items-center justify-between gap-6 overflow-x-auto">
+    <div class="container relative max-w-wide hidden items-center justify-between gap-6 lg:flex">
       <nav aria-label="Primary" class="flex min-w-max items-center text-sm font-bold">
-        {packagingNav.map((item) => (
+        <a
+          href="/"
+          class:list={[
+            'px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
+            pathname === '/' ? 'bg-neutral-900' : ''
+          ]}
+        >
+          Home
+        </a>
+
+        <div class="group">
+          <a
+            href="/industries"
+            data-industry-trigger
+            class:list={[
+              'inline-flex items-center gap-1 px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
+              isIndustryActive ? 'bg-accent text-neutral-900' : ''
+            ]}
+          >
+            Boxes by Industry
+          </a>
+          <div data-industry-mega-menu class="invisible absolute left-10 right-10 top-full z-50 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-b-md border border-neutral-200 bg-white text-neutral-900 opacity-0 shadow-popover transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <div class="border-b border-neutral-200 bg-neutral-50 px-7 py-5">
+              <p class="text-xs font-black uppercase tracking-[0.16em] text-accent">Browse packaging categories</p>
+              <div class="mt-1 flex items-end justify-between gap-6">
+                <h2 class="font-display text-2xl font-extrabold leading-tight text-neutral-900">Boxes by industry</h2>
+                <a href="/industries" class="shrink-0 text-sm font-black uppercase tracking-wide text-neutral-700 hover:text-accent">View all</a>
+              </div>
+            </div>
+            <div class="px-7 py-6">
+              <div class="grid gap-x-5 gap-y-3 lg:grid-cols-4 xl:grid-cols-5">
+                {industryBoxes.map((box) => (
+                  <a
+                    href={`/industries/${box.slug}`}
+                    class:list={[
+                      'group/item grid min-h-[52px] grid-cols-[34px_1fr] items-center gap-3 rounded-md border border-transparent px-3 py-2 transition hover:border-[#ead58d] hover:bg-[#fff9e8]',
+                      pathname === `/industries/${box.slug}` ? 'bg-[#fff7dd]' : ''
+                    ]}
+                  >
+                    <span class="grid h-[34px] w-[34px] place-items-center rounded-md bg-[#fff4cf] text-accent transition group-hover/item:-translate-y-0.5 group-hover/item:bg-accent group-hover/item:text-neutral-900" aria-hidden="true">
+                      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                        <path d="m8 13 12-7 12 7-12 7z" />
+                        <path d="M8 13v14l12 7 12-7V13" />
+                        <path d="M20 20v14" />
+                        <path d="m13 25 7 4 7-4" />
+                      </svg>
+                    </span>
+                    <span class="font-display text-[0.92rem] font-extrabold leading-snug text-neutral-800">{box.shortLabel ?? box.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {packagingNav.slice(2).map((item) => (
           <a
             href={item.href}
             class:list={[
-              'px-5 py-4 transition-colors hover:bg-accent',
-              item.label === 'Portfolio' ? 'bg-accent text-neutral-900' : '',
+              'px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
               pathname === item.href && item.href !== '/' ? 'bg-neutral-900' : ''
             ]}
           >
             {item.label}
+            {(item.label === 'Boxes By Material' || item.label === 'Boxes By Style') && <span class="ml-1 text-accent">⌄</span>}
           </a>
         ))}
       </nav>
       <a href="/services" class="hidden shrink-0 items-center px-4 py-3 text-2xl font-bold hover:text-accent md:inline-flex" aria-label="Search packaging products">
         ⌕
       </a>
+    </div>
+    <div class="container max-w-wide flex items-center justify-between gap-6 overflow-x-auto lg:hidden">
+      <nav aria-label="Primary mobile" class="flex min-w-max items-center text-sm font-bold">
+        {packagingNav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
+              item.href === '/industries' && isIndustryActive ? 'bg-accent text-neutral-900' : '',
+              item.href !== '/industries' && pathname === item.href && item.href !== '/' ? 'bg-neutral-900' : ''
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </div>
   </div>
 </header>

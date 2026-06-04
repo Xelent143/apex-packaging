@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+import { industryBoxes, type IndustryBox } from '../../data/industryBoxes';
+
+export function getStaticPaths() {
+  return industryBoxes.map((box) => ({
+    params: { slug: box.slug },
+    props: { box }
+  }));
+}
+
+const { box } = Astro.props as { box: IndustryBox };
+const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
+
+const faqs = [
+  {
+    q: `Can Apex manufacture custom ${box.label.toLowerCase()} with my logo?`,
+    a: `Yes. Apex can manufacture ${box.label.toLowerCase()} with brand print, custom dimensions, material selection, and production-ready dielines.`
+  },
+  {
+    q: `What is the minimum order for ${box.label.toLowerCase()}?`,
+    a: 'Minimums depend on material, print method, and box structure. Stock corrugated programs can start lower, while custom printed cartons and specialty finishes are quoted by run size.'
+  },
+  {
+    q: 'Can I get a sample before production?',
+    a: 'Yes. Apex can prepare a digital proof and quote pre-production samples so fit, structure, and print placement are confirmed before the full run.'
+  }
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Boxes by Industry', url: '/industries' },
+  { name: box.label, url: `/industries/${box.slug}` }
+]);
+
+const service = buildServiceSchema({
+  name: `Custom ${box.label} manufacturer Canada`,
+  description: box.summary,
+  url: `/industries/${box.slug}`
+});
+---
+<BaseLayout
+  title={`${box.label} Manufacturer Canada — Custom Printed Packaging`}
+  description={`${box.summary} Get custom sizes, materials, printing, samples, and production support from Apex Packaging.`}
+  image={box.image}
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <section class="relative isolate overflow-hidden bg-[#e8e1d7]">
+    <img
+      src={box.image}
+      alt=""
+      width="1672"
+      height="941"
+      class="absolute inset-0 -z-10 h-full w-full object-cover object-[68%_center] opacity-45 md:opacity-100"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(246,244,239,0.99)_0%,rgba(246,244,239,0.96)_36%,rgba(246,244,239,0.7)_57%,rgba(246,244,239,0.16)_82%,rgba(246,244,239,0)_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,rgba(246,244,239,0)_0%,rgba(246,244,239,0.95)_100%)]"></div>
+    <div class="container max-w-wide flex min-h-[560px] items-center py-16 md:min-h-[640px] lg:min-h-[680px]">
+      <div class="max-w-[760px]">
+        <p class="mb-5 text-sm font-bold uppercase tracking-[0.16em] text-accent">Boxes by industry</p>
+        <h1 class="font-display text-5xl font-extrabold leading-[1.03] tracking-normal text-neutral-900 md:text-7xl">
+          Custom {box.label}
+        </h1>
+        <p class="mt-7 max-w-2xl text-xl leading-relaxed text-neutral-700">{box.summary}</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/contact" class="btn-primary !bg-accent !text-neutral-900 hover:!bg-warning">Get Quote</a>
+          <a href="#details" class="btn-secondary">View Details</a>
+        </div>
+        <div class="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+          {box.bestFor.slice(0, 3).map((item) => (
+            <span class="rounded-md bg-white/90 px-3 py-2 text-sm font-black uppercase tracking-wide text-neutral-700 shadow-card backdrop-blur">{item}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="details" class="scroll-mt-28 bg-neutral-50 py-16 md:scroll-mt-32 md:py-24">
+    <div class="container max-w-wide">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <p class="eyebrow">Manufacturer details</p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold leading-tight text-neutral-900 md:text-5xl">
+            Built around your product, channel, and reorder plan.
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-neutral-600">
+            Apex starts with dimensions, product weight, retail or shipping use, print goals, and target quantity. From there, the team recommends structure, board grade, print method, and sample path.
+          </p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:col-span-7">
+          <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card">
+            <h3 class="font-display text-xl font-extrabold text-neutral-900">Best For</h3>
+            <ul class="mt-4 space-y-2 text-neutral-600">
+              {box.bestFor.map((item) => <li class="flex gap-2"><span class="font-bold text-accent">•</span><span>{item}</span></li>)}
+            </ul>
+          </article>
+          <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card">
+            <h3 class="font-display text-xl font-extrabold text-neutral-900">Materials</h3>
+            <ul class="mt-4 space-y-2 text-neutral-600">
+              {box.materials.map((item) => <li class="flex gap-2"><span class="font-bold text-accent">•</span><span>{item}</span></li>)}
+            </ul>
+          </article>
+          <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card">
+            <h3 class="font-display text-xl font-extrabold text-neutral-900">Box Styles</h3>
+            <ul class="mt-4 space-y-2 text-neutral-600">
+              {box.styles.map((item) => <li class="flex gap-2"><span class="font-bold text-accent">•</span><span>{item}</span></li>)}
+            </ul>
+          </article>
+          <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card">
+            <h3 class="font-display text-xl font-extrabold text-neutral-900">Print Options</h3>
+            <ul class="mt-4 space-y-2 text-neutral-600">
+              {box.printOptions.map((item) => <li class="flex gap-2"><span class="font-bold text-accent">•</span><span>{item}</span></li>)}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-neutral-200 bg-white py-16 md:py-24">
+    <div class="container max-w-wide">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div class="lg:col-span-4">
+          <p class="eyebrow">How Apex builds it</p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold leading-tight text-neutral-900">From dieline to production run.</h2>
+        </div>
+        <div class="grid gap-4 lg:col-span-8">
+          {box.manufacturerNotes.map((note, index) => (
+            <article class="grid gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-5 shadow-sm md:grid-cols-[auto_1fr] md:items-center">
+              <span class="grid h-12 w-12 place-items-center rounded-md bg-accent font-mono text-sm font-black text-neutral-900">0{index + 1}</span>
+              <p class="text-lg font-semibold leading-relaxed text-neutral-800">{note}</p>
+            </article>
+          ))}
+          <article class="grid gap-4 rounded-md border border-[#c8dbdd] bg-[#eef6f6] p-5 md:grid-cols-[auto_1fr] md:items-center">
+            <span class="grid h-12 w-12 place-items-center rounded-md bg-[#1f6672] font-mono text-sm font-black text-white">RFQ</span>
+            <p class="text-lg font-semibold leading-relaxed text-neutral-800">
+              Send dimensions, quantity, artwork, product weight, and launch date. Apex will return a practical material, structure, and pricing recommendation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent
+    items={related.map((item) => ({
+      title: item.label,
+      href: `/industries/${item.slug}`,
+      description: item.summary
+    }))}
+  />
+
+  <CTABand
+    heading={`Need custom ${box.label.toLowerCase()}?`}
+    lead="Share the product size, material preference, quantity, and target delivery date. Apex will recommend the right box structure and print path."
+    primaryCta={{ label: 'Send your specs', href: '/contact' }}
+  />
+</BaseLayout>
