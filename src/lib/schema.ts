@@ -1,7 +1,7 @@
 import { siteConfig } from '../site.config';
 
 export function buildOrganizationSchema() {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${siteConfig.url}/#organization`,
@@ -10,7 +10,6 @@ export function buildOrganizationSchema() {
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.svg`,
     email: siteConfig.email,
-    telephone: siteConfig.phone,
     description: siteConfig.description,
     address: {
       '@type': 'PostalAddress',
@@ -41,6 +40,12 @@ export function buildOrganizationSchema() {
       }))
     }
   };
+
+  if (siteConfig.phone) {
+    schema.telephone = siteConfig.phone;
+  }
+
+  return schema;
 }
 
 export function buildWebSiteSchema() {

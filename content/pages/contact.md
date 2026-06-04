@@ -22,10 +22,9 @@ The procurement team responds within one business day with pricing, a proposed s
 
 ## How to reach Apex
 
-- **Phone**: (placeholder — replace before launch)
-- **Email**: hello@apexpackagingsolutions.com (placeholder — replace with real)
+- **Email**: sales@apexpackagingsolutions.com
 - **Quote form**: below
-- **Plant location**: Canada (specific city to confirm before launch)
+- **Address**: 265 Brunswick Ave, London ON N6G 5P8, CANADA
 
 ## Quote form
 
