@@ -125,13 +125,16 @@ const isIndustryActive = pathname === '/industries' || pathname.startsWith('/ind
                       pathname === `/industries/${box.slug}` ? 'bg-[#fff7dd]' : ''
                     ]}
                   >
-                    <span class="grid h-[34px] w-[34px] place-items-center rounded-md bg-[#fff4cf] text-accent transition group-hover/item:-translate-y-0.5 group-hover/item:bg-accent group-hover/item:text-neutral-900" aria-hidden="true">
-                      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                        <path d="m8 13 12-7 12 7-12 7z" />
-                        <path d="M8 13v14l12 7 12-7V13" />
-                        <path d="M20 20v14" />
-                        <path d="m13 25 7 4 7-4" />
-                      </svg>
+                    <span class="grid h-[34px] w-[34px] place-items-center overflow-hidden rounded-md bg-[#fff4cf] ring-1 ring-[#ead58d]/60 transition group-hover/item:-translate-y-0.5 group-hover/item:ring-accent" aria-hidden="true">
+                      <img
+                        src={box.icon}
+                        alt=""
+                        width="160"
+                        height="160"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover"
+                      />
                     </span>
                     <span class="font-display text-[0.92rem] font-extrabold leading-snug text-neutral-800">{box.shortLabel ?? box.label}</span>
                   </a>
