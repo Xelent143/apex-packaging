@@ -6,7 +6,7 @@ export const siteConfig = {
     'Apex Packaging Solutions is a Canadian custom-packaging manufacturer producing corrugated boxes and polybags with 7–14 day turnaround, 100-unit MOQs, in-house design support, and FSC-certified options.',
   legalName: 'Apex Packaging Solutions',
   email: 'sales@apexpackagingsolutions.com',
-  phone: '',
+  phone: '(866) 225-2112',
   streetAddress: '265 Brunswick Ave',
   addressLocality: 'London',
   addressRegion: 'ON',

@@ -7,15 +7,15 @@ import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../..
 import { industryBoxes, type IndustryBox } from '../../data/industryBoxes';
 
 export function getStaticPaths() {
-  return industryBoxes.map((box) => ({
+  return industryBoxes.map((box, index) => ({
     params: { slug: box.slug },
-    props: { box }
+    props: { box, index }
   }));
 }
 
-const { box } = Astro.props as { box: IndustryBox };
+const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
-const heroImage = box.heroBanner ?? box.image;
+const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
 
 const faqs = [
   {
@@ -51,37 +51,17 @@ const service = buildServiceSchema({
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <section class="overflow-hidden border-b border-neutral-200 bg-white">
-    <div class="container max-w-wide grid gap-6 py-9 md:min-h-[620px] md:gap-8 md:py-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-12 lg:py-0">
-      <div class="max-w-[650px] lg:py-16">
-        <p class="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-accent md:mb-5 md:text-sm">Boxes by industry</p>
-        <h1 class="font-display text-[2.55rem] font-extrabold leading-[1.03] tracking-normal text-neutral-900 md:text-6xl xl:text-7xl">
-          Custom {box.label}
-        </h1>
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-neutral-700 md:mt-7 md:text-xl">{box.summary}</p>
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8 md:gap-4">
-          <a href="/contact" class="btn-primary !bg-accent !text-neutral-900 hover:!bg-warning">Get Quote</a>
-          <a href="#details" class="btn-secondary">View Details</a>
-        </div>
-        <div class="mt-6 grid max-w-xl grid-cols-3 gap-2 md:mt-10 md:gap-3">
-          {box.bestFor.slice(0, 3).map((item) => (
-            <span class="rounded-md bg-neutral-50 px-2 py-2 text-center text-[0.68rem] font-black uppercase leading-tight tracking-wide text-neutral-700 shadow-card backdrop-blur md:bg-white/90 md:px-3 md:text-left md:text-sm">{item}</span>
-          ))}
-        </div>
-      </div>
-      <figure class="relative min-h-[230px] rounded-md bg-neutral-50 md:min-h-[420px] md:rounded-none lg:min-h-[620px]">
-        <img
-          src={heroImage}
-          alt=""
-          width="2560"
-          height="960"
-          class="absolute inset-0 h-full w-full object-contain object-center"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          aria-hidden="true"
-        />
-      </figure>
-    </div>
+    <h1 class="sr-only">Custom {box.label}</h1>
+    <img
+      src={heroImage}
+      alt={`${box.label} custom packaging hero banner`}
+      width="2172"
+      height="724"
+      class="aspect-[2172/724] w-full object-cover object-center"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
   </section>
 
   <section id="details" class="scroll-mt-28 bg-neutral-50 py-12 md:scroll-mt-32 md:py-24">

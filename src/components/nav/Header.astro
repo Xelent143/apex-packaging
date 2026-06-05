@@ -8,14 +8,24 @@ const displayPhone = phoneDigits.length === 11 && phoneDigits.startsWith('1')
   ? `(${phoneDigits.slice(1, 4)}) ${phoneDigits.slice(4, 7)}-${phoneDigits.slice(7)}`
   : siteConfig.phone;
 const whatsappHref = hasPhone ? `https://wa.me/${phoneDigits}` : '';
-const packagingNav = [
+const materialNav = [
+  { label: 'Cardboard Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/cardboard-boxes.png' },
+  { label: 'Kraft Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/materials/kraft-boxes.png' },
+  { label: 'Rigid Boxes', href: '/industries/gift-boxes', image: '/images/apex-update/materials/rigid-boxes.png' },
+  { label: 'Corrugated Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/corrugated-boxes.png' }
+];
+const styleNav = [
+  { label: 'Custom Tuck Boxes', href: '/industries/product-boxes', image: '/images/apex-update/styles/custom-tuck-boxes.png' },
+  { label: 'Custom Display Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/styles/custom-display-boxes.png' },
+  { label: 'Custom Mailer Boxes', href: '/services/mailer-boxes', image: '/images/apex-update/styles/custom-mailer-boxes.png' },
+  { label: 'Custom Pillow Boxes', href: '/industries/gift-boxes', image: '/images/apex-update/styles/custom-pillow-boxes.png' },
+  { label: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', image: '/images/apex-update/styles/custom-bakery-boxes.png' }
+];
+const simpleNav = [
   { label: 'Home', href: '/' },
-  { label: 'Boxes by Industry', href: '/industries' },
-  { label: 'Boxes By Material', href: '/services' },
-  { label: 'Boxes By Style', href: '/services/corrugated-boxes' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Case Studies', href: '/design-support' },
-  { label: 'Reviews', href: '/about' }
+  { label: 'Custom Boxes', href: '/services' },
+  { label: 'Client Success Stories', href: '/design-support' },
+  { label: 'Blog', href: '/blog' }
 ];
 const isIndustryActive = pathname === '/industries' || pathname.startsWith('/industries/');
 const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
@@ -26,55 +36,81 @@ const mobileTopNav = [
   { label: 'Blog', href: '/blog', active: pathname.startsWith('/blog') }
 ];
 ---
-<header class="sticky top-0 z-30 bg-neutral-50 shadow-sm">
-  <div class="container max-w-wide flex items-center justify-between gap-3 py-2 lg:gap-4 lg:py-2.5">
+<header class="sticky top-0 z-30 bg-white shadow-sm">
+  <div class="hidden bg-neutral-950 text-neutral-50 md:block">
+    <div class="mx-auto grid min-h-8 w-full grid-cols-[auto_1fr_auto] items-center gap-6 px-6 text-xs font-black tracking-wide md:px-8">
+      <div class="flex items-center gap-3 text-accent">
+        <span class="grid h-5 w-5 place-items-center rounded border border-accent/35" aria-hidden="true">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21 8-9-5-9 5 9 5 9-5Z"></path>
+            <path d="M3 8v8l9 5 9-5V8"></path>
+            <path d="M12 13v8"></path>
+          </svg>
+        </span>
+        <span>Order with confidence.</span>
+        <span class="ml-4 h-5 w-px bg-accent/45" aria-hidden="true"></span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-neutral-200">
+        <span class="text-accent" aria-hidden="true">↯</span>
+        <span>Fast turnaround. Premium quality. Delivered in as fast as <strong class="text-accent">7 days.</strong></span>
+      </div>
+      <div class="flex items-center justify-end gap-3 text-accent">
+        <span class="text-accent" aria-hidden="true">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.93a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.2 1.2 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1v7Z"></path>
+          </svg>
+        </span>
+        <span>Secure packaging. Protected delivery.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto flex w-full items-center justify-between gap-3 px-4 py-3 md:px-6 lg:grid lg:min-h-[5.75rem] lg:grid-cols-[230px_minmax(18rem,1fr)_auto] lg:gap-7 lg:px-8 lg:py-4 xl:grid-cols-[250px_minmax(22rem,1fr)_auto]">
     <a href="/" class="flex shrink-0 items-center" aria-label="Apex Packaging home">
       <img
-        src="/images/brand/selected/apex-packaging-logo-header.png"
+        src="/images/apex-update/brand/final-logo.png"
         alt="Apex Packaging"
-        width="420"
-        height="155"
-        class="h-8 w-auto md:h-10 lg:h-11"
+        width="2064"
+        height="762"
+        class="h-10 w-auto md:h-12 lg:h-16 xl:h-16"
         loading="eager"
         decoding="async"
       />
     </a>
-    <div class="hidden items-center gap-4 lg:flex">
+    <form action="/services" class="hidden h-11 w-full max-w-[24rem] min-w-0 justify-self-start rounded-full border border-neutral-200 bg-white pl-5 pr-2 shadow-[0_8px_22px_rgba(15,13,10,0.07)] ring-1 ring-neutral-100 lg:flex lg:items-center xl:max-w-[26rem]" role="search">
+      <input
+        class="min-w-0 flex-1 bg-transparent text-sm font-semibold text-neutral-800 outline-none placeholder:text-neutral-400"
+        name="q"
+        placeholder="Search custom packaging, boxes, styles..."
+        aria-label="Search packaging"
+      />
+      <button class="grid h-8 w-8 shrink-0 place-items-center rounded-full text-accent transition hover:bg-[#fff4cf]" type="submit" aria-label="Search">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+    </form>
+    <div class="hidden items-center justify-end gap-4 lg:flex">
       {hasPhone && (
         <>
-          <a href={`tel:${siteConfig.phone}`} class="group inline-flex items-center gap-2.5 text-neutral-900">
-            <span class="grid h-10 w-10 place-items-center rounded-lg border border-[#c8d9dc] bg-[#edf4f5] text-[#1f6672] shadow-sm transition-transform duration-150 group-hover:-translate-y-0.5" aria-hidden="true">
+          <a href={`tel:${siteConfig.phone}`} class="group inline-flex items-center gap-3 text-neutral-900">
+            <span class="grid h-10 w-10 place-items-center rounded-full border-2 border-accent text-accent transition-transform duration-150 group-hover:-translate-y-0.5" aria-hidden="true">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.89.66 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.23a2 2 0 0 1 2.11-.45c.89.31 1.82.53 2.78.66A2 2 0 0 1 22 16.92z"></path>
               </svg>
             </span>
-            <span class="font-display text-base font-extrabold tracking-tight xl:text-lg">{displayPhone}</span>
+            <span>
+              <span class="block whitespace-nowrap text-xs font-bold text-neutral-900">Speak with a Packaging Expert</span>
+              <span class="block whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-neutral-950">{displayPhone}</span>
+            </span>
           </a>
-
-          <span class="h-7 w-px bg-neutral-200" aria-hidden="true"></span>
+          <span class="h-9 w-px bg-neutral-300" aria-hidden="true"></span>
         </>
       )}
-
-      <a href={`mailto:${siteConfig.email}`} class="group inline-flex min-w-0 items-center gap-2.5 text-neutral-900">
-        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#c8d9dc] bg-[#edf4f5] text-[#1f6672] shadow-sm transition-transform duration-150 group-hover:-translate-y-0.5" aria-hidden="true">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-            <path d="m3 7 9 6 9-6"></path>
-          </svg>
-        </span>
-        <span class="max-w-[260px] truncate font-display text-base font-extrabold tracking-tight xl:max-w-[360px] xl:text-lg 2xl:max-w-none">{siteConfig.email}</span>
-      </a>
-
-      {hasPhone && (
-        <a href={whatsappHref} class="group grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[#22c55e] text-white shadow-[0_10px_22px_rgba(34,197,94,0.18)] ring-1 ring-[#16a34a]/15 transition duration-150 hover:-translate-y-0.5 hover:bg-[#16a34a]" aria-label="Chat with Apex Packaging on WhatsApp">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12.04 2.75A9.15 9.15 0 0 0 4.2 16.62L3 21.25l4.73-1.18A9.15 9.15 0 1 0 12.04 2.75Zm0 1.72a7.43 7.43 0 0 1 6.32 11.35 7.52 7.52 0 0 1-8.9 2.73l-.33-.15-2.86.72.73-2.78-.17-.34a7.43 7.43 0 0 1 5.21-11.53Zm-3.22 3.92c-.17 0-.45.06-.68.33-.24.26-.9.87-.9 2.13 0 1.25.92 2.47 1.05 2.64.13.17 1.8 2.86 4.39 3.89 2.18.86 2.62.69 3.09.65.47-.04 1.52-.62 1.73-1.22.22-.6.22-1.11.15-1.22-.06-.11-.23-.17-.49-.3-.26-.13-1.52-.75-1.76-.84-.24-.09-.41-.13-.58.13-.17.26-.66.84-.81 1.01-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.07-.13-.58-1.4-.8-1.91-.21-.51-.43-.44-.58-.44h-.49Z"></path>
-          </svg>
-        </a>
-      )}
-
-      <a href="/contact" class="inline-flex h-10 shrink-0 items-center rounded-md bg-accent px-5 font-display text-base font-extrabold text-neutral-900 shadow-sm transition-colors hover:bg-warning xl:px-6 xl:text-lg">
-        Get Quote
+      <a href="/contact" class="inline-flex h-11 shrink-0 items-center gap-3 rounded-md bg-accent px-5 font-display text-sm font-extrabold uppercase tracking-wide text-white shadow-[0_10px_18px_rgba(214,158,0,0.18)] transition-colors hover:bg-warning xl:px-6">
+        Request a Quote
+        <span aria-hidden="true">→</span>
       </a>
     </div>
     <div class="flex items-center gap-2 lg:hidden">
@@ -90,29 +126,31 @@ const mobileTopNav = [
       </a>
     </div>
   </div>
-  <div class="bg-neutral-800 text-neutral-50">
-    <div class="container relative max-w-wide hidden items-center justify-between gap-6 lg:flex">
-      <nav aria-label="Primary" class="flex min-w-max items-center text-sm font-bold">
-        <a
-          href="/"
-          class:list={[
-            'px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
-            pathname === '/' ? 'bg-neutral-900' : ''
-          ]}
-        >
-          Home
-        </a>
+  <div class="border-y border-neutral-200 bg-white">
+    <div class="relative mx-auto hidden w-full items-center justify-between gap-6 px-8 lg:flex">
+      <nav aria-label="Primary" class="flex min-w-max items-center text-sm font-black text-neutral-800">
+        {simpleNav.slice(0, 1).map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'px-5 py-3 transition-colors hover:text-accent',
+              pathname === item.href ? 'text-accent' : ''
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
 
         <div class="group">
           <a
             href="/industries"
             data-industry-trigger
             class:list={[
-              'inline-flex items-center gap-1 px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
-              isIndustryActive ? 'bg-accent text-neutral-900' : ''
+              'inline-flex items-center gap-1 px-5 py-3 transition-colors hover:text-accent',
+              isIndustryActive ? 'text-accent' : ''
             ]}
           >
-            Boxes by Industry
+            Boxes by Industry <span aria-hidden="true">⌄</span>
           </a>
           <div data-industry-mega-menu class="invisible absolute left-10 right-10 top-full z-50 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-b-md border border-neutral-200 bg-white text-neutral-900 opacity-0 shadow-popover transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
             <div class="border-b border-neutral-200 bg-neutral-50 px-7 py-5">
@@ -151,24 +189,69 @@ const mobileTopNav = [
           </div>
         </div>
 
-        {packagingNav.slice(2).map((item) => (
+        <div class="group">
+          <a
+            href="/services"
+            class:list={[
+              'inline-flex items-center gap-1 px-5 py-3 transition-colors hover:text-accent',
+              isServicesActive ? 'text-accent' : ''
+            ]}
+          >
+            Boxes By Material <span aria-hidden="true">⌄</span>
+          </a>
+          <div class="invisible absolute left-10 right-10 top-full z-50 rounded-b-md border border-neutral-200 bg-white text-neutral-900 opacity-0 shadow-popover transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <div class="grid gap-4 p-6 md:grid-cols-4">
+              {materialNav.map((item) => (
+                <a href={item.href} class="group/item overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 transition hover:-translate-y-1 hover:border-accent hover:shadow-card">
+                  <img src={item.image} alt={`${item.label} packaging`} width="724" height="543" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover/item:scale-[1.03]" />
+                  <span class="block px-4 py-3 font-display text-base font-extrabold text-neutral-900">{item.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="group">
+          <a
+            href="/services/mailer-boxes"
+            class="inline-flex items-center gap-1 px-5 py-3 transition-colors hover:text-accent"
+          >
+            Boxes By Style <span aria-hidden="true">⌄</span>
+          </a>
+          <div class="invisible absolute left-10 right-10 top-full z-50 rounded-b-md border border-neutral-200 bg-white text-neutral-900 opacity-0 shadow-popover transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <div class="grid gap-4 p-6 md:grid-cols-5">
+              {styleNav.map((item) => (
+                <a href={item.href} class="group/item overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 transition hover:-translate-y-1 hover:border-accent hover:shadow-card">
+                  <img src={item.image} alt={`${item.label} packaging`} width="724" height="543" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover/item:scale-[1.03]" />
+                  <span class="block px-4 py-3 font-display text-base font-extrabold text-neutral-900">{item.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {simpleNav.slice(1).map((item) => (
           <a
             href={item.href}
             class:list={[
-              'px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
-              pathname === item.href && item.href !== '/' ? 'bg-neutral-900' : ''
+              'px-5 py-3 transition-colors hover:text-accent',
+              pathname === item.href && item.href !== '/' ? 'text-accent' : ''
             ]}
           >
             {item.label}
-            {(item.label === 'Boxes By Material' || item.label === 'Boxes By Style') && <span class="ml-1 text-accent">⌄</span>}
           </a>
         ))}
       </nav>
-      <a href="/services" class="hidden shrink-0 items-center px-4 py-3 text-2xl font-bold hover:text-accent md:inline-flex" aria-label="Search packaging products">
-        ⌕
-      </a>
+      <div class="hidden shrink-0 items-center gap-2 border-l border-neutral-200 pl-5 text-xs font-black uppercase tracking-wide text-neutral-700 xl:flex">
+        <span>Global Operations:</span>
+        <span class="text-base" aria-label="United States">🇺🇸</span>
+        <span class="text-base" aria-label="China">🇨🇳</span>
+        <span class="text-base" aria-label="Saudi Arabia">🇸🇦</span>
+        <span class="text-base" aria-label="United Kingdom">🇬🇧</span>
+        <span class="text-base" aria-label="United Arab Emirates">🇦🇪</span>
+      </div>
     </div>
-    <div class="lg:hidden">
+    <div class="border-t border-neutral-200 lg:hidden">
       <nav aria-label="Primary mobile" class="container max-w-wide flex gap-2 overflow-x-auto py-2 text-sm font-black [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {mobileTopNav.map((item) => (
           <a

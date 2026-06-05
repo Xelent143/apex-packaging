@@ -37,7 +37,7 @@ const benefitStrip = [
   { step: 'Sample', title: 'Starting From 50 Boxes', stat: '50 box starts', icon: 'sample-run', body: 'Digital sample runs help you validate packaging before scaling.' },
   { step: 'Specify', title: 'Customize Size & Style', stat: 'Built to fit', icon: 'custom-spec', body: 'Boxes, bags, trays, sleeves, inserts, and finishes built around your product.' },
   { step: 'Produce', title: 'Quick Turnaround Time', stat: '7-14 days', icon: 'production-window', body: 'Standard custom orders move from approval to production in 7-14 days.' },
-  { step: 'Ship', title: 'Domestic Shipping', stat: 'Canada-wide', icon: 'domestic-shipping', body: 'Apex ships from Canada across provinces by parcel, LTL, and FTL.' }
+  { step: 'Ship', title: 'Free Shipping', stat: 'USA & Canada', icon: 'domestic-shipping', body: 'Apex Packaging provides complimentary shipping throughout the USA and Canada.' }
 ];
 
 const finishes = [
@@ -54,7 +54,7 @@ const reasons = [
   { title: 'Sustainable Material Options', icon: 'sustainable-materials', body: 'FSC corrugated, recycled liner, kraft board, compostable polybag options, and soy-based inks are available.' },
   { title: 'High-End Printing Quality', icon: 'printing-quality', body: 'Flexo, digital, and litho-laminated print options cover short runs, retail graphics, and industrial markings.' },
   { title: 'Premium Finishing Features', icon: 'premium-finishes', body: 'Foil, embossing, spot UV, matte lamination, and soft-touch finishes help retail packaging stand out.' },
-  { title: 'Fast Canadian Delivery', icon: 'canadian-delivery', body: 'Domestic production avoids overseas freight delays and keeps launch schedules under control.' },
+  { title: 'Fast Delivery', icon: 'canadian-delivery', body: 'Our streamlined shipping process helps reduce freight delays and keeps your launch schedules on track.' },
   { title: 'Design Support Included', icon: 'design-support', body: 'Send your logo and product dimensions; Apex returns a dieline, proof, and production-ready artwork.' },
   { title: 'Low MOQ Flexibility', icon: 'low-moq', body: 'Start with sample or short-run quantities before committing to a full pallet.' },
   { title: 'Procurement-Ready Specs', icon: 'procurement-specs', body: 'Quotes include material, board strength, print method, MOQ, lead time, and reorder details.' }
@@ -70,16 +70,16 @@ const faqs = [
 
 const heroSlides = [
   {
-    src: '/images/home/apparel-boxes-hero-banner-1.webp',
-    alt: 'Apex Packaging apparel boxes with branded black and gold mailer packaging'
+    src: '/images/apex-update/banners/banner-1.png',
+    alt: 'Apex Packaging custom box industry hero banner'
   },
   {
-    src: '/images/home/apparel-boxes-hero-banner-2.webp',
-    alt: 'Apex Packaging apparel subscription boxes with branded shirts and hoodie packaging'
+    src: '/images/apex-update/banners/banner-2.png',
+    alt: 'Apex Packaging retail and industry packaging hero banner'
   },
   {
-    src: '/images/home/apparel-boxes-hero-banner-3.webp',
-    alt: 'Apex Packaging black and gold apparel boxes with hoodie and folded shirts'
+    src: '/images/apex-update/banners/banner-3.png',
+    alt: 'Apex Packaging branded boxes hero banner'
   }
 ];
 
@@ -90,15 +90,16 @@ const schemaBlocks = [buildFAQSchema(faqs)];
   description="Apex Packaging Solutions manufactures custom printed boxes, bags, mailers, inserts, and retail packaging in Canada with low MOQs, fast turnaround, and design support."
   schemaBlocks={schemaBlocks}
 >
-  <section class="relative isolate overflow-hidden bg-white">
-    <div class="absolute inset-0 -z-10" aria-hidden="true">
+  <section class="apex-banner-slider overflow-hidden border-b border-neutral-200 bg-white">
+    <h1 class="sr-only">Custom Packaging your customers will love</h1>
+    <div class="relative aspect-[2172/724] w-full">
       {heroSlides.map((slide, index) => (
         <img
           src={slide.src}
           alt={slide.alt}
-          width="2560"
-          height="960"
-          class="hero-slide absolute inset-0 h-full w-full object-contain object-center opacity-0"
+          width="2172"
+          height="724"
+          class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
           style={`animation-delay: ${index * 5}s;`}
           loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
@@ -106,37 +107,15 @@ const schemaBlocks = [buildFAQSchema(faqs)];
         />
       ))}
     </div>
-    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.86)_58%,rgba(255,255,255,0.46)_100%)] md:hidden" aria-hidden="true"></div>
-    <div class="container max-w-wide flex min-h-[610px] items-start py-10 md:min-h-[620px] md:items-center md:py-16 lg:min-h-[650px]">
-      <div class="max-w-[760px]">
-        <p class="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-accent md:mb-5 md:text-sm">Custom printed packaging</p>
-        <h1 class="font-display text-[2.65rem] font-extrabold leading-[1.02] tracking-normal text-neutral-900 md:text-7xl">
-          <span class="block">Custom</span>
-          <span class="block">Packaging your</span>
-          <span class="block text-[0.7em] font-medium md:text-[0.78em]">customers will love</span>
-        </h1>
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-neutral-700 md:mt-7 md:text-xl">
-          Boxes, bags, mailers, trays, sleeves, and premium finishes produced for Canadian brands that need packaging to look sharp and ship on time.
-        </p>
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8 md:gap-4">
-          <a href="/contact" class="btn-primary !bg-accent !text-neutral-900 hover:!bg-warning">Get Quote</a>
-          <a href="#categories" class="btn-secondary">Browse Products</a>
-        </div>
-        <div class="mt-7 grid grid-cols-3 gap-2 text-center text-[0.66rem] font-bold uppercase leading-tight tracking-wide text-neutral-600 md:mt-10 md:flex md:flex-wrap md:items-center md:gap-3 md:text-left md:text-xs">
-          <span class="rounded-md bg-white/90 px-3 py-2 shadow-card backdrop-blur">BBB A+ rated</span>
-          <span class="rounded-md bg-white/90 px-3 py-2 shadow-card backdrop-blur">Google reviewed</span>
-          <span class="rounded-md bg-white/90 px-3 py-2 shadow-card backdrop-blur">7-14 day production</span>
-        </div>
-      </div>
-    </div>
   </section>
 
   <style>
-    .hero-slide {
-      animation: hero-slide-fade 15s infinite;
+    .apex-banner-slide {
+      animation: apex-banner-fade 15s infinite;
+      opacity: 0;
     }
 
-    @keyframes hero-slide-fade {
+    @keyframes apex-banner-fade {
       0%,
       30% {
         opacity: 1;
@@ -148,20 +127,17 @@ const schemaBlocks = [buildFAQSchema(faqs)];
       }
 
       100% {
-        opacity: 0.36;
+        opacity: 0;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-slide {
+      .apex-banner-slide {
         animation: none;
-      }
-
-      .hero-slide:not(:first-child) {
         opacity: 0;
       }
 
-      .hero-slide:first-child {
+      .apex-banner-slide:first-child {
         opacity: 1;
       }
     }
@@ -211,7 +187,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
             Quote, proof, produce, reorder
           </h2>
           <p class="mt-3 max-w-3xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-            Apex brings custom packaging pricing, dielines, materials, production timing, and domestic shipping into one clear workflow.
+            Apex brings custom packaging pricing, dielines, materials, production timing, and shipping clarity into one clear workflow.
           </p>
         </div>
         <div class="lg:col-span-4 lg:text-right">
@@ -336,71 +312,157 @@ const schemaBlocks = [buildFAQSchema(faqs)];
         <p class="eyebrow">RFQ desk</p>
         <div class="mt-3 flex flex-wrap items-end gap-x-6 gap-y-3">
           <h2 class="font-display text-3xl font-extrabold uppercase leading-none text-neutral-900 md:text-5xl">Get Custom Quote</h2>
-          <span class="mb-1 rounded-md bg-white px-4 py-2 text-sm font-black uppercase tracking-wide text-success shadow-card">Free domestic shipping review</span>
+          <span class="mb-1 rounded-md bg-white px-4 py-2 text-sm font-black uppercase tracking-wide text-success shadow-card">Free shipping review</span>
         </div>
         <p class="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
           Send the package size, material, quantity, and launch timing. Apex reviews the spec and responds with a practical production path.
         </p>
       </div>
 
-      <div class="grid gap-8 lg:grid-cols-12 lg:items-stretch">
-        <form class="grid gap-3 rounded-md border border-neutral-200 bg-white p-4 shadow-card md:gap-4 md:p-7 lg:col-span-8">
-          <div class="grid gap-4 md:grid-cols-3">
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="name" placeholder="Name" />
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="phone" placeholder="Phone No" />
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="email" placeholder="Email Address" />
+      <div class="grid gap-8 lg:grid-cols-12 lg:items-center xl:gap-10">
+        <form class="overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-neutral-100 shadow-popover lg:col-span-7">
+          <div class="bg-accent px-5 py-5 text-center md:px-7">
+            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-900 md:text-3xl">Get Custom Quote</h3>
           </div>
-          <div class="grid gap-4 md:grid-cols-3">
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="quantity" placeholder="Quantity" />
-            <select class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-800 focus:border-accent focus:bg-white" name="material">
-              <option>Select Material</option>
-              <option>Corrugated</option>
-              <option>Kraft paperboard</option>
-              <option>Poly film</option>
-              <option>Molded pulp</option>
-            </select>
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="product" placeholder="Product Name" />
-          </div>
-          <div class="grid gap-4 md:grid-cols-[1fr_1fr_1fr_0.85fr]">
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="length" placeholder="L" />
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="width" placeholder="W" />
-            <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="depth" placeholder="D" />
-            <select class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-800 focus:border-accent focus:bg-white" name="unit">
-              <option>inch</option>
-              <option>cm</option>
-              <option>mm</option>
-            </select>
-          </div>
-          <textarea class="min-h-36 rounded-md border border-neutral-300 bg-neutral-50 px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white md:min-h-40" name="message" placeholder="Write short message"></textarea>
-          <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center md:gap-4">
-            <button class="min-h-[3.25rem] rounded-md bg-accent px-7 py-4 font-black text-neutral-900 transition hover:bg-warning" type="submit">Submit Quote Request</button>
-            <p class="max-w-md text-sm font-semibold leading-relaxed text-neutral-500">Attach artwork after the first reply, or include file notes in the message.</p>
+
+          <div class="grid gap-5 p-4 md:p-7">
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                  <PackagingIcon name="quote-review" class="h-4 w-4" />
+                </span>
+                Product Information
+              </legend>
+              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name" />
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                  <PackagingIcon name="custom-spec" class="h-4 w-4" />
+                </span>
+                Select Sizes
+              </legend>
+              <div class="grid gap-2 sm:grid-cols-[1fr_1fr_1fr_0.82fr]">
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" />
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit">
+                  <option>Unit</option>
+                  <option>inch</option>
+                  <option>cm</option>
+                  <option>mm</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                  <PackagingIcon name="sample-run" class="h-4 w-4" />
+                </span>
+                Choose Materials
+              </legend>
+              <div class="grid gap-2 sm:grid-cols-[1fr_1fr_0.85fr]">
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material">
+                  <option>Stock</option>
+                  <option>Cardboard Boxes</option>
+                  <option>Kraft Boxes</option>
+                  <option>Rigid Boxes</option>
+                  <option>Corrugated Boxes</option>
+                </select>
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing">
+                  <option>Printing</option>
+                  <option>Full-color exterior</option>
+                  <option>Inside and outside print</option>
+                  <option>No print</option>
+                </select>
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" />
+              </div>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                  <PackagingIcon name="design-proof" class="h-4 w-4" />
+                </span>
+                Upload Artwork
+              </legend>
+              <label class="flex min-h-12 cursor-pointer items-center bg-white px-4 text-sm font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
+                <input class="text-sm" name="artwork" type="file" />
+              </label>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
+                  </svg>
+                </span>
+                Personal Information
+              </legend>
+              <div class="grid gap-2 sm:grid-cols-3">
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" />
+              </div>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
+                  </svg>
+                </span>
+                Additional Information
+              </legend>
+              <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..."></textarea>
+            </fieldset>
+
+            <div class="grid gap-4 pt-1 sm:grid-cols-[1fr_auto] sm:items-center">
+              <div class="flex min-h-16 max-w-xs items-center gap-3 border border-neutral-300 bg-white px-4 text-sm font-semibold text-neutral-600">
+                <span class="h-7 w-7 border border-neutral-500 bg-white" aria-hidden="true"></span>
+                I'm not a robot
+                <span class="ml-auto text-[0.65rem] font-black uppercase text-neutral-400">reCAPTCHA</span>
+              </div>
+              <button class="min-h-12 rounded-md bg-accent px-10 py-3 font-black text-neutral-900 transition hover:bg-warning" type="submit">Submit</button>
+            </div>
           </div>
         </form>
 
-        <aside class="overflow-hidden rounded-md bg-neutral-900 text-neutral-50 shadow-popover lg:col-span-4">
-          <div class="border-b border-neutral-700 bg-success px-6 py-7">
-            <p class="text-sm font-black uppercase tracking-[0.14em] text-neutral-100">Shop with confidence</p>
-            <h3 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-50">Proofed before production.</h3>
-          </div>
-          <div class="grid gap-5 p-6">
-            <div class="grid grid-cols-2 gap-3">
-              <div class="rounded-md bg-neutral-50 px-4 py-4 text-neutral-900">
-                <div class="font-display text-3xl font-extrabold text-accent">24h</div>
-                <p class="mt-1 text-sm font-bold leading-snug">Typical RFQ review</p>
-              </div>
-              <div class="rounded-md bg-neutral-50 px-4 py-4 text-neutral-900">
-                <div class="font-display text-3xl font-extrabold text-accent">7-14</div>
-                <p class="mt-1 text-sm font-bold leading-snug">Day production window</p>
-              </div>
-            </div>
-            <ul class="grid gap-3 text-sm font-semibold leading-relaxed text-neutral-200">
-              <li class="rounded-md border border-neutral-700 px-4 py-3">Secure quote review before order commitment</li>
-              <li class="rounded-md border border-neutral-700 px-4 py-3">Material guidance for corrugated, kraft, film, and pulp</li>
-              <li class="rounded-md border border-neutral-700 px-4 py-3">Dieline, proof, and reorder files kept on record</li>
-            </ul>
-            <div class="rounded-md bg-warning px-5 py-4 font-display text-xl font-extrabold leading-tight text-neutral-900">
-              Production proof before full run
+        <aside class="lg:col-span-5">
+          <div class="max-w-2xl">
+            <h3 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">
+              Custom Boxes, Designed for Your Brand, Made for Your Needs - Without the Hassle.
+            </h3>
+            <p class="mt-5 text-base font-semibold leading-relaxed text-neutral-600">
+              Ensuring the perfect fit, protection, branding, and presentation for your custom boxes is effortless with Apex's comprehensive support.
+            </p>
+            <p class="mt-4 text-base font-semibold leading-relaxed text-neutral-600">
+              Get expert guidance, access proven box styles, and find the right size by sending your product details. Apex helps select materials, printing techniques, finishes, laminations, and add-ons tailored to your packaging needs and purpose.
+            </p>
+            <h4 class="mt-7 font-display text-xl font-extrabold text-neutral-900">Still, There's More!</h4>
+            <p class="mt-3 text-base font-semibold leading-relaxed text-neutral-600">
+              Upload your logo or artwork, and our packaging designers can refine it to match your brand identity while keeping the structure practical for production.
+            </p>
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              {[
+                'New look for your brand',
+                'Perfect fit to your products',
+                'Perfect fit to your purpose',
+                'All with convenience quick'
+              ].map((item) => (
+                <div class="flex min-h-16 items-center gap-3 rounded-md border border-[#ead58d] bg-[#fff8df] px-4 font-display text-sm font-extrabold text-neutral-800">
+                  <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent text-neutral-900" aria-hidden="true">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 12 4 4 8-8"></path>
+                    </svg>
+                  </span>
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </aside>
