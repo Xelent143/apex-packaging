@@ -1,0 +1,26 @@
+---
+const widgetUrl = import.meta.env.PUBLIC_TAWK_TO_WIDGET_URL?.trim();
+const tawkWidgetUrl =
+  widgetUrl && /^https:\/\/embed\.tawk\.to\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/?$/.test(widgetUrl)
+    ? widgetUrl
+    : '';
+---
+
+{tawkWidgetUrl && (
+  <script is:inline define:vars={{ tawkWidgetUrl }}>
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+
+    (function () {
+      var script = document.createElement('script');
+      var firstScript = document.getElementsByTagName('script')[0];
+
+      script.async = true;
+      script.src = tawkWidgetUrl;
+      script.charset = 'UTF-8';
+      script.setAttribute('crossorigin', '*');
+
+      firstScript.parentNode.insertBefore(script, firstScript);
+    })();
+  </script>
+)}

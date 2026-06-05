@@ -5,6 +5,7 @@ import { buildMeta } from '../lib/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '../lib/schema';
 import Header from '../components/nav/Header.astro';
 import Footer from '../components/nav/Footer.astro';
+import TawkToChat from '../components/integrations/TawkToChat.astro';
 
 interface Props {
   title: string;
@@ -49,5 +50,6 @@ const schema = [buildOrganizationSchema(), buildWebSiteSchema(), ...schemaBlocks
     <Header />
     <main id="main"><slot /></main>
     <Footer />
+    <TawkToChat />
   </body>
 </html>
