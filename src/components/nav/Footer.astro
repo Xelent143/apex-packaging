@@ -27,70 +27,70 @@ const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
 ---
 <footer class="bg-neutral-100 text-neutral-900">
   <div class="grid lg:grid-cols-[minmax(320px,0.8fr)_minmax(640px,1.55fr)]">
-    <section class="bg-neutral-800 px-8 py-12 text-neutral-50 md:px-12 lg:px-16">
+    <section class="bg-neutral-800 px-4 py-10 text-neutral-50 md:px-12 lg:px-16">
       <a href="/" class="inline-flex items-center" aria-label="Apex Packaging home">
         <img
           src="/images/brand/selected/apex-packaging-logo-footer.png"
           alt="Apex Packaging"
           width="420"
           height="155"
-          class="h-16 w-auto"
+          class="h-12 w-auto md:h-16"
           loading="lazy"
           decoding="async"
         />
       </a>
 
-      <p class="mt-10 max-w-md font-display text-2xl font-extrabold leading-snug text-neutral-200">
+      <p class="mt-7 max-w-md font-display text-xl font-extrabold leading-snug text-neutral-200 md:mt-10 md:text-2xl">
         We collaborate with people and brands.
       </p>
-      <p class="mt-8 text-lg text-neutral-300">
+      <p class="mt-4 text-base text-neutral-300 md:mt-8 md:text-lg">
         Lets build something great together.
       </p>
 
-      <form class="mt-14 max-w-md">
-        <label for="footer-email" class="mb-3 block text-lg font-medium text-neutral-300">
+      <form class="mt-8 max-w-md md:mt-14">
+        <label for="footer-email" class="mb-3 block text-base font-medium text-neutral-300 md:text-lg">
           Sign up for exclusive offers and updates!
         </label>
-        <div class="flex">
+        <div class="grid gap-2 sm:flex">
           <input
             id="footer-email"
-            class="min-w-0 flex-1 rounded-l-md border border-neutral-500 bg-neutral-50 px-4 py-3 text-neutral-900 placeholder:text-neutral-500"
+            class="h-12 min-w-0 flex-1 rounded-md border border-neutral-500 bg-neutral-50 px-4 text-neutral-900 placeholder:text-neutral-500 sm:rounded-r-none"
             placeholder="Your Email Address..."
             type="email"
           />
-          <button class="rounded-r-md bg-accent px-5 py-3 font-bold text-neutral-900 hover:bg-warning" type="submit">
+          <button class="h-12 rounded-md bg-accent px-5 font-bold text-neutral-900 hover:bg-warning sm:rounded-l-none" type="submit">
             Submit
           </button>
         </div>
       </form>
     </section>
 
-    <section class="px-8 py-12 md:px-12 lg:px-16">
-      <div class="grid gap-10 md:grid-cols-[0.9fr_1fr_1.35fr]">
+    <section class="px-4 py-10 md:px-12 lg:px-16">
+      <div class="grid gap-8 md:grid-cols-[0.9fr_1fr_1.35fr] md:gap-10">
         <div>
-          <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Information</h2>
-          <ul class="space-y-3.5 text-base">
+          <h2 class="mb-4 font-display text-base font-extrabold uppercase text-neutral-800 md:mb-6 md:text-lg">Information</h2>
+          <ul class="grid grid-cols-2 gap-2 text-sm md:block md:space-y-3.5 md:text-base">
             {infoLinks.map(([label, href]) => (
-              <li><a href={href} class="transition-colors hover:text-accent">{label}</a></li>
+              <li><a href={href} class="flex min-h-11 items-center rounded-md bg-neutral-50 px-3 transition-colors hover:text-accent md:min-h-0 md:bg-transparent md:px-0">{label}</a></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Packaging Products</h2>
-          <ul class="space-y-3.5 text-base">
+          <h2 class="mb-4 font-display text-base font-extrabold uppercase text-neutral-800 md:mb-6 md:text-lg">Packaging Products</h2>
+          <ul class="grid grid-cols-2 gap-2 text-sm md:block md:space-y-3.5 md:text-base">
             {productLinks.map(([label, href]) => (
-              <li><a href={href} class="transition-colors hover:text-accent">{label}</a></li>
+              <li><a href={href} class="flex min-h-11 items-center rounded-md bg-neutral-50 px-3 transition-colors hover:text-accent md:min-h-0 md:bg-transparent md:px-0">{label}</a></li>
             ))}
           </ul>
         </div>
 
         <div>
           <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Contact Us</h2>
-          <ul class="space-y-5 text-base">
+          <ul class="space-y-4 text-sm md:space-y-5 md:text-base">
             <li class="flex gap-4">
               <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">E</span>
-              <a href={`mailto:${siteConfig.email}`} class="pt-1 hover:text-accent">{siteConfig.email}</a>
+              <a href={`mailto:${siteConfig.email}`} class="min-w-0 break-all pt-1 hover:text-accent">{siteConfig.email}</a>
             </li>
             <li class="flex gap-4">
               <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">L</span>
@@ -100,11 +100,11 @@ const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
         </div>
       </div>
 
-      <div class="mt-10 grid gap-6 border-t border-neutral-200 pt-7 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+      <div class="mt-8 grid gap-5 border-t border-neutral-200 pt-6 lg:grid-cols-[1fr_1.3fr] lg:items-center">
         <div class="flex flex-wrap items-center gap-3">
           <span class="font-display font-extrabold">Follow Us:</span>
           {socialLinks.map((label) => (
-            <a href="/contact" class="grid h-7 min-w-7 place-items-center rounded-sm bg-neutral-900 px-1.5 text-xs font-bold text-neutral-50 hover:bg-accent hover:text-neutral-900">
+            <a href="/contact" class="grid h-9 min-w-9 place-items-center rounded-sm bg-neutral-900 px-1.5 text-xs font-bold text-neutral-50 hover:bg-accent hover:text-neutral-900 md:h-7 md:min-w-7">
               {label}
             </a>
           ))}
@@ -123,7 +123,7 @@ const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
   </div>
 
   <section class="border-t border-neutral-200 bg-neutral-50">
-    <div class="container max-w-wide flex flex-col gap-3 py-3 text-center text-sm text-neutral-700 md:flex-row md:items-center md:justify-between md:text-left">
+    <div class="container max-w-wide flex flex-col gap-3 py-4 text-center text-sm text-neutral-700 md:flex-row md:items-center md:justify-between md:py-3 md:text-left">
       <span>
         Copyright {year}. {siteConfig.url.replace('https://', '')}. All rights reserved.
         <span class="mx-2 hidden text-neutral-400 md:inline">|</span>

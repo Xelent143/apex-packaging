@@ -74,12 +74,94 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-neutral-900 text-neutral-50 px-6 py-3 rounded-md font-medium hover:bg-accent hover:text-neutral-900 transition-colors duration-150;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 bg-neutral-900 text-neutral-50 px-6 py-3 rounded-md font-medium hover:bg-accent hover:text-neutral-900 transition-colors duration-150;
   }
   .btn-secondary {
-    @apply inline-flex items-center gap-2 bg-transparent text-neutral-900 px-6 py-3 rounded-md font-medium border-2 border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 transition-colors duration-150;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 bg-transparent text-neutral-900 px-6 py-3 rounded-md font-medium border-2 border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 transition-colors duration-150;
   }
   .eyebrow {
     @apply text-xs uppercase tracking-[0.18em] font-semibold text-accent;
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+
+  body {
+    padding-bottom: calc(4.8rem + env(safe-area-inset-bottom));
+  }
+
+  main {
+    overflow-x: clip;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-height: 3.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px;
+  }
+
+  a,
+  button,
+  summary,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: rgba(226, 179, 49, 0.22);
+  }
+
+  .prose-apex h2 {
+    @apply mt-10 mb-4 text-2xl;
+  }
+
+  .prose-apex h3 {
+    @apply mt-7 mb-3 text-xl;
+  }
+
+  .prose-apex p {
+    @apply text-base leading-[1.65];
+  }
+
+  .prose-apex ul,
+  .prose-apex ol {
+    @apply pl-5;
+  }
+
+  .prose-apex table {
+    display: block;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    border: 1px solid theme('colors.neutral.200');
+    background: theme('colors.neutral.50');
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .prose-apex th,
+  .prose-apex td {
+    min-width: 9rem;
+    padding-left: 0.75rem;
   }
 }

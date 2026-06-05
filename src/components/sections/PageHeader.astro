@@ -6,12 +6,12 @@ interface Props {
 }
 const { eyebrow, heading, lead } = Astro.props;
 ---
-<section class="pt-20 md:pt-28 pb-12 md:pb-16 border-b border-neutral-200">
+<section class="border-b border-neutral-200 bg-white pt-10 pb-9 md:pt-28 md:pb-16">
   <div class="container max-w-wide">
-    {eyebrow && <p class="eyebrow mb-5">{eyebrow}</p>}
-    <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-neutral-900 leading-[1.05] tracking-tight max-w-4xl mb-6">
+    {eyebrow && <p class="eyebrow mb-4 md:mb-5">{eyebrow}</p>}
+    <h1 class="mb-5 max-w-4xl font-display text-[2.05rem] font-bold leading-[1.04] tracking-normal text-neutral-900 md:mb-6 md:text-6xl lg:text-7xl">
       {heading}
     </h1>
-    {lead && <p class="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-3xl">{lead}</p>}
+    {lead && <p class="max-w-3xl text-base leading-relaxed text-neutral-600 md:text-xl">{lead}</p>}
   </div>
 </section>

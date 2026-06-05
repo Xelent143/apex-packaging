@@ -18,16 +18,23 @@ const packagingNav = [
   { label: 'Reviews', href: '/about' }
 ];
 const isIndustryActive = pathname === '/industries' || pathname.startsWith('/industries/');
+const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
+const mobileTopNav = [
+  { label: 'Products', href: '/services', active: isServicesActive },
+  { label: 'Industries', href: '/industries', active: isIndustryActive },
+  { label: 'Design', href: '/design-support', active: pathname === '/design-support' },
+  { label: 'Blog', href: '/blog', active: pathname.startsWith('/blog') }
+];
 ---
 <header class="sticky top-0 z-30 bg-neutral-50 shadow-sm">
-  <div class="container max-w-wide flex items-center justify-between gap-4 py-2 lg:py-2.5">
+  <div class="container max-w-wide flex items-center justify-between gap-3 py-2 lg:gap-4 lg:py-2.5">
     <a href="/" class="flex shrink-0 items-center" aria-label="Apex Packaging home">
       <img
         src="/images/brand/selected/apex-packaging-logo-header.png"
         alt="Apex Packaging"
         width="420"
         height="155"
-        class="h-9 w-auto md:h-10 lg:h-11"
+        class="h-8 w-auto md:h-10 lg:h-11"
         loading="eager"
         decoding="async"
       />
@@ -66,19 +73,19 @@ const isIndustryActive = pathname === '/industries' || pathname.startsWith('/ind
         </a>
       )}
 
-      <a href="/contact" class="inline-flex h-10 shrink-0 items-center rounded-md bg-error px-5 font-display text-base font-extrabold text-neutral-50 shadow-sm transition-colors hover:bg-error/90 xl:px-6 xl:text-lg">
+      <a href="/contact" class="inline-flex h-10 shrink-0 items-center rounded-md bg-accent px-5 font-display text-base font-extrabold text-neutral-900 shadow-sm transition-colors hover:bg-warning xl:px-6 xl:text-lg">
         Get Quote
       </a>
     </div>
     <div class="flex items-center gap-2 lg:hidden">
       {hasPhone && (
-        <a href={whatsappHref} class="grid h-10 w-10 place-items-center rounded-lg bg-[#22c55e] text-white shadow-sm ring-1 ring-[#16a34a]/15" aria-label="Chat with Apex Packaging on WhatsApp">
+        <a href={whatsappHref} class="grid h-11 w-11 place-items-center rounded-lg bg-[#22c55e] text-white shadow-sm ring-1 ring-[#16a34a]/15" aria-label="Chat with Apex Packaging on WhatsApp">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12.04 2.75A9.15 9.15 0 0 0 4.2 16.62L3 21.25l4.73-1.18A9.15 9.15 0 1 0 12.04 2.75Zm0 1.72a7.43 7.43 0 0 1 6.32 11.35 7.52 7.52 0 0 1-8.9 2.73l-.33-.15-2.86.72.73-2.78-.17-.34a7.43 7.43 0 0 1 5.21-11.53Zm-3.22 3.92c-.17 0-.45.06-.68.33-.24.26-.9.87-.9 2.13 0 1.25.92 2.47 1.05 2.64.13.17 1.8 2.86 4.39 3.89 2.18.86 2.62.69 3.09.65.47-.04 1.52-.62 1.73-1.22.22-.6.22-1.11.15-1.22-.06-.11-.23-.17-.49-.3-.26-.13-1.52-.75-1.76-.84-.24-.09-.41-.13-.58.13-.17.26-.66.84-.81 1.01-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.07-.13-.58-1.4-.8-1.91-.21-.51-.43-.44-.58-.44h-.49Z"></path>
           </svg>
         </a>
       )}
-      <a href="/contact" class="inline-flex h-10 items-center rounded-md bg-error px-4 text-sm font-bold text-neutral-50">
+      <a href="/contact" class="inline-flex h-11 items-center rounded-md bg-accent px-4 text-sm font-bold text-neutral-900">
         Quote
       </a>
     </div>
@@ -161,15 +168,14 @@ const isIndustryActive = pathname === '/industries' || pathname.startsWith('/ind
         ⌕
       </a>
     </div>
-    <div class="container max-w-wide flex items-center justify-between gap-6 overflow-x-auto lg:hidden">
-      <nav aria-label="Primary mobile" class="flex min-w-max items-center text-sm font-bold">
-        {packagingNav.map((item) => (
+    <div class="lg:hidden">
+      <nav aria-label="Primary mobile" class="container max-w-wide flex gap-2 overflow-x-auto py-2 text-sm font-black [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {mobileTopNav.map((item) => (
           <a
             href={item.href}
             class:list={[
-              'px-5 py-4 transition-colors hover:bg-accent hover:text-neutral-900',
-              item.href === '/industries' && isIndustryActive ? 'bg-accent text-neutral-900' : '',
-              item.href !== '/industries' && pathname === item.href && item.href !== '/' ? 'bg-neutral-900' : ''
+              'inline-flex min-h-10 shrink-0 items-center rounded-md border px-3 text-neutral-50 transition-colors',
+              item.active ? 'border-accent bg-accent text-neutral-900' : 'border-neutral-700 bg-neutral-900/40'
             ]}
           >
             {item.label}
@@ -179,3 +185,66 @@ const isIndustryActive = pathname === '/industries' || pathname.startsWith('/ind
     </div>
   </div>
 </header>
+<nav aria-label="Mobile app navigation" class="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-neutral-50/96 px-3 pb-[calc(env(safe-area-inset-bottom)+0.45rem)] pt-2 shadow-[0_-12px_28px_rgba(15,13,10,0.12)] backdrop-blur lg:hidden">
+  <div class="mx-auto grid max-w-md grid-cols-4 gap-2">
+    <a
+      href="/"
+      class:list={[
+        'grid min-h-[3.25rem] place-items-center rounded-md px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-600',
+        pathname === '/' ? 'bg-neutral-900 text-neutral-50' : 'hover:bg-neutral-100'
+      ]}
+    >
+      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m3 10 9-7 9 7"></path>
+        <path d="M5 10v10h14V10"></path>
+        <path d="M10 20v-6h4v6"></path>
+      </svg>
+      Home
+    </a>
+    <a
+      href="/services"
+      class:list={[
+        'grid min-h-[3.25rem] place-items-center rounded-md px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-600',
+        isServicesActive ? 'bg-neutral-900 text-neutral-50' : 'hover:bg-neutral-100'
+      ]}
+    >
+      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 8 12 3 3 8l9 5 9-5Z"></path>
+        <path d="M3 8v8l9 5 9-5V8"></path>
+        <path d="M12 13v8"></path>
+      </svg>
+      Products
+    </a>
+    <a
+      href="/industries"
+      class:list={[
+        'grid min-h-[3.25rem] place-items-center rounded-md px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-600',
+        isIndustryActive ? 'bg-neutral-900 text-neutral-50' : 'hover:bg-neutral-100'
+      ]}
+    >
+      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"></path>
+        <path d="M5 21V7l8-4v18"></path>
+        <path d="M19 21V11l-6-3"></path>
+        <path d="M9 9h1"></path>
+        <path d="M9 13h1"></path>
+        <path d="M16 15h1"></path>
+      </svg>
+      Industries
+    </a>
+    <a
+      href="/contact"
+      class:list={[
+        'grid min-h-[3.25rem] place-items-center rounded-md bg-accent px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-900 shadow-sm',
+        pathname === '/contact' ? 'ring-2 ring-accent ring-offset-2' : ''
+      ]}
+    >
+      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+        <path d="M8 9h8"></path>
+        <path d="M8 13h5"></path>
+      </svg>
+      Quote
+    </a>
+  </div>
+</nav>

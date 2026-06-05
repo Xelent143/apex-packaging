@@ -7,11 +7,11 @@ interface Props {
 }
 const { heading, lead, primaryCta, secondaryCta } = Astro.props;
 ---
-<section class="py-20 md:py-28 bg-neutral-900 text-neutral-50">
+<section class="bg-neutral-900 py-12 text-neutral-50 md:py-28">
   <div class="container max-w-default text-center">
-    <h2 class="font-display font-bold text-3xl md:text-5xl leading-[1.05] text-neutral-50 mb-5">{heading}</h2>
-    {lead && <p class="text-lg text-neutral-400 leading-relaxed max-w-2xl mx-auto mb-8">{lead}</p>}
-    <div class="flex flex-wrap items-center justify-center gap-4">
+    <h2 class="mb-4 font-display text-3xl font-bold leading-[1.05] text-neutral-50 md:mb-5 md:text-5xl">{heading}</h2>
+    {lead && <p class="mx-auto mb-7 max-w-2xl text-base leading-relaxed text-neutral-400 md:mb-8 md:text-lg">{lead}</p>}
+    <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center md:gap-4">
       <a href={primaryCta.href} class="inline-flex items-center gap-2 bg-accent text-neutral-900 px-7 py-3.5 rounded-md font-medium hover:bg-warning transition-colors">
         {primaryCta.label}
       </a>

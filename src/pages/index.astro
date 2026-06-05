@@ -70,15 +70,15 @@ const faqs = [
 
 const heroSlides = [
   {
-    src: '/images/home/apparel-boxes-hero-1.png',
+    src: '/images/home/apparel-boxes-hero-banner-1.webp',
     alt: 'Apex Packaging apparel boxes with branded black and gold mailer packaging'
   },
   {
-    src: '/images/home/apparel-boxes-hero-2.png',
+    src: '/images/home/apparel-boxes-hero-banner-2.webp',
     alt: 'Apex Packaging apparel subscription boxes with branded shirts and hoodie packaging'
   },
   {
-    src: '/images/home/apparel-boxes-hero-3.png',
+    src: '/images/home/apparel-boxes-hero-banner-3.webp',
     alt: 'Apex Packaging black and gold apparel boxes with hoodie and folded shirts'
   }
 ];
@@ -90,15 +90,15 @@ const schemaBlocks = [buildFAQSchema(faqs)];
   description="Apex Packaging Solutions manufactures custom printed boxes, bags, mailers, inserts, and retail packaging in Canada with low MOQs, fast turnaround, and design support."
   schemaBlocks={schemaBlocks}
 >
-  <section class="relative isolate overflow-hidden bg-[#dfddda]">
+  <section class="relative isolate overflow-hidden bg-white">
     <div class="absolute inset-0 -z-10" aria-hidden="true">
       {heroSlides.map((slide, index) => (
         <img
           src={slide.src}
           alt={slide.alt}
-          width="1448"
-          height="1086"
-          class="hero-slide absolute inset-0 h-full w-full origin-center object-cover object-[68%_center] opacity-0 md:translate-x-[5%] md:scale-[1.06]"
+          width="2560"
+          height="960"
+          class="hero-slide absolute inset-0 h-full w-full object-contain object-center opacity-0"
           style={`animation-delay: ${index * 5}s;`}
           loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
@@ -106,24 +106,23 @@ const schemaBlocks = [buildFAQSchema(faqs)];
         />
       ))}
     </div>
-    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(229,227,224,0.99)_0%,rgba(229,227,224,0.96)_38%,rgba(229,227,224,0.62)_58%,rgba(229,227,224,0.12)_80%,rgba(229,227,224,0)_100%)]"></div>
-    <div class="absolute inset-y-0 left-0 -z-10 w-full bg-[linear-gradient(180deg,rgba(229,227,224,0.24)_0%,rgba(229,227,224,0)_28%,rgba(229,227,224,0.18)_100%)]"></div>
-    <div class="container max-w-wide flex min-h-[560px] items-center py-14 md:min-h-[620px] md:py-16 lg:min-h-[650px]">
+    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.86)_58%,rgba(255,255,255,0.46)_100%)] md:hidden" aria-hidden="true"></div>
+    <div class="container max-w-wide flex min-h-[610px] items-start py-10 md:min-h-[620px] md:items-center md:py-16 lg:min-h-[650px]">
       <div class="max-w-[760px]">
-        <p class="mb-5 text-sm font-bold uppercase tracking-[0.16em] text-accent">Custom printed packaging</p>
-        <h1 class="font-display text-5xl font-extrabold leading-[1.04] tracking-normal text-neutral-900 md:text-7xl">
+        <p class="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-accent md:mb-5 md:text-sm">Custom printed packaging</p>
+        <h1 class="font-display text-[2.65rem] font-extrabold leading-[1.02] tracking-normal text-neutral-900 md:text-7xl">
           <span class="block">Custom</span>
           <span class="block">Packaging your</span>
           <span class="block text-[0.7em] font-medium md:text-[0.78em]">customers will love</span>
         </h1>
-        <p class="mt-7 max-w-xl text-xl leading-relaxed text-neutral-700">
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-neutral-700 md:mt-7 md:text-xl">
           Boxes, bags, mailers, trays, sleeves, and premium finishes produced for Canadian brands that need packaging to look sharp and ship on time.
         </p>
-        <div class="mt-8 flex flex-wrap gap-4">
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8 md:gap-4">
           <a href="/contact" class="btn-primary !bg-accent !text-neutral-900 hover:!bg-warning">Get Quote</a>
           <a href="#categories" class="btn-secondary">Browse Products</a>
         </div>
-        <div class="mt-10 flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-wide text-neutral-600">
+        <div class="mt-7 grid grid-cols-3 gap-2 text-center text-[0.66rem] font-bold uppercase leading-tight tracking-wide text-neutral-600 md:mt-10 md:flex md:flex-wrap md:items-center md:gap-3 md:text-left md:text-xs">
           <span class="rounded-md bg-white/90 px-3 py-2 shadow-card backdrop-blur">BBB A+ rated</span>
           <span class="rounded-md bg-white/90 px-3 py-2 shadow-card backdrop-blur">Google reviewed</span>
           <span class="rounded-md bg-white/90 px-3 py-2 shadow-card backdrop-blur">7-14 day production</span>
@@ -140,7 +139,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
     @keyframes hero-slide-fade {
       0%,
       30% {
-        opacity: 0.36;
+        opacity: 1;
       }
 
       36%,
@@ -150,24 +149,6 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
       100% {
         opacity: 0.36;
-      }
-    }
-
-    @media (min-width: 768px) {
-      @keyframes hero-slide-fade {
-        0%,
-        30% {
-          opacity: 1;
-        }
-
-        36%,
-        94% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
       }
     }
 
@@ -181,36 +162,30 @@ const schemaBlocks = [buildFAQSchema(faqs)];
       }
 
       .hero-slide:first-child {
-        opacity: 0.36;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) and (min-width: 768px) {
-      .hero-slide:first-child {
         opacity: 1;
       }
     }
   </style>
 
-  <section class="border-y border-neutral-200 bg-neutral-50 py-5">
+  <section class="border-y border-neutral-200 bg-neutral-50 py-3 md:py-5">
     <div class="container max-w-wide overflow-hidden">
-      <div class="flex min-w-max items-center gap-10 text-center text-sm font-black uppercase tracking-wide text-neutral-400">
+      <div class="flex min-w-max items-center gap-6 text-center text-xs font-black uppercase tracking-wide text-neutral-400 md:gap-10 md:text-sm">
         {[...clientNames, ...clientNames].map((name) => <span>{name}</span>)}
       </div>
     </div>
   </section>
 
-  <section id="categories" class="bg-white py-16 md:py-24">
+  <section id="categories" class="bg-white py-12 md:py-24">
     <div class="container max-w-wide">
-      <div class="mx-auto mb-12 max-w-4xl text-center">
-        <h2 class="font-display text-4xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">Your Custom Packaging Partner</h2>
-        <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+      <div class="mx-auto mb-8 max-w-4xl text-center md:mb-12">
+        <h2 class="font-display text-3xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">Your Custom Packaging Partner</h2>
+        <p class="mt-3 text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
           Choose the packaging category that matches your product, then send the size, quantity, print requirements, and launch date.
         </p>
       </div>
-      <div class="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 lg:grid-cols-4">
+      <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-x-5 md:gap-y-12 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
         {categories.map((cat) => (
-          <a href={cat.href} class="group text-center">
+          <a href={cat.href} class="group w-[42vw] max-w-[12rem] shrink-0 snap-start text-center md:w-auto md:max-w-none">
             <img
               src={`/images/home/categories/${cat.image}.webp`}
               alt={`${cat.title} product packaging`}
@@ -218,24 +193,24 @@ const schemaBlocks = [buildFAQSchema(faqs)];
               height="418"
               loading="lazy"
               decoding="async"
-              class="aspect-square w-full object-cover transition-transform duration-200 group-hover:-translate-y-1"
+              class="aspect-square w-full rounded-md object-cover shadow-sm transition-transform duration-200 group-hover:-translate-y-1 md:rounded-none md:shadow-none"
             />
-            <h3 class="mt-5 font-display text-lg font-extrabold uppercase tracking-tight text-neutral-900 md:text-xl">{cat.title}</h3>
+            <h3 class="mt-3 font-display text-sm font-extrabold uppercase tracking-normal text-neutral-900 md:mt-5 md:text-xl">{cat.title}</h3>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-neutral-100 py-16 md:py-24">
+  <section class="bg-neutral-100 py-12 md:py-24">
     <div class="container max-w-wide">
       <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-8">
           <p class="eyebrow">RFQ to reorder</p>
-          <h2 class="mt-3 max-w-5xl font-display text-4xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">
+          <h2 class="mt-3 max-w-5xl font-display text-3xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">
             Quote, proof, produce, reorder
           </h2>
-          <p class="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-600">
+          <p class="mt-3 max-w-3xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
             Apex brings custom packaging pricing, dielines, materials, production timing, and domestic shipping into one clear workflow.
           </p>
         </div>
@@ -244,11 +219,11 @@ const schemaBlocks = [buildFAQSchema(faqs)];
         </div>
       </div>
 
-      <div class="relative mt-12">
+      <div class="relative mt-8 md:mt-12">
         <div class="absolute left-0 right-0 top-[46px] hidden h-px bg-neutral-300 lg:block"></div>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+        <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [&::-webkit-scrollbar]:hidden">
           {benefitStrip.map((item, index) => (
-            <article class="group relative flex h-full min-h-[390px] flex-col rounded-md border border-neutral-200 bg-white p-5 shadow-card transition duration-300 hover:-translate-y-2 hover:border-[#7fb4bb] hover:shadow-popover">
+            <article class="group relative flex h-full min-h-[320px] w-[82vw] max-w-[22rem] shrink-0 snap-start flex-col rounded-md border border-neutral-200 bg-white p-5 shadow-card transition duration-300 hover:-translate-y-2 hover:border-[#7fb4bb] hover:shadow-popover sm:w-auto sm:max-w-none lg:min-h-[390px]">
               <div class="mb-5 flex items-center justify-between gap-3">
                 <span class="grid h-16 w-16 place-items-center rounded-lg border border-[#c8dbdd] bg-[#eef6f6] text-[#1f6672] shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:border-[#7fb4bb] group-hover:bg-[#e0eff1]">
                   <PackagingIcon name={item.icon} class="h-9 w-9" />
@@ -256,8 +231,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 <span class="rounded-md bg-[#eef6f6] px-2.5 py-1 text-xs font-black uppercase tracking-wide text-[#1f6672] transition duration-300 group-hover:bg-[#1f6672] group-hover:text-white">0{index + 1}</span>
               </div>
               <p class="text-xs font-black uppercase tracking-[0.16em] text-neutral-500">{item.step}</p>
-              <h3 class="mt-2 min-h-[4.75rem] font-display text-lg font-extrabold uppercase leading-tight text-neutral-900">{item.title}</h3>
-              <p class="min-h-[8.25rem] text-sm leading-relaxed text-neutral-600">{item.body}</p>
+              <h3 class="mt-2 font-display text-lg font-extrabold uppercase leading-tight text-neutral-900 lg:min-h-[4.75rem]">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-600 lg:min-h-[8.25rem]">{item.body}</p>
               <div class="mt-auto border-t border-neutral-200 pt-4 text-sm font-black uppercase tracking-wide text-success">{item.stat}</div>
             </article>
           ))}
@@ -266,15 +241,15 @@ const schemaBlocks = [buildFAQSchema(faqs)];
     </div>
   </section>
 
-  <section class="bg-white py-16 md:py-24">
+  <section class="bg-white py-12 md:py-24">
     <div class="container max-w-wide">
-      <div class="mb-12 text-center">
-        <h2 class="font-display text-4xl font-extrabold uppercase text-neutral-900 md:text-5xl">Premium Finishes</h2>
-        <p class="mt-3 text-neutral-600">Finishing options that give custom boxes a premium retail feel.</p>
+      <div class="mb-8 text-center md:mb-12">
+        <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Premium Finishes</h2>
+        <p class="mt-3 text-base text-neutral-600">Finishing options that give custom boxes a premium retail feel.</p>
       </div>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
         {finishes.map((finish) => (
-          <a href="/design-support" class="group relative block overflow-hidden rounded-md bg-neutral-900">
+          <a href="/design-support" class="group relative block w-[82vw] max-w-[24rem] shrink-0 snap-start overflow-hidden rounded-md bg-neutral-900 md:w-auto md:max-w-none">
             <img
               src={`/images/home/finishes/${finish.image}.webp`}
               alt={`${finish.title} packaging finish`}
@@ -292,7 +267,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
   </section>
 
   <section
-    class="relative overflow-hidden bg-neutral-900 bg-cover bg-center bg-no-repeat py-16 md:bg-fixed md:py-24"
+    class="relative overflow-hidden bg-neutral-900 bg-cover bg-center bg-no-repeat py-12 md:bg-fixed md:py-24"
     style="background-image: url('/images/home/why-choose-parallax-bg.webp');"
   >
     <div class="absolute inset-0 bg-neutral-950/76"></div>
@@ -300,32 +275,32 @@ const schemaBlocks = [buildFAQSchema(faqs)];
     <div class="container max-w-wide relative">
       <div class="max-w-4xl">
         <p class="eyebrow">Why Apex</p>
-        <h2 class="mt-3 font-display text-4xl font-extrabold text-neutral-50 md:text-6xl">Why Choose Us?</h2>
-        <p class="mt-4 max-w-2xl text-lg font-semibold uppercase tracking-wide text-neutral-200">
+        <h2 class="mt-3 font-display text-3xl font-extrabold text-neutral-50 md:text-6xl">Why Choose Us?</h2>
+        <p class="mt-3 max-w-2xl text-base font-semibold uppercase tracking-wide text-neutral-200 md:mt-4 md:text-lg">
           Custom packaging support from brief to reorder.
         </p>
       </div>
-      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 md:mt-12 md:gap-5 lg:grid-cols-4">
         {reasons.map((reason) => (
-          <div class="min-h-[260px] rounded-md border border-white/15 bg-neutral-950/58 p-5 shadow-popover backdrop-blur-sm">
-            <span class="mb-5 grid h-[72px] w-[72px] place-items-center rounded-lg border border-white/15 bg-white/10 text-[#8fd0cf] shadow-card">
+          <div class="rounded-md border border-white/15 bg-neutral-950/58 p-4 shadow-popover backdrop-blur-sm md:min-h-[260px] md:p-5">
+            <span class="mb-4 grid h-14 w-14 place-items-center rounded-lg border border-white/15 bg-white/10 text-[#8fd0cf] shadow-card md:mb-5 md:h-[72px] md:w-[72px]">
               <PackagingIcon name={reason.icon} class="h-10 w-10" />
             </span>
-            <h3 class="font-display text-xl font-extrabold text-neutral-50">{reason.title}</h3>
-            <p class="mt-3 leading-relaxed text-neutral-200">{reason.body}</p>
+            <h3 class="font-display text-lg font-extrabold text-neutral-50 md:text-xl">{reason.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-neutral-200 md:mt-3 md:text-base">{reason.body}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-white py-16 md:py-24">
+  <section class="bg-white py-12 md:py-24">
     <div class="container max-w-wide grid gap-12 lg:grid-cols-12 lg:items-center">
       <div class="lg:col-span-6">
-        <h2 class="font-display text-4xl font-extrabold uppercase text-neutral-900 md:text-5xl">Client Testimonial</h2>
+        <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Client Testimonial</h2>
         <p class="mt-3 font-semibold uppercase tracking-wide text-neutral-600">Service that keeps launches moving.</p>
-        <div class="mt-8 text-6xl font-black leading-none text-accent">"</div>
-        <blockquote class="mt-4 max-w-2xl text-xl font-semibold italic leading-relaxed text-neutral-800">
+        <div class="mt-6 text-5xl font-black leading-none text-accent md:mt-8 md:text-6xl">"</div>
+        <blockquote class="mt-3 max-w-2xl text-lg font-semibold italic leading-relaxed text-neutral-800 md:mt-4 md:text-xl">
           Apex helped us move from rough packaging dimensions to a production-ready dieline quickly. The print proof was clear, the material options were practical, and the reorder file saved our team time.
         </blockquote>
         <div class="mt-8 flex items-center gap-4">
@@ -338,7 +313,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
         </div>
       </div>
       <div class="lg:col-span-6">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-3 md:gap-4">
           {['corrugated-boxes-branded', 'polybags-branded', 'protective-packaging-branded', 'hero-branded-packaging'].map((img) => (
             <img
               src={`/images/home/${img}.webp`}
@@ -347,7 +322,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
               height="1024"
               loading="lazy"
               decoding="async"
-              class="aspect-square w-full rounded-full object-cover shadow-card"
+              class="aspect-square w-full rounded-md object-cover shadow-card md:rounded-full"
             />
           ))}
         </div>
@@ -355,21 +330,21 @@ const schemaBlocks = [buildFAQSchema(faqs)];
     </div>
   </section>
 
-  <section id="quote" class="scroll-mt-28 bg-neutral-100 py-16 md:scroll-mt-32 md:py-24">
+  <section id="quote" class="scroll-mt-28 bg-neutral-100 py-12 md:scroll-mt-32 md:py-24">
     <div class="container max-w-wide">
-      <div class="mb-10 max-w-4xl">
+      <div class="mb-8 max-w-4xl md:mb-10">
         <p class="eyebrow">RFQ desk</p>
         <div class="mt-3 flex flex-wrap items-end gap-x-6 gap-y-3">
-          <h2 class="font-display text-4xl font-extrabold uppercase leading-none text-neutral-900 md:text-5xl">Get Custom Quote</h2>
+          <h2 class="font-display text-3xl font-extrabold uppercase leading-none text-neutral-900 md:text-5xl">Get Custom Quote</h2>
           <span class="mb-1 rounded-md bg-white px-4 py-2 text-sm font-black uppercase tracking-wide text-success shadow-card">Free domestic shipping review</span>
         </div>
-        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-neutral-600">
+        <p class="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
           Send the package size, material, quantity, and launch timing. Apex reviews the spec and responds with a practical production path.
         </p>
       </div>
 
       <div class="grid gap-8 lg:grid-cols-12 lg:items-stretch">
-        <form class="grid gap-4 rounded-md border border-neutral-200 bg-white p-5 shadow-card md:p-7 lg:col-span-8">
+        <form class="grid gap-3 rounded-md border border-neutral-200 bg-white p-4 shadow-card md:gap-4 md:p-7 lg:col-span-8">
           <div class="grid gap-4 md:grid-cols-3">
             <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="name" placeholder="Name" />
             <input class="h-14 rounded-md border border-neutral-300 bg-neutral-50 px-4 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="phone" placeholder="Phone No" />
@@ -396,9 +371,9 @@ const schemaBlocks = [buildFAQSchema(faqs)];
               <option>mm</option>
             </select>
           </div>
-          <textarea class="min-h-40 rounded-md border border-neutral-300 bg-neutral-50 px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white" name="message" placeholder="Write short message"></textarea>
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <button class="rounded-md bg-accent px-7 py-4 font-black text-neutral-900 transition hover:bg-warning" type="submit">Submit Quote Request</button>
+          <textarea class="min-h-36 rounded-md border border-neutral-300 bg-neutral-50 px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white md:min-h-40" name="message" placeholder="Write short message"></textarea>
+          <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center md:gap-4">
+            <button class="min-h-[3.25rem] rounded-md bg-accent px-7 py-4 font-black text-neutral-900 transition hover:bg-warning" type="submit">Submit Quote Request</button>
             <p class="max-w-md text-sm font-semibold leading-relaxed text-neutral-500">Attach artwork after the first reply, or include file notes in the message.</p>
           </div>
         </form>
@@ -433,19 +408,19 @@ const schemaBlocks = [buildFAQSchema(faqs)];
     </div>
   </section>
 
-  <section class="bg-white py-16 md:py-24">
+  <section class="bg-white py-12 md:py-24">
     <div class="container max-w-wide">
-      <h2 class="font-display text-3xl font-extrabold text-neutral-900 md:text-4xl">Get Your Custom Boxes with Logo for Every Product at Wholesale Rate</h2>
-      <p class="mt-5 max-w-5xl text-lg leading-relaxed text-neutral-600">
+      <h2 class="font-display text-2xl font-extrabold text-neutral-900 md:text-4xl">Get Your Custom Boxes with Logo for Every Product at Wholesale Rate</h2>
+      <p class="mt-4 max-w-5xl text-base leading-relaxed text-neutral-600 md:mt-5 md:text-lg">
         Apex Packaging Solutions manufactures custom printed boxes, mailers, bags, trays, sleeves, and protective packaging for brands that need product-ready packaging without long overseas timelines. Choose a category, send the product dimensions, and Apex will help select material, structure, print method, finishing, and shipment timing.
       </p>
     </div>
   </section>
 
   <section class="bg-neutral-900 py-10 text-neutral-50">
-    <div class="container max-w-wide grid gap-4 md:grid-cols-5">
+    <div class="container max-w-wide -mx-4 flex snap-x gap-4 overflow-x-auto px-4 [scrollbar-width:none] md:mx-auto md:grid md:grid-cols-5 md:overflow-visible md:px-10 [&::-webkit-scrollbar]:hidden">
       {categories.slice(-5).map((cat) => (
-        <a href={cat.href} class="text-center">
+        <a href={cat.href} class="w-[48vw] max-w-[13rem] shrink-0 snap-start text-center md:w-auto md:max-w-none">
           <img
             src={`/images/home/categories/${cat.image}.webp`}
             alt={`${cat.title} product packaging`}
@@ -453,9 +428,9 @@ const schemaBlocks = [buildFAQSchema(faqs)];
             height="418"
             loading="lazy"
             decoding="async"
-            class="aspect-square w-full object-cover"
+            class="aspect-square w-full rounded-md object-cover md:rounded-none"
           />
-          <span class="mt-3 block font-display text-lg font-bold">{cat.title}</span>
+          <span class="mt-3 block font-display text-sm font-bold md:text-lg">{cat.title}</span>
         </a>
       ))}
     </div>

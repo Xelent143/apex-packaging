@@ -3,6 +3,7 @@ export interface IndustryBox {
   label: string;
   shortLabel?: string;
   image: string;
+  heroBanner?: string;
   icon: string;
   alt: string;
   summary: string;
@@ -37,6 +38,7 @@ export const industryBoxes: IndustryBox[] = [
     slug: 'auto-parts',
     label: 'Auto Parts',
     image: '/images/industries/automotive-parts.webp',
+    heroBanner: '/images/industries/auto-parts-hero-banner.webp',
     icon: '/images/industry-icons/auto-parts.png',
     alt: 'Apex Packaging branded corrugated packaging for automotive parts and VCI bags',
     summary: 'Automotive packaging for metal parts, fasteners, aftermarket kits, and OEM component shipments where protection and identification matter.',

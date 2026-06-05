@@ -7,15 +7,15 @@ const { items, variant = 'dark' } = Astro.props;
 const wrap = variant === 'dark' ? 'bg-neutral-900 text-neutral-50' : 'bg-neutral-50 text-neutral-900';
 const labelColor = variant === 'dark' ? 'text-neutral-400' : 'text-neutral-500';
 ---
-<section class={`py-16 md:py-24 ${wrap}`}>
+<section class={`py-10 md:py-24 ${wrap}`}>
   <div class="container max-w-wide">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6">
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-x-6 md:gap-y-10">
       {items.map((it) => (
-        <div>
-          <div class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight mb-3">
+        <div class="rounded-md border border-neutral-200/15 bg-white/5 p-4 md:border-0 md:bg-transparent md:p-0">
+          <div class="mb-2 font-display text-3xl font-bold leading-none tracking-normal md:mb-3 md:text-5xl lg:text-6xl">
             {it.value}
           </div>
-          <div class={`text-sm uppercase tracking-wider font-semibold ${labelColor} mb-1`}>{it.label}</div>
+          <div class={`mb-1 text-xs font-semibold uppercase tracking-wider md:text-sm ${labelColor}`}>{it.label}</div>
           {it.sub && <div class={`text-xs ${labelColor} opacity-80 leading-snug`}>{it.sub}</div>}
         </div>
       ))}
