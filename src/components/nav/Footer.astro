@@ -31,11 +31,10 @@ const socialLinks = [
 ];
 
 const paymentMarks = [
-  { label: 'Visa', image: '/images/footer-icons/payments/visa.png' },
-  { label: 'Mastercard', image: '/images/footer-icons/payments/mastercard.png' },
-  { label: 'American Express', image: '/images/footer-icons/payments/amex.png' },
-  { label: 'Discover', image: '/images/footer-icons/payments/discover.png' },
-  { label: 'PayPal', image: '/images/footer-icons/payments/paypal.png' }
+  { label: 'PayPal', image: '/images/footer-icons/payments/paypal.png', width: 230, height: 56 },
+  { label: 'Visa', image: '/images/footer-icons/payments/visa.png', width: 179, height: 58 },
+  { label: 'Mastercard', image: '/images/footer-icons/payments/mastercard.png', width: 104, height: 62 },
+  { label: 'American Express', image: '/images/footer-icons/payments/amex.png', width: 72, height: 72 }
 ];
 ---
 <footer class="bg-neutral-100 text-neutral-900">
@@ -127,8 +126,8 @@ const paymentMarks = [
           <span class="font-display font-extrabold">SSL 100% Secure Transactions:</span>
           <div class="flex flex-wrap items-center gap-2">
             {paymentMarks.map((item) => (
-              <span class="grid h-10 w-20 place-items-center overflow-hidden rounded bg-white px-2 shadow-sm ring-1 ring-neutral-200" aria-label={item.label}>
-                <img src={item.image} alt="" width="160" height="72" loading="lazy" decoding="async" class="h-full w-full object-contain" />
+              <span class="grid h-11 w-24 place-items-center overflow-hidden rounded bg-white px-2 shadow-sm ring-1 ring-neutral-200" aria-label={item.label}>
+                <img src={item.image} alt="" width={item.width} height={item.height} loading="lazy" decoding="async" class="h-auto max-h-9 max-w-full object-contain" />
               </span>
             ))}
           </div>
