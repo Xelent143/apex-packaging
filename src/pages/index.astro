@@ -320,7 +320,13 @@ const schemaBlocks = [buildFAQSchema(faqs)];
       </div>
 
       <div class="grid gap-8 lg:grid-cols-12 lg:items-center xl:gap-10">
-        <form class="overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-neutral-100 shadow-popover lg:col-span-7">
+        <form class="overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-neutral-100 shadow-popover lg:col-span-7" action="/api/quote" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="source" value="Home Quote Form" />
+          <input type="hidden" name="redirectTo" value="/thank-you" />
+          <label class="hidden" aria-hidden="true">
+            Website
+            <input name="website" tabindex="-1" autocomplete="off" />
+          </label>
           <div class="bg-accent px-5 py-5 text-center md:px-7">
             <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-900 md:text-3xl">Get Custom Quote</h3>
           </div>

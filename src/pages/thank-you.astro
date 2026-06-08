@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import CTABand from '../components/sections/CTABand.astro';
+---
+<BaseLayout
+  title="Quote Request Sent — Apex Packaging Solutions"
+  description="Your packaging quote request has been sent to Apex Packaging Solutions."
+>
+  <PageHeader
+    eyebrow="Request sent"
+    heading="Thanks — your quote request is in the inbox."
+    lead="Apex will review your packaging details and reply as soon as possible. Most quote requests receive a response within one business day."
+  />
+
+  <CTABand
+    eyebrow="Need to add something?"
+    heading="Send extra specs, drawings, or artwork by email."
+    lead="If you forgot a dimension, target quantity, deadline, or artwork file, email the extra details and the team will attach them to your request."
+    primaryCta={{ label: 'Email Apex', href: 'mailto:sales@apexpackagingsolutions.com' }}
+    secondaryCta={{ label: 'Back to home', href: '/' }}
+  />
+</BaseLayout>

@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "sirv dist --host 0.0.0.0 --port ${PORT:-4321}",
+    "start": "node server.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "node --test server/*.test.mjs",
     "lint:slop": "node scripts/slop-linter.mjs"
   },
   "dependencies": {
