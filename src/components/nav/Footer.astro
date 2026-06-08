@@ -1,6 +1,5 @@
 ---
 import { siteConfig } from '../../site.config';
-const year = new Date().getFullYear();
 
 const infoLinks = [
   ['Privacy Policy', '/privacy'],
@@ -22,8 +21,22 @@ const productLinks = [
   ['Gable Boxes', '/services/mailer-boxes']
 ];
 
-const socialLinks = ['f', 'x', 'in', 'yt', 'p', 'ig'];
-const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
+const socialLinks = [
+  { label: 'Facebook', href: '/contact', image: '/images/footer-icons/social/facebook.png' },
+  { label: 'X', href: '/contact', image: '/images/footer-icons/social/x.png' },
+  { label: 'LinkedIn', href: '/contact', image: '/images/footer-icons/social/linkedin.png' },
+  { label: 'YouTube', href: '/contact', image: '/images/footer-icons/social/youtube.png' },
+  { label: 'Pinterest', href: '/contact', image: '/images/footer-icons/social/pinterest.png' },
+  { label: 'Instagram', href: '/contact', image: '/images/footer-icons/social/instagram.png' }
+];
+
+const paymentMarks = [
+  { label: 'Visa', image: '/images/footer-icons/payments/visa.png' },
+  { label: 'Mastercard', image: '/images/footer-icons/payments/mastercard.png' },
+  { label: 'American Express', image: '/images/footer-icons/payments/amex.png' },
+  { label: 'Discover', image: '/images/footer-icons/payments/discover.png' },
+  { label: 'PayPal', image: '/images/footer-icons/payments/paypal.png' }
+];
 ---
 <footer class="bg-neutral-100 text-neutral-900">
   <div class="grid lg:grid-cols-[minmax(320px,0.8fr)_minmax(640px,1.55fr)]">
@@ -103,18 +116,20 @@ const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
       <div class="mt-8 grid gap-5 border-t border-neutral-200 pt-6 lg:grid-cols-[1fr_1.3fr] lg:items-center">
         <div class="flex flex-wrap items-center gap-3">
           <span class="font-display font-extrabold">Follow Us:</span>
-          {socialLinks.map((label) => (
-            <a href="/contact" class="grid h-9 min-w-9 place-items-center rounded-sm bg-neutral-900 px-1.5 text-xs font-bold text-neutral-50 hover:bg-accent hover:text-neutral-900 md:h-7 md:min-w-7">
-              {label}
+          {socialLinks.map((item) => (
+            <a href={item.href} class="grid h-9 w-9 place-items-center overflow-hidden rounded-sm bg-neutral-900 transition-opacity hover:opacity-85 md:h-8 md:w-8" aria-label={item.label}>
+              <img src={item.image} alt="" width="96" height="96" loading="lazy" decoding="async" class="h-full w-full object-cover" />
             </a>
           ))}
         </div>
 
         <div class="flex flex-wrap items-center gap-3">
           <span class="font-display font-extrabold">SSL 100% Secure Transactions:</span>
-          <div class="flex flex-wrap gap-2">
-            {paymentMarks.map((label) => (
-              <span class="rounded-sm bg-neutral-700 px-2.5 py-1 text-xs font-bold text-neutral-50">{label}</span>
+          <div class="flex flex-wrap items-center gap-2">
+            {paymentMarks.map((item) => (
+              <span class="grid h-10 w-20 place-items-center overflow-hidden rounded bg-white px-2 shadow-sm ring-1 ring-neutral-200" aria-label={item.label}>
+                <img src={item.image} alt="" width="160" height="72" loading="lazy" decoding="async" class="h-full w-full object-contain" />
+              </span>
             ))}
           </div>
         </div>
@@ -123,15 +138,8 @@ const paymentMarks = ['VISA', 'MC', 'AMEX', 'DISC', 'PayPal', 'BANK'];
   </div>
 
   <section class="border-t border-neutral-200 bg-neutral-50">
-    <div class="container max-w-wide flex flex-col gap-3 py-4 text-center text-sm text-neutral-700 md:flex-row md:items-center md:justify-between md:py-3 md:text-left">
-      <span>
-        Copyright {year}. {siteConfig.url.replace('https://', '')}. All rights reserved.
-        <span class="mx-2 hidden text-neutral-400 md:inline">|</span>
-        <span class="block md:inline">
-          Developed by <a href="https://www.sialkotaimasters.com" class="font-semibold text-neutral-900 hover:text-accent" target="_blank" rel="noopener noreferrer">Sialkot AI Masters</a>
-        </span>
-      </span>
-      <div class="flex justify-center gap-5">
+    <div class="container max-w-wide flex justify-center py-4 text-sm text-neutral-700 md:justify-end md:py-3">
+      <div class="flex gap-5">
         <a href="/privacy" class="hover:text-accent">Privacy</a>
         <a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a>
         <a href="/contact" class="hover:text-accent">Get Quote</a>

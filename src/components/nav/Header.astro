@@ -9,17 +9,17 @@ const displayPhone = phoneDigits.length === 11 && phoneDigits.startsWith('1')
   : siteConfig.phone;
 const whatsappHref = hasPhone ? `https://wa.me/${phoneDigits}` : '';
 const materialNav = [
-  { label: 'Cardboard Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/cardboard-boxes.png' },
-  { label: 'Kraft Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/materials/kraft-boxes.png' },
-  { label: 'Rigid Boxes', href: '/industries/gift-boxes', image: '/images/apex-update/materials/rigid-boxes.png' },
-  { label: 'Corrugated Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/corrugated-boxes.png' }
+  { label: 'Cardboard Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/cardboard-boxes.webp' },
+  { label: 'Kraft Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/materials/kraft-boxes.webp' },
+  { label: 'Rigid Boxes', href: '/industries/gift-boxes', image: '/images/apex-update/materials/rigid-boxes.webp' },
+  { label: 'Corrugated Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/corrugated-boxes.webp' }
 ];
 const styleNav = [
-  { label: 'Custom Tuck Boxes', href: '/industries/product-boxes', image: '/images/apex-update/styles/custom-tuck-boxes.png' },
-  { label: 'Custom Display Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/styles/custom-display-boxes.png' },
-  { label: 'Custom Mailer Boxes', href: '/services/mailer-boxes', image: '/images/apex-update/styles/custom-mailer-boxes.png' },
-  { label: 'Custom Pillow Boxes', href: '/industries/gift-boxes', image: '/images/apex-update/styles/custom-pillow-boxes.png' },
-  { label: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', image: '/images/apex-update/styles/custom-bakery-boxes.png' }
+  { label: 'Custom Tuck Boxes', href: '/industries/product-boxes', image: '/images/home/categories/custom-tuck-boxes.webp' },
+  { label: 'Custom Display Boxes', href: '/industries/retail-boxes', image: '/images/home/categories/display-boxes.webp' },
+  { label: 'Custom Mailer Boxes', href: '/services/mailer-boxes', image: '/images/home/mailer-boxes-branded.webp' },
+  { label: 'Custom Pillow Boxes', href: '/industries/gift-boxes', image: '/images/home/categories/pillow-boxes.webp' },
+  { label: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', image: '/images/home/categories/bakery-boxes.webp' }
 ];
 const simpleNav = [
   { label: 'Home', href: '/' },
@@ -66,7 +66,7 @@ const mobileTopNav = [
   <div class="mx-auto flex w-full items-center justify-between gap-3 px-4 py-3 md:px-6 lg:grid lg:min-h-[5.75rem] lg:grid-cols-[230px_minmax(18rem,1fr)_auto] lg:gap-7 lg:px-8 lg:py-4 xl:grid-cols-[250px_minmax(22rem,1fr)_auto]">
     <a href="/" class="flex shrink-0 items-center" aria-label="Apex Packaging home">
       <img
-        src="/images/apex-update/brand/final-logo.png"
+        src="/images/apex-update/brand/final-logo.webp"
         alt="Apex Packaging"
         width="2064"
         height="762"
@@ -92,7 +92,7 @@ const mobileTopNav = [
     <div class="hidden items-center justify-end gap-4 lg:flex">
       {hasPhone && (
         <>
-          <a href={`tel:${siteConfig.phone}`} class="group inline-flex items-center gap-3 text-neutral-900">
+          <div class="group inline-flex items-center gap-3 text-neutral-900">
             <span class="grid h-10 w-10 place-items-center rounded-full border-2 border-accent text-accent transition-transform duration-150 group-hover:-translate-y-0.5" aria-hidden="true">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.89.66 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.23a2 2 0 0 1 2.11-.45c.89.31 1.82.53 2.78.66A2 2 0 0 1 22 16.92z"></path>
@@ -100,9 +100,10 @@ const mobileTopNav = [
             </span>
             <span>
               <span class="block whitespace-nowrap text-xs font-bold text-neutral-900">Speak with a Packaging Expert</span>
-              <span class="block whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-neutral-950">{displayPhone}</span>
+              <a href={`tel:${siteConfig.phone}`} class="block whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-neutral-950 transition-colors hover:text-accent">{displayPhone}</a>
+              <a href={`mailto:${siteConfig.email}`} class="block whitespace-nowrap text-xs font-bold text-neutral-700 transition-colors hover:text-accent">{siteConfig.email}</a>
             </span>
-          </a>
+          </div>
           <span class="h-9 w-px bg-neutral-300" aria-hidden="true"></span>
         </>
       )}
@@ -243,10 +244,10 @@ const mobileTopNav = [
       <div class="hidden shrink-0 items-center gap-2 border-l border-neutral-200 pl-5 text-xs font-black uppercase tracking-wide text-neutral-700 xl:flex">
         <span>Global Operations:</span>
         <span class="text-base" aria-label="United States">🇺🇸</span>
-        <span class="text-base" aria-label="China">🇨🇳</span>
-        <span class="text-base" aria-label="Saudi Arabia">🇸🇦</span>
+        <span class="text-base" aria-label="Canada">🇨🇦</span>
         <span class="text-base" aria-label="United Kingdom">🇬🇧</span>
-        <span class="text-base" aria-label="United Arab Emirates">🇦🇪</span>
+        <span class="text-base" aria-label="Australia">🇦🇺</span>
+        <span class="text-base" aria-label="Germany">🇩🇪</span>
       </div>
     </div>
     <div class="border-t border-neutral-200 lg:hidden">
