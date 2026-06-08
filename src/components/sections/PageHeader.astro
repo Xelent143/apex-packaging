@@ -3,15 +3,58 @@ interface Props {
   eyebrow?: string;
   heading: string;
   lead?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageIsFullBanner?: boolean;
 }
-const { eyebrow, heading, lead } = Astro.props;
+const { eyebrow, heading, lead, imageSrc, imageAlt = '', imageIsFullBanner = false } = Astro.props;
+const hasImage = Boolean(imageSrc);
 ---
-<section class="border-b border-neutral-200 bg-white pt-10 pb-9 md:pt-28 md:pb-16">
-  <div class="container max-w-wide">
-    {eyebrow && <p class="eyebrow mb-4 md:mb-5">{eyebrow}</p>}
-    <h1 class="mb-5 max-w-4xl font-display text-[2.05rem] font-bold leading-[1.04] tracking-normal text-neutral-900 md:mb-6 md:text-6xl lg:text-7xl">
-      {heading}
-    </h1>
-    {lead && <p class="max-w-3xl text-base leading-relaxed text-neutral-600 md:text-xl">{lead}</p>}
+{imageSrc && imageIsFullBanner ? (
+  <section class="border-b border-neutral-200 bg-white">
+    <h1 class="sr-only">{heading}</h1>
+    {eyebrow && <p class="sr-only">{eyebrow}</p>}
+    {lead && <p class="sr-only">{lead}</p>}
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class="block h-auto w-full"
+      width="2172"
+      height="724"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </section>
+) : (
+<section
+  class:list={[
+    'border-b border-neutral-200 bg-white',
+    hasImage ? 'relative isolate overflow-hidden py-10 md:py-0' : 'pt-10 pb-9 md:pt-28 md:pb-16'
+  ]}
+>
+  {imageSrc && (
+    <>
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="absolute inset-0 -z-10 h-full w-full object-cover object-[64%_center]"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/95 to-white/20 md:via-white/84 md:to-white/10"></div>
+    </>
+  )}
+
+  <div class:list={['container max-w-wide', hasImage && 'relative flex min-h-[36rem] items-center md:min-h-[39rem]']}>
+    <div class={hasImage ? 'max-w-[47rem]' : ''}>
+      {eyebrow && <p class="eyebrow mb-4 md:mb-5">{eyebrow}</p>}
+      <h1 class="mb-5 max-w-4xl font-display text-[2.05rem] font-bold leading-[1.04] tracking-normal text-neutral-900 md:mb-6 md:text-6xl lg:text-7xl">
+        {heading}
+      </h1>
+      {lead && <p class="max-w-3xl text-base leading-relaxed text-neutral-600 md:text-xl">{lead}</p>}
+    </div>
   </div>
 </section>
+)}
