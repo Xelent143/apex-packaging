@@ -16,7 +16,7 @@ npm run lint:slop  # anti-slop check (runs in prebuild)
 
 Production: `SITE_URL=https://apexpackagingsolutions.com npm run build`
 
-Optional live chat: set `PUBLIC_TAWK_TO_WIDGET_URL` to the Tawk.to embed URL from the Tawk dashboard, for example `https://embed.tawk.to/<property-id>/<widget-id>`.
+Live chat uses Tawk.to widget `https://embed.tawk.to/6a23dd698705f01c35097370/1jqe1hp6i` by default. To override it, set `PUBLIC_TAWK_TO_WIDGET_URL` to another Tawk.to embed URL from the Tawk dashboard, for example `https://embed.tawk.to/<property-id>/<widget-id>`.
 
 ## Project structure
 

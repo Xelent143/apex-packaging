@@ -1,5 +1,6 @@
 ---
-const widgetUrl = import.meta.env.PUBLIC_TAWK_TO_WIDGET_URL?.trim();
+const defaultWidgetUrl = 'https://embed.tawk.to/6a23dd698705f01c35097370/1jqe1hp6i';
+const widgetUrl = import.meta.env.PUBLIC_TAWK_TO_WIDGET_URL?.trim() || defaultWidgetUrl;
 const tawkWidgetUrl =
   widgetUrl && /^https:\/\/embed\.tawk\.to\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/?$/.test(widgetUrl)
     ? widgetUrl
