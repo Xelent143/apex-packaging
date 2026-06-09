@@ -96,10 +96,6 @@
     scroll-padding-top: 7.5rem;
   }
 
-  body {
-    padding-bottom: calc(4.8rem + env(safe-area-inset-bottom));
-  }
-
   main {
     overflow-x: clip;
   }

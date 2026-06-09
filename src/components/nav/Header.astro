@@ -7,7 +7,6 @@ const hasPhone = phoneDigits.length >= 10 && !/^1?0+$/.test(phoneDigits);
 const displayPhone = phoneDigits.length === 11 && phoneDigits.startsWith('1')
   ? `(${phoneDigits.slice(1, 4)}) ${phoneDigits.slice(4, 7)}-${phoneDigits.slice(7)}`
   : siteConfig.phone;
-const whatsappHref = hasPhone ? `https://wa.me/${phoneDigits}` : '';
 const materialNav = [
   { label: 'Cardboard Boxes', href: '/services/corrugated-boxes', image: '/images/apex-update/materials/cardboard-boxes.webp' },
   { label: 'Kraft Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/materials/kraft-boxes.webp' },
@@ -27,15 +26,9 @@ const simpleNav = [
 ];
 const isIndustryActive = pathname === '/industries' || pathname.startsWith('/industries/');
 const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
-const mobileTopNav = [
-  { label: 'Products', href: '/services', active: isServicesActive },
-  { label: 'Industries', href: '/industries', active: isIndustryActive },
-  { label: 'Design', href: '/design-support', active: pathname === '/design-support' },
-  { label: 'Blog', href: '/blog', active: pathname.startsWith('/blog') }
-];
 ---
-<header class="sticky top-0 z-30 bg-white shadow-sm">
-  <div class="hidden bg-neutral-950 text-neutral-50 md:block">
+<header class="bg-white shadow-sm lg:sticky lg:top-0 lg:z-30">
+  <div class="hidden bg-neutral-950 text-neutral-50 lg:block">
     <div class="mx-auto grid min-h-8 w-full grid-cols-[auto_1fr_auto] items-center gap-6 px-6 text-xs font-black tracking-wide md:px-8">
       <div class="flex items-center gap-3 text-accent">
         <span class="grid h-5 w-5 place-items-center rounded border border-accent/35" aria-hidden="true">
@@ -63,7 +56,37 @@ const mobileTopNav = [
     </div>
   </div>
 
-  <div class="mx-auto flex w-full items-center justify-between gap-3 px-4 py-3 md:px-6 lg:grid lg:min-h-[5.75rem] lg:grid-cols-[230px_minmax(18rem,1fr)_auto] lg:gap-7 lg:px-8 lg:py-4 xl:grid-cols-[250px_minmax(22rem,1fr)_auto]">
+  <div class="bg-neutral-950 px-4 py-3 text-neutral-50 lg:hidden">
+    <div class="mx-auto grid max-w-md grid-cols-[1fr_auto_1.12fr_auto_1fr] items-center gap-3 text-[0.68rem] font-extrabold leading-tight">
+      <div class="flex items-center gap-2">
+        <span class="grid h-8 w-8 shrink-0 place-items-center text-accent" aria-hidden="true">
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21 8-9-5-9 5 9 5 9-5Z"></path>
+            <path d="M3 8v8l9 5 9-5V8"></path>
+            <path d="M12 13v8"></path>
+          </svg>
+        </span>
+        <span><strong class="text-accent">Order with</strong><br />confidence.</span>
+      </div>
+      <span class="h-12 w-px bg-white/30" aria-hidden="true"></span>
+      <div class="flex items-center gap-2">
+        <span class="text-2xl leading-none text-accent" aria-hidden="true">↯</span>
+        <span>Fast turnaround.<br />Premium quality.<br />Delivered in as fast as <strong class="text-accent">7 days.</strong></span>
+      </div>
+      <span class="h-12 w-px bg-white/30" aria-hidden="true"></span>
+      <div class="flex items-center gap-2">
+        <span class="grid h-8 w-8 shrink-0 place-items-center text-accent" aria-hidden="true">
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.93a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.2 1.2 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1v7Z"></path>
+            <path d="m9.5 12.5 1.7 1.7 3.6-4.1"></path>
+          </svg>
+        </span>
+        <span><strong class="text-accent">Secure</strong><br />packaging.<br />Protected delivery.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto hidden w-full items-center justify-between gap-3 px-4 py-3 md:px-6 lg:grid lg:min-h-[5.75rem] lg:grid-cols-[230px_minmax(18rem,1fr)_auto] lg:gap-7 lg:px-8 lg:py-4 xl:grid-cols-[250px_minmax(22rem,1fr)_auto]">
     <a href="/" class="flex shrink-0 items-center" aria-label="Apex Packaging home">
       <img
         src="/images/apex-update/brand/final-logo.webp"
@@ -112,20 +135,136 @@ const mobileTopNav = [
         <span aria-hidden="true">→</span>
       </a>
     </div>
-    <div class="flex items-center gap-2 lg:hidden">
-      {hasPhone && (
-        <a href={whatsappHref} class="grid h-11 w-11 place-items-center rounded-lg bg-[#22c55e] text-white shadow-sm ring-1 ring-[#16a34a]/15" aria-label="Chat with Apex Packaging on WhatsApp">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12.04 2.75A9.15 9.15 0 0 0 4.2 16.62L3 21.25l4.73-1.18A9.15 9.15 0 1 0 12.04 2.75Zm0 1.72a7.43 7.43 0 0 1 6.32 11.35 7.52 7.52 0 0 1-8.9 2.73l-.33-.15-2.86.72.73-2.78-.17-.34a7.43 7.43 0 0 1 5.21-11.53Zm-3.22 3.92c-.17 0-.45.06-.68.33-.24.26-.9.87-.9 2.13 0 1.25.92 2.47 1.05 2.64.13.17 1.8 2.86 4.39 3.89 2.18.86 2.62.69 3.09.65.47-.04 1.52-.62 1.73-1.22.22-.6.22-1.11.15-1.22-.06-.11-.23-.17-.49-.3-.26-.13-1.52-.75-1.76-.84-.24-.09-.41-.13-.58.13-.17.26-.66.84-.81 1.01-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.68-1.28-1.52-1.43-1.78-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.07-.13-.58-1.4-.8-1.91-.21-.51-.43-.44-.58-.44h-.49Z"></path>
+  </div>
+
+  <div class="bg-white px-4 py-4 lg:hidden">
+    <div class="mx-auto max-w-md space-y-4">
+      <div class="grid grid-cols-[3.25rem_1fr_3.25rem_3.25rem] items-center gap-3">
+        <button type="button" class="grid h-12 w-12 place-items-center text-neutral-950" aria-label="Open menu">
+          <span class="space-y-1.5" aria-hidden="true">
+            <span class="block h-0.5 w-8 rounded-full bg-current"></span>
+            <span class="block h-0.5 w-8 rounded-full bg-current"></span>
+            <span class="block h-0.5 w-8 rounded-full bg-current"></span>
+          </span>
+        </button>
+        <a href="/" class="flex justify-center" aria-label="Apex Packaging home">
+          <img
+            src="/images/apex-update/brand/final-logo.webp"
+            alt="Apex Packaging"
+            width="2064"
+            height="762"
+            class="h-[4.6rem] w-auto max-w-full object-contain"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+        <a href="/services" class="grid h-12 w-12 place-items-center rounded-full border border-neutral-300 bg-white text-neutral-950 shadow-sm" aria-label="Search packaging">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
           </svg>
         </a>
-      )}
-      <a href="/contact" class="inline-flex h-11 items-center rounded-md bg-accent px-4 text-sm font-bold text-neutral-900">
-        Quote
+        {hasPhone && (
+          <a href={`tel:${siteConfig.phone}`} class="grid h-12 w-12 place-items-center rounded-full border border-accent/55 bg-white text-accent shadow-sm" aria-label={`Call Apex Packaging at ${displayPhone}`}>
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.89.66 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.23a2 2 0 0 1 2.11-.45c.89.31 1.82.53 2.78.66A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </a>
+        )}
+      </div>
+
+      <form action="/services" class="flex h-[4.15rem] items-center rounded-full border border-neutral-200 bg-white pl-4 pr-1.5 shadow-[0_8px_20px_rgba(15,13,10,0.14)] ring-1 ring-neutral-100" role="search">
+        <svg class="h-7 w-7 shrink-0 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input
+          class="min-w-0 flex-1 bg-transparent px-4 text-base font-medium text-neutral-800 outline-none placeholder:text-neutral-400"
+          name="q"
+          placeholder="Search custom packaging, boxes, styles..."
+          aria-label="Search packaging"
+        />
+        <button class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-b from-[#efbd39] to-[#c98400] text-white shadow-[0_8px_16px_rgba(201,132,0,0.28)]" type="submit" aria-label="Search">
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </form>
+
+      <a href="/contact" class="flex h-[4.45rem] items-center justify-center gap-4 rounded-md bg-gradient-to-b from-[#efbd39] to-[#c98400] font-display text-[1.05rem] font-extrabold uppercase tracking-[0.09em] text-white shadow-[0_10px_18px_rgba(201,132,0,0.2)]">
+        Request a Quote
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m13 5 7 7-7 7"></path>
+        </svg>
       </a>
+
+      {hasPhone && (
+        <a href={`tel:${siteConfig.phone}`} class="grid min-h-[4.75rem] grid-cols-[4.4rem_1px_1fr] items-center rounded-xl border border-neutral-200 bg-white shadow-[0_6px_16px_rgba(15,13,10,0.08)]">
+          <span class="grid place-items-center">
+            <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-accent text-accent" aria-hidden="true">
+              <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.89.66 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.23a2 2 0 0 1 2.11-.45c.89.31 1.82.53 2.78.66A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="h-12 bg-neutral-200" aria-hidden="true"></span>
+          <span class="px-5">
+            <span class="block text-base font-medium text-neutral-950">Speak with a Packaging Expert</span>
+            <span class="block font-display text-[1.55rem] font-extrabold leading-tight tracking-wide text-neutral-950">{displayPhone}</span>
+          </span>
+        </a>
+      )}
+
+      <nav aria-label="Primary mobile" class="grid grid-cols-4 gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <a href="/industries" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
+          <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3 21h18v-2h-2V8.4l-5-2.5V19h-2V3L5 6.5V19H3v2Zm4-9h2v2H7v-2Zm0 4h2v2H7v-2Zm8-3h2v2h-2v-2Zm0 4h2v2h-2v-2Z"></path>
+          </svg>
+          <span>Industries</span>
+          <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </a>
+        <a href="/services/mailer-boxes" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
+          <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m21 8-9-5-9 5 9 5 9-5Z"></path>
+            <path d="M3 8v8l9 5 9-5V8"></path>
+            <path d="M12 13v8"></path>
+          </svg>
+          <span>Product<br />Styles</span>
+          <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </a>
+        <a href="/services" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
+          <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m3 7 9 5 9-5"></path>
+            <path d="M12 12v9"></path>
+            <path d="M4 10v7l8 4 8-4v-7"></path>
+            <path d="m8 4 4-2 4 2"></path>
+          </svg>
+          <span>Custom<br />Boxes</span>
+          <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </a>
+        <a href="/blog" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
+          <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m12 6.8 1.45 3.05 3.35.45-2.45 2.35.6 3.3L12 14.35l-2.95 1.6.6-3.3L7.2 10.3l3.35-.45L12 6.8Z" fill="currentColor" stroke="none"></path>
+          </svg>
+          <span>Success<br />Stories</span>
+          <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </a>
+      </nav>
     </div>
   </div>
-  <div class="border-y border-neutral-200 bg-white">
+
+  <div class="hidden border-y border-neutral-200 bg-white lg:block">
     <div class="relative mx-auto hidden w-full items-center justify-between gap-6 px-8 lg:flex">
       <nav aria-label="Primary" class="flex min-w-max items-center text-sm font-black text-neutral-800">
         {simpleNav.slice(0, 1).map((item) => (
@@ -250,83 +389,5 @@ const mobileTopNav = [
         <span class="text-base" aria-label="Germany">🇩🇪</span>
       </div>
     </div>
-    <div class="border-t border-neutral-200 lg:hidden">
-      <nav aria-label="Primary mobile" class="container max-w-wide flex gap-2 overflow-x-auto py-2 text-sm font-black [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {mobileTopNav.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              'inline-flex min-h-10 shrink-0 items-center rounded-md border px-3 text-neutral-50 transition-colors',
-              item.active ? 'border-accent bg-accent text-neutral-900' : 'border-neutral-700 bg-neutral-900/40'
-            ]}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-    </div>
   </div>
 </header>
-<nav aria-label="Mobile app navigation" class="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-neutral-50/96 px-3 pb-[calc(env(safe-area-inset-bottom)+0.45rem)] pt-2 shadow-[0_-12px_28px_rgba(15,13,10,0.12)] backdrop-blur lg:hidden">
-  <div class="mx-auto grid max-w-md grid-cols-4 gap-2">
-    <a
-      href="/"
-      class:list={[
-        'grid min-h-[3.25rem] place-items-center rounded-md px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-600',
-        pathname === '/' ? 'bg-neutral-900 text-neutral-50' : 'hover:bg-neutral-100'
-      ]}
-    >
-      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="m3 10 9-7 9 7"></path>
-        <path d="M5 10v10h14V10"></path>
-        <path d="M10 20v-6h4v6"></path>
-      </svg>
-      Home
-    </a>
-    <a
-      href="/services"
-      class:list={[
-        'grid min-h-[3.25rem] place-items-center rounded-md px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-600',
-        isServicesActive ? 'bg-neutral-900 text-neutral-50' : 'hover:bg-neutral-100'
-      ]}
-    >
-      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 8 12 3 3 8l9 5 9-5Z"></path>
-        <path d="M3 8v8l9 5 9-5V8"></path>
-        <path d="M12 13v8"></path>
-      </svg>
-      Products
-    </a>
-    <a
-      href="/industries"
-      class:list={[
-        'grid min-h-[3.25rem] place-items-center rounded-md px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-600',
-        isIndustryActive ? 'bg-neutral-900 text-neutral-50' : 'hover:bg-neutral-100'
-      ]}
-    >
-      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M3 21h18"></path>
-        <path d="M5 21V7l8-4v18"></path>
-        <path d="M19 21V11l-6-3"></path>
-        <path d="M9 9h1"></path>
-        <path d="M9 13h1"></path>
-        <path d="M16 15h1"></path>
-      </svg>
-      Industries
-    </a>
-    <a
-      href="/contact"
-      class:list={[
-        'grid min-h-[3.25rem] place-items-center rounded-md bg-accent px-1 py-1 text-center text-[0.68rem] font-black uppercase leading-none tracking-wide text-neutral-900 shadow-sm',
-        pathname === '/contact' ? 'ring-2 ring-accent ring-offset-2' : ''
-      ]}
-    >
-      <svg class="mb-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
-        <path d="M8 9h8"></path>
-        <path d="M8 13h5"></path>
-      </svg>
-      Quote
-    </a>
-  </div>
-</nav>
