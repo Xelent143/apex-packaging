@@ -3,12 +3,13 @@ import { siteConfig } from '../site.config';
 export function buildOrganizationSchema() {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'LocalBusiness'],
     '@id': `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.svg`,
+    logo: new URL('/images/brand/selected/apex-packaging-logo-selected.png', siteConfig.url).href,
+    image: new URL(siteConfig.defaultOgImage, siteConfig.url).href,
     email: siteConfig.email,
     description: siteConfig.description,
     address: {
@@ -23,6 +24,8 @@ export function buildOrganizationSchema() {
     contactPoint: [{
       '@type': 'ContactPoint',
       contactType: 'sales',
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
       areaServed: 'CA',
       availableLanguage: ['English', 'French']
     }],

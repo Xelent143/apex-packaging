@@ -9,9 +9,12 @@ interface MetaInput {
 }
 
 export function buildMeta(input: MetaInput) {
-  const title = input.title.includes(siteConfig.shortName)
+  const hasBrand = input.title.includes(siteConfig.shortName) || input.title.includes(siteConfig.name);
+  const title = hasBrand
     ? input.title
-    : `${input.title} | ${siteConfig.shortName}`;
+    : input.title.length <= 42
+      ? `${input.title} | ${siteConfig.shortName}`
+      : input.title;
   const image = input.image
     ? new URL(input.image, siteConfig.url).href
     : new URL(siteConfig.defaultOgImage, siteConfig.url).href;

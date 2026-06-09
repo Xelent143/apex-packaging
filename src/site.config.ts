@@ -10,10 +10,12 @@ export const siteConfig = {
   streetAddress: '265 Brunswick Ave',
   addressLocality: 'London',
   addressRegion: 'ON',
+  geoRegion: 'CA-ON',
+  geoPlacename: 'London, Ontario',
   postalCode: 'N6G 5P8',
   addressCountry: 'CA',
   formattedAddress: '265 Brunswick Ave, London ON N6G 5P8, CANADA',
-  defaultOgImage: '/og-default.svg',
+  defaultOgImage: '/images/home/hero-packaging-banner-apex.webp',
   nav: [
     { label: 'Services', href: '/services' },
     { label: 'Industries', href: '/industries' },

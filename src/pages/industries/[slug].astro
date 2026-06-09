@@ -16,6 +16,10 @@ export function getStaticPaths() {
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
 const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
+const metaTitle = `Custom ${box.label} Canada | Apex Packaging`;
+const metaDescription = box.summary.length <= 110
+  ? `${box.summary} Apex supports custom sizes, print, samples, and production.`
+  : box.summary;
 
 const faqs = [
   {
@@ -45,8 +49,8 @@ const service = buildServiceSchema({
 });
 ---
 <BaseLayout
-  title={`${box.label} Manufacturer Canada — Custom Printed Packaging`}
-  description={`${box.summary} Get custom sizes, materials, printing, samples, and production support from Apex Packaging.`}
+  title={metaTitle}
+  description={metaDescription}
   image={heroImage}
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
