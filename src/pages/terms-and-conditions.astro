@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import { siteConfig } from '../site.config';
+
+const lastUpdated = 'June 12, 2026';
+---
+<BaseLayout
+  title="Terms and Conditions"
+  description="Apex Packaging Solutions terms for custom packaging quotes, artwork approval, production, shipping, refunds, reprints, and customer responsibilities."
+>
+  <PageHeader
+    eyebrow="Legal"
+    heading="Terms and Conditions"
+    lead={`Last updated: ${lastUpdated}. These terms apply when you use apexpackagingsolutions.com, request a quote, approve artwork, place an order, or make a payment with Apex Packaging Solutions.`}
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p>Welcome to Apex Packaging Solutions. By using <a href="https://www.apexpackagingsolutions.com">www.apexpackagingsolutions.com</a>, requesting a quote, approving artwork, placing an order, or making payment, you agree to these Terms and Conditions.</p>
+
+      <h2>1. Custom Orders</h2>
+      <p>All packaging products are custom-made according to the customer's approved size, material, artwork, quantity, coating, finish, and specifications. Because custom products are made specifically for each customer, they are subject to strict cancellation, refund, and reprint conditions.</p>
+
+      <h2>2. Quotes, Pricing and Payment</h2>
+      <p>Quotes are based on the details provided by the customer. Prices may change if specifications, quantity, artwork, material, shipping address, or timeline change.</p>
+      <p>Orders will not move into production until required payment is received. Customers are responsible for all product costs, design fees, shipping fees, taxes, duties, customs fees, and approved additional charges.</p>
+
+      <h2>3. Artwork and Proof Approval</h2>
+      <p>Customers are responsible for providing accurate, complete, and print-ready artwork. Apex Packaging Solutions is not responsible for issues caused by low-resolution files, missing fonts, incorrect dimensions, spelling errors, colour mode issues, or customer-supplied design mistakes.</p>
+      <p>Customers must carefully review all proofs before approval, including spelling, layout, colours, size, dielines, folds, material, coating, and finishing. Once a proof is approved, production begins based on that approval, and customer-approved errors are not the responsibility of Apex Packaging Solutions.</p>
+
+      <h2>4. Colour and Production Variation</h2>
+      <p>We make reasonable efforts to match approved artwork, but exact colour matching is not guaranteed. Colour, cutting, folding, size, and finishing may vary slightly due to printing methods, materials, coatings, screen displays, and normal production tolerance. Minor industry-standard variations are not considered defects.</p>
+
+      <h2>5. Changes and Cancellations</h2>
+      <p>Order changes or cancellations must be requested before production begins. Once design, proofing, pre-press, material purchase, printing, cutting, finishing, packing, or shipping has started, changes or cancellations may not be possible.</p>
+      <p>If cancellation is approved after work has started, completed work, material, processing, and administrative costs may be deducted. Shipped orders cannot be cancelled.</p>
+
+      <h2>6. Refunds, Reprints and Claims</h2>
+      <p>Custom orders are non-returnable and non-refundable once production has started.</p>
+      <p>If Apex Packaging Solutions confirms a production error, incorrect item, shortage, or defect caused by our team, we may offer a reprint, replacement, partial replacement, or another reasonable solution at our discretion. The standard remedy is reprint or replacement, not cash refund.</p>
+      <p>Claims must be submitted within 3 calendar days of delivery with the order number, clear photos or videos, and a written explanation. Late claims or claims without proper evidence may be refused.</p>
+
+      <h2>7. Shipping and Delivery</h2>
+      <p>Production and delivery timelines are estimates only. Apex Packaging Solutions is not responsible for delays caused by carriers, customs, weather, supply issues, incorrect addresses, customer approval delays, or events outside our control.</p>
+      <p>Once an order is handed to the carrier, delivery is managed by the carrier. Customers are responsible for providing a complete and accurate shipping address. Extra charges may apply for address corrections, re-delivery, refused shipments, or returned packages.</p>
+
+      <h2>8. Customs, Duties and Taxes</h2>
+      <p>For orders shipped outside Canada, customers are responsible for all customs duties, import taxes, brokerage fees, tariffs, and local charges. These fees are not controlled by Apex Packaging Solutions and are non-refundable.</p>
+
+      <h2>9. Overruns and Underruns</h2>
+      <p>Custom production may result in a small quantity variation. Slight overruns or underruns within reasonable industry tolerance are not considered defects unless a specific quantity guarantee is agreed in writing before production.</p>
+
+      <h2>10. Intellectual Property and Prohibited Content</h2>
+      <p>Customers confirm they have the legal right to use all submitted logos, trademarks, images, text, and designs. Apex Packaging Solutions may refuse any order containing illegal, offensive, misleading, harmful, or infringing content.</p>
+      <p>All website content, branding, images, text, graphics, and product examples owned by Apex Packaging Solutions may not be copied or used without written permission.</p>
+
+      <h2>11. Limitation of Liability</h2>
+      <p>Apex Packaging Solutions is not liable for indirect, incidental, or consequential losses, including loss of profit, business delay, launch delay, or losses caused by production or shipping delays.</p>
+      <p>Our maximum liability for any order is limited to the amount paid for that specific order.</p>
+
+      <h2>12. Fraud and Policy Abuse</h2>
+      <p>We reserve the right to refuse service, cancel orders, reject claims, or block future purchases in cases of fraud, false claims, chargeback abuse, website misuse, or violation of these Terms and Conditions.</p>
+
+      <h2>13. Updates and Contact</h2>
+      <p>Apex Packaging Solutions may update these Terms and Conditions at any time. The version posted at the time of order placement will apply to that order.</p>
+      <p>
+        <strong>Apex Packaging Solutions</strong><br />
+        Website: <a href="https://www.apexpackagingsolutions.com">www.apexpackagingsolutions.com</a><br />
+        Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br />
+        Phone: <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

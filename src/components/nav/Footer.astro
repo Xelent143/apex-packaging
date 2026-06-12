@@ -3,8 +3,8 @@ import { siteConfig } from '../../site.config';
 
 const infoLinks = [
   ['Privacy Policy', '/privacy'],
-  ['Terms and Conditions', '/privacy'],
-  ['Return & Refund Policy', '/privacy'],
+  ['Terms and Conditions', '/terms-and-conditions'],
+  ['Return & Refund Policy', '/refund-and-return-policy'],
   ['About Us', '/about'],
   ['Contact Us', '/contact'],
   ['Sitemap', '/sitemap-index.xml'],
@@ -104,6 +104,10 @@ const paymentMarks = [
               <a href={`mailto:${siteConfig.email}`} class="min-w-0 break-all pt-1 hover:text-accent">{siteConfig.email}</a>
             </li>
             <li class="flex gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">P</span>
+              <a href={`tel:${siteConfig.phone}`} class="pt-1 font-semibold hover:text-accent">{siteConfig.phone}</a>
+            </li>
+            <li class="flex gap-4">
               <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">L</span>
               <span class="pt-1 font-semibold">{siteConfig.formattedAddress}</span>
             </li>
@@ -139,6 +143,7 @@ const paymentMarks = [
     <div class="container max-w-wide flex justify-center py-4 text-sm text-neutral-700 md:justify-end md:py-3">
       <div class="flex gap-5">
         <a href="/privacy" class="hover:text-accent">Privacy</a>
+        <a href="/terms-and-conditions" class="hover:text-accent">Terms</a>
         <a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a>
         <a href="/contact" class="hover:text-accent">Get Quote</a>
       </div>

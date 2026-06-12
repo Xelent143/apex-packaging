@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import { siteConfig } from '../site.config';
+
+const lastUpdated = 'June 12, 2026';
+---
+<BaseLayout
+  title="Refund and Return Policy"
+  description="Apex Packaging Solutions refund, return, cancellation, reprint, shipping-damage, and artwork-approval policy for custom packaging orders."
+>
+  <PageHeader
+    eyebrow="Legal"
+    heading="Refund and Return Policy"
+    lead={`Last updated: ${lastUpdated}. Every Apex Packaging Solutions order is custom-made to the customer's approved artwork, size, material, quantity, and specifications.`}
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p>At Apex Packaging Solutions, every order is custom-made according to the customer's approved artwork, size, material, quantity, and specifications. Because custom packaging is produced specifically for each customer, orders are non-returnable and non-refundable once production has started.</p>
+
+      <h2>1. Custom Order Policy</h2>
+      <p>All custom packaging orders are made to order. Once artwork is approved and production begins, the order cannot be returned, refunded, or cancelled.</p>
+      <p>This policy protects against material waste, printing costs, labour, and production time already committed to a custom job.</p>
+
+      <h2>2. Refund Eligibility</h2>
+      <p>Refunds may only be considered if:</p>
+      <ul>
+        <li>Production has not started.</li>
+        <li>Materials have not been purchased or processed.</li>
+        <li>No design, proofing, or pre-press work has been completed.</li>
+        <li>Management approves the refund request.</li>
+      </ul>
+      <p>Approved refunds may be subject to processing, design, administrative, or transaction fees.</p>
+
+      <h2>3. Cancellation Policy</h2>
+      <p>Customers may request cancellation before production begins.</p>
+      <p>Once the order has entered design, proofing, pre-press, printing, cutting, finishing, packing, or shipping, cancellation may not be possible. If cancellation is approved after work has started, charges may be deducted for completed work, materials, payment processing, and production preparation.</p>
+
+      <h2>4. Artwork Approval Responsibility</h2>
+      <p>Customers are responsible for carefully reviewing and approving the final proof before production. This includes:</p>
+      <ul>
+        <li>Spelling and grammar.</li>
+        <li>Logo placement.</li>
+        <li>Colours and layout.</li>
+        <li>Box size and dimensions.</li>
+        <li>Material and coating.</li>
+        <li>Dielines, folds, cut marks, and bleed.</li>
+        <li>Barcode, QR code, and legal text placement.</li>
+      </ul>
+      <p>Once the proof is approved, Apex Packaging Solutions is not responsible for customer-approved errors.</p>
+
+      <h2>5. Colour and Printing Variation</h2>
+      <p>We make every effort to match approved artwork, but exact colour matching is not guaranteed due to differences in screens, printing methods, materials, coatings, lamination, ink behaviour, and production processes.</p>
+      <p>Minor colour variation, cutting variation, folding variation, or industry-standard production tolerance will not qualify for refund or reprint.</p>
+
+      <h2>6. Defective or Incorrect Orders</h2>
+      <p>If your order is defective or does not match the approved specifications due to our production error, you must contact us within 3 calendar days of delivery.</p>
+      <p>Please provide:</p>
+      <ul>
+        <li>Order number.</li>
+        <li>Clear photos or videos of the issue.</li>
+        <li>Photos of the outer cartons and packaging.</li>
+        <li>A written explanation of the problem.</li>
+      </ul>
+      <p>After review, if Apex Packaging Solutions confirms an error, we may offer a reprint, replacement, partial replacement, or another reasonable solution at our discretion.</p>
+
+      <h2>7. Reprint Instead of Refund</h2>
+      <p>For confirmed production errors, our standard remedy is a reprint or replacement, not a cash refund.</p>
+      <p>Refunds are not issued for custom packaging unless approved by management in exceptional cases.</p>
+
+      <h2>8. Shipping Damage</h2>
+      <p>Customers must inspect packages upon delivery. If damage occurs during shipping, the issue must be reported within 3 business days with photos of the damaged cartons, packaging, and products.</p>
+      <p>Shipping damage claims may require carrier review and approval. Apex Packaging Solutions is not responsible for claims reported late or without proper evidence.</p>
+
+      <h2>9. Non-Refundable Charges</h2>
+      <p>The following charges are non-refundable:</p>
+      <ul>
+        <li>Design fees.</li>
+        <li>Proofing or pre-press fees.</li>
+        <li>Rush production charges.</li>
+        <li>Expedited shipping charges.</li>
+        <li>Custom material costs.</li>
+        <li>Taxes, duties, customs, or brokerage fees.</li>
+        <li>Payment processing or bank fees.</li>
+      </ul>
+
+      <h2>10. Customer-Supplied Files</h2>
+      <p>Customers are responsible for providing print-ready artwork in the correct format, resolution, colour mode, and dimensions. Apex Packaging Solutions is not responsible for poor print results caused by low-resolution files, incorrect file setup, missing fonts, wrong colour mode, or customer-supplied artwork errors.</p>
+
+      <h2>11. Quantity Tolerance</h2>
+      <p>Custom packaging production may include minor overruns or underruns. A reasonable industry production tolerance may apply and will not be considered a defect unless otherwise agreed in writing before production.</p>
+
+      <h2>12. Policy Abuse</h2>
+      <p>Apex Packaging Solutions reserves the right to refuse refunds, reprints, cancellations, or future orders in cases of fraudulent claims, misuse, chargeback abuse, false damage reports, or violation of this policy.</p>
+
+      <h2>13. Contact</h2>
+      <p>To submit a refund, cancellation, or quality claim, contact us at:</p>
+      <p>
+        <strong>Apex Packaging Solutions</strong><br />
+        Website: <a href="https://www.apexpackagingsolutions.com">www.apexpackagingsolutions.com</a><br />
+        Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br />
+        Phone: <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
