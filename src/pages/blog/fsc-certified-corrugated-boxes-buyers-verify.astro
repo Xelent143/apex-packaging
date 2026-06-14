@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'FSC-Certified Corrugated Boxes: What Buyers Should Verify';
+const description = 'A procurement guide to FSC-certified corrugated boxes in Canada: chain-of-custody, board spec, artwork marks, recycled-content questions, and the paperwork to request.';
+const url = '/blog/fsc-certified-corrugated-boxes-buyers-verify';
+const datePublished = '2026-06-11';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'FSC-Certified Corrugated Boxes', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What should a buyer confirm before ordering FSC-certified corrugated boxes?',
+    a: 'Confirm the supplier\'s FSC chain-of-custody status, the board grade and liner requested, whether the FSC mark will appear on the box artwork, and what certification paperwork will be issued with the order.'
+  },
+  {
+    q: 'Does FSC-certified corrugated mean the box is made from recycled fibre?',
+    a: 'Not necessarily. FSC certification relates to traceable fibre sourcing and chain-of-custody controls. Recycled content is a separate specification and should be requested as its own percentage or material disclosure.'
+  },
+  {
+    q: 'Can every corrugated box carry an FSC logo?',
+    a: 'No. The order, material path, and artwork approval all need to support the claim. Buyers should confirm whether the certification is needed on the printed carton, on the invoice, or only in the procurement file.'
+  }
+]);
+---
+<BaseLayout
+  title="FSC-Certified Corrugated Boxes — What Buyers Should Verify"
+  description={description}
+  image="/images/blog/fsc-corrugated-verification-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Sustainability"
+    heading="FSC-certified corrugated boxes — what buyers should verify before the PO is released."
+    lead="Four checks decide whether an FSC box order is audit-ready: chain-of-custody status, board specification, artwork use of the claim, and the paperwork issued with the shipment."
+    image="/images/blog/fsc-corrugated-verification-map.svg"
+    imageAlt="Technical diagram showing four verification checkpoints for FSC-certified corrugated boxes: certification status, board callout, artwork claim, and order documents."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>FSC-certified corrugated boxes</strong> are not a generic green option. Buyers normally need four verifiable checkpoints before approval: the supplier's FSC chain-of-custody status, the exact board and liner being quoted, whether the FSC claim appears on the carton, and what paperwork will be attached to the order. Miss one of those, and the spec can fail an internal sustainability review even if the box itself performs well.</p>
+
+      <p>Apex uses this workflow with Canadian procurement teams that need corrugated packaging to satisfy both shipping performance and documentation requirements. If you are quoting <a href="/services/corrugated-boxes">custom corrugated boxes</a> for a distributor, retailer, or audit-driven customer, this guide shows what to confirm before artwork is approved or a purchase order is issued.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/fsc-corrugated-verification-map.svg" alt="FSC corrugated verification map showing certification status, board callout, artwork claim, and shipment paperwork." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">An FSC corrugated order usually moves through four approval points before it is safe to release for production.</figcaption>
+      </figure>
+
+      <h2>Start with chain-of-custody, not the logo</h2>
+      <p>FSC chain-of-custody is the traceability system that keeps the fibre claim intact from the mill through conversion and final supply. For a buyer, that matters more than the logo itself. If the supplier cannot confirm chain-of-custody status for the order path, the project should not be treated as an FSC-certified claim order.</p>
+
+      <p>The first email is simple: ask whether the quoted corrugated line is covered for FSC chain-of-custody and whether the order documents can carry that claim. Apex's <a href="/sustainability">sustainability page</a> explains that certification and paperwork should be available with the corrugated order when requested. That request should happen before the quote is locked, not after the press file is approved.</p>
+
+      <h2>Separate FSC from recycled-content requirements</h2>
+      <p>Buyers often bundle two different questions into one line item: "We need FSC and recycled board." Those are related, but they are not interchangeable. FSC speaks to certified sourcing and documented handling. Recycled content is a separate material attribute that should be called out as a percentage or liner specification.</p>
+
+      <table>
+        <thead>
+          <tr><th>Requirement</th><th>What it answers</th><th>What to request</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FSC chain-of-custody</td><td>Can the fibre claim be documented through the supply chain?</td><td>Certification status on the quoted corrugated order and order paperwork.</td></tr>
+          <tr><td>Recycled content</td><td>How much post-consumer or recycled fibre is in the board?</td><td>Typical liner or medium percentages by SKU.</td></tr>
+          <tr><td>Kraft or white liner</td><td>What print surface and visual finish will the box use?</td><td>Board callout tied to print and branding needs.</td></tr>
+        </tbody>
+      </table>
+
+      <p>That distinction matters when you compare quotes. One supplier may price FSC board but not disclose recycled-content ranges. Another may offer recycled fibre but not support a formal FSC claim on the order. Ask for both specifications separately so the commercial comparison stays clean.</p>
+
+      <h2>Lock the board callout before artwork carries a claim</h2>
+      <p>Once a certification mark is built into print files, late material changes become more complicated. The safe order is structure first, material second, graphics third. Confirm the box style, ECT rating, flute, liner color, and any recycled-content requirement before the artwork places sustainability language or the FSC mark.</p>
+
+      <ul>
+        <li><strong>Board strength:</strong> confirm whether the job is ECT-32, ECT-44, or double-wall before sign-off if pallet stacking or long dwell time is part of the route.</li>
+        <li><strong>Surface choice:</strong> kraft and white liners print differently, so the mark and surrounding brand colors should be checked on the actual substrate.</li>
+        <li><strong>Sample need:</strong> ask for a structural or print sample when the order combines certification language with a new box format or a heavy-coverage design.</li>
+      </ul>
+
+      <p>For buyers juggling structure and sustainability at the same time, the fastest route is to send dimensions, product weight, target quantity, and documentation needs together. Apex can review those inputs through <a href="/design-support">design support</a> before the mark is added to the artwork.</p>
+
+      <h2>Decide where the claim has to appear</h2>
+      <p>Not every procurement file needs the same output. Some customers need the FSC claim visible on the finished carton. Others only need the certification documented on the quote, invoice, or internal vendor file. That difference changes how early the print and approval process needs to start.</p>
+
+      <ol>
+        <li><strong>Carton claim:</strong> the printed box itself needs approved placement, artwork review, and the right material path.</li>
+        <li><strong>Invoice or packing paperwork:</strong> the buyer needs documentation with the shipment, but the carton face stays visually clean.</li>
+        <li><strong>Internal file only:</strong> procurement keeps the paperwork for audit purposes without placing the claim on-pack.</li>
+      </ol>
+
+      <p>Clarifying that use case prevents rework. It also keeps the box design from carrying unnecessary copy when the real requirement is documentary, not consumer-facing.</p>
+
+      <h2>Request paperwork that matches your internal approval flow</h2>
+      <p>An audit-ready order is not just a box that ships. It is a box plus a paper trail the buyer can reuse when finance, operations, or sustainability asks what was actually purchased. Before releasing the PO, confirm which documents should accompany the order:</p>
+
+      <ul>
+        <li>Quote or acknowledgment showing the certified corrugated requirement.</li>
+        <li>Invoice or shipment paperwork carrying the requested FSC documentation language.</li>
+        <li>Recycled-content disclosure if the project also has PCR or recovered-fibre targets.</li>
+        <li>Artwork proof that shows whether the claim appears on the finished box.</li>
+      </ul>
+
+      <p>This is where many quote comparisons break down. Two suppliers may look similar on unit price, but only one may be prepared to issue paperwork the buyer can actually pass upstream. Documentation is part of the delivered spec, not an extra courtesy after the fact.</p>
+
+      <h2>The practical RFQ for FSC corrugated</h2>
+      <p>A clean request for quote removes most of the friction. Send these inputs together when pricing FSC-certified corrugated boxes in Canada:</p>
+
+      <ul>
+        <li>Inside dimensions and box style.</li>
+        <li>Product weight and pallet-stacking conditions.</li>
+        <li>Board target if known: ECT rating, wall type, kraft or white liner.</li>
+        <li>Quantity for first run and expected repeat volume.</li>
+        <li>Whether the FSC claim must appear on the carton, on order paperwork, or only in the procurement file.</li>
+        <li>Any recycled-content percentage requirement that sits alongside the FSC request.</li>
+        <li>Artwork files and any deadline tied to launch, replenishment, or customer approval.</li>
+      </ul>
+
+      <p>That lets the estimator quote the real job instead of guessing at documentation needs after pricing has already been circulated.</p>
+
+      <h2>Verification is what makes the claim usable</h2>
+      <p>FSC corrugated is useful when it holds up on two fronts at once: the box still meets compression, print, and freight demands, and the documentation survives internal review. Buyers who define both early usually move faster because the material, artwork, and paperwork all follow one route.</p>
+
+      <p>If your team needs FSC-certified corrugated with clear board specs and order documents, send the job through <a href="/services/corrugated-boxes">corrugated boxes</a> or upload the files on the quote form. Apex can review the structure, material path, and artwork claim before production time is committed.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, die-cut, and printed corrugated with FSC-ready specification support.' },
+    { title: 'Sustainability', href: '/sustainability', description: 'FSC chain-of-custody, recycled-content ranges, and documentation notes for procurement files.' },
+    { title: 'Custom Corrugated Boxes in Canada', href: '/blog/custom-corrugated-boxes-canada-moq-lead-time-specs', description: 'MOQ, lead time, board grades, and the RFQ details that drive a usable quote.' }
+  ]} />
+
+  <CTABand
+    heading="Send the corrugated spec and the certification requirement together."
+    lead="Dimensions, quantity, board target, and where the FSC claim needs to appear are enough to start an accurate quote."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

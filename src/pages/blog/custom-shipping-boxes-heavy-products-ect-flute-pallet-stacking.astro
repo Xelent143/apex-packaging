@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Custom Shipping Boxes for Heavy Products: ECT, Flute, and Pallet Stacking';
+const description = 'A practical guide to custom shipping boxes for heavy products in Canada: when to move from ECT-32 to ECT-44 or double-wall, how flute choice affects compression, and what pallet details belong in the RFQ.';
+const url = '/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking';
+const datePublished = '2026-06-12';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Custom Shipping Boxes for Heavy Products', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'When should a buyer move from ECT-32 to ECT-44 for heavy shipping boxes?',
+    a: 'Move from ECT-32 to ECT-44 when packed weight, pallet stacking, or warehouse dwell time raises the compression risk beyond a standard parcel carton. The trigger is usually a heavier packed load or a taller pallet pattern, not the product category alone.'
+  },
+  {
+    q: 'Is double-wall corrugated always required for heavy products?',
+    a: 'No. Double-wall is useful when the load is dense, the pallet is stacked multiple layers high, or the freight route is rough. Many products in the 35-65 lb range still ship safely in a well-sized ECT-44 single-wall carton when the pallet pattern and inserts are correct.'
+  },
+  {
+    q: 'What should be included in an RFQ for heavy-duty custom shipping boxes?',
+    a: 'Send inside dimensions, packed weight, product orientation, pallet count, stacking pattern, warehouse dwell time, transit lane, and whether the product needs inserts, foam, or edge protection.'
+  }
+]);
+---
+<BaseLayout
+  title="Custom Shipping Boxes Canada — Heavy Products, ECT, Flute"
+  description={description}
+  image="/images/blog/heavy-shipping-box-decision-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Corrugated"
+    heading="Custom shipping boxes for heavy products — how to choose ECT, flute, and pallet stacking specs."
+    lead="A 55 lb packed load can ship safely in corrugated, but only if the board grade, flute profile, and pallet pattern are quoted together instead of as separate guesses."
+    imageSrc="/images/blog/heavy-shipping-box-decision-map.svg"
+    imageAlt="Technical decision diagram for heavy-product shipping boxes showing packed weight, compression risk, flute selection, and pallet stacking checkpoints."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Custom shipping boxes for heavy products</strong> usually fail for one predictable reason: the RFQ lists dimensions and quantity, but not the packed weight, stacking height, or freight pattern. A 40 lb industrial part and a 40 lb bagged ingredient can need different corrugated builds even when the outside box size is identical. Heavy-product packaging decisions should start with load and compression, not with a generic request for a stronger box.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/corrugated-boxes">corrugated shipping boxes</a> for Canadian buyers who need a practical answer on ECT rating, flute, wall construction, and whether the box will survive pallet storage before it ever reaches the carrier. If the shipment is moving through a plant, warehouse, or distributor network, this guide shows when ECT-44 is enough, when double-wall deserves a quote, and when the better fix is a change to the pallet system or internal packout.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/heavy-shipping-box-decision-map.svg" alt="Decision map for custom shipping boxes for heavy products." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Packed weight is only the first checkpoint. Compression, flute selection, and pallet stacking decide whether the board survives the full route.</figcaption>
+      </figure>
+
+      <h2>Start with packed load, not product category</h2>
+      <p>Procurement teams often describe the job as "heavy automotive parts" or "heavy industrial components." That is useful context, but it is not enough to build the board spec. The estimator needs the <em>packed</em> weight, meaning product plus dunnage, literature, inner bags, and any inserts. Corrugated performance is tied to the shipped load, not just the bare part weight.</p>
+
+      <table>
+        <thead>
+          <tr><th>Packed load</th><th>Common starting point</th><th>What usually changes the spec</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Up to 35 lb</td><td>ECT-32 single-wall</td><td>Long warehouse dwell, humidity, or rough parcel handling</td></tr>
+          <tr><td>35-65 lb</td><td>ECT-44 single-wall</td><td>High pallet stacks, sharp product edges, or concentrated weight</td></tr>
+          <tr><td>65 lb and up</td><td>Double-wall review</td><td>Pallet compression, forklift handling, and export-style transit</td></tr>
+        </tbody>
+      </table>
+
+      <p>These are planning ranges, not a substitute for testing. A dense machined part that sits on a small footprint can be harder on the bottom panel than a bulkier item at the same total weight. That is why photos and pack orientation matter. If the load is concentrated on two corners or one edge, inserts or pads may solve the failure point more efficiently than jumping straight to a heavier wall.</p>
+
+      <h2>ECT tells you about edge crush, not the whole shipment</h2>
+      <p>ECT stands for edge crush test, the compression measure used to estimate how much top-load a corrugated board can take before it starts to fail. Buyers often use ECT as shorthand for strength, which is fine as long as the number is treated as one part of the system. The Apex guide to <a href="/blog/ect-explained">ECT-32 vs ECT-44</a> covers the baseline comparison. For heavy products, the missing step is connecting that board rating to how the carton sits on a pallet.</p>
+
+      <p>An ECT-44 carton may outperform a heavier-looking box if the dimensions fit the pallet well, the load is column stacked, and stretch-wrap tension is controlled. The opposite is also true. A stronger board can still crush if the pallet is overhung, interlocked badly, or stored under top-load for weeks in a humid warehouse.</p>
+
+      <h2>Flute and wall construction should follow the handling pattern</h2>
+      <p>After the ECT range is clear, flute choice affects print surface, cushioning, and compression behavior. For many industrial shipping boxes, C flute stays practical because it balances stacking performance with converting efficiency. Heavier products often move into BC double-wall when compression and puncture resistance matter more than a cleaner print face.</p>
+
+      <ul>
+        <li><strong>C flute single-wall</strong> is a common starting point for general freight and plant-to-distributor shipments.</li>
+        <li><strong>B or E flute</strong> usually appears when presentation or tighter folds matter more than high compression.</li>
+        <li><strong>BC double-wall</strong> is the standard review path when the load is dense, stacked multiple layers high, or exposed to rougher industrial handling.</li>
+      </ul>
+
+      <p>The important procurement question is whether the board is being asked to solve a product-control problem that should really be handled inside the box. If the part moves, rattles, or creates pressure points, a corrugated insert, pad, or <a href="/services/protective-packaging">foam component</a> can let the outer carton stay more economical.</p>
+
+      <h2>Pallet stacking changes the answer more than most buyers expect</h2>
+      <p>A heavy product carton that ships one-high by courier is a different job from the same carton stacked three pallets high in a regional warehouse. Pallet pattern changes compression, strap pressure, and the risk of sidewall collapse. That is why the blog plan ties this topic to <a href="/services/industrial-bulk-packaging">industrial and bulk packaging</a> rather than treating it as a box-only decision.</p>
+
+      <p>Three pallet details belong in every heavy-box RFQ:</p>
+
+      <ol>
+        <li><strong>Stacking pattern:</strong> column stack usually preserves compression better than interlock when the box and pallet footprint are well matched.</li>
+        <li><strong>Stack height and dwell time:</strong> the same carton behaves differently for a two-day cross-dock move versus three weeks in storage.</li>
+        <li><strong>Unitization method:</strong> stretch-wrap force, corner boards, and pallet overhang can either protect the load or crush it.</li>
+      </ol>
+
+      <p>If the shipment is failing at the warehouse rather than on the road, the fix may be edge protectors, pallet caps, or a tighter footprint before it is a new corrugated spec. That is often the cheaper correction because it addresses the compression cause instead of only adding board cost.</p>
+
+      <h2>When to move from standard shipping cartons to bulk formats</h2>
+      <p>Some loads stop making sense in regular shipping boxes even if the board can technically hold them. Once the product is large, awkward, or shipped in plant quantities, a Gaylord or other bulk corrugated container may reduce handling and damage better than forcing smaller cartons. That is especially true for loose parts, bagged ingredients, or programs where forklift moves matter more than parcel presentation.</p>
+
+      <p>The decision is operational, not cosmetic. If labor is wasted packing many small heavy boxes onto one pallet, the better answer may be bulk packaging plus liners, dividers, or edge protection.</p>
+
+      <h2>What to send before requesting a heavy-box quote</h2>
+      <p>Heavy-product packaging quotes move faster when the RFQ describes the route, not just the outside dimensions. Send these details before the spec is priced:</p>
+
+      <ul>
+        <li>Inside box dimensions and target packed weight.</li>
+        <li>Product orientation and whether the load is concentrated or evenly distributed.</li>
+        <li>Current failure mode such as bottom blowout, sidewall crush, or pallet collapse.</li>
+        <li>Expected pallet quantity, stack height, and whether pallets are column stacked or interlocked.</li>
+        <li>Warehouse dwell time, humidity exposure, and freight lane.</li>
+        <li>Whether the load already uses pads, partitions, foam, or edge protection.</li>
+        <li>Required in-hand date, first-run quantity, and reorder pattern.</li>
+      </ul>
+
+      <h2>The right heavy-duty spec balances board, inserts, and pallet control</h2>
+      <p>Heavy shipments do not always need the thickest board on the estimator's shelf. They need the lightest corrugated structure that survives the real compression, handling, and storage conditions of the job. That may be ECT-44 single-wall with better pallet discipline. It may be BC double-wall with pads. Or it may be a shift into bulk packaging. The mistake is quoting the board without quoting the handling system around it.</p>
+
+      <p>Send Apex the packed weight, pallet pattern, and the failure point you are trying to eliminate. The quote can then match board grade, flute, and secondary packaging to the route instead of defaulting to guesswork.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'ECT-32 vs ECT-44', href: '/blog/ect-explained', description: 'Use edge crush ratings correctly before you upgrade the board.' },
+    { title: 'Industrial & Bulk Packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylords, stretch film, edge protection, and pallet-unitization support.' },
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, die-cut, double-wall, and custom shipping box specifications.' }
+  ]} />
+
+  <CTABand
+    heading="Send the packed weight and pallet pattern for a box quote."
+    lead="Dimensions, loaded weight, stack height, and the current failure point are enough to quote the right board and support materials."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

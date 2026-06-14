@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Low MOQ Custom Packaging: How to Order 100-500 Units Without Waste';
+const description = 'A practical guide to low-MOQ custom packaging in Canada: when 100-500 unit runs work, what pushes costs up, and what specs buyers should send first.';
+const url = '/blog/low-moq-custom-packaging-100-500-units-without-waste';
+const datePublished = '2026-06-11';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Low MOQ Custom Packaging', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What counts as a low MOQ for custom packaging in Canada?',
+    a: 'For Apex, the practical low-MOQ range usually starts at 100 units on stock RSC corrugated boxes, 250 on custom-printed corrugated or mailer formats, and around 500 on custom polybags.'
+  },
+  {
+    q: 'Why do some low-volume packaging quotes still come back expensive?',
+    a: 'Low volume does not remove setup time. New dies, heavy print coverage, multiple inserts, unusual materials, and repeated sample changes all add labour and make a short run less efficient.'
+  },
+  {
+    q: 'What should a buyer send to keep a 100-500 unit run viable?',
+    a: 'Send packed dimensions, unit weight, quantity target, artwork scope, material preference, delivery postal code, and the date the packaging must be in hand before requesting pricing.'
+  }
+]);
+---
+<BaseLayout
+  title="Low MOQ Custom Packaging Canada — 100 to 500 Units"
+  description={description}
+  image="/images/blog/low-moq-packaging-decision-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Low MOQ"
+    heading="Low MOQ custom packaging — how to order 100-500 units without buying waste."
+    lead="Short-run packaging works when the structure stays controlled, the artwork is ready, and the buyer sends the packed spec early enough to avoid extra sample loops."
+    imageSrc="/images/blog/low-moq-packaging-decision-map.svg"
+    imageAlt="Technical diagram showing the four checkpoints for low-MOQ custom packaging: choose the right run type, keep the structure standard, send a complete specification, and lock the reorder notes."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Low MOQ custom packaging</strong> usually means <strong>100 units on stock RSC boxes, 250 on custom-printed corrugated or mailer formats, and about 500 on custom polybags</strong>. Those quantities are practical when the buyer is testing a SKU, launching a seasonal pack, or supporting a customer-specific program, but they only stay efficient if the spec is tight before production begins.</p>
+
+      <p>Apex Packaging Solutions quotes low-volume runs for Canadian buyers who need packaging to move in <strong>7-14 days from artwork sign-off</strong> without being forced into 5,000-unit inventory. That is useful for procurement teams managing trial orders, plant managers adding a new part number, or ecommerce operators validating a new packout. The mistake is assuming "small quantity" automatically means "simple project." Setup time, artwork revisions, and material choices still control the economics.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/low-moq-packaging-decision-map.svg" alt="Low MOQ packaging decision map covering run type, structure, RFQ detail, and reorder control." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Low-MOQ packaging stays viable when the buyer matches the run type to the job, limits unnecessary complexity, and sends a quote-ready specification.</figcaption>
+      </figure>
+
+      <h2>When a 100-500 unit run makes operational sense</h2>
+      <p>Short-run packaging is usually the right call when the business risk of overbuying is higher than the unit-cost penalty of a smaller order. That happens in four common cases:</p>
+
+      <ul>
+        <li><strong>New SKU testing:</strong> the product or carton size may change after the first sales cycle.</li>
+        <li><strong>Seasonal or promotional packaging:</strong> the print has a fixed campaign life and should not sit in stock after the program ends.</li>
+        <li><strong>Customer-specific programs:</strong> one account needs its own graphics, label panel, or mixed-pack configuration.</li>
+        <li><strong>Engineering validation:</strong> the team wants a sample-backed production run before committing to a blanket PO.</li>
+      </ul>
+
+      <p>In those situations, low MOQ does not just save warehouse space. It protects cash, reduces obsolete packaging, and gives the buyer a clean way to validate the spec before the reorder volume grows. Apex uses the same logic across <a href="/services/corrugated-boxes">corrugated boxes</a>, <a href="/services/mailer-boxes">mailer boxes</a>, and <a href="/services/polybags">custom polybags</a> because the real decision is not the product family. It is whether the first run is meant to prove the packaging program or feed a mature one.</p>
+
+      <h2>Start with the packaging format that matches the MOQ</h2>
+      <p>Some structures are naturally better suited to low-volume ordering than others. Standard formats, simple print, and fewer components keep the setup burden low enough for a short run to make sense.</p>
+
+      <table>
+        <thead>
+          <tr><th>Packaging type</th><th>Practical low-MOQ starting point</th><th>What keeps the run efficient</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Stock RSC (Regular Slotted Carton)</td><td>100 units</td><td>Existing style, limited artwork changes, standard board grades</td></tr>
+          <tr><td>Custom-printed corrugated</td><td>250 units</td><td>Simple structure, locked dimensions, controlled print coverage</td></tr>
+          <tr><td>Die-cut mailer box</td><td>250-500 units</td><td>One approved dieline, insert plan decided early, proof-ready artwork</td></tr>
+          <tr><td>Custom polybags</td><td>500 units</td><td>Stable bag dimensions, known gauge, simple print or no print</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the product needs a new die, complex insert set, or several print surfaces, the quantity may need to move higher to absorb setup. That does not mean the project is wrong for a small first order. It means the buyer should separate "must-have" features from "nice-to-have" features before the quote is built.</p>
+
+      <h2>What usually makes a low-MOQ job expensive</h2>
+      <p>Short runs become inefficient when the packaging behaves like a custom engineering project instead of a controlled production order. The most common cost drivers are predictable:</p>
+
+      <ul>
+        <li><strong>Multiple sample rounds:</strong> each revision adds labour and slows the path to sign-off.</li>
+        <li><strong>Heavy print coverage:</strong> inside and outside graphics, special finishes, and large colour fields raise setup demands.</li>
+        <li><strong>Unclear packed dimensions:</strong> quoting around raw product dimensions often forces a structural reset after the first mockup.</li>
+        <li><strong>Mixed components:</strong> inserts, labels, sleeves, and void fill should be quoted as one packout system, not as late add-ons.</li>
+        <li><strong>Undeclared compliance needs:</strong> FSC paperwork, PCR content, food-safe requirements, or barcode zones should be identified before the proof stage.</li>
+      </ul>
+
+      <p>A practical short run is usually a controlled first version of a repeat order. If the job still has too many open questions, use <a href="/design-support">design support</a> first and treat the production quantity as the second step, not the first.</p>
+
+      <h2>How buyers keep low-volume packaging out of the waste bin</h2>
+      <p>The safest way to avoid waste is to treat the first order as a live test with measurable checkpoints. That means ordering enough to validate production, pack-line labour, and shipping performance, but not so much that a small revision leaves obsolete stock behind.</p>
+
+      <ol>
+        <li><strong>Quote the packed product, not the bare product.</strong> Include inner wrap, manuals, inserts, labels, and any void fill.</li>
+        <li><strong>Use standard materials where possible.</strong> Proven board grades and film gauges reduce the chance of a one-off material problem.</li>
+        <li><strong>Keep version count low.</strong> One approved graphic version is safer than several regional or customer variants on a short run.</li>
+        <li><strong>Document the reorder notes.</strong> Keep the dieline revision, board callout, print assumptions, and sample comments together so the second PO moves faster than the first.</li>
+      </ol>
+
+      <p>This is where many buyers recover the value of the short run. The first order teaches the team what the real packed dimensions are, how the packaging performs in transit, and whether assembly time is acceptable. Once those points are proven, the next order can move to a higher quantity with fewer unknowns.</p>
+
+      <h2>The RFQ that makes a low MOQ possible</h2>
+      <p>Estimators can protect a 100-500 unit order only when the request is specific. Send these inputs before asking for pricing:</p>
+
+      <ul>
+        <li>Packaging type and dimensions after all inner packing is applied.</li>
+        <li>Unit weight and any edge, leak, or crush risk.</li>
+        <li>First-run quantity and expected reorder volume.</li>
+        <li>Print scope: plain, one-colour, full-colour, inside print, or undecided.</li>
+        <li>Material target if known: ECT grade, flute, kraft or white liner, or bag gauge.</li>
+        <li>Insert or accessory requirements such as foam, dividers, labels, or sleeves.</li>
+        <li>Delivery postal code and the date the packaging must be in hand.</li>
+      </ul>
+
+      <p>That same spec can be reused on the <a href="/contact">quote form</a> or compared against the broader overview on the <a href="/services">services page</a> if the buyer is still deciding between box, mailer, and poly formats. If the team needs a corrugated-first route, the Apex guide to <a href="/blog/custom-corrugated-boxes-canada-moq-lead-time-specs">custom corrugated boxes in Canada</a> expands on board grades, lead times, and style selection.</p>
+
+      <h2>Low MOQ works best when it is treated as a controlled first run</h2>
+      <p>The goal of a small packaging order is not merely to buy fewer units. The goal is to prove the structure, the artwork, the material callout, and the reorder process with limited exposure. Buyers who keep the structure standard, send a complete spec, and record the approval notes usually get the best result: a short first run that teaches the team what to scale next.</p>
+
+      <p>If you need a 100-500 unit packaging run, send the packed dimensions, quantity, and artwork scope first. Apex can quote the right format, flag the setup items that affect MOQ, and help decide whether the job should stay in a short run or move straight to a larger release.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, die-cut, and printed corrugated formats with MOQ and board guidance.' },
+    { title: 'Design Support', href: '/design-support', description: 'Use dielines, mockups, and sample review to control a short-run packaging program.' },
+    { title: 'Custom Corrugated Boxes in Canada', href: '/blog/custom-corrugated-boxes-canada-moq-lead-time-specs', description: 'See how board grade, print method, and lead time shape a usable corrugated quote.' }
+  ]} />
+
+  <CTABand
+    heading="Send the short-run spec before the sample loop starts."
+    lead="Packed dimensions, quantity, artwork scope, and in-hand date are enough to price a low-MOQ run properly."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

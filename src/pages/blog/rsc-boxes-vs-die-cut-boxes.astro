@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'RSC Boxes vs Die-Cut Boxes: Which Style Fits Your Product?';
+const description = 'A practical Canadian buyer guide to RSC boxes vs die-cut boxes: structure, MOQ, print setup, packing speed, and when each style lowers total packaging cost.';
+const url = '/blog/rsc-boxes-vs-die-cut-boxes';
+const datePublished = '2026-06-09';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'RSC Boxes vs Die-Cut Boxes', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What is the difference between an RSC box and a die-cut box?',
+    a: 'An RSC (Regular Slotted Carton) uses a standard scored-and-slotted blank with top and bottom flaps meeting at the centre. A die-cut box is made from a custom cutting form, which allows locking tabs, display features, tighter product fit, and non-standard shapes.'
+  },
+  {
+    q: 'Which box style usually has the lower minimum order quantity?',
+    a: 'RSC boxes usually support lower practical order quantities because the structure is standard and setup is simpler. Die-cut boxes often need custom tooling or more complex setup, so the practical MOQ is usually higher.'
+  },
+  {
+    q: 'When should a buyer move from RSC to die-cut packaging?',
+    a: 'Move to die-cut packaging when product fit, presentation, packing speed, or internal retention matters more than the lowest unit price. Retail kits, subscription packs, irregular shapes, and multi-part assemblies are common triggers.'
+  }
+]);
+---
+<BaseLayout
+  title="RSC Boxes vs Die-Cut Boxes — Which Style Fits Your Product"
+  description={description}
+  image="/images/blog/rsc-vs-die-cut-decision-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Box styles"
+    heading="RSC boxes vs die-cut boxes — which style fits your product, pack line, and MOQ?"
+    lead="A 250-unit box order can be overbuilt or under-specified depending on one structural decision: keep the standard RSC format, or move to a die-cut blank that locks around the product."
+    imageSrc="/images/blog/rsc-vs-die-cut-decision-map.svg"
+    imageAlt="Technical comparison diagram showing when to choose an RSC box versus a die-cut box based on fit, setup, MOQ, and packing speed."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>RSC (Regular Slotted Carton) boxes</strong> handle most Canadian shipping jobs because they are easy to source, easy to tape, and practical at low quantities. Die-cut boxes earn their cost when the product shape is awkward, the pack line needs faster presentation, or the box has to hold parts in place without extra dunnage. Buyers comparing the two should look past the unit price and check setup, fit, and labor.</p>
+
+      <p>Apex Packaging Solutions quotes both standard <a href="/services/corrugated-boxes">corrugated box styles</a> and custom structural work with <a href="/design-support">dielines and samples</a>. If you are buying for a warehouse, retail kit, launch box, or industrial parts program, this guide shows where RSC stays efficient and where die-cut packaging starts paying for itself.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/rsc-vs-die-cut-decision-map.svg" alt="RSC versus die-cut box decision map comparing setup cost, fit, packing speed, and MOQ." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">RSC boxes win on simplicity and lower setup. Die-cut boxes win when fit, presentation, or packing efficiency matters more than the cheapest blank.</figcaption>
+      </figure>
+
+      <h2>Start with the structure, not the print file</h2>
+      <p>An RSC is the standard scored shipping carton with four top flaps and four bottom flaps meeting near the middle. It is the default because it converts quickly, stores flat, and works across a wide range of sizes and weights. A die-cut box starts with a custom cutting form. That form can create locking tabs, retention panels, handles, windows, sleeves, or a tighter fold sequence around the product.</p>
+
+      <p>The practical question is simple: does the product need a standard shipping shell, or does it need structure that the standard shell cannot provide? If the item is rectangular, already bagged, and ships with loose fill or a simple insert, RSC usually stays in the lead. If the item has moving components, odd geometry, or needs a more controlled presentation at opening, die-cut deserves a quote.</p>
+
+      <h2>Where RSC boxes usually fit best</h2>
+      <p>RSC boxes are the safe choice when procurement needs predictable production and the pack line can tolerate a standard taped closure.</p>
+
+      <ul>
+        <li><strong>General shipping cartons:</strong> replacement parts, dry goods, hardware, and warehouse replenishment stock.</li>
+        <li><strong>Lower quantity runs:</strong> Apex planning ranges start at 100 units on practical stock RSC sizes, which helps with test SKUs and short-run demand.</li>
+        <li><strong>Heavy products with simple geometry:</strong> upgrading board grade to ECT-44 or double-wall is often cheaper than redesigning the structure.</li>
+        <li><strong>Fast quoting:</strong> a standard style reduces back-and-forth because the estimator can focus on dimensions, board, and print instead of structural engineering.</li>
+      </ul>
+
+      <p>If your team already has a taped case-packing process and the product is not slipping inside the carton, RSC is usually the lower-risk purchase. The box is also easier to second-source later because the style is standardized across the industry.</p>
+
+      <h2>Where die-cut boxes start to make financial sense</h2>
+      <p>Die-cut packaging costs more to set up, but it can remove other costs that buyers overlook when they compare only the blank price. A die-cut mailer or custom fit box may reduce void fill, speed up hand packing, improve barcode presentation, or stop a product from shifting during parcel transit.</p>
+
+      <table>
+        <thead>
+          <tr><th>Decision factor</th><th>RSC box</th><th>Die-cut box</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Setup complexity</td><td>Low</td><td>Moderate to high, depending on tooling</td></tr>
+          <tr><td>Practical MOQ</td><td>Often lower</td><td>Usually higher</td></tr>
+          <tr><td>Product fit</td><td>Standard rectangular cavity</td><td>Can be tailored to product geometry</td></tr>
+          <tr><td>Packing speed</td><td>Fast for taped ship cases</td><td>Can be faster if locks or folds remove extra steps</td></tr>
+          <tr><td>Presentation</td><td>Functional shipping look</td><td>Better for kits, retail, and branded unboxing</td></tr>
+        </tbody>
+      </table>
+
+      <p>Common trigger points include multi-part kits, subscription boxes, electronics accessories, folded literature packs, and products that otherwise need extra corrugated inserts or tape. In those cases, the custom structure is doing a job that loose dunnage was doing badly.</p>
+
+      <h2>MOQ is a setup question before it is a sales question</h2>
+      <p>Buyers often ask which style has the cheaper minimum order quantity. The answer usually follows setup time. A plain or lightly printed RSC can be priced quickly because the geometry is familiar. A die-cut job may require a structural review, custom cutting form, and a sample loop before production approval. That work raises the practical order floor.</p>
+
+      <p>As a planning range, stock or standard-style RSC orders can be practical from 100 units. Custom printed corrugated often starts around 250 units depending on print method. Die-cut work tends to make more sense once the product value, branding requirement, or handling problem justifies the extra setup. For very small branded runs, digital print sampling can sometimes bridge the gap before a larger production order.</p>
+
+      <h2>Labor and damage can erase a cheaper blank price</h2>
+      <p>A low-cost RSC becomes expensive if operators need extra tape, hand-cut foam, or two minutes of adjustment per packout. The same applies if the product shifts inside the carton and drives damage claims. A die-cut pack with integrated retention can cut those hidden costs, especially on slower manual lines where seconds per unit matter.</p>
+
+      <p>On the other hand, some teams move to die-cut too early. If the product is stable, the shipping environment is controlled, and a corrugated insert solves the movement issue, a standard RSC plus <a href="/services/protective-packaging">protective packaging</a> may be the more durable procurement decision. The structure should only get more complex when complexity solves a measurable problem.</p>
+
+      <h2>Ask these five questions before you choose</h2>
+      <ol>
+        <li><strong>Is the product rectangular and stable inside a standard cavity?</strong> If yes, start with RSC.</li>
+        <li><strong>Does the product need retention, locking tabs, or controlled presentation?</strong> If yes, price die-cut.</li>
+        <li><strong>Is labor on the pack line expensive or inconsistent?</strong> If yes, compare assembly time, not only unit cost.</li>
+        <li><strong>Will branding, inserts, or unboxing affect reorder volume?</strong> If yes, die-cut mailer formats may return value beyond freight protection.</li>
+        <li><strong>Can a sample prove the decision cheaply?</strong> If yes, approve a structural sample before scaling the run.</li>
+      </ol>
+
+      <h2>What to send in the RFQ</h2>
+      <p>A clean quote request keeps the decision grounded in real constraints. Send the product dimensions, packed weight, target quantity, board preference if known, how the item is currently packed, and whether the box is for parcel shipping, palletized freight, or retail presentation. If you are considering die-cut, send photos of the product and note any movement, assembly, or opening issues the current carton is causing.</p>
+
+      <p>Buyers who need a broader style comparison can also review the Apex guide to <a href="/blog/rsc-vs-fol-box-styles">RSC, FOL, and telescoping box styles</a>. That article helps when the problem is stacking strength or access, while this guide is mainly about standard ship cases versus custom structural conversion.</p>
+
+      <h2>The right box style is the one that lowers total handling cost</h2>
+      <p>RSC boxes stay dominant for a reason: they are efficient, flexible, and easy to reorder. Die-cut boxes are worth the extra setup only when they improve fit, labor, or product control enough to change the economics of the packout. Start with the damage risk, the handling sequence, and the actual order size. Then choose the simplest structure that still does the job.</p>
+
+      <p>Send Apex the dimensions, quantity, and current packing issue. If the standard carton is enough, the quote will stay standard. If the product needs a custom fold pattern, the design team can build a dieline and sample before the production run is released.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, die-cut, telescoping, and printed corrugated box options.' },
+    { title: 'Design Support', href: '/design-support', description: 'Dielines, structural review, and samples before production approval.' },
+    { title: 'RSC, FOL, or Telescoping', href: '/blog/rsc-vs-fol-box-styles', description: 'Compare standard corrugated box styles for strength and access.' }
+  ]} />
+
+  <CTABand
+    heading="Send the product spec and current box issue for a quote."
+    lead="Dimensions, packed weight, target quantity, and a photo of the current packout are enough to compare RSC against a die-cut alternative."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

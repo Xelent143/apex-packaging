@@ -1,0 +1,60 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ESD bag decision map</title>
+  <desc id="desc">Technical diagram comparing standard poly, pink anti-static bags, and static-shielding bags for electronics packaging decisions.</desc>
+  <rect width="1200" height="720" fill="#F7F5F1"/>
+  <rect x="40" y="40" width="1120" height="640" rx="28" fill="#FFFDFC" stroke="#D7D1C7"/>
+  <text x="80" y="110" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="42" font-weight="700">ESD Bag Decision Map</text>
+  <text x="80" y="148" fill="#5B5349" font-family="Inter, Arial, sans-serif" font-size="22">Choose film by product sensitivity first, then by handling damage, bag gauge, and the outer pack around the electronics item.</text>
+
+  <rect x="80" y="190" width="300" height="344" rx="24" fill="#FFFFFF" stroke="#D7D1C7"/>
+  <rect x="450" y="190" width="300" height="344" rx="24" fill="#FFFFFF" stroke="#D7D1C7"/>
+  <rect x="820" y="190" width="300" height="344" rx="24" fill="#FFFFFF" stroke="#D7D1C7"/>
+
+  <text x="112" y="240" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="30" font-weight="700">Standard Poly</text>
+  <text x="482" y="240" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="30" font-weight="700">Pink Anti-Static</text>
+  <text x="852" y="240" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="30" font-weight="700">Static-Shielding</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="19" fill="#231F1A">
+    <text x="112" y="290">Use for manuals, cables, and non-sensitive</text>
+    <text x="112" y="322">replacement parts or sealed accessories.</text>
+    <text x="112" y="366">Primary job: dust control, unitization,</text>
+    <text x="112" y="398">barcode packout, and kit organization.</text>
+    <text x="112" y="442">Not intended for exposed ESD-sensitive</text>
+    <text x="112" y="474">boards or assemblies.</text>
+
+    <text x="482" y="290">Use for housed electronics, adapters,</text>
+    <text x="482" y="322">accessory kits, and charge-aware handling.</text>
+    <text x="482" y="366">Primary job: reduce static buildup on</text>
+    <text x="482" y="398">the bag surface during normal handling.</text>
+    <text x="482" y="442">Choose gauge by weight and edge profile,</text>
+    <text x="482" y="474">not by ESD requirement alone.</text>
+
+    <text x="852" y="290">Use for bare PCBs, open assemblies,</text>
+    <text x="852" y="322">and controlled electronics programs.</text>
+    <text x="852" y="366">Primary job: add a stronger barrier</text>
+    <text x="852" y="398">against discharge during handling.</text>
+    <text x="852" y="442">Usually paired with ESD labels, inserts,</text>
+    <text x="852" y="474">and controlled outer cartons.</text>
+  </g>
+
+  <rect x="112" y="494" width="162" height="26" rx="13" fill="#F3EEE4"/>
+  <rect x="482" y="494" width="158" height="26" rx="13" fill="#FCE2EA"/>
+  <rect x="852" y="494" width="170" height="26" rx="13" fill="#E8ECEF"/>
+  <text x="127" y="512" fill="#6B6256" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">LOWEST COST PATH</text>
+  <text x="497" y="512" fill="#6B6256" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">CHARGE-AWARE FILM</text>
+  <text x="867" y="512" fill="#6B6256" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">HIGHER ESD CONTROL</text>
+
+  <path d="M395 238H433" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M765 238H803" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M395 308H433" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M765 308H803" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M395 378H433" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M765 378H803" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="80" y="566" width="1040" height="76" rx="18" fill="#0F0D0A"/>
+  <text x="112" y="613" fill="#F7F5F1" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">Decision rule:</text>
+  <text x="312" y="613" fill="#F7F5F1" font-family="Inter, Arial, sans-serif" font-size="24">If the item has exposed circuitry or a customer ESD spec, quote shielding early. If it is housed and needs charge-aware handling, pink anti-static film may be enough.</text>
+
+  <circle cx="1060" cy="116" r="28" fill="#1B3A2F"/>
+  <text x="1045" y="124" fill="#F7F5F1" font-family="JetBrains Mono, monospace" font-size="20" font-weight="700">D5</text>
+</svg>

@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Custom Mailer Boxes for Ecommerce: Print, Inserts, and MOQ';
+const description = 'A practical buyer guide to custom mailer boxes in Canada: E-flute versus B-flute, inside print, insert choices, sample flow, and the specs that control MOQ and lead time.';
+const url = '/blog/custom-mailer-boxes-ecommerce-print-inserts-moq';
+const datePublished = '2026-06-10';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Custom Mailer Boxes for Ecommerce', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What is the usual MOQ for custom mailer boxes in Canada?',
+    a: 'A practical starting range is 250-500 units depending on structure, board choice, and print method. Simpler tuck-top mailers usually support lower quantities than more complex premium formats.'
+  },
+  {
+    q: 'Which flute is usually used for ecommerce mailer boxes?',
+    a: 'E-flute is a common starting point because it prints cleanly and keeps the box profile compact. B-flute is often chosen when the product is heavier or the buyer wants a more rigid feel.'
+  },
+  {
+    q: 'What should a buyer send before asking for a mailer box quote?',
+    a: 'Send product dimensions, packed weight, first-run quantity, print coverage, whether inserts are required, delivery postal code, and the date the box needs to be in hand.'
+  }
+]);
+---
+<BaseLayout
+  title="Custom Mailer Boxes Canada — Print, Inserts, and MOQ"
+  description={description}
+  image="/images/blog/mailer-box-quote-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Mailer boxes"
+    heading="Custom mailer boxes for ecommerce — print, inserts, and MOQ without wasted setup."
+    lead="A 250-unit mailer run usually succeeds or stalls on four inputs: board grade, print coverage, insert choice, and whether the buyer sends a complete product spec before the dieline is drawn."
+    imageSrc="/images/blog/mailer-box-quote-map.svg"
+    imageAlt="Technical decision diagram for custom ecommerce mailer boxes covering structure, print, insert, and MOQ choices."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Custom mailer boxes</strong> for ecommerce usually start around <strong>250-500 units</strong>, and the fastest way to protect that MOQ is to match the structure to the product before anyone debates coatings or inside print. Buyers who begin with aesthetics often end up revising the dieline, which adds sample cycles and slows the launch.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/mailer-boxes">custom mailer boxes</a> for Canadian ecommerce and D2C (direct-to-consumer) programs that need practical numbers: board grade, insert layout, print method, sample timing, and whether the run can stay in the low hundreds without waste. This guide is for procurement teams, operations managers, and repeat-order buyers who need a mailer that protects the product, prints cleanly, and reorders without guesswork.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/mailer-box-quote-map.svg" alt="Mailer box quote map showing structure, print, insert, and MOQ decisions." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Most mailer pricing shifts follow four decisions: the board and format, how much print coverage is required, whether the product needs an insert, and how complete the RFQ is before sampling.</figcaption>
+      </figure>
+
+      <h2>Start with the box format and board grade</h2>
+      <p>The standard ecommerce mailer is a die-cut tuck-top format with front locking tabs and a dust flap. That structure works because it ships flat, assembles quickly, and presents well at opening. The next decision is the corrugated profile.</p>
+
+      <table>
+        <thead>
+          <tr><th>Specification</th><th>When it fits best</th><th>What it changes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>E-flute</td><td>Beauty, apparel, kits, subscription packs, lighter consumer goods</td><td>Cleaner print face, slimmer profile, efficient parcel presentation</td></tr>
+          <tr><td>B-flute</td><td>Heavier products, denser bundles, higher compression risk</td><td>More rigidity, deeper crush resistance, slightly rougher print face</td></tr>
+          <tr><td>Kraft outer liner</td><td>Natural finish, recycled-content programs, lower-scuff exterior</td><td>Warm appearance, less white-space brightness, practical for one- or two-colour print</td></tr>
+          <tr><td>White outer liner</td><td>Brand-critical colour reproduction or full-coverage graphics</td><td>Higher visual contrast and cleaner process print</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the product is fragile, heavy for its size, or prone to corner damage, the mailer should be quoted together with <a href="/services/protective-packaging">protective inserts or void control</a>. Changing from E-flute to B-flute may help, but board upgrade alone does not solve movement inside the pack.</p>
+
+      <h2>Print coverage decides more than the artwork look</h2>
+      <p>Buyers often ask whether they can print outside, inside, or both. The answer is usually yes. The better question is what the print needs to do operationally. Exterior print handles shelf recognition, parcel presentation, and brand consistency. Interior print is usually used for instructions, seasonal messaging, QR codes, or a stronger unboxing cue without adding separate inserts.</p>
+
+      <ul>
+        <li><strong>One-colour outside print</strong> is efficient when the priority is logo recognition and shipping durability.</li>
+        <li><strong>Full-colour exterior print</strong> makes sense when the box is part of acquisition or gifting, and colour accuracy matters.</li>
+        <li><strong>Interior print</strong> adds value when the inside lid replaces a card, packing slip carrier, or promo leaflet.</li>
+        <li><strong>Heavy ink coverage</strong> should be declared early because it can affect cost, production route, and how the sample is approved.</li>
+      </ul>
+
+      <p>When the print area becomes highly complex, the mailer behaves less like a stock shipper and more like a branded carton program. That usually pushes buyers toward a cleaner proofing cycle with <a href="/design-support">dielines, artwork checks, and mockups</a> before the run is released.</p>
+
+      <h2>Insert choice is where protection and labor meet</h2>
+      <p>A mailer can look correct in a render and still fail on the pack line if the product shifts, tilts, or arrives with presentation damage. Inserts fix that, but not every insert belongs in a 250-unit run.</p>
+
+      <table>
+        <thead>
+          <tr><th>Insert type</th><th>Best fit</th><th>Buyer trade-off</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Folded corrugated insert</td><td>Small kits, bottles, jars, multi-item sets</td><td>Lower material cost, simple to recycle, adds assembly steps</td></tr>
+          <tr><td>Paperboard divider</td><td>Flat accessories, booklets, sleeves, layered kits</td><td>Clean presentation, lower cushioning than foam</td></tr>
+          <tr><td>Foam insert</td><td>Fragile electronics, premium glass, higher-value items</td><td>Better retention, higher unit cost, more material complexity</td></tr>
+          <tr><td>No insert plus void fill</td><td>Soft goods or stable items already in inner packs</td><td>Fast to quote, weaker presentation control</td></tr>
+        </tbody>
+      </table>
+
+      <p>The procurement test is straightforward: if the insert lowers breakage, speeds assembly, or eliminates a second packaging component, it is doing measurable work. If it only improves the mockup, keep it out of the first production run.</p>
+
+      <h2>MOQ follows setup time and sample risk</h2>
+      <p>Low-MOQ mailers are possible, but they stay practical only when the structure is controlled. A standard tuck-top mailer with moderate print coverage can often stay in the 250-500 range. Add inside print, a custom insert, special coatings, or an unconventional locking format, and the run may need more volume to absorb setup.</p>
+
+      <p>That is why the sample loop matters. Apex typically starts with the structural spec, then builds the dieline, then checks artwork, then moves to a mockup or physical sample if the product fit is sensitive. The process is faster when the buyer provides the exact packed dimensions rather than only the product dimensions. A mailer quoted around the raw item can come back too shallow once tissue, sleeves, manuals, or fill are added.</p>
+
+      <h2>What to send before the quote is built</h2>
+      <p>A clean RFQ keeps the estimator from guessing. Send these details before requesting pricing for a custom mailer run:</p>
+
+      <ul>
+        <li>Product dimensions after all inner packaging is applied.</li>
+        <li>Packed weight per unit and any sharp or crush-prone areas.</li>
+        <li>Target quantity for the first run and expected reorder cadence.</li>
+        <li>Whether the box is a standard tuck-top mailer or a custom format.</li>
+        <li>Board preference if known: E-flute, B-flute, kraft, or white liner.</li>
+        <li>Print scope: outside only, inside only, both, or undecided.</li>
+        <li>Insert requirement: none, corrugated, divider, foam, or sample needed.</li>
+        <li>Barcode, QR, lot code, or regulatory copy that must land on the box.</li>
+        <li>Delivery postal code and the in-hand date for launch or replenishment.</li>
+      </ul>
+
+      <p>If the team is split between a standard shipper and a more custom presentation format, compare this with the Apex guide to <a href="/blog/rsc-boxes-vs-die-cut-boxes">RSC boxes versus die-cut boxes</a>. That article helps when the main decision is structural complexity, while this guide focuses on ecommerce mailers specifically.</p>
+
+      <h2>The right mailer is easy to reorder, not just easy to approve</h2>
+      <p>A strong first sample matters, but the better outcome is a mailer spec that can be reordered with the same board, print, and insert assumptions three purchase orders later. Buyers should treat the first run as the start of a repeatable packaging program, not a one-off artwork event. That means locking the packed dimensions, the board callout, the insert layout, and the approval notes while the project is still fresh.</p>
+
+      <p>Send Apex the packed dimensions, quantity, print coverage, and insert question. If the structure needs refinement, the design team can turn that into a dieline, mockup, and sample path before the production run is approved.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Tuck-top, magnetic-close, ZIP-tear, and custom-printed mailers for Canadian ecommerce.' },
+    { title: 'Design Support', href: '/design-support', description: 'Dielines, artwork review, and 3D mockups before the order is released.' },
+    { title: 'RSC vs Die-Cut Boxes', href: '/blog/rsc-boxes-vs-die-cut-boxes', description: 'Compare standard shipping cartons against custom structural conversion.' }
+  ]} />
+
+  <CTABand
+    heading="Send the packed spec for a mailer box quote."
+    lead="Packed dimensions, first-run quantity, print coverage, and insert needs are enough to price the right structure."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>
