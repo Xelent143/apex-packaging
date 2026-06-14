@@ -18,7 +18,8 @@ const styleNav = [
   { label: 'Custom Display Boxes', href: '/industries/retail-boxes', image: '/images/home/categories/display-boxes.webp' },
   { label: 'Custom Mailer Boxes', href: '/services/mailer-boxes', image: '/images/home/mailer-boxes-branded.webp' },
   { label: 'Custom Pillow Boxes', href: '/industries/gift-boxes', image: '/images/home/categories/pillow-boxes.webp' },
-  { label: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', image: '/images/home/categories/bakery-boxes.webp' }
+  { label: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', image: '/images/home/categories/bakery-boxes.webp' },
+  { label: 'CBD Boxes', href: '/services/cbd-boxes', image: '/images/apex-update/styles/cbd-boxes-premium.png' }
 ];
 const simpleNav = [
   { label: 'Home', href: '/' },
@@ -217,7 +218,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
         </a>
       )}
 
-      <nav aria-label="Primary mobile" class="grid grid-cols-4 gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <nav aria-label="Primary mobile" class="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <a href="/industries" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
           <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3 21h18v-2h-2V8.4l-5-2.5V19h-2V3L5 6.5V19H3v2Zm4-9h2v2H7v-2Zm0 4h2v2H7v-2Zm8-3h2v2h-2v-2Zm0 4h2v2h-2v-2Z"></path>
@@ -234,6 +235,13 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
             <path d="M12 13v8"></path>
           </svg>
           <span>Product<br />Styles</span>
+          <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </a>
+        <a href="/services/cbd-boxes" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
+          <img src="/images/apex-update/styles/cbd-boxes-premium.png" alt="" width="160" height="160" loading="lazy" decoding="async" class="h-10 w-10 rounded-md object-cover" />
+          <span>CBD<br />Boxes</span>
           <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="m6 9 6 6 6-6"></path>
           </svg>
@@ -357,7 +365,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
             Boxes By Style <span aria-hidden="true">⌄</span>
           </a>
           <div class="invisible absolute left-10 right-10 top-full z-50 rounded-b-md border border-neutral-200 bg-white text-neutral-900 opacity-0 shadow-popover transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-            <div class="grid gap-4 p-6 md:grid-cols-5">
+            <div class="grid gap-4 p-6 md:grid-cols-6">
               {styleNav.map((item) => (
                 <a href={item.href} class="group/item overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 transition hover:-translate-y-1 hover:border-accent hover:shadow-card">
                   <img src={item.image} alt={`${item.label} packaging`} width="724" height="543" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover/item:scale-[1.03]" />
@@ -367,6 +375,16 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
             </div>
           </div>
         </div>
+
+        <a
+          href="/services/cbd-boxes"
+          class:list={[
+            'px-5 py-3 transition-colors hover:text-accent',
+            pathname === '/services/cbd-boxes' ? 'text-accent' : ''
+          ]}
+        >
+          CBD Boxes
+        </a>
 
         {simpleNav.slice(1).map((item) => (
           <a

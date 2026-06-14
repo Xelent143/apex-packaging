@@ -90,7 +90,8 @@ export const industryBoxes: IndustryBox[] = [
   {
     slug: 'cbd-boxes',
     label: 'CBD Boxes',
-    image: '/images/home/categories/cbd-gift-boxes.webp',
+    image: '/images/apex-update/styles/cbd-boxes-premium.png',
+    heroBanner: '/images/services/cbd-boxes-premium-hero.png',
     icon: '/images/industry-icons/cbd-boxes.png',
     alt: 'Apex Packaging branded CBD gift packaging',
     summary: 'CBD packaging for tinctures, jars, balms, gummies, and retail sets with controlled, brand-ready paperboard production.',
