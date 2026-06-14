@@ -24,11 +24,8 @@ const productLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Facebook', href: '/contact', image: '/images/footer-icons/social/facebook.png' },
-  { label: 'X', href: '/contact', image: '/images/footer-icons/social/x.png' },
   { label: 'LinkedIn', href: '/contact', image: '/images/footer-icons/social/linkedin.png' },
   { label: 'YouTube', href: '/contact', image: '/images/footer-icons/social/youtube.png' },
-  { label: 'Pinterest', href: '/contact', image: '/images/footer-icons/social/pinterest.png' },
   { label: 'Instagram', href: '/contact', image: '/images/footer-icons/social/instagram.png' }
 ];
 
@@ -119,10 +116,10 @@ const paymentMarks = [
       </div>
 
       <div class="mt-8 grid gap-5 border-t border-neutral-200 pt-6 lg:grid-cols-[1fr_1.3fr] lg:items-center">
-        <div class="flex flex-nowrap items-center gap-2 overflow-x-auto whitespace-nowrap pb-1 [scrollbar-width:none] sm:gap-3 sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
-          <span class="shrink-0 font-display font-extrabold">Follow Us:</span>
+        <div class="flex flex-wrap items-center justify-center gap-3 text-center sm:justify-start md:gap-4">
+          <span class="w-full font-display text-lg font-extrabold sm:w-auto sm:text-base md:text-lg">Follow Us:</span>
           {socialLinks.map((item) => (
-            <a href={item.href} class="grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-sm bg-neutral-900 transition-opacity hover:opacity-85 md:h-8 md:w-8" aria-label={item.label}>
+            <a href={item.href} class="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-md bg-neutral-900 shadow-sm ring-1 ring-neutral-800/10 transition-opacity hover:opacity-85 md:h-11 md:w-11" aria-label={item.label}>
               <img src={item.image} alt="" width="96" height="96" loading="lazy" decoding="async" class="h-full w-full object-cover" />
             </a>
           ))}
