@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Stretch Film vs Shrink Film: Which One Protects Your Pallet?';
+const description = 'A practical buyer guide to stretch film vs shrink film in Canada: manual vs machine wrap, load containment, heat requirements, and the RFQ details that prevent pallet damage.';
+const url = '/blog/stretch-film-vs-shrink-film-pallet-protection';
+const datePublished = '2026-06-14';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Stretch Film vs Shrink Film', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'When should a buyer choose stretch film instead of shrink film?',
+    a: 'Choose stretch film when the job is standard pallet unitization, especially if the load ships on mixed-SKU pallets, manual wrappers, or stretch-wrap machines. It gives containment without a heat process and is usually the first review path for warehouse pallet wrapping.'
+  },
+  {
+    q: 'Is shrink film stronger than stretch film for pallet protection?',
+    a: 'Not automatically. Shrink film can create a tight, tamper-evident wrap when the load and equipment are suited to it, but many pallet programs are better served by correctly specified machine or hand stretch film plus edge protection and proper pallet patterns.'
+  },
+  {
+    q: 'What should be included in a pallet-film RFQ?',
+    a: 'Send pallet dimensions, total loaded weight, stack height, whether wrapping is manual or machine-assisted, containment failures today, shipping lane, and whether the load needs tamper evidence, weather protection, or bundling.'
+  }
+]);
+---
+<BaseLayout
+  title="Stretch Film vs Shrink Film Canada — Pallet Protection Guide"
+  description={description}
+  image="/images/blog/stretch-vs-shrink-film-decision-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Industrial bulk"
+    heading="Stretch film vs shrink film — which one protects your pallet, and which one adds avoidable cost."
+    lead="Hand stretch film usually starts around 70 to 100 gauge, machine film around 60 to 80 gauge, and shrink film only makes sense when the load, heat process, and containment goal are quoted together."
+    imageSrc="/images/blog/stretch-vs-shrink-film-decision-map.svg"
+    imageAlt="Technical decision diagram comparing stretch film and shrink film for pallet protection, machine compatibility, load type, containment, and RFQ checkpoints."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Stretch film</strong> is usually the right first quote for pallet protection because it can stabilize mixed loads, run by hand or machine, and avoid the extra heat process that shrink film requires. In most Canadian plant and warehouse programs, buyers start with hand film in the 70 to 100 gauge range, machine film in the 60 to 80 gauge range, or pre-stretched film when labour and material reduction matter more than maximum holding force. <strong>Shrink film</strong> belongs in a narrower set of jobs: bundled cases, tamper-evident retail packs, or pallet programs with the right heat equipment and a stable load pattern.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/industrial-bulk-packaging">industrial and bulk packaging</a> for Canadian plants that buy film together with Gaylords, edge protectors, pallet caps, and corrugated transit packaging. This guide is written for procurement teams deciding whether they need standard pallet wrap, a shrink format, or a broader unitization review that also touches <a href="/services/corrugated-boxes">corrugated case design</a> and pallet stacking. The goal is simple: match the film to the handling pattern instead of defaulting to whatever the last site used.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/stretch-vs-shrink-film-decision-map.svg" alt="Decision map for choosing stretch film or shrink film for pallet protection." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The first decision is not film brand. It is whether the load needs elastic containment, heat-shrunk bundling, or a broader pallet-unitization fix.</figcaption>
+      </figure>
+
+      <h2>Start with the load pattern and the wrapping method</h2>
+      <p>Buyers often ask for "pallet wrap" without clarifying whether the load is wrapped by hand, by a semi-automatic turntable, or on a high-speed stretch wrapper. That one detail affects film type, gauge range, and how much consistency the plant can expect from one shift to the next. Manual wrapping usually tolerates a more forgiving hand film. Machine wrapping can support lighter gauges if pre-stretch and wrap force are controlled. Shrink applications need the equipment path defined up front because the film is only part of the system.</p>
+
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>Usual first review</th><th>What changes the answer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mixed-SKU pallets wrapped by hand</td><td>Hand stretch film</td><td>Sharp corners, unstable stack, long freight lane</td></tr>
+          <tr><td>Consistent loads on a wrapper</td><td>Machine stretch film</td><td>Pre-stretch settings, load height, containment target</td></tr>
+          <tr><td>Bundled cases or tamper-evident full packs</td><td>Shrink film review</td><td>Heat tunnel capacity, film type, and product heat sensitivity</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the pallet fails because the cases underneath are underbuilt, the film will not fix the root cause. Compare the load with the Apex guide to <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">custom shipping boxes for heavy products</a> when compression or box crush is part of the failure pattern. The right film spec starts after the carton and pallet footprint are already workable.</p>
+
+      <h2>Stretch film is usually the default for pallet containment</h2>
+      <p>Stretch film works by elastic tension. The film stretches around the load and pulls inward to hold cartons or bulk containers together during storage and transit. That makes it practical for warehouse palletizing, mixed loads, and operations that want containment without adding heat equipment. The industrial bulk page already lists the common starting points: hand stretch film, machine stretch film, and pre-stretched film for material reduction programs.</p>
+
+      <ul>
+        <li><strong>Hand stretch film</strong> fits lower-volume or variable palletizing where operators wrap manually.</li>
+        <li><strong>Machine stretch film</strong> fits repeatable loads and gives better control when the wrapper settings are stable.</li>
+        <li><strong>Pre-stretched film</strong> is worth reviewing when the plant wants lower exertion and reduced film consumption.</li>
+      </ul>
+
+      <p>The procurement mistake is treating all stretch film as interchangeable. Gauge, cling, puncture resistance, and wrapper compatibility matter. A lighter machine film can outperform a heavier hand film when the equipment is set properly. The reverse is also true: the wrong machine film can snap, neck down, or leave the pallet loose if the wrapper is not tuned to it.</p>
+
+      <h2>Shrink film earns its place when heat and presentation are part of the job</h2>
+      <p>Shrink film tightens with heat, so it is more equipment-dependent and more application-specific than stretch wrap. It is often reviewed for bundled packs, retail multipacks, tamper-evident formats, or pallet loads that need a uniform sealed appearance. In industrial packaging, shrink can also be part of a hooding or full-cover approach, but that only makes sense when the site already has the heat process or can justify the added handling step.</p>
+
+      <p>That does not make shrink automatically better. It makes it more specialized. If the job is a standard warehouse pallet moving through LTL or FTL freight, stretch film is usually simpler to run, easier to replenish, and less sensitive to operator or tunnel variation. Shrink should be reviewed when the buyer can name the reason: tamper evidence, load consolidation, weather shielding, or a pack format that cannot be held correctly by stretch alone.</p>
+
+      <h2>Containment failures usually involve more than the film roll</h2>
+      <p>When buyers report pallet failure, the symptom is often "the wrap broke" or "the load shifted." The film might be part of it, but the full unitization system matters more. Overhang, poor column stacking, sharp corrugated edges, and missing corner boards can all cause a film failure even when the roll itself is correctly specified. That is why Apex quotes film programs alongside edge protectors, top caps, and other <a href="/services/protective-packaging">protective packaging</a> when the route demands it.</p>
+
+      <ol>
+        <li><strong>Pallet pattern:</strong> column-stacked loads usually hold better than unstable interlocked patterns when the case footprint is consistent.</li>
+        <li><strong>Edge condition:</strong> sharp corrugated corners can puncture lighter film before the trailer even leaves the dock.</li>
+        <li><strong>Top-load and dwell time:</strong> a load that sits in storage for weeks needs more containment discipline than a same-day shipment.</li>
+      </ol>
+
+      <p>If the shipment includes Gaylords or other bulk containers, read the Apex guide to <a href="/blog/gaylord-boxes-bulk-containers-procurement-guide">Gaylord boxes and bulk containers</a> alongside the film decision. Bulk corrugated programs often need the film, edge protection, and container spec reviewed together, not in separate purchase decisions.</p>
+
+      <h2>What to include in a stretch-film or shrink-film RFQ</h2>
+      <p>A usable RFQ should describe the pallet, the handling method, and the current failure point. Send these details before asking for film pricing:</p>
+
+      <ul>
+        <li>Pallet dimensions, total loaded weight, and overall load height.</li>
+        <li>Whether wrapping is manual, semi-automatic, or fully automatic.</li>
+        <li>Product type and whether the pallet contains uniform cartons, mixed SKUs, or bulk containers.</li>
+        <li>Current failure mode: film breakage, load shift, crushed corners, or poor load retention.</li>
+        <li>Need for tamper evidence, weather resistance, or bundled-pack presentation.</li>
+        <li>Freight lane, storage dwell time, and whether pallets are stacked in the warehouse.</li>
+        <li>Monthly volume, first order quantity, and whether the site wants a film-reduction trial.</li>
+      </ul>
+
+      <h2>The right film choice should reduce total pallet risk, not only unit cost</h2>
+      <p>Stretch film is usually the more practical answer for Canadian pallet programs because it handles variable loads, works without heat, and fits a wider range of wrappers and warehouse workflows. Shrink film should be reviewed when the job specifically benefits from heat-shrunk containment, bundling, or tamper evidence. The wrong way to buy either product is to compare roll price without checking the pallet pattern, equipment path, and failure mode.</p>
+
+      <p>Send Apex the pallet footprint, wrapping method, and the containment problem you need to solve. That is enough to quote the film, edge protection, and related packaging changes that actually reduce damage on the dock and in transit.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Industrial & Bulk Packaging', href: '/services/industrial-bulk-packaging', description: 'Stretch film, shrink film, Gaylords, edge protectors, and pallet-quantity programs.' },
+    { title: 'Heavy-Product Shipping Boxes', href: '/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking', description: 'Check the carton and pallet compression spec before changing the film.' },
+    { title: 'Gaylord Boxes Procurement Guide', href: '/blog/gaylord-boxes-bulk-containers-procurement-guide', description: 'Review bulk-container footprint, liner, stacking, and release pattern together.' }
+  ]} />
+
+  <CTABand
+    heading="Send the pallet pattern for a film quote."
+    lead="Load weight, wrap method, containment issue, and freight lane are enough to compare stretch film, shrink film, and the support materials around them."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

@@ -1,0 +1,48 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">FSC corrugated verification map</title>
+  <desc id="desc">Technical diagram showing four verification checkpoints for FSC-certified corrugated boxes: chain-of-custody status, board callout, artwork claim, and shipment paperwork.</desc>
+  <rect width="1200" height="720" fill="#F7F5F1"/>
+  <rect x="32" y="32" width="1136" height="656" rx="28" fill="#FFFDF8" stroke="#D9D2C3" stroke-width="2"/>
+  <rect x="68" y="64" width="1064" height="116" rx="22" fill="#0F0D0A"/>
+  <text x="104" y="112" fill="#F7F5F1" font-family="Archivo, Arial, sans-serif" font-size="40" font-weight="700">FSC corrugated verification map</text>
+  <text x="104" y="152" fill="#DDD5C8" font-family="Inter, Arial, sans-serif" font-size="22">Use four checkpoints before artwork sign-off or PO release.</text>
+
+  <rect x="84" y="220" width="236" height="210" rx="24" fill="#FFF8EA" stroke="#D34A1A" stroke-width="3"/>
+  <text x="108" y="266" fill="#D34A1A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">1. Status</text>
+  <text x="108" y="306" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">Confirm FSC chain</text>
+  <text x="108" y="334" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">of custody on the</text>
+  <text x="108" y="362" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">quoted corrugated</text>
+  <text x="108" y="390" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">production route.</text>
+
+  <rect x="344" y="220" width="236" height="210" rx="24" fill="#FFF8EA" stroke="#D34A1A" stroke-width="3"/>
+  <text x="368" y="266" fill="#D34A1A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">2. Board</text>
+  <text x="368" y="306" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">Lock ECT, wall type,</text>
+  <text x="368" y="334" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">liner color, and any</text>
+  <text x="368" y="362" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">recycled-content</text>
+  <text x="368" y="390" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">callout.</text>
+
+  <rect x="604" y="220" width="236" height="210" rx="24" fill="#EEF4EE" stroke="#1B3A2F" stroke-width="3"/>
+  <text x="628" y="266" fill="#1B3A2F" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">3. Artwork</text>
+  <text x="628" y="306" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">Decide whether the</text>
+  <text x="628" y="334" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">claim appears on the</text>
+  <text x="628" y="362" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">carton or stays in</text>
+  <text x="628" y="390" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">order documents.</text>
+
+  <rect x="864" y="220" width="252" height="210" rx="24" fill="#EEF4EE" stroke="#1B3A2F" stroke-width="3"/>
+  <text x="888" y="266" fill="#1B3A2F" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">4. Paperwork</text>
+  <text x="888" y="306" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">Match quote, invoice,</text>
+  <text x="888" y="334" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">and shipment records</text>
+  <text x="888" y="362" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">to the buyer's audit</text>
+  <text x="888" y="390" fill="#0F0D0A" font-family="JetBrains Mono, monospace" font-size="20">file requirements.</text>
+
+  <path d="M202 450V510H990V450" stroke="#B8AF9E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M202 510H990" stroke="#B8AF9E" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10"/>
+  <circle cx="202" cy="510" r="10" fill="#D34A1A"/>
+  <circle cx="462" cy="510" r="10" fill="#D34A1A"/>
+  <circle cx="722" cy="510" r="10" fill="#1B3A2F"/>
+  <circle cx="990" cy="510" r="10" fill="#1B3A2F"/>
+
+  <rect x="100" y="550" width="1000" height="100" rx="24" fill="#0F0D0A"/>
+  <text x="132" y="592" fill="#F7F5F1" font-family="Archivo, Arial, sans-serif" font-size="30" font-weight="700">Decision rule:</text>
+  <text x="352" y="592" fill="#DDD5C8" font-family="Inter, Arial, sans-serif" font-size="23">Approve the claim only when certification status, board spec, artwork use, and paperwork are all defined in the same RFQ.</text>
+</svg>

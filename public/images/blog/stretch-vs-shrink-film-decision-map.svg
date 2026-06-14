@@ -1,0 +1,52 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Stretch film versus shrink film decision map</title>
+  <desc id="desc">A technical decision diagram comparing stretch film and shrink film for pallet protection using six checkpoints: load type, wrap method, containment goal, heat process, support materials, and RFQ details.</desc>
+  <rect width="1200" height="720" fill="#F7F5F1"/>
+  <rect x="40" y="40" width="1120" height="640" rx="28" fill="#FFFDF8" stroke="#D8D0C2" stroke-width="2"/>
+  <text x="80" y="118" fill="#0F0D0A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">APEX PACKAGING SOLUTIONS</text>
+  <text x="80" y="170" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="40" font-weight="700">Stretch Film Vs Shrink Film</text>
+  <text x="80" y="210" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="40" font-weight="700">Pallet Protection Decision Map</text>
+  <text x="80" y="254" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="22">Choose the containment method that fits the load, the equipment, and the failure mode.</text>
+
+  <rect x="80" y="314" width="310" height="118" rx="24" fill="#FFF4EA" stroke="#D34A1A" stroke-width="3"/>
+  <text x="108" y="356" fill="#D34A1A" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">01 LOAD</text>
+  <text x="108" y="392" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="27" font-weight="700">Mixed pallet or bundled pack?</text>
+  <text x="108" y="418" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Stretch for variable loads, shrink for defined bundle formats.</text>
+
+  <rect x="430" y="314" width="310" height="118" rx="24" fill="#FFF9F1" stroke="#BDA77D" stroke-width="3"/>
+  <text x="458" y="356" fill="#8A6A2D" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">02 METHOD</text>
+  <text x="458" y="392" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="27" font-weight="700">Hand wrap or machine wrap?</text>
+  <text x="458" y="418" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Film choice changes when wrapper settings control the tension.</text>
+
+  <rect x="780" y="314" width="310" height="118" rx="24" fill="#F4F7F1" stroke="#1B3A2F" stroke-width="3"/>
+  <text x="808" y="356" fill="#1B3A2F" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">03 GOAL</text>
+  <text x="808" y="392" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="27" font-weight="700">Containment or tamper evidence?</text>
+  <text x="808" y="418" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Stretch holds the load; shrink is reviewed for sealed presentation.</text>
+
+  <rect x="80" y="470" width="310" height="118" rx="24" fill="#F6F3ED" stroke="#70655A" stroke-width="3"/>
+  <text x="108" y="512" fill="#4C443C" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">04 HEAT</text>
+  <text x="108" y="548" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="27" font-weight="700">Is a heat process available?</text>
+  <text x="108" y="574" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Shrink depends on tunnel or hood compatibility from day one.</text>
+
+  <rect x="430" y="470" width="310" height="118" rx="24" fill="#FFF4EA" stroke="#D34A1A" stroke-width="3"/>
+  <text x="458" y="512" fill="#D34A1A" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">05 SUPPORT</text>
+  <text x="458" y="548" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="27" font-weight="700">Need corners, caps, or pads?</text>
+  <text x="458" y="574" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Film rarely solves overhang, sharp edges, or weak case stacks alone.</text>
+
+  <rect x="780" y="470" width="310" height="118" rx="24" fill="#FFF9F1" stroke="#BDA77D" stroke-width="3"/>
+  <text x="808" y="512" fill="#8A6A2D" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">06 RFQ</text>
+  <text x="808" y="548" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="27" font-weight="700">What is failing today?</text>
+  <text x="808" y="574" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Quote the load, wrap method, and failure mode before comparing rolls.</text>
+
+  <path d="M390 373H430" stroke="#D34A1A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 373H780" stroke="#BDA77D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M390 529H430" stroke="#70655A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 529H780" stroke="#D34A1A" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="410" cy="373" r="7" fill="#D34A1A"/>
+  <circle cx="760" cy="373" r="7" fill="#BDA77D"/>
+  <circle cx="410" cy="529" r="7" fill="#70655A"/>
+  <circle cx="760" cy="529" r="7" fill="#D34A1A"/>
+
+  <rect x="80" y="620" width="1010" height="38" rx="19" fill="#0F0D0A"/>
+  <text x="585" y="645" text-anchor="middle" fill="#F7F5F1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">The lowest-risk pallet spec matches film type, wrapper method, support materials, and freight conditions before the PO is released.</text>
+</svg>

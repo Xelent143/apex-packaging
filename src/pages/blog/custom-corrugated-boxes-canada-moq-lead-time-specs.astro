@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Custom Corrugated Boxes in Canada: MOQ, Lead Time, and Specs';
+const description = 'How to buy custom corrugated boxes in Canada: box styles, ECT grades, MOQs, 7-14 day lead times, FSC options, and the specs buyers should send for a quote.';
+const url = '/blog/custom-corrugated-boxes-canada-moq-lead-time-specs';
+const datePublished = '2026-06-09';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Custom Corrugated Boxes in Canada', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What is the minimum order quantity for custom corrugated boxes?',
+    a: 'Minimum order quantity depends on the box style, print method, and board grade. Apex can support 100-unit stock box orders and low-MOQ custom printed corrugated runs when the design and production setup are practical.'
+  },
+  {
+    q: 'How long do custom corrugated boxes take in Canada?',
+    a: 'Typical Apex production timing is 7-14 days after artwork sign-off, with quote and sample timing depending on dieline complexity, print approvals, and material availability.'
+  },
+  {
+    q: 'What specs should I send before requesting a corrugated box quote?',
+    a: 'Send inside dimensions, product weight, target quantity, board grade if known, box style, print requirements, delivery address, and any sustainability or certification requirements.'
+  }
+]);
+---
+<BaseLayout
+  title="Custom Corrugated Boxes Canada — MOQ, Lead Time, Specs"
+  description={description}
+  image="/images/blog/corrugated-box-spec-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Corrugated"
+    heading="Custom corrugated boxes in Canada — MOQ, lead time, and specs buyers should know."
+    lead="A 500-unit box order can be simple or expensive depending on four choices: box style, board grade, print setup, and how complete the RFQ is when it reaches production."
+    image="/images/blog/corrugated-box-spec-map.svg"
+    imageAlt="Diagram showing the four specification decisions for custom corrugated boxes: style, board, quantity, and RFQ inputs."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Custom corrugated boxes in Canada</strong> are usually bought under pressure: a product launch, a damaged shipment, a new SKU, a distributor requirement, or a buyer asking for FSC-certified packaging before the next purchase order is released. The fastest path to a usable quote is not a longer email. It is a cleaner spec.</p>
+
+      <p>Apex Packaging Solutions builds corrugated boxes for Canadian buyers who need practical numbers early: quantities, lead time, strength rating, print options, and whether the order can be produced without forcing a 5,000-unit commitment. Use this guide before you request pricing for <a href="/services/corrugated-boxes">custom corrugated boxes</a>, <a href="/services/mailer-boxes">mailer boxes</a>, or mixed packaging programs that also include <a href="/services/polybags">custom polybags</a>.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/corrugated-box-spec-map.svg" alt="Custom corrugated box quote map showing style, board, quantity, and RFQ inputs." width="1200" height="675" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Four quote inputs decide most corrugated box pricing: style, board grade, quantity, and the information included in the RFQ.</figcaption>
+      </figure>
+
+      <h2>Start with the box style, not the artwork</h2>
+      <p>The box style decides setup cost, board yield, packing speed, and damage risk. Artwork matters, but it should sit on top of the structure, not drive the structure.</p>
+
+      <table>
+        <thead>
+          <tr><th>Style</th><th>Best fit</th><th>Common SEO / RFQ wording</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RSC</td><td>Standard shipping cartons for industrial, ecommerce, and warehouse use.</td><td>RSC boxes Canada, regular slotted carton, custom shipping boxes</td></tr>
+          <tr><td>FOL</td><td>Fragile, flat, or heavy products that need extra overlap on the top and bottom panels.</td><td>FOL boxes, full overlap slotted carton, heavy-duty corrugated boxes</td></tr>
+          <tr><td>Die-cut</td><td>Products that need a locked fit, retail presentation, handles, display tabs, or inserts.</td><td>die-cut boxes Canada, custom cardboard boxes Canada</td></tr>
+          <tr><td>Mailer</td><td>D2C and ecommerce shipments where the box is part of the unboxing experience.</td><td>custom mailer boxes Canada, printed mailer boxes Canada</td></tr>
+          <tr><td>Telescoping</td><td>Tall, long, fragile, or variable-height products that need a lid-and-base format.</td><td>telescoping boxes, two-piece corrugated boxes</td></tr>
+        </tbody>
+      </table>
+
+      <p>If you are replacing a damaged box, send photos of the current package, not just dimensions. Crushed corners, split seams, tape failures, and bulging sidewalls point to different fixes.</p>
+
+      <h2>Choose the board grade around weight, stacking, and freight</h2>
+      <p>Most buyers ask for "strong cardboard." A converter needs a better target: ECT rating, flute, wall type, and how the load moves through the supply chain.</p>
+
+      <ul>
+        <li><strong>ECT-32 single-wall</strong> fits many parcel and ecommerce shipments under roughly 35 lb when products are not sharp, oily, wet, or unusually dense.</li>
+        <li><strong>ECT-44 single-wall</strong> adds stacking strength for heavier shipments, taller pallet loads, and longer warehouse dwell time.</li>
+        <li><strong>BC double-wall</strong> is common for industrial parts, bulk goods, and products where compression risk is higher than the cost of upgrading the board.</li>
+        <li><strong>E-flute or B-flute</strong> can improve print surface and presentation for mailers or light retail packaging.</li>
+      </ul>
+
+      <p>For a deeper strength comparison, read the Apex guide to <a href="/blog/ect-explained">ECT-32 vs ECT-44 corrugated ratings</a>. If the product is fragile, high-value, or oddly shaped, box strength is only part of the spec. Internal protection from <a href="/services/protective-packaging">foam, void fill, or custom inserts</a> may matter more than moving one grade higher.</p>
+
+      <h2>MOQ depends on setup, print, and material</h2>
+      <p>Minimum order quantity is not one fixed number across every corrugated project. A plain stock-size RSC carton can be practical at lower quantities. A custom die-cut printed mailer needs tooling, artwork checks, and press setup, so the minimum usually rises.</p>
+
+      <p>Apex supports low-MOQ packaging programs because many buyers are testing SKUs, launching seasonal kits, or solving a short production run. Use these planning ranges before requesting a quote:</p>
+
+      <table>
+        <thead>
+          <tr><th>Order type</th><th>Typical planning range</th><th>What changes the MOQ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Plain RSC shipping cartons</td><td>100+ units when the size and board are practical</td><td>Custom size, double-wall board, delivery timing</td></tr>
+          <tr><td>Custom-size corrugated boxes</td><td>250-500+ units</td><td>Tooling, board yield, setup time</td></tr>
+          <tr><td>Printed corrugated boxes</td><td>250-1,000+ units</td><td>Ink count, print method, artwork complexity</td></tr>
+          <tr><td>Die-cut mailer boxes</td><td>500+ units in many cases</td><td>Dieline complexity, locking tabs, coatings, inside print</td></tr>
+        </tbody>
+      </table>
+
+      <p>The clean way to lower risk is to separate the sample decision from the production decision. Ask for a structural sample before approving a large printed run, especially if the product is heavy, fragile, or new to market.</p>
+
+      <h2>Lead time starts after artwork sign-off</h2>
+      <p>A 7-14 day production window is realistic only after the quote, dieline, artwork, and material decisions are finished. The hidden delays usually happen before production starts.</p>
+
+      <ol>
+        <li><strong>Day 0:</strong> buyer sends dimensions, product weight, quantity, print files, and delivery address.</li>
+        <li><strong>Day 1:</strong> Apex reviews the spec, flags missing details, and confirms whether a sample or dieline is needed.</li>
+        <li><strong>Day 2-3:</strong> artwork is checked for bleed, panel orientation, barcode placement, and print limits.</li>
+        <li><strong>After approval:</strong> production starts, with typical custom corrugated jobs shipping in 7-14 days depending on the run.</li>
+      </ol>
+
+      <p>If timing is tight, tell the supplier the hard date before the quote is built. A rush job may need a simpler style, fewer print colors, a stock board grade, or a split shipment.</p>
+
+      <h2>FSC and recycled options should be specified early</h2>
+      <p>Buyers searching for sustainable packaging in Canada often need more than a recyclable box. They may need FSC-certified liner, recycled-content documentation, kraft material, soy-based inks, or a packaging spec that supports an ESG audit.</p>
+
+      <p>Ask early because certified materials and documentation can affect availability. The <a href="/sustainability">Apex sustainability page</a> explains FSC-certified packaging options, recycled content, and polybag alternatives. For corrugated buyers, the main question is simple: does the order need a certification claim on the invoice, on the box, or only in the internal procurement file?</p>
+
+      <h2>What to send for a faster quote</h2>
+      <p>A complete RFQ helps the estimator price the real job instead of making assumptions. Send these 12 details when asking for custom corrugated box pricing:</p>
+
+      <ul>
+        <li>Inside length, width, and depth of the box.</li>
+        <li>Product weight per unit and units per box.</li>
+        <li>Current box photos, if replacing existing packaging.</li>
+        <li>Target box style: RSC, FOL, mailer, die-cut, telescoping, or unsure.</li>
+        <li>Board grade if known: ECT-32, ECT-44, single-wall, double-wall, kraft, white.</li>
+        <li>Quantity for first run and expected reorder volume.</li>
+        <li>Print needs: none, one-color, outside print, inside print, full-color.</li>
+        <li>Artwork files, logo files, barcode requirements, and brand color targets.</li>
+        <li>Whether a structural sample is required before production.</li>
+        <li>Storage and freight details: palletized, parcel, LTL, cold, humid, or outdoor exposure.</li>
+        <li>Certification requirements: FSC, recycled content, food contact, or customer-specific documents.</li>
+        <li>Delivery postal code and required in-hand date.</li>
+      </ul>
+
+      <h2>The best quote is specific before it is cheap</h2>
+      <p>A low box price can become expensive if it creates crushed pallets, excess void fill, slow packing, or a second print run. The right corrugated spec should make the packing line faster, reduce damage claims, and fit the order quantity you actually need.</p>
+
+      <p>Send Apex the dimensions, weight, quantity, and timing. If the box style is unclear, the <a href="/design-support">design support team</a> can turn a product spec into a dieline, sample, and production-ready print file.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, die-cut, telescoping, and printed corrugated boxes for Canadian buyers.' },
+    { title: 'Packaging Design Support', href: '/design-support', description: 'Dielines, artwork checks, structural design, and 3D mockups before production.' },
+    { title: 'ECT-32 vs ECT-44', href: '/blog/ect-explained', description: 'A practical guide to corrugated strength ratings and stacking risk.' }
+  ]} />
+
+  <CTABand
+    heading="Send the box spec. Get a quote with real production numbers."
+    lead="Dimensions, weight, quantity, print needs, and delivery postal code are enough to start. Apex will flag missing details before production."
+    primaryCta={{ label: 'Request a corrugated quote', href: '/contact' }}
+  />
+</BaseLayout>

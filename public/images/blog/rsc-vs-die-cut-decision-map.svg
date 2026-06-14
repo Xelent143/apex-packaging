@@ -1,0 +1,45 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">RSC versus die-cut box decision map</title>
+  <desc id="desc">Technical diagram comparing RSC boxes and die-cut boxes across setup, fit, MOQ, packing speed, and best-fit use cases.</desc>
+  <rect width="1200" height="720" fill="#F7F5F1"/>
+  <rect x="40" y="40" width="1120" height="640" rx="28" fill="#FFFDFC" stroke="#D7D1C7"/>
+  <text x="80" y="110" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="42" font-weight="700">RSC vs Die-Cut Box Decision Map</text>
+  <text x="80" y="148" fill="#5B5349" font-family="Inter, Arial, sans-serif" font-size="22">Use RSC when the product is simple and the line needs speed. Move to die-cut when fit, retention, or presentation changes total handling cost.</text>
+
+  <rect x="80" y="190" width="480" height="340" rx="24" fill="#FFFFFF" stroke="#D7D1C7"/>
+  <rect x="640" y="190" width="480" height="340" rx="24" fill="#FFFFFF" stroke="#D7D1C7"/>
+  <text x="112" y="240" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="32" font-weight="700">RSC (Regular Slotted Carton)</text>
+  <text x="672" y="240" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="32" font-weight="700">Die-Cut Box</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="20" fill="#231F1A">
+    <text x="112" y="290">Setup: low</text>
+    <text x="112" y="330">Product fit: standard rectangular cavity</text>
+    <text x="112" y="370">MOQ: usually lower practical minimum</text>
+    <text x="112" y="410">Packout: tape-based, familiar on warehouse lines</text>
+    <text x="112" y="450">Best when: ship case, bulk replenishment, simple geometry</text>
+
+    <text x="672" y="290">Setup: custom form or structural review</text>
+    <text x="672" y="330">Product fit: tailored folds, locks, tabs, retention</text>
+    <text x="672" y="370">MOQ: usually higher to justify setup</text>
+    <text x="672" y="410">Packout: can remove extra tape or loose dunnage</text>
+    <text x="672" y="450">Best when: kits, retail, odd shapes, controlled presentation</text>
+  </g>
+
+  <rect x="112" y="478" width="170" height="26" rx="13" fill="#F3EEE4"/>
+  <rect x="672" y="478" width="196" height="26" rx="13" fill="#F3EEE4"/>
+  <text x="127" y="496" fill="#6B6256" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">LOWER SETUP COST</text>
+  <text x="687" y="496" fill="#6B6256" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">HIGHER STRUCTURAL CONTROL</text>
+
+  <path d="M596 238H624" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M596 280H624" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M596 322H624" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M596 364H624" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M596 406H624" stroke="#D34A1A" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="80" y="566" width="1040" height="76" rx="18" fill="#0F0D0A"/>
+  <text x="112" y="613" fill="#F7F5F1" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">Decision rule:</text>
+  <text x="312" y="613" fill="#F7F5F1" font-family="Inter, Arial, sans-serif" font-size="24">Start with RSC for simple shipping cartons. Quote die-cut when the box must hold, present, or organize the product better than a taped case can.</text>
+
+  <circle cx="1060" cy="116" r="28" fill="#1B3A2F"/>
+  <text x="1045" y="124" fill="#F7F5F1" font-family="JetBrains Mono, monospace" font-size="20" font-weight="700">D2</text>
+</svg>

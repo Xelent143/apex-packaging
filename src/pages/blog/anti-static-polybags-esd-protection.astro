@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Anti-Static Polybags: When Electronics Buyers Need ESD Protection';
+const description = 'A practical buyer guide to anti-static polybags in Canada: pink anti-static vs static-shielding film, gauge selection, packout rules, and when standard poly is not enough.';
+const url = '/blog/anti-static-polybags-esd-protection';
+const datePublished = '2026-06-09';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Anti-Static Polybags', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'Are pink anti-static bags the same as static-shielding bags?',
+    a: 'No. Pink anti-static bags reduce static charge buildup on the bag surface, but they do not provide the same shielding as metallized static-shielding bags used for more sensitive electronics.'
+  },
+  {
+    q: 'When should a buyer use static-shielding film instead of standard anti-static film?',
+    a: 'Use static-shielding film when bare boards, sensitive assemblies, or ESD-controlled shipping specifications require a stronger barrier against electrostatic discharge during handling and transit.'
+  },
+  {
+    q: 'What should be included in an RFQ for anti-static polybags?',
+    a: 'Send bag type, dimensions, product type, packed quantity, thickness target if known, whether the item is a bare PCB or finished device, any ESD labeling requirements, and the outer carton or foam system used around the bag.'
+  }
+]);
+---
+<BaseLayout
+  title="Anti-Static Polybags Canada — ESD Protection Buying Guide"
+  description={description}
+  image="/images/blog/anti-static-esd-bag-decision-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Polybags"
+    heading="Anti-static polybags — when electronics buyers need ESD protection, and when pink film is not enough."
+    lead="A 2.0 mil pink anti-static bag can reduce charge buildup on the package itself, but it does not do the same job as a static-shielding bag around a bare PCB or high-sensitivity assembly."
+    imageSrc="/images/blog/anti-static-esd-bag-decision-map.svg"
+    imageAlt="Decision diagram comparing standard poly, pink anti-static bags, and static-shielding bags for electronics packaging."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Anti-static polybags</strong> are usually specified when a buyer is shipping printed circuit boards, cable kits, sensors, adapters, or small finished devices that can be damaged by ESD (electrostatic discharge). The mistake is assuming every electronics item needs the same bag. In practice, the right choice depends on whether the product is a bare component, a housed device, or a kit that already has other protection inside the carton.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/polybags">custom polybags</a> for electronics programs that need practical numbers: film type, gauge, bag format, print marks, MOQ, and how the bag works with the rest of the shipping pack. If you are buying for an assembly line, service depot, distributor, or OEM program, this guide shows when standard poly is enough, when pink anti-static film is the safer call, and when the spec should move to static-shielding material plus <a href="/services/protective-packaging">protective inserts or foam</a>.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/anti-static-esd-bag-decision-map.svg" alt="ESD packaging decision map for standard poly, pink anti-static, and static-shielding bags." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The first decision is product sensitivity. The second is whether the bag only needs to stay charge-aware or must actively shield the item during handling and transit.</figcaption>
+      </figure>
+
+      <h2>Start with the product, not the bag color</h2>
+      <p>Pink film is often requested because it is the most visible ESD packaging cue in the market. That does not make it the right material for every electronics shipment. A pink anti-static bag is mainly used to reduce static generation on the bag surface and to lower charge attraction from handling. It is a good fit for some electronics accessories and subassemblies, especially when the product already has a housing or secondary protection.</p>
+
+      <p>A static-shielding bag is a different purchase. It is typically used when the item itself is more exposed: bare boards, loose components, unfinished assemblies, or products moving through an ESD-controlled supply chain where the packaging spec is defined by the customer or internal quality team. If the product can be damaged by external discharge before it reaches the outer carton, shielding deserves a quote early.</p>
+
+      <h2>Three practical bag paths for electronics buyers</h2>
+      <table>
+        <thead>
+          <tr><th>Bag type</th><th>Best fit</th><th>Common buying trigger</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Standard poly</td><td>Manuals, cables, sealed accessories, non-sensitive replacement parts</td><td>Dust control, unitization, barcode or kitting needs</td></tr>
+          <tr><td>Pink anti-static</td><td>Housed electronics, adapters, accessory kits, low-to-moderate sensitivity parts</td><td>Need to reduce static buildup during normal handling</td></tr>
+          <tr><td>Static-shielding</td><td>Bare PCBs, exposed assemblies, boards moving through controlled electronics supply chains</td><td>Customer ESD spec or higher sensitivity to discharge events</td></tr>
+        </tbody>
+      </table>
+
+      <p>The clean procurement question is not "Do we ship electronics?" It is "What is exposed, and what failure are we trying to prevent?" A finished handheld device in a retail carton may only need a bag for dust and handling control. A board-level assembly headed to an integrator may need static-shielding film, ESD labeling, and an outer pack designed around drop and movement risk.</p>
+
+      <h2>Gauge still matters after the ESD call is made</h2>
+      <p>ESD performance does not replace normal bag-sizing and thickness decisions. Buyers still need to choose a practical mil rating based on weight, edge condition, and how the item moves through the line. A bag that meets the ESD requirement can still fail if the corners split it or the seal bursts in a tote.</p>
+
+      <ul>
+        <li><strong>1.5-2.0 mil</strong> is often practical for light accessories, cable kits, and small housed items with smooth edges.</li>
+        <li><strong>2.0-3.0 mil</strong> is a common planning range for denser assemblies, hardware kits, and programs where the bag sees more tote or carton friction.</li>
+        <li><strong>3.0 mil and up</strong> is usually a damage-control decision, not an ESD decision. Use it when the item is heavy, angular, or part of a rougher industrial handling pattern.</li>
+      </ul>
+
+      <p>If the team is unsure on thickness, the Apex <a href="/blog/poly-bag-thickness-guide">poly bag thickness guide</a> is the faster reference. Start with physical handling risk first. Then overlay the ESD requirement.</p>
+
+      <h2>Secondary packaging decides whether the bag is enough</h2>
+      <p>Many ESD problems are actually pack-system problems. A buyer chooses the correct bag, then drops it into a loose box with no retention, or combines sensitive boards with abrasive hardware in the same carton. The bag protects one part of the route. The full packaging system has to protect the rest.</p>
+
+      <p>For electronics programs, check four interfaces:</p>
+      <ol>
+        <li><strong>Inside the bag:</strong> is the product immobilized, or can it slide and stress the seal?</li>
+        <li><strong>At the seal:</strong> does the closure method stay consistent across the whole run?</li>
+        <li><strong>Inside the carton:</strong> does the bag sit in corrugated cells, foam, or another controlled cavity?</li>
+        <li><strong>At receiving:</strong> does the customer expect ESD labels, lot traceability, or a specific pack orientation?</li>
+      </ol>
+
+      <p>This is where the broader electronics packaging program matters. The live industry page for <a href="/industries/electronics-boxes">electronics boxes</a> shows how anti-static bags, ESD foam, and corrugated shippers work together. Buyers should quote the bag and the outer package as one system when the component value is high or the return cost is painful.</p>
+
+      <h2>When pink anti-static is enough</h2>
+      <p>Pink anti-static bags usually make sense when the item is somewhat static-aware but not fully exposed. Common examples include adapters, finished handheld devices inside a second carton, cable bundles paired with electronics, and accessory kits that will be handled repeatedly during assembly or fulfillment. In those cases, the bag is mainly controlling charge buildup and handling cleanliness rather than acting as the only line of ESD defense.</p>
+
+      <p>Buyers can also use pink anti-static film when the customer spec explicitly calls for it and the outer packaging already handles impact and movement. The mistake is using pink film as a generic substitute for shielding when the item is a bare board or a more sensitive open assembly.</p>
+
+      <h2>When to move up to static-shielding</h2>
+      <p>Move to static-shielding bags when the part has exposed circuitry, the shipment is entering an ESD-controlled environment, or the customer quality team has written a packaging spec around shielding materials. That usually includes PCBs, populated boards, test modules, and subassemblies headed between manufacturing stages. The extra material cost is easier to defend than a field failure, scrap event, or incoming rejection on a controlled electronics account.</p>
+
+      <p>If the decision is still unclear, sample both pack systems. A small trial with the actual component, bag, insert, and outer carton usually resolves the argument faster than debating film names in email.</p>
+
+      <h2>What to send before requesting a quote</h2>
+      <p>Anti-static bag pricing moves faster when the RFQ describes the electronics job, not just the bag size. Send these details before the quote is built:</p>
+
+      <ul>
+        <li>Bag format: flat, resealable, wicketed, or custom converted.</li>
+        <li>Inside dimensions and usable fill size.</li>
+        <li>Product type: cable kit, housed device, bare PCB, assembly, or mixed kit.</li>
+        <li>Product weight and whether there are sharp corners or connector edges.</li>
+        <li>Whether the need is anti-static film or static-shielding film.</li>
+        <li>Seal style, tape closure, or reclose requirement.</li>
+        <li>Labeling needs such as ESD warning marks, lot code, or SKU print.</li>
+        <li>First-run quantity and expected reorder volume.</li>
+        <li>Outer packaging details: tote, corrugated cell, foam insert, or parcel carton.</li>
+        <li>Required in-hand date and receiving destination.</li>
+      </ul>
+
+      <h2>The right ESD bag is part of a full packout spec</h2>
+      <p>Electronics buyers do not need the most expensive film on every part number. They need the lightest practical bag that meets the ESD risk, handling pattern, and customer requirement for that specific item. Standard poly, pink anti-static, and static-shielding film each have a role. The cost mistake is buying too much bag where the item is already protected, or too little bag where the assembly is exposed.</p>
+
+      <p>Send Apex the product type, bag size, sensitivity level, and outer pack details. The quote can then match the film, gauge, and secondary packaging to the real shipping job instead of guessing from a part name alone.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Custom Polybags', href: '/services/polybags', description: 'Flat, gusseted, anti-static, food-safe, and custom-printed film made in Canada.' },
+    { title: 'Electronics Packaging', href: '/industries/electronics-boxes', description: 'Bag, foam, insert, and corrugated packaging systems for electronics assemblies and kits.' },
+    { title: 'Poly Bag Thickness Guide', href: '/blog/poly-bag-thickness-guide', description: 'Choose a mil rating by weight, edge profile, and shipping environment.' }
+  ]} />
+
+  <CTABand
+    heading="Send the electronics spec for a polybag quote."
+    lead="Bag dimensions, product type, sensitivity level, gauge target, and outer pack details are enough to quote the right anti-static or shielding film."
+    primaryCta={{ label: 'Request an anti-static bag quote', href: '/contact' }}
+  />
+</BaseLayout>

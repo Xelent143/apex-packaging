@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Gaylord Boxes and Bulk Containers: A Procurement Guide';
+const description = 'A practical buyer guide to Gaylord boxes in Canada: stock footprints, octagonal vs square formats, liner questions, stacking risks, and the RFQ details that speed up quoting.';
+const url = '/blog/gaylord-boxes-bulk-containers-procurement-guide';
+const datePublished = '2026-06-13';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Gaylord Boxes and Bulk Containers', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What is a Gaylord box?',
+    a: 'A Gaylord box is a large corrugated bulk container, usually built on a pallet footprint, used for plant quantities of loose parts, bagged material, regrind, powders, and warehouse transfers.'
+  },
+  {
+    q: 'When should a buyer choose octagonal Gaylords instead of square boxes?',
+    a: 'Octagonal Gaylords are commonly reviewed for powders, granulates, and other free-flowing materials because the shape can support cleaner discharge and reduce dead corners compared with a square container.'
+  },
+  {
+    q: 'What should be included in a Gaylord box RFQ?',
+    a: 'Send the footprint, target fill weight, product type, discharge method, stack height, liner requirement, monthly volume, and the delivery lane so the supplier can quote the correct board build and release plan.'
+  }
+]);
+---
+<BaseLayout
+  title="Gaylord Boxes Canada — Bulk Container Procurement Guide"
+  description={description}
+  image="/images/blog/gaylord-boxes-procurement-map.svg"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Industrial bulk"
+    heading="Gaylord boxes and bulk containers — how procurement teams should quote the spec."
+    lead="A bulk container quote usually stalls on six missing facts: pallet footprint, fill weight, product flow, liner need, stack height, and release schedule."
+    imageSrc="/images/blog/gaylord-boxes-procurement-map.svg"
+    imageAlt="Technical procurement diagram for Gaylord boxes showing footprint, shape, liner, stacking, release pattern, and discharge method."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Gaylord boxes</strong> usually start in the 40x48x36 to 48x40x42 range, but those outside dimensions do not tell a converter enough to quote the right bulk container. Procurement teams also need to define how the product flows, how high the container will stack, whether a liner bag is required, and whether the program runs as one shipment or scheduled releases against a blanket PO. A pallet-sized box for dry resin, metal stampings, and bagged ingredients is not the same job just because the footprint matches.</p>
+
+      <p>Apex Packaging Solutions supplies <a href="/services/industrial-bulk-packaging">industrial and bulk packaging</a> for Canadian plants buying Gaylords, liners, stretch film, and edge-protection programs together. This guide is written for buyers comparing bulk container quotes and trying to avoid two common failures: paying for an overbuilt spec, or approving a box that works in the sample but collapses when warehouse stacking and forklift handling enter the picture.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/gaylord-boxes-procurement-map.svg" alt="Gaylord box procurement map with six quote checkpoints." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The fastest bulk-container quotes start with the handling pattern, not just the outside dimensions.</figcaption>
+      </figure>
+
+      <h2>Start with the pallet footprint and the packed product</h2>
+      <p>A Gaylord is a large corrugated bulk container, usually built around a pallet footprint so the load can move cleanly through a plant or warehouse. Buyers often send only the outside size. The better starting point is the product condition inside the box: loose, bagged, free-flowing, sharp-edged, dense, moisture-sensitive, or lined for food contact. That one description changes the board review, the liner decision, and how the top of the load should be closed.</p>
+
+      <table>
+        <thead>
+          <tr><th>Common starting point</th><th>Best fit</th><th>What procurement should clarify</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>40x48x36</td><td>General warehouse transfers, parts, and bagged product on a standard pallet footprint</td><td>Fill weight, stack height, and whether the load is dense or puncture-prone</td></tr>
+          <tr><td>48x40x42</td><td>Higher cube requirements or taller loads that still need forklift handling</td><td>Warehouse clearance, pallet stability, and top closure method</td></tr>
+          <tr><td>Octagonal bulk container</td><td>Powders, granulates, and free-flowing materials</td><td>Discharge method, liner fit, and whether product bridges in corners</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the shipment is really a heavy-duty corrugated case rather than a bulk bin, compare it with the Apex guide to <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">custom shipping boxes for heavy products</a>. That article covers ECT ratings and pallet compression for smaller corrugated formats. Gaylords deserve their own quoting logic because forklift moves, fill pattern, and discharge method matter more than parcel-style handling.</p>
+
+      <h2>Square, rectangular, and octagonal formats solve different problems</h2>
+      <p>Procurement teams sometimes default to the shape they used with the last supplier. That is efficient only if the product and handling method have not changed. A square or rectangular Gaylord is practical when the load is predictable, the contents are already bagged, or the plant needs simple cube efficiency on a pallet. An octagonal container is often reviewed for bulk powders, granulates, and other free-flowing materials because it can help product move more cleanly during discharge.</p>
+
+      <ul>
+        <li><strong>Square or rectangular Gaylords</strong> fit general industrial parts, bagged goods, and warehouse transfers where pallet efficiency matters most.</li>
+        <li><strong>Octagonal Gaylords</strong> are more common for bulk materials that do not discharge cleanly from square corners.</li>
+        <li><strong>Custom dimensions</strong> make sense only when the plant equipment, line layout, or trailer cube requires a non-standard footprint.</li>
+      </ul>
+
+      <p>The right question is not which shape looks standard. It is which shape reduces handling friction after the container leaves the converting line. If the material hangs up during discharge, the cheap container is not actually the low-cost option.</p>
+
+      <h2>Liner bags should be quoted with the container, not after approval</h2>
+      <p>Bulk container programs often fail when the corrugated quote is approved first and the liner is treated as an accessory later. Liners affect fit, usable cube, top closure, and sometimes food-contact documentation. Apex already supplies liner bags for Gaylords, including FDA-grade options where food contact applies, so procurement should treat the outer corrugated shell and the inner barrier as one system.</p>
+
+      <table>
+        <thead>
+          <tr><th>Liner question</th><th>Why it matters before the quote</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Does the product need a liner at all?</td><td>Changes usable dimensions and may change the recommended closure method.</td></tr>
+          <tr><td>Is food contact involved?</td><td>Documentation and material selection can differ from a general industrial liner.</td></tr>
+          <tr><td>Will the liner be tied, heat sealed, or folded under a cap?</td><td>Closure style affects labor time and top-load behavior.</td></tr>
+          <tr><td>Is product sensitivity moisture-, dust-, or contamination-driven?</td><td>Clarifies whether the liner is a convenience item or a critical barrier spec.</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the plant also needs pallet stabilization, quote the film and edge-protection program alongside the box. The same order often includes <a href="/services/corrugated-boxes">corrugated transit packaging</a>, stretch film, corner protection, or top caps, and those choices can change how much load the bulk container needs to carry on its own.</p>
+
+      <h2>Stack height and release pattern drive total cost</h2>
+      <p>A bulk container that moves one-high across a short internal lane is a different job from the same footprint stacked in storage or shipped nationally on scheduled releases. This is where procurement should stop thinking in terms of unit price alone. The board build has to reflect the real top-load, the warehouse dwell time, and whether the plant wants monthly deliveries or inventory held against a blanket PO.</p>
+
+      <ol>
+        <li><strong>Stack height:</strong> declare whether containers sit one-high, two-high, or higher in storage or transit staging.</li>
+        <li><strong>Dwell time:</strong> note whether the load moves same week or sits in inventory before release.</li>
+        <li><strong>Release pattern:</strong> specify one shipment versus scheduled releases, because inventory planning changes the production recommendation.</li>
+      </ol>
+
+      <p>These details matter because a stock-size box on a fast-turn internal route may stay economical, while the same box in a longer warehouse program can justify a stronger build or a different top-cap method. Procurement should quote the operating pattern, not just the container drawing.</p>
+
+      <h2>What to include in a Gaylord RFQ</h2>
+      <p>A usable RFQ for bulk containers should let the estimator picture the route from fill station to final unload. Send these details before asking for pricing:</p>
+
+      <ul>
+        <li>Pallet footprint and target container height.</li>
+        <li>Product type: loose parts, bagged goods, powder, granulate, scrap, or regrind.</li>
+        <li>Expected fill weight and whether the load is dense, sharp, or abrasive.</li>
+        <li>Preferred shape: square, rectangular, octagonal, or open to recommendation.</li>
+        <li>Liner requirement, including any food-contact or contamination-control needs.</li>
+        <li>Top closure method and whether caps, lids, or stretch hooding are required.</li>
+        <li>Stack height, dwell time, and forklift-handling conditions.</li>
+        <li>Monthly volume, first-run quantity, and whether the order runs on scheduled releases.</li>
+        <li>Delivery postal code and the required in-hand date.</li>
+      </ul>
+
+      <h2>The best bulk container quote matches the plant workflow</h2>
+      <p>Gaylord purchasing goes wrong when the container is quoted as an isolated box. In practice, it is part of a plant workflow that includes filling, lining, closing, stacking, storing, releasing, and unloading. Buyers get better results when they quote all of that up front. That does not always mean a heavier container. Sometimes it means changing the shape, adding the right liner, or tightening the release schedule so inventory and handling stay stable.</p>
+
+      <p>Send Apex the footprint, fill weight, liner question, and release pattern. That is enough to quote a bulk container program that fits the plant instead of forcing the plant to work around the container.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Industrial & Bulk Packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylords, liners, stretch film, shrink film, and edge protection for pallet-quantity programs.' },
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Custom corrugated cases for smaller-format shipping, storage, and warehouse use.' },
+    { title: 'Heavy-Product Shipping Boxes', href: '/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking', description: 'When a load needs a corrugated case instead of a bulk container.' }
+  ]} />
+
+  <CTABand
+    heading="Send the bulk-container spec for a quote."
+    lead="Footprint, fill weight, liner need, stack height, and release schedule are enough to price the right Gaylord program."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

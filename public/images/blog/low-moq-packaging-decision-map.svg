@@ -1,0 +1,52 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Low MOQ custom packaging decision map</title>
+  <desc id="desc">A technical diagram showing four checkpoints for low minimum order quantity packaging in Canada: choose the run type, keep the structure standard, send a complete RFQ, and lock reorder notes after the first run.</desc>
+  <rect width="1200" height="720" fill="#F7F5F1"/>
+  <rect x="40" y="40" width="1120" height="640" rx="28" fill="#FFFDF8" stroke="#D8D0C2" stroke-width="2"/>
+  <text x="80" y="118" fill="#0F0D0A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">APEX PACKAGING SOLUTIONS</text>
+  <text x="80" y="172" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="42" font-weight="700">Low-MOQ Custom Packaging</text>
+  <text x="80" y="212" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="42" font-weight="700">100-500 Unit Decision Map</text>
+  <text x="80" y="258" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="22">Use short runs to validate the packout, not to guess through setup.</text>
+
+  <rect x="80" y="320" width="240" height="240" rx="24" fill="#FFF4EA" stroke="#D34A1A" stroke-width="3"/>
+  <text x="108" y="372" fill="#D34A1A" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">CHECKPOINT 01</text>
+  <text x="108" y="420" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">Choose the</text>
+  <text x="108" y="454" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">right run type</text>
+  <text x="108" y="494" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">100 units: stock RSC</text>
+  <text x="108" y="522" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">250 units: printed boxes</text>
+  <text x="108" y="550" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">500 units: custom polybags</text>
+
+  <rect x="340" y="320" width="240" height="240" rx="24" fill="#FFF9F1" stroke="#BDA77D" stroke-width="3"/>
+  <text x="368" y="372" fill="#8A6A2D" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">CHECKPOINT 02</text>
+  <text x="368" y="420" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">Keep the</text>
+  <text x="368" y="454" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">structure standard</text>
+  <text x="368" y="494" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Limit die changes</text>
+  <text x="368" y="522" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Reduce version count</text>
+  <text x="368" y="550" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Avoid late insert changes</text>
+
+  <rect x="600" y="320" width="240" height="240" rx="24" fill="#F4F7F1" stroke="#1B3A2F" stroke-width="3"/>
+  <text x="628" y="372" fill="#1B3A2F" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">CHECKPOINT 03</text>
+  <text x="628" y="420" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">Send a complete</text>
+  <text x="628" y="454" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">RFQ first</text>
+  <text x="628" y="494" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Packed dimensions</text>
+  <text x="628" y="522" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Artwork scope + materials</text>
+  <text x="628" y="550" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Postal code + in-hand date</text>
+
+  <rect x="860" y="320" width="240" height="240" rx="24" fill="#F6F3ED" stroke="#70655A" stroke-width="3"/>
+  <text x="888" y="372" fill="#4C443C" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">CHECKPOINT 04</text>
+  <text x="888" y="420" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">Lock reorder</text>
+  <text x="888" y="454" fill="#0F0D0A" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="700">notes early</text>
+  <text x="888" y="494" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Save dieline revision</text>
+  <text x="888" y="522" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Record board or gauge</text>
+  <text x="888" y="550" fill="#5F5A52" font-family="Inter, Arial, sans-serif" font-size="18">Carry sample comments forward</text>
+
+  <path d="M320 440H340" stroke="#D34A1A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M580 440H600" stroke="#BDA77D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M840 440H860" stroke="#1B3A2F" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="330" cy="440" r="6" fill="#D34A1A"/>
+  <circle cx="590" cy="440" r="6" fill="#BDA77D"/>
+  <circle cx="850" cy="440" r="6" fill="#1B3A2F"/>
+
+  <rect x="80" y="598" width="1020" height="42" rx="21" fill="#0F0D0A"/>
+  <text x="600" y="625" text-anchor="middle" fill="#F7F5F1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Small quantity works when the first order proves the spec instead of carrying unresolved design risk.</text>
+</svg>
