@@ -99,16 +99,30 @@ const paymentMarks = [
         <div>
           <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Contact Us</h2>
           <ul class="space-y-4 text-sm md:space-y-5 md:text-base">
-            <li class="flex gap-4">
-              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">E</span>
-              <a href={`mailto:${siteConfig.email}`} class="min-w-0 break-all pt-1 hover:text-accent">{siteConfig.email}</a>
+            <li class="flex min-w-0 gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-neutral-900" aria-hidden="true">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6h16v12H4z"></path>
+                  <path d="m4 7 8 6 8-6"></path>
+                </svg>
+              </span>
+              <a href={`mailto:${siteConfig.email}`} class="min-w-0 whitespace-nowrap pt-1 hover:text-accent">{siteConfig.email}</a>
             </li>
             <li class="flex gap-4">
-              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">P</span>
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-neutral-900" aria-hidden="true">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.61a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6.27 6.27l1.29-1.29a2 2 0 0 1 2.11-.45c.84.3 1.71.51 2.61.63A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
               <a href={phoneHref} class="pt-1 font-semibold hover:text-accent">{phoneDisplay}</a>
             </li>
             <li class="flex gap-4">
-              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">L</span>
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-neutral-900" aria-hidden="true">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
               <span class="pt-1 font-semibold">{siteConfig.formattedAddress}</span>
             </li>
           </ul>
