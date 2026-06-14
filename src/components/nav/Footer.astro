@@ -116,10 +116,10 @@ const paymentMarks = [
       </div>
 
       <div class="mt-8 grid gap-5 border-t border-neutral-200 pt-6 lg:grid-cols-[1fr_1.3fr] lg:items-center">
-        <div class="flex flex-wrap items-center gap-3">
-          <span class="font-display font-extrabold">Follow Us:</span>
+        <div class="flex flex-nowrap items-center gap-2 overflow-x-auto whitespace-nowrap pb-1 [scrollbar-width:none] sm:gap-3 sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
+          <span class="shrink-0 font-display font-extrabold">Follow Us:</span>
           {socialLinks.map((item) => (
-            <a href={item.href} class="grid h-9 w-9 place-items-center overflow-hidden rounded-sm bg-neutral-900 transition-opacity hover:opacity-85 md:h-8 md:w-8" aria-label={item.label}>
+            <a href={item.href} class="grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-sm bg-neutral-900 transition-opacity hover:opacity-85 md:h-8 md:w-8" aria-label={item.label}>
               <img src={item.image} alt="" width="96" height="96" loading="lazy" decoding="async" class="h-full w-full object-cover" />
             </a>
           ))}
