@@ -1,6 +1,9 @@
 ---
 import { siteConfig } from '../../site.config';
 
+const phoneDisplay = siteConfig.phoneDisplay ?? siteConfig.phone;
+const phoneHref = siteConfig.phoneHref ?? `tel:${siteConfig.phone}`;
+
 const infoLinks = [
   ['Privacy Policy', '/privacy'],
   ['Terms and Conditions', '/terms-and-conditions'],
@@ -105,7 +108,7 @@ const paymentMarks = [
             </li>
             <li class="flex gap-4">
               <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">P</span>
-              <a href={`tel:${siteConfig.phone}`} class="pt-1 font-semibold hover:text-accent">{siteConfig.phone}</a>
+              <a href={phoneHref} class="pt-1 font-semibold hover:text-accent">{phoneDisplay}</a>
             </li>
             <li class="flex gap-4">
               <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent font-bold text-neutral-900">L</span>

@@ -4,9 +4,10 @@ import { industryBoxes } from '../../data/industryBoxes';
 const pathname = Astro.url.pathname;
 const phoneDigits = siteConfig.phone.replace(/\D/g, '');
 const hasPhone = phoneDigits.length >= 10 && !/^1?0+$/.test(phoneDigits);
-const displayPhone = phoneDigits.length === 11 && phoneDigits.startsWith('1')
+const displayPhone = siteConfig.phoneDisplay ?? (phoneDigits.length === 11 && phoneDigits.startsWith('1')
   ? `(${phoneDigits.slice(1, 4)}) ${phoneDigits.slice(4, 7)}-${phoneDigits.slice(7)}`
-  : siteConfig.phone;
+  : siteConfig.phone);
+const phoneHref = siteConfig.phoneHref ?? `tel:${siteConfig.phone}`;
 const materialNav = [
   { label: 'Cardboard Boxes', href: '/services/corrugated-boxes', image: '/images/home/categories/custom-tuck-boxes.webp' },
   { label: 'Kraft Boxes', href: '/industries/retail-boxes', image: '/images/apex-update/materials/kraft-boxes.webp' },
@@ -124,7 +125,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
             </span>
             <span>
               <span class="block whitespace-nowrap text-xs font-bold text-neutral-900">Speak with a Packaging Expert</span>
-              <a href={`tel:${siteConfig.phone}`} class="block whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-neutral-950 transition-colors hover:text-accent">{displayPhone}</a>
+              <a href={phoneHref} class="block whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-neutral-950 transition-colors hover:text-accent">{displayPhone}</a>
               <a href={`mailto:${siteConfig.email}`} class="block whitespace-nowrap text-xs font-bold text-neutral-700 transition-colors hover:text-accent">{siteConfig.email}</a>
             </span>
           </div>
@@ -166,7 +167,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
           </svg>
         </a>
         {hasPhone && (
-          <a href={`tel:${siteConfig.phone}`} class="grid h-12 w-12 place-items-center rounded-full border border-accent/55 bg-white text-accent shadow-sm" aria-label={`Call Apex Packaging at ${displayPhone}`}>
+          <a href={phoneHref} class="grid h-12 w-12 place-items-center rounded-full border border-accent/55 bg-white text-accent shadow-sm" aria-label={`Call Apex Packaging at ${displayPhone}`}>
             <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.89.66 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.23a2 2 0 0 1 2.11-.45c.89.31 1.82.53 2.78.66A2 2 0 0 1 22 16.92z"></path>
             </svg>
@@ -202,7 +203,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
       </a>
 
       {hasPhone && (
-        <a href={`tel:${siteConfig.phone}`} class="grid min-h-[4.75rem] grid-cols-[4.4rem_1px_1fr] items-center rounded-xl border border-neutral-200 bg-white shadow-[0_6px_16px_rgba(15,13,10,0.08)]">
+        <a href={phoneHref} class="grid min-h-[4.75rem] grid-cols-[4.4rem_1px_1fr] items-center rounded-xl border border-neutral-200 bg-white shadow-[0_6px_16px_rgba(15,13,10,0.08)]">
           <span class="grid place-items-center">
             <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-accent text-accent" aria-hidden="true">
               <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -240,7 +241,14 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
           </svg>
         </a>
         <a href="/services/cbd-boxes" class="grid min-h-[6.8rem] min-w-[5.9rem] place-items-center rounded-xl border border-neutral-200 bg-white px-2 py-3 text-center text-sm font-semibold leading-tight text-neutral-950 shadow-[0_7px_18px_rgba(15,13,10,0.08)]">
-          <img src="/images/apex-update/styles/cbd-boxes-premium.png" alt="" width="160" height="160" loading="lazy" decoding="async" class="h-10 w-10 rounded-md object-cover" />
+          <span class="grid h-10 w-10 place-items-center rounded-lg bg-[#fff4cf] text-accent ring-1 ring-[#ead58d]" aria-hidden="true">
+            <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21 8-9-5-9 5 9 5 9-5Z"></path>
+              <path d="M3 8v8l9 5 9-5V8"></path>
+              <path d="M12 13v8"></path>
+              <path d="m8.5 7 7 4"></path>
+            </svg>
+          </span>
           <span>CBD<br />Boxes</span>
           <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="m6 9 6 6 6-6"></path>

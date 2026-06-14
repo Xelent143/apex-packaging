@@ -4,6 +4,8 @@ import PageHeader from '../components/sections/PageHeader.astro';
 import { siteConfig } from '../site.config';
 
 const lastUpdated = 'June 12, 2026';
+const phoneDisplay = siteConfig.phoneDisplay ?? siteConfig.phone;
+const phoneHref = siteConfig.phoneHref ?? `tel:${siteConfig.phone}`;
 ---
 <BaseLayout
   title="Terms and Conditions"
@@ -69,7 +71,7 @@ const lastUpdated = 'June 12, 2026';
         <strong>Apex Packaging Solutions</strong><br />
         Website: <a href="https://www.apexpackagingsolutions.com">www.apexpackagingsolutions.com</a><br />
         Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br />
-        Phone: <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>
+        Phone: <a href={phoneHref}>{phoneDisplay}</a>
       </p>
     </div>
   </section>
