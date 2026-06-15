@@ -30,10 +30,10 @@ const socialLinks = [
 ];
 
 const paymentMarks = [
-  { label: 'PayPal', image: '/images/footer-icons/payments/paypal.png', width: 230, height: 56 },
-  { label: 'Visa', image: '/images/footer-icons/payments/visa.png', width: 179, height: 58 },
-  { label: 'Mastercard', image: '/images/footer-icons/payments/mastercard.png', width: 104, height: 62 },
-  { label: 'American Express', image: '/images/footer-icons/payments/amex.png', width: 72, height: 72 }
+  { label: 'PayPal', image: '/images/footer-icons/payments/paypal.png', width: 230, height: 56, class: 'max-h-7 max-w-[6.6rem]' },
+  { label: 'Visa', image: '/images/footer-icons/payments/visa.png', width: 179, height: 58, class: 'max-h-7 max-w-[5.8rem]' },
+  { label: 'Mastercard', image: '/images/footer-icons/payments/mastercard.png', width: 104, height: 62, class: 'max-h-8 max-w-[4.8rem]' },
+  { label: 'American Express', image: '/images/footer-icons/payments/amex.png', width: 72, height: 72, class: 'max-h-8 max-w-[3.35rem]' }
 ];
 ---
 <footer class="bg-neutral-100 text-neutral-900">
@@ -139,12 +139,22 @@ const paymentMarks = [
           ))}
         </div>
 
-        <div class="flex flex-wrap items-center gap-3">
-          <span class="font-display font-extrabold">SSL 100% Secure Transactions:</span>
-          <div class="flex flex-wrap items-center gap-2">
+        <div class="flex flex-col items-center gap-3 text-center xl:flex-row xl:flex-wrap xl:text-left xl:justify-end">
+          <span class="font-display text-sm font-extrabold uppercase tracking-[0.08em] text-neutral-700 sm:text-base sm:tracking-normal">
+            SSL 100% Secure Transactions:
+          </span>
+          <div class="grid w-full grid-cols-2 gap-2 min-[420px]:grid-cols-4 sm:w-auto xl:flex xl:flex-wrap xl:items-center xl:justify-end">
             {paymentMarks.map((item) => (
-              <span class="grid h-11 w-24 place-items-center overflow-hidden rounded bg-white px-2 shadow-sm ring-1 ring-neutral-200" aria-label={item.label}>
-                <img src={item.image} alt="" width={item.width} height={item.height} loading="lazy" decoding="async" class="h-auto max-h-9 max-w-full object-contain" />
+              <span class="grid h-12 min-w-0 place-items-center rounded-md border border-neutral-200 bg-white/95 px-3 shadow-[0_2px_8px_rgba(15,23,42,0.06)] sm:h-11 sm:w-[6.7rem]" aria-label={item.label}>
+                <img
+                  src={item.image}
+                  alt=""
+                  width={item.width}
+                  height={item.height}
+                  loading="eager"
+                  decoding="async"
+                  class:list={['h-auto w-auto object-contain', item.class]}
+                />
               </span>
             ))}
           </div>
