@@ -43,35 +43,35 @@ const service = buildServiceSchema({
   image={heroImage}
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
-  <section class="relative isolate overflow-hidden bg-[#efe7da]">
+  <section class="relative isolate min-h-[44rem] overflow-hidden bg-[#efe7da] md:min-h-0">
     <img
       src={heroImage}
       alt="Premium CBD packaging boxes with black, gold, kraft, and white custom box styles"
       width="2048"
       height="768"
-      class="min-h-[33rem] w-full object-cover object-[76%_center] md:min-h-[39rem] lg:object-[72%_center]"
+      class="absolute inset-0 h-full w-full object-cover object-[70%_center] opacity-45 md:static md:min-h-[39rem] md:opacity-100 md:object-[76%_center] lg:object-[72%_center]"
       loading="eager"
       decoding="async"
       fetchpriority="high"
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-[#f4eadc] from-0% via-[#f4eadc]/95 via-45% to-[#f4eadc]/0 to-72%" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#f4eadc]/96 via-[#f4eadc]/92 to-[#f4eadc]/68 md:bg-gradient-to-r md:from-[#f4eadc] md:from-0% md:via-[#f4eadc]/95 md:via-45% md:to-[#f4eadc]/0 md:to-72%" aria-hidden="true"></div>
     <div class="absolute inset-0">
-      <div class="container max-w-wide flex h-full items-center">
-        <div class="max-w-2xl py-16">
+      <div class="container max-w-wide flex h-full items-start pt-8 md:items-center md:pt-0">
+        <div class="max-w-2xl py-10 md:py-16">
           <img
             src="/images/brand/apex-logo-premium-cropped.png"
             alt="Apex Packaging"
             width="1300"
             height="476"
-            class="mb-8 h-16 w-auto max-w-[17rem] object-contain object-left mix-blend-multiply md:h-20 md:max-w-[22rem]"
+            class="mb-5 h-10 w-auto max-w-[12.5rem] object-contain object-left mix-blend-multiply md:mb-8 md:h-20 md:max-w-[22rem]"
             loading="eager"
             decoding="async"
           />
           <p class="eyebrow">Boxes By Style · CBD Boxes</p>
-          <h1 class="mt-4 font-display text-4xl font-extrabold leading-[1.02] text-neutral-950 md:text-6xl">
+          <h1 class="mt-3 font-display text-[2.35rem] font-extrabold leading-[1.04] text-neutral-950 min-[390px]:text-[2.55rem] md:mt-4 md:text-6xl">
             Premium CBD boxes for retail, ecommerce, and launch-ready product lines.
           </h1>
-          <p class="mt-5 max-w-xl text-base font-medium leading-relaxed text-neutral-700 md:text-lg">
+          <p class="mt-4 max-w-xl text-base font-medium leading-relaxed text-neutral-700 md:mt-5 md:text-lg">
             Apex builds CBD packaging around your bottle, jar, gummy pouch, balm, or gift set with custom dielines, polished finishes, and practical production guidance.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
