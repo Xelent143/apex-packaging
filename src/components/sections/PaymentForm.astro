@@ -44,6 +44,11 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
           <input id="policy-consent" required name="policyConsent" type="checkbox" value="on" class="mt-1 h-4 w-4 rounded border-neutral-300 text-accent focus:ring-accent" />
           <span>I have read and agree to the Terms &amp; Conditions and Refund Policy.</span>
         </label>
+        <label class="block">
+          <span class="mb-2 block text-sm font-medium text-neutral-800">Electronic signature <span class="text-accent">*</span></span>
+          <input required id="consent-signature" name="consentSignature" type="text" autocomplete="name" placeholder="Type your full name to sign" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 bg-white px-4 outline-none transition-colors focus:border-accent" />
+          <span class="mt-2 block text-xs leading-relaxed text-neutral-500">Typing your full name confirms your electronic signature and agreement to the policies above.</span>
+        </label>
       </div>
     </section>
 
@@ -89,6 +94,7 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
   const payErrorMessage = document.getElementById('pay-error-message');
   const paymentForm = document.getElementById('payment-form');
   const policyConsent = document.getElementById('policy-consent');
+  const consentSignature = document.getElementById('consent-signature');
   const submitButton = paymentForm?.querySelector('button[type="submit"]');
   const pageParams = new URLSearchParams(window.location.search);
   const error = pageParams.get('error');
@@ -107,7 +113,8 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
 
   function syncSubmitButtonState() {
     if (submitButton instanceof HTMLButtonElement) {
-      submitButton.disabled = !(policyConsent instanceof HTMLInputElement && policyConsent.checked);
+      const consentChecked = policyConsent instanceof HTMLInputElement && policyConsent.checked;
+      submitButton.disabled = !consentChecked;
       submitButton.classList.toggle('opacity-60', submitButton.disabled);
       submitButton.classList.toggle('cursor-not-allowed', submitButton.disabled);
     }
@@ -126,10 +133,12 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
     const emailInput = form.elements.namedItem('email');
     const amountInput = form.elements.namedItem('amount');
     const consentInput = form.elements.namedItem('policyConsent');
-    if (!(emailInput instanceof HTMLInputElement) || !(amountInput instanceof HTMLInputElement)) return;
+    const signatureInput = form.elements.namedItem('consentSignature');
+    if (!(emailInput instanceof HTMLInputElement) || !(amountInput instanceof HTMLInputElement) || !(signatureInput instanceof HTMLInputElement)) return;
 
     const email = emailInput.value.trim();
     const amount = amountInput.value.trim().replace(/,/g, '');
+    const signature = signatureInput.value.trim();
     const amountPattern = /^\d+(\.\d{1,2})?$/;
     const consentAccepted = consentInput instanceof HTMLInputElement && consentInput.checked;
 
@@ -142,6 +151,12 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
     if (!consentAccepted) {
       event.preventDefault();
       showPaymentError('Please agree to the Terms & Conditions and Refund Policy before continuing.', policyConsent);
+      return;
+    }
+
+    if (!signature) {
+      event.preventDefault();
+      showPaymentError('Type your full name to provide an electronic signature.', consentSignature);
       return;
     }
 

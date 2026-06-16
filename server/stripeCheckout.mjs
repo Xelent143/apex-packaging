@@ -20,6 +20,7 @@ export function formDataToCheckoutRequest(formData) {
   const company = String(formData.get('company') || '').trim();
   const website = String(formData.get('website') || '').trim();
   const policyConsent = String(formData.get('policyConsent') || '').trim();
+  const consentSignature = String(formData.get('consentSignature') || '').trim();
 
   return {
     amountCents: parseAmountToCents(amount),
@@ -29,6 +30,7 @@ export function formDataToCheckoutRequest(formData) {
     customerName,
     company,
     policyConsent,
+    consentSignature,
     isSpam: Boolean(website)
   };
 }
@@ -125,6 +127,7 @@ export async function createStripeCheckoutSession(submission, options) {
   params.set('metadata[customer_name]', submission.customerName || '');
   params.set('metadata[company]', submission.company || '');
   params.set('metadata[customer_email]', submission.customerEmail);
+  params.set('metadata[consent_signature]', consentRecord?.consentSignature || '');
   if (consentRecord) {
     params.set('metadata[consent_id]', consentRecord.consentId);
     params.set('metadata[consent_at]', consentRecord.acceptedAt);
@@ -159,6 +162,7 @@ export function validateCheckoutRequest(submission) {
   if (!ALLOWED_CURRENCIES.has(submission.currency)) return 'Currency must be CAD or USD.';
   if (!isEmail(submission.customerEmail)) return 'A valid email address is required.';
   if (submission.policyConsent !== 'on') return 'You must agree to the Terms & Conditions and Refund Policy before continuing.';
+  if (!String(submission.consentSignature || '').trim()) return 'Type your full name to provide an electronic signature.';
   return '';
 }
 
@@ -182,6 +186,7 @@ function bodyToCheckoutRequest(body) {
     customerName: String(body?.name || '').trim(),
     company: String(body?.company || '').trim(),
     policyConsent: String(body?.policyConsent || '').trim(),
+    consentSignature: String(body?.consentSignature || '').trim(),
     isSpam: Boolean(String(body?.website || '').trim())
   };
 }
@@ -271,6 +276,7 @@ function buildConsentRecord(request, submission) {
     quoteNumber: submission.quoteNumber || '',
     customerName: submission.customerName || '',
     company: submission.company || '',
+    consentSignature: submission.consentSignature || submission.customerName || '',
     amountCents: submission.amountCents,
     currency: submission.currency,
     policyTermsUrl: POLICY_TERMS_URL,

@@ -30,6 +30,7 @@ test('formDataToCheckoutRequest extracts checkout fields', () => {
   formData.set('name', 'Alex Buyer');
   formData.set('company', 'Example Co');
   formData.set('policyConsent', 'on');
+  formData.set('consentSignature', 'Alex Buyer');
 
   const submission = formDataToCheckoutRequest(formData);
 
@@ -40,6 +41,7 @@ test('formDataToCheckoutRequest extracts checkout fields', () => {
   assert.equal(submission.customerName, 'Alex Buyer');
   assert.equal(submission.company, 'Example Co');
   assert.equal(submission.policyConsent, 'on');
+  assert.equal(submission.consentSignature, 'Alex Buyer');
 });
 
 test('validateCheckoutRequest rejects invalid payment requests', () => {
@@ -47,32 +49,44 @@ test('validateCheckoutRequest rejects invalid payment requests', () => {
     amountCents: 125000,
     currency: 'cad',
     customerEmail: 'buyer@example.com',
+    consentSignature: 'Alex Buyer',
     policyConsent: 'on'
   }), '');
   assert.match(validateCheckoutRequest({
     amountCents: 10,
     currency: 'cad',
     customerEmail: 'buyer@example.com',
+    consentSignature: 'Alex Buyer',
     policyConsent: 'on'
   }), /at least/);
   assert.match(validateCheckoutRequest({
     amountCents: 125000,
     currency: '',
     customerEmail: 'buyer@example.com',
+    consentSignature: 'Alex Buyer',
     policyConsent: 'on'
   }), /Currency/);
   assert.match(validateCheckoutRequest({
     amountCents: 125000,
     currency: 'cad',
     customerEmail: 'bad',
+    consentSignature: 'Alex Buyer',
     policyConsent: 'on'
   }), /email/);
   assert.match(validateCheckoutRequest({
     amountCents: 125000,
     currency: 'cad',
     customerEmail: 'buyer@example.com',
+    consentSignature: '',
     policyConsent: ''
   }), /agree/);
+  assert.match(validateCheckoutRequest({
+    amountCents: 125000,
+    currency: 'cad',
+    customerEmail: 'buyer@example.com',
+    consentSignature: '',
+    policyConsent: 'on'
+  }), /electronic signature/);
 });
 
 test('createStripeCheckoutSession posts expected session payload', async () => {
@@ -84,7 +98,8 @@ test('createStripeCheckoutSession posts expected session payload', async () => {
       quoteNumber: 'APS-1001',
       customerEmail: 'buyer@example.com',
       customerName: 'Alex Buyer',
-      company: 'Example Co'
+      company: 'Example Co',
+      consentSignature: 'Alex Buyer'
     },
     {
       secretKey: 'sk_test_123',
@@ -94,6 +109,7 @@ test('createStripeCheckoutSession posts expected session payload', async () => {
         consentId: 'consent_123',
         acceptedAt: '2026-06-16T12:00:00.000Z',
         ipAddress: '203.0.113.8',
+        consentSignature: 'Alex Buyer',
         policyTermsUrl: 'https://apexpackagingsolutions.com/terms-and-conditions',
         policyRefundUrl: 'https://apexpackagingsolutions.com/refund-and-return-policy'
       },
@@ -112,6 +128,7 @@ test('createStripeCheckoutSession posts expected session payload', async () => {
   assert.equal(requestBody.get('metadata[quote_number]'), 'APS-1001');
   assert.equal(requestBody.get('metadata[consent_id]'), 'consent_123');
   assert.equal(requestBody.get('metadata[consent_ip]'), '203.0.113.8');
+  assert.equal(requestBody.get('metadata[consent_signature]'), 'Alex Buyer');
 });
 
 test('recordPaymentConsent appends audit details to a jsonl file', async () => {
@@ -138,6 +155,7 @@ test('recordPaymentConsent appends audit details to a jsonl file', async () => {
   assert.equal(record.consentId, storedRecord.consentId);
   assert.equal(storedRecord.email, 'buyer@example.com');
   assert.equal(storedRecord.ipAddress, '203.0.113.8');
+  assert.equal(storedRecord.consentSignature, 'Alex Buyer');
   assert.equal(storedRecord.policyTermsUrl, 'https://apexpackagingsolutions.com/terms-and-conditions');
   assert.equal(storedRecord.policyRefundUrl, 'https://apexpackagingsolutions.com/refund-and-return-policy');
 });
@@ -148,6 +166,7 @@ test('handleCreateCheckoutSession redirects to Stripe checkout', async () => {
   formData.set('currency', 'cad');
   formData.set('email', 'buyer@example.com');
   formData.set('policyConsent', 'on');
+  formData.set('consentSignature', 'Alex Buyer');
 
   const request = new Request('https://apex.example/api/create-checkout-session', {
     method: 'POST',
