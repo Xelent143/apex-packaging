@@ -27,6 +27,26 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
       <input name="website" tabindex="-1" autocomplete="off" />
     </label>
 
+    <section class="rounded-md border border-neutral-200 bg-neutral-50 p-4 md:p-5">
+      <div class="flex flex-col gap-3">
+        <div>
+          <h2 class="font-display text-lg font-extrabold text-neutral-900">Review policies before payment</h2>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-600">
+            Please review the policy pages below and confirm your agreement before continuing to Stripe.
+          </p>
+        </div>
+        <div class="grid gap-3 md:grid-cols-3">
+          <a href="/terms-and-conditions" class="rounded-md border border-[#d7c38a] bg-white px-4 py-3 text-sm font-medium text-neutral-800 transition-colors hover:border-accent hover:text-accent">Terms &amp; Conditions</a>
+          <a href="/refund-and-return-policy" class="rounded-md border border-[#d7c38a] bg-white px-4 py-3 text-sm font-medium text-neutral-800 transition-colors hover:border-accent hover:text-accent">Refund &amp; Return Policy</a>
+          <a href="/privacy" class="rounded-md border border-[#d7c38a] bg-white px-4 py-3 text-sm font-medium text-neutral-800 transition-colors hover:border-accent hover:text-accent">Privacy Policy</a>
+        </div>
+        <label class="flex items-start gap-3 rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm leading-relaxed text-neutral-700">
+          <input id="policy-consent" required name="policyConsent" type="checkbox" value="on" class="mt-1 h-4 w-4 rounded border-neutral-300 text-accent focus:ring-accent" />
+          <span>I have read and agree to the Terms &amp; Conditions and Refund Policy.</span>
+        </label>
+      </div>
+    </section>
+
     <div class="grid gap-4 md:grid-cols-2 md:gap-5">
       <label class="block">
         <span class="mb-2 block text-sm font-medium text-neutral-800">Quote or invoice number</span>
@@ -60,7 +80,7 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
       </label>
     </div>
 
-    <button type="submit" class="btn-primary">Continue to Stripe</button>
+    <button type="submit" disabled class="btn-primary">Continue to Stripe</button>
     <p class="text-xs leading-relaxed text-neutral-500">By continuing, you will leave Apex Packaging Solutions and complete payment on Stripe's secure checkout page.</p>
   </form>
 </div>
@@ -68,6 +88,8 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
 <script>
   const payErrorMessage = document.getElementById('pay-error-message');
   const paymentForm = document.getElementById('payment-form');
+  const policyConsent = document.getElementById('policy-consent');
+  const submitButton = paymentForm?.querySelector('button[type="submit"]');
   const pageParams = new URLSearchParams(window.location.search);
   const error = pageParams.get('error');
 
@@ -83,6 +105,18 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
     payErrorMessage.classList.remove('hidden');
   }
 
+  function syncSubmitButtonState() {
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = !(policyConsent instanceof HTMLInputElement && policyConsent.checked);
+      submitButton.classList.toggle('opacity-60', submitButton.disabled);
+      submitButton.classList.toggle('cursor-not-allowed', submitButton.disabled);
+    }
+  }
+
+  syncSubmitButtonState();
+
+  policyConsent?.addEventListener('change', syncSubmitButtonState);
+
   paymentForm?.addEventListener('submit', (event) => {
     const form = event.currentTarget;
     if (!(form instanceof HTMLFormElement)) return;
@@ -91,15 +125,23 @@ const { actionPath = '/api/create-checkout-session' } = Astro.props;
 
     const emailInput = form.elements.namedItem('email');
     const amountInput = form.elements.namedItem('amount');
+    const consentInput = form.elements.namedItem('policyConsent');
     if (!(emailInput instanceof HTMLInputElement) || !(amountInput instanceof HTMLInputElement)) return;
 
     const email = emailInput.value.trim();
     const amount = amountInput.value.trim().replace(/,/g, '');
     const amountPattern = /^\d+(\.\d{1,2})?$/;
+    const consentAccepted = consentInput instanceof HTMLInputElement && consentInput.checked;
 
     if (!email || !emailInput.validity.valid) {
       event.preventDefault();
       showPaymentError('Enter a valid email address.', emailInput);
+      return;
+    }
+
+    if (!consentAccepted) {
+      event.preventDefault();
+      showPaymentError('Please agree to the Terms & Conditions and Refund Policy before continuing.', policyConsent);
       return;
     }
 

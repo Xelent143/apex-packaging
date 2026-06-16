@@ -1,7 +1,15 @@
+import { appendFile, mkdir } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
+import { randomUUID } from 'node:crypto';
+
 const STRIPE_CHECKOUT_SESSIONS_URL = 'https://api.stripe.com/v1/checkout/sessions';
 const MIN_AMOUNT_CENTS = 100;
 const MAX_AMOUNT_CENTS = 100000000;
 const ALLOWED_CURRENCIES = new Set(['cad', 'usd']);
+const POLICY_TERMS_URL = 'https://apexpackagingsolutions.com/terms-and-conditions';
+const POLICY_REFUND_URL = 'https://apexpackagingsolutions.com/refund-and-return-policy';
+const POLICY_PRIVACY_URL = 'https://apexpackagingsolutions.com/privacy';
+const CONSENT_AUDIT_PATH = resolve(process.cwd(), 'data', 'payment-consents.jsonl');
 
 export function formDataToCheckoutRequest(formData) {
   const amount = String(formData.get('amount') || '').trim();
@@ -11,6 +19,7 @@ export function formDataToCheckoutRequest(formData) {
   const customerName = String(formData.get('name') || '').trim();
   const company = String(formData.get('company') || '').trim();
   const website = String(formData.get('website') || '').trim();
+  const policyConsent = String(formData.get('policyConsent') || '').trim();
 
   return {
     amountCents: parseAmountToCents(amount),
@@ -19,6 +28,7 @@ export function formDataToCheckoutRequest(formData) {
     customerEmail,
     customerName,
     company,
+    policyConsent,
     isSpam: Boolean(website)
   };
 }
@@ -50,6 +60,11 @@ export async function handleCreateCheckoutSession(request, options) {
   const validationError = validateCheckoutRequest(submission);
   if (validationError) return errorResponse(request, options.siteUrl, validationError, 400);
 
+  const consentRecord = await recordPaymentConsent(request, submission, {
+    siteUrl: options.siteUrl,
+    recordPath: options.consentAuditPath || CONSENT_AUDIT_PATH
+  });
+
   if (!options.secretKey) {
     if (isLocalRequest(request, options.siteUrl)) {
       return redirectResponse(buildMockCheckoutUrl(request, options.siteUrl, submission));
@@ -64,7 +79,8 @@ export async function handleCreateCheckoutSession(request, options) {
       fetchImpl: options.fetchImpl || fetch,
       secretKey: options.secretKey,
       successUrl: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${origin}/paynow?payment=cancelled`
+      cancelUrl: `${origin}/paynow?payment=cancelled`,
+      consentRecord
     });
   } catch (error) {
     return errorResponse(request, options.siteUrl, error.message || 'Stripe checkout could not be started.', 502);
@@ -92,6 +108,7 @@ export async function createStripeCheckoutSession(submission, options) {
   const description = submission.quoteNumber
     ? `Apex Packaging approved quote ${submission.quoteNumber}`
     : 'Apex Packaging approved quote payment';
+  const consentRecord = options.consentRecord;
 
   const params = new URLSearchParams();
   params.set('mode', 'payment');
@@ -108,6 +125,13 @@ export async function createStripeCheckoutSession(submission, options) {
   params.set('metadata[customer_name]', submission.customerName || '');
   params.set('metadata[company]', submission.company || '');
   params.set('metadata[customer_email]', submission.customerEmail);
+  if (consentRecord) {
+    params.set('metadata[consent_id]', consentRecord.consentId);
+    params.set('metadata[consent_at]', consentRecord.acceptedAt);
+    params.set('metadata[consent_ip]', consentRecord.ipAddress || '');
+    params.set('metadata[policy_terms_url]', consentRecord.policyTermsUrl || POLICY_TERMS_URL);
+    params.set('metadata[policy_refund_url]', consentRecord.policyRefundUrl || POLICY_REFUND_URL);
+  }
 
   const response = await options.fetchImpl(STRIPE_CHECKOUT_SESSIONS_URL, {
     method: 'POST',
@@ -134,6 +158,7 @@ export function validateCheckoutRequest(submission) {
   if (submission.amountCents > MAX_AMOUNT_CENTS) return 'Payment amount is too large.';
   if (!ALLOWED_CURRENCIES.has(submission.currency)) return 'Currency must be CAD or USD.';
   if (!isEmail(submission.customerEmail)) return 'A valid email address is required.';
+  if (submission.policyConsent !== 'on') return 'You must agree to the Terms & Conditions and Refund Policy before continuing.';
   return '';
 }
 
@@ -156,6 +181,7 @@ function bodyToCheckoutRequest(body) {
     customerEmail: String(body?.email || '').trim(),
     customerName: String(body?.name || '').trim(),
     company: String(body?.company || '').trim(),
+    policyConsent: String(body?.policyConsent || '').trim(),
     isSpam: Boolean(String(body?.website || '').trim())
   };
 }
@@ -224,4 +250,42 @@ function buildMockCheckoutUrl(request, siteUrl, submission) {
 
 function formatAmount(amountCents) {
   return (amountCents / 100).toFixed(2);
+}
+
+export async function recordPaymentConsent(request, submission, options = {}) {
+  const record = buildConsentRecord(request, submission);
+  const recordPath = options.recordPath || CONSENT_AUDIT_PATH;
+  await mkdir(dirname(recordPath), { recursive: true });
+  await appendFile(recordPath, `${JSON.stringify(record)}\n`, 'utf8');
+  return record;
+}
+
+function buildConsentRecord(request, submission) {
+  const acceptedAt = new Date().toISOString();
+  return {
+    consentId: randomUUID(),
+    acceptedAt,
+    ipAddress: getClientIp(request),
+    userAgent: request.headers.get('user-agent') || '',
+    email: submission.customerEmail,
+    quoteNumber: submission.quoteNumber || '',
+    customerName: submission.customerName || '',
+    company: submission.company || '',
+    amountCents: submission.amountCents,
+    currency: submission.currency,
+    policyTermsUrl: POLICY_TERMS_URL,
+    policyRefundUrl: POLICY_REFUND_URL,
+    policyPrivacyUrl: POLICY_PRIVACY_URL
+  };
+}
+
+function getClientIp(request) {
+  const forwarded = request.headers.get('x-forwarded-for')
+    || request.headers.get('x-real-ip')
+    || request.headers.get('cf-connecting-ip')
+    || request.headers.get('true-client-ip')
+    || '';
+
+  if (!forwarded) return '';
+  return forwarded.split(',')[0].trim();
 }
