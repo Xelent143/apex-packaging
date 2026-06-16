@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
 import CTABand from '../components/sections/CTABand.astro';
+
+const isMockPayment = Astro.url.searchParams.get('mock') === '1';
+const quoteNumber = Astro.url.searchParams.get('quoteNumber') || '';
 ---
 <BaseLayout
   title="Payment Received | Apex Packaging Solutions"
@@ -9,9 +12,11 @@ import CTABand from '../components/sections/CTABand.astro';
   noindex
 >
   <PageHeader
-    eyebrow="Payment received"
-    heading="Thanks — your payment was submitted securely."
-    lead="Stripe has processed the checkout session. Apex will match the payment to your quote or invoice and follow up with next steps."
+    eyebrow={isMockPayment ? 'Test payment complete' : 'Payment received'}
+    heading={isMockPayment ? 'Test checkout completed successfully.' : 'Thanks — your payment was submitted securely.'}
+    lead={isMockPayment
+      ? `This local test flow completed successfully${quoteNumber ? ` for ${quoteNumber}` : ''}. The live site still needs a real Stripe secret key to send customers to Stripe-hosted checkout.`
+      : 'Stripe has processed the checkout session. Apex will match the payment to your quote or invoice and follow up with next steps.'}
   />
 
   <CTABand

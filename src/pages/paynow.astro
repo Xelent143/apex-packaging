@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Pay Now', url: '/paynow' }
+]);
+---
+<BaseLayout
+  title="Pay Now | Apex Packaging Secure Checkout"
+  description="Open Apex Packaging secure checkout to pay an approved quote or invoice. Card details are entered on Stripe and not stored on this website."
+  schemaBlocks={[breadcrumb]}
+  noindex
+>
+  <PageHeader
+    eyebrow="Secure payment"
+    heading="Pay Now"
+    lead="Open the secure payment form for approved quotes and invoices. Card details are entered on Stripe checkout, not stored on the Apex Packaging website."
+  />
+
+  <section class="bg-white">
+    <div class="container max-w-wide py-16 md:py-24">
+      <div class="mx-auto flex min-h-[18rem] max-w-3xl flex-col items-center justify-center gap-8 md:min-h-[22rem] md:gap-10">
+        <a href="/pay" class="inline-flex min-w-[14rem] items-center justify-center rounded-[1.1rem] bg-neutral-900 px-10 py-5 font-display text-2xl font-bold text-white shadow-[0_14px_30px_rgba(17,13,27,0.18)] transition-transform duration-150 hover:-translate-y-0.5 hover:bg-accent hover:text-neutral-900 md:min-w-[16rem] md:px-12 md:py-6 md:text-3xl">
+          Pay Now
+        </a>
+        <p class="max-w-xl text-center text-sm leading-relaxed text-neutral-500 md:text-base">
+          Continue to the secure payment form, enter the amount you want to pay, and choose your currency. CAD is the default.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

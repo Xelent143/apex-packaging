@@ -20,7 +20,7 @@ Live chat uses Tawk.to widget `https://embed.tawk.to/6a23dd698705f01c35097370/1j
 
 ## Stripe payments
 
-The site includes a secure approved-quote payment flow at `/pay`. Customers enter their quote/invoice number, email, amount, and currency, then the server creates a Stripe-hosted Checkout Session.
+The site includes a secure approved-quote payment flow at `/paynow` with `/pay` kept as a legacy alias. Customers enter their quote/invoice number, email, amount, and currency, then the server creates a Stripe-hosted Checkout Session.
 
 Set these environment variables in production:
 

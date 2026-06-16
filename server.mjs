@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
-import { handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
+import { createApexTestCheckoutSession, handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
@@ -60,6 +60,31 @@ const server = createServer(async (req, res) => {
       });
 
       await writeWebResponse(res, response);
+      return;
+    }
+
+    if (req.method === 'GET' && url.pathname === '/api/test-checkout-session') {
+      if (!(process.env.STRIPE_SECRET_KEY || '')) {
+        res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('Stripe is not configured.');
+        return;
+      }
+
+      try {
+        const session = await createApexTestCheckoutSession({
+          fetchImpl: fetch,
+          secretKey: process.env.STRIPE_SECRET_KEY || '',
+          successUrl: `${process.env.SITE_URL || url.origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+          cancelUrl: `${process.env.SITE_URL || url.origin}/paynow?payment=cancelled`
+        });
+
+        if (!session.url) throw new Error('Stripe did not return a checkout URL.');
+        res.writeHead(303, { Location: session.url });
+        res.end();
+      } catch (error) {
+        res.writeHead(502, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end(error.message || 'Stripe checkout could not be started.');
+      }
       return;
     }
 

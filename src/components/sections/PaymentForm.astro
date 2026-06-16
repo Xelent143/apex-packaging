@@ -1,0 +1,114 @@
+---
+interface Props {
+  actionPath?: string;
+}
+
+const { actionPath = '/api/create-checkout-session' } = Astro.props;
+---
+<div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+  <aside class="space-y-4 lg:col-span-4">
+    <div class="rounded-md border border-neutral-200 bg-white p-5 shadow-sm md:p-6">
+      <h2 class="font-display text-xl font-extrabold text-neutral-900">Before paying</h2>
+      <ul class="mt-4 space-y-3 text-sm leading-relaxed text-neutral-600">
+        <li>Enter the exact amount from your approved quote or invoice.</li>
+        <li>Use the same email address used for your quote request.</li>
+        <li>Card details are entered on Stripe checkout and are not stored on this website.</li>
+      </ul>
+    </div>
+    <div class="rounded-md border border-[#ead58d] bg-[#fff8df] p-5 text-sm leading-relaxed text-neutral-700 md:p-6">
+      Stripe processes the payment securely and returns you to Apex after checkout.
+    </div>
+  </aside>
+
+  <form id="payment-form" class="space-y-5 rounded-md border border-neutral-200 bg-white p-4 shadow-card md:p-7 lg:col-span-8" action={actionPath} method="POST" novalidate>
+    <div id="pay-error-message" class="hidden rounded-md border border-[#d8b46a] bg-[#fff8df] px-4 py-3 text-sm leading-relaxed text-neutral-800"></div>
+    <label class="hidden" aria-hidden="true">
+      Website
+      <input name="website" tabindex="-1" autocomplete="off" />
+    </label>
+
+    <div class="grid gap-4 md:grid-cols-2 md:gap-5">
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-neutral-800">Quote or invoice number</span>
+        <input name="quoteNumber" type="text" placeholder="APS-1001" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+      </label>
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-neutral-800">Email <span class="text-accent">*</span></span>
+        <input required name="email" type="email" autocomplete="email" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+      </label>
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-neutral-800">Name</span>
+        <input name="name" type="text" autocomplete="name" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+      </label>
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-neutral-800">Company</span>
+        <input name="company" type="text" autocomplete="organization" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+      </label>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-[1fr_10rem] md:gap-5">
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-neutral-800">Payment amount <span class="text-accent">*</span></span>
+        <input required name="amount" type="text" inputmode="decimal" autocomplete="off" placeholder="1250.00" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+      </label>
+      <label class="block">
+        <span class="mb-2 block text-sm font-medium text-neutral-800">Currency</span>
+        <select name="currency" class="h-[3.25rem] w-full rounded-md border-2 border-neutral-300 bg-neutral-50 px-4 outline-none transition-colors focus:border-accent">
+          <option value="cad">CAD</option>
+          <option value="usd">USD</option>
+        </select>
+      </label>
+    </div>
+
+    <button type="submit" class="btn-primary">Continue to Stripe</button>
+    <p class="text-xs leading-relaxed text-neutral-500">By continuing, you will leave Apex Packaging Solutions and complete payment on Stripe's secure checkout page.</p>
+  </form>
+</div>
+
+<script>
+  const payErrorMessage = document.getElementById('pay-error-message');
+  const paymentForm = document.getElementById('payment-form');
+  const pageParams = new URLSearchParams(window.location.search);
+  const error = pageParams.get('error');
+
+  function showPaymentError(message, input) {
+    if (!payErrorMessage) return;
+    payErrorMessage.textContent = message;
+    payErrorMessage.classList.remove('hidden');
+    if (input instanceof HTMLElement) input.focus();
+  }
+
+  if (payErrorMessage && error) {
+    payErrorMessage.textContent = error;
+    payErrorMessage.classList.remove('hidden');
+  }
+
+  paymentForm?.addEventListener('submit', (event) => {
+    const form = event.currentTarget;
+    if (!(form instanceof HTMLFormElement)) return;
+
+    payErrorMessage?.classList.add('hidden');
+
+    const emailInput = form.elements.namedItem('email');
+    const amountInput = form.elements.namedItem('amount');
+    if (!(emailInput instanceof HTMLInputElement) || !(amountInput instanceof HTMLInputElement)) return;
+
+    const email = emailInput.value.trim();
+    const amount = amountInput.value.trim().replace(/,/g, '');
+    const amountPattern = /^\d+(\.\d{1,2})?$/;
+
+    if (!email || !emailInput.validity.valid) {
+      event.preventDefault();
+      showPaymentError('Enter a valid email address.', emailInput);
+      return;
+    }
+
+    if (!amountPattern.test(amount) || Number(amount) < 1) {
+      event.preventDefault();
+      showPaymentError('Enter a payment amount of at least 1.00, for example 50 or 50.00.', amountInput);
+      return;
+    }
+
+    amountInput.value = Number(amount).toFixed(2);
+  });
+</script>

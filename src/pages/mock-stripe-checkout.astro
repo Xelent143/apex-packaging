@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Test Checkout | Apex Packaging Solutions Canada"
+  description="Local test checkout flow for Apex Packaging payments."
+  noindex
+>
+  <section class="min-h-screen bg-[#fcfcfa] py-8 md:py-12">
+    <div class="mx-auto max-w-[78rem] px-4 md:px-6">
+      <div class="mb-8 flex items-center gap-3 text-neutral-900">
+        <span class="grid h-11 w-11 place-items-center rounded-full border border-neutral-200 bg-white shadow-sm" aria-hidden="true">
+          <svg class="h-6 w-6 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 10V7a5 5 0 0 1 10 0v3"></path>
+            <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+            <path d="M9 14h6"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="font-display text-2xl font-bold tracking-tight md:text-3xl">APEX PACKAGING SOLUTIONS CANADA</p>
+          <p class="text-sm text-neutral-500">Test checkout</p>
+        </div>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-12">
+        <div class="rounded-[1.75rem] bg-white p-6 shadow-[0_18px_50px_rgba(15,13,10,0.06)] ring-1 ring-neutral-200 md:p-8">
+          <p class="text-base text-neutral-500 md:text-lg">Apex Packaging Solutions Canada</p>
+          <div class="mt-4 rounded-2xl border border-neutral-200 bg-white px-5 py-4 shadow-sm md:px-6 md:py-5">
+            <div id="mock-summary-amount" class="font-display text-5xl font-bold tracking-tight text-neutral-900 md:text-6xl">US$0.00</div>
+          </div>
+
+          <div class="mt-6 rounded-2xl border border-[#ead58d] bg-[#fff8df] p-4 text-sm leading-relaxed text-neutral-700">
+            Test card: <span class="font-semibold text-neutral-900">4242 4242 4242 4242</span><br />
+            Use any future expiry date, any 3-digit CVC, and any postal code.
+          </div>
+        </div>
+
+        <div class="rounded-[1.75rem] bg-white p-6 shadow-[0_18px_50px_rgba(15,13,10,0.06)] ring-1 ring-neutral-200 md:p-8">
+          <div class="flex items-center justify-between border-b border-neutral-200 pb-5">
+            <div class="flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-[#6adf7a] text-neutral-950" aria-hidden="true">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m8 5 8 7-8 7"></path>
+                </svg>
+              </span>
+              <span class="font-display text-4xl font-bold tracking-tight text-neutral-900">link</span>
+            </div>
+            <span class="text-3xl leading-none text-neutral-400" aria-hidden="true">...</span>
+          </div>
+
+          <div id="mock-summary-email-row" class="flex items-center justify-between border-b border-neutral-200 py-6">
+            <span class="text-xl text-neutral-500">Email</span>
+            <span id="mock-summary-email" class="text-xl font-medium text-neutral-900">customer@example.com</span>
+          </div>
+
+          <div class="border-b border-neutral-200 py-6">
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-xl text-neutral-500">Pay with</span>
+              <div class="flex items-center gap-3">
+                <span class="rounded-md border border-neutral-200 px-2 py-1 text-sm font-bold text-[#1a4cff]">VISA</span>
+                <span class="text-right text-xl font-medium text-neutral-900">Visa Debit<br /><span class="text-neutral-500">.... 8056</span></span>
+                <span class="text-3xl leading-none text-neutral-400" aria-hidden="true">⌄</span>
+              </div>
+            </div>
+          </div>
+
+          <form id="mock-checkout-form" class="mt-6 space-y-4">
+            <div class="grid gap-4 md:grid-cols-2">
+              <label class="block">
+                <span class="mb-2 block text-sm font-medium text-neutral-700">Card number</span>
+                <input id="card-number" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" class="h-12 w-full rounded-xl border border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm font-medium text-neutral-700">Expiry</span>
+                <input id="card-expiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="12/34" class="h-12 w-full rounded-xl border border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm font-medium text-neutral-700">CVC</span>
+                <input id="card-cvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" class="h-12 w-full rounded-xl border border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm font-medium text-neutral-700">Postal code</span>
+                <input id="card-postal" type="text" autocomplete="postal-code" placeholder="A1A 1A1" class="h-12 w-full rounded-xl border border-neutral-300 px-4 outline-none transition-colors focus:border-accent" />
+              </label>
+            </div>
+
+            <div id="mock-error" class="hidden rounded-xl border border-[#d8b46a] bg-[#fff8df] px-4 py-3 text-sm leading-relaxed text-neutral-800"></div>
+
+            <button id="mock-pay-button" type="button" class="mt-2 inline-flex h-16 w-full items-center justify-center rounded-[1.25rem] bg-[#63d379] text-3xl font-bold text-[#34854b] transition-colors hover:bg-[#56ca6d] hover:text-white">Pay</button>
+          </form>
+
+          <div class="mt-5 text-center">
+            <button type="button" class="text-2xl font-medium text-[#34854b]">Pay without Link</button>
+            <div class="mt-6 flex items-center justify-center gap-5 text-lg text-neutral-400">
+              <span>Powered by <strong class="font-semibold text-neutral-500">stripe</strong></span>
+              <span>|</span>
+              <span>Terms</span>
+              <span>Privacy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('mock-checkout-form');
+    const errorBox = document.getElementById('mock-error');
+    const payButton = document.getElementById('mock-pay-button');
+    const summaryAmount = document.getElementById('mock-summary-amount');
+    const params = new URLSearchParams(window.location.search);
+
+    const setSummaryField = (rowId, valueId, value) => {
+      const row = document.getElementById(rowId);
+      const target = document.getElementById(valueId);
+      if (!row || !target || !value) return;
+      target.textContent = value;
+      row.classList.remove('hidden');
+    };
+
+    const amount = params.get('amount') || '0.00';
+    const currency = params.get('currency') || 'CAD';
+    const quoteNumber = params.get('quoteNumber') || '';
+    const email = params.get('email') || '';
+    const name = params.get('name') || '';
+    const company = params.get('company') || '';
+
+    const symbol = currency === 'USD' ? 'US$' : `${currency} `;
+    if (summaryAmount) summaryAmount.textContent = `${symbol}${amount}`;
+    if (payButton) payButton.textContent = 'Pay';
+    setSummaryField('mock-summary-email-row', 'mock-summary-email', email || 'customer@example.com');
+
+    const showError = (message) => {
+      errorBox.textContent = message;
+      errorBox.classList.remove('hidden');
+    };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      const cardNumber = String(document.getElementById('card-number')?.value || '').replace(/\s+/g, '');
+      const expiry = String(document.getElementById('card-expiry')?.value || '').trim();
+      const cvc = String(document.getElementById('card-cvc')?.value || '').trim();
+      const postal = String(document.getElementById('card-postal')?.value || '').trim();
+
+      errorBox.classList.add('hidden');
+
+      if (cardNumber !== '4242424242424242') {
+        showError('Use the Stripe test card number 4242 4242 4242 4242.');
+        return;
+      }
+
+      if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry)) {
+        showError('Enter the expiry date in MM/YY format.');
+        return;
+      }
+
+      if (!/^\d{3,4}$/.test(cvc)) {
+        showError('Enter a valid CVC.');
+        return;
+      }
+
+      if (!postal) {
+        showError('Enter a postal code.');
+        return;
+      }
+
+      const successUrl = new URL('/payment-success', window.location.origin);
+      successUrl.searchParams.set('session_id', `mock_session_${Date.now()}`);
+      successUrl.searchParams.set('mock', '1');
+      if (quoteNumber) successUrl.searchParams.set('quoteNumber', quoteNumber);
+      window.location.href = successUrl.toString();
+    };
+
+    form?.addEventListener('submit', handleSubmit);
+    payButton?.addEventListener('click', handleSubmit);
+  </script>
+</BaseLayout>
