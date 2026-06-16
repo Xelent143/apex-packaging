@@ -18,6 +18,19 @@ Production: `SITE_URL=https://apexpackagingsolutions.com npm run build`
 
 Live chat uses Tawk.to widget `https://embed.tawk.to/6a23dd698705f01c35097370/1jqe1hp6i` by default. To override it, set `PUBLIC_TAWK_TO_WIDGET_URL` to another Tawk.to embed URL from the Tawk dashboard, for example `https://embed.tawk.to/<property-id>/<widget-id>`.
 
+## Stripe payments
+
+The site includes a secure approved-quote payment flow at `/pay`. Customers enter their quote/invoice number, email, amount, and currency, then the server creates a Stripe-hosted Checkout Session.
+
+Set these environment variables in production:
+
+```bash
+STRIPE_SECRET_KEY=sk_live_...
+SITE_URL=https://apexpackagingsolutions.com
+```
+
+Use the Apex Packaging Solutions Stripe account secret key, not the Clothixpack key, unless payments should intentionally settle in the Clothixpack account.
+
 ## Project structure
 
 ```

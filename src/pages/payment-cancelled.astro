@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import CTABand from '../components/sections/CTABand.astro';
+---
+<BaseLayout
+  title="Payment Cancelled | Apex Packaging Solutions"
+  description="Your Apex Packaging Solutions Stripe checkout was cancelled."
+  noindex
+>
+  <PageHeader
+    eyebrow="Payment cancelled"
+    heading="No payment was completed."
+    lead="You can restart the secure payment flow or contact Apex if the amount, currency, or quote number needs to be checked."
+  />
+
+  <CTABand
+    heading="Ready to try again?"
+    lead="Return to the secure payment page when your approved quote amount is ready."
+    primaryCta={{ label: 'Go to payment page', href: '/pay' }}
+    secondaryCta={{ label: 'Contact Apex', href: '/contact' }}
+  />
+</BaseLayout>

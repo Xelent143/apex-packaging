@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import CTABand from '../components/sections/CTABand.astro';
+---
+<BaseLayout
+  title="Payment Received | Apex Packaging Solutions"
+  description="Your Apex Packaging Solutions payment was received through Stripe checkout."
+  noindex
+>
+  <PageHeader
+    eyebrow="Payment received"
+    heading="Thanks — your payment was submitted securely."
+    lead="Stripe has processed the checkout session. Apex will match the payment to your quote or invoice and follow up with next steps."
+  />
+
+  <CTABand
+    eyebrow="Need help?"
+    heading="Questions about your order or payment?"
+    lead="Email Apex with your quote number, invoice number, or Stripe receipt email and the team will help match everything up."
+    primaryCta={{ label: 'Email Apex', href: 'mailto:sales@apexpackagingsolutions.com' }}
+    secondaryCta={{ label: 'Back to home', href: '/' }}
+  />
+</BaseLayout>

@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
+import { handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
@@ -40,6 +41,22 @@ const server = createServer(async (req, res) => {
         from: process.env.QUOTE_FROM_EMAIL || 'Apex Packaging <onboarding@resend.dev>',
         to: process.env.QUOTE_TO_EMAIL || 'xelenttraders@gmail.com',
         sendEmail: sendQuoteEmail
+      });
+
+      await writeWebResponse(res, response);
+      return;
+    }
+
+    if (req.method === 'POST' && url.pathname === '/api/create-checkout-session') {
+      const request = new Request(url, {
+        method: 'POST',
+        headers: nodeHeadersToWebHeaders(req.headers),
+        body: req,
+        duplex: 'half'
+      });
+      const response = await handleCreateCheckoutSession(request, {
+        secretKey: process.env.STRIPE_SECRET_KEY || '',
+        siteUrl: process.env.SITE_URL || ''
       });
 
       await writeWebResponse(res, response);
