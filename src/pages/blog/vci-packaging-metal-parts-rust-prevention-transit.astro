@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'VCI Packaging for Metal Parts: Rust Prevention in Transit';
+const description = 'A practical buyer guide to VCI packaging in Canada: when to use VCI paper or film, where desiccant fits, and how to quote rust prevention for metal-parts shipments.';
+const url = '/blog/vci-packaging-metal-parts-rust-prevention-transit';
+const datePublished = '2026-06-16';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'VCI Packaging for Metal Parts', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'When should a buyer use VCI packaging for metal parts?',
+    a: 'Use VCI packaging when ferrous or corrosion-sensitive metal parts will sit in storage, move through humid lanes, cross multiple handling points, or ship in a sealed bag-and-carton system where vapor-phase corrosion protection can work reliably.'
+  },
+  {
+    q: 'Is VCI paper enough, or is a VCI bag required?',
+    a: 'VCI paper is often enough for wrapped components or layered packs inside a carton, while VCI bags are usually reviewed when the part needs a more enclosed environment, longer dwell time, or combined use with desiccant and sealed handling.'
+  },
+  {
+    q: 'What should be included in a VCI packaging RFQ?',
+    a: 'Send the part material, part condition, dimensions, weight, oil or coating status, storage or transit duration, humidity exposure, carton format, quantity, and whether the pack needs desiccant, labels, or a sealed bag closure.'
+  }
+]);
+---
+<BaseLayout
+  title="VCI Packaging Canada — Rust Prevention for Metal Parts"
+  description={description}
+  image="/images/blog/vci-packaging-metal-parts-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Protective packaging"
+    heading="VCI packaging for metal parts — how buyers should quote rust prevention before corrosion shows up at receiving."
+    lead="If the route includes humidity, storage dwell, ocean exposure, or repeated handling, the right question is not whether the part is metal. It is whether the pack creates a controlled environment long enough for VCI protection to do its job."
+    imageSrc="/images/blog/vci-packaging-metal-parts-generated.png"
+    imageAlt="Apex branded corrugated carton containing metal parts protected with VCI film, VCI paper, and desiccant packs."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>VCI packaging</strong> is usually reviewed after a buyer sees light rust, staining, or inconsistent metal-part condition at receiving. The mistake is treating VCI as a generic anti-rust add-on. It is a system decision that depends on the metal, the exposure window, how tightly the part is enclosed, and whether the outer carton and internal protection support that environment. A corrosion issue on machined steel parts is not solved the same way as a short-haul pack for plated hardware or a sealed service kit sitting in inventory for months.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/protective-packaging">protective packaging</a> for metal parts programs that also need the right <a href="/services/corrugated-boxes">corrugated shipper</a>, bag format, dividers, or inserts around the product. This guide is written for procurement teams shipping ferrous components, automotive parts, hardware kits, and fabricated assemblies that need rust prevention without overcomplicating the pack. The goal is to identify when VCI paper is enough, when a VCI bag should be sealed into the system, and where desiccant belongs in the quote.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/vci-packaging-metal-parts-generated.png" alt="Generated image of an Apex branded corrosion-control packaging setup with VCI bagged metal parts inside a corrugated carton." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Rust prevention works best when the bag, wrap, carton, and storage assumptions are quoted together instead of as separate accessories.</figcaption>
+      </figure>
+
+      <h2>Start with the exposure route, not the phrase "metal parts"</h2>
+      <p>Two buyers can ask for VCI for the same part number and need different answers. One may be moving dry plant transfers on a short domestic lane. The other may be shipping machined components into a humid warehouse where the pack sits for weeks before use. Corrosion-control packaging should be specified around the exposure route first: dwell time, humidity, sealing discipline, and whether the parts are bare, oiled, plated, or packed with other materials in the same carton.</p>
+
+      <table>
+        <thead>
+          <tr><th>Shipment condition</th><th>Usual first review</th><th>What can change the spec</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Short domestic route, quick use</td><td>VCI paper wrap inside corrugated</td><td>Condensation risk, mixed metals, warehouse dwell</td></tr>
+          <tr><td>Bagged service parts or hardware kits</td><td>VCI poly bag</td><td>Seal quality, part finish, reclose requirement</td></tr>
+          <tr><td>Longer storage or humid lane</td><td>VCI bag plus desiccant review</td><td>Package leakage, carton size, opening frequency</td></tr>
+          <tr><td>Heavy machined components</td><td>VCI with corrugated or foam retention</td><td>Sharp edges, oil residue, pallet stacking, impact risk</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the outer carton is underbuilt, VCI alone will not prevent claims. The package still has to survive compression, handling, and puncture without opening the protective environment. Use the Apex guide to <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">custom shipping boxes for heavy products</a> when the metal part is also stressing the corrugated structure.</p>
+
+      <h2>VCI paper, VCI film, and desiccant solve different parts of the problem</h2>
+      <p>VCI materials release corrosion-inhibiting vapors into the enclosed space around the part. That does not mean every job needs the same format. Buyers should match the VCI form to the way the part is packed and opened at receiving.</p>
+
+      <ul>
+        <li><strong>VCI paper</strong> is practical for wrapping, interleaving, or lining when the part already sits securely in a carton or tray and the route is relatively controlled.</li>
+        <li><strong>VCI bags or film</strong> are more useful when the part benefits from a closed environment around the product itself, especially for kits, hardware assortments, or repeated part geometries.</li>
+        <li><strong>Desiccant</strong> is not a replacement for VCI. It is reviewed when moisture load, storage time, or shipment conditions justify additional humidity control inside the sealed pack.</li>
+      </ul>
+
+      <p>The easiest quoting mistake is assuming a VCI bag alone solves corrosion even if the closure is loose, the bag is oversized, or the parts puncture the film. In some programs, a tighter bag with the right closure matters more than adding another layer of material. If the pack is already bag-based, Apex can also quote the film path through <a href="/services/polybags">custom polybags</a> so the rust-prevention material and bag format are specified together.</p>
+
+      <h2>Sealing discipline matters as much as the VCI material</h2>
+      <p>VCI works best when the protective space around the part is reasonably enclosed. That sounds obvious, but it is where many programs fail. A bag left partially open, punctured by sharp edges, or reopened repeatedly during picking will not behave like the sealed pack used in the supplier sample. Procurement should ask how the pack is actually loaded, closed, stored, and opened at the site level.</p>
+
+      <ol>
+        <li><strong>Part condition:</strong> note whether parts are dry, lightly oiled, machined, plated, or still carrying process residue.</li>
+        <li><strong>Closure method:</strong> specify fold-and-tape, heat seal, zip closure, or another repeatable close method.</li>
+        <li><strong>Part movement:</strong> stop the metal from sliding and abrading the barrier with corrugated cells, dividers, or foam where needed.</li>
+        <li><strong>Storage window:</strong> declare whether the product is used immediately, warehoused, or held as service inventory.</li>
+      </ol>
+
+      <p>For automotive and industrial buyers, the issue is rarely just rust. It is rust combined with scuffing, part-to-part contact, and pallet handling. The Apex <a href="/industries/auto-parts">auto parts packaging</a> page shows how VCI packaging is usually paired with corrugated, inserts, and identification control in real production programs.</p>
+
+      <h2>Quote corrosion control with the full packout, not as a single bag line</h2>
+      <p>Metal-parts shipments often need more than the VCI layer. Heavy components can tear film if they are not retained. Small fasteners may need wicketed or grouped bagging. Sensitive machined faces may need separation from corrugated dust or hard metal contact. That is why the RFQ should describe the full packaging stack instead of only asking for "VCI bags."</p>
+
+      <ul>
+        <li>Part material and finish, including whether the item is ferrous, coated, plated, or mixed-material.</li>
+        <li>Part dimensions, weight, and whether there are sharp corners that threaten the bag or wrap.</li>
+        <li>Required pack count per carton or bag.</li>
+        <li>Expected storage duration and the real shipping environment, including humid or marine exposure if applicable.</li>
+        <li>Preferred VCI format: paper, film, bag, or open to recommendation.</li>
+        <li>Need for desiccant, dividers, foam, labels, lot traceability, or part identification.</li>
+        <li>Outer carton style, pallet pattern, and whether the load will stack in storage.</li>
+        <li>Monthly volume, first order quantity, and the in-hand date.</li>
+      </ul>
+
+      <p>That level of detail prevents the common mismatch where the buyer gets an anti-corrosion bag quote, then later discovers the part still needs dividers, a stronger shipper, or a different closure method to keep the environment stable. Rust prevention should be quoted as a pack system because corrosion failures rarely happen for one reason only.</p>
+
+      <h2>The right VCI spec should lower receiving risk, not just add a bag</h2>
+      <p>The best VCI program is the lightest one that protects the part for the real route. That may be a simple VCI paper wrap inside a well-sized corrugated case. It may be a sealed VCI bag with desiccant and part retention. The wrong approach is buying a generic anti-rust material without checking storage time, closure quality, and the way the parts move inside the shipper.</p>
+
+      <p>Send Apex the metal type, part dimensions, storage window, and the current corrosion failure pattern. That is usually enough to tell whether the answer is VCI paper, VCI film, desiccant support, or a broader change to the packout around the part.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Protective Packaging', href: '/services/protective-packaging', description: 'VCI, foam, void fill, and protection systems built around the real shipping risk.' },
+    { title: 'Auto Parts Packaging', href: '/industries/auto-parts', description: 'Corrugated, VCI, inserts, and labels for ferrous components and aftermarket kits.' },
+    { title: 'Heavy-Product Shipping Boxes', href: '/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking', description: 'Fix the corrugated shipper when weight and pallet pressure are part of the failure.' }
+  ]} />
+
+  <CTABand
+    heading="Send the metal-part route for a VCI quote."
+    lead="Part material, dimensions, storage time, humidity exposure, and carton format are enough to quote the right rust-prevention pack."
+    primaryCta={{ label: 'Request a VCI packaging quote', href: '/contact' }}
+  />
+</BaseLayout>
