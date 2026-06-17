@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Custom Poly Bags in Canada: Material, Gusset, Print, and MOQ';
+const description = 'A practical buyer guide to custom poly bags in Canada: LDPE vs HDPE, flat vs gusseted formats, print limits, and the RFQ details that speed up quoting.';
+const url = '/blog/custom-poly-bags-canada-material-gusset-print-moq';
+const datePublished = '2026-06-17';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Custom Poly Bags in Canada', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'When should a buyer choose a gusseted poly bag instead of a flat bag?',
+    a: 'Choose a gusseted bag when the product has depth, irregular bulk, or a bundled shape that needs the bag to expand. Flat bags are usually enough for slim, consistent items and simpler packouts.'
+  },
+  {
+    q: 'Is LDPE or HDPE better for custom poly bags?',
+    a: 'LDPE is usually preferred when flexibility, clarity, and softer handling matter. HDPE is often chosen for lighter-gauge bags, produce, and dispenser-style applications where stiffness and economy matter more than a softer feel.'
+  },
+  {
+    q: 'What details should be included in a custom poly bag RFQ?',
+    a: 'Send bag format, inside dimensions, product type, film family if known, gauge target, print colors, required closure or venting, quantity, case pack, and the in-hand date.'
+  }
+]);
+---
+<BaseLayout
+  title="Custom Poly Bags Canada — Material, Format, Print, and MOQ"
+  description={description}
+  image="/images/blog/custom-poly-bags-canada-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Polybags"
+    heading="Custom poly bags in Canada — how buyers should specify material, gusset, print, and MOQ before requesting a quote."
+    lead="Most poly bag delays start with a loose request for 'clear bags with logo.' A usable quote usually needs five decisions up front: bag format, film family, gauge, print level, and order quantity."
+    imageSrc="/images/blog/custom-poly-bags-canada-generated.png"
+    imageAlt="Apex branded custom poly bag samples in flat and gusseted formats beside an Apex corrugated shipping carton."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Custom poly bags</strong> look simple until the quote comes back with the wrong material, a bag that will not fill cleanly, or a print setup that does not match the order size. Buyers often ask for "poly bags" as if that were a complete spec. It is not. The practical purchase is a combination of film type, bag geometry, thickness, print method, and packout assumptions around the product.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/polybags">custom polybags</a> for industrial, food, retail, fulfillment, and electronics programs across Canada. This guide is written for procurement and operations teams that need a cleaner starting point before sending dimensions and waiting on revisions. The goal is to show when a flat bag is enough, when gussets save trouble, how LDPE and HDPE change the result, and what usually drives MOQ and print cost.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/custom-poly-bags-canada-generated.png" alt="Generated image of Apex branded flat and gusseted custom poly bags arranged beside a corrugated carton." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The fastest quotes come from buyers who specify the bag format and film path first, then add print and case-pack requirements.</figcaption>
+      </figure>
+
+      <h2>Start with the bag format, not the artwork</h2>
+      <p>Print is usually the part people notice, but format is what determines whether the bag actually works on the floor. A bag that looks fine in a digital mockup can still load poorly if the product has depth, sharp corners, or a repetitive packing motion that needs easier opening. Buyers should start by asking what the bag has to do physically: hold a flat unit, expand around a bundle, feed through a wicket, or open and close more than once.</p>
+
+      <table>
+        <thead>
+          <tr><th>Bag format</th><th>Best fit</th><th>Common buying trigger</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Flat bag</td><td>Single items, slim kits, general inner packaging</td><td>Lowest complexity, broad size range, easy quoting</td></tr>
+          <tr><td>Gusseted bag</td><td>Bulky products, folded textiles, bundled parts</td><td>Product depth needs expansion without oversizing the face width</td></tr>
+          <tr><td>Wicket bag</td><td>High-speed packing lines, produce, repetitive hand loading</td><td>Line efficiency and consistent opening matter more than shelf appearance</td></tr>
+          <tr><td>Resealable bag</td><td>Service parts, hardware kits, repeated access programs</td><td>Product must be reopened without extra tape or heat sealing</td></tr>
+        </tbody>
+      </table>
+
+      <p>A flat bag is still the default for many RFQs because it is easy to picture and easy to quote. But if the product has width plus depth, a flat bag often becomes oversized just to make loading possible. That wastes film and creates a sloppy final pack. A gusseted bag usually fixes that problem by giving the product expansion room without forcing the face width far beyond the item.</p>
+
+      <h2>LDPE and HDPE solve different problems</h2>
+      <p>Once the format is set, buyers should decide what kind of film behavior matters. <strong>LDPE</strong> is commonly chosen when the bag needs softness, flexibility, and better clarity. It is practical for many branded inner bags, general shipping applications, and products that benefit from a less rigid feel. <strong>HDPE</strong> is usually stiffer and more economical at lighter gauges, which is why it appears in produce, dispenser, and high-volume utility bag programs.</p>
+
+      <ul>
+        <li><strong>LDPE:</strong> softer hand, better clarity, common for retail, fulfillment, and general product packaging.</li>
+        <li><strong>HDPE:</strong> crisper feel, lighter-gauge efficiency, common for food-service and dispenser-style applications.</li>
+        <li><strong>LLDPE or heavier industrial blends:</strong> worth reviewing when puncture resistance matters more than clarity.</li>
+      </ul>
+
+      <p>The cleanest mistake to avoid is matching film family to what the buyer has seen before instead of what the product needs now. If the item is heavy, awkward, or has mild edges, a stronger blend at a controlled gauge may work better than simply increasing thickness on a softer film. If the product is mostly about presentation, clarity and print surface may matter more than raw puncture resistance. The Apex <a href="/blog/poly-bag-thickness-guide">poly bag thickness guide</a> helps once the material path is narrowed.</p>
+
+      <h2>Print and MOQ move together</h2>
+      <p>Custom poly bag buyers usually ask two pricing questions first: "Can we print it?" and "What is the minimum?" Those answers depend on more than artwork count. Simpler one-color print and standard conversions tend to support lower MOQs. As coverage, color count, and custom finishing increase, setup cost becomes a larger part of the job and the efficient order quantity usually rises with it.</p>
+
+      <p>That does not mean small programs cannot buy branded bags. It means the quote has to match the real commercial need. A short-run inner bag with one-color print for a service kit is a different job from a multi-color retail-facing bag that needs tighter registration and higher visual consistency. Buyers should also decide whether the logo needs to be presentation quality or simply functional identification. That single choice often changes the most economical print path.</p>
+
+      <h2>Gauge should be chosen after the handling route is understood</h2>
+      <p>Thickness is still a normal poly bag decision even when the main conversation is format and print. If the bag only needs to unitize a smooth product inside a carton, the required gauge may stay modest. If it carries loose hardware, denser parts, or repeated abrasion in totes and corrugated cases, the film usually needs to step up. Many teams overbuy mil because they are compensating for an unclear product route. A better method is to define weight, edges, and handling first, then assign gauge.</p>
+
+      <p>Special cases should also be flagged early. Food-contact bags, anti-static film, VCI bags, vent holes, warning print, or resealable closures all affect the conversion path. If the application includes electronics, the Apex guide to <a href="/blog/anti-static-polybags-esd-protection">anti-static polybags</a> is the faster reference before the RFQ is released.</p>
+
+      <h2>What to send in a custom poly bag RFQ</h2>
+      <p>The fastest way to avoid back-and-forth is to quote the bag as part of the pack process, not just as a dimension. Buyers should send:</p>
+
+      <ul>
+        <li>Bag format: flat, gusseted, wicketed, resealable, or open to recommendation.</li>
+        <li>Inside dimensions and expected usable fill size.</li>
+        <li>Product type, weight, and whether it has corners or bulk that affect loading.</li>
+        <li>Film preference if known: LDPE, HDPE, heavier industrial blend, or food-safe / ESD / VCI requirement.</li>
+        <li>Gauge target if already tested, or the current failure mode if it has not been.</li>
+        <li>Print requirement: one color, multi-color, front only, two-sided, or simple identification mark.</li>
+        <li>Closure, venting, hang hole, wicketing, or reclose needs.</li>
+        <li>First order quantity, expected reorders, case-pack preference, and required in-hand date.</li>
+      </ul>
+
+      <p>That list gives the supplier enough context to recommend a bag that loads properly, survives the route, and lands near the right unit cost on the first quote. Without it, buyers often compare numbers that are not actually quoting the same bag.</p>
+
+      <h2>The right poly bag spec should make the next reorder boring</h2>
+      <p>The best custom poly bag program is not the one with the most options. It is the one where the format, film, gauge, and print level all match the real packing job closely enough that reorders become routine. Flat versus gusseted, LDPE versus HDPE, and plain versus printed are not creative choices first. They are operating choices that affect loading speed, damage risk, and cost stability.</p>
+
+      <p>Send Apex the product, dimensions, quantity, and the actual handling route. That is usually enough to tell whether the right starting point is a standard flat bag, a gusseted format, a stronger film blend, or a lighter print program that keeps MOQ under control.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Custom Polybags', href: '/services/polybags', description: 'Flat, gusseted, wicketed, food-safe, anti-static, and custom-printed film made in Canada.' },
+    { title: 'Poly Bag Thickness Guide', href: '/blog/poly-bag-thickness-guide', description: 'Choose a mil rating by weight, edge profile, and freight environment.' },
+    { title: 'Anti-Static Polybags', href: '/blog/anti-static-polybags-esd-protection', description: 'Review when electronics buyers need anti-static film or shielding instead of standard poly.' }
+  ]} />
+
+  <CTABand
+    heading="Send the bag spec for a faster quote."
+    lead="Format, dimensions, gauge, print, and target MOQ are enough to quote the right custom poly bag path."
+    primaryCta={{ label: 'Request a poly bag quote', href: '/contact' }}
+  />
+</BaseLayout>
