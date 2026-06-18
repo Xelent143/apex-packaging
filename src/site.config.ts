@@ -7,7 +7,7 @@ export const siteConfig = {
   legalName: 'Apex Packaging Solutions',
   email: 'sales@apexpackagingsolutions.com',
   phone: '+1-905-595-1634',
-  phoneDisplay: '905-595-1634',
+  phoneDisplay: '905 595 1634',
   phoneHref: 'tel:+19055951634',
   streetAddress: '265 Brunswick Ave',
   addressLocality: 'London',

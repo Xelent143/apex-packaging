@@ -23,7 +23,7 @@ The procurement team responds within one business day with pricing, a proposed s
 ## How to reach Apex
 
 - **Email**: sales@apexpackagingsolutions.com
-- **Phone**: 905-595-1634
+- **Phone**: 905 595 1634
 - **Quote form**: below
 - **Address**: 265 Brunswick Ave, London ON N6G 5P8, CANADA
 
