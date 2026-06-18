@@ -39,13 +39,13 @@ test('buildQuoteEmail escapes HTML and uses the client email as reply-to', () =>
       files: []
     },
     {
-      from: 'Apex Packaging <onboarding@resend.dev>',
+      from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
       to: 'sales@apexpackagingsolutions.com'
     }
   );
 
   assert.equal(email.to[0], 'sales@apexpackagingsolutions.com');
-  assert.equal(email.from, 'Apex Packaging <onboarding@resend.dev>');
+  assert.equal(email.from, 'Apex Packaging <sales@apexpackagingsolutions.com>');
   assert.equal(email.reply_to, 'ava@example.com');
   assert.equal(email.subject, 'New quote inquiry from Ava <Buyer>');
   assert.match(email.html, /Ava &lt;Buyer&gt;/);
@@ -76,7 +76,7 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
 
   const response = await handleQuoteRequest(request, {
     apiKey: 'test-key',
-    from: 'Apex Packaging <onboarding@resend.dev>',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
     to: 'sales@apexpackagingsolutions.com',
     sendEmail: async (_apiKey, email) => {
       sentEmail = email;

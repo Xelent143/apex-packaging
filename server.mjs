@@ -9,6 +9,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
 const port = Number(process.env.PORT || 4321);
 const defaultQuoteRecipient = 'sales@apexpackagingsolutions.com';
+const defaultQuoteSender = 'Apex Packaging <sales@apexpackagingsolutions.com>';
 
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
@@ -39,7 +40,7 @@ const server = createServer(async (req, res) => {
       });
       const response = await handleQuoteRequest(request, {
         apiKey: process.env.RESEND_API_KEY || '',
-        from: process.env.QUOTE_FROM_EMAIL || 'Apex Packaging <onboarding@resend.dev>',
+        from: process.env.QUOTE_FROM_EMAIL || defaultQuoteSender,
         to: process.env.QUOTE_TO_EMAIL || defaultQuoteRecipient,
         sendEmail: sendQuoteEmail
       });

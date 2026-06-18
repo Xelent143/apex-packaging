@@ -18,6 +18,18 @@ Production: `SITE_URL=https://apexpackagingsolutions.com npm run build`
 
 Live chat uses Tawk.to widget `https://embed.tawk.to/6a23dd698705f01c35097370/1jqe1hp6i` by default. To override it, set `PUBLIC_TAWK_TO_WIDGET_URL` to another Tawk.to embed URL from the Tawk dashboard, for example `https://embed.tawk.to/<property-id>/<widget-id>`.
 
+## Quote inquiry email
+
+The `/api/quote` form posts through the custom Node server in `server.mjs` and sends with Resend. Set these environment variables in production:
+
+```bash
+RESEND_API_KEY=re_...
+QUOTE_FROM_EMAIL="Apex Packaging <sales@apexpackagingsolutions.com>"
+QUOTE_TO_EMAIL=sales@apexpackagingsolutions.com
+```
+
+The `apexpackagingsolutions.com` sending domain must be verified in Resend before sending to `sales@apexpackagingsolutions.com` or any other recipient. Resend's `onboarding@resend.dev` sender is test-only and cannot send to arbitrary inboxes.
+
 ## Stripe payments
 
 The site includes a secure approved-quote payment flow at `/paynow` with `/pay` kept as a legacy alias. Customers enter their quote/invoice number, email, amount, and currency, then the server creates a Stripe-hosted Checkout Session.
