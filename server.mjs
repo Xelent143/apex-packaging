@@ -10,6 +10,8 @@ const distDir = resolve(__dirname, 'dist');
 const port = Number(process.env.PORT || 4321);
 const defaultQuoteRecipient = 'sales@apexpackagingsolutions.com';
 const defaultQuoteSender = 'Apex Packaging <sales@apexpackagingsolutions.com>';
+const canonicalHost = 'apexpackagingsolutions.com';
+const wwwHost = 'www.apexpackagingsolutions.com';
 
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
@@ -30,6 +32,15 @@ const contentTypes = {
 const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
+    const canonicalRedirect = getCanonicalRedirect(url, req.headers);
+
+    if (canonicalRedirect) {
+      res.writeHead(req.method === 'GET' || req.method === 'HEAD' ? 301 : 308, {
+        Location: canonicalRedirect
+      });
+      res.end();
+      return;
+    }
 
     if (req.method === 'POST' && url.pathname === '/api/quote') {
       const request = new Request(url, {
@@ -154,6 +165,13 @@ function nodeHeadersToWebHeaders(nodeHeaders) {
     }
   }
   return headers;
+}
+
+function getCanonicalRedirect(url, headers) {
+  const host = String(headers.host || '').toLowerCase().split(':')[0];
+  if (host !== wwwHost) return '';
+
+  return `https://${canonicalHost}${url.pathname}${url.search}`;
 }
 
 function resolveStaticPath(pathname) {
