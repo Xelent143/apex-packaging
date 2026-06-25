@@ -75,6 +75,57 @@ const service = buildServiceSchema({
   image={heroImage}
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
+  <section class="overflow-hidden border-b border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="CBD packaging concepts">
+    <div class="cbd-showcase-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
+      {[...packagingGallery, ...packagingGallery].map((item) => (
+        <article class="group relative w-[78vw] max-w-[28rem] shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card sm:w-[46vw] lg:w-[31vw]">
+          <img
+            src={item.image}
+            alt={item.alt}
+            width="1000"
+            height="1000"
+            loading="eager"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/55 to-transparent px-5 pb-5 pt-16 text-white">
+            <p class="text-xs font-black uppercase tracking-[0.16em] text-[#f2c94c]">{item.brand}</p>
+            <h2 class="mt-1 font-display text-xl font-extrabold md:text-2xl">{item.title}</h2>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .cbd-showcase-track {
+      animation: cbd-showcase-scroll 38s linear infinite;
+      will-change: transform;
+    }
+
+    .cbd-showcase-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes cbd-showcase-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cbd-showcase-track {
+        animation: none;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
+
   <section class="relative isolate min-h-[44rem] overflow-hidden bg-[#efe7da] md:min-h-0">
     <img
       src={heroImage}
