@@ -6,6 +6,38 @@ import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
 
 const heroImage = '/images/services/cbd-boxes-premium-hero.png';
+const packagingGallery = [
+  {
+    title: 'Tincture Cartons',
+    brand: 'Viren Botanics',
+    image: '/images/services/cbd-gallery/tincture-carton.webp',
+    alt: 'Fictional Viren Botanics CBD tincture carton and amber bottle'
+  },
+  {
+    title: 'Rigid Gift Boxes',
+    brand: 'Aurelia Root',
+    image: '/images/services/cbd-gallery/rigid-gift-box.webp',
+    alt: 'Fictional Aurelia Root luxury CBD rigid gift box with inserts'
+  },
+  {
+    title: 'Gummy Sleeve Boxes',
+    brand: 'Moss & Moon',
+    image: '/images/services/cbd-gallery/gummy-sleeve-box.webp',
+    alt: 'Fictional Moss and Moon CBD gummy sleeve and drawer box'
+  },
+  {
+    title: 'Kraft Topical Cartons',
+    brand: 'Northwild Lab',
+    image: '/images/services/cbd-gallery/kraft-topical-cartons.webp',
+    alt: 'Fictional Northwild Lab sustainable kraft CBD topical cartons'
+  },
+  {
+    title: 'Retail Display Trays',
+    brand: 'Solace Current',
+    image: '/images/services/cbd-gallery/retail-display-tray.webp',
+    alt: 'Fictional Solace Current CBD cartons in a retail display tray'
+  }
+];
 const faqs = [
   {
     q: 'Can Apex make CBD boxes with premium finishes?',
@@ -110,6 +142,50 @@ const service = buildServiceSchema({
             </article>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-neutral-200 bg-[#f5f1e9] py-14 md:py-24">
+    <div class="container max-w-wide">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow">Packaging inspiration</p>
+        <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-950 md:text-5xl">
+          Five distinct looks for modern CBD product lines.
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">
+          Explore fictional brand concepts across tinctures, gummies, topicals, gift sets, and retail displays. Every structure can be adapted to your dimensions, artwork, finishes, and compliance content.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-6">
+        {packagingGallery.map((item, index) => (
+          <article class:list={[
+            'group overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card',
+            index < 3 ? 'lg:col-span-2' : 'lg:col-span-3'
+          ]}>
+            <div class="overflow-hidden bg-neutral-100">
+              <img
+                src={item.image}
+                alt={item.alt}
+                width="1000"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+                class="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+              />
+            </div>
+            <div class="flex items-end justify-between gap-4 p-5 md:p-6">
+              <div>
+                <p class="text-xs font-black uppercase tracking-[0.16em] text-accent">{item.brand}</p>
+                <h3 class="mt-1 font-display text-xl font-extrabold text-neutral-950 md:text-2xl">{item.title}</h3>
+              </div>
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-neutral-950 text-sm font-black text-white">
+                0{index + 1}
+              </span>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
