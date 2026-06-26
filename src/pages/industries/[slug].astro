@@ -16,6 +16,12 @@ export function getStaticPaths() {
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
 const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
+const coffeePackagingSlides = [
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-1.webp', alt: 'Premium coffee bag mockup with fictional Northrail Roasters branding' },
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-2.webp', alt: 'Premium black coffee pouch mockup with fictional Noctra Coffee branding' },
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-3.webp', alt: 'Kraft coffee bag mockups with fictional Bean and Vale branding' },
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-4.webp', alt: 'Colorful coffee pouch mockups with fictional Sol Roast branding' }
+];
 const metaTitle = `Custom ${box.label} Canada | Apex Packaging`;
 const metaDescription = box.summary.length <= 110
   ? `${box.summary} Apex supports custom sizes, print, samples, and production.`
@@ -67,6 +73,55 @@ const service = buildServiceSchema({
       fetchpriority="high"
     />
   </section>
+
+  {box.slug === 'coffee-packaging' && (
+    <section class="overflow-hidden border-b border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Coffee packaging bag mockup slider">
+      <div class="coffee-packaging-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
+        {[...coffeePackagingSlides, ...coffeePackagingSlides].map((slide, index) => (
+          <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              width="1200"
+              height="760"
+              loading={index < 3 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+            />
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <style>
+    .coffee-packaging-track {
+      animation: coffee-packaging-scroll 34s linear infinite;
+      will-change: transform;
+    }
+
+    .coffee-packaging-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes coffee-packaging-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .coffee-packaging-track {
+        animation: none;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
 
   <section id="details" class="scroll-mt-28 bg-neutral-50 py-12 md:scroll-mt-32 md:py-24">
     <div class="container max-w-wide">
