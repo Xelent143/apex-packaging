@@ -14,6 +14,13 @@ const faqs = [
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Mailer Boxes',url:'/services/mailer-boxes'}]);
 const service = buildServiceSchema({ name:'Custom mailer boxes Canada', description:'Custom-printed mailer boxes for Canadian e-commerce. Tuck-top, magnetic close, ZIP-tear. MOQ from 250.', url:'/services/mailer-boxes'});
+const rigidBoxSlides = [
+  { src: '/images/services/mailer-rigid-slider/rigid-box-1.webp', alt: 'Premium rigid gift box mockup with fictional Velora branding' },
+  { src: '/images/services/mailer-rigid-slider/rigid-box-2.webp', alt: 'Premium rigid presentation box mockup with fictional Auren House branding' },
+  { src: '/images/services/mailer-rigid-slider/rigid-box-3.webp', alt: 'Premium drawer style rigid box mockup with fictional Lunora branding' },
+  { src: '/images/services/mailer-rigid-slider/rigid-box-4.webp', alt: 'Premium lift off lid rigid box mockup with fictional Mira Vale branding' },
+  { src: '/images/services/mailer-rigid-slider/rigid-box-5.webp', alt: 'Premium rigid gift box mockup with fictional Norden branding' }
+];
 ---
 <BaseLayout
   title="Custom Mailer Boxes Canada — Printed Shipping Boxes"
@@ -28,6 +35,53 @@ const service = buildServiceSchema({ name:'Custom mailer boxes Canada', descript
     imageAlt="Apex Packaging custom mailer box banner with headline, feature icons, and branded black, kraft, and white mailer boxes."
     imageIsFullBanner={true}
   />
+
+  <section class="overflow-hidden border-y border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Premium rigid box mockup slider">
+    <div class="mailer-rigid-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
+      {[...rigidBoxSlides, ...rigidBoxSlides].map((slide, index) => (
+        <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            width="1200"
+            height="760"
+            loading={index < 3 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+          />
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .mailer-rigid-track {
+      animation: mailer-rigid-scroll 38s linear infinite;
+      will-change: transform;
+    }
+
+    .mailer-rigid-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes mailer-rigid-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mailer-rigid-track {
+        animation: none;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">
