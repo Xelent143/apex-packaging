@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'Can kraft boxes be printed with my logo?', a: 'Yes. Custom kraft boxes can be printed with one-color, spot-color, or full-color artwork depending on box style, board, and quantity.' },
+  { q: 'What are kraft boxes best for?', a: 'Kraft boxes work well for ecommerce, retail products, gifts, natural brands, subscription kits, food-adjacent packaging, and sustainable presentation.' },
+  { q: 'Are kraft boxes recyclable?', a: 'Most kraft paperboard and corrugated kraft boxes are recyclable. Recycled-content and FSC options can be quoted where required.' },
+  { q: 'Can I choose different kraft box styles?', a: 'Yes. Common formats include mailer-style kraft boxes, tuck cartons, shipping cartons, gift boxes, sleeves, and insert-based kits.' }
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Custom Kraft Boxes', url: '/services/custom-kraft-boxes' }
+]);
+
+const service = buildServiceSchema({
+  name: 'Custom kraft boxes Canada',
+  description: 'Custom kraft boxes for retail, ecommerce, shipping, gift, and sustainable packaging programs.',
+  url: '/services/custom-kraft-boxes'
+});
+---
+<BaseLayout
+  title="Custom Kraft Boxes Canada — Printed Kraft Packaging"
+  description="Custom kraft boxes for retail, ecommerce, shipping, gifts, and sustainable packaging. Printed kraft board and corrugated kraft box options."
+  image="/images/services/custom-kraft-boxes-hero-banner.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Kraft Boxes"
+    heading="Custom kraft boxes — natural packaging with premium print and practical structure."
+    lead="Kraft boxes give retail and ecommerce brands a warm, sustainable look while still supporting custom print, inserts, sleeves, and shipping-ready structures."
+    imageSrc="/images/services/custom-kraft-boxes-hero-banner.webp"
+    imageAlt="Apex Packaging custom kraft boxes banner with branded kraft boxes, feature icons, and service headline."
+    imageIsFullBanner={true}
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Kraft box options</h2>
+      <ul>
+        <li><strong>Kraft mailer boxes</strong> for ecommerce, subscription, and launch kits.</li>
+        <li><strong>Kraft shipping cartons</strong> for practical protection with natural branding.</li>
+        <li><strong>Kraft tuck cartons</strong> for retail products, skincare, food-adjacent goods, and small items.</li>
+        <li><strong>Kraft gift boxes</strong> with sleeves, inserts, tissue, or premium print finishes.</li>
+      </ul>
+
+      <h2>Print and finish choices</h2>
+      <ul>
+        <li>Black, white, or spot-color ink on kraft board.</li>
+        <li>Full-color labels or litho-laminated finishes where needed.</li>
+        <li>Embossing, debossing, foil, and spot UV options for premium programs.</li>
+        <li>Custom inserts and dividers for clean product presentation.</li>
+      </ul>
+
+      <h2>What to send for a quote</h2>
+      <p>Share dimensions, product weight, quantity, artwork, preferred kraft tone, box style, and target delivery date. Apex can recommend the best board grade, print method, and sample path.</p>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent
+    items={[
+      { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, die-cut, and shipping cartons for production runs.' },
+      { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom printed mailers for ecommerce and unboxing programs.' },
+      { title: 'Gable Boxes', href: '/services/gable-boxes', description: 'Handle-top boxes for gifts, bakery, retail, and takeaway programs.' }
+    ]}
+  />
+
+  <CTABand
+    heading="Need custom kraft boxes?"
+    lead="Send size, material preference, quantity, artwork, and target delivery date. Apex will recommend a practical kraft box structure."
+    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+  />
+</BaseLayout>
