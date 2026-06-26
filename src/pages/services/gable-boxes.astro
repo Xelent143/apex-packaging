@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'Can gable boxes be printed with custom artwork?', a: 'Yes. Gable boxes can be produced with exterior print, spot colors, full-color digital graphics, window panels, and premium finishing depending on run size.' },
+  { q: 'What are gable boxes best for?', a: 'Gable boxes are popular for bakery items, gifts, retail kits, event packaging, party favors, food service, and takeaway programs where the built-in handle matters.' },
+  { q: 'Can I add a window or insert?', a: 'Yes. Window cutouts, paperboard dividers, inserts, and product-specific cavities can be quoted with the gable structure.' },
+  { q: 'What materials are available?', a: 'Common options include kraft paperboard, white SBS board, recycled-content board, and coated printable stocks for premium retail graphics.' }
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Gable Boxes', url: '/services/gable-boxes' }
+]);
+
+const service = buildServiceSchema({
+  name: 'Custom gable boxes Canada',
+  description: 'Custom gable boxes for gifts, bakery, retail kits, food service, events, and branded takeaway packaging.',
+  url: '/services/gable-boxes'
+});
+
+const gableSlides = [
+  { src: '/images/services/gable-boxes-slider/gable-box-1.webp', alt: 'Kraft gable box mockup with fictional Sunvale branding' },
+  { src: '/images/services/gable-boxes-slider/gable-box-2.webp', alt: 'Coral bakery gable box mockup with fictional Luma Bake branding' },
+  { src: '/images/services/gable-boxes-slider/gable-box-3.webp', alt: 'Black premium gable box mockup with fictional Auren Gift branding' },
+  { src: '/images/services/gable-boxes-slider/gable-box-4.webp', alt: 'White window gable box mockup with fictional Mira Market branding' }
+];
+---
+<BaseLayout
+  title="Custom Gable Boxes Canada — Printed Gift & Bakery Boxes"
+  description="Custom gable boxes for bakery, retail, food service, gifts, events, and branded takeaway packaging. Printed kraft and white paperboard options with handle-top structure."
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Gable Boxes"
+    heading="Custom gable boxes — handle-top packaging for gifts, bakery, retail, and takeaway programs."
+    lead="Gable boxes combine a presentation-ready shape with an integrated carry handle. Build them in kraft, white board, window styles, or premium printed finishes for retail and event packaging."
+    imageSrc="/images/services/gable-boxes-hero-banner.webp"
+    imageAlt="Apex Packaging custom gable boxes banner with handle-top gable boxes, feature icons, and service headline."
+    imageIsFullBanner={true}
+  />
+
+  <section class="overflow-hidden border-y border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Premium gable box mockup slider">
+    <div class="gable-showcase-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
+      {[...gableSlides, ...gableSlides].map((slide, index) => (
+        <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            width="1200"
+            height="760"
+            loading={index < 3 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+          />
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .gable-showcase-track {
+      animation: gable-showcase-scroll 34s linear infinite;
+      will-change: transform;
+    }
+
+    .gable-showcase-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes gable-showcase-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gable-showcase-track {
+        animation: none;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Gable box options</h2>
+      <ul>
+        <li><strong>Kraft gable boxes</strong> for natural, food-friendly, and boutique packaging programs.</li>
+        <li><strong>White printed gable boxes</strong> for full-color retail graphics and seasonal artwork.</li>
+        <li><strong>Window gable boxes</strong> for bakery, confectionery, gifts, and product visibility.</li>
+        <li><strong>Premium finish gable boxes</strong> with matte, soft-touch, foil, embossing, or spot UV on request.</li>
+      </ul>
+
+      <h2>Common use cases</h2>
+      <ul>
+        <li>Bakery boxes, pastry boxes, and treat carriers.</li>
+        <li>Gift boxes, event favors, promotional kits, and retail bundles.</li>
+        <li>Food-service takeaway packaging with a handle-top structure.</li>
+        <li>Subscription or seasonal product kits that need shelf appeal.</li>
+      </ul>
+
+      <h2>What to send for a quote</h2>
+      <p>Share product dimensions, product weight, quantity, artwork, preferred material, window needs, and whether the box needs direct food-contact material. Apex can recommend board grade, print method, and a sample path.</p>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent
+    items={[
+      { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom printed boxes for ecommerce and unboxing programs.' },
+      { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, die-cut, and shipping cartons for production runs.' },
+      { title: 'Design Support', href: '/design-support', description: 'Dielines, artwork setup, and mockups for custom packaging.' }
+    ]}
+  />
+
+  <CTABand
+    heading="Need custom gable boxes?"
+    lead="Send size, quantity, material preference, artwork, and target delivery date. Apex will recommend the right structure and print path."
+    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+  />
+</BaseLayout>
