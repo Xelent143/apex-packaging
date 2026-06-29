@@ -1,4 +1,5 @@
 const RESEND_EMAILS_URL = 'https://api.resend.com/emails';
+const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024;
 
 const FIELD_LABELS = {
   source: 'Source',
@@ -21,15 +22,15 @@ const FIELD_LABELS = {
 
 const INTERNAL_FIELDS = new Set(['redirectTo', 'website']);
 
-export function formDataToQuoteSubmission(formData) {
+export async function formDataToQuoteSubmission(formData) {
   const fields = {};
   const files = [];
 
   for (const [key, value] of formData.entries()) {
     if (INTERNAL_FIELDS.has(key)) continue;
 
-    if (typeof File !== 'undefined' && value instanceof File) {
-      if (value.name) files.push({ field: key, name: value.name, size: value.size, type: value.type });
+    if (isFormFile(value)) {
+      if (value.name) files.push(await fileToEmailAttachment(key, value));
       continue;
     }
 
@@ -83,7 +84,7 @@ export function buildQuoteEmail(submission, options) {
   if (submission.files.length) {
     rows.push({
       label: 'Uploaded Files',
-      value: submission.files.map((file) => `${file.name} (${formatBytes(file.size)})`).join(', ')
+      value: submission.files.map(formatUploadedFileSummary).join(', ')
     });
   }
 
@@ -116,6 +117,13 @@ export function buildQuoteEmail(submission, options) {
   };
 
   if (isEmail(clientEmail)) email.reply_to = clientEmail;
+  const attachments = submission.files
+    .filter((file) => file.content)
+    .map((file) => ({
+      filename: file.name,
+      content: file.content
+    }));
+  if (attachments.length) email.attachments = attachments;
 
   return email;
 }
@@ -190,6 +198,39 @@ function formatBytes(bytes) {
     unitIndex += 1;
   }
   return `${size.toFixed(size >= 10 || unitIndex === 0 ? 0 : 1)} ${units[unitIndex]}`;
+}
+
+function isFormFile(value) {
+  return value && typeof value === 'object' && typeof value.arrayBuffer === 'function' && 'name' in value && 'size' in value;
+}
+
+async function fileToEmailAttachment(field, file) {
+  const attachment = {
+    field,
+    name: sanitizeFilename(file.name || 'uploaded-file'),
+    size: Number(file.size || 0),
+    type: String(file.type || '')
+  };
+
+  if (!attachment.size) return attachment;
+
+  if (attachment.size > MAX_ATTACHMENT_BYTES) {
+    attachment.skipped = `File is larger than ${formatBytes(MAX_ATTACHMENT_BYTES)} and was not attached.`;
+    return attachment;
+  }
+
+  const bytes = Buffer.from(await file.arrayBuffer());
+  attachment.content = bytes.toString('base64');
+  return attachment;
+}
+
+function formatUploadedFileSummary(file) {
+  const base = `${file.name} (${formatBytes(file.size)})`;
+  return file.skipped ? `${base} - ${file.skipped}` : base;
+}
+
+function sanitizeFilename(value) {
+  return String(value).replace(/[^\w.\- ()]/g, '_').slice(0, 160) || 'uploaded-file';
 }
 
 function escapeHtml(value) {

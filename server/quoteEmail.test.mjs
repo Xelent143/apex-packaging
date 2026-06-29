@@ -7,7 +7,7 @@ import {
   isSafeRedirectPath
 } from './quoteEmail.mjs';
 
-test('formDataToQuoteSubmission extracts form fields and skips honeypot values', () => {
+test('formDataToQuoteSubmission extracts form fields and skips honeypot values', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');
   formData.set('name', 'Alex Buyer');
@@ -16,7 +16,7 @@ test('formDataToQuoteSubmission extracts form fields and skips honeypot values',
   formData.set('details', 'Need 500 rigid boxes');
   formData.set('website', '');
 
-  const submission = formDataToQuoteSubmission(formData);
+  const submission = await formDataToQuoteSubmission(formData);
 
   assert.equal(submission.source, 'Contact Page');
   assert.equal(submission.fields.name, 'Alex Buyer');
@@ -24,6 +24,29 @@ test('formDataToQuoteSubmission extracts form fields and skips honeypot values',
   assert.equal(submission.fields.company, 'Example Co');
   assert.equal(submission.fields.details, 'Need 500 rigid boxes');
   assert.equal(submission.isSpam, false);
+});
+
+test('formDataToQuoteSubmission converts uploaded artwork into an email attachment', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Contact Page');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 rigid boxes');
+  formData.set('artwork', new File(['sample artwork'], 'dieline proof.pdf', { type: 'application/pdf' }));
+
+  const submission = await formDataToQuoteSubmission(formData);
+  const email = buildQuoteEmail(
+    submission,
+    {
+      from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+      to: 'sales@apexpackagingsolutions.com'
+    }
+  );
+
+  assert.equal(submission.files[0].name, 'dieline proof.pdf');
+  assert.equal(email.attachments[0].filename, 'dieline proof.pdf');
+  assert.equal(Buffer.from(email.attachments[0].content, 'base64').toString(), 'sample artwork');
+  assert.match(email.text, /Uploaded Files: dieline proof.pdf/);
 });
 
 test('buildQuoteEmail escapes HTML and uses the client email as reply-to', () => {
