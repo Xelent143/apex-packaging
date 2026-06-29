@@ -113,6 +113,38 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
   assert.equal(sentEmail.reply_to, 'alex@example.com');
 });
 
+test('handleQuoteRequest records failed delivery and still redirects', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Contact Page');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('redirectTo', '/thank-you');
+
+  let failedSubmission;
+  const request = new Request('https://example.com/api/quote', {
+    method: 'POST',
+    body: formData
+  });
+
+  const response = await handleQuoteRequest(request, {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      throw new Error('Provider rejected message');
+    },
+    onDeliveryFailure: async (submission, error) => {
+      failedSubmission = { submission, error };
+    }
+  });
+
+  assert.equal(response.status, 303);
+  assert.equal(response.headers.get('Location'), '/thank-you');
+  assert.equal(failedSubmission.submission.fields.email, 'alex@example.com');
+  assert.match(failedSubmission.error.message, /Provider rejected message/);
+});
+
 test('handleQuoteRequest retries without attachments if the email provider rejects them', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');

@@ -1,6 +1,7 @@
 import { createReadStream, statSync } from 'node:fs';
+import { appendFile, mkdir } from 'node:fs/promises';
 import { createServer } from 'node:http';
-import { extname, join, normalize, resolve } from 'node:path';
+import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
 import { createApexTestCheckoutSession, handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
@@ -10,6 +11,7 @@ const distDir = resolve(__dirname, 'dist');
 const port = Number(process.env.PORT || 4321);
 const defaultQuoteRecipient = 'sales@apexpackagingsolutions.com';
 const defaultQuoteSender = 'Apex Packaging <sales@apexpackagingsolutions.com>';
+const quoteFailureLogPath = resolve(__dirname, 'data', 'quote-email-failures.jsonl');
 const canonicalHost = 'apexpackagingsolutions.com';
 const wwwHost = 'www.apexpackagingsolutions.com';
 
@@ -53,7 +55,8 @@ const server = createServer(async (req, res) => {
         apiKey: process.env.RESEND_API_KEY || '',
         from: process.env.QUOTE_FROM_EMAIL || defaultQuoteSender,
         to: defaultQuoteRecipient,
-        sendEmail: sendQuoteEmail
+        sendEmail: sendQuoteEmail,
+        onDeliveryFailure: recordQuoteDeliveryFailure
       });
 
       await writeWebResponse(res, response);
@@ -118,6 +121,22 @@ const server = createServer(async (req, res) => {
 server.listen(port, '0.0.0.0', () => {
   console.log(`Apex Packaging server listening on ${port}`);
 });
+
+async function recordQuoteDeliveryFailure(submission, error, email) {
+  console.error('Quote email delivery failed:', error?.message || error);
+  const record = {
+    failedAt: new Date().toISOString(),
+    error: error?.message || String(error),
+    to: email?.to || [],
+    subject: email?.subject || '',
+    source: submission.source,
+    fields: submission.fields,
+    files: submission.files.map(({ content, ...file }) => file)
+  };
+
+  await mkdir(dirname(quoteFailureLogPath), { recursive: true });
+  await appendFile(quoteFailureLogPath, `${JSON.stringify(record)}\n`);
+}
 
 async function writeWebResponse(res, response) {
   const headers = {};

@@ -158,19 +158,26 @@ export async function handleQuoteRequest(request, options) {
   try {
     await options.sendEmail(options.apiKey, email);
   } catch (error) {
-    if (!email.attachments?.length) throw error;
-    const fallbackEmail = buildQuoteEmail(
-      {
-        ...submission,
-        fields: {
-          ...submission.fields,
-          attachmentNote: 'One or more uploaded files were received but could not be attached to this email. Ask the customer to reply with the file if it is not visible.'
+    if (!email.attachments?.length) {
+      await options.onDeliveryFailure?.(submission, error, email);
+    } else {
+      const fallbackEmail = buildQuoteEmail(
+        {
+          ...submission,
+          fields: {
+            ...submission.fields,
+            attachmentNote: 'One or more uploaded files were received but could not be attached to this email. Ask the customer to reply with the file if it is not visible.'
+          },
+          files: submission.files.map(({ content, ...file }) => file)
         },
-        files: submission.files.map(({ content, ...file }) => file)
-      },
-      { from: options.from, to: options.to }
-    );
-    await options.sendEmail(options.apiKey, fallbackEmail);
+        { from: options.from, to: options.to }
+      );
+      try {
+        await options.sendEmail(options.apiKey, fallbackEmail);
+      } catch (fallbackError) {
+        await options.onDeliveryFailure?.(submission, fallbackError, fallbackEmail);
+      }
+    }
   }
 
   const requestedRedirect = submission.redirectTo;
