@@ -17,7 +17,8 @@ const FIELD_LABELS = {
   phone: 'Phone',
   type: 'Project Type',
   details: 'Project Details',
-  message: 'Message'
+  message: 'Message',
+  attachmentNote: 'Attachment Delivery Note'
 };
 
 const INTERNAL_FIELDS = new Set(['redirectTo', 'website']);
@@ -154,7 +155,23 @@ export async function handleQuoteRequest(request, options) {
   if (!isEmail(submission.fields.email || '')) return jsonResponse({ error: 'A valid email address is required.' }, 400);
 
   const email = buildQuoteEmail(submission, { from: options.from, to: options.to });
-  await options.sendEmail(options.apiKey, email);
+  try {
+    await options.sendEmail(options.apiKey, email);
+  } catch (error) {
+    if (!email.attachments?.length) throw error;
+    const fallbackEmail = buildQuoteEmail(
+      {
+        ...submission,
+        fields: {
+          ...submission.fields,
+          attachmentNote: 'One or more uploaded files were received but could not be attached to this email. Ask the customer to reply with the file if it is not visible.'
+        },
+        files: submission.files.map(({ content, ...file }) => file)
+      },
+      { from: options.from, to: options.to }
+    );
+    await options.sendEmail(options.apiKey, fallbackEmail);
+  }
 
   const requestedRedirect = submission.redirectTo;
   return redirectResponse(isSafeRedirectPath(requestedRedirect) ? requestedRedirect : '/thank-you');

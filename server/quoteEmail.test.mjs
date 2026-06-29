@@ -112,3 +112,37 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
   assert.equal(sentEmail.to[0], 'sales@apexpackagingsolutions.com');
   assert.equal(sentEmail.reply_to, 'alex@example.com');
 });
+
+test('handleQuoteRequest retries without attachments if the email provider rejects them', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Contact Page');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('redirectTo', '/thank-you');
+  formData.set('artwork', new File(['sample artwork'], 'dieline.pdf', { type: 'application/pdf' }));
+
+  const sentEmails = [];
+  const request = new Request('https://example.com/api/quote', {
+    method: 'POST',
+    body: formData
+  });
+
+  const response = await handleQuoteRequest(request, {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async (_apiKey, email) => {
+      sentEmails.push(email);
+      if (email.attachments?.length) throw new Error('Provider rejected attachments');
+      return { id: 'email_123' };
+    }
+  });
+
+  assert.equal(response.status, 303);
+  assert.equal(sentEmails.length, 2);
+  assert.equal(sentEmails[0].attachments[0].filename, 'dieline.pdf');
+  assert.equal(sentEmails[1].attachments, undefined);
+  assert.match(sentEmails[1].text, /Attachment Delivery Note/);
+  assert.match(sentEmails[1].text, /dieline.pdf/);
+});
