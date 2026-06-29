@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Packaging Design Services: What to Send Before a Dieline Is Built';
+const description = 'A practical buyer guide to packaging design services in Canada: what to send before a dieline is built so quoting, mockups, and revisions move faster.';
+const url = '/blog/packaging-design-services-send-before-dieline-built';
+const datePublished = '2026-06-27';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Packaging Design Services', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'Do buyers need final artwork before a dieline is built?',
+    a: 'No. A structural dieline can usually start from the packed product dimensions, weight, box style target, and any labeling constraints. Final artwork is needed before print approval, not before the structural layout starts.'
+  },
+  {
+    q: 'What is the biggest mistake in a packaging design RFQ?',
+    a: 'Sending the raw product size instead of the packed product size is the most common problem. Inserts, sleeves, polybags, manuals, and tolerance clearance all affect the final dieline.'
+  },
+  {
+    q: 'When should a buyer ask for a physical packaging sample?',
+    a: 'Ask for a sample when the product is fragile, heavy, highly branded, or difficult to fit, or when the team needs to validate pack-out labor before the production order is released.'
+  }
+]);
+---
+<BaseLayout
+  title="Packaging Design Services Canada - What to Send Before a Dieline Is Built"
+  description={description}
+  image="/images/blog/packaging-design-services-dieline-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Design support"
+    heading="Packaging design services - what to send before a dieline is built."
+    lead="Most packaging delays happen before artwork review starts. Buyers ask for a dieline, but the design team still needs the packed product size, pack-out method, print constraints, and approval target before the structure can be drawn correctly."
+    imageSrc="/images/blog/packaging-design-services-dieline-generated.png"
+    imageAlt="Apex Packaging branded mailer prototype with dieline sheets, calipers, barcode labels, and color swatches on a packaging design worktable."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Packaging design services</strong> work best when the buyer sends a real production brief instead of a short note asking for a dieline. A structural designer can draw a box quickly, but a production-ready dieline needs more than length, width, and height. It needs the packed product dimensions, the way the item will sit inside the box, what printing or labels must land on the panels, and whether the first run is a fast sample or a repeat production program.</p>
+
+      <p>Apex Packaging Solutions helps buyers move from idea to manufacturable packaging through <a href="/design-support">dielines, artwork checks, structural design, and 3D mockups</a>. Whether the end format is a <a href="/services/mailer-boxes">custom mailer box</a>, a <a href="/services/corrugated-boxes">corrugated shipper</a>, or a more specialized protective pack, the quality of the first information package usually determines how many revision cycles the project needs.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/packaging-design-services-dieline-generated.png" alt="Apex Packaging branded mailer box prototype beside a printed dieline, barcode sample, calipers, and color swatches." width="1672" height="941" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">A clean packaging brief gives the design team enough information to size the structure, place print safely, and decide whether sampling is needed before production.</figcaption>
+      </figure>
+
+      <h2>Start with the packed product, not the product by itself</h2>
+      <p>The most common error in packaging RFQs is sending the naked product size instead of the packed size. A designer needs to know what will actually go inside the box at the moment it is packed. That can include an inner polybag, tissue, instruction sheet, barcode label, foam pad, corrugated insert, tamper seal, or retail sleeve. If those layers are added after the first dieline is drawn, the project often comes back for another round because the cavity is too tight or the flaps no longer close cleanly.</p>
+
+      <p>This matters even more for ecommerce kits and launch packaging. A bottle, cap, carton, and insert may all fit on paper, but small tolerance misses become expensive once the print file has already been approved. The practical rule is simple: measure the product in its packed condition, then build the dieline around that version.</p>
+
+      <h2>The six inputs a design team needs before drawing</h2>
+      <p>If the goal is to get from brief to dieline without avoidable rework, send these details first:</p>
+
+      <table>
+        <thead>
+          <tr><th>Input</th><th>Why it matters</th><th>What goes wrong if it is missing</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Packed product dimensions</td><td>Sets the cavity, panel size, and closure allowance</td><td>Box fit fails after inserts or sleeves are added</td></tr>
+          <tr><td>Product weight and fragility</td><td>Guides board grade, insert need, and opening style</td><td>Structure is underbuilt or overbuilt</td></tr>
+          <tr><td>Target box style</td><td>Determines locking tabs, glue areas, and tooling approach</td><td>Designer draws the wrong format for the pack line</td></tr>
+          <tr><td>Print and label constraints</td><td>Protects barcode zones, bleed, and panel hierarchy</td><td>Artwork conflicts with folds, seams, or mandatory labels</td></tr>
+          <tr><td>Quantity and reorder intent</td><td>Helps balance low-MOQ practicality against customization</td><td>Structure is designed without regard to production economics</td></tr>
+          <tr><td>Approval deadline</td><td>Sets whether the project needs a fast sample path</td><td>Team assumes there is time for revisions that do not exist</td></tr>
+        </tbody>
+      </table>
+
+      <p>These inputs do not need to be perfectly polished. They do need to be complete enough to tell the design team what the package is supposed to do. If you already know the target material, finish, or sustainability requirement, include that too. It helps align the structural path with the production path instead of treating them as separate decisions.</p>
+
+      <h2>What the designer does with your brief</h2>
+      <p>Buyers sometimes think a dieline is just a flat drawing. In practice, it is a production map. The designer uses your dimensions to create panel sizes, dust flaps, locking tabs, glue zones, thumb cuts, barcode-safe areas, and fold logic that can actually run in manufacturing. If the project includes custom print, the structure also needs to leave enough space for bleed, trim tolerance, and any mandatory copy that cannot cross a score line.</p>
+
+      <p>That is why a strong design brief reduces more than revision count. It also improves quote accuracy. The team can tell earlier whether the right answer is a standard shipper, a custom die-cut mailer, or a format that needs <a href="/services/protective-packaging">protective inserts or cushioning</a> from the start. When the structure and protection strategy are decided together, the mockup stage becomes more useful because it reflects the real production intent.</p>
+
+      <h2>Send references, but label what is functional and what is aesthetic</h2>
+      <p>Reference photos help, but only if the supplier knows what you want to copy. If you send three competitor boxes, explain whether you like the opening style, the fit, the print finish, or only the general presentation. Many briefs fail because the design team is forced to guess whether the reference is structural guidance or visual inspiration.</p>
+
+      <p>A practical note attached to each image is enough: "like this tuck-front closure," "need this insert behavior," or "do not want this much empty space around the product." That small step can remove an entire revision round because the designer is not reverse-engineering the brief from screenshots alone.</p>
+
+      <h2>When a sample should come before final artwork</h2>
+      <p>Not every packaging project needs a physical sample before print approval, but many do. Sampling is usually worth it when the item is fragile, the insert fit is tight, the box has a non-standard closure, or the first order carries a premium brand launch. A digital mockup can show how the artwork sits on the panels. It cannot always confirm how fast the package assembles, whether the product shifts in transit, or whether the customer experience still feels correct once the real board is folded.</p>
+
+      <p>This is especially relevant for buyers moving from a stock shipper into a more branded program. The article on <a href="/blog/custom-mailer-boxes-ecommerce-print-inserts-moq">custom mailer boxes for ecommerce</a> goes deeper on low-MOQ mailer decisions, but the same principle applies here: sample when fit, protection, or launch timing matters more than saving a small amount on pre-production work.</p>
+
+      <h2>The easiest RFQ format is a one-page packaging brief</h2>
+      <p>You do not need a complicated document to start design support. In most cases, one clean page is enough. Include the packed dimensions, product weight, quantity, target launch date, box style if known, print scope, barcode or regulatory label requirements, delivery postal code, and any photos of the current pack. If the design must support a specific warehouse process, say that too. A box that looks good in a render can still fail operationally if it slows assembly or forces hand-applied relabeling.</p>
+
+      <p>The objective is not to make the brief look formal. It is to prevent hidden assumptions. Once the design team has the right inputs, it can turn the brief into a dieline, mockup, and sample path that supports both pricing and production. If your team is trying to shorten the time between concept and quote, the highest-leverage move is usually not better artwork. It is sending a better first brief.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Design Support', href: '/design-support', description: 'Dielines, artwork review, and 3D mockups for production-ready packaging.' },
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Custom shippers, RSC cartons, die-cut boxes, and structural packaging formats.' },
+    { title: 'Custom Mailer Boxes for Ecommerce', href: '/blog/custom-mailer-boxes-ecommerce-print-inserts-moq', description: 'A deeper guide to mailer structure, inserts, print coverage, and low-MOQ planning.' }
+  ]} />
+
+  <CTABand
+    heading="Send the packaging brief before asking for a dieline."
+    lead="Packed dimensions, weight, style target, and print constraints are usually enough to start a clean design-support workflow."
+    primaryCta={{ label: 'Send your packaging brief', href: '/contact' }}
+  />
+</BaseLayout>

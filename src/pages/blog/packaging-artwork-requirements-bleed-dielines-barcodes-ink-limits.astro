@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Packaging Artwork Requirements: Bleed, Dielines, Barcodes, and Ink Limits';
+const description = 'A practical buyer guide to packaging artwork requirements in Canada: bleed, dieline revision control, barcode placement, and print-spec checks before approval.';
+const url = '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits';
+const datePublished = '2026-06-29';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Packaging Artwork Requirements', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What file format is best for final packaging artwork review?',
+    a: 'A press-ready PDF built from the approved dieline is the usual review file, with editable AI or EPS source files available if revisions are expected. Raster screenshots are useful for comments, but they should not replace the layered production file.'
+  },
+  {
+    q: 'How much bleed should packaging artwork include?',
+    a: 'Many packaging files start with 3 mm or 1/8 inch bleed, but the dieline or printer specification should always win. Buyers should confirm bleed, safe area, and barcode zones against the exact revision supplied by the converter.'
+  },
+  {
+    q: 'Can a barcode cross a fold or sit too close to a glue seam?',
+    a: 'It should not. Barcodes read best on a flat panel with full quiet space around the symbol and enough margin from scores, glue flaps, and curved corners to avoid distortion during print and folding.'
+  }
+]);
+---
+<BaseLayout
+  title="Packaging Artwork Requirements - Bleed, Dielines, Barcodes, and Ink Limits"
+  description={description}
+  image="/images/blog/packaging-artwork-requirements-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Print prep"
+    heading="Packaging artwork requirements - bleed, dielines, barcodes, and ink limits."
+    lead="A packaging file can look finished on screen and still fail at proof stage if it sits on the wrong dieline revision, places a barcode on a score line, or uses print settings that do not match the board and process."
+    imageSrc="/images/blog/packaging-artwork-requirements-generated.png"
+    imageAlt="Apex Packaging branded mailer artwork proof beside a dieline sheet, Pantone swatches, caliper, loupe, and barcode review notes."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Packaging artwork requirements</strong> are usually where a simple custom box project either stays on schedule or loses a week to avoidable revisions. Marketing may have the approved logo and campaign copy, but the print file still has to fit the exact dieline, hold bleed beyond the cut edge, protect barcode quiet zones, and follow the print limitations of the selected board and process. If any of those items are missed, the supplier sends the file back for correction or, worse, the issue appears after proofing has already started.</p>
+
+      <p>Apex Packaging Solutions reviews artwork for <a href="/services/mailer-boxes">custom mailer boxes</a>, <a href="/services/corrugated-boxes">corrugated shipping cartons</a>, and other production packaging programs that need a clean handoff from design to manufacturing. This guide is for buyers who already have artwork in motion and want a practical checklist before the file is approved. If the structure itself still needs to be drawn, start with the related guide on <a href="/blog/packaging-design-services-send-before-dieline-built">what to send before a dieline is built</a> and then return to this article for print prep.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/packaging-artwork-requirements-generated.png" alt="Apex Packaging branded packaging artwork proof with a dieline, Pantone fan, barcode panel, and print review tools on a worktable." width="1619" height="971" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Artwork review moves faster when the file, dieline revision, barcode zone, and print process assumptions all match before approval.</figcaption>
+      </figure>
+
+      <h2>Start with the approved dieline revision, not a visual mockup</h2>
+      <p>The fastest way to create rework is to lay artwork onto an older dieline export or a flattened mockup image instead of the current structural file. Packaging artwork must be built on the exact dieline revision the converter approved for production. That file controls panel size, fold positions, glue flaps, lock tabs, dust flaps, and any no-print areas. A small structural change can move important artwork onto a score line or cut off mandatory copy without anyone noticing until the PDF is preflighted.</p>
+
+      <p>This matters even more when the project has gone through a few rounds of fit checks. Once a box depth changes or an insert panel is adjusted, the artwork file should be re-linked to the latest dieline immediately. Buyers should ask the supplier to mark every revision clearly and retire the earlier template from circulation. Good revision control does more for approval speed than adding another design review meeting.</p>
+
+      <h2>The core artwork checklist before the file leaves marketing</h2>
+      <table>
+        <thead>
+          <tr><th>Checkpoint</th><th>Why it matters</th><th>Typical failure if skipped</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Correct dieline revision</td><td>Keeps all art aligned to the final structure</td><td>Logos, legal copy, or barcodes drift onto folds or get trimmed</td></tr>
+          <tr><td>Bleed and safe area</td><td>Protects edges and keeps key copy away from trim</td><td>White slivers appear at cut edges or text sits too close to the knife</td></tr>
+          <tr><td>Barcode quiet zone</td><td>Preserves scan reliability after print and folding</td><td>Retail or warehouse scans fail because art crowds the symbol</td></tr>
+          <tr><td>Colour and spot-callout review</td><td>Matches the file to the chosen print process</td><td>Brand colour shifts or a required spot colour disappears in export</td></tr>
+          <tr><td>Linked image resolution</td><td>Prevents soft logos, textures, and product shots</td><td>Proof looks sharp on screen but weak on the printed board</td></tr>
+          <tr><td>Font and outline check</td><td>Stops substitution or missing-glyph errors</td><td>Approved copy reflows when the printer opens the file</td></tr>
+        </tbody>
+      </table>
+
+      <p>That table is the minimum. For regulated products, add lot code positions, caution statements, bilingual text requirements, or any customer-specific shipping label zones. The objective is to remove assumptions before the file reaches prepress, not after the proof has already been routed back with questions.</p>
+
+      <h2>Bleed, trim, and safe area should be confirmed from the printer file, not guessed</h2>
+      <p>Most buyers know they need bleed, but the practical mistake is assuming every packaging job uses the same value. A common starting point is 3 mm, or 1/8 inch, beyond the cut line. That is only a starting point. The real source of truth is the supplied dieline and the printer's notes. Corrugated, folding carton, labels, and digitally printed mailers can each have their own expectations around cut tolerance and safe area.</p>
+
+      <p>The rule for designers is simple: extend background colour, patterns, and edge artwork fully through the bleed zone, and keep small type, logos, and fine keylines back inside the safe area. Buyers should also watch score lines. A headline can technically fit on a panel and still look poor if the fold breaks through the middle of a word or if a logo straddles a corner radius. That is one reason <a href="/design-support">design support and prepress review</a> are valuable even when the artwork seems finished.</p>
+
+      <h2>Barcode placement is an engineering issue, not only a design issue</h2>
+      <p>Barcodes are often treated like one more artwork element to fit into the layout, but they behave differently from decorative graphics. They need quiet space around the symbol, enough contrast between bars and background, and a flat panel that will not distort after scoring, gluing, or compression. If a barcode sits too close to a fold, seam, or corner radius, the printed symbol may scan poorly even though the digital file itself looks fine.</p>
+
+      <p>A practical review step is to ask where the package will actually be scanned. Retail cartons may need the code on a predictable display panel. Warehouse outer cartons may need the code placed where pallet labels and tape will not cover it. On ecommerce mailers, the barcode may need to coexist with shipping labels, making panel hierarchy even more important. Buyers should flag those operational realities before the proof is approved, not after the first receiving complaint.</p>
+
+      <h2>Ink limits change with board and print process</h2>
+      <p>Ink-limit problems usually appear when artwork was designed for a smooth digital screen or coated-sheet print process and then dropped onto corrugated without adjusting the file. Heavy solids, rich black builds, and dense shadow detail do not behave the same way on kraft or corrugated liners as they do on a coated brochure. Flexographic print, direct print on corrugated, litho-lam, and digital production all have different tolerances for total ink coverage and fine detail.</p>
+
+      <p>The buyer does not need to become a press operator, but the buyer should ask one clear question: was this file prepared to the supplier's print specification for this board and process? If the answer is vague, the risk is real. In practice, that means confirming the expected colour profile, whether brand colours need spot-ink treatment, how fine the reverse type can be, and whether large dark fields will hold cleanly on the selected substrate. This is especially important when artwork moves between <a href="/services/mailer-boxes">printed mailers</a> and standard corrugated shippers because the same artwork concept may need a different production treatment.</p>
+
+      <h2>What to send for first-pass artwork approval</h2>
+      <p>Most approval cycles speed up when the buyer sends one complete package instead of separate notes from marketing, operations, and purchasing. A practical first-pass package should include:</p>
+
+      <ul>
+        <li>The approved dieline revision in editable and PDF form.</li>
+        <li>The artwork file placed on that revision, plus a press-ready PDF for review.</li>
+        <li>Font package or outlined text confirmation.</li>
+        <li>Logo files, brand colours, and any spot-colour callouts.</li>
+        <li>Barcode file source, target symbology, and the panel where it must remain readable.</li>
+        <li>Notes on mandatory regulatory copy, bilingual requirements, or customer label zones.</li>
+        <li>The print process if already known: flexo, digital, litho-lam, or another route.</li>
+        <li>A marked visual proof showing anything that should not move during revisions.</li>
+      </ul>
+
+      <p>That package lets Apex or any qualified converter review the file against both structural and print realities. If your team is still mixing structural questions with artwork questions, separate them. Use the structural brief to get the dieline right first, then use this artwork checklist to move the file through proofing without preventable changes.</p>
+
+      <p>The best packaging artwork approval is uneventful. The box folds correctly, the barcode scans, the bleed holds, and the file reaches print with no late surprises. That is the standard buyers should aim for because it protects both schedule and reorder consistency.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Design Support', href: '/design-support', description: 'Dielines, artwork checks, and 3D mockups before production files are released.' },
+    { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom-printed mailers where panel layout, barcode zones, and finish all need prepress control.' },
+    { title: 'Packaging Design Services', href: '/blog/packaging-design-services-send-before-dieline-built', description: 'Start with the right structural brief before the artwork file is built.' }
+  ]} />
+
+  <CTABand
+    heading="Send the dieline and artwork file together for review."
+    lead="Revision control, barcode placement, and print-process notes are usually enough to catch artwork issues before proofing."
+    primaryCta={{ label: 'Request an artwork review', href: '/contact' }}
+  />
+</BaseLayout>

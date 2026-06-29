@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Custom Foam Inserts: When Corrugated Alone Is Not Enough';
+const description = 'A practical buyer guide to custom foam inserts in Canada: when corrugated needs internal cushioning, which foam grade fits the product, and what to send in the RFQ.';
+const url = '/blog/custom-foam-inserts-corrugated-alone-not-enough';
+const datePublished = '2026-06-18';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Custom Foam Inserts', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'When should a buyer add custom foam inserts instead of upgrading the corrugated box?',
+    a: 'Add custom foam inserts when the product moves inside the carton, has fragile faces or components, or concentrates weight on corners or edges. Foam solves control and shock problems that a stronger outer box alone does not fix.'
+  },
+  {
+    q: 'What foam types are most common for custom inserts?',
+    a: 'PE foam is common for general industrial protection, PU foam for softer surface contact, ESD foam for electronics, and cross-linked PE when buyers need a cleaner premium cavity or tighter tolerance.'
+  },
+  {
+    q: 'What should be included in a custom foam insert RFQ?',
+    a: 'Send product dimensions, packed weight, fragility points, shipping environment, carton style, target quantity, and whether Apex will work from CAD data, a sample unit, or both.'
+  }
+]);
+---
+<BaseLayout
+  title="Custom Foam Inserts Canada — Protective Packaging Buying Guide"
+  description={description}
+  image="/images/blog/custom-foam-inserts-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Protective packaging"
+    heading="Custom foam inserts — when corrugated alone is not enough."
+    lead="A stronger shipping carton does not stop a product from shifting, rattling, or taking impact at one exposed corner. That is the point where the quote needs internal cushioning, not only a heavier box."
+    imageSrc="/images/blog/custom-foam-inserts-generated.png"
+    imageAlt="Apex Packaging branded electronics mailers and corrugated boxes with custom foam inserts for protective packaging."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Custom foam inserts</strong> become necessary when the outer corrugated carton is doing its job structurally, but the product still is not controlled inside the pack. That usually shows up as rattle, cosmetic damage, cracked housings, corner impact, or field failures tied to one fragile component instead of full-box crush. Procurement teams often react by asking for a stronger corrugated board. Sometimes that helps. Often it only adds material cost while the real failure point stays inside the box.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/protective-packaging">protective packaging</a> for Canadian buyers who need the full system specified together: carton, insert, void control, and any drop-test or handling constraint attached to the shipment. If the product is high value, fragile, electronics-heavy, or awkward enough that it can move during transit, this guide shows when custom foam deserves the quote and what details speed up the first sample.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/custom-foam-inserts-generated.png" alt="Apex Packaging branded corrugated mailers and electronics packaging with fitted foam inserts." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The outer box handles compression and freight. The insert handles shock, orientation, and product control inside the pack.</figcaption>
+      </figure>
+
+      <h2>Start with the failure mode, not the foam name</h2>
+      <p>Many insert projects begin with a buyer asking for "foam packaging" without defining what is actually going wrong. The faster approach is to describe the failure: the product shifts in the carton, one face is scratch-prone, connectors are exposed, or the weight sits on two small points. That tells the converter whether the pack needs soft surface contact, rigid retention, corner blocking, or an ESD-safe cavity. Foam is not one product category. It is a set of cushioning options matched to a specific risk.</p>
+
+      <table>
+        <thead>
+          <tr><th>Failure pattern</th><th>Typical insert job</th><th>Why corrugated alone falls short</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Product shifts inside the carton</td><td>Fitted cavity insert or corner blocks</td><td>The box may survive transit while the item still impacts the sidewalls.</td></tr>
+          <tr><td>Delicate surfaces or housings mark easily</td><td>Softer contact foam or lined cavity</td><td>Board strength does not protect finish quality.</td></tr>
+          <tr><td>Heavy part concentrates load on a small footprint</td><td>Higher-density support foam</td><td>A stronger carton still allows point loading and internal damage.</td></tr>
+          <tr><td>Electronics or assemblies need clean retention</td><td>ESD or precision-cut insert</td><td>The issue is control and sensitivity, not only compression strength.</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the shipment is already fighting pallet compression or sidewall crush, review the outer pack first with the Apex guide to <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">custom shipping boxes for heavy products</a>. Foam inserts are not a substitute for an underbuilt carton. They solve a different part of the problem.</p>
+
+      <h2>When foam is the better decision than more board</h2>
+      <p>Procurement teams usually move to foam inserts for one of four reasons. The product value is high enough that a small damage rate is expensive. The unit has exposed geometry that cannot roll loose in a carton. The shipment needs repeatable presentation at packout and receiving. Or the line needs a faster, more consistent way to place the product than hand-cut dunnage and tape.</p>
+
+      <ul>
+        <li><strong>High-value instruments and electronics</strong> need controlled orientation so connectors, screens, or boards do not take direct shock.</li>
+        <li><strong>Medical, lab, and technical assemblies</strong> often need a repeatable packout cavity rather than loose fill that varies by operator.</li>
+        <li><strong>Industrial replacement parts</strong> may be dense, sharp, or irregular enough that pads and partitions stop being consistent.</li>
+        <li><strong>Presentation-sensitive shipments</strong> use cleaner foam cavities when the unboxing experience matters as much as transit protection.</li>
+      </ul>
+
+      <p>The hidden cost question is labour. A lower-cost corrugated box becomes expensive when operators spend extra time wrapping each unit, cutting pads by hand, or adjusting the pack for every shipment. A fitted insert can cut damage and pack time together, which is why it often belongs in the same quote as the <a href="/services/corrugated-boxes">corrugated outer carton</a>.</p>
+
+      <h2>Choose the foam around the product and route</h2>
+      <p>The protective-packaging service page already outlines the common material families. Buyers do not need to name the exact grade on the first call, but they should understand the working differences.</p>
+
+      <table>
+        <thead>
+          <tr><th>Foam type</th><th>Best fit</th><th>Typical buying trigger</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PE foam</td><td>General industrial protection, moderate weight, water resistance</td><td>Need durable support without a premium presentation finish</td></tr>
+          <tr><td>PU foam</td><td>Delicate surfaces and softer contact</td><td>Product finish marks easily or needs gentler cushioning</td></tr>
+          <tr><td>ESD foam</td><td>Electronics, boards, and sensitive assemblies</td><td>Static control matters alongside physical protection</td></tr>
+          <tr><td>Cross-linked PE</td><td>Premium fit, cleaner cells, tighter-looking cavities</td><td>Better presentation or tighter dimensional control is required</td></tr>
+        </tbody>
+      </table>
+
+      <p>For electronics programs, the insert should be quoted together with the bagging method. The Apex article on <a href="/blog/anti-static-polybags-esd-protection">anti-static polybags and ESD protection</a> is the useful companion reference here. An anti-static bag protects one part of the route. The foam cavity and outer carton protect the rest.</p>
+
+      <h2>Sampling matters more than debating densities in email</h2>
+      <p>The fastest way to settle a foam-insert decision is to sample the real product in the actual carton. CAD files help, but they do not replace packout testing when the unit has knobs, heat sinks, handles, or a fragile finish. Apex can work from product CAD, a physical sample, or both. The point is to validate orientation, insertion speed, and removal at receiving before the production run is released.</p>
+
+      <ol>
+        <li><strong>Confirm the outer pack:</strong> box style, inside dimensions, and whether the shipment is parcel, LTL, or palletized.</li>
+        <li><strong>Define the protection target:</strong> drop-test class, cosmetic standard, or current damage pattern.</li>
+        <li><strong>Sample the cavity:</strong> check fit, operator handling, and whether accessories need separate recesses.</li>
+      </ol>
+
+      <p>This is also the point where the quote can stay practical. Some products need a full tray-style insert. Others only need corner pads, end caps, or a top-and-bottom set. The right answer is the lightest insert that removes the real risk, not the most elaborate cavity that can be drawn.</p>
+
+      <h2>What to send before requesting a custom foam quote</h2>
+      <p>Foam programs move faster when the RFQ describes the product and route instead of only requesting "packing foam." Send these details before pricing starts:</p>
+
+      <ul>
+        <li>Product dimensions, packed weight, and photos of the fragile faces or protrusions.</li>
+        <li>Whether Apex will work from CAD files, a sample unit, or both.</li>
+        <li>Outer-carton size or target carton style if the insert and box will be quoted together.</li>
+        <li>Current failure mode: movement, cosmetic marking, cracked housing, broken connector, or incoming rejection.</li>
+        <li>Need for ESD control, moisture resistance, or a cleaner presentation finish.</li>
+        <li>Target quantity, first-run timing, and whether the insert is for a sample, launch, or repeat production program.</li>
+      </ul>
+
+      <h2>The best insert is part of the packaging system</h2>
+      <p>Custom foam inserts work when they are specified as part of the full shipping system, not as an accessory added after the box decision is already made. Buyers get better outcomes when they quote the carton, insert, bagging, and protection target together. That keeps the outer pack from being overbuilt, keeps the insert from doing the wrong job, and gives receiving a repeatable format that can be reordered without guesswork.</p>
+
+      <p>If the current shipment is surviving compression but still arriving damaged, that is usually the signal to stop upgrading corrugated and start controlling the product inside the pack. Send Apex the product details and the current failure point, and the quote can move toward the lightest protective system that actually fixes the route.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Protective Packaging', href: '/services/protective-packaging', description: 'Custom foam, ESD materials, void fill, and drop-test-driven protective packaging.' },
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Quote the outer carton and internal insert together when the shipment needs a repeatable spec.' },
+    { title: 'Anti-Static Polybags', href: '/blog/anti-static-polybags-esd-protection', description: 'How ESD bagging and insert design work together for sensitive electronics shipments.' }
+  ]} />
+
+  <CTABand
+    heading="Send the product and failure point for a foam-insert quote."
+    lead="CAD or sample unit, packed weight, carton size, and the current damage pattern are enough to start the right insert review."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

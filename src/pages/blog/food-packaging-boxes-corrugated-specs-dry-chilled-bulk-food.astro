@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Food Packaging Boxes: Corrugated Specs for Dry, Chilled, and Bulk Food';
+const description = 'A practical buyer guide to food packaging boxes in Canada: when dry food, chilled packs, and bulk loads need different corrugated specs, liners, and RFQ details.';
+const url = '/blog/food-packaging-boxes-corrugated-specs-dry-chilled-bulk-food';
+const datePublished = '2026-06-22';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Food Packaging Boxes', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'Are corrugated food boxes usually direct-food-contact packaging?',
+    a: 'Usually no. Corrugated is often the outer shipper or master case, while the direct-contact layer is a liner, bag, pouch, tray, or wrapped primary pack chosen for the specific food application.'
+  },
+  {
+    q: 'What changes between dry-food, chilled-food, and bulk-food corrugated specs?',
+    a: 'The main changes are moisture exposure, pallet stacking load, ventilation, and the pack pattern inside the case. Dry foods often prioritize print and cube efficiency, chilled products need more moisture resistance, and bulk loads need stronger board and pallet stability.'
+  },
+  {
+    q: 'What should buyers include in a food-packaging RFQ?',
+    a: 'Send pack count, product weight, case dimensions, route temperature, moisture exposure, pallet pattern, labeling needs, and whether the quote includes liners, polybags, or only the corrugated outer case.'
+  }
+]);
+---
+<BaseLayout
+  title="Food Packaging Boxes Canada - Corrugated Specs for Food Programs"
+  description={description}
+  image="/images/blog/food-packaging-boxes-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Corrugated packaging"
+    heading="Food packaging boxes - corrugated specs for dry, chilled, and bulk food."
+    lead="Food programs rarely fail because the case was simply too small or too plain. They fail when moisture, pallet load, ventilation, or line packing conditions were never defined in the original box spec."
+    imageSrc="/images/blog/food-packaging-boxes-generated.png"
+    imageAlt="Apex Packaging branded food packaging setup with corrugated produce cases, bakery cartons, and bulk food shipping boxes in a warehouse setting."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Food packaging boxes</strong> are usually specified too broadly at the start of the buying process. A procurement brief might ask for "food-safe boxes" or "corrugated cases for food" without defining whether the pack is carrying dry retail cartons, chilled trays, bagged produce, or a palletized bulk ingredient load. Those are different jobs. The correct corrugated spec depends less on the word food and more on the route: moisture exposure, stack height, handling speed, ventilation, and whether the corrugated pack ever touches the product directly.</p>
+
+      <p>Apex Packaging Solutions supports Canadian food and beverage buyers that need <a href="/services/corrugated-boxes">corrugated shipping cases</a>, printed outers, and related <a href="/services/polybags">polybag or liner formats</a> quoted together. For many programs, the corrugated carton is the secondary or tertiary package while the actual direct-contact layer is a bag, tray, or wrapped primary pack. That distinction matters because it changes both the board recommendation and the paperwork buyers should ask for before approving production for a <a href="/industries/food-boxes">food packaging</a> program.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/food-packaging-boxes-generated.png" alt="Apex Packaging branded corrugated produce cases, dry-food master cases, and chilled food shipping cartons." width="1200" height="719" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Dry, chilled, and bulk food programs can all use corrugated, but not with the same moisture, ventilation, and pallet assumptions.</figcaption>
+      </figure>
+
+      <h2>Start by separating direct-contact packaging from the shipping case</h2>
+      <p>Many buyers use the phrase food-safe corrugated when the real need is a food program with documented materials and a clean secondary pack. In most food supply chains, corrugated is not the direct-contact surface. The product is in a pouch, liner, tray, overwrap, or sealed bag first. The outer case handles cube efficiency, distribution, SKU identification, and pallet movement. That means the corrugated specification should focus on compression, humidity exposure, and line handling, while the direct-contact layer is reviewed separately for food-application fit.</p>
+
+      <table>
+        <thead>
+          <tr><th>Food program type</th><th>Typical corrugated job</th><th>Main spec pressure</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dry retail food</td><td>Printed master case or shelf-ready shipper</td><td>Cube efficiency, print clarity, and moderate stacking</td></tr>
+          <tr><td>Chilled or damp environment</td><td>Moisture-resistant shipping case or produce box</td><td>Humidity, condensation, and pallet dwell time</td></tr>
+          <tr><td>Bulk ingredient or food-service packs</td><td>Higher-strength transit case or bulk container</td><td>Product weight, stacking load, and fork handling</td></tr>
+          <tr><td>Bakery or bagged produce</td><td>Ventilated corrugated outer plus liner or bag</td><td>Airflow, pack speed, and case stability</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the project also includes inner bags, wicketed liners, or bag-and-box packout, quote the corrugated case with the film specification instead of treating them as separate purchases. That usually shortens sampling and avoids dimension mismatches between the liner and the outer case.</p>
+
+      <h2>Dry-food corrugated usually prioritizes print, count, and pallet efficiency</h2>
+      <p>Dry-food programs are often the most straightforward, but they still need a deliberate specification. If the product is already sealed in pouches, sachets, or folding cartons, the outer corrugated case is mainly there to protect count integrity through warehousing and distribution. Buyers should define case count, total packed weight, pallet pattern, and whether the case needs retail-facing graphics, lot coding space, or shelf-ready openings.</p>
+
+      <p>This is also where buyers can overspend by jumping to heavier board without evidence. A modestly weighted master case with stable primary packs may run well on standard single-wall corrugated if the pallet stack is sensible. The Apex guide to <a href="/blog/custom-corrugated-boxes-canada-moq-lead-time-specs">custom corrugated boxes in Canada</a> is a useful reference when the team is still deciding between stock RSC efficiency and a more customized structure.</p>
+
+      <h2>Chilled and moisture-exposed packs need a different review</h2>
+      <p>Once the food program moves into chilled handling, washdown areas, produce distribution, or refrigerated dwell time, moisture becomes part of the corrugated spec. The buyer should describe whether the boxes see direct condensation, cold storage, wet floors, or frequent pallet transfers between ambient and chilled environments. Corrugated can still work well here, but the board and case design need to account for loss of performance under humidity instead of assuming room-temperature warehouse conditions.</p>
+
+      <ul>
+        <li><strong>Condensation risk</strong> affects how conservative the board spec should be and whether coatings or liners deserve review.</li>
+        <li><strong>Ventilation needs</strong> matter for produce and bakery movement because vent cuts change compression performance.</li>
+        <li><strong>Pallet dwell time</strong> matters because chilled cases may hold stack load longer before final delivery.</li>
+        <li><strong>Hand-packing versus automated packing</strong> changes how much abuse the case sees on the line.</li>
+      </ul>
+
+      <p>When the case has die-cut vents, hand holes, or display openings, those features need to be part of the strength review. A box with excellent airflow can still fail if the opening pattern removes too much structural support for the actual pallet stack.</p>
+
+      <h2>Bulk food loads are usually a strength and handling problem first</h2>
+      <p>Bulk food or food-service programs push corrugated in a different direction. The product may be bagged, but each outer case can carry much higher packed weight. That changes flute choice, board grade, and sometimes the decision to move toward a heavier-duty case or a bulk container format. The buyer should define not only the net product weight but also the pallet stack, slip-sheet or pallet type, and whether the loads are warehouse-stored before shipping.</p>
+
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>What buyers should confirm</th><th>Why it matters</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dense bagged ingredients</td><td>Case weight and number of layers per pallet</td><td>Compression and bottom-panel integrity drive the spec.</td></tr>
+          <tr><td>Produce or vented cases</td><td>Vent area and stack pattern</td><td>Openings reduce available board support.</td></tr>
+          <tr><td>Frozen or chilled transfer</td><td>Exposure to condensation and cold dwell</td><td>Humidity can reduce effective case performance.</td></tr>
+          <tr><td>Retail-ready outers</td><td>Tear-away panel or display opening details</td><td>Convenience features can change the structural margin.</td></tr>
+        </tbody>
+      </table>
+
+      <p>If the case is carrying enough weight that pallet containment is part of the risk, the conversation may also touch <a href="/services/industrial-bulk-packaging">industrial and bulk packaging</a> for stretch wrap, top caps, or unitization support. The box and the pallet system should not be quoted as if they operate independently.</p>
+
+      <h2>Sampling matters because food programs combine several constraints at once</h2>
+      <p>Food packaging decisions tend to move slowly when every team debates the board grade in email while the actual pack pattern stays unclear. Sampling cuts through that. A sample case shows whether the filled packs sit correctly, whether vent locations interfere with labels, whether the liner size is right, and whether the case still runs efficiently on the line. It also tells the buyer whether the graphics, lot-code zone, and receiving labels fit without compromising a panel that needs to stay structurally intact.</p>
+
+      <ol>
+        <li><strong>Define the inner pack:</strong> pouch, tray, liner, bag, or carton count per case.</li>
+        <li><strong>Define the route:</strong> dry warehouse, chilled storage, produce handling, or bulk food-service distribution.</li>
+        <li><strong>Define the pallet load:</strong> layers, stack height, and dwell time before the shipment is consumed.</li>
+      </ol>
+
+      <p>That workflow is usually faster than starting with an arbitrary board callout. The case can then be designed around the product reality instead of a copied spec from a different food line.</p>
+
+      <h2>What to send before requesting a food-packaging quote</h2>
+      <p>Food-packaging RFQs move faster when buyers send operating details rather than only a target box size. Include these points in the request:</p>
+
+      <ul>
+        <li>Product category and whether corrugated is the direct-contact pack, inner-support pack, or outer shipping case.</li>
+        <li>Pack count per case, unit weight, total case weight, and target case dimensions.</li>
+        <li>Dry, chilled, refrigerated, or moisture-exposed route conditions.</li>
+        <li>Need for vents, hand holes, display openings, lot-code zones, or retail-facing print.</li>
+        <li>Liner, pouch, or <a href="/services/polybags">bag specification</a> if the job includes inner packaging.</li>
+        <li>Pallet pattern, stack height, and whether the cases sit in storage before shipment.</li>
+        <li>Monthly demand, first release quantity, and target in-hand date.</li>
+      </ul>
+
+      <h2>The best food box spec is specific about the route</h2>
+      <p>Food packaging boxes should be purchased around the actual distribution conditions, not around a generic food-safe label. Dry-food cases, chilled produce boxes, and bulk ingredient shippers can all use corrugated successfully, but they need different assumptions about moisture, airflow, and stacking load. Buyers get cleaner quotes when they define the inner pack, the route, and the pallet load together instead of asking the converter to infer them from dimensions alone.</p>
+
+      <p>If your food program needs corrugated outers, liners, or bag-and-box coordination, send Apex the pack count, route conditions, and pallet pattern first. That is enough to review whether the right answer is a standard RSC, a vented die-cut case, a heavier board grade, or a broader food-packaging kit quoted as one system.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'RSC, die-cut, printed, and higher-strength corrugated cases for Canadian shipping programs.' },
+    { title: 'Polybags', href: '/services/polybags', description: 'Food-program liners, wicket bags, and custom bag formats quoted with the outer case when needed.' },
+    { title: 'Custom Corrugated Boxes in Canada', href: '/blog/custom-corrugated-boxes-canada-moq-lead-time-specs', description: 'How MOQs, lead times, and board choices affect corrugated buying decisions.' }
+  ]} />
+
+  <CTABand
+    heading="Send the food-pack spec before you quote the case."
+    lead="Case count, route conditions, pallet stack, and any liner or bag requirements are enough to review the right corrugated format."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>

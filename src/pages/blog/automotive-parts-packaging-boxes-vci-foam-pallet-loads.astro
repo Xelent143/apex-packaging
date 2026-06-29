@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Automotive Parts Packaging: Boxes, VCI, Foam, and Pallet Loads';
+const description = 'A practical buyer guide to automotive parts packaging in Canada: how cartons, VCI, foam, and pallet controls work together for heavy, machined, and repeat-ship parts.';
+const url = '/blog/automotive-parts-packaging-boxes-vci-foam-pallet-loads';
+const datePublished = '2026-06-24';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Automotive Parts Packaging', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What should be quoted together for automotive parts packaging?',
+    a: 'Buyers should usually quote the corrugated carton, any VCI bag or paper, internal dividers or foam, and the pallet-unitization method together. Those items affect one another, and splitting them across separate RFQs often creates gaps in fit or protection.'
+  },
+  {
+    q: 'When do automotive parts need both VCI and foam?',
+    a: 'Use both when the part can rust and also move, mark, or strike another surface during transit. VCI controls corrosion risk, while foam or dividers control orientation, shock, and contact damage.'
+  },
+  {
+    q: 'What should be included in an automotive packaging RFQ?',
+    a: 'Send part dimensions, packed weight, part material and finish, pack quantity, route, pallet pattern, current failure mode, and whether the quote should include VCI, inserts, dividers, or only the outer carton.'
+  }
+]);
+---
+<BaseLayout
+  title="Automotive Packaging Canada - Boxes, VCI, Foam, and Pallet Loads"
+  description={description}
+  image="/images/blog/automotive-parts-packaging-generated.png"
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Automotive packaging"
+    heading="Automotive parts packaging - boxes, VCI, foam, and pallet loads."
+    lead="Auto-parts shipments rarely fail because the box was one grade too light by itself. They fail because the carton, rust protection, internal control, and pallet pattern were specified separately instead of as one repeatable shipping system."
+    imageSrc="/images/blog/automotive-parts-packaging-generated.png"
+    imageAlt="Apex Packaging branded automotive parts packaging with corrugated cartons, foam insert cavities, VCI bagged shafts, dividers, and a palletized load."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Automotive parts packaging</strong> in Canada usually sits in a harder operating environment than a standard consumer shipment. Parts can be heavy, oily, machined, rust-sensitive, or irregular enough that a normal shipping carton does not control them well. Many buyers start by requesting a stronger box. That can help, but it only solves one part of the job. Automotive packaging normally works best when four decisions are made together: the corrugated structure, the corrosion-control layer, the internal fit, and the pallet pattern that carries the load through storage and transit.</p>
+
+      <p>Apex Packaging Solutions supports buyers who need <a href="/services/corrugated-boxes">corrugated shipping boxes</a>, <a href="/services/protective-packaging">protective packaging</a>, and <a href="/services/industrial-bulk-packaging">pallet and bulk-pack support</a> aligned around the actual route. For many <a href="/industries/auto-parts">automotive parts</a> programs, the best answer is not one premium material. It is the lightest practical pack system that controls corrosion, movement, compression, and receiving speed without making the line harder to run.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/automotive-parts-packaging-generated.png" alt="Apex Packaging branded automotive parts packaging with corrugated cartons, VCI bagged shafts, fitted foam cavities, and a palletized corrugated load." width="1619" height="971" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Automotive packaging usually performs best when the carton, VCI layer, internal fit, and pallet load are reviewed as one spec.</figcaption>
+      </figure>
+
+      <h2>Start with the part set and the failure mode</h2>
+      <p>Automotive suppliers often describe the job as "packaging for metal parts" or "boxes for assemblies." That is too broad to quote cleanly. A machined shaft, a fastener kit, a stamped bracket, and a painted trim component all create different packaging risks even if they ship to the same plant. The faster approach is to define what is going wrong now. Is the issue flash rust, sidewall crush, parts knocking together, paint marking, or pallet instability after two weeks in storage? The answer decides whether the next quote should focus on VCI, foam, dividers, a heavier corrugated wall, or better pallet unitization.</p>
+
+      <table>
+        <thead>
+          <tr><th>Part scenario</th><th>Typical packaging review</th><th>Why it matters</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Machined ferrous parts</td><td>VCI bag or VCI paper plus corrugated carton</td><td>Rust control matters as much as compression strength.</td></tr>
+          <tr><td>Dense parts with sharp edges</td><td>Heavier corrugated, pads, or fitted dividers</td><td>Point loading can fail the carton before the total weight looks extreme.</td></tr>
+          <tr><td>Painted or plated components</td><td>Foam, partitions, or soft-contact protection</td><td>Cosmetic damage usually comes from internal contact, not only external impact.</td></tr>
+          <tr><td>Palletized repeat-ship kits</td><td>Carton review plus stretch-wrap and corner protection</td><td>The pallet pattern often decides whether the load survives warehouse dwell.</td></tr>
+        </tbody>
+      </table>
+
+      <p>This is also where the Apex guide to <a href="/blog/vci-packaging-metal-parts-rust-prevention-transit">VCI packaging for metal parts</a> becomes useful. If the current failure is corrosion, more board will not solve it. The pack environment has to change.</p>
+
+      <h2>Boxes carry compression. VCI and foam solve different problems.</h2>
+      <p>Automotive packaging tends to get overbuilt when each risk is assigned to the outer carton. Corrugated is there to handle stacking, handling, and basic containment. It is not meant to stop bare metal from rusting, and it cannot keep every irregular part from rotating or striking a neighboring component. VCI and foam are not upgrades to the box. They solve separate failure points that the box cannot address by itself.</p>
+
+      <ul>
+        <li><strong>VCI paper or VCI bags</strong> help protect machined or ferrous surfaces when storage time, humidity, or route exposure create corrosion risk.</li>
+        <li><strong>Foam inserts or partitions</strong> hold parts in position, separate finished faces, and reduce impact between components.</li>
+        <li><strong>Corrugated pads or dividers</strong> can be enough when the issue is separation and count control rather than soft cushioning.</li>
+        <li><strong>The outer carton</strong> should then be sized around the protected unit pack instead of guessed first and corrected later.</li>
+      </ul>
+
+      <p>That sequence usually produces a cleaner quote. Buyers avoid paying for unnecessary double-wall board when the real issue was contact damage inside the carton. They also avoid underquoting corrosion control because the job was treated like a normal industrial shipper. If internal movement is the main problem, the related Apex guide to <a href="/blog/custom-foam-inserts-corrugated-alone-not-enough">custom foam inserts</a> helps clarify when fitted cavities are worth the added material and sample step.</p>
+
+      <h2>Pallet loads change the answer more than many teams expect</h2>
+      <p>An automotive carton that performs well in a short plant-to-plant move can still fail once pallets sit stacked in a warehouse, travel by LTL, or get moved several times by fork truck. Pallet pattern changes compression load, strap pressure, and corner damage risk. That is why automotive packaging is often tied to the same review as stretch wrap, corner protection, and bulk handling supplies.</p>
+
+      <ol>
+        <li><strong>Confirm the packed weight:</strong> include the part, VCI layer, dividers, foam, labels, and any literature or hardware inside the box.</li>
+        <li><strong>Confirm the pallet pattern:</strong> layers per pallet, stack height, overhang, and whether loads are column stacked or interlocked.</li>
+        <li><strong>Confirm dwell time:</strong> a pallet stored for two weeks behaves differently from one cross-docked the same day.</li>
+      </ol>
+
+      <p>Those details often decide whether a solid single-wall spec is enough or whether the load needs heavier corrugated, edge protectors, or a shift toward a bulk format. The Apex article on <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">custom shipping boxes for heavy products</a> is the best companion reference when the failure is pallet compression rather than corrosion or internal contact.</p>
+
+      <h2>Sampling matters because automotive programs are repeat programs</h2>
+      <p>Automotive parts packaging is rarely a one-off shipment. It is usually a release program, a repetitive plant lane, or a service-parts flow that gets packed the same way every week. That is why sampling is valuable even when the parts themselves look simple. A sample tells the buyer whether operators can load the box quickly, whether the part orientation is obvious, whether the VCI bag is practical at line speed, and whether the foam or divider layout can be repeated without packout variation.</p>
+
+      <p>Repeatability matters as much as protection. A pack that works only when one careful operator loads it perfectly is not a strong automotive packaging spec. The format should be obvious enough that receiving, repack, and reorder activity stay predictable across shifts and across future releases.</p>
+
+      <h2>What to send before requesting an automotive-packaging quote</h2>
+      <p>Quotes move faster when the RFQ describes the operating lane instead of only the carton size. Buyers should send:</p>
+
+      <ul>
+        <li>Part description, material, finish, and whether the part is rust-sensitive, painted, plated, or dimensionally delicate.</li>
+        <li>Unit dimensions, unit weight, and pack quantity per carton or per pallet layer.</li>
+        <li>Current failure mode such as flash rust, sidewall crush, loose parts, paint rub, label confusion, or pallet shift.</li>
+        <li>Whether the quote should include VCI paper, VCI bags, foam, corrugated dividers, or only the outer carton.</li>
+        <li>Transit route, warehouse dwell time, and whether the load moves by parcel, LTL, dedicated truck, or plant shuttle.</li>
+        <li>Pallet pattern, stack height, and any existing wrap, strap, or corner-board method.</li>
+        <li>First-run quantity, reorder frequency, and target approval date.</li>
+      </ul>
+
+      <h2>The best automotive pack is controlled, not excessive</h2>
+      <p>Automotive buyers do not usually need the most packaging. They need the most repeatable packaging that fits the real lane. A good quote separates the structural job of the carton from the corrosion job of VCI and the control job of foam or dividers. It also checks whether the pallet system is creating the compression problem that the box keeps getting blamed for.</p>
+
+      <p>If your current shipment is arriving with rust, contact damage, or unstable pallet loads, send Apex the part details, the route, and the current failure point. That is enough to review whether the fix is a stronger carton, a VCI layer, a fitted insert, better pallet unitization, or a packaging stack that combines all four without unnecessary cost.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Auto Parts Packaging', href: '/industries/auto-parts', description: 'Corrugated, VCI, inserts, and repeat-ship packaging formats for OEM and aftermarket parts.' },
+    { title: 'Industrial & Bulk Packaging', href: '/services/industrial-bulk-packaging', description: 'Stretch wrap, corner boards, bulk corrugated, and pallet-unitization support for heavier lanes.' },
+    { title: 'VCI Packaging for Metal Parts', href: '/blog/vci-packaging-metal-parts-rust-prevention-transit', description: 'How corrosion-control packaging works when rust risk belongs in the RFQ, not as an afterthought.' }
+  ]} />
+
+  <CTABand
+    heading="Send the part and pallet spec before you quote automotive packaging."
+    lead="Part weight, finish, pack quantity, route, and pallet pattern are enough to review the right carton, VCI, and internal protection mix."
+    primaryCta={{ label: 'Send your spec for a quote', href: '/contact' }}
+  />
+</BaseLayout>
