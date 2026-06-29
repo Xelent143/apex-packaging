@@ -25,10 +25,9 @@ The `/api/quote` form posts through the custom Node server in `server.mjs` and s
 ```bash
 RESEND_API_KEY=re_...
 QUOTE_FROM_EMAIL="Apex Packaging <sales@apexpackagingsolutions.com>"
-QUOTE_TO_EMAIL=sales@apexpackagingsolutions.com
 ```
 
-The `apexpackagingsolutions.com` sending domain must be verified in Resend before sending to `sales@apexpackagingsolutions.com` or any other recipient. Resend's `onboarding@resend.dev` sender is test-only and cannot send to arbitrary inboxes.
+Quote requests are hard-routed to `sales@apexpackagingsolutions.com` in code so production environment overrides cannot send leads to the wrong inbox. The `apexpackagingsolutions.com` sending domain must be verified in Resend before sending to `sales@apexpackagingsolutions.com`. Resend's `onboarding@resend.dev` sender is test-only and cannot send to arbitrary inboxes.
 
 ## Stripe payments
 

@@ -8,7 +8,7 @@ export const POST: APIRoute = async ({ request }) => {
   return handleQuoteRequest(request, {
     apiKey: import.meta.env.RESEND_API_KEY || '',
     from: import.meta.env.QUOTE_FROM_EMAIL || defaultQuoteSender,
-    to: import.meta.env.QUOTE_TO_EMAIL || defaultQuoteRecipient,
+    to: defaultQuoteRecipient,
     sendEmail: sendQuoteEmail
   });
 };
