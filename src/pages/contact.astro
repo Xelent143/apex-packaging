@@ -14,17 +14,17 @@ const breadcrumb = buildBreadcrumbSchema([
   description="Request a custom packaging quote with product dimensions, material, quantity, artwork, and delivery timing. Apex responds within one business day."
   schemaBlocks={[breadcrumb]}
 >
-  <section class="bg-neutral-50 py-10 md:py-16">
+  <section class="bg-neutral-50 py-8 md:py-12">
     <div class="container max-w-wide">
-      <div class="mx-auto max-w-[78rem] overflow-hidden rounded-[2rem] border border-[#d8cba7] bg-[#e9e2d7] shadow-popover md:rounded-[2.75rem]">
-        <div class="bg-accent px-6 py-6 text-center md:px-10 md:py-8">
-          <h1 class="font-display text-3xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-5xl">
+      <div class="mx-auto max-w-[64rem] overflow-hidden rounded-[1.5rem] border border-[#d8cba7] bg-[#e9e2d7] shadow-popover md:rounded-[2rem]">
+        <div class="bg-accent px-6 py-5 text-center md:px-8 md:py-6">
+          <h1 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-4xl">
             Get Custom Quote
           </h1>
         </div>
 
         <form
-          class="grid gap-6 p-5 md:gap-7 md:p-10"
+          class="grid gap-5 p-5 md:gap-6 md:p-8"
           action="/api/quote"
           method="POST"
           enctype="multipart/form-data"
@@ -45,7 +45,7 @@ const breadcrumb = buildBreadcrumbSchema([
               Product Information
             </legend>
             <input
-              class="h-16 border border-transparent bg-white px-6 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
+              class="h-14 border border-transparent bg-white px-5 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
               name="product"
               placeholder="Product Name"
             />
@@ -59,10 +59,10 @@ const breadcrumb = buildBreadcrumbSchema([
               Select Sizes
             </legend>
             <div class="grid gap-3 md:grid-cols-[1fr_1fr_1fr_8rem]">
-              <input class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" />
-              <input class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" />
-              <input class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" />
-              <select class="h-16 border border-transparent bg-white px-4 text-lg font-semibold text-neutral-800 focus:border-accent" name="unit">
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" />
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="unit">
                 <option>Unit</option>
                 <option>inch</option>
                 <option>cm</option>
@@ -79,7 +79,7 @@ const breadcrumb = buildBreadcrumbSchema([
               Choose Materials
             </legend>
             <div class="grid gap-3 md:grid-cols-[1fr_1fr_0.9fr]">
-              <select class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-800 focus:border-accent" name="material">
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="material">
                 <option>Stock</option>
                 <option>Cardboard Boxes</option>
                 <option>Kraft Boxes</option>
@@ -88,14 +88,14 @@ const breadcrumb = buildBreadcrumbSchema([
                 <option>Mylar Bags</option>
                 <option>Gable Boxes</option>
               </select>
-              <select class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-800 focus:border-accent" name="printing">
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="printing">
                 <option>Printing</option>
                 <option>Full-color exterior</option>
                 <option>Inside and outside print</option>
                 <option>Black ink only</option>
                 <option>No print</option>
               </select>
-              <input class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" />
             </div>
           </fieldset>
 
@@ -106,7 +106,7 @@ const breadcrumb = buildBreadcrumbSchema([
               </span>
               Upload Artwork
             </legend>
-            <label class="flex min-h-16 cursor-pointer items-center bg-white px-5 text-lg font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
+            <label class="flex min-h-14 cursor-pointer items-center bg-white px-4 text-base font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
               <input class="text-base" name="artwork" type="file" />
             </label>
           </fieldset>
@@ -121,9 +121,9 @@ const breadcrumb = buildBreadcrumbSchema([
               Personal Information
             </legend>
             <div class="grid gap-3 md:grid-cols-3">
-              <input required class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" />
-              <input required type="email" class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" />
-              <input required type="tel" class="h-16 border border-transparent bg-white px-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" />
+              <input required class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" />
+              <input required type="email" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" />
+              <input required type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" />
             </div>
           </fieldset>
 
@@ -138,26 +138,21 @@ const breadcrumb = buildBreadcrumbSchema([
             </legend>
             <textarea
               required
-              class="min-h-[13rem] border border-transparent bg-white px-5 py-5 text-lg font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
+              class="min-h-[10rem] border border-transparent bg-white px-4 py-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
               name="details"
               placeholder="Message..."
             ></textarea>
           </fieldset>
 
-          <div class="grid gap-4 pt-2 md:grid-cols-[1fr_auto] md:items-end">
-            <div class="flex min-h-24 max-w-[32rem] items-center gap-4 border border-neutral-300 bg-white px-6 text-xl font-semibold text-neutral-600">
-              <span class="h-12 w-12 border border-neutral-500 bg-white" aria-hidden="true"></span>
-              <span>I'm not a robot</span>
-              <span class="ml-auto text-sm font-black uppercase text-neutral-400">reCAPTCHA</span>
-            </div>
-            <button class="min-h-16 rounded-md bg-accent px-12 py-4 text-2xl font-black text-neutral-950 transition hover:bg-warning" type="submit">
+          <div class="flex justify-end pt-1">
+            <button class="min-h-14 rounded-md bg-accent px-10 py-3 text-lg font-black text-neutral-950 transition hover:bg-warning" type="submit">
               Submit
             </button>
           </div>
         </form>
       </div>
 
-      <div class="mx-auto mt-8 max-w-[78rem] grid gap-4 text-sm text-neutral-600 md:grid-cols-3">
+      <div class="mx-auto mt-6 max-w-[64rem] grid gap-4 text-sm text-neutral-600 md:grid-cols-3">
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
           <strong class="block font-display text-neutral-900">Direct email</strong>
           <a class="mt-2 block break-all text-accent hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
