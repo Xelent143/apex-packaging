@@ -4,6 +4,7 @@ import { createServer } from 'node:http';
 import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
+import { sendSmtpEmail } from './server/smtpEmail.mjs';
 import { createApexTestCheckoutSession, handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
@@ -55,7 +56,7 @@ const server = createServer(async (req, res) => {
         apiKey: process.env.RESEND_API_KEY || '',
         from: process.env.QUOTE_FROM_EMAIL || defaultQuoteSender,
         to: defaultQuoteRecipient,
-        sendEmail: sendQuoteEmail,
+        sendEmail: createQuoteEmailSender(),
         onDeliveryFailure: recordQuoteDeliveryFailure
       });
 
@@ -121,6 +122,17 @@ const server = createServer(async (req, res) => {
 server.listen(port, '0.0.0.0', () => {
   console.log(`Apex Packaging server listening on ${port}`);
 });
+
+function createQuoteEmailSender() {
+  if (!process.env.SMTP_PASS) return sendQuoteEmail;
+  return (_apiKey, email) => sendSmtpEmail({
+    host: process.env.SMTP_HOST || 'smtp.hostinger.com',
+    port: process.env.SMTP_PORT || '465',
+    username: process.env.SMTP_USER || defaultQuoteRecipient,
+    password: process.env.SMTP_PASS,
+    envelopeFrom: process.env.SMTP_USER || defaultQuoteRecipient
+  }, email);
+}
 
 async function recordQuoteDeliveryFailure(submission, error, email) {
   console.error('Quote email delivery failed:', error?.message || error);

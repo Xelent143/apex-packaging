@@ -20,14 +20,24 @@ Live chat uses Tawk.to widget `https://embed.tawk.to/6a23dd698705f01c35097370/1j
 
 ## Quote inquiry email
 
-The `/api/quote` form posts through the custom Node server in `server.mjs` and sends with Resend. Set these environment variables in production:
+The `/api/quote` form posts through the custom Node server in `server.mjs`. For Apex production, send through the Hostinger mailbox by setting these environment variables:
+
+```bash
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_USER=sales@apexpackagingsolutions.com
+SMTP_PASS=...
+QUOTE_FROM_EMAIL="Apex Packaging <sales@apexpackagingsolutions.com>"
+```
+
+If `SMTP_PASS` is not set, the server falls back to Resend:
 
 ```bash
 RESEND_API_KEY=re_...
 QUOTE_FROM_EMAIL="Apex Packaging <sales@apexpackagingsolutions.com>"
 ```
 
-Quote requests are hard-routed to `sales@apexpackagingsolutions.com` in code so production environment overrides cannot send leads to the wrong inbox. The `apexpackagingsolutions.com` sending domain must be verified in Resend before sending to `sales@apexpackagingsolutions.com`. Resend's `onboarding@resend.dev` sender is test-only and cannot send to arbitrary inboxes.
+Quote requests are hard-routed to `sales@apexpackagingsolutions.com` in code so production environment overrides cannot send leads to the wrong inbox. Resend requires verified DNS records before sending as `sales@apexpackagingsolutions.com`, so Hostinger SMTP is the preferred production path for this site.
 
 ## Stripe payments
 

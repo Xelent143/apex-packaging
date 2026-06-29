@@ -261,7 +261,7 @@ function formatUploadedFileSummary(file) {
   return file.skipped ? `${base} - ${file.skipped}` : base;
 }
 
-function sanitizeFilename(value) {
+export function sanitizeFilename(value) {
   return String(value).replace(/[^\w.\- ()]/g, '_').slice(0, 160) || 'uploaded-file';
 }
 
