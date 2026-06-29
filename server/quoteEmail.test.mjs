@@ -145,6 +145,35 @@ test('handleQuoteRequest records failed delivery and still redirects', async () 
   assert.match(failedSubmission.error.message, /Provider rejected message/);
 });
 
+test('handleQuoteRequest still redirects if failed-delivery backup throws', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Contact Page');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('redirectTo', '/thank-you');
+
+  const request = new Request('https://example.com/api/quote', {
+    method: 'POST',
+    body: formData
+  });
+
+  const response = await handleQuoteRequest(request, {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      throw new Error('Provider rejected message');
+    },
+    onDeliveryFailure: async () => {
+      throw new Error('Backup path is not writable');
+    }
+  });
+
+  assert.equal(response.status, 303);
+  assert.equal(response.headers.get('Location'), '/thank-you');
+});
+
 test('handleQuoteRequest retries without attachments if the email provider rejects them', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');

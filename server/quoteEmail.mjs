@@ -159,7 +159,7 @@ export async function handleQuoteRequest(request, options) {
     await options.sendEmail(options.apiKey, email);
   } catch (error) {
     if (!email.attachments?.length) {
-      await options.onDeliveryFailure?.(submission, error, email);
+      await safeRecordDeliveryFailure(options, submission, error, email);
     } else {
       const fallbackEmail = buildQuoteEmail(
         {
@@ -175,7 +175,7 @@ export async function handleQuoteRequest(request, options) {
       try {
         await options.sendEmail(options.apiKey, fallbackEmail);
       } catch (fallbackError) {
-        await options.onDeliveryFailure?.(submission, fallbackError, fallbackEmail);
+        await safeRecordDeliveryFailure(options, submission, fallbackError, fallbackEmail);
       }
     }
   }
@@ -189,6 +189,14 @@ export function isSafeRedirectPath(value) {
   if (!value.startsWith('/')) return false;
   if (value.startsWith('//')) return false;
   return true;
+}
+
+async function safeRecordDeliveryFailure(options, submission, error, email) {
+  try {
+    await options.onDeliveryFailure?.(submission, error, email);
+  } catch (recordError) {
+    console.error('Quote delivery failure backup failed:', recordError?.message || recordError);
+  }
 }
 
 function redirectResponse(location) {
