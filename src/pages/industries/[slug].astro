@@ -15,7 +15,7 @@ export function getStaticPaths() {
 
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
-const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
+const heroImage = box.heroBanner || box.image;
 const coffeePackagingSlides = [
   { src: '/images/industry-showcases/coffee-packaging/coffee-bag-1.webp', alt: 'Premium coffee bag mockup with fictional Northrail Roasters branding' },
   { src: '/images/industry-showcases/coffee-packaging/coffee-bag-2.webp', alt: 'Premium black coffee pouch mockup with fictional Noctra Coffee branding' },

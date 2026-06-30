@@ -20,7 +20,122 @@ const defaultPrintOptions = [
   'Foil, embossing, matte, soft-touch, and spot UV finishing on request'
 ];
 
+function categoryBox(
+  slug: string,
+  label: string,
+  summary: string,
+  bestFor: string[],
+  materials: string[],
+  styles: string[]
+): IndustryBox {
+  return {
+    slug,
+    label,
+    image: `/images/home/categories/${slug}.webp`,
+    icon: '/images/industry-icons/product-boxes.png',
+    alt: `Apex Packaging branded ${label.toLowerCase()}`,
+    summary,
+    bestFor,
+    materials,
+    styles,
+    printOptions: defaultPrintOptions,
+    manufacturerNotes: [
+      'Dielines are built around the product dimensions, retail display needs, and fulfillment method.',
+      'Material and finish choices are matched to the product weight, brand position, and reorder quantity.',
+      'Digital proofs and samples can confirm artwork placement before the production run is released.'
+    ]
+  };
+}
+
 export const industryBoxes: IndustryBox[] = [
+  categoryBox(
+    'rigid-boxes',
+    'Rigid Boxes',
+    'Rigid boxes for premium gift sets, cosmetics, tech kits, launch packaging, and retail products that need a stronger presentation format.',
+    ['Premium gift sets', 'Cosmetic kits', 'Launch boxes', 'Retail presentation'],
+    ['Rigid board', 'Printed paper wrap', 'Foam or paperboard inserts', 'Specialty laminations'],
+    ['Two-piece rigid boxes', 'Magnetic closure boxes', 'Drawer boxes', 'Rigid setup boxes']
+  ),
+  categoryBox(
+    'custom-mylar-bags',
+    'Custom Mylar Bags',
+    'Custom mylar bags for food, supplements, wellness products, and retail refills that need barrier protection and branded print.',
+    ['Coffee and tea refills', 'Supplements', 'Dry food packs', 'Retail refill programs'],
+    ['Mylar barrier film', 'Kraft laminate film', 'Resealable zippers', 'Matte or gloss laminate'],
+    ['Stand-up pouches', 'Flat pouches', 'Zipper bags', 'Hang-hole retail bags']
+  ),
+  categoryBox(
+    'display-boxes',
+    'Display Boxes',
+    'Display boxes for counter, shelf, and retail presentation programs where products need organized visibility and brand impact.',
+    ['Counter displays', 'Retail shelf programs', 'Sample packs', 'Impulse products'],
+    ['Printed corrugated', 'SBS paperboard', 'Kraft board', 'Retail display inserts'],
+    ['Counter display boxes', 'Shelf-ready trays', 'PDQ displays', 'Open-top display cartons']
+  ),
+  categoryBox(
+    'pillow-boxes',
+    'Pillow Boxes',
+    'Pillow boxes for small retail products, gifts, apparel accessories, jewelry, and promotional packaging.',
+    ['Small gifts', 'Jewelry and accessories', 'Apparel add-ons', 'Promotional kits'],
+    ['SBS paperboard', 'Kraft board', 'Textured paper stock', 'Clear window film'],
+    ['Curved pillow cartons', 'Window pillow boxes', 'Sleeved pillow boxes', 'Gift pillow boxes']
+  ),
+  categoryBox(
+    'window-packaging',
+    'Window Packaging',
+    'Window packaging for products that need visibility on shelf while keeping the carton branded, protective, and retail-ready.',
+    ['Food cartons', 'Cosmetic products', 'Retail gifts', 'Bottle and jar packaging'],
+    ['SBS paperboard', 'Kraft board', 'PET window film', 'Food-safe window film'],
+    ['Window cartons', 'Sleeve window boxes', 'Auto-bottom window boxes', 'Display window cartons']
+  ),
+  categoryBox(
+    'custom-tuck-boxes',
+    'Custom Tuck Boxes',
+    'Custom tuck boxes for retail products, cosmetics, supplements, and lightweight goods that need efficient folding-carton production.',
+    ['Retail cartons', 'Cosmetic items', 'Supplements', 'Small consumer products'],
+    ['SBS paperboard', 'Kraft paperboard', 'Recycled-content board', 'Coated folding carton stock'],
+    ['Straight tuck boxes', 'Reverse tuck boxes', 'Auto-lock bottom cartons', 'Hang-tab tuck boxes']
+  ),
+  categoryBox(
+    'custom-kraft-soap-boxes',
+    'Custom Kraft Soap Boxes',
+    'Custom kraft soap boxes for handmade soap, natural skincare, and wellness brands that want recyclable retail packaging.',
+    ['Handmade soap', 'Natural skincare', 'Wellness products', 'Retail soap bars'],
+    ['Kraft paperboard', 'Recycled kraft stock', 'Window film', 'Soy-based print options'],
+    ['Soap sleeves', 'Kraft tuck boxes', 'Window soap boxes', 'Die-cut soap cartons']
+  ),
+  categoryBox(
+    'chocolate-bar-boxes',
+    'Chocolate Bar Boxes',
+    'Chocolate bar boxes for confectionery brands that need food-aware cartons, premium print, and strong shelf presence.',
+    ['Chocolate bars', 'Confectionery launches', 'Gift chocolate', 'Seasonal flavors'],
+    ['Food-grade paperboard', 'Kraft sleeves', 'Foil-compatible board', 'Retail folding carton stock'],
+    ['Bar sleeves', 'Tuck cartons', 'Window chocolate boxes', 'Gift bar cartons']
+  ),
+  categoryBox(
+    'software-boxes',
+    'Software Boxes',
+    'Software boxes for tech products, digital kits, manuals, cards, and premium product bundles.',
+    ['Software suites', 'Tech bundles', 'Manual and card kits', 'Retail electronics'],
+    ['Rigid board', 'Printed paperboard', 'E-flute corrugated', 'Foam or paperboard inserts'],
+    ['Rigid tech boxes', 'Sleeve boxes', 'Mailer kits', 'Retail tuck cartons']
+  ),
+  categoryBox(
+    'hair-extension-boxes',
+    'Hair Extension Boxes',
+    'Hair extension boxes for beauty brands that need long-format protection, premium print, and an elevated unboxing experience.',
+    ['Hair extensions', 'Beauty bundles', 'Salon retail', 'Premium launch kits'],
+    ['Rigid board', 'SBS paperboard', 'Drawer inserts', 'Soft-touch laminated wraps'],
+    ['Drawer boxes', 'Sleeve boxes', 'Rigid presentation boxes', 'Window hair extension boxes']
+  ),
+  categoryBox(
+    'cbd-gift-boxes',
+    'CBD Gift Boxes',
+    'CBD gift boxes for wellness bundles, tincture sets, jars, and launch kits with custom inserts and premium finishing.',
+    ['CBD bundles', 'Tincture sets', 'Wellness launch kits', 'Retail gift packaging'],
+    ['Rigid board', 'Printed paperboard', 'Foam inserts', 'Paperboard dividers'],
+    ['Magnetic gift boxes', 'Insert kits', 'Drawer boxes', 'Retail bundle cartons']
+  ),
   {
     slug: 'apparel-boxes',
     label: 'Apparel Boxes',
