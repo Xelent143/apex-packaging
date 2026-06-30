@@ -78,8 +78,26 @@ const heroSlides = [
   {
     src: '/images/apex-update/banners/banner-3.webp',
     alt: 'Sustainable packaging with fictional brand artwork'
+  },
+  {
+    src: '/images/home/hero-slides/category-showcase-1.webp',
+    alt: 'Retail packaging category mockups with cosmetic, bakery, tea, soap, and software box designs'
+  },
+  {
+    src: '/images/home/hero-slides/category-showcase-2.webp',
+    alt: 'Food and beverage packaging category mockups with coffee, bakery, food, chocolate, and tea designs'
+  },
+  {
+    src: '/images/home/hero-slides/category-showcase-3.webp',
+    alt: 'Premium gift and wellness packaging category mockups with CBD, candle, rigid, pillow, and Christmas box designs'
+  },
+  {
+    src: '/images/home/hero-slides/category-showcase-4.webp',
+    alt: 'Custom printed box style mockups with tuck, kraft soap, display, window, and hair extension packaging designs'
   }
 ];
+
+const heroSlideDurationSeconds = 5;
 
 const schemaBlocks = [buildFAQSchema(faqs)];
 ---
@@ -98,7 +116,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           width="2172"
           height="724"
           class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
-          style={`animation-delay: ${index * 5}s;`}
+          style={`animation-delay: ${index * heroSlideDurationSeconds}s;`}
           loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
           fetchpriority={index === 0 ? 'high' : 'auto'}
@@ -109,17 +127,17 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
   <style>
     .apex-banner-slide {
-      animation: apex-banner-fade 15s infinite;
+      animation: apex-banner-fade 35s infinite;
       opacity: 0;
     }
 
     @keyframes apex-banner-fade {
       0%,
-      30% {
+      13% {
         opacity: 1;
       }
 
-      36%,
+      16%,
       94% {
         opacity: 0;
       }
