@@ -15,7 +15,10 @@ export function getStaticPaths() {
 
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
-const heroImage = box.heroBanner || box.image;
+const categoryBanner = box.image.startsWith('/images/home/categories/')
+  ? box.image.replace('/images/home/categories/', '/images/home/category-banners/').replace(/\.(webp|jpg|jpeg|png)$/i, '-banner.webp')
+  : '';
+const heroImage = box.heroBanner || categoryBanner || box.image;
 const coffeePackagingSlides = [
   { src: '/images/industry-showcases/coffee-packaging/coffee-bag-1.webp', alt: 'Premium coffee bag mockup with fictional Northrail Roasters branding' },
   { src: '/images/industry-showcases/coffee-packaging/coffee-bag-2.webp', alt: 'Premium black coffee pouch mockup with fictional Noctra Coffee branding' },
@@ -67,7 +70,7 @@ const service = buildServiceSchema({
       alt={`${box.label} custom packaging hero banner`}
       width="2172"
       height="724"
-      class="aspect-[2172/724] w-full object-cover object-center"
+      class="block h-auto w-full"
       loading="eager"
       decoding="async"
       fetchpriority="high"

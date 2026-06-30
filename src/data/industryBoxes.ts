@@ -32,6 +32,7 @@ function categoryBox(
     slug,
     label,
     image: `/images/home/categories/${slug}.webp`,
+    heroBanner: `/images/home/category-banners/${slug}-banner.webp`,
     icon: '/images/industry-icons/product-boxes.png',
     alt: `Apex Packaging branded ${label.toLowerCase()}`,
     summary,
