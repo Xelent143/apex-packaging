@@ -14,13 +14,6 @@ const faqs = [
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Polybags',url:'/services/polybags'}]);
 const service = buildServiceSchema({ name:'Custom polybags Canada', description:'Custom polybags manufactured in Canada. LDPE, HDPE, anti-static, food-safe. MOQ from 500.', url:'/services/polybags'});
-const polybagSlides = [
-  { src: '/images/services/polybags-slider/polybag-1.webp', alt: 'Premium mylar stand-up pouch mockup with fictional Verda branding' },
-  { src: '/images/services/polybags-slider/polybag-2.webp', alt: 'Premium black resealable mylar pouch mockup with fictional Noctra branding' },
-  { src: '/images/services/polybags-slider/polybag-3.webp', alt: 'Colorful stand-up mylar pouch mockups with fictional Luma Pop branding' },
-  { src: '/images/services/polybags-slider/polybag-4.webp', alt: 'Printed flexible poly mailer and pouch mockup with fictional Aeris branding' },
-  { src: '/images/services/polybags-slider/polybag-5.webp', alt: 'Metallic resealable mylar pouch mockup with fictional Volt and Vale branding' }
-];
 ---
 <BaseLayout
   title="Custom Polybags Canada — LDPE & HDPE Manufacturer"
@@ -35,53 +28,6 @@ const polybagSlides = [
     imageAlt="Apex Packaging custom polybags banner with clear bags, printed mailers, wicketed runs, VCI protective bags, branded cartons, feature icons, and service headline."
     imageIsFullBanner={true}
   />
-
-  <section class="overflow-hidden border-y border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Premium polybag and mylar pouch mockup slider">
-    <div class="polybag-showcase-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
-      {[...polybagSlides, ...polybagSlides].map((slide, index) => (
-        <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            width="1200"
-            height="760"
-            loading={index < 3 ? 'eager' : 'lazy'}
-            decoding="async"
-            class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
-          />
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <style>
-    .polybag-showcase-track {
-      animation: polybag-showcase-scroll 38s linear infinite;
-      will-change: transform;
-    }
-
-    .polybag-showcase-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes polybag-showcase-scroll {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .polybag-showcase-track {
-        animation: none;
-        max-width: 100%;
-        overflow-x: auto;
-      }
-    }
-  </style>
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">

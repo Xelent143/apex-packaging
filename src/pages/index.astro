@@ -88,58 +88,19 @@ const schemaBlocks = [buildFAQSchema(faqs)];
   description="Apex Packaging Solutions manufactures custom printed boxes, bags, mailers, inserts, and retail packaging in Canada with low MOQs, fast turnaround, and design support."
   schemaBlocks={schemaBlocks}
 >
-  <section class="apex-banner-slider overflow-hidden border-b border-neutral-200 bg-white">
+  <section class="overflow-hidden border-b border-neutral-200 bg-white">
     <h1 class="sr-only">Custom Packaging your customers will love</h1>
-    <div class="relative aspect-[2172/724] w-full">
-      {heroSlides.map((slide, index) => (
-        <img
-          src={slide.src}
-          alt={slide.alt}
-          width="2172"
-          height="724"
-          class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
-          style={`animation-delay: ${index * 5}s;`}
-          loading={index === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          fetchpriority={index === 0 ? 'high' : 'auto'}
-        />
-      ))}
-    </div>
+    <img
+      src={heroSlides[0].src}
+      alt={heroSlides[0].alt}
+      width="2172"
+      height="724"
+      class="block h-auto w-full"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
   </section>
-
-  <style>
-    .apex-banner-slide {
-      animation: apex-banner-fade 15s infinite;
-      opacity: 0;
-    }
-
-    @keyframes apex-banner-fade {
-      0%,
-      30% {
-        opacity: 1;
-      }
-
-      36%,
-      94% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .apex-banner-slide {
-        animation: none;
-        opacity: 0;
-      }
-
-      .apex-banner-slide:first-child {
-        opacity: 1;
-      }
-    }
-  </style>
 
   <section class="border-y border-neutral-200 bg-neutral-50 py-3 md:py-5">
     <div class="container max-w-wide overflow-hidden">

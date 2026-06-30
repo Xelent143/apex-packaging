@@ -74,57 +74,19 @@ const heroSlides = [
   image="/images/apex-update/banners/banner-1.webp"
   schemaBlocks={[breadcrumb]}
 >
-  <section class="apex-banner-slider overflow-hidden border-b border-neutral-200 bg-white">
+  <section class="overflow-hidden border-b border-neutral-200 bg-white">
     <h1 class="sr-only">Custom box types Apex manufactures.</h1>
-    <div class="relative aspect-[2172/724] w-full">
-      {heroSlides.map((slide, index) => (
-        <img
-          src={slide.src}
-          alt={slide.alt}
-          width="2172"
-          height="724"
-          class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
-          style={`animation-delay: ${index * 5}s;`}
-          loading={index === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          fetchpriority={index === 0 ? 'high' : 'auto'}
-        />
-      ))}
-    </div>
+    <img
+      src={heroSlides[0].src}
+      alt={heroSlides[0].alt}
+      width="2172"
+      height="724"
+      class="block h-auto w-full"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
   </section>
-  <style>
-    .apex-banner-slide {
-      animation: apex-banner-fade 15s infinite;
-      opacity: 0;
-    }
-
-    @keyframes apex-banner-fade {
-      0%,
-      30% {
-        opacity: 1;
-      }
-
-      36%,
-      94% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .apex-banner-slide {
-        animation: none;
-        opacity: 0;
-      }
-
-      .apex-banner-slide:first-child {
-        opacity: 1;
-      }
-    }
-  </style>
   <section id="industries-grid" class="scroll-mt-28 border-b border-neutral-200 bg-white py-10 md:scroll-mt-32 md:py-16">
     <div class="container max-w-wide">
       <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-6">

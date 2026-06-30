@@ -24,13 +24,6 @@ const service = buildServiceSchema({
   description: 'Custom corrugated boxes manufactured in Canada — RSC, FOL, die-cut, telescoping. Single-wall ECT-32 to double-wall ECT-48. MOQ from 100 units.',
   url: '/services/corrugated-boxes'
 });
-const corrugatedSlides = [
-  { src: '/images/services/corrugated-slider/corrugated-box-1.webp', alt: 'Kraft corrugated shipping box mockup with fictional Terralis branding' },
-  { src: '/images/services/corrugated-slider/corrugated-box-2.webp', alt: 'Corrugated display tray mockup with fictional Solace Current branding' },
-  { src: '/images/services/corrugated-slider/corrugated-box-3.webp', alt: 'Open corrugated mailer style box mockup with fictional Auren Goods branding' },
-  { src: '/images/services/corrugated-slider/corrugated-box-4.webp', alt: 'Stacked printed corrugated carton mockups with fictional Mira Supply branding' },
-  { src: '/images/services/corrugated-slider/corrugated-box-5.webp', alt: 'Heavy duty corrugated box mockup with fictional Northwild Lab branding' }
-];
 ---
 <BaseLayout
   title="Custom Corrugated Boxes Canada — RSC, FOL, Die-Cut"
@@ -45,53 +38,6 @@ const corrugatedSlides = [
     imageAlt="Apex Packaging custom corrugated boxes banner with branded RSC cartons, kraft boxes, die-cut displays, flute samples, feature icons, and service headline."
     imageIsFullBanner={true}
   />
-
-  <section class="overflow-hidden border-y border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Premium corrugated box mockup slider">
-    <div class="corrugated-showcase-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
-      {[...corrugatedSlides, ...corrugatedSlides].map((slide, index) => (
-        <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            width="1200"
-            height="760"
-            loading={index < 3 ? 'eager' : 'lazy'}
-            decoding="async"
-            class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
-          />
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <style>
-    .corrugated-showcase-track {
-      animation: corrugated-showcase-scroll 38s linear infinite;
-      will-change: transform;
-    }
-
-    .corrugated-showcase-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes corrugated-showcase-scroll {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .corrugated-showcase-track {
-        animation: none;
-        max-width: 100%;
-        overflow-x: auto;
-      }
-    }
-  </style>
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">
