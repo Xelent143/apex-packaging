@@ -34,31 +34,36 @@ const hasImage = Boolean(imageSrc);
 <section
   class:list={[
     'border-b border-neutral-200 bg-white',
-    hasImage ? 'relative isolate overflow-hidden py-10 md:py-0' : 'pt-10 pb-9 md:pt-28 md:pb-16'
+    hasImage ? 'py-8 md:py-12 lg:py-14' : 'pt-10 pb-9 md:pt-28 md:pb-16'
   ]}
 >
-  {imageSrc && (
-    <>
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        class="absolute inset-0 -z-10 h-full w-full object-cover object-[64%_center]"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
-      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/95 to-white/20 md:via-white/84 md:to-white/10"></div>
-    </>
-  )}
-
-  <div class:list={['container max-w-wide', hasImage && 'relative flex min-h-[28rem] items-center sm:min-h-[32rem] md:min-h-[39rem]']}>
-    <div class={hasImage ? 'max-w-[42rem] lg:max-w-[45rem]' : ''}>
+  <div
+    class:list={[
+      'container max-w-wide',
+      hasImage && 'grid items-center gap-8 md:grid-cols-[minmax(0,0.92fr)_minmax(24rem,1.08fr)] lg:gap-12'
+    ]}
+  >
+    <div class={hasImage ? 'max-w-[44rem]' : ''}>
       {eyebrow && <p class="eyebrow mb-4 md:mb-5">{eyebrow}</p>}
       <h1 class="mb-5 max-w-4xl font-display text-[2.05rem] font-bold leading-[1.04] tracking-normal text-neutral-900 md:mb-6 md:text-5xl lg:text-6xl xl:text-[4.35rem]">
         {heading}
       </h1>
       {lead && <p class="max-w-3xl text-base leading-relaxed text-neutral-600 md:text-xl">{lead}</p>}
     </div>
+    {imageSrc && (
+      <div class="relative overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 shadow-card">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          class="aspect-[16/10] h-full w-full object-cover object-center"
+          width="1200"
+          height="750"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    )}
   </div>
 </section>
 )}
