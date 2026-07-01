@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Gift boxes: inserts, rigid formats, and mailer packaging guide';
+const description = 'A practical buyer guide to gift boxes in Canada and the USA: presentation, insert fit, shipping protection, and reorder planning, quote details, and internal packaging decisions before production.';
+const url = '/blog/gift-boxes-inserts-rigid-mailer-packaging-guide';
+const datePublished = '2026-06-16';
+const focusKeyword = 'gift boxes';
+
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  { q: 'What should buyers include when requesting gift boxes?', a: 'Send dimensions, quantity, product weight, print needs, material preference, delivery location, and any compliance or sustainability requirement before asking for production pricing.' },
+  { q: 'Can Apex quote gift boxes for both Canada and the USA?', a: 'Yes. Apex Packaging Solutions supports packaging buyers across Canada and the USA with custom box, mailer, polybag, protective, and product packaging programs.' },
+  { q: 'What usually affects price most?', a: 'Price is usually shaped by size, material, order quantity, print coverage, tooling, finishing, sampling, freight, and whether the project needs a custom insert or special documentation.' }
+]);
+---
+<BaseLayout title={title} description={description} image="/images/blog/gift-boxes.svg" schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader eyebrow="Knowledge base · Buyer guide" heading={title} lead={`Focus keyword: gift boxes. This guide helps USA and Canada buyers compare gift mailers, rigid-style boxes, and inserts before approving artwork, samples, or production quantities.`} imageSrc="/images/blog/gift-boxes.svg" imageAlt={`Professional packaging illustration for gift boxes.`} />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Gift boxes</strong> searches usually come from buyers who already have a product, a launch date, or a reorder problem. The decision is rarely about the box alone. It is about how the package protects the product, presents the brand, fits the packing line, and reaches customers without avoidable damage or delay.</p>
+      <p>Apex Packaging Solutions supports gift mailers, rigid-style boxes, and inserts for teams buying in Canada and the USA. Use this guide to prepare a cleaner RFQ, compare material choices, and avoid the common details that slow down quotes. If the project needs broader support, review <a href="/industries/gift-boxes">gift boxes</a> and the related Apex guide to <a href="/services/protective-packaging">protective packaging</a>.</p>
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card"><img src="/images/blog/gift-boxes.svg" alt="Professional packaging illustration for gift boxes." width="1200" height="675" loading="eager" decoding="async" class="w-full" /><figcaption class="px-5 py-4 text-sm text-neutral-600">Gift boxes decisions should be made around structure, print, quantity, freight, and the claim the package needs to support.</figcaption></figure>
+      <h2>Start with the product and the channel</h2>
+      <p>The same package can perform differently in ecommerce, retail, wholesale, and distributor channels. A retail box may need a strong front panel, barcode zone, and shelf-ready finish. A shipping carton may need ECT strength, tape performance, and room for void fill. A launch kit may need presentation quality, insert fit, and low-MOQ flexibility.</p>
+      <p>Before requesting pricing, define the channel first. The supplier can then recommend whether the project should use corrugated, paperboard, kraft stock, white liner, poly mailers, foam, inserts, or a hybrid packout. That prevents the quote from comparing options that are not solving the same problem.</p>
+      <h2>What drives the specification</h2>
+      <table><thead><tr><th>Input</th><th>Why it matters</th><th>What to send</th></tr></thead><tbody><tr><td>Product size and weight</td><td>Controls board grade, insert need, and freight risk</td><td>Exact dimensions, unit weight, and pack count</td></tr><tr><td>Order quantity</td><td>Changes setup cost, print route, and MOQ options</td><td>First order volume plus expected reorder cadence</td></tr><tr><td>Print and finish</td><td>Affects lead time, artwork review, and unit cost</td><td>Logo files, colour targets, coatings, foil, embossing, or no-print needs</td></tr><tr><td>Sales channel</td><td>Determines whether presentation or freight strength matters more</td><td>Ecommerce, retail, wholesale, distributor, or industrial use</td></tr></tbody></table>
+      <h2>Material and print choices should match the buying intent</h2>
+      <p>For gift boxes, material choice should follow the product and the buyer's expectations. Kraft can signal practical and recycled-content packaging. White liner can give sharper colour. Corrugated can support stacking and transit. Paperboard can work for lightweight retail goods. Poly can reduce weight and improve moisture resistance. Foam or inserts may be needed when the product is fragile, polished, or high-value.</p>
+      <p>Print choices need the same discipline. One-colour marks may be enough for industrial cartons. Full-panel graphics may be justified for ecommerce or retail. Barcodes, legal copy, nutrition panels, warnings, and bilingual text need confirmed panel space before the file reaches proofing.</p>
+      <h2>RFQ checklist for faster pricing</h2>
+      <ul><li>Inside dimensions, product weight, and number of units per package.</li><li>Target order quantity, reorder estimate, and required delivery date.</li><li>Preferred material, or the performance requirement if material is unknown.</li><li>Print coverage, brand colours, barcode needs, and artwork status.</li><li>Shipping method: parcel, pallet, LTL, retail distribution, or local delivery.</li><li>Any sustainability, FSC, recycled-content, food-contact, or customer documentation requirement.</li></ul>
+      <h2>Conclusion</h2>
+      <p>The fastest path to useful pricing is a complete specification, not a vague request for a custom box. Send Apex the product details, order quantity, channel, artwork status, and delivery requirements. The team can then recommend a package that balances presentation, protection, cost, and production timing.</p>
+    </div>
+  </section>
+  <RelatedContent items={[{ title: 'gift boxes', href: '/industries/gift-boxes', description: 'Relevant Apex packaging services for this buyer guide.' },{ title: 'protective packaging', href: '/services/protective-packaging', description: 'Related guidance for specifications, materials, or quote preparation.' },{ title: 'Request a Quote', href: '/contact', description: 'Send dimensions, artwork, and order details for production pricing.' }]} />
+  <CTABand heading="Need pricing for gift boxes?" lead="Send product dimensions, quantity, artwork status, and delivery location. Apex will flag the missing details before production." primaryCta={{ label: 'Request a packaging quote', href: '/contact' }} />
+</BaseLayout>
