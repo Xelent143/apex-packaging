@@ -15,7 +15,8 @@ export function getStaticPaths() {
 
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
-const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
+const categoryHeroImage = box.heroBanner?.includes('/images/home/category-banners/') ? box.heroBanner : undefined;
+const heroImage = categoryHeroImage ?? `/images/industry-hero-banners/${box.slug}.webp`;
 const coffeePackagingSlides = [
   { src: '/images/industry-showcases/coffee-packaging/coffee-bag-1.webp', alt: 'Premium coffee bag mockup with fictional Northrail Roasters branding' },
   { src: '/images/industry-showcases/coffee-packaging/coffee-bag-2.webp', alt: 'Premium black coffee pouch mockup with fictional Noctra Coffee branding' },
@@ -60,7 +61,7 @@ const service = buildServiceSchema({
   image={heroImage}
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
-  <section class="overflow-hidden border-b border-neutral-200 bg-white">
+  <section class="relative overflow-hidden border-b border-neutral-200 bg-white">
     <h1 class="sr-only">Custom {box.label}</h1>
     <img
       src={heroImage}

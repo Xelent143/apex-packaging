@@ -6,12 +6,14 @@ interface Props {
   imageSrc?: string;
   imageAlt?: string;
   imageIsFullBanner?: boolean;
+  featureItems?: { label: string }[];
 }
+
 const { eyebrow, heading, lead, imageSrc, imageAlt = '', imageIsFullBanner = false } = Astro.props;
 const hasImage = Boolean(imageSrc);
 ---
 {imageSrc && imageIsFullBanner ? (
-  <section class="border-b border-neutral-200 bg-white">
+  <section class="relative overflow-hidden border-b border-neutral-200 bg-white">
     <h1 class="sr-only">{heading}</h1>
     {eyebrow && <p class="sr-only">{eyebrow}</p>}
     {lead && <p class="sr-only">{lead}</p>}
