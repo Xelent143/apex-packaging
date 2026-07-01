@@ -21,9 +21,12 @@ const categoryBanner = box.image.startsWith('/images/home/categories/')
   : '';
 const heroImage = box.heroBanner || categoryBanner || box.image;
 const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
+  'candle-boxes': [{ label: 'Jar Protection' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }, { label: 'Giftable' }],
   'coffee-packaging': [{ label: 'Freshness' }, { label: 'Valve Options' }, { label: 'Retail Ready' }, { label: 'Custom Print' }],
+  'cosmetic-boxes': [{ label: 'Beauty Retail' }, { label: 'Soft Touch' }, { label: 'Foil Options' }, { label: 'Custom Inserts' }],
   'custom-mylar-bags': [{ label: 'Barrier Film' }, { label: 'Resealable' }, { label: 'Food Safe' }, { label: 'Custom Print' }],
-  'rigid-boxes': [{ label: 'Rigid Board' }, { label: 'Luxury Finish' }, { label: 'Gift Ready' }, { label: 'Custom Inserts' }]
+  'rigid-boxes': [{ label: 'Rigid Board' }, { label: 'Luxury Finish' }, { label: 'Gift Ready' }, { label: 'Custom Inserts' }],
+  'soap-boxes': [{ label: 'Soap Bars' }, { label: 'Window Cut' }, { label: 'Kraft Options' }, { label: 'Retail Ready' }]
 };
 const heroFeatureItems = heroFeatureItemsBySlug[box.slug] ?? [];
 const metaTitle = `Custom ${box.label} Canada | Apex Packaging`;
