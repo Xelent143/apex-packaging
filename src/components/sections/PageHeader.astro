@@ -51,10 +51,10 @@ const hasImage = Boolean(imageSrc);
     </>
   )}
 
-  <div class:list={['container max-w-wide', hasImage && 'relative flex min-h-[36rem] items-center md:min-h-[39rem]']}>
-    <div class={hasImage ? 'max-w-[47rem]' : ''}>
+  <div class:list={['container max-w-wide', hasImage && 'relative flex min-h-[28rem] items-center sm:min-h-[32rem] md:min-h-[39rem]']}>
+    <div class={hasImage ? 'max-w-[42rem] lg:max-w-[45rem]' : ''}>
       {eyebrow && <p class="eyebrow mb-4 md:mb-5">{eyebrow}</p>}
-      <h1 class="mb-5 max-w-4xl font-display text-[2.05rem] font-bold leading-[1.04] tracking-normal text-neutral-900 md:mb-6 md:text-6xl lg:text-7xl">
+      <h1 class="mb-5 max-w-4xl font-display text-[2.05rem] font-bold leading-[1.04] tracking-normal text-neutral-900 md:mb-6 md:text-5xl lg:text-6xl xl:text-[4.35rem]">
         {heading}
       </h1>
       {lead && <p class="max-w-3xl text-base leading-relaxed text-neutral-600 md:text-xl">{lead}</p>}
