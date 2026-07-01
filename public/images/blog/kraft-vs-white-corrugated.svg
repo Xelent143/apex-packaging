@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Kraft vs white corrugated comparison</title>
+  <desc id="desc">A comparison diagram for kraft and white corrugated packaging across print, cost, sustainability, and use cases.</desc>
+  <rect width="1200" height="675" fill="#f7f3ea"/>
+  <rect x="70" y="64" width="1060" height="547" rx="22" fill="#0f0d0a"/>
+  <text x="110" y="132" fill="#f7f3ea" font-family="Arial, sans-serif" font-size="44" font-weight="700">Kraft vs white corrugated</text>
+  <text x="110" y="172" fill="#d7d1c4" font-family="Arial, sans-serif" font-size="21">Choose the board around print coverage, budget, sustainability claims, and the buying channel.</text>
+  <g transform="translate(110 230)">
+    <rect width="455" height="295" rx="18" fill="#bf8f55"/>
+    <text x="34" y="58" fill="#0f0d0a" font-family="Arial, sans-serif" font-size="34" font-weight="700">Kraft liner</text>
+    <path d="M52 112h240v126H52z" fill="#d1a067" stroke="#0f0d0a" stroke-width="5"/>
+    <path d="M52 112l44-42h240l-44 42z" fill="#e0b278" stroke="#0f0d0a" stroke-width="5"/>
+    <path d="M292 112l44-42v126l-44 42z" fill="#b47c42" stroke="#0f0d0a" stroke-width="5"/>
+    <text x="34" y="265" fill="#0f0d0a" font-family="Arial, sans-serif" font-size="19">Lower-ink designs, earthy retail cues, recycled-content look.</text>
+  </g>
+  <g transform="translate(635 230)">
+    <rect width="455" height="295" rx="18" fill="#f8f8f5"/>
+    <text x="34" y="58" fill="#0f0d0a" font-family="Arial, sans-serif" font-size="34" font-weight="700">White liner</text>
+    <path d="M52 112h240v126H52z" fill="#ffffff" stroke="#0f0d0a" stroke-width="5"/>
+    <path d="M52 112l44-42h240l-44 42z" fill="#eceae4" stroke="#0f0d0a" stroke-width="5"/>
+    <path d="M292 112l44-42v126l-44 42z" fill="#dedbd0" stroke="#0f0d0a" stroke-width="5"/>
+    <circle cx="96" cy="156" r="18" fill="#d6a000"/>
+    <circle cx="146" cy="156" r="18" fill="#0077bd"/>
+    <circle cx="196" cy="156" r="18" fill="#c13f32"/>
+    <text x="34" y="265" fill="#0f0d0a" font-family="Arial, sans-serif" font-size="19">Sharper colour, cleaner brand panels, stronger shelf presentation.</text>
+  </g>
+  <text x="110" y="570" fill="#f7f3ea" font-family="Arial, sans-serif" font-size="22" font-weight="700">Apex Packaging Solutions</text>
+</svg>

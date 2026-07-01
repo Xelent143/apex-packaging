@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Compostable Polybags vs PCR Polybags: What Buyers Should Ask';
+const description = 'A practical buyer guide to compostable vs PCR polybags in Canada: claims, storage, strength, disposal paths, and documentation to request before ordering.';
+const url = '/blog/compostable-vs-pcr-polybags-buyers-ask';
+const datePublished = '2026-07-01';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Compostable vs PCR Polybags', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  { q: 'Are compostable polybags better than PCR polybags?', a: 'Not automatically. Compostable bags need the right disposal path and certification. PCR polybags may be better when recycled content, durability, and standard storage performance matter more.' },
+  { q: 'What should buyers verify before ordering compostable polybags?', a: 'Ask for the compostability standard, storage requirements, expected shelf life, print limitations, and whether your customers or waste stream can actually process the material.' },
+  { q: 'What does PCR mean in polybags?', a: 'PCR means post-consumer recycled content. Buyers should ask what percentage is PCR, how it affects strength and appearance, and what documentation supports the recycled-content claim.' }
+]);
+---
+<BaseLayout title="Compostable vs PCR Polybags Canada" description={description} image="/images/blog/compostable-vs-pcr-polybags.svg" schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader
+    eyebrow="Knowledge base · Polybags"
+    heading="Compostable polybags vs PCR polybags - what buyers should ask."
+    lead="A sustainable polybag choice only works when the claim, storage life, strength, print method, and disposal path all fit the real shipment."
+    imageSrc="/images/blog/compostable-vs-pcr-polybags.svg"
+    imageAlt="Comparison diagram for compostable polybags and PCR recycled-content polybags."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Compostable polybags vs PCR polybags</strong> is not a simple good-versus-better decision. Compostable film may support a specific disposal claim, but it needs the right certification, storage conditions, and end-of-life path. PCR polybags use post-consumer recycled content and may keep the performance profile closer to conventional poly, but the recycled percentage and documentation matter.</p>
+
+      <p>Apex Packaging Solutions supplies <a href="/services/polybags">custom polybags</a> for ecommerce, apparel, industrial, food-adjacent, and electronics buyers. This guide helps procurement teams compare compostable and PCR options before approving artwork or making a public sustainability claim.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src="/images/blog/compostable-vs-pcr-polybags.svg" alt="Compostable vs PCR polybags comparison for packaging buyers." width="1200" height="675" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Compostable and PCR films answer different buyer requirements. Verify the claim before the purchase order is approved.</figcaption>
+      </figure>
+
+      <h2>Compostable bags need a real composting path</h2>
+      <p>Compostable packaging is only useful when the receiving market can process it correctly. If the customer throws the bag into regular waste, the claim may not deliver the intended environmental benefit. If the bag enters recycling, it may create contamination. Buyers should ask where the bag will go after use and whether that path accepts the exact material.</p>
+
+      <p>Documentation matters. Ask which compostability standard applies, whether the material is home or industrial compostable, and what language can be printed on the bag. Storage also matters. Some compostable films are more sensitive to heat, humidity, and long shelf life than standard LDPE. If the bags sit in a warehouse for months before use, that detail belongs in the RFQ.</p>
+
+      <h2>PCR polybags focus on recycled content and durable handling</h2>
+      <p>PCR means post-consumer recycled content. A PCR polybag uses recycled resin from material that has already been used by consumers and reprocessed into new film. Buyers often choose PCR when they need a recycled-content story without changing the handling behavior as much as a compostable film might.</p>
+
+      <p>The key question is percentage. A bag with a small PCR percentage and a bag with a high PCR percentage can behave differently in strength, clarity, colour, and print quality. Buyers should ask for the PCR percentage, whether the bag can meet the required gauge, and what documentation supports the recycled-content claim.</p>
+
+      <h2>Compare the options against the actual shipment</h2>
+      <table>
+        <thead><tr><th>Question</th><th>Compostable polybags</th><th>PCR polybags</th></tr></thead>
+        <tbody>
+          <tr><td>End-of-life path</td><td>Needs a composting route that accepts the material</td><td>Focuses on recycled input, not composting after use</td></tr>
+          <tr><td>Storage</td><td>May need tighter control over heat, humidity, and shelf life</td><td>Often closer to conventional poly storage behavior</td></tr>
+          <tr><td>Strength</td><td>Must be tested against weight, edges, and shipping stress</td><td>Depends on PCR percentage, resin blend, and gauge</td></tr>
+          <tr><td>Claim risk</td><td>Requires careful wording and certification support</td><td>Requires recycled-content documentation and percentage clarity</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Do not approve artwork before claim wording is checked</h2>
+      <p>Sustainability claims printed on a bag should be reviewed before plates, proofs, or production files are approved. Words like compostable, recyclable, recycled content, and biodegradable are not interchangeable. A buyer should confirm the allowed wording, any logo or certification mark rules, and whether the claim needs a qualifier such as industrial composting only.</p>
+
+      <p>This is where packaging, marketing, and compliance should agree early. A clean material choice can still become a problem if the printed claim overpromises what the end user can do with the bag. Apex can review the spec and help identify which information is needed before artwork moves to approval.</p>
+
+      <h2>What to include in the RFQ</h2>
+      <p>For a useful quote, send more than bag dimensions. Include the product weight, edge sharpness, pack count, storage time, target gauge, print coverage, and the sustainability claim you want to make. If the bag needs hang holes, suffocation warning text, adhesive closure, zipper, wicket format, or anti-static performance, include those details too.</p>
+
+      <p>The best choice may be compostable, PCR, conventional LDPE with thinner gauge, or a paper-based alternative. The right answer is the one that protects the product, survives the supply chain, and can be documented honestly. Start with the shipment and the proof behind the claim, then choose the film.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Polybags', href: '/services/polybags', description: 'LDPE, HDPE, anti-static, gusseted, garment, and custom-print polybag options.' },
+    { title: 'Sustainability', href: '/sustainability', description: 'Material and documentation questions for sustainability-focused packaging.' },
+    { title: 'Poly Bag Thickness Guide', href: '/blog/poly-bag-thickness-guide', description: 'Gauge decisions for product weight, edges, stacking, and handling.' }
+  ]} />
+
+  <CTABand heading="Need a polybag spec that supports the claim?" lead="Send size, gauge, product weight, print needs, and the sustainability language you want to use. Apex will flag the material questions before production." primaryCta={{ label: 'Request a polybag quote', href: '/contact' }} />
+</BaseLayout>
