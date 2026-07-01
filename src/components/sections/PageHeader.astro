@@ -8,8 +8,9 @@ interface Props {
   imageIsFullBanner?: boolean;
   featureItems?: { label: string }[];
 }
+import HeroFeatureStrip from './HeroFeatureStrip.astro';
 
-const { eyebrow, heading, lead, imageSrc, imageAlt = '', imageIsFullBanner = false } = Astro.props;
+const { eyebrow, heading, lead, imageSrc, imageAlt = '', imageIsFullBanner = false, featureItems = [] } = Astro.props;
 const hasImage = Boolean(imageSrc);
 ---
 {imageSrc && imageIsFullBanner ? (
@@ -27,6 +28,7 @@ const hasImage = Boolean(imageSrc);
       decoding="async"
       fetchpriority="high"
     />
+    <HeroFeatureStrip items={featureItems} />
   </section>
 ) : (
 <section

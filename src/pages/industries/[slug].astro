@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
+import HeroFeatureStrip from '../../components/sections/HeroFeatureStrip.astro';
 import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
 import { industryBoxes, type IndustryBox } from '../../data/industryBoxes';
 
@@ -19,6 +20,12 @@ const categoryBanner = box.image.startsWith('/images/home/categories/')
   ? box.image.replace('/images/home/categories/', '/images/home/category-banners/').replace(/\.(webp|jpg|jpeg|png)$/i, '-banner.webp')
   : '';
 const heroImage = box.heroBanner || categoryBanner || box.image;
+const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
+  'coffee-packaging': [{ label: 'Freshness' }, { label: 'Valve Options' }, { label: 'Retail Ready' }, { label: 'Custom Print' }],
+  'custom-mylar-bags': [{ label: 'Barrier Film' }, { label: 'Resealable' }, { label: 'Food Safe' }, { label: 'Custom Print' }],
+  'rigid-boxes': [{ label: 'Rigid Board' }, { label: 'Luxury Finish' }, { label: 'Gift Ready' }, { label: 'Custom Inserts' }]
+};
+const heroFeatureItems = heroFeatureItemsBySlug[box.slug] ?? [];
 const metaTitle = `Custom ${box.label} Canada | Apex Packaging`;
 const metaDescription = box.summary.length <= 110
   ? `${box.summary} Apex supports custom sizes, print, samples, and production.`
@@ -69,6 +76,7 @@ const service = buildServiceSchema({
       decoding="async"
       fetchpriority="high"
     />
+    <HeroFeatureStrip items={heroFeatureItems} />
   </section>
 
   <section id="details" class="scroll-mt-28 bg-neutral-50 py-12 md:scroll-mt-32 md:py-24">
