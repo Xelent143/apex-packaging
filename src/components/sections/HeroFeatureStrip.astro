@@ -5,63 +5,96 @@ interface FeatureItem {
 
 interface Props {
   items?: FeatureItem[];
+  lead?: string;
 }
 
-const { items = [] } = Astro.props;
+const { items = [], lead = '' } = Astro.props;
 const icons = ['cube', 'print', 'bag', 'leaf'];
 ---
 {items.length > 0 && (
-  <div class="hero-feature-strip" aria-label="Packaging features">
-    {items.slice(0, 4).map((item, index) => (
-      <div class="hero-feature-item">
-        <svg class="hero-feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          {icons[index] === 'cube' && (
-            <>
-              <path d="m24 5 16 9-16 9-16-9 16-9z" />
-              <path d="M8 14v20l16 9 16-9V14" />
-              <path d="M24 23v20" />
-            </>
-          )}
-          {icons[index] === 'print' && (
-            <>
-              <rect x="11" y="9" width="26" height="30" rx="2" />
-              <path d="m17 29 7-16 7 16" />
-              <path d="M20 24h8" />
-            </>
-          )}
-          {icons[index] === 'bag' && (
-            <>
-              <path d="M13 18h22l3 23H10l3-23z" />
-              <path d="M18 18a6 6 0 0 1 12 0" />
-            </>
-          )}
-          {icons[index] === 'leaf' && (
-            <>
-              <path d="M38 8c-15 1-25 10-27 28 17-1 26-10 27-28z" />
-              <path d="M12 36 32 16" />
-            </>
-          )}
-        </svg>
-        <span>{item.label}</span>
+  <div class:list={['hero-feature-wrap', lead && 'hero-feature-wrap--panel']} aria-label="Packaging features">
+    {lead && <p class="hero-feature-lead">{lead}</p>}
+    <div class="hero-feature-strip">
+      {items.slice(0, 4).map((item, index) => (
+        <div class="hero-feature-item">
+          <svg class="hero-feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            {icons[index] === 'cube' && (
+              <>
+                <path d="m24 5 16 9-16 9-16-9 16-9z" />
+                <path d="M8 14v20l16 9 16-9V14" />
+                <path d="M24 23v20" />
+              </>
+            )}
+            {icons[index] === 'print' && (
+              <>
+                <rect x="11" y="9" width="26" height="30" rx="2" />
+                <path d="m17 29 7-16 7 16" />
+                <path d="M20 24h8" />
+              </>
+            )}
+            {icons[index] === 'bag' && (
+              <>
+                <path d="M13 18h22l3 23H10l3-23z" />
+                <path d="M18 18a6 6 0 0 1 12 0" />
+              </>
+            )}
+            {icons[index] === 'leaf' && (
+              <>
+                <path d="M38 8c-15 1-25 10-27 28 17-1 26-10 27-28z" />
+                <path d="M12 36 32 16" />
+              </>
+            )}
+          </svg>
+          <span>{item.label}</span>
+        </div>
+      ))}
       </div>
-    ))}
   </div>
 )}
 
 <style>
-  .hero-feature-strip {
+  .hero-feature-wrap {
     position: absolute;
     left: 2.55%;
     bottom: 3.75%;
     z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: start;
-    gap: 1.4%;
     width: 33.5%;
     min-width: 21rem;
     padding: 1.05% 1.1% 1.1%;
     background: #fff;
+  }
+
+  .hero-feature-wrap--panel {
+    width: 34.5%;
+    padding: clamp(0.55rem, 0.9vw, 1.1rem) clamp(0.45rem, 0.8vw, 0.95rem) clamp(0.5rem, 0.7vw, 0.9rem);
+  }
+
+  .hero-feature-lead {
+    position: relative;
+    margin: 0 0 clamp(0.5rem, 0.85vw, 1.05rem);
+    padding-top: clamp(0.55rem, 0.8vw, 1rem);
+    color: #4b4b4b;
+    font-family: Archivo, Inter, system-ui, sans-serif;
+    font-size: clamp(1.05rem, 1.75vw, 2.35rem);
+    font-weight: 400;
+    line-height: 1.12;
+  }
+
+  .hero-feature-lead::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(3.6rem, 5.1vw, 6.4rem);
+    height: clamp(0.22rem, 0.34vw, 0.42rem);
+    background: #d69a00;
+  }
+
+  .hero-feature-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 1.4%;
   }
 
   .hero-feature-item {
@@ -93,12 +126,28 @@ const icons = ['cube', 'print', 'bag', 'leaf'];
   }
 
   @media (max-width: 767px) {
-    .hero-feature-strip {
+    .hero-feature-wrap {
       left: 2.3%;
       bottom: 3.2%;
       width: 36%;
       min-width: 0;
       padding: 0.6% 0.6% 0.7%;
+    }
+
+    .hero-feature-wrap--panel {
+      width: 42%;
+      padding: 0.28rem 0.25rem;
+    }
+
+    .hero-feature-lead {
+      margin-bottom: 0.2rem;
+      padding-top: 0.25rem;
+      font-size: clamp(0.45rem, 1.8vw, 0.7rem);
+    }
+
+    .hero-feature-lead::before {
+      width: 1.3rem;
+      height: 0.1rem;
     }
 
     .hero-feature-item {

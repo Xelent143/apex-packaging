@@ -40,6 +40,10 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'window-packaging': [{ label: 'Clear Window' }, { label: 'Product View' }, { label: 'Retail Ready' }, { label: 'Custom Cut' }]
 };
 const heroFeatureItems = heroFeatureItemsBySlug[box.slug] ?? [];
+const heroFeatureLeadBySlug: Record<string, string> = {
+  'hair-extension-boxes': 'Premium beauty packaging for extensions, wigs, bundles, and salon retail.'
+};
+const heroFeatureLead = heroFeatureLeadBySlug[box.slug] ?? '';
 const metaTitle = `Custom ${box.label} Canada | Apex Packaging`;
 const metaDescription = box.summary.length <= 110
   ? `${box.summary} Apex supports custom sizes, print, samples, and production.`
@@ -90,7 +94,7 @@ const service = buildServiceSchema({
       decoding="async"
       fetchpriority="high"
     />
-    <HeroFeatureStrip items={heroFeatureItems} />
+    <HeroFeatureStrip items={heroFeatureItems} lead={heroFeatureLead} />
   </section>
 
   <section id="details" class="scroll-mt-28 bg-neutral-50 py-12 md:scroll-mt-32 md:py-24">
