@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Luxury Rigid Boxes for Premium Products: Structure, Inserts, and Finish Choices';
+const description = 'A practical buyer guide to luxury rigid boxes in Canada: when rigid packaging fits, how inserts protect the product, and which finishes support a premium launch.';
+const url = '/blog/luxury-rigid-boxes-premium-products-structure-inserts-finishes';
+const datePublished = '2026-07-02';
+const image = '/images/blog/luxury-rigid-boxes-premium-products-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Luxury Rigid Boxes', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'When should a brand choose a rigid box instead of a folding carton?',
+    a: 'Rigid boxes make sense when the package is part of the product experience: premium gifts, cosmetics, cannabis kits, electronics, luxury retail items, and launches where presentation, protection, and perceived value matter more than lowest unit cost.'
+  },
+  {
+    q: 'What information should a buyer send before quoting a luxury rigid box?',
+    a: 'Send the product dimensions, packed weight, opening style, insert need, artwork direction, finish target, first-run quantity, and target launch date. Photos or a sample of the product help the supplier size the cavity and recommend the right structure.'
+  },
+  {
+    q: 'Do rigid boxes always need custom inserts?',
+    a: 'No. Inserts are recommended when the product is fragile, heavy, premium, sold as a kit, or needs a controlled reveal. Simple products may only need tissue, a paper wrap, or a snug cavity depending on the brand goal.'
+  }
+]);
+---
+<BaseLayout
+  title="Luxury Rigid Boxes Canada - Structure, Inserts, and Finish Choices"
+  description={description}
+  image={image}
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Premium packaging"
+    heading="Luxury rigid boxes - how premium products should choose structure, inserts, and finishes."
+    lead="A rigid box is not just a stronger carton. It is a presentation system that has to hold the product securely, open cleanly, and make the brand feel more valuable before the customer touches what is inside."
+    imageSrc={image}
+    imageAlt="Premium Apex Packaging rigid box mockups with magnetic closure, drawer style packaging, custom inserts, and gold branded accents."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Luxury rigid boxes</strong> are chosen when a brand needs packaging to do more than carry a product. They support the first impression, protect a higher-value item, and create a controlled reveal that feels intentional. A folding carton can be efficient and attractive, but a rigid setup box gives the package more weight, cleaner edges, and a more premium hand feel.</p>
+
+      <p>Apex Packaging Solutions helps Canadian brands develop premium packaging for gifts, cosmetics, electronics, CBD kits, apparel accessories, and specialty retail programs. This guide explains what buyers should decide before asking for a rigid box quote, especially when the project includes inserts, magnetic closures, foil, soft-touch coatings, or a launch deadline that cannot move.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="Apex Packaging luxury rigid box banner with premium branded packaging, inserts, drawer box, and magnetic closure box." width="1619" height="971" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The best rigid box programs start with the product, the reveal, and the handling path, not only the outside box size.</figcaption>
+      </figure>
+
+      <h2>Start with the product experience, then choose the structure</h2>
+      <p>A rigid box quote should begin with how the customer will open the package. A magnetic closure box feels different from a drawer box, a lift-off lid, or a two-piece shoulder box. Each structure changes the reveal, the insert design, the freight cube, and the way the pack line loads the product.</p>
+
+      <table>
+        <thead>
+          <tr><th>Rigid box style</th><th>Best fit</th><th>Buyer should confirm</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Magnetic closure box</td><td>Gift kits, cosmetics, premium launch boxes, and influencer mailers</td><td>Magnet placement, opening angle, insert height, and whether a ribbon pull is needed</td></tr>
+          <tr><td>Drawer rigid box</td><td>Jewelry, accessories, tech items, hair extensions, and compact retail products</td><td>Pull tab style, sleeve clearance, friction, and how the product is lifted out</td></tr>
+          <tr><td>Two-piece lift-off lid</td><td>Luxury retail, apparel accessories, stationery, candles, and gift packaging</td><td>Lid depth, shoulder detail, board thickness, and stacking behavior</td></tr>
+          <tr><td>Book-style rigid box</td><td>Presentation kits, sales samples, VIP gifting, and boxed collections</td><td>Hinge durability, insert layout, and whether the box must stay open for display</td></tr>
+        </tbody>
+      </table>
+
+      <p>The right format depends on more than appearance. A magnetic box may look premium, but a drawer format can be better when the product needs a slow reveal or a compact shelf footprint. A two-piece lid can be elegant for retail, but it may add pack-out time if the team has to align several components by hand.</p>
+
+      <h2>Inserts decide whether the premium moment feels controlled</h2>
+      <p>Rigid boxes often fail when the exterior is beautiful but the product shifts inside. Inserts control the reveal, reduce damage, and keep multiple pieces organized. They also affect the final cavity size, so they should be discussed before the dieline is approved.</p>
+
+      <ul>
+        <li><strong>Paperboard inserts</strong> suit lightweight retail products and can match the printed brand system.</li>
+        <li><strong>EVA or foam inserts</strong> fit fragile, heavy, glossy, or high-value items that need a secure cavity.</li>
+        <li><strong>Molded pulp inserts</strong> can support sustainability goals when the product and finish expectations allow it.</li>
+        <li><strong>Fabric wraps, tissue, or ribbon lifts</strong> improve presentation without always requiring a complex cavity.</li>
+      </ul>
+
+      <p>If the product is sold as a kit, send every component before the insert is designed. Bottle height, cap diameter, cable bend radius, leaflet thickness, or a small accessory bag can all change the insert layout. The supplier cannot protect the reveal if the full pack-out is still unknown.</p>
+
+      <h2>Finishes should support the brand, not compete with it</h2>
+      <p>Premium packaging does not need every finish at once. A rigid box can look expensive with one or two well-chosen details: foil, embossing, debossing, soft-touch lamination, spot UV, textured paper, a belly band, or branded ribbon. The best choice depends on the brand tone and the material under the artwork.</p>
+
+      <table>
+        <thead>
+          <tr><th>Finish option</th><th>What it adds</th><th>Watch point</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Foil stamping</td><td>Metallic highlight for logos, borders, or premium marks</td><td>Fine lines and small type need prepress review</td></tr>
+          <tr><td>Emboss or deboss</td><td>Tactile depth and a more crafted feel</td><td>Works best on controlled logo areas, not busy artwork</td></tr>
+          <tr><td>Soft-touch lamination</td><td>Smooth matte feel for cosmetics, tech, and gift packaging</td><td>Can mark more easily if handling is rough</td></tr>
+          <tr><td>Spot UV</td><td>Gloss contrast on matte surfaces</td><td>Registration matters, especially on tight patterns</td></tr>
+          <tr><td>Textured paper wrap</td><td>Natural, luxury, or boutique retail feel</td><td>Colour consistency and scuff resistance should be sampled</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What to send for a faster rigid box quote</h2>
+      <p>A useful RFQ gives the supplier enough information to size the box, select the board, plan the insert, and estimate the finishing path. Before requesting pricing, collect these details:</p>
+
+      <ul>
+        <li>Product dimensions, packed weight, and whether the item is fragile or scratch-sensitive.</li>
+        <li>Target box style: magnetic, drawer, lift-off lid, shoulder box, or open to recommendation.</li>
+        <li>Insert requirement, including the number of items and how each one should be removed.</li>
+        <li>Artwork direction, brand colours, finish targets, and any required retail barcode or label area.</li>
+        <li>First-run quantity, reorder estimate, and whether the package is for retail, ecommerce, gifting, or launch kits.</li>
+        <li>Sample deadline, production deadline, and final delivery location.</li>
+      </ul>
+
+      <h2>Sampling protects both the look and the pack-out process</h2>
+      <p>Rigid packaging should be sampled when the product is expensive, fragile, heavy, or presentation-sensitive. A digital mockup can show the appearance, but a physical sample reveals how the box opens, how tight the insert feels, how the finish catches light, and how long the pack line takes to load each unit.</p>
+
+      <p>For premium launches, the sample stage is where practical issues should be solved: a ribbon that is too short, a magnet that feels weak, a sleeve that creates too much friction, or an insert cavity that holds the product too tightly. Fixing those points before production protects the customer experience and the launch schedule.</p>
+
+      <p>Send Apex the product, quantity, style target, and finish direction. The quoting process moves faster when the rigid box is treated as a complete packaging system: structure, insert, artwork, finish, and fulfillment all working together.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Rigid Boxes', href: '/industries/rigid-boxes', description: 'Premium rigid packaging for launches, gifting, retail, and branded product presentation.' },
+    { title: 'Gift Boxes', href: '/industries/gift-boxes', description: 'Gift-ready packaging formats with inserts, sleeves, ribbons, and premium finishes.' },
+    { title: 'Packaging Design Services', href: '/blog/packaging-design-services-send-before-dieline-built', description: 'What to send before a dieline, mockup, or structural sample is created.' }
+  ]} />
+
+  <CTABand
+    heading="Build a premium rigid box around your product."
+    lead="Send the product size, quantity, launch date, and finish direction. Apex will recommend the rigid box structure and insert approach that fits the brand."
+    primaryCta={{ label: 'Request a rigid box quote', href: '/contact' }}
+  />
+</BaseLayout>
