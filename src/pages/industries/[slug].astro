@@ -16,34 +16,65 @@ export function getStaticPaths() {
 
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
-const categoryBanner = box.image.startsWith('/images/home/categories/')
-  ? box.image.replace('/images/home/categories/', '/images/home/category-banners/').replace(/\.(webp|jpg|jpeg|png)$/i, '-banner.webp')
-  : '';
-const heroImage = box.heroBanner || categoryBanner || box.image;
+const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
 const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
+  'apparel-boxes': [{ label: 'Folded Fit' }, { label: 'Soft Touch' }, { label: 'Mailer Ready' }, { label: 'Boutique Print' }],
+  'auto-parts': [{ label: 'Heavy Duty' }, { label: 'Part Labels' }, { label: 'VCI Options' }, { label: 'Insert Ready' }],
+  'bakery-boxes': [{ label: 'Food Safe' }, { label: 'Window Cut' }, { label: 'Grease Guard' }, { label: 'Bakery Ready' }],
+  'bottle-boxes': [{ label: 'Bottle Fit' }, { label: 'Insert Lock' }, { label: 'Fragile Safe' }, { label: 'Gift Ready' }],
   'candle-boxes': [{ label: 'Jar Protection' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }, { label: 'Giftable' }],
+  'cbd-boxes': [{ label: 'CBD Retail' }, { label: 'Copy Panels' }, { label: 'Tuck Cartons' }, { label: 'Display Ready' }],
   'cbd-gift-boxes': [{ label: 'CBD Retail' }, { label: 'Insert Trays' }, { label: 'Gift Ready' }, { label: 'Compliance Space' }],
+  'cereal-boxes': [{ label: 'Food Grade' }, { label: 'Large Panels' }, { label: 'Liner Ready' }, { label: 'Shelf Ready' }],
   'chocolate-bar-boxes': [{ label: 'Bar Sleeves' }, { label: 'Food Safe' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }],
   'chocolate-boxes': [{ label: 'Food Safe' }, { label: 'Gift Finish' }, { label: 'Insert Trays' }, { label: 'Foil Detail' }],
   'christmas-boxes': [{ label: 'Holiday Print' }, { label: 'Gift Ready' }, { label: 'Foil Detail' }, { label: 'Seasonal Runs' }],
+  'cigarette-boxes': [{ label: 'Small Format' }, { label: 'Copy Zones' }, { label: 'Display Trays' }, { label: 'Batch Space' }],
   'coffee-packaging': [{ label: 'Freshness' }, { label: 'Valve Options' }, { label: 'Retail Ready' }, { label: 'Custom Print' }],
   'cosmetic-boxes': [{ label: 'Beauty Retail' }, { label: 'Soft Touch' }, { label: 'Foil Options' }, { label: 'Custom Inserts' }],
   'custom-kraft-soap-boxes': [{ label: 'Kraft Board' }, { label: 'Soap Sleeves' }, { label: 'Eco Options' }, { label: 'Window Cut' }],
   'custom-tuck-boxes': [{ label: 'Tuck Carton' }, { label: 'Auto Bottom' }, { label: 'Retail Ready' }, { label: 'Low MOQ' }],
   'custom-mylar-bags': [{ label: 'Barrier Film' }, { label: 'Resealable' }, { label: 'Food Safe' }, { label: 'Custom Print' }],
+  'display-boxes': [{ label: 'Counter Ready' }, { label: 'Shelf Impact' }, { label: 'Open Display' }, { label: 'Retail Print' }],
+  'electronics-boxes': [{ label: 'ESD Options' }, { label: 'Foam Inserts' }, { label: 'Device Fit' }, { label: 'Handling Icons' }],
+  'food-boxes': [{ label: 'Food Safe' }, { label: 'Meal Kits' }, { label: 'Fresh Print' }, { label: 'Retail Ready' }],
   'gift-boxes': [{ label: 'Gift Ready' }, { label: 'Ribbon Detail' }, { label: 'Rigid Feel' }, { label: 'Custom Print' }],
   'hair-extension-boxes': [{ label: 'Beauty Retail' }, { label: 'Drawer Style' }, { label: 'Silk Finish' }, { label: 'Custom Logo' }],
+  'hardware-boxes': [{ label: 'Dense Parts' }, { label: 'Hang Tabs' }, { label: 'SKU Panels' }, { label: 'Partitions' }],
+  'health-boxes': [{ label: 'Clean Print' }, { label: 'Lot Space' }, { label: 'Tamper Seal' }, { label: 'Kit Ready' }],
+  'hemp-boxes': [{ label: 'Kraft Look' }, { label: 'Retail Carton' }, { label: 'Copy Panels' }, { label: 'Display Ready' }],
+  'holiday-boxes': [{ label: 'Seasonal Art' }, { label: 'Gift Insert' }, { label: 'Short Runs' }, { label: 'Retail Ready' }],
+  'jewelry-boxes': [{ label: 'Luxury Fit' }, { label: 'Velvet Insert' }, { label: 'Foil Stamp' }, { label: 'Gift Ready' }],
+  'kitchenware-boxes': [{ label: 'Fragile Safe' }, { label: 'Dividers' }, { label: 'Retail Sleeve' }, { label: 'Ship Ready' }],
+  'pharma-boxes': [{ label: 'Clean Specs' }, { label: 'Lot Panels' }, { label: 'Tamper Seal' }, { label: 'Device Fit' }],
+  'pillow-boxes': [{ label: 'Curved Shape' }, { label: 'Gift Ready' }, { label: 'Window Cut' }, { label: 'Retail Print' }],
+  'pizza-boxes': [{ label: 'Food Grade' }, { label: 'Vent Tabs' }, { label: 'Flat Packed' }, { label: 'Hot Food' }],
+  'pre-roll-boxes': [{ label: 'Slim Fit' }, { label: 'Copy Panels' }, { label: 'Display Trays' }, { label: 'Tamper Seal' }],
+  'product-boxes': [{ label: 'Product Fit' }, { label: 'Custom Size' }, { label: 'Retail Print' }, { label: 'Fast Quote' }],
+  'retail-boxes': [{ label: 'Shelf Ready' }, { label: 'Display Angle' }, { label: 'Barcode Space' }, { label: 'Premium Print' }],
   'rigid-boxes': [{ label: 'Rigid Board' }, { label: 'Luxury Finish' }, { label: 'Gift Ready' }, { label: 'Custom Inserts' }],
+  'shipping-boxes': [{ label: 'ECT Rated' }, { label: 'Parcel Ready' }, { label: 'Void Control' }, { label: 'Stack Safe' }],
   'soap-boxes': [{ label: 'Soap Bars' }, { label: 'Window Cut' }, { label: 'Kraft Options' }, { label: 'Retail Ready' }],
   'software-boxes': [{ label: 'Tech Retail' }, { label: 'Insert Ready' }, { label: 'Rigid Options' }, { label: 'Premium Print' }],
+  'spice-packaging': [{ label: 'Aroma Safe' }, { label: 'Jar Sleeves' }, { label: 'Food Grade' }, { label: 'Display Ready' }],
+  'sports-boxes': [{ label: 'Gear Fit' }, { label: 'Insert Kits' }, { label: 'Team Print' }, { label: 'Ship Ready' }],
+  'stationery-boxes': [{ label: 'Paper Safe' }, { label: 'Flat Mailer' }, { label: 'Pen Inserts' }, { label: 'Gift Ready' }],
   'tea-packaging': [{ label: 'Aroma Safe' }, { label: 'Pouches' }, { label: 'Retail Cartons' }, { label: 'Natural Look' }],
+  'vape-boxes': [{ label: 'Small Carton' }, { label: 'Copy Panels' }, { label: 'Display Trays' }, { label: 'Batch Space' }],
   'window-packaging': [{ label: 'Clear Window' }, { label: 'Product View' }, { label: 'Retail Ready' }, { label: 'Custom Cut' }]
 };
-const heroFeatureItems = heroFeatureItemsBySlug[box.slug] ?? [];
-const heroFeatureLeadBySlug: Record<string, string> = {
-  'hair-extension-boxes': 'Premium beauty packaging for extensions, wigs, bundles, and salon retail.'
-};
-const heroFeatureLead = heroFeatureLeadBySlug[box.slug] ?? '';
+const heroFeatureItems = heroFeatureItemsBySlug[box.slug] ?? [
+  { label: box.materials[0]?.split(' ').slice(0, 2).join(' ') ?? 'Custom Size' },
+  { label: box.printOptions[0]?.split(' ').slice(0, 2).join(' ') ?? 'Custom Print' },
+  { label: box.styles[0]?.split(' ').slice(0, 2).join(' ') ?? 'Retail Ready' },
+  { label: box.bestFor[0]?.split(' ').slice(0, 2).join(' ') ?? 'Fast Quote' }
+];
+const coffeePackagingSlides = [
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-1.webp', alt: 'Premium coffee bag mockup with fictional Northrail Roasters branding' },
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-2.webp', alt: 'Premium black coffee pouch mockup with fictional Noctra Coffee branding' },
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-3.webp', alt: 'Kraft coffee bag mockups with fictional Bean and Vale branding' },
+  { src: '/images/industry-showcases/coffee-packaging/coffee-bag-4.webp', alt: 'Colorful coffee pouch mockups with fictional Sol Roast branding' }
+];
 const metaTitle = `Custom ${box.label} Canada | Apex Packaging`;
 const metaDescription = box.summary.length <= 110
   ? `${box.summary} Apex supports custom sizes, print, samples, and production.`
@@ -89,13 +120,62 @@ const service = buildServiceSchema({
       alt={`${box.label} custom packaging hero banner`}
       width="2172"
       height="724"
-      class="block h-auto w-full"
+      class="aspect-[2172/724] w-full object-cover object-center"
       loading="eager"
       decoding="async"
       fetchpriority="high"
     />
-    <HeroFeatureStrip items={heroFeatureItems} lead={heroFeatureLead} />
+    <HeroFeatureStrip items={heroFeatureItems} />
   </section>
+
+  {box.slug === 'coffee-packaging' && (
+    <section class="overflow-hidden border-b border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Coffee packaging bag mockup slider">
+      <div class="coffee-packaging-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
+        {[...coffeePackagingSlides, ...coffeePackagingSlides].map((slide, index) => (
+          <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              width="1200"
+              height="760"
+              loading={index < 3 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+            />
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <style>
+    .coffee-packaging-track {
+      animation: coffee-packaging-scroll 34s linear infinite;
+      will-change: transform;
+    }
+
+    .coffee-packaging-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes coffee-packaging-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .coffee-packaging-track {
+        animation: none;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
 
   <section id="details" class="scroll-mt-28 bg-neutral-50 py-12 md:scroll-mt-32 md:py-24">
     <div class="container max-w-wide">

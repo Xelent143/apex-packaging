@@ -24,19 +24,26 @@ const service = buildServiceSchema({
   description: 'Custom kraft boxes for retail, ecommerce, shipping, gift, and sustainable packaging programs.',
   url: '/services/custom-kraft-boxes'
 });
+
+const kraftSlides = [
+  { src: '/images/services/corrugated-slider/corrugated-box-1.webp', alt: 'Kraft corrugated shipping box mockup with Terralis branding' },
+  { src: '/images/home/categories/custom-kraft-boxes.webp', alt: 'Custom kraft box mockup with minimalist printed design' },
+  { src: '/images/services/corrugated-slider/corrugated-box-5.webp', alt: 'Heavy duty kraft corrugated box mockup with Northwild Lab branding' },
+  { src: '/images/services/corrugated-slider/corrugated-box-4.webp', alt: 'Stacked printed kraft carton mockups with Mira Supply branding' }
+];
 ---
 <BaseLayout
   title="Custom Kraft Boxes Canada — Printed Kraft Packaging"
   description="Custom kraft boxes for retail, ecommerce, shipping, gifts, and sustainable packaging. Printed kraft board and corrugated kraft box options."
-  image="/images/services/custom-kraft-boxes-premium-banner.webp"
+  image="/images/services/custom-kraft-boxes-hero-banner.webp"
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <PageHeader
     eyebrow="Service · Kraft Boxes"
     heading="Custom kraft boxes — natural packaging with premium print and practical structure."
     lead="Kraft boxes give retail and ecommerce brands a warm, sustainable look while still supporting custom print, inserts, sleeves, and shipping-ready structures."
-    imageSrc="/images/services/custom-kraft-boxes-premium-banner.webp"
-    imageAlt="Premium custom kraft box banner with branded natural packaging artwork."
+    imageSrc="/images/services/custom-kraft-boxes-hero-banner.webp"
+    imageAlt="Premium custom kraft boxes banner with fictional branded kraft packaging mockups, feature icons, and service headline."
     imageIsFullBanner={true}
     featureItems={[
       { label: 'Kraft Board' },
@@ -45,6 +52,53 @@ const service = buildServiceSchema({
       { label: 'Eco Options' }
     ]}
   />
+
+  <section class="overflow-hidden border-y border-neutral-200 bg-[#f5f1e9] py-4 md:py-6" aria-label="Premium kraft box mockup slider">
+    <div class="kraft-showcase-track flex w-max gap-4 px-4 md:gap-6 md:px-6">
+      {[...kraftSlides, ...kraftSlides].map((slide, index) => (
+        <article class="group relative w-[82vw] max-w-[31rem] shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card sm:w-[48vw] lg:w-[32vw]">
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            width="1200"
+            height="760"
+            loading={index < 3 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="aspect-[1200/760] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+          />
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .kraft-showcase-track {
+      animation: kraft-showcase-scroll 38s linear infinite;
+      will-change: transform;
+    }
+
+    .kraft-showcase-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes kraft-showcase-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kraft-showcase-track {
+        animation: none;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">

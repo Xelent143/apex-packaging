@@ -2,32 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
 import { buildFAQSchema } from '../lib/schema';
+import { industryBoxes } from '../data/industryBoxes';
 
-const categories = [
-  { title: 'Rigid Boxes', href: '/industries/rigid-boxes', image: 'rigid-boxes' },
-  { title: 'Custom Mylar Bags', href: '/industries/custom-mylar-bags', image: 'custom-mylar-bags' },
-  { title: 'Coffee Packaging', href: '/industries/coffee-packaging', image: 'coffee-packaging' },
-  { title: 'Custom Kraft Boxes', href: '/services/custom-kraft-boxes', image: 'custom-kraft-boxes' },
-  { title: 'Gable Boxes', href: '/services/gable-boxes', image: 'gable-boxes' },
-  { title: 'Cosmetic Boxes', href: '/industries/cosmetic-boxes', image: 'cosmetic-boxes' },
-  { title: 'Candle Boxes', href: '/industries/candle-boxes', image: 'candle-boxes' },
-  { title: 'Soap Boxes', href: '/industries/soap-boxes', image: 'soap-boxes' },
-  { title: 'Bakery Boxes', href: '/industries/bakery-boxes', image: 'bakery-boxes' },
-  { title: 'Display Boxes', href: '/industries/display-boxes', image: 'display-boxes' },
-  { title: 'Food Boxes', href: '/industries/food-boxes', image: 'food-boxes' },
-  { title: 'Pillow Boxes', href: '/industries/pillow-boxes', image: 'pillow-boxes' },
-  { title: 'Chocolate Boxes', href: '/industries/chocolate-boxes', image: 'chocolate-boxes' },
-  { title: 'Window Packaging', href: '/industries/window-packaging', image: 'window-packaging' },
-  { title: 'Gift Boxes', href: '/industries/gift-boxes', image: 'gift-boxes' },
-  { title: 'Custom Tuck Boxes', href: '/industries/custom-tuck-boxes', image: 'custom-tuck-boxes' },
-  { title: 'Tea Packaging', href: '/industries/tea-packaging', image: 'tea-packaging' },
-  { title: 'Christmas Boxes', href: '/industries/christmas-boxes', image: 'christmas-boxes' },
-  { title: 'Custom Kraft Soap Boxes', href: '/industries/custom-kraft-soap-boxes', image: 'custom-kraft-soap-boxes' },
-  { title: 'Chocolate Bar Boxes', href: '/industries/chocolate-bar-boxes', image: 'chocolate-bar-boxes' },
-  { title: 'Software Boxes', href: '/industries/software-boxes', image: 'software-boxes' },
-  { title: 'Hair Extension Boxes', href: '/industries/hair-extension-boxes', image: 'hair-extension-boxes' },
-  { title: 'CBD Gift Boxes', href: '/industries/cbd-gift-boxes', image: 'cbd-gift-boxes' }
-];
+const categories = industryBoxes.map((box) => ({
+  title: box.slug === 'auto-parts' ? 'Auto Parts Boxes' : box.label,
+  href: `/industries/${box.slug}`,
+  image: `/images/home/categories/${box.slug}.webp`,
+  alt: box.alt
+}));
 
 const benefitStrip = [
   { step: 'Quote', title: 'No Die & Plate Charges', stat: 'No setup drag', icon: 'quote-review', body: 'Digital proofs and low-run production keep the first order simple.' },
@@ -175,17 +157,17 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           Choose the packaging category that matches your product, then send the size, quantity, print requirements, and launch date.
         </p>
       </div>
-      <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-x-5 md:gap-y-12 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
+      <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-10 md:grid-cols-4 lg:grid-cols-5">
         {categories.map((cat) => (
-          <a href={cat.href} class="group w-[42vw] max-w-[12rem] shrink-0 snap-start text-center md:w-auto md:max-w-none">
+          <a href={cat.href} class="group text-center">
             <img
-              src={`/images/home/categories/${cat.image}.webp`}
-              alt={`${cat.title} product packaging`}
+              src={cat.image}
+              alt={cat.alt}
               width="418"
               height="418"
               loading="lazy"
               decoding="async"
-              class="aspect-square w-full rounded-md object-cover shadow-sm transition-transform duration-200 group-hover:-translate-y-1 md:rounded-none md:shadow-none"
+              class="aspect-square w-full rounded-md border border-neutral-100 object-cover shadow-sm transition duration-200 group-hover:-translate-y-1 group-hover:shadow-card"
             />
             <h3 class="mt-3 font-display text-sm font-extrabold uppercase tracking-normal text-neutral-900 md:mt-5 md:text-xl">{cat.title}</h3>
           </a>
@@ -501,8 +483,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
       {categories.slice(-5).map((cat) => (
         <a href={cat.href} class="w-[48vw] max-w-[13rem] shrink-0 snap-start text-center md:w-auto md:max-w-none">
           <img
-            src={`/images/home/categories/${cat.image}.webp`}
-            alt={`${cat.title} product packaging`}
+            src={cat.image}
+            alt={cat.alt}
             width="418"
             height="418"
             loading="lazy"
