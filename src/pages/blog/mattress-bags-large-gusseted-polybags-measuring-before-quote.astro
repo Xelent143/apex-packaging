@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Mattress Bags and Large Gusseted Polybags: Measuring Before You Quote';
+const description = 'A practical buyer guide to mattress bags and large gusseted polybags in Canada: how to measure product size, film gauge, seals, vents, and handling details before requesting pricing.';
+const url = '/blog/mattress-bags-large-gusseted-polybags-measuring-before-quote';
+const datePublished = '2026-07-03';
+const image = '/images/blog/mattress-bags-large-gusseted-polybags-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Mattress Bags and Large Gusseted Polybags', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What dimensions are needed for a mattress bag quote?',
+    a: 'Send the compressed or finished mattress length, width, height, packed weight, and whether the bag needs extra clearance for corners, folding, handles, vents, or a closure allowance.'
+  },
+  {
+    q: 'When should buyers choose a gusseted polybag?',
+    a: 'A gusseted polybag is useful when the product has depth, soft corners, bulky folds, or a shape that needs side expansion instead of a flat two-dimensional bag.'
+  },
+  {
+    q: 'Does film gauge matter for large bags?',
+    a: 'Yes. Large bags often fail from handling stress, edge rub, seal strain, or drag across warehouse surfaces. Gauge should be selected from product weight, surface texture, bag size, and the handling route.'
+  }
+]);
+---
+<BaseLayout
+  title="Mattress Bags and Large Gusseted Polybags Canada"
+  description={description}
+  image={image}
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Poly packaging"
+    heading="Mattress bags and large gusseted polybags - measure the product before you quote."
+    lead="Large poly packaging looks simple until the bag is too tight, the seal is stressed, or the product corners cut through the film during handling. A better quote starts with measured size, packed weight, and the way the bag will be loaded."
+    imageSrc={image}
+    imageAlt="Apex Packaging mattress bag and large gusseted polybags with measuring tools, spec sheets, and branded packaging labels."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Mattress bags and large gusseted polybags</strong> are usually bought to protect bulky products from dust, moisture, handling marks, and warehouse contamination. The hard part is not naming the bag. The hard part is sizing it so the product loads cleanly, the seal closes without strain, and the film survives the real handling path.</p>
+
+      <p>Apex Packaging Solutions supplies custom polybags for mattresses, foam products, furniture parts, textiles, industrial components, and bulky retail items across Canada and the USA. This guide explains what procurement teams should measure before requesting a quote, especially when the package is oversized, gusseted, thick-gauge, vented, or used in a repeat production line.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="Premium Apex Packaging mattress bag and large gusseted polybag mockup with tape measure and quote specification sheet." width="1619" height="971" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Large polybag quotes become more accurate when the buyer sends finished product dimensions, weight, loading method, and the expected handling environment.</figcaption>
+      </figure>
+
+      <h2>Start with finished product size, not catalog size</h2>
+      <p>The first mistake is quoting from a retail size instead of the real packed product. A queen mattress, foam topper, cushion, or folded textile can change dimensions after compression, wrapping, or stacking. The bag supplier needs the finished length, width, height, and the amount of clearance required for loading.</p>
+
+      <p>For a mattress bag, measure the product after it reaches the state it will be bagged in. If the mattress is compressed, rolled, boxed, or sleeved before the outer polybag is added, the bag should be sized to that final form. If it is bagged flat, corner radius and loft matter because a tight bag can stretch at the corners and thin out where the film is already under pressure.</p>
+
+      <table>
+        <thead>
+          <tr><th>Measurement</th><th>Why it matters</th><th>What to send</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Length and width</td><td>Controls the bag opening and the amount of film needed around the product face</td><td>Finished product size plus desired loading clearance</td></tr>
+          <tr><td>Height or thickness</td><td>Decides whether the bag needs a side gusset or larger layflat width</td><td>Maximum packed thickness, not average thickness</td></tr>
+          <tr><td>Weight</td><td>Influences gauge, seal strength, and handling recommendations</td><td>Unit weight and case or pallet pattern if multiple units ship together</td></tr>
+          <tr><td>Surface and corners</td><td>Sharp edges, rough fabric, springs, zippers, or hard inserts can damage film</td><td>Photos and notes about abrasion points or corner pressure</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Use gussets when the product has real depth</h2>
+      <p>A flat polybag works when the product is thin or flexible enough to settle without forcing the side seams. A gusseted polybag is better when the product has depth, squared edges, soft bulk, or an irregular profile. Side gussets let the bag expand around the product instead of stretching across the face.</p>
+
+      <p>Large gusseted bags are common for bedding, pillows, foam, apparel bundles, cushions, industrial kits, and bulky retail products. They can also help the pack line move faster because the opening behaves more like a three-dimensional sleeve. That matters when operators are loading large products by hand and cannot fight a tight bag on every unit.</p>
+
+      <h2>Film gauge should match handling, not only product weight</h2>
+      <p>Gauge selection is where many large bag programs drift too light. A product may not be sharp, but the bag can still fail if it is dragged across a pallet, pulled over a corner, compressed in transit, or handled by several operators before delivery. The right film thickness depends on the whole route.</p>
+
+      <ul>
+        <li><strong>Light-duty dust covers</strong> can use thinner film when the product is handled gently and does not carry the bag load.</li>
+        <li><strong>Warehouse and furniture handling</strong> usually needs more tear resistance because the bag contacts racks, pallets, and truck floors.</li>
+        <li><strong>Heavy or bulky products</strong> may need thicker film, stronger seams, or a wider opening to reduce stress during loading.</li>
+        <li><strong>Retail presentation bags</strong> may require clearer film, cleaner seals, printed warnings, or a controlled vent pattern.</li>
+      </ul>
+
+      <p>If the buyer is unsure, send the product weight, photos, and the handling route. Apex can recommend a starting gauge and sample direction rather than quoting a bag that looks inexpensive but fails during pack-out.</p>
+
+      <h2>Confirm seals, vents, closures, and warning print early</h2>
+      <p>Large bags often need more than size and thickness. A mattress bag may require vent holes so trapped air can escape. A furniture bag may need a loose fold-over closure. A retail or compliance-sensitive bag may need suffocation warning print, batch information, recycling marks, or a scannable label zone.</p>
+
+      <p>Seal placement also matters. A bottom seal, side weld, or open-ended sleeve changes loading speed and how stress travels through the film. If the bag is heat sealed after loading, the quote should include the extra material needed for the closure area. If the bag is taped, tied, or folded, the supplier still needs to know how much loose film the operator expects.</p>
+
+      <h2>What to send for a faster large polybag quote</h2>
+      <p>A clear RFQ helps the supplier quote the right film, style, and production path. Before sending a request, collect these details:</p>
+
+      <ul>
+        <li>Finished product dimensions, including maximum thickness and corner shape.</li>
+        <li>Product weight and whether the bag carries load or only protects the surface.</li>
+        <li>Preferred bag style: flat, side gusseted, bottom gusseted, open-ended sleeve, or open to recommendation.</li>
+        <li>Target film gauge, colour, clarity, recycled-content requirement, or food/contact requirement if relevant.</li>
+        <li>Closure method, vent holes, hang holes, warning print, label area, or custom print requirements.</li>
+        <li>First-run quantity, reorder volume, packing method, and delivery location.</li>
+      </ul>
+
+      <p>Large poly packaging is easier to price when the bag is treated as part of the handling system. The right size reduces operator frustration. The right gauge reduces damage claims. The right gusset keeps the package from looking strained. That is why a few measurements before quoting can save time, material, and rework after the first sample.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Polybags', href: '/services/polybags', description: 'Custom LDPE, HDPE, gusseted, wicketed, anti-static, and specialty polybag programs.' },
+    { title: 'Apparel Boxes', href: '/industries/apparel-boxes', description: 'Packaging for soft goods, retail bundles, garment programs, and ecommerce shipments.' },
+    { title: 'Poly Bag Thickness Guide', href: '/blog/poly-bag-thickness-guide', description: 'A practical guide to matching mil thickness with product weight and handling risk.' }
+  ]} />
+
+  <CTABand
+    heading="Quote the large polybag around the real product."
+    lead="Send the finished dimensions, weight, bag style, gauge target, and loading method. Apex will help size the mattress bag or gusseted polybag for the way it is actually handled."
+    primaryCta={{ label: 'Request a polybag quote', href: '/contact' }}
+  />
+</BaseLayout>
