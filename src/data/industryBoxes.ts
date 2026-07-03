@@ -20,6 +20,11 @@ const defaultPrintOptions = [
   'Foil, embossing, matte, soft-touch, and spot UV finishing on request'
 ];
 
+const categoryImageOverrides: Record<string, string> = {
+  'custom-kraft-soap-boxes': '/images/home/categories/custom-kraft-soap-boxes.jpg',
+  'chocolate-bar-boxes': '/images/home/categories/chocolate-bar-boxes.jpg'
+};
+
 function categoryBox(
   slug: string,
   label: string,
@@ -31,7 +36,7 @@ function categoryBox(
   return {
     slug,
     label,
-    image: `/images/home/categories/${slug}.webp`,
+    image: categoryImageOverrides[slug] ?? `/images/home/categories/${slug}.webp`,
     heroBanner: `/images/home/category-banners/${slug}-banner.webp`,
     icon: '/images/industry-icons/product-boxes.png',
     alt: `Apex Packaging branded ${label.toLowerCase()}`,

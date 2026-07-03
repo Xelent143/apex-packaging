@@ -2,12 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
 import { buildFAQSchema } from '../lib/schema';
-import { industryBoxes } from '../data/industryBoxes';
+import { featuredIndustryBoxes } from '../data/industryBoxes';
 
-const categories = industryBoxes.map((box) => ({
+const categories = featuredIndustryBoxes.map((box) => ({
   title: box.slug === 'auto-parts' ? 'Auto Parts Boxes' : box.label,
   href: `/industries/${box.slug}`,
-  image: `/images/home/categories/${box.slug}.webp`,
+  image: box.image,
   alt: box.alt
 }));
 
@@ -157,9 +157,9 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           Choose the packaging category that matches your product, then send the size, quantity, print requirements, and launch date.
         </p>
       </div>
-      <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-10 md:grid-cols-4 lg:grid-cols-5">
-        {categories.map((cat) => (
-          <a href={cat.href} class="group text-center">
+      <div class="-mx-4 grid auto-cols-[minmax(9rem,42vw)] grid-flow-col grid-rows-2 gap-x-4 gap-y-7 overflow-x-auto px-4 pb-2 [scrollbar-width:none] md:mx-0 md:grid-flow-row md:grid-cols-4 md:gap-x-5 md:gap-y-10 md:overflow-visible md:px-0 md:pb-0 lg:gap-x-8 [&::-webkit-scrollbar]:hidden">
+        {categories.map((cat, index) => (
+          <a href={cat.href} class:list={['group min-w-0 snap-start text-center', index >= 8 && 'max-md:hidden']}>
             <img
               src={cat.image}
               alt={cat.alt}
@@ -172,6 +172,9 @@ const schemaBlocks = [buildFAQSchema(faqs)];
             <h3 class="mt-3 font-display text-sm font-extrabold uppercase tracking-normal text-neutral-900 md:mt-5 md:text-xl">{cat.title}</h3>
           </a>
         ))}
+      </div>
+      <div class="mt-8 text-center md:mt-10">
+        <a href="/industries" class="btn-secondary">View all packaging categories</a>
       </div>
     </div>
   </section>
