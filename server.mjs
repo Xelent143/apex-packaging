@@ -184,7 +184,7 @@ function serveStatic(pathname, req, res) {
   const encoding = getCompressionEncoding(req, ext);
   const headers = {
     'Content-Type': contentTypes[ext] || 'application/octet-stream',
-    'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable',
+    'Cache-Control': getCacheControl(filePath, ext),
     Vary: 'Accept-Encoding'
   };
 
@@ -205,6 +205,15 @@ function serveStatic(pathname, req, res) {
   } else {
     stream.pipe(res);
   }
+}
+
+function getCacheControl(filePath, ext) {
+  const fileName = filePath.split(/[\\/]/).pop() || '';
+  if (ext === '.html') return 'no-cache';
+  if (ext === '.xml' || fileName === 'robots.txt' || fileName === 'llms.txt') {
+    return 'public, max-age=300, must-revalidate';
+  }
+  return 'public, max-age=31536000, immutable';
 }
 
 function getCompressionEncoding(req, ext) {
