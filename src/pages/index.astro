@@ -340,7 +340,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 </span>
                 Product Information
               </legend>
-              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name" />
+              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name" aria-label="Product name" />
             </fieldset>
 
             <fieldset class="grid gap-3">
@@ -351,10 +351,10 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 Select Sizes
               </legend>
               <div class="grid gap-2 sm:grid-cols-[1fr_1fr_1fr_0.82fr]">
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" />
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit">
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit" aria-label="Measurement unit">
                   <option>Unit</option>
                   <option>inch</option>
                   <option>cm</option>
@@ -371,20 +371,20 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 Choose Materials
               </legend>
               <div class="grid gap-2 sm:grid-cols-[1fr_1fr_0.85fr]">
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material">
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material" aria-label="Packaging material">
                   <option>Stock</option>
                   <option>Cardboard Boxes</option>
                   <option>Kraft Boxes</option>
                   <option>Rigid Boxes</option>
                   <option>Corrugated Boxes</option>
                 </select>
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing">
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing" aria-label="Printing option">
                   <option>Printing</option>
                   <option>Full-color exterior</option>
                   <option>Inside and outside print</option>
                   <option>No print</option>
                 </select>
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
               </div>
             </fieldset>
 
@@ -396,7 +396,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 Upload Artwork
               </legend>
               <label class="flex min-h-12 cursor-pointer items-center bg-white px-4 text-sm font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
-                <input class="text-sm" name="artwork" type="file" />
+                <span class="sr-only">Upload artwork file</span>
+                <input class="text-sm" name="artwork" type="file" aria-label="Upload artwork file" />
               </label>
             </fieldset>
 
@@ -410,9 +411,9 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 Personal Information
               </legend>
               <div class="grid gap-2 sm:grid-cols-3">
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" type="tel" autocomplete="tel" aria-label="Contact number" />
               </div>
             </fieldset>
 
@@ -425,7 +426,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 </span>
                 Additional Information
               </legend>
-              <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..."></textarea>
+              <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..." aria-label="Project details"></textarea>
             </fieldset>
 
             <div class="flex justify-end pt-1">

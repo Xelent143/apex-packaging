@@ -48,6 +48,7 @@ const breadcrumb = buildBreadcrumbSchema([
               class="h-14 border border-transparent bg-white px-5 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
               name="product"
               placeholder="Product Name"
+              aria-label="Product name"
             />
           </fieldset>
 
@@ -59,10 +60,10 @@ const breadcrumb = buildBreadcrumbSchema([
               Select Sizes
             </legend>
             <div class="grid gap-3 md:grid-cols-[1fr_1fr_1fr_8rem]">
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" />
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" />
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" />
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="unit">
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="unit" aria-label="Measurement unit">
                 <option>Unit</option>
                 <option>inch</option>
                 <option>cm</option>
@@ -79,7 +80,7 @@ const breadcrumb = buildBreadcrumbSchema([
               Choose Materials
             </legend>
             <div class="grid gap-3 md:grid-cols-[1fr_1fr_0.9fr]">
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="material">
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="material" aria-label="Packaging material">
                 <option>Stock</option>
                 <option>Cardboard Boxes</option>
                 <option>Kraft Boxes</option>
@@ -88,14 +89,14 @@ const breadcrumb = buildBreadcrumbSchema([
                 <option>Mylar Bags</option>
                 <option>Gable Boxes</option>
               </select>
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="printing">
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="printing" aria-label="Printing option">
                 <option>Printing</option>
                 <option>Full-color exterior</option>
                 <option>Inside and outside print</option>
                 <option>Black ink only</option>
                 <option>No print</option>
               </select>
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
             </div>
           </fieldset>
 
@@ -107,7 +108,8 @@ const breadcrumb = buildBreadcrumbSchema([
               Upload Artwork
             </legend>
             <label class="flex min-h-14 cursor-pointer items-center bg-white px-4 text-base font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
-              <input class="text-base" name="artwork" type="file" />
+              <span class="sr-only">Upload artwork file</span>
+              <input class="text-base" name="artwork" type="file" aria-label="Upload artwork file" />
             </label>
           </fieldset>
 
@@ -121,9 +123,9 @@ const breadcrumb = buildBreadcrumbSchema([
               Personal Information
             </legend>
             <div class="grid gap-3 md:grid-cols-3">
-              <input required class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" />
-              <input required type="email" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" />
-              <input required type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" />
+              <input required class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
+              <input required type="email" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" autocomplete="email" aria-label="Email address" />
+              <input required type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" autocomplete="tel" aria-label="Contact number" />
             </div>
           </fieldset>
 
@@ -141,6 +143,7 @@ const breadcrumb = buildBreadcrumbSchema([
               class="min-h-[10rem] border border-transparent bg-white px-4 py-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
               name="details"
               placeholder="Message..."
+              aria-label="Project details"
             ></textarea>
           </fieldset>
 

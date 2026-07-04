@@ -12,7 +12,7 @@ const { items = [], lead = '' } = Astro.props;
 const icons = ['cube', 'print', 'bag', 'leaf'];
 ---
 {items.length > 0 && (
-  <div class:list={['hero-feature-wrap', lead && 'hero-feature-wrap--panel']} aria-label="Packaging features">
+  <div class:list={['hero-feature-wrap', lead && 'hero-feature-wrap--panel']} role="group" aria-label="Packaging features">
     {lead && <p class="hero-feature-lead">{lead}</p>}
     <div class="hero-feature-strip">
       {items.slice(0, 4).map((item, index) => (

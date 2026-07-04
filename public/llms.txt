@@ -60,6 +60,12 @@ Email or use the contact form with: product type and dimensions, packaging type 
 - Refund and Return Policy: https://apexpackagingsolutions.com/refund-and-return-policy
 - Blog: https://apexpackagingsolutions.com/blog
 
+## Useful links for crawlers
+
+- [Sitemap](https://apexpackagingsolutions.com/sitemap-index.xml)
+- [Robots policy](https://apexpackagingsolutions.com/robots.txt)
+- [Quote request](https://apexpackagingsolutions.com/contact)
+
 ## Frequently asked questions
 
 ### What is the minimum order quantity?
