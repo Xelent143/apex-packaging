@@ -8,19 +8,44 @@ const tawkWidgetUrl =
 ---
 
 {tawkWidgetUrl && (
-  <script is:inline define:vars={{ tawkWidgetUrl }}>
-    window.Tawk_API = window.Tawk_API || {};
-    window.Tawk_LoadStart = new Date();
+  <>
+    <button
+      id="apex-chat-launcher"
+      type="button"
+      class="fixed bottom-4 right-4 z-40 grid h-12 min-w-12 place-items-center rounded-full border border-white/20 bg-neutral-900 px-4 text-sm font-black uppercase tracking-wide text-white shadow-popover transition hover:bg-neutral-800 focus-visible:outline-accent"
+      aria-label="Open live chat"
+    >
+      Chat
+    </button>
+    <script is:inline define:vars={{ tawkWidgetUrl }}>
+      window.Tawk_API = window.Tawk_API || {};
 
-    (function () {
-      var script = document.createElement('script');
-      var firstScript = document.getElementsByTagName('script')[0];
+      (function () {
+        var launcher = document.getElementById('apex-chat-launcher');
+        var loaded = false;
 
-      script.async = true;
-      script.src = tawkWidgetUrl;
-      script.charset = 'UTF-8';
+        function loadChat() {
+          if (loaded) return;
+          loaded = true;
+          window.Tawk_LoadStart = new Date();
 
-      firstScript.parentNode.insertBefore(script, firstScript);
-    })();
-  </script>
+          var script = document.createElement('script');
+          var firstScript = document.getElementsByTagName('script')[0];
+
+          script.async = true;
+          script.src = tawkWidgetUrl;
+          script.charset = 'UTF-8';
+          script.onload = function () {
+            if (launcher) launcher.setAttribute('hidden', '');
+          };
+
+          firstScript.parentNode.insertBefore(script, firstScript);
+        }
+
+        if (launcher) {
+          launcher.addEventListener('click', loadChat, { once: true });
+        }
+      })();
+    </script>
+  </>
 )}

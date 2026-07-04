@@ -32,8 +32,8 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
 <header class="bg-white shadow-sm lg:sticky lg:top-0 lg:z-30">
   <div class="hidden bg-neutral-950 text-neutral-50 lg:block">
     <div class="mx-auto grid min-h-8 w-full grid-cols-[auto_1fr_auto] items-center gap-6 px-6 text-xs font-black tracking-wide md:px-8">
-      <div class="flex items-center gap-3 text-accent">
-        <span class="grid h-5 w-5 place-items-center rounded border border-accent/35" aria-hidden="true">
+      <div class="flex items-center gap-3 text-accent-soft">
+        <span class="grid h-5 w-5 place-items-center rounded border border-accent-soft/45" aria-hidden="true">
           <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m21 8-9-5-9 5 9 5 9-5Z"></path>
             <path d="M3 8v8l9 5 9-5V8"></path>
@@ -41,14 +41,14 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
           </svg>
         </span>
         <span>Order with confidence.</span>
-        <span class="ml-4 h-5 w-px bg-accent/45" aria-hidden="true"></span>
+        <span class="ml-4 h-5 w-px bg-accent-soft/45" aria-hidden="true"></span>
       </div>
       <div class="flex items-center justify-center gap-2 text-neutral-200">
-        <span class="text-accent" aria-hidden="true">↯</span>
-        <span>Fast turnaround. Premium quality. Delivered in as fast as <strong class="text-accent">7 days.</strong></span>
+        <span class="text-accent-soft" aria-hidden="true">↯</span>
+        <span>Fast turnaround. Premium quality. Delivered in as fast as <strong class="text-accent-soft">7 days.</strong></span>
       </div>
-      <div class="flex items-center justify-end gap-3 text-accent">
-        <span class="text-accent" aria-hidden="true">
+      <div class="flex items-center justify-end gap-3 text-accent-soft">
+        <span class="text-accent-soft" aria-hidden="true">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 13c0 5-3.5 7.5-7.66 8.93a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.2 1.2 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1v7Z"></path>
           </svg>
@@ -61,29 +61,29 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
   <div class="bg-neutral-950 px-4 py-3 text-neutral-50 lg:hidden">
     <div class="mx-auto grid max-w-md grid-cols-[1fr_auto_1.12fr_auto_1fr] items-center gap-3 text-[0.68rem] font-extrabold leading-tight">
       <div class="flex items-center gap-2">
-        <span class="grid h-8 w-8 shrink-0 place-items-center text-accent" aria-hidden="true">
+        <span class="grid h-8 w-8 shrink-0 place-items-center text-accent-soft" aria-hidden="true">
           <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="m21 8-9-5-9 5 9 5 9-5Z"></path>
             <path d="M3 8v8l9 5 9-5V8"></path>
             <path d="M12 13v8"></path>
           </svg>
         </span>
-        <span><strong class="text-accent">Order with</strong><br />confidence.</span>
+        <span><strong class="text-accent-soft">Order with</strong><br />confidence.</span>
       </div>
       <span class="h-12 w-px bg-white/30" aria-hidden="true"></span>
       <div class="flex items-center gap-2">
-        <span class="text-2xl leading-none text-accent" aria-hidden="true">↯</span>
-        <span>Fast turnaround.<br />Premium quality.<br />Delivered in as fast as <strong class="text-accent">7 days.</strong></span>
+        <span class="text-2xl leading-none text-accent-soft" aria-hidden="true">↯</span>
+        <span>Fast turnaround.<br />Premium quality.<br />Delivered in as fast as <strong class="text-accent-soft">7 days.</strong></span>
       </div>
       <span class="h-12 w-px bg-white/30" aria-hidden="true"></span>
       <div class="flex items-center gap-2">
-        <span class="grid h-8 w-8 shrink-0 place-items-center text-accent" aria-hidden="true">
+        <span class="grid h-8 w-8 shrink-0 place-items-center text-accent-soft" aria-hidden="true">
           <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 13c0 5-3.5 7.5-7.66 8.93a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.2 1.2 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1v7Z"></path>
             <path d="m9.5 12.5 1.7 1.7 3.6-4.1"></path>
           </svg>
         </span>
-        <span><strong class="text-accent">Secure</strong><br />packaging.<br />Protected delivery.</span>
+        <span><strong class="text-accent-soft">Secure</strong><br />packaging.<br />Protected delivery.</span>
       </div>
     </div>
   </div>
@@ -92,6 +92,8 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
     <a href="/" class="flex shrink-0 items-center" aria-label="Apex Packaging home">
       <img
         src="/images/apex-update/brand/final-logo.webp"
+        srcset="/images/apex-update/brand/final-logo-330.webp 330w, /images/apex-update/brand/final-logo-660.webp 660w, /images/apex-update/brand/final-logo-1032.webp 1032w"
+        sizes="(max-width: 1023px) 55vw, 250px"
         alt="Apex Packaging"
         width="2064"
         height="762"
@@ -152,6 +154,8 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
         <a href="/" class="flex justify-center" aria-label="Apex Packaging home">
           <img
             src="/images/apex-update/brand/final-logo.webp"
+            srcset="/images/apex-update/brand/final-logo-330.webp 330w, /images/apex-update/brand/final-logo-660.webp 660w, /images/apex-update/brand/final-logo-1032.webp 1032w"
+            sizes="55vw"
             alt="Apex Packaging"
             width="2064"
             height="762"

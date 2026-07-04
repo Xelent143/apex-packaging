@@ -3,6 +3,7 @@ import { appendFile, mkdir } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createBrotliCompress, createGzip } from 'node:zlib';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
 import { sendSmtpEmail } from './server/smtpEmail.mjs';
 import { createApexTestCheckoutSession, handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
@@ -31,6 +32,8 @@ const contentTypes = {
   '.webp': 'image/webp',
   '.xml': 'application/xml; charset=utf-8'
 };
+
+const compressibleExtensions = new Set(['.css', '.html', '.js', '.json', '.svg', '.txt', '.xml']);
 
 const server = createServer(async (req, res) => {
   try {
@@ -178,17 +181,38 @@ function serveStatic(pathname, req, res) {
   }
 
   const ext = extname(filePath);
-  res.writeHead(200, {
+  const encoding = getCompressionEncoding(req, ext);
+  const headers = {
     'Content-Type': contentTypes[ext] || 'application/octet-stream',
-    'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable'
-  });
+    'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable',
+    Vary: 'Accept-Encoding'
+  };
+
+  if (encoding) headers['Content-Encoding'] = encoding;
+
+  res.writeHead(200, headers);
 
   if (req.method === 'HEAD') {
     res.end();
     return;
   }
 
-  createReadStream(filePath).pipe(res);
+  const stream = createReadStream(filePath);
+  if (encoding === 'br') {
+    stream.pipe(createBrotliCompress()).pipe(res);
+  } else if (encoding === 'gzip') {
+    stream.pipe(createGzip()).pipe(res);
+  } else {
+    stream.pipe(res);
+  }
+}
+
+function getCompressionEncoding(req, ext) {
+  if (!compressibleExtensions.has(ext)) return '';
+  const acceptEncoding = String(req.headers['accept-encoding'] || '');
+  if (acceptEncoding.includes('br')) return 'br';
+  if (acceptEncoding.includes('gzip')) return 'gzip';
+  return '';
 }
 
 function nodeHeadersToWebHeaders(nodeHeaders) {

@@ -82,6 +82,8 @@ const heroSlides = [
 const heroSlideDurationSeconds = 5;
 
 const schemaBlocks = [buildFAQSchema(faqs)];
+const responsiveImagePath = (src: string, width: number) => src.replace(/\.(webp|png|jpe?g)$/i, `-${width}.webp`);
+const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((width) => `${responsiveImagePath(src, width)} ${width}w`).join(', ');
 ---
 <BaseLayout
   title="Custom Packaging Canada | Apex Packaging"
@@ -94,6 +96,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
       {heroSlides.map((slide, index) => (
         <img
           src={slide.src}
+          srcset={responsiveImageSrcset(slide.src, [721, 1080, 1442])}
+          sizes="100vw"
           alt={slide.alt}
           width="2172"
           height="724"
@@ -143,7 +147,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
   <section class="border-y border-neutral-200 bg-neutral-50 py-3 md:py-5">
     <div class="container max-w-wide overflow-hidden">
-      <div class="flex min-w-max items-center gap-6 text-center text-xs font-black uppercase tracking-wide text-neutral-400 md:gap-10 md:text-sm">
+      <div class="flex min-w-max items-center gap-6 text-center text-xs font-black uppercase tracking-wide text-neutral-700 md:gap-10 md:text-sm">
         {[...clientNames, ...clientNames].map((name) => <span>{name}</span>)}
       </div>
     </div>
@@ -162,6 +166,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           <a href={cat.href} class:list={['group min-w-0 snap-start text-center', index >= 8 && 'max-md:hidden']}>
             <img
               src={cat.image}
+              srcset={responsiveImageSrcset(cat.image, [320, 500, 620])}
+              sizes="(max-width: 767px) 42vw, (max-width: 1023px) 25vw, 249px"
               alt={cat.alt}
               width="418"
               height="418"
@@ -192,7 +198,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           </p>
         </div>
         <div class="lg:col-span-4 lg:text-right">
-          <a href="#quote" class="btn-primary !bg-accent !text-neutral-900 hover:!bg-warning">Start a quote</a>
+          <a href="#quote" class="btn-primary !bg-[#c99700] !text-neutral-950 hover:!bg-warning">Start a quote</a>
         </div>
       </div>
 
@@ -229,6 +235,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           <a href="/design-support" class="group relative block w-[82vw] max-w-[24rem] shrink-0 snap-start overflow-hidden rounded-md bg-neutral-900 md:w-auto md:max-w-none">
             <img
               src={`/images/home/finishes/${finish.image}.webp`}
+              srcset={responsiveImageSrcset(`/images/home/finishes/${finish.image}.webp`, [480, 640, 768])}
+              sizes="(max-width: 767px) 82vw, (max-width: 1023px) 50vw, 33vw"
               alt={`${finish.title} packaging finish`}
               width="768"
               height="341"
@@ -294,6 +302,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
           {['corrugated-boxes-branded', 'polybags-branded', 'categories/cosmetic-boxes', 'hero-branded-packaging'].map((img) => (
             <img
               src={`/images/home/${img}.webp`}
+              srcset={responsiveImageSrcset(`/images/home/${img}.webp`, [320, 640, 960])}
+              sizes="(max-width: 767px) 50vw, 25vw"
               alt="Custom packaging example with fictional brand artwork"
               width="1536"
               height="1024"
@@ -328,14 +338,14 @@ const schemaBlocks = [buildFAQSchema(faqs)];
             Website
             <input name="website" tabindex="-1" autocomplete="off" />
           </label>
-          <div class="bg-accent px-5 py-5 text-center md:px-7">
-            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-900 md:text-3xl">Get Custom Quote</h3>
+          <div class="bg-[#c99700] px-5 py-5 text-center md:px-7">
+            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-3xl">Get Custom Quote</h3>
           </div>
 
           <div class="grid gap-5 p-4 md:p-7">
             <fieldset class="grid gap-3">
               <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
                   <PackagingIcon name="quote-review" class="h-4 w-4" />
                 </span>
                 Product Information
@@ -345,7 +355,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
             <fieldset class="grid gap-3">
               <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
                   <PackagingIcon name="custom-spec" class="h-4 w-4" />
                 </span>
                 Select Sizes
@@ -365,7 +375,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
             <fieldset class="grid gap-3">
               <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
                   <PackagingIcon name="sample-run" class="h-4 w-4" />
                 </span>
                 Choose Materials
@@ -390,7 +400,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
             <fieldset class="grid gap-3">
               <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
                   <PackagingIcon name="design-proof" class="h-4 w-4" />
                 </span>
                 Upload Artwork
@@ -403,7 +413,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
             <fieldset class="grid gap-3">
               <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
                   </svg>
@@ -419,7 +429,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
 
             <fieldset class="grid gap-3">
               <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-accent text-neutral-900" aria-hidden="true">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
                   </svg>
@@ -430,7 +440,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
             </fieldset>
 
             <div class="flex justify-end pt-1">
-              <button class="min-h-12 rounded-md bg-accent px-10 py-3 font-black text-neutral-900 transition hover:bg-warning" type="submit">Submit</button>
+              <button class="min-h-12 rounded-md bg-[#c99700] px-10 py-3 font-black text-neutral-950 transition hover:bg-warning" type="submit">Submit</button>
             </div>
           </div>
         </form>
@@ -458,7 +468,7 @@ const schemaBlocks = [buildFAQSchema(faqs)];
                 'All with convenience quick'
               ].map((item) => (
                 <div class="flex min-h-16 items-center gap-3 rounded-md border border-[#ead58d] bg-[#fff8df] px-4 font-display text-sm font-extrabold text-neutral-800">
-                  <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent text-neutral-900" aria-hidden="true">
+                  <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#c99700] text-neutral-950" aria-hidden="true">
                     <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                       <path d="m6 12 4 4 8-8"></path>
                     </svg>
@@ -488,6 +498,8 @@ const schemaBlocks = [buildFAQSchema(faqs)];
         <a href={cat.href} class="w-[48vw] max-w-[13rem] shrink-0 snap-start text-center md:w-auto md:max-w-none">
           <img
             src={cat.image}
+            srcset={responsiveImageSrcset(cat.image, [320, 500, 620])}
+            sizes="(max-width: 767px) 48vw, 13rem"
             alt={cat.alt}
             width="418"
             height="418"
