@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Fast Turnaround Packaging: How to Cut Days From Artwork to Delivery';
+const description = 'A practical buyer guide to fast turnaround packaging in Canada: how to reduce delays in artwork, dielines, approvals, sampling, production, and delivery.';
+const url = '/blog/fast-turnaround-packaging-artwork-to-delivery';
+const datePublished = '2026-07-06';
+const image = '/images/blog/fast-turnaround-packaging-artwork-delivery-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Fast Turnaround Packaging', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  { q: 'How can buyers speed up custom packaging production?', a: 'Send complete dimensions, product weight, artwork files, quantity, delivery location, approval contact, and target date in the first request. Missing information is the most common delay.' },
+  { q: 'What slows packaging orders down most often?', a: 'Artwork revisions, missing dieline details, unclear quantities, late approvals, unavailable materials, complex finishes, and freight assumptions usually create the biggest delays.' },
+  { q: 'Can fast turnaround packaging still be custom printed?', a: 'Yes, but the print method, artwork readiness, colour requirements, proofing process, and quantity decide how fast the order can move.' }
+]);
+---
+<BaseLayout title="Fast Turnaround Packaging Canada" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader
+    eyebrow="Knowledge base · Lead time"
+    heading="Fast turnaround packaging - how to cut days from artwork to delivery."
+    lead="Speed comes from clean inputs, fast approvals, practical material choices, and a production path that matches the deadline. The earlier the quote includes the right details, the fewer days disappear in revisions."
+    imageSrc={image}
+    imageAlt="Premium Apex Packaging fast turnaround workflow with branded boxes, proof sheets, dielines, colour swatches, and ready-to-ship packaging."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Fast turnaround packaging</strong> does not happen by asking a supplier to rush every step after the order is already late. The fastest projects are usually the cleanest projects: the dimensions are clear, artwork is ready, approvals are assigned, and the packaging style fits the available production route.</p>
+
+      <p>Apex Packaging Solutions supports buyers across Canada and the USA with custom boxes, mailers, polybags, protective packaging, and design support. If your launch, reorder, event, or retail deadline is close, use this guide to remove the delays that most often slow custom packaging from artwork to delivery.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="High-definition Apex Packaging fast turnaround packaging workflow with dielines, proof sheets, colour swatches, and branded boxes." width="1672" height="941" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Fast packaging timelines depend on complete specs, artwork readiness, quick approvals, and a production route that fits the required delivery date.</figcaption>
+      </figure>
+
+      <h2>Start with a complete RFQ</h2>
+      <p>The first delay often happens before quoting begins. A supplier cannot recommend a realistic fast-turnaround path without the package size, quantity, material target, print needs, delivery location, and target in-hand date. If those details arrive in separate messages over several days, the project loses time before production is even scheduled.</p>
+
+      <p>Send the product dimensions, packed weight, required quantity, desired packaging style, artwork status, delivery location, and any hard deadline in the first request. If you are unsure about board grade, insert need, or print method, say that clearly. A supplier can then propose the fastest practical option instead of waiting for missing decisions.</p>
+
+      <h2>Artwork readiness is the biggest speed lever</h2>
+      <p>Custom printed packaging slows down when artwork is incomplete, low resolution, missing bleed, missing fonts, or not built to the dieline. Even simple packaging can stall if barcode placement, legal copy, colour targets, or panel hierarchy are not approved.</p>
+
+      <ul>
+        <li>Send vector logos and editable artwork files when possible.</li>
+        <li>Confirm brand colours, print coverage, barcode needs, and required copy.</li>
+        <li>Assign one person to approve proofs quickly.</li>
+        <li>Do not change product dimensions after the dieline is built unless the timeline can absorb revisions.</li>
+      </ul>
+
+      <h2>Choose a structure that matches the deadline</h2>
+      <p>A stock-style RSC carton, simple mailer, or standard polybag can usually move faster than a complex custom structure with inserts, windows, foil, embossing, and several proof rounds. That does not mean premium packaging is impossible on a fast timeline. It means the package should be designed around the deadline from the start.</p>
+
+      <table>
+        <thead><tr><th>Decision</th><th>Faster path</th><th>Slower path</th></tr></thead>
+        <tbody>
+          <tr><td>Structure</td><td>Standard RSC, mailer, sleeve, or simple pouch</td><td>Highly custom structure with several moving parts</td></tr>
+          <tr><td>Print</td><td>Simple brand mark, approved artwork, practical colour target</td><td>Multiple revisions, unapproved colours, complex panels</td></tr>
+          <tr><td>Approval</td><td>One decision maker with same-day proof review</td><td>Several teams reviewing copy, barcode, and artwork separately</td></tr>
+          <tr><td>Freight</td><td>Known delivery location and realistic shipping method</td><td>Late address changes or assumptions about transit time</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Sampling can help or delay the project</h2>
+      <p>Samples are useful when the product is fragile, high value, new to the brand, or difficult to fit. But sampling also adds time. If the deadline is tight, decide whether you need a physical sample, a white structural sample, a printed proof, or a production-ready order with digital proof approval.</p>
+
+      <p>A practical compromise is to sample the structure while keeping print simple for the first run. That can help a launch move without locking the brand into a large printed inventory before the package has been tested.</p>
+
+      <h2>Use reorder planning to avoid repeated rushes</h2>
+      <p>Rush packaging should not become the default operating model. After the first order, track usage rate, lead time, reorder point, and seasonal demand. A simple reorder plan can lower freight pressure, reduce emergency approvals, and give the team time to improve artwork or materials before the next run.</p>
+
+      <h2>Conclusion</h2>
+      <p>Fast turnaround packaging is built from prepared details: product size, quantity, artwork, approval ownership, material expectations, delivery location, and a realistic in-hand date. Send Apex the full RFQ early, and the team can recommend the quickest route that still protects the product and supports the brand.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Design Support', href: '/design-support', description: 'Dieline and artwork support before production.' },
+    { title: 'Request a Quote', href: '/contact', description: 'Send dimensions, artwork, quantity, and deadline.' },
+    { title: 'Packaging Cost Drivers', href: '/blog/packaging-cost-drivers-box-quote-canada', description: 'What changes the price and timing of a packaging quote.' }
+  ]} />
+  <CTABand heading="Need packaging on a tight deadline?" lead="Send size, quantity, artwork status, delivery location, and your required date. Apex will flag the fastest practical production route." primaryCta={{ label: 'Request a rush packaging quote', href: '/contact' }} />
+</BaseLayout>
