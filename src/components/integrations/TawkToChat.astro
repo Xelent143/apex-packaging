@@ -12,20 +12,158 @@ const tawkWidgetUrl =
     <button
       id="apex-chat-launcher"
       type="button"
-      class="fixed bottom-4 right-4 z-40 grid h-12 min-w-12 place-items-center rounded-full border border-white/20 bg-neutral-900 px-4 text-sm font-black uppercase tracking-wide text-white shadow-popover transition hover:bg-neutral-800 focus-visible:outline-accent"
+      class="apex-chat-launcher"
       aria-label="Open live chat"
     >
-      Chat
+      <span class="apex-chat-label">Chat</span>
     </button>
+    <style>
+      .apex-chat-launcher {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        right: calc(20px + env(safe-area-inset-right, 0px));
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+        z-index: 2147483000;
+        display: inline-flex;
+        min-width: 94px;
+        height: 52px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(255 255 255 / 0.16);
+        border-radius: 999px;
+        background: #080705;
+        color: #fff;
+        box-shadow: 0 18px 45px rgb(0 0 0 / 0.22);
+        font: 900 15px/1 Arial, Helvetica, sans-serif;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background-color 160ms ease,
+          box-shadow 160ms ease,
+          transform 160ms ease;
+      }
+
+      .apex-chat-launcher:hover {
+        background: #1b1711;
+        box-shadow: 0 20px 50px rgb(0 0 0 / 0.28);
+        transform: translateY(-1px);
+      }
+
+      .apex-chat-launcher:focus-visible {
+        outline: 3px solid #b88712;
+        outline-offset: 3px;
+      }
+
+      .apex-chat-launcher[aria-busy='true'] {
+        cursor: wait;
+        opacity: 0.88;
+      }
+
+      .apex-chat-launcher[hidden] {
+        display: none !important;
+      }
+
+      @media (max-width: 767px) {
+        .apex-chat-launcher {
+          right: 16px;
+          bottom: 24px;
+          right: calc(16px + env(safe-area-inset-right, 0px));
+          bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+          min-width: 92px;
+          height: 52px;
+          font-size: 14px;
+        }
+      }
+    </style>
     <script is:inline define:vars={{ tawkWidgetUrl }}>
       window.Tawk_API = window.Tawk_API || {};
 
       (function () {
         var launcher = document.getElementById('apex-chat-launcher');
         var loaded = false;
+        var opening = false;
+        var openAttempts = 0;
+        var openTimer = 0;
+        var previousOnLoad = window.Tawk_API.onLoad;
+        var previousOnChatMaximized = window.Tawk_API.onChatMaximized;
+
+        function setLauncherLabel(label) {
+          if (!launcher) return;
+          var labelNode = launcher.querySelector('.apex-chat-label');
+          if (labelNode) labelNode.textContent = label;
+        }
+
+        function hideLauncher() {
+          if (launcher) launcher.setAttribute('hidden', '');
+        }
+
+        function openLoadedChat() {
+          if (!window.Tawk_API || typeof window.Tawk_API.maximize !== 'function') return false;
+
+          try {
+            if (typeof window.Tawk_API.showWidget === 'function') {
+              window.Tawk_API.showWidget();
+            }
+            window.Tawk_API.maximize();
+            hideLauncher();
+            return true;
+          } catch (error) {
+            return false;
+          }
+        }
+
+        function stopOpenPolling() {
+          if (openTimer) {
+            window.clearInterval(openTimer);
+            openTimer = 0;
+          }
+        }
+
+        function resetLauncher() {
+          opening = false;
+          stopOpenPolling();
+          if (launcher) launcher.removeAttribute('aria-busy');
+          setLauncherLabel('Chat');
+        }
+
+        function waitForChatApi() {
+          stopOpenPolling();
+          openAttempts = 0;
+
+          openTimer = window.setInterval(function () {
+            openAttempts += 1;
+            if (openLoadedChat()) {
+              stopOpenPolling();
+              return;
+            }
+            if (openAttempts >= 40) {
+              resetLauncher();
+            }
+          }, 250);
+        }
+
+        window.Tawk_API.onLoad = function () {
+          if (typeof previousOnLoad === 'function') previousOnLoad();
+          if (opening) {
+            window.setTimeout(function () {
+              if (!openLoadedChat()) waitForChatApi();
+            }, 250);
+          }
+        };
+
+        window.Tawk_API.onChatMaximized = function () {
+          if (typeof previousOnChatMaximized === 'function') previousOnChatMaximized();
+          hideLauncher();
+        };
 
         function loadChat() {
-          if (loaded) return;
+          if (loaded) {
+            openLoadedChat();
+            return;
+          }
+
           loaded = true;
           window.Tawk_LoadStart = new Date();
 
@@ -36,14 +174,24 @@ const tawkWidgetUrl =
           script.src = tawkWidgetUrl;
           script.charset = 'UTF-8';
           script.onload = function () {
-            if (launcher) launcher.setAttribute('hidden', '');
+            if (opening) waitForChatApi();
+          };
+          script.onerror = function () {
+            loaded = false;
+            resetLauncher();
           };
 
           firstScript.parentNode.insertBefore(script, firstScript);
         }
 
         if (launcher) {
-          launcher.addEventListener('click', loadChat, { once: true });
+          launcher.addEventListener('click', function () {
+            opening = true;
+            launcher.setAttribute('aria-busy', 'true');
+            setLauncherLabel('Opening');
+            loadChat();
+            waitForChatApi();
+          });
         }
       })();
     </script>
