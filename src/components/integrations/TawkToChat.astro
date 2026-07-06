@@ -99,6 +99,16 @@ const tawkWidgetUrl =
           if (launcher) launcher.setAttribute('hidden', '');
         }
 
+        function hideNativeWidget() {
+          if (!window.Tawk_API || typeof window.Tawk_API.hideWidget !== 'function') return;
+
+          try {
+            window.Tawk_API.hideWidget();
+          } catch (error) {
+            // Keep the custom launcher visible if Tawk is still initializing.
+          }
+        }
+
         function openLoadedChat() {
           if (!window.Tawk_API || typeof window.Tawk_API.maximize !== 'function') return false;
 
@@ -150,6 +160,8 @@ const tawkWidgetUrl =
             window.setTimeout(function () {
               if (!openLoadedChat()) waitForChatApi();
             }, 250);
+          } else {
+            hideNativeWidget();
           }
         };
 
@@ -184,6 +196,29 @@ const tawkWidgetUrl =
           firstScript.parentNode.insertBefore(script, firstScript);
         }
 
+        function loadChatForTracking() {
+          if (loaded) return;
+          loadChat();
+        }
+
+        function scheduleTrackingLoad() {
+          var startTracking = function () {
+            window.setTimeout(loadChatForTracking, 1200);
+          };
+
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadChatForTracking, { timeout: 3500 });
+            return;
+          }
+
+          if (document.readyState === 'complete') {
+            startTracking();
+            return;
+          }
+
+          window.addEventListener('load', startTracking, { once: true });
+        }
+
         if (launcher) {
           launcher.addEventListener('click', function () {
             opening = true;
@@ -193,6 +228,8 @@ const tawkWidgetUrl =
             waitForChatApi();
           });
         }
+
+        scheduleTrackingLoad();
       })();
     </script>
   </>
