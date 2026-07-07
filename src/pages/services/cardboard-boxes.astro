@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+
+const faqs = [
+  { q: 'What are cardboard boxes best for?', a: 'Cardboard boxes are ideal for retail cartons, product packaging, sleeves, small ecommerce items, display cartons, and branded shelf-ready packaging.' },
+  { q: 'Can cardboard boxes be custom printed?', a: 'Yes. Apex can quote spot color, full-color print, matte or gloss finishes, foil, embossing, windows, and custom dielines depending on the box structure.' },
+  { q: 'Are cardboard boxes different from corrugated boxes?', a: 'Yes. Cardboard usually refers to paperboard or folding carton stock for retail packaging, while corrugated boxes use fluted board for shipping strength.' },
+  { q: 'Can Apex help choose the right board?', a: 'Yes. Share product size, weight, quantity, artwork, and sales channel. Apex can recommend SBS, kraft, recycled, or coated paperboard options.' }
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Cardboard Boxes', url: '/services/cardboard-boxes' }
+]);
+
+const service = buildServiceSchema({
+  name: 'Custom cardboard boxes Canada',
+  description: 'Custom cardboard boxes for retail, ecommerce, product cartons, sleeves, displays, and printed packaging programs.',
+  url: '/services/cardboard-boxes'
+});
+---
+<BaseLayout
+  title="Custom Cardboard Boxes Canada — Printed Product Packaging"
+  description="Custom cardboard boxes for retail cartons, product boxes, sleeves, displays, ecommerce packaging, and printed paperboard packaging programs."
+  image="/images/services/cardboard-boxes-hero-banner.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Service · Cardboard Boxes"
+    heading="Custom cardboard boxes for retail products, shelf presentation, and branded packaging."
+    lead="Create clean, product-ready cardboard boxes using paperboard, kraft board, coated stock, custom print, windows, sleeves, and premium finishes."
+    imageSrc="/images/services/cardboard-boxes-hero-banner.webp"
+    imageAlt="Apex Packaging custom cardboard boxes banner with branded paperboard cartons, retail boxes, dieline samples, feature icons, and service headline."
+    imageIsFullBanner={true}
+    featureItems={[
+      { label: 'Paperboard' },
+      { label: 'Custom Print' },
+      { label: 'Retail Ready' },
+      { label: 'Premium Finish' }
+    ]}
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Cardboard box options</h2>
+      <ul>
+        <li><strong>Folding cartons</strong> for cosmetics, wellness, food-adjacent products, candles, gifts, and small retail goods.</li>
+        <li><strong>Product sleeves</strong> for presentation wraps, multipacks, and clean shelf branding.</li>
+        <li><strong>Window boxes</strong> when the product needs visibility before purchase.</li>
+        <li><strong>Display cartons</strong> for countertop, shelf, and launch-ready retail programs.</li>
+      </ul>
+
+      <h2>Material and finish choices</h2>
+      <ul>
+        <li>SBS, kraft, recycled-content board, coated paperboard, and specialty paper options.</li>
+        <li>CMYK, spot-color, white ink, foil, embossing, debossing, spot UV, and lamination.</li>
+        <li>Custom die-cut windows, hang tabs, inserts, dividers, and barcode-friendly panels.</li>
+      </ul>
+
+      <h2>What to send for a quote</h2>
+      <p>Send product dimensions, quantity, artwork status, preferred board style, finish direction, and target delivery date. Apex can recommend the structure, material, and print path that fits the product.</p>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent
+    items={[
+      { title: 'Custom Kraft Boxes', href: '/services/custom-kraft-boxes', description: 'Natural kraft board and sustainable-look packaging options.' },
+      { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Shipping cartons, RSC boxes, die-cut corrugated, and board strength options.' },
+      { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom ecommerce mailer boxes and subscription packaging.' }
+    ]}
+  />
+
+  <CTABand
+    heading="Need custom cardboard boxes?"
+    lead="Send your size, quantity, artwork, and material preference. Apex will recommend a practical cardboard packaging structure."
+    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+  />
+</BaseLayout>
