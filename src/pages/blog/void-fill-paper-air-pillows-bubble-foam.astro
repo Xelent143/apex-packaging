@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Choosing Void Fill: Paper, Air Pillows, Bubble, or Foam';
+const description = 'A practical buyer guide to void fill in Canada: when paper, air pillows, bubble wrap, or foam make sense for protection, labour, and freight.';
+const url = '/blog/void-fill-paper-air-pillows-bubble-foam';
+const datePublished = '2026-07-07';
+const image = '/images/blog/void-fill-paper-air-pillows-bubble-foam-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Choosing Void Fill', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  {
+    q: 'What void fill works best for ecommerce shipments?',
+    a: 'For many ecommerce orders, paper void fill or air pillows are the practical first options. Paper helps with blocking and branding, while air pillows reduce material weight for light products. The right choice depends on product weight, empty space, and damage pattern.'
+  },
+  {
+    q: 'Is bubble wrap enough for heavy or sharp-edged products?',
+    a: 'Not usually by itself. Bubble wrap cushions surfaces, but heavy or sharp-edged products often still need a stronger corrugated carton, fitted insert, foam support, or better blocking so the item does not migrate inside the box.'
+  },
+  {
+    q: 'What should buyers include in a void-fill RFQ?',
+    a: 'Send the product dimensions, packed weight, fragility points, box size, amount of open void space, shipping method, order quantity, pack-line speed needs, and any sustainability requirement. Those details decide whether paper, air, bubble, or foam makes the most sense.'
+  }
+]);
+---
+<BaseLayout title="Void Fill Canada: Paper, Air Pillows, Bubble, or Foam" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader
+    eyebrow="Knowledge base · Protective packaging"
+    heading="Choosing void fill - paper, air pillows, bubble, or foam."
+    lead="Void fill should stop movement, absorb the right level of impact, and keep packout efficient. The lowest-cost dunnage is only the right answer when it matches the product, carton, and freight route."
+    imageSrc={image}
+    imageAlt="Apex Packaging branded void-fill comparison with paper dunnage, air pillows, bubble wrap, foam corners, and an open corrugated shipping carton."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Void fill</strong> is one of the easiest packaging decisions to oversimplify. Buyers often ask for paper, air pillows, bubble wrap, or foam based on habit, not on the product or the shipment. That usually works until damage appears, labour climbs, or the package starts costing more in freight and repacking than the original quote suggested.</p>
+
+      <p>Apex Packaging Solutions supports Canadian buyers with <a href="/services/protective-packaging">protective packaging</a>, corrugated cartons, inserts, and transit-packout design. This guide focuses on the practical question behind most void-fill RFQs: when should the shipment use paper, air pillows, bubble wrap, or foam, and what details help the supplier recommend the right option the first time?</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="High-definition Apex Packaging void-fill comparison with kraft paper, air pillows, bubble wrap, foam corners, and a branded shipping carton." width="1672" height="941" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Void fill should be chosen against product movement, impact risk, labour, and freight assumptions, not by material habit alone.</figcaption>
+      </figure>
+
+      <h2>Start with the job the void fill must do</h2>
+      <p>Not every empty space inside a carton needs the same kind of protection. Some shipments only need to stop light movement. Others need cushioning against repeated drop events, support for an irregular part, or a faster packing method on a busy line. If the product is already well controlled by an insert or partition, the package may need very little loose dunnage at all. If the product can shift several inches in transit, the wrong void fill can turn an acceptable outer carton into a damage problem.</p>
+
+      <table>
+        <thead><tr><th>Need</th><th>Best first option</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Light blocking and presentation</td><td>Paper void fill</td><td>Fills space quickly, looks clean, and adds modest restraint.</td></tr>
+          <tr><td>Lightweight parcel protection</td><td>Air pillows</td><td>Adds volume without much material weight.</td></tr>
+          <tr><td>Surface cushioning</td><td>Bubble wrap</td><td>Wraps around the product and softens contact points.</td></tr>
+          <tr><td>Controlled support for fragile or dense items</td><td>Foam</td><td>Creates repeatable restraint and better shock management.</td></tr>
+        </tbody>
+      </table>
+
+      <p>That first choice still depends on the carton. A shipment with too much empty space may need a better-sized <a href="/services/corrugated-boxes">corrugated box</a> before the void-fill discussion even starts. Dunnage should support the box design, not rescue an oversized packout.</p>
+
+      <h2>Paper void fill works well when blocking, sustainability, and shelf presence matter</h2>
+      <p>Paper void fill is a strong option for ecommerce, subscription programs, retail-friendly shipments, and buyers who want a more paper-based pack. It can block moderate movement, improve presentation, and support sustainability goals when the customer expects a recyclable-looking unboxing experience.</p>
+
+      <p>The limit is compression consistency. Crumpled paper does not behave like a fitted insert, and it is not always the best answer for a dense or sharp-edged product. For heavier items, paper often works better as part of the packout system rather than the only protective component. A carton with partitions, pads, or a simple insert may still need only a small amount of paper to close the remaining void space cleanly.</p>
+
+      <h2>Air pillows are efficient for light products and freight-sensitive shipments</h2>
+      <p>Air pillows give buyers a lot of volume without adding much material weight. That makes them useful for light consumer goods, boxed accessories, and other parcel shipments where the product is not especially dense or sharp. They also help fast pack lines because one operator can fill space quickly with a consistent material output.</p>
+
+      <p>Air is not structure, though. Pillows are less effective when a product is heavy enough to displace them, has corners that concentrate load, or needs real blocking instead of loose surrounding volume. If a box fails because the item keeps migrating, the answer may be to move from air pillows toward a more controlled insert, divider, or foam support.</p>
+
+      <h2>Bubble wrap protects surfaces, but it is not a full packaging system</h2>
+      <p>Bubble wrap is often chosen because it is familiar and flexible. It works well when the product needs wraparound cushioning, scuff protection, or a simple manual packout around a moderate-fragility item. It can be a practical choice for giftware, components, jars inside a stronger secondary pack, and small-batch operations where packers need flexibility.</p>
+
+      <p>The weakness is repeatability. Two operators can wrap the same product very differently. Bubble wrap also does not always prevent heavy items from settling to the bottom of the box or striking a sidewall. When the product needs cavity control, a buyer should compare bubble against the Apex guides to <a href="/blog/corrugated-inserts-vs-foam-inserts-cost-damage-tradeoffs">corrugated inserts vs foam inserts</a> and <a href="/blog/custom-foam-inserts-corrugated-alone-not-enough">custom foam inserts</a> instead of assuming more wrap will solve the problem.</p>
+
+      <h2>Foam earns its cost when the shipment needs controlled support</h2>
+      <p>Foam is usually the right void-fill decision when the item is fragile, high value, dense, presentation-sensitive, or consistently damaged by movement. It can act as a void filler, but its real advantage is repeatable support. Foam corners, end caps, pads, or fitted cavities keep the product in a known position and absorb shock more predictably than loose dunnage.</p>
+
+      <p>That precision makes foam more expensive than paper or air in many cases, so the buying decision should be tied to the real cost of damage, labour, and inconsistency. If a damaged unit wipes out the savings from several cheaper packs, the foam upgrade often belongs in the quote. If the product only needs light blocking, foam may be more than the route requires.</p>
+
+      <h2>Compare void fill against labour and freight, not just unit cost</h2>
+      <p>Buyers usually focus on material price first, but labour and shipping can move the economics more than the dunnage itself. Paper may cost more per pack than pillows while reducing repacks. Bubble may look inexpensive while slowing the line. Foam may cost more up front while reducing damage and simplifying receiving.</p>
+
+      <table>
+        <thead><tr><th>Option</th><th>Strength</th><th>Common trade-off</th></tr></thead>
+        <tbody>
+          <tr><td>Paper</td><td>Clean presentation, recyclable feel, good moderate blocking</td><td>Can require more material and operator judgment for heavier products</td></tr>
+          <tr><td>Air pillows</td><td>Low added weight, fast filling, good for light parcel packouts</td><td>Less effective with dense or sharp-edged products</td></tr>
+          <tr><td>Bubble wrap</td><td>Flexible surface cushioning and wraparound protection</td><td>Inconsistent packout and weaker product control</td></tr>
+          <tr><td>Foam</td><td>Best controlled support and repeatable shock protection</td><td>Higher conversion cost and more engineered setup</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What to send before requesting a void-fill recommendation</h2>
+      <p>Avoid requesting "best void fill" without shipment details. The supplier needs to know how much open space exists inside the carton, how fragile the product is, how the line packs it today, and where failures are happening. A cleaner RFQ produces a better recommendation and reduces trial-and-error sampling.</p>
+
+      <ul>
+        <li>Product dimensions, packed weight, and any fragile faces, edges, or finish concerns.</li>
+        <li>Carton size, inside void space, and whether the box is likely oversized for the job.</li>
+        <li>Shipping route: parcel, LTL, palletized, retail distribution, or local delivery.</li>
+        <li>Current issue: movement, scuffing, breakage, slow packout, or sustainability pressure.</li>
+        <li>Order volume, pack-line speed expectations, and whether the recommendation must scale for repeat production.</li>
+      </ul>
+
+      <h2>Choose void fill as part of the full packout</h2>
+      <p>The best void-fill choice is rarely a standalone material decision. It is part of the full packaging system: carton size, insert need, labour model, freight route, and the level of presentation or sustainability the brand expects. Paper, air pillows, bubble wrap, and foam all have a valid place. The right one is the option that controls movement at the real shipping risk and total operating cost.</p>
+
+      <p>If the team is seeing damage, oversized cartons, or inconsistent manual packouts, send Apex the product details and the current shipment setup. That is enough to compare lighter dunnage against more engineered protective packaging and decide which void-fill path actually belongs in production.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Protective Packaging', href: '/services/protective-packaging', description: 'Foam, void fill, inserts, and protective-packaging options built around the shipping risk.' },
+    { title: 'Corrugated Inserts vs Foam Inserts', href: '/blog/corrugated-inserts-vs-foam-inserts-cost-damage-tradeoffs', description: 'Compare paper-based restraint against foam support when the product needs more than loose dunnage.' },
+    { title: 'Packaging Cost Drivers', href: '/blog/packaging-cost-drivers-box-quote-canada', description: 'See how box size, labour, freight, and material choices change the real quote.' }
+  ]} />
+  <CTABand heading="Need the right void-fill spec for your shipment?" lead="Send Apex the product size, packed weight, box dimensions, and current damage or labour issue for a practical recommendation." primaryCta={{ label: 'Request a protective-packaging quote', href: '/contact' }} />
+</BaseLayout>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Packaging for Product Launches: Small Runs, Samples, and Reorders';
+const description = 'A practical buyer guide to product launch packaging in Canada: small runs, samples, reorder planning, artwork control, and launch-ready custom boxes.';
+const url = '/blog/product-launch-packaging-small-runs-samples-reorders';
+const datePublished = '2026-07-08';
+const image = '/images/blog/product-launch-packaging-small-runs-samples-reorders-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Product Launch Packaging', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  {
+    q: 'What packaging is best for a product launch?',
+    a: 'For most launches, the best packaging is a structure that can be sampled quickly, produced in a realistic first quantity, and reordered without changing dimensions or artwork every time.'
+  },
+  {
+    q: 'Should launch packaging start with a small run?',
+    a: 'A small run can reduce waste when demand, product fit, artwork, or retail feedback is still uncertain. The trade-off is that very small quantities can cost more per unit.'
+  },
+  {
+    q: 'What should buyers send before quoting launch packaging?',
+    a: 'Send product dimensions, packed weight, launch date, target quantity, artwork status, sample need, finish preferences, shipping route, and expected reorder timing.'
+  }
+]);
+---
+<BaseLayout title="Product Launch Packaging Canada" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader
+    eyebrow="Knowledge base · Product launches"
+    heading="Packaging for product launches - small runs, samples, and reorders."
+    lead="Launch packaging has to protect the first shipment, present the brand clearly, and avoid locking the team into a large inventory before demand is proven. The best first order is built around fit, speed, feedback, and reorder control."
+    imageSrc={image}
+    imageAlt="Apex Packaging product launch packaging scene with small-run mailer boxes, sample cartons, dieline proofs, colour swatches, and reorder planning sheets."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Product launch packaging</strong> is different from mature reorder packaging. A launch often has uncertain demand, changing artwork, tight dates, sample reviews, retail feedback, and pressure to look finished before the team has months of sales data. Ordering too much too early can leave a brand with obsolete boxes. Ordering too little without a reorder plan can create stockouts right when the product starts moving.</p>
+
+      <p>Apex Packaging Solutions supports launch teams with <a href="/services/mailer-boxes">custom mailer boxes</a>, <a href="/services/corrugated-boxes">corrugated packaging</a>, low-MOQ planning, artwork checks, and practical reorder guidance. Use this guide to decide when a small run makes sense, what kind of sample to request, and how to keep the second order cleaner than the first.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="High-definition Apex Packaging product launch workflow with branded sample boxes, small-run mailers, dieline proofs, and reorder planning materials." width="1672" height="941" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Launch packaging should balance first-run flexibility with a clear reorder path, especially when artwork, demand, and channels are still being tested.</figcaption>
+      </figure>
+
+      <h2>Start with the launch risk, not just the box style</h2>
+      <p>The right packaging structure depends on what is still uncertain. If the product dimensions are final and the channel is known, the team can move quickly into a printed mailer, folding carton, or shipper. If the product is still changing, or if retail, ecommerce, and wholesale channels need different packouts, the first run should stay flexible enough to absorb feedback.</p>
+
+      <p>Before choosing a format, define the real risk: product damage, slow launch date, uncertain order volume, changing artwork, premium presentation, or freight cost. A small ecommerce launch may need a branded mailer and insert. A wholesale launch may need a stronger shipper and case label control. A premium product may need a sample round before committing to finish details.</p>
+
+      <h2>When small-run packaging makes sense</h2>
+      <p>Small runs are useful when the first order is meant to test demand, confirm product fit, support a limited launch, or prevent waste while artwork is still evolving. A lower first quantity can also help a team prove the unboxing experience before it orders thousands of units.</p>
+
+      <table>
+        <thead><tr><th>Launch situation</th><th>Recommended first step</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><td>Product dimensions may change</td><td>Structural sample before full print</td><td>Prevents a large run from being built around the wrong fit.</td></tr>
+          <tr><td>Demand is unproven</td><td>Small printed run or simplified first run</td><td>Reduces waste while the channel learns sales velocity.</td></tr>
+          <tr><td>Retail presentation matters</td><td>Printed proof or short sample stage</td><td>Lets the team review colour, panels, barcode, and shelf impact.</td></tr>
+          <tr><td>Reorder is likely soon</td><td>Lock dimensions and keep artwork files clean</td><td>Makes the second order faster and easier to quote.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Use samples for decisions that actually need testing</h2>
+      <p>Sampling is valuable when the package has to prove fit, opening experience, insert support, retail presentation, or damage control. It is less valuable when the team only needs a simple shipper and the launch date is already tight. Sampling adds time, so the question is not whether samples are good. The question is what decision the sample will help you make.</p>
+
+      <p>A white structural sample is useful for fit and assembly. A printed proof helps with artwork placement, colour expectations, and panel hierarchy. A production sample can be useful for premium launches, but it may not be necessary for every small run. Choose the sample level that matches the risk.</p>
+
+      <h2>Keep artwork launch-ready</h2>
+      <p>Artwork delays can slow launch packaging more than production. Missing dieline alignment, low-resolution logos, unapproved colour targets, barcode placement issues, and late copy changes can all push a deadline. Before the first quote, prepare editable artwork files, logo assets, mandatory copy, barcode requirements, and the person responsible for approval.</p>
+
+      <ul>
+        <li>Confirm product name, SKU, barcode, legal copy, and country-specific label needs.</li>
+        <li>Send vector logos and editable artwork files whenever possible.</li>
+        <li>Decide which panels must carry the main brand message.</li>
+        <li>Keep finish choices practical if the date is tight.</li>
+        <li>Save final files cleanly so the reorder does not restart prepress work.</li>
+      </ul>
+
+      <h2>Plan the reorder before the first run sells out</h2>
+      <p>A launch can create a new problem if the first run sells faster than expected. The reorder should not begin when the last case of packaging is already on the line. Track sales velocity, packing usage, remaining packaging inventory, lead time, and the next promotion or retail drop.</p>
+
+      <p>The first order should also collect feedback: did the box fit the product cleanly, did the mailer survive the route, did customers mention the unboxing, did retail need a different barcode panel, and did packers lose time during assembly? Those notes should inform the second order before the dieline or print files are repeated.</p>
+
+      <h2>What to send Apex for a cleaner launch quote</h2>
+      <p>A complete launch RFQ helps the supplier recommend the right first quantity, sample path, structure, and print method. It also helps identify whether the deadline supports a full custom solution or a simpler first run with a planned upgrade on reorder.</p>
+
+      <ul>
+        <li>Product dimensions, packed weight, and any fragile areas.</li>
+        <li>Launch date, required in-hand date, and expected first quantity.</li>
+        <li>Sales channel: ecommerce, retail, wholesale, subscription, event, or sample kit.</li>
+        <li>Artwork status, barcode needs, colour targets, and finish preferences.</li>
+        <li>Sample requirement, approval owner, and likely reorder timing.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>Product launch packaging should be flexible enough for first-run uncertainty and disciplined enough to become a clean reorder. Start with the product fit, launch date, sample need, artwork readiness, and expected reorder timing. That gives Apex enough context to recommend a packaging path that supports the launch without creating avoidable waste or delay.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom mailer boxes for ecommerce, subscription, and product launch packaging.' },
+    { title: 'Design Support', href: '/design-support', description: 'Dieline, artwork, and structural support before production.' },
+    { title: 'Fast Turnaround Packaging', href: '/blog/fast-turnaround-packaging-artwork-to-delivery', description: 'How to reduce delays between artwork approval and delivery.' }
+  ]} />
+  <CTABand heading="Launching a product soon?" lead="Send Apex the product size, launch date, quantity, artwork status, and sample needs so the first packaging run is practical and reorder-ready." primaryCta={{ label: 'Request a launch packaging quote', href: '/contact' }} />
+</BaseLayout>
