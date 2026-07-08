@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Canada Packaging Supplier Checklist: Lead Time, MOQ, Certs, and Samples';
+const description = 'A practical buyer guide to choosing a packaging supplier in Canada: compare lead time, MOQ, certifications, samples, and quote quality before placing an order.';
+const url = '/blog/canada-packaging-supplier-checklist-lead-time-moq-certs-samples';
+const datePublished = '2026-07-08';
+const image = '/images/blog/canada-packaging-supplier-checklist-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Packaging Supplier Checklist', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  {
+    q: 'What should buyers compare when choosing a packaging supplier in Canada?',
+    a: 'Compare the real lead time, minimum order quantity, certifications, sample process, quote completeness, and how clearly the supplier explains materials, print method, and delivery assumptions.'
+  },
+  {
+    q: 'Which certifications matter for packaging suppliers?',
+    a: 'It depends on the product and material. Buyers commonly ask about ISO 9001 quality systems, FSC chain-of-custody for certified corrugated, and food-contact or clean-line documentation when the packaging serves regulated or food-related use cases.'
+  },
+  {
+    q: 'Should buyers request samples before placing a packaging order?',
+    a: 'Yes when fit, print, damage risk, or retail presentation still need validation. The right sample level depends on the risk: a white structural sample, printed proof, or pre-production sample can each solve a different question before the full order starts.'
+  }
+]);
+---
+<BaseLayout title="Packaging Supplier Canada Checklist" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader
+    eyebrow="Knowledge base · Supplier selection"
+    heading="Canada packaging supplier checklist - lead time, MOQ, certs, and samples."
+    lead="A supplier quote is only as useful as the details behind it. Buyers comparing packaging suppliers in Canada should pressure-test lead time, MOQ, documentation, sample flow, and quote assumptions before the first PO is approved."
+    imageSrc={image}
+    imageAlt="Premium Apex Packaging supplier evaluation scene with branded cartons, sample mailer, checklist clipboard, material swatches, and certification paperwork."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Choosing a packaging supplier in Canada</strong> is not just a price comparison. Two quotes can look close on paper while hiding very different realities around lead time, minimums, sampling, freight, artwork support, and documentation. Buyers who only compare the unit price often see the gap later, when the sample is late, the MOQ is higher than expected, or the material specification was never fully defined.</p>
+
+      <p>Apex Packaging Solutions supports procurement teams with <a href="/services">custom packaging services</a>, in-house <a href="/design-support">design support</a>, and a quote process built around clear specs instead of vague assumptions. Use this checklist to compare suppliers more rigorously before you approve a PO, especially when the order involves custom corrugated, mailers, polybags, or protective packaging.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="High-definition Apex Packaging supplier checklist scene with corrugated samples, branded boxes, clipboard checklist, and certification paperwork." width="1672" height="941" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">A useful supplier comparison checks the operating details behind the quote, not only the line-item price.</figcaption>
+      </figure>
+
+      <h2>1. Confirm what the quoted lead time actually starts from</h2>
+      <p>Lead time is one of the easiest packaging terms to misunderstand. One supplier may quote from artwork approval. Another may quote from deposit receipt. Another may quote only the production window and leave sampling, revisions, and freight outside the number. If buyers do not clarify the start point, the "faster" quote can still deliver later.</p>
+
+      <p>Ask whether the lead time begins after dieline approval, final artwork sign-off, sample approval, or purchase order release. Then ask what is excluded. That matters just as much as the number itself. If the project is urgent, compare the supplier's answer with the workflow in Apex's guide to <a href="/blog/fast-turnaround-packaging-artwork-to-delivery">fast turnaround packaging</a> so each quote is measured against the same timeline logic.</p>
+
+      <table>
+        <thead><tr><th>Checklist item</th><th>What to ask</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td>Lead-time start point</td><td>What exact approval triggers production time?</td><td>Prevents hidden days between quote, sample, and manufacturing.</td></tr>
+          <tr><td>Freight assumption</td><td>Is shipping included in the timing or quoted separately?</td><td>Transit can erase a production-speed advantage.</td></tr>
+          <tr><td>Rush path</td><td>What changes if the order needs a faster route?</td><td>Shows whether the supplier has a practical expedited option.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>2. Test MOQ against the real reorder pattern</h2>
+      <p>MOQ matters because it affects working capital, warehouse space, launch risk, and how quickly a buyer can correct a packaging mistake. A low price tied to an oversized minimum may be more expensive in practice than a slightly higher unit cost tied to a more realistic first run.</p>
+
+      <p>Ask whether the quoted MOQ applies to plain stock, custom print, each SKU, each size, or each artwork revision. That distinction changes the economics. Buyers with uncertain demand should compare the supplier's MOQ against the reorder logic in Apex's article on <a href="/blog/low-moq-custom-packaging-100-500-units-without-waste">low MOQ custom packaging</a> instead of assuming every minimum is equally workable.</p>
+
+      <p>A useful follow-up is whether the supplier supports staged releases, blanket orders, or a smaller proof-of-market run before the larger repeat order. That answer tells you whether the supplier understands operational risk or only wants to sell the largest first batch possible.</p>
+
+      <h2>3. Ask for certifications and documentation that fit the material</h2>
+      <p>Not every packaging order needs the same paperwork, but serious suppliers should be clear about what they can document. Corrugated buyers may ask about FSC chain-of-custody when certified board is required. Food-related or clean-line packaging may need food-contact or quality-program documentation. Procurement teams may also want to understand the supplier's quality system, version control, and how claims are validated.</p>
+
+      <p>The important point is not to request every possible certificate. It is to request the documentation that matches the packaging type and the compliance expectation. A supplier who cannot explain what applies to the material, the print process, or the end use is harder to trust when production starts moving quickly.</p>
+
+      <ul>
+        <li>Ask which quality systems the supplier operates under and how they control revisions.</li>
+        <li>For certified corrugated, ask who owns chain-of-custody documentation and how artwork marks are approved.</li>
+        <li>For food or regulated applications, ask what line or material documentation is available before approving the PO.</li>
+        <li>Ask whether sustainability claims, recycled-content claims, or substrate claims are documented in writing.</li>
+      </ul>
+
+      <h2>4. Separate sample types so the team tests the right risk</h2>
+      <p>Many buyers ask for "a sample" without defining what question the sample needs to answer. A white structural sample helps test fit and assembly. A printed proof helps check panel hierarchy, barcode placement, and artwork flow. A pre-production sample may be worth the extra time when the product is high value or the finish is sensitive.</p>
+
+      <p>If the supplier pushes a full production sample for every job, the timeline can stretch unnecessarily. If the supplier skips sampling entirely on a high-risk job, the first production run becomes the test. The better supplier explains which sample level matches the real risk and what extra time or cost comes with it.</p>
+
+      <h2>5. Compare quote quality, not only quote speed</h2>
+      <p>A fast quote is helpful, but a weak quote creates rework. A strong packaging quote should identify the structure, material, print assumptions, quantity basis, sample path, and delivery terms clearly enough that procurement can compare suppliers on equal ground. If one quote is vague, the lower number may simply be hiding missing scope.</p>
+
+      <table>
+        <thead><tr><th>Strong quote signal</th><th>Weak quote signal</th></tr></thead>
+        <tbody>
+          <tr><td>Material and board or film assumptions are named clearly</td><td>Material is implied or left generic</td></tr>
+          <tr><td>MOQ is tied to size, SKU, and print method</td><td>MOQ is stated once without qualifiers</td></tr>
+          <tr><td>Sampling and approval flow are explained</td><td>Sample path appears only after the PO</td></tr>
+          <tr><td>Freight and delivery terms are obvious</td><td>Timing excludes shipping without saying so</td></tr>
+        </tbody>
+      </table>
+
+      <p>This is also where the supplier's positioning matters. Apex explains its operating model directly on the <a href="/about">about page</a>, including what it does and what it does not do, because buyers lose time when suppliers stay vague. If another supplier will not define scope early, the quote is harder to trust later.</p>
+
+      <h2>6. Use a short comparison checklist before approving the PO</h2>
+      <p>Before selecting the supplier, ask the same short list of questions to each finalist. That creates a cleaner procurement decision and usually exposes weak assumptions quickly.</p>
+
+      <ol>
+        <li>What triggers the quoted lead time, and what is excluded from it?</li>
+        <li>What MOQ applies to this size, SKU, artwork version, and print method?</li>
+        <li>What documentation can you provide for quality, certified materials, or regulated use?</li>
+        <li>Which sample level do you recommend, and how does it affect timing?</li>
+        <li>What details do you still need from us before the quote becomes production-ready?</li>
+      </ol>
+
+      <h2>What to send Apex for a clean supplier comparison</h2>
+      <p>If you are comparing Apex against another packaging supplier, send the product dimensions, packed weight, target quantity, artwork status, delivery location, required in-hand date, and any certification or sustainability requirement. If you already have a competing quote, send the assumptions it uses. Apex can then respond against the same operating reality instead of guessing at the missing scope.</p>
+
+      <p>A cleaner supplier comparison saves time because it reduces back-and-forth after the supplier is chosen. It also improves the odds that the first order is correct on structure, timeline, and documentation. When the team is ready, the next step is simple: use the <a href="/contact">contact form</a> to send the spec and the decision criteria that matter most.</p>
+
+      <h2>Conclusion</h2>
+      <p>The best packaging supplier in Canada is not just the one with the lowest visible unit cost. It is the one whose lead time, MOQ, documentation, sample process, and quote assumptions fit the job without surprises. Compare those operating details early, and the final PO becomes easier to defend internally and easier to repeat on the next run.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Services Overview', href: '/services', description: 'See Apex service lines for corrugated, mailers, polybags, industrial packaging, and design support.' },
+    { title: 'Fast Turnaround Packaging', href: '/blog/fast-turnaround-packaging-artwork-to-delivery', description: 'Use the lead-time guide to compare supplier timing assumptions more rigorously.' },
+    { title: 'Low MOQ Custom Packaging', href: '/blog/low-moq-custom-packaging-100-500-units-without-waste', description: 'See how MOQ changes launch risk, inventory exposure, and reorder flexibility.' }
+  ]} />
+  <CTABand heading="Comparing packaging suppliers right now?" lead="Send the product specs, target quantity, due date, and any competing quote assumptions. Apex will respond with a cleaner apples-to-apples quote." primaryCta={{ label: 'Request a supplier comparison quote', href: '/contact' }} />
+</BaseLayout>
