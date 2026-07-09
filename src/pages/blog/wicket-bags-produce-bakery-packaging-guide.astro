@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Wicket Bags for Produce and Bakery Packaging: Film, Venting, and Line Speed';
+const description = 'A practical buyer guide to wicket bags in Canada for produce and bakery packaging: film choice, venting, wicket specs, food-contact details, and line-speed considerations before quoting.';
+const url = '/blog/wicket-bags-produce-bakery-packaging-guide';
+const datePublished = '2026-07-09';
+const image = '/images/blog/wicket-bags-produce-bakery-packaging-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Wicket Bags for Produce and Bakery Packaging', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What products are usually packed in wicket bags?',
+    a: 'Wicket bags are commonly used for produce, buns, rolls, bread, tortillas, and other high-volume food items that need a fast manual or semi-automatic bagging process.'
+  },
+  {
+    q: 'How do buyers choose between LDPE and HDPE wicket bags?',
+    a: 'HDPE is often chosen for lighter produce and cost-sensitive food runs, while LDPE or blended films are preferred when the package needs more softness, puncture resistance, or a clearer premium look.'
+  },
+  {
+    q: 'What should be included in a wicket bag RFQ?',
+    a: 'Send bag width and length, film gauge, vent pattern, wicket spacing, lip length, packed product weight, print needs, carton count, and whether the bags run on a manual, semi-automatic, or automatic line.'
+  }
+]);
+---
+<BaseLayout
+  title="Wicket Bags Canada for Produce and Bakery Packaging"
+  description={description}
+  image={image}
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Poly packaging"
+    heading="Wicket bags for produce and bakery packaging - film, venting, and line speed."
+    lead="A wicket bag works because it supports the packing line, not just the product. Buyers get better results when they define the film, venting, wicket style, and loading method before requesting pricing."
+    imageSrc={image}
+    imageAlt="Apex Packaging wicket bags for produce and bakery packaging with vented food-safe bags, bakery rolls, fresh produce, spec sheet, and branded shipping carton."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Wicket bags</strong> are a practical format for produce and bakery teams that need fast bag loading, clean presentation, and consistent pack counts. They are preloaded on metal wickets so the bag mouth stays open and ready for the operator or machine. That sounds simple, but the quote only works when the buyer defines the film, venting, wicket dimensions, and how the bag behaves on the real line.</p>
+
+      <p>Apex Packaging Solutions supplies <a href="/services/polybags">custom polybags</a> for Canadian food programs that need wicketed produce bags, bakery bags, liners, and related packaging quoted together. Many buyers also need the outer <a href="/services/corrugated-boxes">corrugated case</a> sized around the filled bag count, which is why this guide focuses on the full packing system rather than the bag alone.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="High-definition Apex Packaging wicket bags scene with vented produce bags, bakery wicket bags, stainless packing surface, specification sheet, and branded case." width="1672" height="941" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">A strong wicket bag quote accounts for the product, the line, the vent pattern, and how the filled bags move into the shipper.</figcaption>
+      </figure>
+
+      <h2>Why wicket bags are used in produce and bakery lines</h2>
+      <p>Wicket bags reduce handling time because the bag stack stays organized and the opening is easier to present to the product. That matters on food lines where speed, repeatability, and operator motion affect throughput as much as film cost does. A loose stack of flat bags may be acceptable for a short run, but it usually slows down once the line needs consistent rhythm.</p>
+
+      <p>For produce, wicket bags are often chosen for apples, potatoes, onions, citrus, greens, or mixed bag programs where venting and fast closure matter. In bakery, they are common for buns, rolls, tortillas, and bread products that need a clean pack appearance and a bag that opens reliably without fighting the operator. The format works best when the bag is quoted around the actual product shape and pack-out method, not just a nominal width and length.</p>
+
+      <h2>Film choice affects feel, protection, and machine behavior</h2>
+      <p>Many RFQs ask only for a "clear wicket bag," but film selection changes how the bag runs and how the pack looks. The main decision is usually HDPE versus LDPE or a blend, with gauge adjusted for product weight, product edges, and the way the filled bag is handled after packing.</p>
+
+      <table>
+        <thead>
+          <tr><th>Film option</th><th>Typical fit</th><th>What buyers should watch</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HDPE</td><td>Light produce and cost-sensitive food runs</td><td>Efficient and crisp, but not always the softest feel for premium presentation.</td></tr>
+          <tr><td>LDPE</td><td>Bakery packs and softer premium presentation</td><td>Clearer and more flexible, often better where puncture resistance matters.</td></tr>
+          <tr><td>Blended film</td><td>Programs balancing clarity, toughness, and line speed</td><td>Useful when one product family needs a compromise between stiffness and strength.</td></tr>
+        </tbody>
+      </table>
+
+      <p>The better starting point is to describe the product weight, whether the contents have moisture or sharp stems, how tightly the bag is filled, and whether the finished package is hand-packed, clipped, taped, or heat sealed. That gives the supplier enough information to recommend a more realistic gauge instead of defaulting to the thinnest film that meets the drawing.</p>
+
+      <h2>Venting is a packaging decision, not a cosmetic one</h2>
+      <p>Vent holes are one of the most important variables in a produce wicket bag. They help manage airflow and moisture, but they also remove material from the bag wall. If the vent pattern is copied from another SKU without reviewing the new product weight or route, the bag can lose strength where the line needs it most.</p>
+
+      <p>Bakery bags may not need the same vent treatment as produce. The concern there is often appearance, closure performance, and how the film handles warm product or quick pack-out. That is why a buyer should identify whether the bag is for leafy produce, heavier produce, buns, bread, or mixed bakery items before asking for a standard hole pattern.</p>
+
+      <ul>
+        <li><strong>Produce bags</strong> may need venting sized around airflow, condensation, and shelf presentation.</li>
+        <li><strong>Bakery bags</strong> often prioritize film feel, clarity, and reliable closure over aggressive venting.</li>
+        <li><strong>Heavier fills</strong> may need a vent pattern reviewed alongside gauge so the bag does not weaken in use.</li>
+      </ul>
+
+      <h2>Wicket specifications change line speed more than buyers expect</h2>
+      <p>Buyers sometimes quote the bag dimensions correctly but leave the wicket details vague. That creates problems on the line. Wicket spacing, lip length, hole reinforcement, stack count, and the way the bag is presented on the wicket all influence how quickly the operator can load product and pull the filled bag free.</p>
+
+      <p>If the bag runs on existing equipment, the RFQ should reference the current wicket size and machine constraints. If the line is manual, it still helps to state whether the operators pack from tabletop racks, hanging wickets, or guided fixtures. Small variations in lip length or hole placement can make a bag technically acceptable on paper but frustrating in production.</p>
+
+      <h2>Quote the bag together with the shipper when counts matter</h2>
+      <p>A filled wicket bag rarely ships alone. It usually lands in a corrugated master case, tray, or display-ready outer. When the bag and the shipper are quoted separately, the buyer can end up with unnecessary dead space, poor case counts, or a vented bag that no longer packs cleanly into the outer case. That is why food programs often move faster when the bag and case are reviewed as one system.</p>
+
+      <p>If your program includes a corrugated shipper, compare the bag dimensions with the related Apex guide to <a href="/blog/food-packaging-boxes-corrugated-specs-dry-chilled-bulk-food">food packaging boxes for dry, chilled, and bulk food</a>. That keeps the bag count, pallet pattern, and line packing assumptions aligned before samples are approved.</p>
+
+      <h2>What to send before requesting a wicket bag quote</h2>
+      <p>The best wicket bag RFQs describe the operating conditions, not just the nominal size. Before requesting pricing, send:</p>
+
+      <ul>
+        <li>Finished bag width, length, and lip length.</li>
+        <li>Product type, packed weight, and whether the contents are damp, delicate, or stem-heavy.</li>
+        <li>Film preference if known, or the performance goal if it is not known yet.</li>
+        <li>Gauge target, vent pattern, print requirements, and closure method.</li>
+        <li>Wicket spacing, hole placement, stack count, and line type.</li>
+        <li>Units per case, target MOQ, reorder volume, and delivery location.</li>
+        <li>Any food-contact documentation, recycled-content requirement, or testing expectation.</li>
+      </ul>
+
+      <p>That information usually produces a cleaner quote, a better first sample, and fewer changes after the bags arrive on the floor. It also helps Apex advise whether the line should stay with a standard wicket bag, move to a heavier gauge, or coordinate the bag program with a matching outer case and broader food-packaging spec.</p>
+
+      <h2>Conclusion</h2>
+      <p>The right wicket bag is the one that fits the product and keeps the line moving. Produce and bakery buyers should define film behavior, venting, wicket format, and case count before quoting, because those details determine whether the bag performs in production or only looks acceptable on a specification sheet. If you send Apex the pack details early, the bag can be sized around the real operation instead of guessed from a generic food-bag format.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Custom Polybags', href: '/services/polybags', description: 'Food-safe, wicketed, gusseted, and custom-converted polybag programs built for Canadian buyers.' },
+    { title: 'Food Packaging Boxes', href: '/blog/food-packaging-boxes-corrugated-specs-dry-chilled-bulk-food', description: 'See how the filled bag count should align with the corrugated outer and pallet route.' },
+    { title: 'Request a Quote', href: '/contact', description: 'Send your wicket size, gauge target, vent pattern, and carton count for pricing.' }
+  ]} />
+
+  <CTABand
+    heading="Quote the wicket bag around the line, not just the drawing."
+    lead="Send the product, bag size, vent pattern, wicket spec, case count, and target MOQ. Apex can recommend a practical food-packaging bag program for produce or bakery lines."
+    primaryCta={{ label: 'Request a wicket bag quote', href: '/contact' }}
+  />
+</BaseLayout>
