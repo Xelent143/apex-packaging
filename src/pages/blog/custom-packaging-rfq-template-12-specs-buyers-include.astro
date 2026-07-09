@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Custom Packaging RFQ Template: The 12 Specs Buyers Should Include';
+const description = 'A practical custom packaging RFQ template for Canada buyers: the 12 specs suppliers need to quote boxes, mailers, polybags, and protective packaging accurately.';
+const url = '/blog/custom-packaging-rfq-template-12-specs-buyers-include';
+const datePublished = '2026-07-09';
+const image = '/images/blog/custom-packaging-rfq-template-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Custom Packaging RFQ Template', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  {
+    q: 'What should be included in a custom packaging RFQ?',
+    a: 'A strong RFQ includes product size, packed weight, packaging style, material target, quantity, print requirements, artwork status, sample need, delivery location, deadline, sustainability requirements, and approval contact.'
+  },
+  {
+    q: 'Why do packaging quotes get delayed?',
+    a: 'Quotes usually slow down when dimensions, quantities, artwork files, delivery location, material expectations, or approval details are missing. Suppliers then have to ask follow-up questions before pricing.'
+  },
+  {
+    q: 'Can one RFQ cover boxes, mailers, polybags, and inserts?',
+    a: 'Yes, if the RFQ separates each item by size, quantity, material, print, and use case. Multi-item RFQs should clearly identify which products ship together and which require separate packaging.'
+  }
+]);
+---
+<BaseLayout title="Custom Packaging RFQ Template Canada" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader
+    eyebrow="Knowledge base · RFQ checklist"
+    heading="Custom packaging RFQ template - the 12 specs buyers should include."
+    lead="A complete RFQ helps suppliers quote faster, reduce assumptions, and recommend the right structure before artwork, samples, or production dates are locked."
+    imageSrc={image}
+    imageAlt="Apex Packaging custom packaging RFQ template with branded worksheet, dieline proof, material swatches, calipers, barcode proof, and sample boxes."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>A custom packaging RFQ</strong> works best when it gives the supplier enough detail to price the real job, not a guessed version of it. Missing dimensions, unclear quantities, unknown print coverage, or vague delivery expectations can add days of back-and-forth before a buyer receives a usable quote.</p>
+
+      <p>Apex Packaging Solutions quotes <a href="/services/corrugated-boxes">corrugated boxes</a>, <a href="/services/mailer-boxes">custom mailer boxes</a>, <a href="/services/polybags">polybags</a>, and <a href="/services/protective-packaging">protective packaging</a> for buyers across Canada and the USA. Use this RFQ template to send cleaner information the first time and avoid the common gaps that slow down pricing, dielines, samples, and production.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="High-definition Apex Packaging RFQ template scene with packaging worksheet, dieline, product measuring tools, material swatches, and branded samples." width="1667" height="944" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">A complete packaging RFQ should define the product, package, print, quantity, approval flow, and delivery requirement before pricing starts.</figcaption>
+      </figure>
+
+      <h2>The 12 specs every packaging RFQ should include</h2>
+      <p>The goal is not to make the RFQ complicated. The goal is to remove assumptions. If the supplier knows what is going inside the package, how many units are needed, how it prints, and where it ships, the quote can move faster and the recommendation is more likely to fit the job.</p>
+
+      <table>
+        <thead><tr><th>Spec</th><th>What to send</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td>1. Product size</td><td>Length, width, height, and tolerance if fit is tight</td><td>Controls box, mailer, insert, and bag sizing.</td></tr>
+          <tr><td>2. Packed weight</td><td>Product weight plus any inner contents</td><td>Helps choose board grade, film gauge, and protection.</td></tr>
+          <tr><td>3. Packaging style</td><td>RSC, mailer, tuck box, polybag, insert, tray, or unknown</td><td>Lets the supplier quote the right structure or recommend options.</td></tr>
+          <tr><td>4. Material target</td><td>Kraft, white, corrugated grade, poly type, foam, paper fill</td><td>Changes cost, lead time, presentation, and durability.</td></tr>
+          <tr><td>5. Quantity</td><td>First order quantity and expected reorder quantity</td><td>MOQ and unit cost depend heavily on volume.</td></tr>
+          <tr><td>6. Print requirements</td><td>No print, one colour, full colour, inside print, barcode, coating</td><td>Print method and coverage affect setup, proofing, and price.</td></tr>
+          <tr><td>7. Artwork status</td><td>Final files, rough concept, logo only, or design support needed</td><td>Determines whether dieline and prepress time are required.</td></tr>
+          <tr><td>8. Sample need</td><td>White sample, printed proof, production sample, or no sample</td><td>Samples can protect fit decisions but add time.</td></tr>
+          <tr><td>9. Shipping route</td><td>Parcel, pallet, LTL, retail distribution, or local delivery</td><td>Transit risk changes structural and protective decisions.</td></tr>
+          <tr><td>10. Delivery location</td><td>City, province/state, postal/ZIP code if available</td><td>Freight and timing cannot be judged without destination.</td></tr>
+          <tr><td>11. Deadline</td><td>Required in-hand date and launch date if different</td><td>Fast timelines may need simpler materials or approval flow.</td></tr>
+          <tr><td>12. Approval contact</td><td>Who approves dielines, artwork, samples, and final quote</td><td>One clear owner prevents revision delays.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Separate unknowns from requirements</h2>
+      <p>Buyers do not need to know every packaging answer before asking for a quote. It is fine to say that the board grade, flute, insert style, or poly gauge is unknown. What matters is separating true requirements from open questions. For example, "must pass parcel shipment with a 4 lb product" is a requirement. "Probably ECT-32" is an assumption that may or may not fit.</p>
+
+      <p>If you are unsure about the structure, send the product details and the use case. Apex can compare options such as an RSC carton, printed mailer, folding carton, polybag, foam insert, or paper void fill based on the product and route.</p>
+
+      <h2>Use one line per SKU or package item</h2>
+      <p>Multi-SKU quotes get messy when every product is described in a paragraph. If you need several sizes or several packaging formats, list each item separately. Include dimensions, quantity, print, and destination for each line. This prevents the supplier from accidentally applying one spec to the wrong SKU.</p>
+
+      <ul>
+        <li>SKU A: product size, packed weight, package style, quantity, print need.</li>
+        <li>SKU B: product size, packed weight, package style, quantity, print need.</li>
+        <li>Shared requirements: delivery location, approval contact, target date, sustainability preference.</li>
+      </ul>
+
+      <h2>Attach the files that remove guesswork</h2>
+      <p>The most useful attachments are product photos, existing package photos, dielines, artwork files, logo files, barcode files, and any damage reports from the current packout. If the product is fragile or irregular, a few clear photos can save several rounds of explanation.</p>
+
+      <p>For printed packaging, send vector logos and editable artwork when possible. For structural work, send product dimensions and photos from multiple angles. For protective packaging, include current damage patterns, shipment route, and how the item is packed today.</p>
+
+      <h2>Conclusion</h2>
+      <p>A strong packaging RFQ gives the supplier the product, package, print, quantity, timeline, delivery, and approval details needed to quote accurately. Use the 12 specs above before requesting pricing, and your quote is more likely to arrive faster, with fewer assumptions and a cleaner path to dielines, samples, and production.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Request a Quote', href: '/contact', description: 'Send your dimensions, quantity, files, deadline, and delivery details.' },
+    { title: 'Design Support', href: '/design-support', description: 'Dieline, artwork, and structural support before production.' },
+    { title: 'Packaging Cost Drivers', href: '/blog/packaging-cost-drivers-box-quote-canada', description: 'See what changes custom box pricing and lead time.' }
+  ]} />
+  <CTABand heading="Ready to send a cleaner packaging RFQ?" lead="Share your product size, quantity, artwork status, delivery location, and target date. Apex will help turn the spec into a practical quote." primaryCta={{ label: 'Request a packaging quote', href: '/contact' }} />
+</BaseLayout>
