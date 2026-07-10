@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Poly Tubing and Poly Sheeting: When Roll Stock Beats Pre-Made Bags';
+const description = 'A practical buyer guide to poly tubing and poly sheeting in Canada: when roll stock is a better fit than pre-made bags, and which specs matter before quoting.';
+const url = '/blog/poly-tubing-poly-sheeting-roll-stock-buyers-guide';
+const datePublished = '2026-07-10';
+const image = '/images/blog/poly-tubing-poly-sheeting-roll-stock-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Poly Tubing and Poly Sheeting', url }
+]);
+const article = buildArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  author: 'Apex Packaging Solutions'
+});
+const faq = buildFAQSchema([
+  {
+    q: 'What is the difference between poly tubing and poly sheeting?',
+    a: 'Poly tubing is continuous film formed into a tube, usually sealed and cut to the product length after loading. Poly sheeting is flat roll stock used as a top sheet, liner, wrap, or custom cut cover.'
+  },
+  {
+    q: 'When is roll stock better than a pre-made polybag?',
+    a: 'Roll stock is often better when product lengths vary, the pack is oversized, the line cuts its own bag lengths, or the buyer wants one film program to serve several SKUs without carrying multiple finished bag sizes.'
+  },
+  {
+    q: 'What should buyers include in a poly tubing RFQ?',
+    a: 'Send the product width, height, and length range, film type, gauge target, seal method, whether the pack needs vents or perforation, target volume, and any food-contact, recycled-content, or pallet-handling requirements.'
+  }
+]);
+---
+<BaseLayout
+  title="Poly Tubing and Poly Sheeting Canada for Industrial Buyers"
+  description={description}
+  image={image}
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Poly packaging"
+    heading="Poly tubing and poly sheeting - when roll stock beats pre-made bags."
+    lead="Pre-made bags are not always the most efficient choice. When buyers are packing long parts, variable lengths, bulky products, or pallet quantities, roll stock can reduce SKU count and make the line easier to control."
+    imageSrc={image}
+    imageAlt="Apex Packaging poly tubing and poly sheeting setup with clear roll stock, cutter sealer, specification sheet, and branded shipping carton."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Poly tubing and poly sheeting</strong> give buyers more flexibility than a finished bag when the product size changes, the package is oversized, or the line needs to cut and seal film to the exact length on demand. The advantage is not only material supply. It is the ability to match the film format to the real packing process instead of forcing every SKU into a pre-made bag size.</p>
+
+      <p>Apex Packaging Solutions supports Canadian buyers that source <a href="/services/polybags">custom polybags and film formats</a> for industrial parts, furniture components, soft goods, food programs, and palletized loads. This guide explains when roll stock makes more sense than pre-made bags, what specifications affect performance, and what procurement teams should send before asking for pricing.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="Premium Apex Packaging poly tubing and poly sheeting mockup with roll stock, bagging equipment, and RFQ worksheet." width="1731" height="909" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">A stronger roll-stock quote starts with the product range, sealing method, and how the film will be cut, loaded, and handled on the floor.</figcaption>
+      </figure>
+
+      <h2>What changes between tubing, sheeting, and finished bags</h2>
+      <p>These formats can use similar resin families, but they solve different packaging problems. A buyer who only requests "clear poly" may get a film that is technically usable but awkward on the line. It is better to define the format first, then the gauge and resin.</p>
+
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Best fit</th><th>What buyers should review</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Poly tubing</td><td>Variable-length products, long parts, custom cut-and-seal packing</td><td>Layflat width, seal method, cut length range, and line speed.</td></tr>
+          <tr><td>Poly sheeting</td><td>Top sheets, pallet covers, liners, interleaving, dust covers</td><td>Sheet width, roll length, gauge, perforation, and handling method.</td></tr>
+          <tr><td>Pre-made bags</td><td>Fixed product dimensions and repeatable manual packing</td><td>Finished bag size, opening style, closure method, and inventory count by SKU.</td></tr>
+        </tbody>
+      </table>
+
+      <p>For a stable single SKU, a finished bag is often the simplest choice. For mixed-size programs, long items, or a production line that seals its own pack lengths, tubing or sheeting can reduce waste and eliminate the need to stock several finished bag dimensions that are only slightly different.</p>
+
+      <h2>When roll stock is the better buying decision</h2>
+      <p>Roll stock performs best when the line needs flexibility. That can mean one product with changing cut lengths, or it can mean a multi-SKU program where the buyer wants fewer film SKUs in inventory. In both cases, the benefit is operational control: the packer creates the exact sleeve, bag, or cover at the point of use.</p>
+
+      <ul>
+        <li><strong>Long or irregular products</strong> such as trim, profiles, rails, and foam components often fit poly tubing better than an oversized stock bag.</li>
+        <li><strong>Furniture, mattress, and bulky soft-goods programs</strong> can use wide tubing or sheeting when product length changes by model or compression level.</li>
+        <li><strong>Pallet covers and top sheets</strong> are usually a sheeting decision, especially when the goal is dust protection or layer separation rather than a sealed retail bag.</li>
+        <li><strong>Mixed industrial SKUs</strong> benefit when the line can cut one roll into multiple lengths instead of storing several finished bag sizes.</li>
+      </ul>
+
+      <p>This is also where roll stock can align with broader <a href="/services/industrial-bulk-packaging">industrial and bulk packaging</a> programs. Buyers often quote film together with pallet wrap, edge protection, liners, or corrugated outers so the full handling system is reviewed at once instead of product by product.</p>
+
+      <h2>Gauge and width should match the route, not only the product weight</h2>
+      <p>Roll stock quotes go wrong when buyers focus only on nominal thickness. Gauge matters, but the better question is how the film is used. Is the product sliding into the tube by hand, loaded by a sealer, dragged across a bench, or dropped into a corrugated outer? Is the film a dust cover, a true shipping layer, or part of a moisture-control system?</p>
+
+      <p>Width matters just as much. For tubing, the layflat width must account for the product face plus the product depth once the tube opens around it. For sheeting, the sheet width needs enough allowance to drape, tuck, or overlap without leaving exposed corners. If those allowances are guessed, the film may look efficient on paper but create handling friction in production.</p>
+
+      <p>Buyers that are already comparing bag gauges should also review the related Apex guide to <a href="/blog/poly-bag-thickness-guide">poly bag thickness</a>. The same logic applies here: the route, edges, and loading method usually tell you more than the catalog name alone.</p>
+
+      <h2>Food, clean, and recycled-content requirements need to be declared early</h2>
+      <p>Not every tubing or sheeting program is purely industrial. Some applications need food-contact film, cleaner handling, or a sustainability target. That should be stated before pricing, because resin choice, documentation, and production planning can change. Apex already supports food-contact and specialty film programs through its polybag offering, so it helps to define whether the request is for a pallet cover, a product-contact sleeve, or a clean liner inside another package.</p>
+
+      <p>If sustainability matters, note whether the program needs PCR-content film or whether a standard recyclable LDPE or HDPE format is acceptable. If the film touches food or a regulated product, say that up front and include any required documentation. That is faster than asking for a standard industrial film quote and revising it later when compliance details appear.</p>
+
+      <h2>What to send before requesting a quote</h2>
+      <p>The best RFQs describe how the film works on the line. Before requesting pricing for poly tubing or poly sheeting, send:</p>
+
+      <ul>
+        <li>Product dimensions, including the length range if products vary.</li>
+        <li>Whether you need tubing, flat sheeting, center-fold, perforated sheets, or a recommendation.</li>
+        <li>Film type if known, or the performance requirement if it is not known yet.</li>
+        <li>Gauge target, layflat width, cut length range, seal style, and vent or perforation needs.</li>
+        <li>How the film will be loaded: manual packing, tabletop sealer, automatic cut-and-seal, pallet cover application, or liner insertion.</li>
+        <li>First-run quantity, reorder volume, target MOQ, delivery location, and whether inventory release scheduling is needed.</li>
+        <li>Any food-contact, recycled-content, print, labeling, or moisture-barrier requirement.</li>
+      </ul>
+
+      <p>A buyer that sends those details usually gets a cleaner first quote and a better sample recommendation. The supplier can decide whether tubing is the right format, whether sheeting should be perforated, and whether a finished bag is actually the more efficient answer after all.</p>
+
+      <h2>Conclusion</h2>
+      <p>Poly tubing and poly sheeting are useful because they give the pack line room to adapt. When the product length varies, the package is oversized, or the plant wants fewer packaging SKUs in inventory, roll stock can be more practical than carrying several pre-made bag sizes. If you define the film format, loading method, and handling route before quoting, Apex can recommend a packaging program that fits the real operation instead of a generic bag size.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Custom Polybags', href: '/services/polybags', description: 'LDPE, HDPE, gusseted, wicketed, anti-static, food-safe, and specialty film programs for Canadian buyers.' },
+    { title: 'Mattress Bags and Large Gusseted Polybags', href: '/blog/mattress-bags-large-gusseted-polybags-measuring-before-quote', description: 'See how oversized soft-goods programs should be measured before requesting a quote.' },
+    { title: 'Industrial & Bulk Packaging', href: '/services/industrial-bulk-packaging', description: 'Bundle film formats with pallet wrap, liners, edge protection, and bulk packaging support.' }
+  ]} />
+
+  <CTABand
+    heading="Quote the film format around the packing line."
+    lead="Send the product size range, film width, gauge target, cut length, and sealing method. Apex can recommend whether tubing, sheeting, or a finished bag is the better fit."
+    primaryCta={{ label: 'Request a poly film quote', href: '/contact' }}
+  />
+</BaseLayout>
