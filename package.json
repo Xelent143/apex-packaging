@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node --test server/*.test.mjs",
-    "lint:slop": "node scripts/slop-linter.mjs"
+    "lint:slop": "node scripts/slop-linter.mjs",
+    "blog:generate-daily": "node scripts/generate-daily-blog.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
