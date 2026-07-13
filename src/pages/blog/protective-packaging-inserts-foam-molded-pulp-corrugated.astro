@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Protective Packaging Inserts: Foam, Molded Pulp, and Corrugated Options';
+const description = 'A practical buyer guide to protective packaging inserts in Canada and the USA: compare foam, molded pulp, and corrugated inserts by damage risk, cost, sustainability, and RFQ details.';
+const url = '/blog/protective-packaging-inserts-foam-molded-pulp-corrugated';
+const datePublished = '2026-07-13';
+const image = '/images/blog/protective-packaging-insert-sample-kit-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Protective Packaging Inserts', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  {
+    q: 'Which protective insert is best for fragile products?',
+    a: 'The best insert depends on product weight, fragility, drop risk, surface sensitivity, and sustainability goals. Foam often works for high cushioning needs, while corrugated and molded pulp can fit many repeatable product shapes.'
+  },
+  {
+    q: 'Are molded pulp inserts better than foam?',
+    a: 'Molded pulp can be better when buyers want a paper-based insert and the product geometry supports it. Foam may still be better for delicate surfaces, high-value products, or demanding drop protection.'
+  },
+  {
+    q: 'What should buyers send for a protective packaging quote?',
+    a: 'Send product dimensions, weight, photos, fragility concerns, current damage history, shipping route, outer carton details, sustainability targets, and target order volume.'
+  }
+]);
+---
+<BaseLayout
+  title="Protective Packaging Inserts: Foam, Molded Pulp, and Corrugated"
+  description={description}
+  image={image}
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Protective packaging"
+    heading="Protective packaging inserts - foam, molded pulp, and corrugated options."
+    lead="A good insert does more than fill empty space. It controls movement, protects the product surface, and lets the outer carton do its job through the real shipping route."
+    imageSrc={image}
+    imageAlt="Premium Apex Packaging protective packaging sample kit with foam inserts, molded pulp trays, corrugated inserts, and branded shipping carton."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Protective packaging inserts</strong> should be chosen around the product risk, not only the material name. Foam, molded pulp, and corrugated inserts can all be the right answer depending on weight, geometry, surface finish, drop risk, and sustainability requirements.</p>
+      <p>Apex Packaging Solutions helps buyers compare <a href="/services/protective-packaging">protective packaging</a> systems with the outer carton, void fill, and shipping route. The goal is not to add more material. The goal is to stop damage with the right material in the right place.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="HD protective packaging insert sample kit with foam, molded pulp, corrugated inserts, and Apex branded carton." width="1774" height="296" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">A useful protective-packaging RFQ includes the product, failure history, shipping route, and the outer box spec so the insert can be engineered as part of the whole pack.</figcaption>
+      </figure>
+
+      <h2>Choose the insert by failure mode</h2>
+      <p>If the product breaks from impact, the insert needs cushioning. If it scuffs, the insert needs surface protection. If it shifts inside the box, the insert needs blocking and bracing. These are different problems, and one material choice may not solve all of them.</p>
+      <p>Buyers should describe the current damage pattern before asking for an alternative. Photos of cracked corners, crushed edges, scuffed finishes, broken components, or returned goods help the packaging team design around the real failure.</p>
+
+      <table>
+        <thead>
+          <tr><th>Insert type</th><th>Best fit</th><th>Buyer watchpoint</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Foam insert</td><td>High-value, fragile, delicate, or irregular products</td><td>Foam grade, compression, surface contact, ESD need, and disposal expectations.</td></tr>
+          <tr><td>Molded pulp</td><td>Repeatable shapes, paper-based programs, consumer goods</td><td>Tooling, geometry limits, surface texture, and moisture exposure.</td></tr>
+          <tr><td>Corrugated insert</td><td>Blocking, separation, kitting, and paper-based support</td><td>Board grade, fold sequence, assembly labour, and compression route.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The outer carton and insert must be quoted together</h2>
+      <p>An insert can fail if the outer box is too weak, too large, or not matched to the shipping route. A strong carton can also waste money if the product still moves inside it. The best protective packaging quotes review the insert, box, tape or closure, pallet pattern, and carrier route as one system.</p>
+      <p>For products that already need more than a standard box, compare this guide with <a href="/blog/custom-foam-inserts-corrugated-alone-not-enough">custom foam inserts</a> and <a href="/blog/corrugated-inserts-vs-foam-inserts-cost-damage-tradeoffs">corrugated inserts vs foam inserts</a>. Those related guides help buyers decide whether cushioning, bracing, or presentation is the main requirement.</p>
+
+      <h2>Sustainability goals should be specific</h2>
+      <p>Many buyers ask for sustainable protective packaging, but the practical answer depends on the product. Molded pulp and corrugated inserts can support paper-based packaging goals, but they still need to protect the product. Foam may remain the better choice for high-value items if damage reduction prevents replacement shipments, returns, and waste.</p>
+      <p>Instead of asking for the most sustainable insert in general, define the acceptable materials, recycled-content expectations, disposal preference, and damage target. That gives the supplier a real design brief instead of a vague material request.</p>
+
+      <h2>What to send before requesting a quote</h2>
+      <ul>
+        <li>Product dimensions, weight, photos, and surface sensitivity.</li>
+        <li>Current packaging photos and damage history if available.</li>
+        <li>Shipping route: parcel, LTL, pallet, retail distribution, or direct-to-consumer.</li>
+        <li>Outer carton size, board grade, and whether that carton can change.</li>
+        <li>Target material preference: foam, molded pulp, corrugated, paper-based, ESD, or recommendation.</li>
+        <li>Launch quantity, annual volume, sample requirement, and delivery location.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>Protective packaging inserts work best when buyers define the product risk first. Foam, molded pulp, and corrugated each have a place, but the right choice depends on how the product fails, how it ships, and what the brand needs from cost, sustainability, and presentation.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Protective Packaging', href: '/services/protective-packaging', description: 'Foam, void fill, inserts, and protective systems for parcel and pallet shipments.' },
+    { title: 'Corrugated Inserts vs Foam Inserts', href: '/blog/corrugated-inserts-vs-foam-inserts-cost-damage-tradeoffs', description: 'Compare material trade-offs by cost, damage risk, and packing process.' },
+    { title: 'Custom Foam Inserts', href: '/blog/custom-foam-inserts-corrugated-alone-not-enough', description: 'When corrugated alone is not enough for fragile or high-value products.' }
+  ]} />
+
+  <CTABand
+    heading="Quote the insert around the product risk."
+    lead="Send product photos, dimensions, damage history, route, and outer carton details. Apex can recommend the insert system that protects without overpacking."
+    primaryCta={{ label: 'Request a protective packaging quote', href: '/contact' }}
+  />
+</BaseLayout>

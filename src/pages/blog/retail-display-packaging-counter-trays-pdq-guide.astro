@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Retail Display Packaging: Counter Trays, Shelf Displays, and PDQs';
+const description = 'A practical buyer guide to retail display packaging in Canada and the USA: counter trays, shelf-ready displays, PDQs, pallet displays, artwork panels, and quote specs.';
+const url = '/blog/retail-display-packaging-counter-trays-pdq-guide';
+const datePublished = '2026-07-12';
+const image = '/images/blog/retail-display-packaging-merchandising-generated.png';
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Retail Display Packaging', url }
+]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  {
+    q: 'What is retail display packaging?',
+    a: 'Retail display packaging is packaging designed to ship, hold, and present products in store. Common formats include counter trays, shelf displays, PDQs, and pallet displays.'
+  },
+  {
+    q: 'What details affect a display packaging quote?',
+    a: 'Product count, loaded weight, display footprint, board grade, print coverage, assembly method, retailer rules, and whether the display ships pre-loaded all affect the quote.'
+  },
+  {
+    q: 'Do display boxes need stronger board than normal cartons?',
+    a: 'Often yes. Display packaging may need to hold product weight while remaining open, upright, and presentable through transport, stocking, and customer handling.'
+  }
+]);
+---
+<BaseLayout
+  title="Retail Display Packaging Guide for Counter Trays and PDQs"
+  description={description}
+  image={image}
+  schemaBlocks={[breadcrumb, article, faq]}
+>
+  <PageHeader
+    eyebrow="Knowledge base · Retail packaging"
+    heading="Retail display packaging - counter trays, shelf displays, and PDQs."
+    lead="A display box has two jobs: survive the route to store and sell the product once it is on the counter or shelf. The quote needs both requirements, not just a dieline."
+    imageSrc={image}
+    imageAlt="Premium Apex Packaging retail display packaging mockup with counter trays, shelf display boxes, product cartons, and merchandising setup."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>Retail display packaging</strong> is different from a normal shipper because the package becomes part of the sales floor. The display has to hold product weight, expose the front panel, protect the goods through distribution, and make stocking simple for the retailer.</p>
+      <p>Apex Packaging Solutions supports counter displays, shelf-ready trays, PDQs, and larger corrugated merchandising units for brands selling in Canada and the USA. The strongest RFQs explain how the display will ship, how it will be assembled, and how the product should face the shopper.</p>
+
+      <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
+        <img src={image} alt="HD retail display packaging mockup with Apex branded counter display trays and shelf-ready merchandising boxes." width="1774" height="296" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Display packaging should be quoted around loaded weight, retail footprint, assembly labour, and the exact panels that carry the brand message.</figcaption>
+      </figure>
+
+      <h2>Start with the store footprint</h2>
+      <p>Buyers often begin with product count, but the store footprint is just as important. A counter tray, shelf display, and pallet display can all hold the same product while creating very different costs and retail outcomes. If the retailer has shelf-depth, height, or PDQ rules, those limits should be sent before structural design begins.</p>
+      <p>The display also needs to make sense for replenishment. A display that is difficult to load, tears during opening, or hides the product face can slow down retail teams and reduce the value of the entire program.</p>
+
+      <table>
+        <thead>
+          <tr><th>Display format</th><th>Best fit</th><th>Quote detail to confirm</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Counter tray</td><td>Small products, impulse items, samples</td><td>Loaded weight, product count, front lip height, and header card needs.</td></tr>
+          <tr><td>Shelf display or PDQ</td><td>Retail-ready cartons and stocked shelves</td><td>Retail footprint, tear-away panels, shipper-to-display conversion, and print panels.</td></tr>
+          <tr><td>Pallet display</td><td>Club, grocery, seasonal, or bulk promotions</td><td>Pallet size, stacking strength, skirt panels, and distribution route.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Board strength must match the loaded display</h2>
+      <p>A display tray can look strong when empty and fail after loading. The board grade should match product weight, span, shelf time, and how the display ships. A pre-loaded display may need a different outer shipper or extra support compared with a flat-packed display assembled at store level.</p>
+      <p>For corrugated strength decisions, review the related Apex guide to <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">heavy-product shipping boxes</a>. The same compression and stacking logic matters when display packaging travels through parcel, LTL, or pallet distribution.</p>
+
+      <h2>Artwork should be designed for real viewing distance</h2>
+      <p>Display artwork is not a brochure. The shopper usually sees it quickly, from a distance, and around other brands. The product name, offer, flavour, size, or key claim should sit on the panels that remain visible after stocking. Hidden inside panels and covered surfaces should not carry the most important message.</p>
+      <p>Buyers should identify the front panel, side panels, header, tray lip, and any barcode or retailer-required label area. That keeps the dieline practical and prevents last-minute artwork changes after the structure is already approved.</p>
+
+      <h2>What to send before requesting a quote</h2>
+      <ul>
+        <li>Product dimensions, unit weight, and quantity per display.</li>
+        <li>Retailer footprint rules, shelf depth, counter limits, or pallet requirements.</li>
+        <li>Whether the display ships flat, assembled empty, or pre-loaded.</li>
+        <li>Print coverage, visible panels, header needs, and barcode or label zones.</li>
+        <li>Launch quantity, reorder plan, delivery route, and whether samples are required.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>Retail display packaging works when structure, weight, artwork, and stocking method are designed together. A clear RFQ helps Apex quote a display that protects the product in transit and still looks sharp when the customer sees it in store.</p>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Display Boxes', href: '/blog/display-boxes-retail-counter-pallet-merchandising', description: 'Compare counter, shelf, and pallet merchandising formats.' },
+    { title: 'Retail Packaging Boxes', href: '/blog/retail-packaging-boxes-shelf-ready-barcodes-display', description: 'Shelf-ready panels, barcodes, and store handling details.' },
+    { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Custom corrugated structures for retail, shipping, and display programs.' }
+  ]} />
+
+  <CTABand
+    heading="Quote the display around the loaded product."
+    lead="Send product count, loaded weight, retail footprint, and artwork needs. Apex can help build a display that ships cleanly and merchandises clearly."
+    primaryCta={{ label: 'Request a display packaging quote', href: '/contact' }}
+  />
+</BaseLayout>
