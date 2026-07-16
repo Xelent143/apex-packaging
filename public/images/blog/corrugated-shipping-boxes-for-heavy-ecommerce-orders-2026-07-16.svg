@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-label="Corrugated Shipping Boxes for Heavy Ecommerce Orders packaging banner">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.58" stop-color="#f6f1e8"/>
+      <stop offset="1" stop-color="#e5dfd3"/>
+    </linearGradient>
+    <linearGradient id="shadow" x1="0" x2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#111" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="720" fill="url(#bg)"/>
+  <rect x="0" y="0" width="760" height="720" fill="#fff" opacity="0.72"/>
+  <circle cx="1380" cy="610" r="230" fill="#6f7f73" opacity="0.10"/>
+  <g opacity="0.10" stroke="#111" stroke-width="3" fill="none">
+    <path d="M156 162 L222 124 L288 162 L288 238 L222 276 L156 238 Z"/>
+    <path d="M222 124 L222 276 M156 162 L222 200 L288 162"/>
+  </g>
+  <g transform="translate(880 155)" filter="url(#soft)">
+    <rect x="42" y="110" width="400" height="270" rx="20" fill="#111"/>
+    <path d="M42 110 L112 58 H510 L442 110 Z" fill="#2b2b2b"/>
+    <path d="M442 110 L510 58 V320 L442 380 Z" fill="#3b3325"/>
+    <rect x="92" y="155" width="118" height="154" rx="12" fill="#fff"/>
+    <rect x="238" y="155" width="118" height="154" rx="12" fill="#f5f0e6"/>
+    <path d="M142 208 h68 M142 244 h86 M142 280 h52" stroke="#6f7f73" stroke-width="12" stroke-linecap="round"/>
+    <path d="M288 208 h68 M288 244 h86 M288 280 h52" stroke="#111" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
+    <rect x="-82" y="240" width="210" height="190" rx="18" fill="#c9a45b"/>
+    <path d="M-82 240 L-24 200 H184 L128 240 Z" fill="#e0bf74"/>
+    <path d="M128 240 L184 200 V384 L128 430 Z" fill="#9d762d"/>
+  </g>
+  <g transform="translate(126 180)">
+    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="7" fill="#6f7f73">APEX PACKAGING</text>
+    <text x="0" y="78" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#111">Corrugated Shipping Boxes for Heavy Ecommerce Orders</text>
+    <text x="0" y="138" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600" fill="#444">corrugated shipping boxes buyer guide</text>
+    <rect x="0" y="190" width="430" height="6" rx="3" fill="#6f7f73"/>
+    <text x="0" y="260" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#555">Specs, materials, samples, and reorder planning.</text>
+  </g>
+</svg>
