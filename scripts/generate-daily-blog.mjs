@@ -5,10 +5,21 @@ import { join, resolve } from 'node:path';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
 const blogDir = join(root, 'src', 'pages', 'blog');
-const imageDir = join(root, 'public', 'images', 'blog');
 const blogIndex = join(blogDir, 'index.astro');
 const startDate = '2026-07-14';
 const maxCatchUp = Number(process.env.APEX_BLOG_MAX_CATCHUP || 7);
+
+const serviceImages = {
+  'mailer-boxes': '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp',
+  'custom-kraft-boxes': '/images/blog/custom-kraft-boxes-natural-product-brands-banner-v2.webp',
+  'corrugated-boxes': '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp',
+  polybags: '/images/blog/poly-mailers-apparel-soft-goods-banner-v2.webp',
+  'protective-packaging': '/images/blog/protective-packaging-insert-sample-kit-generated.png',
+  'industrial-bulk-packaging': '/images/blog/gaylord-boxes-procurement-generated.png',
+  'cbd-boxes': '/images/apex-update/styles/cbd-boxes-premium.png'
+};
+
+const fallbackImage = '/images/blog/ecommerce-packaging-canada-generated.png';
 
 const topics = [
   ['custom mailer boxes', 'Custom Mailer Boxes for Subscription Brands', 'subscription launches, inserts, and repeat shipments', 'mailer-boxes', 'subscriptions'],
@@ -55,20 +66,15 @@ if (!datesToPublish.length) {
 }
 
 await mkdir(blogDir, { recursive: true });
-await mkdir(imageDir, { recursive: true });
 
 let nextIndex = indexSource;
 const published = [];
 for (const date of datesToPublish) {
   const post = buildPost(date);
   const articlePath = join(blogDir, `${post.slug}.astro`);
-  const imagePath = join(imageDir, `${post.slug}.svg`);
 
   if (!existsSync(articlePath)) {
     await writeFile(articlePath, renderArticle(post), 'utf8');
-  }
-  if (!existsSync(imagePath)) {
-    await writeFile(imagePath, renderBanner(post), 'utf8');
   }
   if (!nextIndex.includes(`slug: '${post.slug}'`)) {
     const entry = `  { slug: '${post.slug}', title: '${post.indexTitle}', description: '${post.description}', date: '${post.date}', read: '7 min' },\n`;
@@ -97,7 +103,7 @@ function buildPost(date) {
     description,
     slug,
     url: `/blog/${slug}`,
-    image: `/images/blog/${slug}.svg`,
+    image: serviceImages[service] || fallbackImage,
     service: `/services/${service}`,
     category,
     location,
