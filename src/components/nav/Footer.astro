@@ -4,174 +4,118 @@ import { siteConfig } from '../../site.config';
 const phoneDisplay = siteConfig.phoneDisplay ?? siteConfig.phone;
 const phoneHref = siteConfig.phoneHref ?? `tel:${siteConfig.phone}`;
 
-const infoLinks = [
-  ['Privacy Policy', '/privacy'],
-  ['Terms and Conditions', '/terms-and-conditions'],
-  ['Return & Refund Policy', '/refund-and-return-policy'],
-  ['About Us', '/about'],
-  ['Contact Us', '/contact'],
-  ['Pay Now', '/paynow'],
-  ['Sitemap', '/sitemap-index.xml'],
-  ['Portfolio', '/services']
-];
-
-const productLinks = [
-  ['Soap Boxes', '/industries/soap-boxes'],
-  ['Pillow Boxes', '/industries/pillow-boxes'],
-  ['Rigid Boxes', '/industries/rigid-boxes'],
-  ['Kraft Boxes', '/services/custom-kraft-boxes'],
-  ['Mylar Bags', '/services/polybags'],
-  ['Gable Boxes', '/services/gable-boxes']
+const footerGroups = [
+  {
+    title: 'Products',
+    links: [
+      ['Rigid Boxes', '/industries/rigid-boxes'],
+      ['Corrugated Boxes', '/services/corrugated-boxes'],
+      ['Mailer Boxes', '/services/mailer-boxes'],
+      ['Pouches & Bags', '/industries/custom-mylar-bags'],
+      ['Custom Printed Boxes', '/industries/custom-tuck-boxes'],
+      ['CBD Packaging', '/services/cbd-boxes']
+    ]
+  },
+  {
+    title: 'Solutions',
+    links: [
+      ['By Industry', '/industries'],
+      ['By Material', '/services'],
+      ['By Style', '/services/mailer-boxes'],
+      ['Custom Design', '/design-support'],
+      ['Sustainable Packaging', '/sustainability'],
+      ['Low Minimums', '/contact']
+    ]
+  },
+  {
+    title: 'Company',
+    links: [
+      ['About Us', '/about'],
+      ['Design Support', '/design-support'],
+      ['Quality Assurance', '/services'],
+      ['Blog', '/blog'],
+      ['Contact Us', '/contact'],
+      ['Pay Now', '/paynow']
+    ]
+  }
 ];
 
 const socialLinks = [
-  { label: 'LinkedIn', href: '/contact', image: '/images/footer-icons/social/linkedin.png' },
-  { label: 'YouTube', href: '/contact', image: '/images/footer-icons/social/youtube.png' },
-  { label: 'Instagram', href: '/contact', image: '/images/footer-icons/social/instagram.png' }
-];
-
-const paymentMarks = [
-  { label: 'PayPal', image: '/images/footer-icons/payments/paypal.png', width: 230, height: 56, badgeClass: 'w-[5.8rem] sm:w-[7.75rem]', class: 'max-h-5 max-w-[4.85rem] sm:max-h-6 sm:max-w-[6.55rem]' },
-  { label: 'Visa', image: '/images/footer-icons/payments/visa.png', width: 179, height: 58, badgeClass: 'w-[4.6rem] sm:w-[6.45rem]', class: 'max-h-6 max-w-[3.95rem] sm:max-h-7 sm:max-w-[5.25rem]' },
-  { label: 'Mastercard', image: '/images/footer-icons/payments/mastercard.png', width: 104, height: 62, badgeClass: 'w-[4.6rem] sm:w-[6.45rem]', class: 'max-h-7 max-w-[3.25rem] sm:max-h-8 sm:max-w-[4.25rem]' },
-  { label: 'American Express', image: '/images/footer-icons/payments/amex.png', width: 72, height: 72, badgeClass: 'w-[4.6rem] sm:w-[6.45rem]', class: 'max-h-7 max-w-[2.5rem] sm:max-h-8 sm:max-w-[3rem]' }
+  { label: 'LinkedIn', image: '/images/footer-icons/social/linkedin.png' },
+  { label: 'YouTube', image: '/images/footer-icons/social/youtube.png' },
+  { label: 'Instagram', image: '/images/footer-icons/social/instagram.png' }
 ];
 ---
-<footer class="bg-neutral-100 text-neutral-900">
-  <div class="grid lg:grid-cols-[minmax(320px,0.8fr)_minmax(640px,1.55fr)]">
-    <section class="bg-neutral-800 px-4 py-10 text-neutral-50 md:px-12 lg:px-16">
-      <a href="/" class="inline-flex items-center" aria-label="Apex Packaging home">
-        <img
-          src="/images/brand/selected/apex-packaging-logo-footer.png"
-          alt="Apex Packaging"
-          width="420"
-          height="155"
-          class="h-12 w-auto md:h-16"
-          loading="lazy"
-          decoding="async"
-        />
-      </a>
 
-      <p class="mt-7 max-w-md font-display text-xl font-extrabold leading-snug text-neutral-200 md:mt-10 md:text-2xl">
-        We collaborate with people and brands.
-      </p>
-      <p class="mt-4 text-base text-neutral-300 md:mt-8 md:text-lg">
-        Lets build something great together.
-      </p>
-
-      <form class="mt-8 max-w-md md:mt-14">
-        <label for="footer-email" class="mb-3 block text-base font-medium text-neutral-300 md:text-lg">
-          Sign up for exclusive offers and updates!
-        </label>
-        <div class="grid gap-2 sm:flex">
-          <input
-            id="footer-email"
-            class="h-12 min-w-0 flex-1 rounded-md border border-neutral-500 bg-neutral-50 px-4 text-neutral-900 placeholder:text-neutral-500 sm:rounded-r-none"
-            placeholder="Your Email Address..."
-            type="email"
+<footer class="border-t border-white/10 bg-[#041526] text-white">
+  <div class="container max-w-wide py-12 md:py-16">
+    <div class="grid gap-10 lg:grid-cols-[1.25fr_2.2fr_1.15fr] lg:gap-14">
+      <div>
+        <a href="/" class="inline-flex items-center" aria-label="Apex Packaging home">
+          <img
+            src="/images/brand/selected/apex-packaging-logo-footer.png"
+            alt="Apex Packaging"
+            width="420"
+            height="155"
+            class="h-14 w-auto md:h-16"
+            loading="lazy"
+            decoding="async"
           />
-          <button class="h-12 rounded-md bg-[#c99700] px-5 font-bold text-neutral-950 hover:bg-warning sm:rounded-l-none" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
-    </section>
-
-    <section class="px-4 py-10 md:px-12 lg:px-16">
-      <div class="grid gap-8 md:grid-cols-[0.9fr_1fr_1.35fr] md:gap-10">
-        <div>
-          <h2 class="mb-4 font-display text-base font-extrabold uppercase text-neutral-800 md:mb-6 md:text-lg">Information</h2>
-          <ul class="grid grid-cols-2 gap-2 text-sm md:block md:space-y-3.5 md:text-base">
-            {infoLinks.map(([label, href]) => (
-              <li><a href={href} class="flex min-h-11 items-center rounded-md bg-neutral-50 px-3 transition-colors hover:text-accent md:min-h-0 md:bg-transparent md:px-0">{label}</a></li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="mb-4 font-display text-base font-extrabold uppercase text-neutral-800 md:mb-6 md:text-lg">Packaging Products</h2>
-          <ul class="grid grid-cols-2 gap-2 text-sm md:block md:space-y-3.5 md:text-base">
-            {productLinks.map(([label, href]) => (
-              <li><a href={href} class="flex min-h-11 items-center rounded-md bg-neutral-50 px-3 transition-colors hover:text-accent md:min-h-0 md:bg-transparent md:px-0">{label}</a></li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="mb-6 font-display text-lg font-extrabold uppercase text-neutral-800">Contact Us</h2>
-          <ul class="space-y-4 text-sm md:space-y-5 md:text-base">
-            <li class="flex min-w-0 gap-4">
-              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#c99700] text-neutral-950" aria-hidden="true">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6h16v12H4z"></path>
-                  <path d="m4 7 8 6 8-6"></path>
-                </svg>
-              </span>
-              <a href={`mailto:${siteConfig.email}`} class="min-w-0 whitespace-nowrap pt-1 hover:text-accent">{siteConfig.email}</a>
-            </li>
-            <li class="flex gap-4">
-              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#c99700] text-neutral-950" aria-hidden="true">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.61a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6.27 6.27l1.29-1.29a2 2 0 0 1 2.11-.45c.84.3 1.71.51 2.61.63A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-              </span>
-              <a href={phoneHref} class="pt-1 font-semibold hover:text-accent">{phoneDisplay}</a>
-            </li>
-            <li class="flex gap-4">
-              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#c99700] text-neutral-950" aria-hidden="true">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </span>
-              <span class="pt-1 font-semibold">{siteConfig.formattedAddress}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-8 grid gap-5 border-t border-neutral-200 pt-6 lg:grid-cols-[1fr_1.3fr] lg:items-center">
-        <div class="flex flex-wrap items-center justify-center gap-3 text-center sm:justify-start md:gap-4">
-          <span class="w-full font-display text-lg font-extrabold sm:w-auto sm:text-base md:text-lg">Follow Us:</span>
+        </a>
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
+          Premium custom packaging solutions designed to protect, impress, and inspire your brand.
+        </p>
+        <div class="mt-6 flex gap-3">
           {socialLinks.map((item) => (
-            <a href={item.href} class="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-md bg-neutral-900 shadow-sm ring-1 ring-neutral-800/10 transition-opacity hover:opacity-85 md:h-11 md:w-11" aria-label={item.label}>
+            <a href="/contact" class="grid h-10 w-10 place-items-center overflow-hidden rounded-md border border-white/15 bg-white/5 transition hover:border-[#d8ad3d]" aria-label={item.label}>
               <img src={item.image} alt="" width="96" height="96" loading="lazy" decoding="async" class="h-full w-full object-cover" />
             </a>
           ))}
         </div>
-
-        <div class="flex flex-col items-center gap-3 text-center xl:flex-row xl:flex-wrap xl:text-left xl:justify-end">
-          <span class="font-display text-sm font-extrabold uppercase tracking-[0.08em] text-neutral-700 sm:text-base sm:tracking-normal">
-            SSL 100% Secure Transactions:
-          </span>
-          <div class="flex w-full flex-nowrap items-center justify-center gap-2 overflow-hidden sm:w-auto sm:gap-3 xl:justify-end">
-            {paymentMarks.map((item) => (
-              <span class:list={['grid h-11 shrink-0 place-items-center rounded-md border border-neutral-300 bg-white px-2 shadow-[0_4px_12px_rgba(15,23,42,0.12)] ring-1 ring-white sm:h-12 sm:px-3', item.badgeClass]}>
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  width={item.width}
-                  height={item.height}
-                  loading="eager"
-                  decoding="async"
-                  class:list={['h-auto w-auto object-contain', item.class]}
-                />
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
-    </section>
-  </div>
 
-  <section class="border-t border-neutral-200 bg-neutral-50">
-    <div class="container max-w-wide flex justify-center py-4 text-sm text-neutral-700 md:justify-end md:py-3">
-      <div class="flex gap-5">
-        <a href="/privacy" class="hover:text-accent">Privacy</a>
-        <a href="/terms-and-conditions" class="hover:text-accent">Terms</a>
-        <a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a>
-        <a href="/contact" class="hover:text-accent">Get Quote</a>
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+        {footerGroups.map((group) => (
+          <div>
+            <h2 class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#e1b84d]">{group.title}</h2>
+            <ul class="mt-5 space-y-3 text-sm text-white/65">
+              {group.links.map(([label, href]) => (
+                <li><a href={href} class="transition hover:text-white">{label}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div>
+        <h2 class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#e1b84d]">Contact Us</h2>
+        <ul class="mt-5 space-y-5 text-sm text-white/72">
+          <li class="flex gap-3">
+            <span class="text-[#e1b84d]" aria-hidden="true">☎</span>
+            <a href={phoneHref} class="font-bold text-white transition hover:text-[#e1b84d]">{phoneDisplay}</a>
+          </li>
+          <li class="flex min-w-0 gap-3">
+            <span class="text-[#e1b84d]" aria-hidden="true">✉</span>
+            <a href={`mailto:${siteConfig.email}`} class="min-w-0 break-all transition hover:text-[#e1b84d]">{siteConfig.email}</a>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[#e1b84d]" aria-hidden="true">⌖</span>
+            <span>{siteConfig.formattedAddress}</span>
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container max-w-wide flex flex-col gap-4 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+      <span>© {new Date().getFullYear()} Apex Packaging Solutions. All rights reserved.</span>
+      <div class="flex flex-wrap gap-5">
+        <a href="/privacy" class="hover:text-white">Privacy</a>
+        <a href="/terms-and-conditions" class="hover:text-white">Terms</a>
+        <a href="/refund-and-return-policy" class="hover:text-white">Returns</a>
+        <a href="/sitemap-index.xml" class="hover:text-white">Sitemap</a>
+      </div>
+    </div>
+  </div>
 </footer>

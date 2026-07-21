@@ -1,515 +1,368 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
-import { buildFAQSchema } from '../lib/schema';
-import { featuredIndustryBoxes } from '../data/industryBoxes';
 
-const categories = featuredIndustryBoxes.map((box) => ({
-  title: box.slug === 'auto-parts' ? 'Auto Parts Boxes' : box.label,
-  href: `/industries/${box.slug}`,
-  image: box.image,
-  alt: box.alt
-}));
-
-const benefitStrip = [
-  { step: 'Quote', title: 'No Die & Plate Charges', stat: 'No setup drag', icon: 'quote-review', body: 'Digital proofs and low-run production keep the first order simple.' },
-  { step: 'Proof', title: 'Free Design Support', stat: 'Dieline included', icon: 'design-proof', body: 'Dielines, print prep, and mockups are included with qualifying orders.' },
-  { step: 'Sample', title: 'Starting From 50 Boxes', stat: '50 box starts', icon: 'sample-run', body: 'Digital sample runs help you validate packaging before scaling.' },
-  { step: 'Specify', title: 'Customize Size & Style', stat: 'Built to fit', icon: 'custom-spec', body: 'Boxes, bags, trays, sleeves, inserts, and finishes built around your product.' },
-  { step: 'Produce', title: 'Quick Turnaround Time', stat: '7-14 days', icon: 'production-window', body: 'Standard custom orders move from approval to production in 7-14 days.' },
-  { step: 'Ship', title: 'Free Shipping', stat: 'USA & Canada', icon: 'domestic-shipping', body: 'Apex Packaging provides complimentary shipping throughout the USA and Canada.' }
-];
-
-const finishes = [
-  { title: 'Holographic Foiling', image: 'holographic-foiling' },
-  { title: 'Gold Foiling', image: 'gold-foiling' },
-  { title: 'Embossing', image: 'embossing' },
-  { title: 'Matte Lamination', image: 'matte-lamination' },
-  { title: 'Spot UV', image: 'spot-uv' },
-  { title: 'Soft Touch', image: 'soft-touch' }
-];
-
-const reasons = [
-  { title: 'Customize Size and Shape', icon: 'custom-size-shape', body: 'Apex builds every package around the product dimensions, retail channel, and shipping environment.' },
-  { title: 'Sustainable Material Options', icon: 'sustainable-materials', body: 'FSC corrugated, recycled liner, kraft board, compostable polybag options, and soy-based inks are available.' },
-  { title: 'High-End Printing Quality', icon: 'printing-quality', body: 'Flexo, digital, and litho-laminated print options cover short runs, retail graphics, and industrial markings.' },
-  { title: 'Premium Finishing Features', icon: 'premium-finishes', body: 'Foil, embossing, spot UV, matte lamination, and soft-touch finishes help retail packaging stand out.' },
-  { title: 'Fast Delivery', icon: 'canadian-delivery', body: 'Our streamlined shipping process helps reduce freight delays and keeps your launch schedules on track.' },
-  { title: 'Design Support Included', icon: 'design-support', body: 'Send your logo and product dimensions; Apex returns a dieline, proof, and production-ready artwork.' },
-  { title: 'Low MOQ Flexibility', icon: 'low-moq', body: 'Start with sample or short-run quantities before committing to a full pallet.' },
-  { title: 'Procurement-Ready Specs', icon: 'procurement-specs', body: 'Quotes include material, board strength, print method, MOQ, lead time, and reorder details.' }
-];
-
-const clientNames = ['Food Brands', 'D2C Teams', 'Industrial Supply', 'Coffee Roasters', 'Cosmetics', 'Retail Launches', 'Pharma', 'Auto Parts', 'Electronics'];
-
-const faqs = [
-  { q: 'What is the minimum order quantity?', a: 'MOQs start at 100 units on stock RSC corrugated, 250 units on custom-printed flexo mailers, and 500 units on custom-print polybags. Digital-print sampling can start lower.' },
-  { q: 'What is the typical lead time?', a: 'Production runs usually ship within 7-14 days from artwork sign-off. Rush timelines are quoted by product, print method, and material availability.' },
-  { q: 'Can Apex help with artwork and dielines?', a: 'Yes. Apex can create the dieline, prepare artwork, generate a proof, and keep the final files on record for reorders.' }
-];
-
-const heroSlides = [
+const categoryCards = [
   {
-    src: '/images/apex-update/banners/banner-1.webp',
-    alt: 'Custom packaging collection with fictional brand designs'
+    title: 'Rigid Boxes',
+    subtitle: 'Premium & luxury boxes',
+    href: '/industries/rigid-boxes',
+    image: '/images/home/categories/rigid-boxes.webp',
+    alt: 'Premium rigid box packaging with gold detailing'
   },
   {
-    src: '/images/apex-update/banners/banner-2.webp',
-    alt: 'Colorful retail packaging with original mock brands'
+    title: 'Corrugated Boxes',
+    subtitle: 'Durable & reliable',
+    href: '/services/corrugated-boxes',
+    image: '/images/apex-update/materials/corrugated-boxes.webp',
+    alt: 'Custom corrugated shipping box'
   },
   {
-    src: '/images/apex-update/banners/banner-3.webp',
-    alt: 'Sustainable packaging with fictional brand artwork'
+    title: 'Mailer Boxes',
+    subtitle: 'E-commerce & subscription',
+    href: '/services/mailer-boxes',
+    image: '/images/home/mailer-boxes-branded.webp',
+    alt: 'Premium custom printed mailer box'
   },
   {
-    src: '/images/home/hero-slides/category-showcase-1.webp',
-    alt: 'Retail packaging category mockups with cosmetic, bakery, tea, soap, and software box designs'
+    title: 'Pouches & Bags',
+    subtitle: 'Flexible & stand-up pouches',
+    href: '/industries/custom-mylar-bags',
+    image: '/images/home/categories/custom-mylar-bags.webp',
+    alt: 'Custom printed stand-up pouch packaging'
   },
   {
-    src: '/images/home/hero-slides/category-showcase-2.webp',
-    alt: 'Food and beverage packaging category mockups with coffee, bakery, food, chocolate, and tea designs'
+    title: 'Custom Printed Boxes',
+    subtitle: 'High-quality printing',
+    href: '/industries/custom-tuck-boxes',
+    image: '/images/home/categories/custom-tuck-boxes.webp',
+    alt: 'Custom printed retail tuck boxes'
   },
   {
-    src: '/images/home/hero-slides/category-showcase-3.webp',
-    alt: 'Premium gift and wellness packaging category mockups with CBD, candle, rigid, pillow, and Christmas box designs'
-  },
-  {
-    src: '/images/home/hero-slides/category-showcase-4.webp',
-    alt: 'Custom printed box style mockups with tuck, kraft soap, display, window, and hair extension packaging designs'
+    title: 'CBD Packaging',
+    subtitle: 'Compliant & secure',
+    href: '/services/cbd-boxes',
+    image: '/images/home/categories/cbd-gift-boxes.webp',
+    alt: 'Premium CBD gift packaging with fitted inserts'
   }
 ];
 
-const heroSlideDurationSeconds = 5;
+const serviceBenefits = [
+  { title: 'Custom Made', body: 'Tailored to your brand', icon: 'custom-spec' },
+  { title: 'Low Minimums', body: 'Perfect for any size', icon: 'low-moq' },
+  { title: 'Eco-Friendly', body: 'Sustainable options', icon: 'sustainable-materials' },
+  { title: 'Expert Support', body: "We're here to help", icon: 'design-support' },
+  { title: 'Global Shipping', body: 'Delivering worldwide', icon: 'domestic-shipping' }
+];
 
-const schemaBlocks = [buildFAQSchema(faqs)];
-const responsiveImagePath = (src: string, width: number) => src.replace(/\.(webp|png|jpe?g)$/i, `-${width}.webp`);
-const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((width) => `${responsiveImagePath(src, width)} ${width}w`).join(', ');
+const industries = [
+  { title: 'Beauty & Cosmetics', href: '/industries/cosmetic-boxes', icon: 'printing-quality' },
+  { title: 'Food & Beverage', href: '/industries/food-boxes', icon: 'sample-run' },
+  { title: 'Health & Wellness', href: '/industries/health-boxes', icon: 'sustainable-materials' },
+  { title: 'E-commerce & Retail', href: '/industries/retail-boxes', icon: 'domestic-shipping' },
+  { title: 'CBD & Cannabis', href: '/services/cbd-boxes', icon: 'premium-finishes' },
+  { title: 'Electronics', href: '/industries/electronics-boxes', icon: 'procurement-specs' },
+  { title: 'Apparel & Accessories', href: '/industries/apparel-boxes', icon: 'custom-size-shape' },
+  { title: 'More Industries', href: '/industries', icon: 'quote-review' }
+];
+
+const proofStats = [
+  { value: '10+', label: 'Years of Experience', icon: 'sample-run' },
+  { value: '25K+', label: 'Projects Completed', icon: 'quote-review' },
+  { value: '98%', label: 'Customer Satisfaction', icon: 'design-support' },
+  { value: '7 Days', label: 'Fastest Turnaround', icon: 'production-window' },
+  { value: '100+', label: 'Materials & Finishes', icon: 'premium-finishes' }
+];
+
+const testimonials = [
+  {
+    quote: 'The quality is exceptional, the communication is clear, and our launch packaging arrived exactly as approved.',
+    role: 'Marketing Director',
+    company: 'Canadian beauty brand',
+    initials: 'MD'
+  },
+  {
+    quote: 'From dieline to delivery, the team made a complex custom box feel simple. The finished presentation elevated our brand.',
+    role: 'Founder',
+    company: 'Wellness product company',
+    initials: 'FO'
+  },
+  {
+    quote: 'Reliable, professional, and practical about materials, timelines, and cost. Apex has become a trusted packaging partner.',
+    role: 'Operations Lead',
+    company: 'Retail products company',
+    initials: 'OL'
+  }
+];
 ---
+
 <BaseLayout
   title="Custom Packaging Canada | Apex Packaging"
-  description="Apex Packaging Solutions manufactures custom printed boxes, bags, mailers, inserts, and retail packaging in Canada with low MOQs, fast turnaround, and design support."
-  schemaBlocks={schemaBlocks}
+  description="Premium custom boxes, mailers, pouches, inserts, and retail packaging with low minimums, fast turnaround, and expert design support from Apex Packaging."
 >
-  <section class="apex-banner-slider overflow-hidden border-b border-neutral-200 bg-white">
-    <h1 class="sr-only">Custom Packaging your customers will love</h1>
-    <div class="relative aspect-[2172/724] w-full">
-      {heroSlides.map((slide, index) => (
-        <img
-          src={slide.src}
-          srcset={responsiveImageSrcset(slide.src, [721, 1080, 1442])}
-          sizes="100vw"
-          alt={slide.alt}
-          width="2172"
-          height="724"
-          class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
-          style={`animation-delay: ${index * heroSlideDurationSeconds}s;`}
-          loading={index === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          fetchpriority={index === 0 ? 'high' : 'auto'}
-        />
+  <section class="home-hero relative isolate overflow-hidden bg-[#061a2e] text-white">
+    <img
+      src="/images/apex-update/banners/banner-1.webp"
+      srcset="/images/apex-update/banners/banner-1-721.webp 721w, /images/apex-update/banners/banner-1-1080.webp 1080w, /images/apex-update/banners/banner-1-1442.webp 1442w"
+      sizes="(max-width: 767px) 100vw, 70vw"
+      alt="Premium custom boxes, pouches, mailers, and retail packaging"
+      width="2172"
+      height="724"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-y-0 right-0 -z-20 h-full w-full object-cover object-[67%_center] opacity-60 md:w-[72%] md:opacity-70"
+    />
+    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#061a2e_0%,#061a2e_38%,rgba(6,26,46,0.9)_55%,rgba(6,26,46,0.28)_100%)]"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_88%_25%,rgba(190,145,30,0.18),transparent_34%)]"></div>
+
+    <div class="container max-w-wide grid min-h-[34rem] items-center py-14 md:min-h-[38rem] md:grid-cols-12 md:py-20 lg:min-h-[40rem]">
+      <div class="max-w-3xl md:col-span-7 lg:col-span-6">
+        <p class="inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.18em] text-[#e1b84d]">
+          <span class="h-px w-9 bg-[#e1b84d]"></span>
+          Premium packaging. Powerful impressions.
+        </p>
+        <h1 class="home-serif mt-5 text-[2.8rem] font-semibold leading-[0.98] tracking-[-0.035em] text-white sm:text-6xl lg:text-[4.8rem]">
+          Custom Packaging <span class="block text-[#d8ad3d]">That Elevates</span> Your Brand
+        </h1>
+        <p class="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/82 md:text-lg">
+          High-quality custom boxes and packaging solutions designed to protect, impress, and inspire.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#packaging-categories" class="home-gold-button">Explore Packaging <span aria-hidden="true">→</span></a>
+          <a href="/contact" class="home-outline-button">
+            <PackagingIcon name="quote-review" class="h-5 w-5" /> Request a Quote
+          </a>
+        </div>
+        <div class="mt-8 grid max-w-2xl gap-4 border-t border-white/15 pt-5 sm:grid-cols-3">
+          {[
+            ['Premium Quality', 'Built to impress', 'printing-quality'],
+            ['Fast Turnaround', 'As fast as 7 days', 'production-window'],
+            ['Secure Delivery', 'Protected packaging', 'domestic-shipping']
+          ].map(([title, body, icon]) => (
+            <div class="flex items-center gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#d8ad3d] text-[#e1b84d]">
+                <PackagingIcon name={icon} class="h-6 w-6" />
+              </span>
+              <span>
+                <strong class="block text-xs font-extrabold text-white">{title}</strong>
+                <span class="block text-[0.68rem] text-white/65">{body}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative z-10 -mt-7 px-4">
+    <div class="mx-auto grid max-w-wide overflow-hidden rounded-xl border border-[#dfd3b6] bg-[#fffdf8] shadow-[0_20px_45px_rgba(15,32,50,0.14)] sm:grid-cols-2 lg:grid-cols-5">
+      {serviceBenefits.map((item) => (
+        <div class="flex min-h-28 items-center gap-4 border-b border-[#e9dfca] px-5 py-5 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0">
+          <span class="grid h-11 w-11 shrink-0 place-items-center text-[#b78716]">
+            <PackagingIcon name={item.icon} class="h-10 w-10" />
+          </span>
+          <span>
+            <strong class="block font-display text-sm font-extrabold text-[#102337]">{item.title}</strong>
+            <span class="mt-1 block text-xs text-neutral-500">{item.body}</span>
+          </span>
+        </div>
       ))}
     </div>
   </section>
 
-  <style>
-    .apex-banner-slide {
-      animation: apex-banner-fade 35s infinite;
-      opacity: 0;
-    }
-
-    @keyframes apex-banner-fade {
-      0%,
-      13% {
-        opacity: 1;
-      }
-
-      16%,
-      94% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .apex-banner-slide {
-        animation: none;
-        opacity: 0;
-      }
-
-      .apex-banner-slide:first-child {
-        opacity: 1;
-      }
-    }
-  </style>
-
-  <section class="border-y border-neutral-200 bg-neutral-50 py-3 md:py-5">
-    <div class="container max-w-wide overflow-hidden">
-      <div class="flex min-w-max items-center gap-6 text-center text-xs font-black uppercase tracking-wide text-neutral-700 md:gap-10 md:text-sm">
-        {[...clientNames, ...clientNames].map((name) => <span>{name}</span>)}
-      </div>
-    </div>
-  </section>
-
-  <section id="categories" class="bg-white py-12 md:py-24">
+  <section id="packaging-categories" class="scroll-mt-28 bg-[#f8f4ec] pb-16 pt-20 md:pb-24 md:pt-24">
     <div class="container max-w-wide">
-      <div class="mx-auto mb-8 max-w-4xl text-center md:mb-12">
-        <h2 class="font-display text-3xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">Your Custom Packaging Partner</h2>
-        <p class="mt-3 text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-          Choose the packaging category that matches your product, then send the size, quantity, print requirements, and launch date.
-        </p>
-      </div>
-      <div class="-mx-4 grid auto-cols-[minmax(9rem,42vw)] grid-flow-col grid-rows-2 gap-x-4 gap-y-7 overflow-x-auto px-4 pb-2 [scrollbar-width:none] md:mx-0 md:grid-flow-row md:grid-cols-4 md:gap-x-5 md:gap-y-10 md:overflow-visible md:px-0 md:pb-0 lg:gap-x-8 [&::-webkit-scrollbar]:hidden">
-        {categories.map((cat, index) => (
-          <a href={cat.href} class:list={['group min-w-0 snap-start text-center', index >= 8 && 'max-md:hidden']}>
-            <img
-              src={cat.image}
-              srcset={responsiveImageSrcset(cat.image, [320, 500, 620])}
-              sizes="(max-width: 767px) 42vw, (max-width: 1023px) 25vw, 249px"
-              alt={cat.alt}
-              width="418"
-              height="418"
-              loading="lazy"
-              decoding="async"
-              class="aspect-square w-full rounded-md border border-neutral-100 object-cover shadow-sm transition duration-200 group-hover:-translate-y-1 group-hover:shadow-card"
-            />
-            <h3 class="mt-3 font-display text-sm font-extrabold uppercase tracking-normal text-neutral-900 md:mt-5 md:text-xl">{cat.title}</h3>
-          </a>
-        ))}
-      </div>
-      <div class="mt-8 text-center md:mt-10">
-        <a href="/industries" class="btn-secondary">View all packaging categories</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-neutral-100 py-12 md:py-24">
-    <div class="container max-w-wide">
-      <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
-        <div class="lg:col-span-8">
-          <p class="eyebrow">RFQ to reorder</p>
-          <h2 class="mt-3 max-w-5xl font-display text-3xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">
-            Quote, proof, produce, reorder
-          </h2>
-          <p class="mt-3 max-w-3xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-            Apex brings custom packaging pricing, dielines, materials, production timing, and shipping clarity into one clear workflow.
-          </p>
+      <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="home-kicker">Shop by category</p>
+          <h2 class="home-serif mt-2 text-3xl font-semibold leading-tight text-[#102337] md:text-4xl">Find the Perfect Packaging</h2>
         </div>
-        <div class="lg:col-span-4 lg:text-right">
-          <a href="#quote" class="btn-primary !bg-[#c99700] !text-neutral-950 hover:!bg-warning">Start a quote</a>
-        </div>
-      </div>
-
-      <div class="relative mt-8 md:mt-12">
-        <div class="absolute left-0 right-0 top-[46px] hidden h-px bg-neutral-300 lg:block"></div>
-        <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [&::-webkit-scrollbar]:hidden">
-          {benefitStrip.map((item, index) => (
-            <article class="group relative flex h-full min-h-[320px] w-[82vw] max-w-[22rem] shrink-0 snap-start flex-col rounded-md border border-neutral-200 bg-white p-5 shadow-card transition duration-300 hover:-translate-y-2 hover:border-[#7fb4bb] hover:shadow-popover sm:w-auto sm:max-w-none lg:min-h-[390px]">
-              <div class="mb-5 flex items-center justify-between gap-3">
-                <span class="grid h-16 w-16 place-items-center rounded-lg border border-[#c8dbdd] bg-[#eef6f6] text-[#1f6672] shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:border-[#7fb4bb] group-hover:bg-[#e0eff1]">
-                  <PackagingIcon name={item.icon} class="h-9 w-9" />
-                </span>
-                <span class="rounded-md bg-[#eef6f6] px-2.5 py-1 text-xs font-black uppercase tracking-wide text-[#1f6672] transition duration-300 group-hover:bg-[#1f6672] group-hover:text-white">0{index + 1}</span>
-              </div>
-              <p class="text-xs font-black uppercase tracking-[0.16em] text-neutral-500">{item.step}</p>
-              <h3 class="mt-2 font-display text-lg font-extrabold uppercase leading-tight text-neutral-900 lg:min-h-[4.75rem]">{item.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-neutral-600 lg:min-h-[8.25rem]">{item.body}</p>
-              <div class="mt-auto border-t border-neutral-200 pt-4 text-sm font-black uppercase tracking-wide text-success">{item.stat}</div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white py-12 md:py-24">
-    <div class="container max-w-wide">
-      <div class="mb-8 text-center md:mb-12">
-        <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Premium Finishes</h2>
-        <p class="mt-3 text-base text-neutral-600">Finishing options that give custom boxes a premium retail feel.</p>
-      </div>
-      <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
-        {finishes.map((finish) => (
-          <a href="/design-support" class="group relative block w-[82vw] max-w-[24rem] shrink-0 snap-start overflow-hidden rounded-md bg-neutral-900 md:w-auto md:max-w-none">
-            <img
-              src={`/images/home/finishes/${finish.image}.webp`}
-              srcset={responsiveImageSrcset(`/images/home/finishes/${finish.image}.webp`, [480, 640, 768])}
-              sizes="(max-width: 767px) 82vw, (max-width: 1023px) 50vw, 33vw"
-              alt={`${finish.title} packaging finish`}
-              width="768"
-              height="341"
-              loading="lazy"
-              decoding="async"
-              class="aspect-[16/9] w-full object-cover opacity-85 transition duration-200 group-hover:scale-[1.03] group-hover:opacity-100"
-            />
-            <h3 class="absolute bottom-4 left-4 font-display text-xl font-extrabold text-neutral-50">{finish.title}</h3>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="relative overflow-hidden bg-neutral-900 bg-cover bg-center bg-no-repeat py-12 md:bg-fixed md:py-24"
-    style="background-image: url('/images/home/why-choose-parallax-bg.webp');"
-  >
-    <div class="absolute inset-0 bg-neutral-950/76"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,8,5,0.92)_0%,rgba(9,8,5,0.78)_48%,rgba(9,8,5,0.58)_100%)]"></div>
-    <div class="container max-w-wide relative">
-      <div class="max-w-4xl">
-        <p class="eyebrow">Why Apex</p>
-        <h2 class="mt-3 font-display text-3xl font-extrabold text-neutral-50 md:text-6xl">Why Choose Us?</h2>
-        <p class="mt-3 max-w-2xl text-base font-semibold uppercase tracking-wide text-neutral-200 md:mt-4 md:text-lg">
-          Custom packaging support from brief to reorder.
-        </p>
-      </div>
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 md:mt-12 md:gap-5 lg:grid-cols-4">
-        {reasons.map((reason) => (
-          <div class="rounded-md border border-white/15 bg-neutral-950/58 p-4 shadow-popover backdrop-blur-sm md:min-h-[260px] md:p-5">
-            <span class="mb-4 grid h-14 w-14 place-items-center rounded-lg border border-white/15 bg-white/10 text-[#8fd0cf] shadow-card md:mb-5 md:h-[72px] md:w-[72px]">
-              <PackagingIcon name={reason.icon} class="h-10 w-10" />
-            </span>
-            <h3 class="font-display text-lg font-extrabold text-neutral-50 md:text-xl">{reason.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-neutral-200 md:mt-3 md:text-base">{reason.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white py-12 md:py-24">
-    <div class="container max-w-wide grid gap-12 lg:grid-cols-12 lg:items-center">
-      <div class="lg:col-span-6">
-        <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Client Testimonial</h2>
-        <p class="mt-3 font-semibold uppercase tracking-wide text-neutral-600">Service that keeps launches moving.</p>
-        <div class="mt-6 text-5xl font-black leading-none text-accent md:mt-8 md:text-6xl">"</div>
-        <blockquote class="mt-3 max-w-2xl text-lg font-semibold italic leading-relaxed text-neutral-800 md:mt-4 md:text-xl">
-          Apex helped us move from rough packaging dimensions to a production-ready dieline quickly. The print proof was clear, the material options were practical, and the reorder file saved our team time.
-        </blockquote>
-        <div class="mt-8 flex items-center gap-4">
-          <div class="grid h-16 w-16 place-items-center rounded-md bg-accent font-display text-xl font-extrabold text-neutral-900">PM</div>
-          <div>
-            <div class="font-bold text-neutral-900">Procurement Manager</div>
-            <div class="text-sm text-neutral-500">Canadian consumer goods brand</div>
-            <div class="mt-1 text-accent">★★★★★</div>
-          </div>
-        </div>
-      </div>
-      <div class="lg:col-span-6">
-        <div class="grid grid-cols-2 gap-3 md:gap-4">
-          {['corrugated-boxes-branded', 'polybags-branded', 'categories/cosmetic-boxes', 'hero-branded-packaging'].map((img) => (
-            <img
-              src={`/images/home/${img}.webp`}
-              srcset={responsiveImageSrcset(`/images/home/${img}.webp`, [320, 640, 960])}
-              sizes="(max-width: 767px) 50vw, 25vw"
-              alt="Custom packaging example with fictional brand artwork"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-              class="aspect-square w-full rounded-md object-cover shadow-card md:rounded-full"
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="quote" class="scroll-mt-28 bg-neutral-100 py-12 md:scroll-mt-32 md:py-24">
-    <div class="container max-w-wide">
-      <div class="mb-8 max-w-4xl md:mb-10">
-        <p class="eyebrow">RFQ desk</p>
-        <div class="mt-3 flex flex-wrap items-end gap-x-6 gap-y-3">
-          <h2 class="font-display text-3xl font-extrabold uppercase leading-none text-neutral-900 md:text-5xl">Get Custom Quote</h2>
-          <span class="mb-1 rounded-md bg-white px-4 py-2 text-sm font-black uppercase tracking-wide text-success shadow-card">Free shipping review</span>
-        </div>
-        <p class="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-          Send the package size, material, quantity, and launch timing. Apex reviews the spec and responds with a practical production path.
-        </p>
-      </div>
-
-      <div class="grid gap-8 lg:grid-cols-12 lg:items-center xl:gap-10">
-        <form class="overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-neutral-100 shadow-popover lg:col-span-7" action="/api/quote" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="source" value="Home Quote Form" />
-          <input type="hidden" name="redirectTo" value="/thank-you" />
-          <label class="hidden" aria-hidden="true">
-            Website
-            <input name="website" tabindex="-1" autocomplete="off" />
-          </label>
-          <div class="bg-[#c99700] px-5 py-5 text-center md:px-7">
-            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-3xl">Get Custom Quote</h3>
-          </div>
-
-          <div class="grid gap-5 p-4 md:p-7">
-            <fieldset class="grid gap-3">
-              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
-                  <PackagingIcon name="quote-review" class="h-4 w-4" />
-                </span>
-                Product Information
-              </legend>
-              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name" aria-label="Product name" />
-            </fieldset>
-
-            <fieldset class="grid gap-3">
-              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
-                  <PackagingIcon name="custom-spec" class="h-4 w-4" />
-                </span>
-                Select Sizes
-              </legend>
-              <div class="grid gap-2 sm:grid-cols-[1fr_1fr_1fr_0.82fr]">
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit" aria-label="Measurement unit">
-                  <option>Unit</option>
-                  <option>inch</option>
-                  <option>cm</option>
-                  <option>mm</option>
-                </select>
-              </div>
-            </fieldset>
-
-            <fieldset class="grid gap-3">
-              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
-                  <PackagingIcon name="sample-run" class="h-4 w-4" />
-                </span>
-                Choose Materials
-              </legend>
-              <div class="grid gap-2 sm:grid-cols-[1fr_1fr_0.85fr]">
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material" aria-label="Packaging material">
-                  <option>Stock</option>
-                  <option>Cardboard Boxes</option>
-                  <option>Kraft Boxes</option>
-                  <option>Rigid Boxes</option>
-                  <option>Corrugated Boxes</option>
-                </select>
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing" aria-label="Printing option">
-                  <option>Printing</option>
-                  <option>Full-color exterior</option>
-                  <option>Inside and outside print</option>
-                  <option>No print</option>
-                </select>
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
-              </div>
-            </fieldset>
-
-            <fieldset class="grid gap-3">
-              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
-                  <PackagingIcon name="design-proof" class="h-4 w-4" />
-                </span>
-                Upload Artwork
-              </legend>
-              <label class="flex min-h-12 cursor-pointer items-center bg-white px-4 text-sm font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
-                <span class="sr-only">Upload artwork file</span>
-                <input class="text-sm" name="artwork" type="file" aria-label="Upload artwork file" />
-              </label>
-            </fieldset>
-
-            <fieldset class="grid gap-3">
-              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
-                  </svg>
-                </span>
-                Personal Information
-              </legend>
-              <div class="grid gap-2 sm:grid-cols-3">
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" type="tel" autocomplete="tel" aria-label="Contact number" />
-              </div>
-            </fieldset>
-
-            <fieldset class="grid gap-3">
-              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
-                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
-                  </svg>
-                </span>
-                Additional Information
-              </legend>
-              <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..." aria-label="Project details"></textarea>
-            </fieldset>
-
-            <div class="flex justify-end pt-1">
-              <button class="min-h-12 rounded-md bg-[#c99700] px-10 py-3 font-black text-neutral-950 transition hover:bg-warning" type="submit">Submit</button>
-            </div>
-          </div>
-        </form>
-
-        <aside class="lg:col-span-5">
-          <div class="max-w-2xl">
-            <h3 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">
-              Custom Boxes, Designed for Your Brand, Made for Your Needs - Without the Hassle.
-            </h3>
-            <p class="mt-5 text-base font-semibold leading-relaxed text-neutral-600">
-              Ensuring the perfect fit, protection, branding, and presentation for your custom boxes is effortless with Apex's comprehensive support.
-            </p>
-            <p class="mt-4 text-base font-semibold leading-relaxed text-neutral-600">
-              Get expert guidance, access proven box styles, and find the right size by sending your product details. Apex helps select materials, printing techniques, finishes, laminations, and add-ons tailored to your packaging needs and purpose.
-            </p>
-            <h4 class="mt-7 font-display text-xl font-extrabold text-neutral-900">Still, There's More!</h4>
-            <p class="mt-3 text-base font-semibold leading-relaxed text-neutral-600">
-              Upload your logo or artwork, and our packaging designers can refine it to match your brand identity while keeping the structure practical for production.
-            </p>
-            <div class="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                'New look for your brand',
-                'Perfect fit to your products',
-                'Perfect fit to your purpose',
-                'All with convenience quick'
-              ].map((item) => (
-                <div class="flex min-h-16 items-center gap-3 rounded-md border border-[#ead58d] bg-[#fff8df] px-4 font-display text-sm font-extrabold text-neutral-800">
-                  <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#c99700] text-neutral-950" aria-hidden="true">
-                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 12 4 4 8-8"></path>
-                    </svg>
-                  </span>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white py-12 md:py-24">
-    <div class="container max-w-wide">
-      <h2 class="font-display text-2xl font-extrabold text-neutral-900 md:text-4xl">Get Your Custom Boxes with Logo for Every Product at Wholesale Rate</h2>
-      <p class="mt-4 max-w-5xl text-base leading-relaxed text-neutral-600 md:mt-5 md:text-lg">
-        Apex Packaging Solutions manufactures custom printed boxes, mailers, bags, trays, sleeves, and protective packaging for brands that need product-ready packaging without long overseas timelines. Choose a category, send the product dimensions, and Apex will help select material, structure, print method, finishing, and shipment timing.
-      </p>
-    </div>
-  </section>
-
-  <section class="bg-neutral-900 py-10 text-neutral-50">
-    <div class="container max-w-wide -mx-4 flex snap-x gap-4 overflow-x-auto px-4 [scrollbar-width:none] md:mx-auto md:grid md:grid-cols-5 md:overflow-visible md:px-10 [&::-webkit-scrollbar]:hidden">
-      {categories.slice(-5).map((cat) => (
-        <a href={cat.href} class="w-[48vw] max-w-[13rem] shrink-0 snap-start text-center md:w-auto md:max-w-none">
-          <img
-            src={cat.image}
-            srcset={responsiveImageSrcset(cat.image, [320, 500, 620])}
-            sizes="(max-width: 767px) 48vw, 13rem"
-            alt={cat.alt}
-            width="418"
-            height="418"
-            loading="lazy"
-            decoding="async"
-            class="aspect-square w-full rounded-md object-cover md:rounded-none"
-          />
-          <span class="mt-3 block font-display text-sm font-bold md:text-lg">{cat.title}</span>
+        <a href="/industries" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-[#b78716] px-5 text-xs font-extrabold uppercase tracking-wide text-[#8a650c] transition hover:bg-[#b78716] hover:text-white">
+          View all categories <span aria-hidden="true">→</span>
         </a>
-      ))}
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        {categoryCards.map((category) => (
+          <a href={category.href} class="group overflow-hidden rounded-xl border border-[#e4dac5] bg-white shadow-[0_8px_24px_rgba(15,35,55,0.06)] transition duration-300 hover:-translate-y-1.5 hover:border-[#c99b2a] hover:shadow-[0_18px_35px_rgba(15,35,55,0.13)]">
+            <div class="overflow-hidden bg-[#f1ede4] p-2">
+              <img
+                src={category.image}
+                alt={category.alt}
+                width="620"
+                height="620"
+                loading="lazy"
+                decoding="async"
+                class="aspect-square w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.035]"
+              />
+            </div>
+            <div class="px-3 pb-4 pt-3 text-center">
+              <h3 class="font-display text-sm font-extrabold text-[#102337]">{category.title}</h3>
+              <p class="mt-1 text-[0.7rem] text-neutral-500">{category.subtitle}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-[#e5dbc7] bg-[#fffdf8] py-14 md:py-20">
+    <div class="container max-w-wide">
+      <p class="home-kicker">Industries we serve</p>
+      <h2 class="home-serif mt-2 text-3xl font-semibold text-[#102337] md:text-4xl">Custom Packaging Solutions for Every Industry</h2>
+      <div class="mt-9 grid grid-cols-2 gap-y-8 sm:grid-cols-4 lg:grid-cols-8">
+        {industries.map((industry) => (
+          <a href={industry.href} class="group flex min-h-28 flex-col items-center justify-center gap-3 border-r border-[#e8dfce] px-3 text-center last:border-r-0 hover:text-[#9a7110]">
+            <span class="text-[#b78716] transition duration-300 group-hover:-translate-y-1">
+              <PackagingIcon name={industry.icon} class="h-11 w-11" />
+            </span>
+            <span class="text-xs font-bold leading-snug text-[#203348] transition group-hover:text-[#9a7110]">{industry.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#f8f4ec] py-16 md:py-24">
+    <div class="container max-w-wide">
+      <div class="overflow-hidden rounded-2xl border border-[#ded2b9] bg-[#fffdf8] shadow-[0_18px_45px_rgba(15,35,55,0.08)] lg:grid lg:grid-cols-[1.15fr_2.35fr]">
+        <div class="bg-[linear-gradient(145deg,#fffaf0,#f3ead9)] p-7 md:p-10">
+          <p class="home-kicker">Why choose Apex Packaging?</p>
+          <h2 class="home-serif mt-3 text-3xl font-semibold leading-tight text-[#102337] md:text-4xl">Quality You Can See. Service You Can Trust.</h2>
+          <p class="mt-4 text-sm leading-relaxed text-neutral-600">
+            Premium materials, experienced guidance, and dependable production for packaging that protects your product and strengthens your brand.
+          </p>
+          <a href="/about" class="mt-7 inline-flex min-h-11 items-center gap-3 rounded-md bg-[#071c32] px-5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#b78716]">
+            Learn more about us <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 border-t border-[#e2d7c1] lg:grid-cols-5 lg:border-l lg:border-t-0">
+          {proofStats.map((stat) => (
+            <div class="flex min-h-44 flex-col items-center justify-center border-b border-r border-[#e6dcc9] px-4 py-7 text-center last:border-r-0 lg:min-h-full lg:border-b-0">
+              <span class="text-[#b78716]"><PackagingIcon name={stat.icon} class="h-10 w-10" /></span>
+              <strong class="home-serif mt-4 text-3xl font-semibold text-[#102337] md:text-4xl">{stat.value}</strong>
+              <span class="mt-2 max-w-24 text-xs font-semibold leading-snug text-neutral-600">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#fffdf8] py-16 md:py-24">
+    <div class="container max-w-wide">
+      <div class="text-center">
+        <p class="home-kicker">What our clients say</p>
+        <h2 class="home-serif mt-2 text-3xl font-semibold text-[#102337] md:text-4xl">Trusted by Brands Worldwide</h2>
+      </div>
+      <div class="mt-9 grid gap-5 lg:grid-cols-3">
+        {testimonials.map((testimonial) => (
+          <article class="rounded-xl border border-[#e3d9c4] bg-white p-6 shadow-[0_10px_30px_rgba(15,35,55,0.07)] md:p-7">
+            <div class="text-sm tracking-[0.16em] text-[#c39422]" aria-label="Five stars">★★★★★</div>
+            <blockquote class="mt-5 text-sm leading-relaxed text-neutral-600">“{testimonial.quote}”</blockquote>
+            <div class="mt-6 flex items-center gap-3 border-t border-[#eee6d8] pt-5">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#071c32] text-xs font-extrabold text-[#e1b84d]">{testimonial.initials}</span>
+              <span>
+                <strong class="block text-sm font-extrabold text-[#102337]">{testimonial.role}</strong>
+                <span class="block text-xs text-neutral-500">{testimonial.company}</span>
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-[#061a2e] py-14 text-white md:py-16">
+    <img
+      src="/images/home/hero-packaging-banner-apex.webp"
+      alt="Apex branded custom packaging collection"
+      width="1774"
+      height="887"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-y-0 left-0 -z-20 h-full w-full object-cover object-[72%_center] opacity-45 md:w-[42%] md:object-[70%_center] md:opacity-75"
+    />
+    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,26,46,0.2),#061a2e_42%,#061a2e)]"></div>
+    <div class="container max-w-wide grid gap-10 md:grid-cols-[0.72fr_1.35fr_0.85fr] md:items-center">
+      <div class="hidden md:block"></div>
+      <div>
+        <h2 class="home-serif text-3xl font-semibold text-white md:text-5xl">Ready to Elevate Your Brand?</h2>
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/75 md:text-base">Let's create packaging that protects, impresses, and drives results.</p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href="/contact" class="home-gold-button">Get Your Custom Quote <span aria-hidden="true">→</span></a>
+          <a href="tel:+19055951634" class="home-outline-button">Call 905 595 1634</a>
+        </div>
+      </div>
+      <ul class="space-y-4 text-sm font-semibold text-white/85">
+        {['Free Design Support', 'No Obligation Quote', 'Fast & Easy Process'].map((item) => (
+          <li class="flex items-center gap-3">
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#d8ad3d] text-[#e1b84d]">✓</span>
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .home-serif {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.025em;
+  }
+
+  .home-kicker {
+    color: #a97c12;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .home-gold-button,
+  .home-outline-button {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    border-radius: 0.38rem;
+    padding: 0.75rem 1.35rem;
+    font-family: Archivo, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  }
+
+  .home-gold-button {
+    background: linear-gradient(180deg, #e4b842 0%, #b77f06 100%);
+    color: white;
+    box-shadow: 0 10px 26px rgba(188, 132, 8, 0.25);
+  }
+
+  .home-outline-button {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: white;
+  }
+
+  .home-gold-button:hover,
+  .home-outline-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .home-outline-button:hover {
+    border-color: #e1b84d;
+    background: rgba(225, 184, 77, 0.12);
+  }
+
+  @media (max-width: 639px) {
+    .home-gold-button,
+    .home-outline-button {
+      width: 100%;
+    }
+  }
+</style>
