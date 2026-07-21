@@ -145,7 +145,7 @@ export const industryBoxes: IndustryBox[] = [
   {
     slug: 'apparel-boxes',
     label: 'Apparel Boxes',
-    image: '/images/industry-boxes/apparel-boxes.jpg',
+    image: '/images/home/categories/apparel-boxes.webp',
     icon: '/images/industry-icons/apparel-boxes.png',
     alt: 'Apex Packaging branded apparel mailer boxes with tissue and garment tag',
     summary: 'Custom apparel boxes for folded garments, subscription drops, boutiques, and ecommerce clothing brands that need a strong unboxing moment.',
