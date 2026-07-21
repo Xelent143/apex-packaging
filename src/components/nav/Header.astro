@@ -30,7 +30,7 @@ const simpleNav = [
 const isIndustryActive = pathname === '/industries' || pathname.startsWith('/industries/');
 const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
 ---
-<header class="bg-white shadow-sm lg:sticky lg:top-0 lg:z-30">
+<header class:list={['bg-white shadow-sm lg:sticky lg:top-0 lg:z-30', isHome && 'apex-home-theme-header']}>
   <div class="hidden bg-neutral-950 text-neutral-50 lg:block">
     <div class="mx-auto grid min-h-8 w-full grid-cols-[auto_1fr_auto] items-center gap-6 px-6 text-xs font-black tracking-wide md:px-8">
       <div class="flex items-center gap-3 text-accent-soft">
@@ -285,15 +285,9 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
     </div>
   </div>
 
-  <div class:list={[
-    'hidden border-y lg:block',
-    isHome ? 'border-[#173149] bg-[#071c32]' : 'border-neutral-200 bg-white'
-  ]}>
+  <div class="hidden border-y border-neutral-200 bg-white lg:block">
     <div class="relative mx-auto hidden w-full items-center justify-between gap-6 px-8 lg:flex">
-      <nav aria-label="Primary" class:list={[
-        'flex min-w-max items-center text-sm font-black',
-        isHome ? 'text-white/90' : 'text-neutral-800'
-      ]}>
+      <nav aria-label="Primary" class="flex min-w-max items-center text-sm font-black text-neutral-800">
         {simpleNav.slice(0, 1).map((item) => (
           <a
             href={item.href}
@@ -417,10 +411,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
           </a>
         ))}
       </nav>
-      <div class:list={[
-        'hidden shrink-0 items-center gap-2 border-l pl-5 text-xs font-black uppercase tracking-wide xl:flex',
-        isHome ? 'border-white/15 text-white/75' : 'border-neutral-200 text-neutral-700'
-      ]}>
+      <div class="hidden shrink-0 items-center gap-2 border-l border-neutral-200 pl-5 text-xs font-black uppercase tracking-wide text-neutral-700 xl:flex">
         <span>Global Operations:</span>
         <span class="text-base" role="img" aria-label="United States">🇺🇸</span>
         <span class="text-base" role="img" aria-label="Canada">🇨🇦</span>
@@ -431,3 +422,77 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
     </div>
   </div>
 </header>
+
+<style>
+  .apex-home-theme-header > div:first-child {
+    border-bottom: 1px solid rgba(225, 184, 77, 0.35);
+    background: linear-gradient(90deg, #031422 0%, #082943 52%, #031422 100%);
+  }
+
+  .apex-home-theme-header > div:nth-child(2) {
+    border-bottom: 1px solid rgba(225, 184, 77, 0.35);
+    background: linear-gradient(135deg, #031422 0%, #082943 100%);
+  }
+
+  .apex-home-theme-header > div:nth-child(3),
+  .apex-home-theme-header > div:nth-child(4) {
+    background: #fffdf8;
+  }
+
+  .apex-home-theme-header > div:nth-child(3) form {
+    border-color: rgba(183, 135, 22, 0.45);
+    background: #fffdf8;
+    box-shadow: 0 10px 28px rgba(7, 28, 50, 0.12);
+  }
+
+  .apex-home-theme-header > div:nth-child(3) form button {
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #e4b842 0%, #b77f06 100%);
+    color: white;
+    box-shadow: 0 7px 16px rgba(183, 127, 6, 0.25);
+  }
+
+  .apex-home-theme-header > div:nth-child(3) > div:last-child > a[href='/contact'] {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, #e4b842 0%, #b77f06 100%);
+    color: white;
+    box-shadow: 0 10px 24px rgba(183, 127, 6, 0.25);
+  }
+
+  .apex-home-theme-header > div:last-child {
+    border-color: #173149;
+    background: linear-gradient(90deg, #04182a 0%, #0a2c47 50%, #04182a 100%);
+    box-shadow: inset 0 -1px 0 rgba(225, 184, 77, 0.16);
+  }
+
+  .apex-home-theme-header > div:last-child > div > nav {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .apex-home-theme-header > div:last-child > div > div:last-child {
+    border-color: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .apex-home-theme-header > div:last-child > div > nav > a,
+  .apex-home-theme-header > div:last-child > div > nav > div > a {
+    position: relative;
+  }
+
+  .apex-home-theme-header > div:last-child > div > nav > a:hover,
+  .apex-home-theme-header > div:last-child > div > nav > div > a:hover {
+    color: #e1b84d;
+  }
+
+  .apex-home-theme-header > div:last-child > div > nav > a.text-accent::after {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 0;
+    left: 1.25rem;
+    height: 2px;
+    background: #e1b84d;
+    content: '';
+  }
+</style>
