@@ -346,8 +346,8 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
         </p>
       </div>
 
-      <div class="grid gap-8 lg:grid-cols-12 lg:items-center xl:gap-10">
-        <form class="apex-quote-form overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-[#f6f1e7] shadow-popover lg:col-span-7" action="/api/quote" method="POST" enctype="multipart/form-data">
+      <div class="grid min-w-0 gap-8 xl:grid-cols-12 xl:items-center xl:gap-10">
+        <form class="apex-quote-form min-w-0 max-w-full overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-[#f6f1e7] shadow-popover xl:col-span-7" action="/api/quote" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="source" value="Home Quote Form" />
           <input type="hidden" name="redirectTo" value="/thank-you" />
           <label class="hidden" aria-hidden="true">
@@ -376,7 +376,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 </span>
                 Select Sizes
               </legend>
-              <div class="grid gap-2 sm:grid-cols-[1fr_1fr_1fr_0.82fr]">
+              <div class="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.82fr)]">
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
@@ -396,7 +396,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 </span>
                 Choose Materials
               </legend>
-              <div class="grid gap-2 sm:grid-cols-[1fr_1fr_0.85fr]">
+              <div class="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.85fr)]">
                 <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material" aria-label="Packaging material">
                   <option>Stock</option>
                   <option>Cardboard Boxes</option>
@@ -436,7 +436,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 </span>
                 Personal Information
               </legend>
-              <div class="grid gap-2 sm:grid-cols-3">
+              <div class="grid min-w-0 gap-2 sm:grid-cols-3">
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" type="tel" autocomplete="tel" aria-label="Contact number" />
@@ -461,7 +461,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
           </div>
         </form>
 
-        <aside class="lg:col-span-5">
+        <aside class="min-w-0 xl:col-span-5">
           <div class="max-w-2xl">
             <h3 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">
               Custom Boxes, Designed for Your Brand, Made for Your Needs - Without the Hassle.
@@ -579,6 +579,8 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   }
 
   .apex-quote-form {
+    min-width: 0;
+    max-width: 100%;
     border-color: rgba(225, 184, 77, 0.75);
     background: linear-gradient(145deg, #041526 0%, #0a2c47 100%);
     box-shadow: 0 24px 55px rgba(4, 21, 38, 0.28);
@@ -604,6 +606,10 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   .apex-quote-form select,
   .apex-quote-form textarea,
   .apex-quote-form label:has(input[type='file']) {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     border: 1px solid rgba(225, 184, 77, 0.35);
     background: rgba(255, 255, 255, 0.09);
     color: #fff;
@@ -620,7 +626,16 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   }
 
   .apex-quote-form input[type='file'] {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     color: rgba(255, 255, 255, 0.72);
+  }
+
+  .apex-quote-form fieldset,
+  .apex-quote-form fieldset > div {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .apex-quote-form button[type='submit'] {
