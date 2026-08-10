@@ -77,8 +77,8 @@ const paymentMarks = [
       </form>
     </section>
 
-    <section class="px-4 py-10 md:px-12 lg:px-16">
-      <div class="grid gap-8 md:grid-cols-[0.9fr_1fr_1.35fr] md:gap-10">
+    <section class="min-w-0 px-4 py-10 md:px-12 lg:px-16">
+      <div class="grid min-w-0 gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)_minmax(0,1.35fr)] md:gap-10">
         <div>
           <h2 class="mb-4 font-display text-base font-extrabold uppercase text-neutral-800 md:mb-6 md:text-lg">Information</h2>
           <ul class="grid grid-cols-2 gap-2 text-sm md:block md:space-y-3.5 md:text-base">
@@ -107,7 +107,7 @@ const paymentMarks = [
                   <path d="m4 7 8 6 8-6"></path>
                 </svg>
               </span>
-              <a href={`mailto:${siteConfig.email}`} class="min-w-0 whitespace-nowrap pt-1 hover:text-accent">{siteConfig.email}</a>
+              <a href={`mailto:${siteConfig.email}`} class="min-w-0 break-all pt-1 hover:text-accent">{siteConfig.email}</a>
             </li>
             <li class="flex gap-4">
               <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#c99700] text-neutral-950" aria-hidden="true">
