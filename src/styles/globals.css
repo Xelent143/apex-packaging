@@ -39,6 +39,30 @@
 }
 
 @layer components {
+  .association-notice {
+    @apply flex w-full items-center justify-center border-b border-accent/60 bg-neutral-950 px-4 py-3 text-center text-neutral-100;
+  }
+
+  .association-notice__content {
+    @apply m-0 max-w-[118rem] text-[0.82rem] font-semibold leading-[1.55] tracking-[0.01em];
+  }
+
+  .association-notice__content a {
+    @apply whitespace-nowrap font-extrabold text-accent-soft underline decoration-2 decoration-accent-soft/70 underline-offset-2 transition-colors hover:text-white hover:decoration-white;
+  }
+
+  @media (min-width: 1024px) {
+    .association-notice {
+      min-height: 3.25rem;
+      padding-top: 0.65rem;
+      padding-bottom: 0.65rem;
+    }
+
+    .association-notice__content {
+      @apply text-[0.95rem];
+    }
+  }
+
   .prose-apex {
     @apply max-w-3xl text-neutral-700 leading-relaxed;
   }
@@ -92,6 +116,10 @@
 }
 
 @media (max-width: 767px) {
+  .association-notice {
+    padding-right: 8rem;
+  }
+
   html {
     scroll-padding-top: 7.5rem;
   }

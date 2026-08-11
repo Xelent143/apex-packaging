@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import { siteConfig } from '../site.config';
 import { buildMeta } from '../lib/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '../lib/schema';
+import AssociationNotice from '../components/nav/AssociationNotice.astro';
 import Header from '../components/nav/Header.astro';
 import Footer from '../components/nav/Footer.astro';
 import TawkToChat from '../components/integrations/TawkToChat.astro';
@@ -59,6 +60,7 @@ const robotsContent = noindex ? 'noindex, follow' : 'index, follow, max-image-pr
     <Header />
     <main id="main"><slot /></main>
     <Footer />
+    <AssociationNotice />
     <TawkToChat />
   </body>
 </html>
