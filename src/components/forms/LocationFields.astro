@@ -192,6 +192,11 @@ const shipmentClass = compact
       return items.find((item) => normalize(item.name) === query) || null;
     };
 
+    const getOpenItems = (items, value) => {
+      if (!value) return items;
+      return matchByName(items, value) ? items : filterItems(items, value);
+    };
+
     const clearStateAndCity = () => {
       states = [];
       cities = [];
@@ -348,7 +353,7 @@ const shipmentClass = compact
     const bindSearchInput = (input, panel, getItems, onSelect) => {
       input.addEventListener('focus', () => {
         if (input.disabled || input.readOnly) return;
-        renderOptions(panel, filterItems(getItems(), input.value), onSelect);
+        renderOptions(panel, getOpenItems(getItems(), input.value), onSelect);
       });
 
       input.addEventListener('input', () => {
@@ -367,19 +372,19 @@ const shipmentClass = compact
 
     countryToggle.addEventListener('click', () => {
       countryInput.focus();
-      renderOptions(countryPanel, filterItems(countries, countryInput.value), selectCountry);
+      renderOptions(countryPanel, countries, selectCountry);
     });
 
     stateToggle.addEventListener('click', () => {
       if (stateToggle.disabled) return;
       stateInput.focus();
-      renderOptions(statePanel, filterItems(states, stateInput.value), selectState);
+      renderOptions(statePanel, states, selectState);
     });
 
     cityToggle.addEventListener('click', () => {
       if (cityToggle.disabled) return;
       cityInput.focus();
-      renderOptions(cityPanel, filterItems(cities, cityInput.value), selectCity);
+      renderOptions(cityPanel, cities, selectCity);
     });
 
     countryInput.addEventListener('change', async () => {
