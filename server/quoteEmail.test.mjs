@@ -57,6 +57,10 @@ test('buildQuoteEmail escapes HTML and uses the client email as reply-to', () =>
         name: 'Ava <Buyer>',
         email: 'ava@example.com',
         phone: '+1 555 0100',
+        city: 'Toronto',
+        country: 'Canada',
+        stateProvince: 'Ontario',
+        shipmentAddress: '100 King St W',
         message: 'Need <strong>mailer boxes</strong>'
       },
       files: []
@@ -73,6 +77,11 @@ test('buildQuoteEmail escapes HTML and uses the client email as reply-to', () =>
   assert.equal(email.subject, 'New quote inquiry from Ava <Buyer>');
   assert.match(email.html, /Ava &lt;Buyer&gt;/);
   assert.match(email.html, /Need &lt;strong&gt;mailer boxes&lt;\/strong&gt;/);
+  assert.match(email.html, /Shipment Address/);
+  assert.match(email.text, /City: Toronto/);
+  assert.match(email.text, /Country: Canada/);
+  assert.match(email.text, /State \/ Province: Ontario/);
+  assert.match(email.text, /Shipment Address: 100 King St W/);
   assert.match(email.text, /Home Quote Form/);
 });
 
