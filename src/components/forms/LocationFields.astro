@@ -55,7 +55,7 @@ const shipmentClass = compact
 
 <script type="module">
   const containers = Array.from(document.querySelectorAll('[data-location-fields]'));
-  const dataBasePath = 'https://cdn.jsdelivr.net/npm/@countrystatecity/countries-browser@1.0.4/dist/data';
+  const dataBasePath = '/vendor/csc-data';
 
   const fetchJSON = async (path) => {
     const response = await fetch(`${dataBasePath}${path}`, {
