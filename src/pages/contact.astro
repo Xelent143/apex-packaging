@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
-import LocationFields from '../components/forms/LocationFields.astro';
 import { siteConfig } from '../site.config';
 import { buildBreadcrumbSchema } from '../lib/schema';
 
@@ -128,7 +127,6 @@ const breadcrumb = buildBreadcrumbSchema([
               <input required type="email" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" autocomplete="email" aria-label="Email address" />
               <input required type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" autocomplete="tel" aria-label="Contact number" />
             </div>
-            <LocationFields idPrefix="contact-quote" />
           </fieldset>
 
           <fieldset class="grid gap-3">

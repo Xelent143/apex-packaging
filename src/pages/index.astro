@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
-import LocationFields from '../components/forms/LocationFields.astro';
 import { buildFAQSchema } from '../lib/schema';
 import { featuredIndustryBoxes } from '../data/industryBoxes';
 
@@ -442,7 +441,6 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
                 <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" type="tel" autocomplete="tel" aria-label="Contact number" />
               </div>
-              <LocationFields compact idPrefix="home-quote" />
             </fieldset>
 
             <fieldset class="grid gap-3">
