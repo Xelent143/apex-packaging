@@ -104,7 +104,7 @@ test('createStripeCheckoutSession posts expected session payload', async () => {
     {
       secretKey: 'sk_test_123',
       successUrl: 'https://example.com/payment-success?session_id={CHECKOUT_SESSION_ID}',
-      cancelUrl: 'https://example.com/paynow?payment=cancelled',
+      cancelUrl: 'https://example.com/payment-cancelled',
       consentRecord: {
         consentId: 'consent_123',
         acceptedAt: '2026-06-16T12:00:00.000Z',

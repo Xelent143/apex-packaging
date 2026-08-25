@@ -1,9 +1,20 @@
 import type { APIRoute } from 'astro';
-import { handleCreateCheckoutSession } from '../../../server/stripeCheckout.mjs';
 
 export const POST: APIRoute = async ({ request, site }) => {
-  return handleCreateCheckoutSession(request, {
-    secretKey: import.meta.env.STRIPE_SECRET_KEY || '',
-    siteUrl: site?.toString() || import.meta.env.SITE_URL || ''
+  const accept = request.headers.get('accept') || '';
+
+  if (accept.includes('application/json')) {
+    return new Response(JSON.stringify({
+      error: 'Public checkout has been disabled. Contact Apex for a secure private payment link.'
+    }), {
+      status: 410,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  const siteUrl = site?.toString() || import.meta.env.SITE_URL || 'https://apexpackagingsolutions.com';
+  return new Response(null, {
+    status: 303,
+    headers: { Location: `${siteUrl.replace(/\/+$/, '')}/contact` }
   });
 };

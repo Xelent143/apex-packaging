@@ -11,13 +11,15 @@
     "astro": "astro",
     "test": "node --test server/*.test.mjs",
     "lint:slop": "node scripts/slop-linter.mjs",
-    "blog:generate-daily": "node scripts/generate-daily-blog.mjs"
+    "blog:generate-daily": "node scripts/generate-daily-blog.mjs",
+    "payment:create-link": "node scripts/create-private-payment-link.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "astro": "^4.16.18",
     "sirv-cli": "^3.0.1",
+    "stripe": "^18.5.0",
     "tailwindcss": "^3.4.16"
   },
   "devDependencies": {

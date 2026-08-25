@@ -1,35 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
-import { buildBreadcrumbSchema } from '../lib/schema';
-
-const breadcrumb = buildBreadcrumbSchema([
-  { name: 'Home', url: '/' },
-  { name: 'Pay Now', url: '/paynow' }
-]);
+import CTABand from '../components/sections/CTABand.astro';
 ---
 <BaseLayout
-  title="Pay Now | Apex Packaging Secure Checkout"
-  description="Open Apex Packaging secure checkout to pay an approved quote or invoice. Card details are entered on Stripe and not stored on this website."
-  schemaBlocks={[breadcrumb]}
+  title="Private Payment Links Only | Apex Packaging Solutions"
+  description="Apex Packaging Solutions issues secure payment links privately after a quote or invoice has been approved."
   noindex
 >
   <PageHeader
-    eyebrow="Secure payment"
-    heading="Pay Now"
-    lead="Open the secure payment flow for approved quotes and invoices. You will review the Terms & Conditions and Refund Policy before continuing to Stripe checkout."
+    eyebrow="Private payments"
+    heading="Secure payment links are issued privately."
+    lead="Apex does not publish a general public payment page. Once your quote or invoice is approved, the team will send a fixed-amount secure Stripe checkout link directly to you by email."
   />
 
-  <section class="bg-white">
-    <div class="container max-w-wide py-16 md:py-24">
-      <div class="mx-auto flex min-h-[18rem] max-w-3xl flex-col items-center justify-center gap-8 md:min-h-[22rem] md:gap-10">
-        <a href="/pay" class="inline-flex min-w-[14rem] items-center justify-center rounded-[1.1rem] bg-neutral-900 px-10 py-5 font-display text-2xl font-bold text-white shadow-[0_14px_30px_rgba(17,13,27,0.18)] transition-transform duration-150 hover:-translate-y-0.5 hover:bg-accent hover:text-neutral-900 md:min-w-[16rem] md:px-12 md:py-6 md:text-3xl">
-          Pay Now
-        </a>
-        <p class="max-w-xl text-center text-sm leading-relaxed text-neutral-500 md:text-base">
-          Review the policy links on the payment page, confirm your agreement, then enter the amount you want to pay. CAD is the default.
-        </p>
-      </div>
-    </div>
-  </section>
+  <CTABand
+    heading="Need a payment link?"
+    lead="Contact Apex with your approved quote or invoice number and the team will send the secure checkout link directly to the customer email on file."
+    primaryCta={{ label: 'Contact Apex', href: '/contact' }}
+    secondaryCta={{ label: 'Call sales', href: 'tel:+19055951634' }}
+  />
 </BaseLayout>

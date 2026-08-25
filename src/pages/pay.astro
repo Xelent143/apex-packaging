@@ -1,29 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
-import PaymentForm from '../components/sections/PaymentForm.astro';
-import { buildBreadcrumbSchema } from '../lib/schema';
-
-const breadcrumb = buildBreadcrumbSchema([
-  { name: 'Home', url: '/' },
-  { name: 'Pay Invoice', url: '/pay' }
-]);
+import CTABand from '../components/sections/CTABand.astro';
 ---
 <BaseLayout
-  title="Pay Apex Packaging Invoice | Secure Stripe Checkout"
-  description="Pay an approved Apex Packaging quote or invoice using secure Stripe-hosted checkout."
-  schemaBlocks={[breadcrumb]}
+  title="Payment Links Are Sent by Apex | Apex Packaging Solutions"
+  description="Apex Packaging Solutions sends secure fixed-amount Stripe checkout links privately after quote approval."
   noindex
 >
   <PageHeader
-    eyebrow="Secure payment"
-    heading="Pay an approved quote or invoice."
-    lead="Review the policy links, confirm your agreement, and then continue to Stripe-hosted checkout. Card details are handled by Stripe and not stored on this website."
+    eyebrow="Quote approval required"
+    heading="Payment links are created for approved orders only."
+    lead="For security, Apex no longer accepts arbitrary public payment amounts on this website. The sales team creates a secure fixed-amount Stripe checkout link and sends it directly to the customer after quote approval."
   />
 
-  <section class="bg-neutral-50 py-12 md:py-24">
-    <div class="container max-w-wide">
-      <PaymentForm />
-    </div>
-  </section>
+  <CTABand
+    heading="Ready to pay an approved quote?"
+    lead="Email or call Apex with the quote or invoice number and the team will issue the secure payment link privately."
+    primaryCta={{ label: 'Email Apex', href: 'mailto:sales@apexpackagingsolutions.com' }}
+    secondaryCta={{ label: 'Contact page', href: '/contact' }}
+  />
 </BaseLayout>

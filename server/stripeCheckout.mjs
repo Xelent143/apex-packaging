@@ -81,7 +81,7 @@ export async function handleCreateCheckoutSession(request, options) {
       fetchImpl: options.fetchImpl || fetch,
       secretKey: options.secretKey,
       successUrl: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${origin}/paynow?payment=cancelled`,
+      cancelUrl: `${origin}/payment-cancelled`,
       consentRecord
     });
   } catch (error) {
@@ -210,7 +210,7 @@ function errorResponse(request, siteUrl, message, status) {
   }
 
   const origin = getSiteOrigin(request, siteUrl);
-  const location = new URL('/paynow', origin);
+  const location = new URL('/payment-cancelled', origin);
   location.searchParams.set('error', message);
   return redirectResponse(location.toString());
 }

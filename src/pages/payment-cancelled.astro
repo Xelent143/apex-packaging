@@ -11,13 +11,13 @@ import CTABand from '../components/sections/CTABand.astro';
   <PageHeader
     eyebrow="Payment cancelled"
     heading="No payment was completed."
-    lead="You can restart the secure payment flow or contact Apex if the amount, currency, or quote number needs to be checked."
+    lead="The private secure checkout link was not completed. Contact Apex if the approved amount, currency, or quote number needs to be checked before a fresh link is issued."
   />
 
   <CTABand
-    heading="Ready to try again?"
-    lead="Return to the secure payment page when your approved quote amount is ready."
-    primaryCta={{ label: 'Go to payment page', href: '/paynow' }}
-    secondaryCta={{ label: 'Contact Apex', href: '/contact' }}
+    heading="Need a new secure link?"
+    lead="Apex will issue a fresh fixed-amount Stripe checkout link after confirming the approved order details."
+    primaryCta={{ label: 'Contact Apex', href: '/contact' }}
+    secondaryCta={{ label: 'Email sales', href: 'mailto:sales@apexpackagingsolutions.com' }}
   />
 </BaseLayout>

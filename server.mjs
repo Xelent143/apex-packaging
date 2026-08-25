@@ -5,8 +5,9 @@ import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createBrotliCompress, createGzip } from 'node:zlib';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
+import { handleStripeWebhook } from './server/privatePaymentLinks.mjs';
 import { sendSmtpEmail } from './server/smtpEmail.mjs';
-import { createApexTestCheckoutSession, handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
+import { createApexTestCheckoutSession } from './server/stripeCheckout.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
@@ -68,15 +69,24 @@ const server = createServer(async (req, res) => {
     }
 
     if (req.method === 'POST' && url.pathname === '/api/create-checkout-session') {
+      res.writeHead(410, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({
+        error: 'Public checkout has been disabled. Contact Apex for a secure private payment link.'
+      }));
+      return;
+    }
+
+    if (req.method === 'POST' && url.pathname === '/api/stripe-webhook') {
       const request = new Request(url, {
         method: 'POST',
         headers: nodeHeadersToWebHeaders(req.headers),
         body: req,
         duplex: 'half'
       });
-      const response = await handleCreateCheckoutSession(request, {
+      const response = await handleStripeWebhook(request, {
         secretKey: process.env.STRIPE_SECRET_KEY || '',
-        siteUrl: process.env.SITE_URL || ''
+        webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
+        recordsDir: process.env.PRIVATE_PAYMENT_RECORDS_DIR || undefined
       });
 
       await writeWebResponse(res, response);
@@ -84,6 +94,12 @@ const server = createServer(async (req, res) => {
     }
 
     if (req.method === 'GET' && url.pathname === '/api/test-checkout-session') {
+      if (!isLocalHost(url.hostname)) {
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('Not Found');
+        return;
+      }
+
       if (!(process.env.STRIPE_SECRET_KEY || '')) {
         res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('Stripe is not configured.');
@@ -95,7 +111,7 @@ const server = createServer(async (req, res) => {
           fetchImpl: fetch,
           secretKey: process.env.STRIPE_SECRET_KEY || '',
           successUrl: `${process.env.SITE_URL || url.origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-          cancelUrl: `${process.env.SITE_URL || url.origin}/paynow?payment=cancelled`
+          cancelUrl: `${process.env.SITE_URL || url.origin}/payment-cancelled?mock=1`
         });
 
         if (!session.url) throw new Error('Stripe did not return a checkout URL.');
@@ -222,6 +238,10 @@ function getCompressionEncoding(req, ext) {
   if (acceptEncoding.includes('br')) return 'br';
   if (acceptEncoding.includes('gzip')) return 'gzip';
   return '';
+}
+
+function isLocalHost(hostname) {
+  return hostname === '127.0.0.1' || hostname === 'localhost';
 }
 
 function nodeHeadersToWebHeaders(nodeHeaders) {

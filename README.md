@@ -41,16 +41,67 @@ Quote requests are hard-routed to `sales@apexpackagingsolutions.com` in code so 
 
 ## Stripe payments
 
-The site includes a secure approved-quote payment flow at `/paynow` with `/pay` kept as a legacy alias. Customers enter their quote/invoice number, email, amount, and currency, then the server creates a Stripe-hosted Checkout Session.
+The public site no longer exposes a generic payment form. The old `/paynow` and `/pay` routes now act as neutral informational pages only. Apex should issue a fixed-amount Stripe Checkout link privately after a quote or invoice is approved.
 
-Set these environment variables in production:
+### Production environment variables
 
 ```bash
-STRIPE_SECRET_KEY=sk_live_...
 SITE_URL=https://apexpackagingsolutions.com
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+
+Optional:
+
+```bash
+PRIVATE_PAYMENT_RECORDS_DIR=/absolute/path/for/payment-records
 ```
 
 Use the Apex Packaging Solutions Stripe account secret key, not the Clothixpack key, unless payments should intentionally settle in the Clothixpack account.
+
+### Private payment link workflow
+
+Generate a secure customer-specific checkout link from the command line:
+
+```bash
+npm run payment:create-link -- \
+  --quote APS-2026-0048 \
+  --email buyer@example.com \
+  --amount 2214.00 \
+  --currency CAD \
+  --description "Approved quote for soap boxes"
+```
+
+Optional flags:
+
+```bash
+--name "Alex Buyer"
+--company "Example Co"
+--expires-at "2026-08-26T17:00:00-04:00"
+```
+
+The script:
+
+- creates a fixed-amount Stripe Checkout Session
+- stores a payment request record in `data/private-payment-links/`
+- prints a copy-ready email template for the sales team
+
+### Stripe webhook
+
+Configure the Stripe webhook endpoint as:
+
+```bash
+https://apexpackagingsolutions.com/api/stripe-webhook
+```
+
+Subscribe at least to:
+
+- `checkout.session.completed`
+- `checkout.session.expired`
+- `checkout.session.async_payment_failed`
+- `payment_intent.payment_failed`
+
+Webhook updates are written back to the stored payment request record so Apex can track `pending`, `paid`, `expired`, and `cancelled`.
 
 ## Project structure
 
@@ -125,7 +176,7 @@ Adding new copy? Run `npm run lint:slop` before committing.
 
 ```bash
 npx vercel
-# follow prompts, set SITE_URL env var to your production domain
+# follow prompts, set SITE_URL / STRIPE_SECRET_KEY / STRIPE_WEBHOOK_SECRET
 npx vercel --prod
 ```
 
@@ -141,6 +192,19 @@ publish = "dist"
 ```
 Then `netlify deploy --prod`.
 
+## Payment deployment checklist
+
+1. **Set Stripe env vars in production**:
+   `SITE_URL`, `STRIPE_SECRET_KEY`, and `STRIPE_WEBHOOK_SECRET`.
+2. **Deploy the site** so the footer and public payment-route changes go live.
+3. **Configure the Stripe webhook** to `https://apexpackagingsolutions.com/api/stripe-webhook`.
+4. **Generate one test or live private payment link** with `npm run payment:create-link`.
+5. **Complete a Stripe test payment** and confirm the stored payment record updates to `paid`.
+6. **Verify the public pages**:
+   `/paynow` should not offer a payment button.
+   `/pay` should not accept arbitrary amounts.
+   The footer should not show `Pay Now`.
+
 ## First-day checklist (do before sharing the URL)
 
 1. **Replace placeholder phone + email** in `src/site.config.ts` (currently `+1-000-000-0000` and `hello@apexpackagingsolutions.com`).
@@ -149,7 +213,8 @@ Then `netlify deploy --prod`.
 4. **Swap stock imagery** — the design uses none yet. Add real plant-floor photos to `public/images/` and reference from the Hero / ServiceMatrix sections (mark filenames descriptively: `corrugated-line-canada.jpg`, not `IMG_0023.jpg`).
 5. **Replace the OG card** — `public/og-default.svg` is a generic dark card with the tagline. For better social previews, generate a 1200×630 PNG version with real photography behind the type.
 6. **Set SITE_URL** in the Vercel/Netlify dashboard or `.env` before production build.
-7. **Verify the FSC / ISO / SQF certification claims** in copy — they're written assuming Apex actually holds these. Remove any that aren't real.
+7. **Set the Stripe payment env vars** before using the private payment-link workflow.
+8. **Verify the FSC / ISO / SQF certification claims** in copy — they're written assuming Apex actually holds these. Remove any that aren't real.
 
 ## Documentation
 
