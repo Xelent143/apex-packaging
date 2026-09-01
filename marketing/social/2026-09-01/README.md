@@ -9,7 +9,7 @@ Primary CTA: Send the part type, dimensions, surface sensitivity, shipping route
 ## Content Angle
 
 - Latest published page in `origin/main`: `src/pages/blog/vci-packaging-for-metal-parts-and-hardware-2026-09-01.astro`, dated 2026-09-01
-- Live article check: `https://apexpackagingsolutions.com/blog/vci-packaging-for-metal-parts-and-hardware-2026-09-01` returned `HTTP 404` on 2026-09-01, so deployment appears pending even though the page is present in `origin/main`
+- Live article check: `https://apexpackagingsolutions.com/blog/vci-packaging-for-metal-parts-and-hardware-2026-09-01` returned `HTTP 200` on 2026-09-01, and the live `/blog` index currently lists it first
 - Supporting SEO positioning: VCI packaging Canada, VCI bags for metal parts, rust prevention packaging, corrosion inhibitor bags, VCI paper for hardware, protective packaging Canada, custom polybags Canada, industrial packaging Canada
 - Core message: VCI packaging works best when buyers define the metal part, humidity risk, transit route, carton or bag format, desiccant need, and sealing process before comparing price
 
