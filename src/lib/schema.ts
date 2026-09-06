@@ -76,7 +76,12 @@ export function buildBreadcrumbSchema(items: Array<{ name: string; url: string }
   };
 }
 
-export function buildServiceSchema(opts: { name: string; description: string; url: string }) {
+export function buildServiceSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  areaServed?: { '@type': 'City' | 'AdministrativeArea' | 'Country'; name: string } | Array<{ '@type': 'City' | 'AdministrativeArea' | 'Country'; name: string }>;
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -84,7 +89,7 @@ export function buildServiceSchema(opts: { name: string; description: string; ur
     description: opts.description,
     url: new URL(opts.url, siteConfig.url).href,
     provider: { '@id': `${siteConfig.url}/#organization` },
-    areaServed: { '@type': 'Country', name: 'Canada' }
+    areaServed: opts.areaServed ?? { '@type': 'Country', name: 'Canada' }
   };
 }
 

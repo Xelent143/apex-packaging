@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+import { commercialLocations, type CommercialLocation } from '../../data/commercialLocations';
+
+export function getStaticPaths() {
+  return commercialLocations.map((location) => ({
+    params: { slug: location.slug },
+    props: { location }
+  }));
+}
+
+const { location } = Astro.props as { location: CommercialLocation };
+const url = `/locations/${location.slug}`;
+const otherLocation = commercialLocations.find((item) => item.slug !== location.slug)!;
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: `Custom Packaging ${location.city}`, url }
+]);
+const service = buildServiceSchema({
+  name: `Custom packaging supplier for ${location.city}, ${location.region}`,
+  description: location.description,
+  url,
+  areaServed: [
+    { '@type': 'City', name: location.city },
+    { '@type': 'AdministrativeArea', name: location.region },
+    { '@type': 'Country', name: location.country }
+  ]
+});
+---
+<BaseLayout
+  title={location.title}
+  description={location.description}
+  image={location.image}
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(location.faqs)]}
+>
+  <PageHeader
+    eyebrow={location.eyebrow}
+    heading={location.heading}
+    lead={location.lead}
+    imageSrc={location.image}
+    imageAlt={location.imageAlt}
+  />
+
+  <section class="bg-neutral-50 py-12 md:py-24">
+    <div class="container max-w-wide grid gap-10 lg:grid-cols-12 lg:gap-14">
+      <div class="lg:col-span-5">
+        <p class="eyebrow">Focus keyword · {location.focusKeyword}</p>
+        <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">
+          Packaging decisions shaped by the route to market.
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-neutral-600 md:text-lg">{location.buyingContext}</p>
+      </div>
+      <div class="grid gap-4 lg:col-span-7">
+        {location.priorities.map((priority) => (
+          <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card md:p-6">
+            <h3 class="font-display text-xl font-extrabold text-neutral-900">{priority.title}</h3>
+            <p class="mt-2 leading-relaxed text-neutral-600">{priority.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-24">
+    <div class="container max-w-wide">
+      <p class="eyebrow">Commercial packaging options</p>
+      <h2 class="mt-3 max-w-3xl font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">
+        Build one quote around the product, channel, and shipment.
+      </h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {location.products.map((product) => (
+          <article class="rounded-md border border-neutral-200 bg-neutral-50 p-5 md:p-6">
+            <h3 class="font-display text-xl font-extrabold text-neutral-900">{product.title}</h3>
+            <p class="mt-3 leading-relaxed text-neutral-600">{product.description}</p>
+            <a class="mt-5 inline-flex font-semibold text-neutral-900 underline decoration-accent decoration-2 underline-offset-4" href={product.href}>Review specifications</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-neutral-50 py-12 md:py-24">
+    <div class="container max-w-wide">
+      <p class="eyebrow">Quote to production</p>
+      <h2 class="mt-3 font-display text-3xl font-extrabold text-neutral-900 md:text-5xl">A three-step commercial workflow.</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {location.process.map((step, index) => (
+          <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card md:p-6">
+            <span class="font-mono text-sm font-black text-[#1f6672]">0{index + 1}</span>
+            <h3 class="mt-3 font-display text-xl font-extrabold text-neutral-900">{step.title}</h3>
+            <p class="mt-2 leading-relaxed text-neutral-600">{step.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={location.faqs} />
+
+  <RelatedContent
+    heading={`More packaging resources for ${location.city} buyers`}
+    items={[
+      { title: otherLocation.title.replace(' | Boxes, Mailers & Inserts', ''), href: `/locations/${otherLocation.slug}`, description: `Commercial packaging support for buyers serving ${otherLocation.city} and ${otherLocation.region}.` },
+      location.relatedArticle,
+      { title: 'Browse boxes by industry', href: '/industries', description: 'Compare box formats, materials, print options, and common uses by product category.' }
+    ]}
+  />
+
+  <CTABand
+    heading={location.ctaHeading}
+    lead={location.ctaLead}
+    primaryCta={{ label: `Request a ${location.city} quote`, href: '/contact' }}
+    secondaryCta={{ label: 'Review all services', href: '/services' }}
+  />
+</BaseLayout>
