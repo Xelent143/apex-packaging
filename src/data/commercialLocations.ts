@@ -102,5 +102,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom shipping boxes for heavy products', href: '/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking', description: 'How ECT, flute, packed weight, and pallet stacking influence a shipping-box specification.' },
     ctaHeading: 'Request a Chicago packaging quote with freight and receiving details included.',
     ctaLead: 'Send dimensions, packed weight, quantity, artwork status, delivery ZIP code, and target date for a structure and production recommendation.'
+  },
+  {
+    slug: 'vancouver-custom-packaging',
+    city: 'Vancouver',
+    region: 'British Columbia',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Vancouver',
+    title: 'Custom Packaging Vancouver | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Vancouver and Lower Mainland businesses. Quote printed mailers, shipping boxes, retail cartons and protective inserts for BC delivery.',
+    eyebrow: 'Vancouver custom packaging · Lower Mainland delivery planning',
+    heading: 'Custom packaging for Vancouver brands, fulfilment, and retail distribution.',
+    lead: 'Apex helps Vancouver and Lower Mainland buyers source custom boxes, printed mailers, retail cartons, and protective packaging around product dimensions, order volume, freight, and launch timing.',
+    image: '/images/home/mailer-boxes-branded.webp',
+    imageAlt: 'Professional branded mailer boxes for Vancouver ecommerce, retail, and subscription packaging programs',
+    buyingContext: 'Vancouver packaging buyers often balance limited storage, regional fulfilment, retail presentation, and longer inbound freight lanes. Apex develops the quote around the packed product, production quantity, board and print requirements, delivery postal code, and reorder cadence so the packaging specification fits both the brand and the operating plan.',
+    priorities: [
+      { title: 'Lower Mainland delivery details', description: 'Identify the Vancouver-area warehouse, 3PL, storefront, or split-delivery plan early so freight and receiving requirements are included in the quote.' },
+      { title: 'Storage-aware run sizes', description: 'Compare order quantity, unit economics, flat-packed storage needs, and sales velocity before committing to a production run.' },
+      { title: 'Retail and ecommerce alignment', description: 'Coordinate materials, colour, inserts, labels, and unboxing details across parcel mailers and shelf-ready cartons.' }
+    ],
+    products: [
+      { title: 'Custom mailer boxes', href: '/services/mailer-boxes', description: 'Printed corrugated mailers for Vancouver ecommerce orders, subscription programs, PR kits, and product launches.' },
+      { title: 'Corrugated shipping boxes', href: '/services/corrugated-boxes', description: 'Made-to-size RSC, FOL, and die-cut cases for parcel shipping, warehouse transfers, and retail replenishment.' },
+      { title: 'Protective packaging and inserts', href: '/services/protective-packaging', description: 'Corrugated, foam, and void-fill systems designed around fragile products, kits, and the expected shipping environment.' }
+    ],
+    process: [
+      { title: 'Build the Vancouver RFQ', description: 'Provide inside dimensions, packed weight, quantity, artwork status, delivery postal code, storage constraints, and required in-hand date.' },
+      { title: 'Compare structure and print paths', description: 'Apex reviews board, box style, inserts, print coverage, proofing, and sample needs against the product and sales channel.' },
+      { title: 'Approve the production specification', description: 'Confirm the dieline or sample, artwork, quantity, pack-out, receiving details, and reorder plan before production begins.' }
+    ],
+    faqs: [
+      { q: 'Does Apex supply custom packaging to Vancouver businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Vancouver and Lower Mainland businesses, with the final BC delivery location and receiving needs reviewed during quoting.' },
+      { q: 'What custom packaging can Vancouver brands order?', a: 'Programs can include printed corrugated mailers, shipping boxes, folding cartons, retail displays, polybags, protective inserts, and multi-format packaging for launches or reorders.' },
+      { q: 'What details speed up a Vancouver packaging quote?', a: 'Send the product or inside dimensions, packed weight, quantity, material preference, print coverage, artwork status, delivery postal code, and required date.' },
+      { q: 'Can Apex help with dielines and samples before production?', a: 'Yes. Design support can include structural dielines, artwork preparation, 3D mockups, and physical or digital sample options based on the project.' }
+    ],
+    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-08-12', description: 'Plan specifications, inventory, freight, and reorders when packaging serves more than one Canadian location.' },
+    ctaHeading: 'Request a Vancouver custom packaging quote with delivery details included.',
+    ctaLead: 'Send dimensions, quantity, artwork, delivery postal code, and target date. Apex will recommend a practical structure, material, print, and sample path.'
+  },
+  {
+    slug: 'dallas-custom-packaging',
+    city: 'Dallas',
+    region: 'Texas',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Dallas',
+    title: 'Custom Packaging Dallas | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Dallas–Fort Worth businesses. Quote corrugated shipping boxes, printed mailers, retail cartons and inserts for Texas distribution.',
+    eyebrow: 'Dallas custom packaging · DFW distribution support',
+    heading: 'Custom packaging for Dallas brands and high-volume distribution programs.',
+    lead: 'Apex supports Dallas–Fort Worth buyers with custom corrugated boxes, branded mailers, retail packaging, and protective components planned around the product, warehouse flow, and delivery schedule.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom printed corrugated boxes prepared for Dallas Fort Worth shipping and distribution programs',
+    buyingContext: 'Dallas packaging programs may move through parcel networks, regional warehouses, retail distribution, and LTL lanes from one central specification. Apex scopes board strength, case dimensions, print, inserts, pallet efficiency, order quantity, and the DFW receiving point together so the quote reflects the complete distribution job.',
+    priorities: [
+      { title: 'Distribution-centre efficiency', description: 'Plan case dimensions, pack count, pallet pattern, labels, and handling marks together for smoother DFW warehouse receiving and replenishment.' },
+      { title: 'Transit-ready protection', description: 'Match corrugated grade and inserts to packed weight, fragility, stacking exposure, and parcel or LTL handling conditions.' },
+      { title: 'Scalable print and reorders', description: 'Choose a print path and quantity that supports the current launch while preserving repeatable colour, artwork, and specification control.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases engineered for packed weight, stacking, parcel handling, and pallet loads.' },
+      { title: 'Industrial bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization supplies for warehouse and bulk shipping programs.' },
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded die-cut mailers for ecommerce orders, subscription shipments, sales kits, and direct-to-customer launches.' }
+    ],
+    process: [
+      { title: 'Send the DFW shipment profile', description: 'Share dimensions, packed weight, quantity, shipping method, delivery ZIP code, receiving constraints, and required date.' },
+      { title: 'Engineer and sample the box', description: 'Apex recommends the structure, corrugated grade, inserts, print method, and sample path based on handling and presentation needs.' },
+      { title: 'Confirm production controls', description: 'Approve the sample or dieline, artwork revision, case pack, pallet requirements, quantity, and delivery plan before scheduling.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Dallas–Fort Worth businesses?', a: 'Yes. Apex quotes custom packaging for businesses across Dallas–Fort Worth and Texas, with delivery ZIP code, freight method, and receiving requirements included in project review.' },
+      { q: 'Which box styles are available for Dallas shipping programs?', a: 'Options include RSC and FOL shipping cases, die-cut mailers, folding cartons, retail displays, protective inserts, and bulk corrugated containers.' },
+      { q: 'How should a Dallas buyer request a custom box quote?', a: 'Provide inside dimensions, packed product weight, order and annual quantities, material and print requirements, artwork status, delivery ZIP code, and target date.' },
+      { q: 'Can packaging be designed for both parcel and pallet distribution?', a: 'Yes. Share the parcel, LTL, pallet, and warehouse conditions during quoting so board grade, inserts, case dimensions, labels, and pallet configuration can be reviewed as one system.' }
+    ],
+    relatedArticle: { title: 'RSC boxes versus die-cut boxes', href: '/blog/rsc-boxes-vs-die-cut-boxes', description: 'Compare production efficiency, protection, assembly, and presentation before selecting a corrugated box style.' },
+    ctaHeading: 'Get a Dallas custom packaging quote built for the distribution route.',
+    ctaLead: 'Send box dimensions, packed weight, quantity, artwork, delivery ZIP code, and target date for a structure, material, and production recommendation.'
   }
 ];
