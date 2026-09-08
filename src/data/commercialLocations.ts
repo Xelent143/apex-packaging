@@ -182,5 +182,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'RSC boxes versus die-cut boxes', href: '/blog/rsc-boxes-vs-die-cut-boxes', description: 'Compare production efficiency, protection, assembly, and presentation before selecting a corrugated box style.' },
     ctaHeading: 'Get a Dallas custom packaging quote built for the distribution route.',
     ctaLead: 'Send box dimensions, packed weight, quantity, artwork, delivery ZIP code, and target date for a structure, material, and production recommendation.'
+  },
+  {
+    slug: 'montreal-custom-packaging',
+    city: 'Montreal',
+    region: 'Quebec',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Montreal',
+    title: 'Custom Packaging Montreal | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Montreal businesses. Quote printed mailers, corrugated shipping boxes, retail cartons and protective inserts for Quebec delivery.',
+    eyebrow: 'Montreal custom packaging · Quebec delivery planning',
+    heading: 'Custom packaging for Montreal brands, retail programs, and distribution.',
+    lead: 'Apex helps Montreal and Greater Montreal buyers source custom boxes, printed mailers, retail cartons, and protective packaging around product requirements, order volume, and Quebec delivery plans.',
+    image: '/images/home/hero-branded-packaging.webp',
+    imageAlt: 'Branded corrugated mailer and retail boxes for Montreal ecommerce and distribution packaging programs',
+    buyingContext: 'Montreal packaging programs can serve bilingual retail launches, ecommerce fulfilment, local warehouses, and distribution across Quebec from one coordinated specification. Apex builds the quote around dimensions, packed weight, board, print coverage, label space, quantity, and the final receiving point so buyers can assess the complete production and delivery plan.',
+    priorities: [
+      { title: 'Bilingual artwork planning', description: 'Reserve suitable panels for French and English copy, required marks, barcodes, and variable labels before the dieline and artwork are approved.' },
+      { title: 'Greater Montreal delivery', description: 'Identify the warehouse, 3PL, retailer, or split-delivery plan early so freight, pallets, appointments, and receiving constraints are included.' },
+      { title: 'Repeatable brand control', description: 'Document board, colour targets, print method, artwork revision, and pack-out details for consistent launches and replenishment orders.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Custom tuck-top mailers for Montreal ecommerce, subscription, PR-kit, and direct-to-customer programs.' },
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases designed for product weight, handling, stacking, and pallet distribution.' },
+      { title: 'Packaging design support', href: '/design-support', description: 'Structural dielines, artwork preparation, proofing, and mockups for bilingual packaging launches and specification changes.' }
+    ],
+    process: [
+      { title: 'Prepare the Montreal RFQ', description: 'Send inside dimensions, packed weight, quantity, artwork status, language-panel needs, delivery postal code, and required date.' },
+      { title: 'Review structure and artwork', description: 'Apex recommends a box style, material, print method, insert plan, and proofing path based on the product and sales channel.' },
+      { title: 'Approve production and receiving', description: 'Confirm the dieline or sample, final artwork, quantity, pallet details, delivery split, and receiving requirements before scheduling.' }
+    ],
+    faqs: [
+      { q: 'Does Apex supply custom packaging for Montreal businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for businesses in Montreal and Greater Montreal, with the Quebec delivery location and receiving requirements reviewed during quoting.' },
+      { q: 'Can packaging artwork include French and English content?', a: 'Yes. Provide approved bilingual copy and any required marks early so panel space, typography, barcodes, and print tolerances can be reviewed before proof approval.' },
+      { q: 'What details are needed for a Montreal custom packaging quote?', a: 'Send inside dimensions, packed weight, quantity, material and print preferences, artwork status, delivery postal code, receiving constraints, and required in-hand date.' },
+      { q: 'Which packaging formats can Montreal buyers order?', a: 'Programs can include corrugated shipping boxes, printed mailers, folding cartons, retail displays, polybags, protective inserts, and coordinated multi-format packaging.' }
+    ],
+    relatedArticle: { title: 'Canada packaging supplier checklist', href: '/blog/canada-packaging-supplier-checklist-lead-time-moq-certs-samples', description: 'Review the specifications, samples, lead times, certifications, and reorder questions to include in a supplier RFQ.' },
+    ctaHeading: 'Request a Montreal custom packaging quote with artwork and delivery details included.',
+    ctaLead: 'Send dimensions, quantity, bilingual artwork requirements, delivery postal code, and target date for a practical structure, print, and production recommendation.'
+  },
+  {
+    slug: 'atlanta-custom-packaging',
+    city: 'Atlanta',
+    region: 'Georgia',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Atlanta',
+    title: 'Custom Packaging Atlanta | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Atlanta businesses. Quote corrugated shipping boxes, branded mailers, retail cartons and protective inserts for Southeast distribution.',
+    eyebrow: 'Atlanta custom packaging · Southeast distribution support',
+    heading: 'Custom packaging for Atlanta brands and Southeast distribution networks.',
+    lead: 'Apex supports Atlanta-area buyers with custom corrugated boxes, printed mailers, retail packaging, and protective components planned around warehouse flow, transit demands, and reorder timing.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom printed corrugated shipping boxes for Atlanta warehouse and Southeast distribution programs',
+    buyingContext: 'Atlanta operations often connect parcel fulfilment, regional distribution centres, retail replenishment, and LTL routes across the Southeast. Apex scopes case dimensions, corrugated strength, print, inserts, pallet efficiency, order quantity, and receiving details together so the packaging is designed for the full route rather than a single handoff.',
+    priorities: [
+      { title: 'Southeast distribution fit', description: 'Coordinate case pack, pallet pattern, labels, board strength, and handling requirements for warehouse and regional delivery routes.' },
+      { title: 'Heat and humidity exposure', description: 'Share storage and transit conditions so material, adhesives, coatings, and product barriers can be reviewed for the expected environment.' },
+      { title: 'Scalable fulfilment', description: 'Balance run size, flat-packed storage, assembly time, print economics, and reorder cadence for growing parcel and retail volume.' }
+    ],
+    products: [
+      { title: 'Corrugated shipping boxes', href: '/services/corrugated-boxes', description: 'Made-to-size RSC, FOL, and die-cut cases for Atlanta parcel, warehouse, retail, and LTL shipments.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam inserts, and void-fill systems designed around fragility and the expected handling route.' },
+      { title: 'Industrial bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization supplies for pallet and warehouse programs.' }
+    ],
+    process: [
+      { title: 'Map the Atlanta shipping route', description: 'Provide inside dimensions, packed weight, quantity, shipping method, delivery ZIP code, storage conditions, and required date.' },
+      { title: 'Engineer and test the pack', description: 'Apex reviews structure, corrugated grade, inserts, print, labels, and sample needs against parcel, pallet, and retail handling.' },
+      { title: 'Confirm the production standard', description: 'Approve the dieline or sample, artwork revision, case pack, pallet plan, receiving instructions, and reorder details.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Atlanta businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Atlanta-area and Southeast businesses, with delivery ZIP code, freight method, and receiving details included in project review.' },
+      { q: 'What packaging works for Atlanta distribution operations?', a: 'Depending on the product and route, options include RSC and FOL cases, die-cut mailers, retail cartons, protective inserts, bulk containers, pallet wrap, and coordinated packaging systems.' },
+      { q: 'What should an Atlanta packaging RFQ include?', a: 'Provide inside dimensions, packed weight, order and annual quantities, material and print requirements, artwork status, shipping method, delivery ZIP code, and target date.' },
+      { q: 'Can Apex design one pack for parcel and pallet shipments?', a: 'Yes. Share each handling route and expected conditions so corrugated grade, inserts, case dimensions, labels, and pallet configuration can be reviewed as one system.' }
+    ],
+    relatedArticle: { title: 'Shipping boxes for ecommerce, parcel, and LTL', href: '/blog/shipping-boxes-ecommerce-parcel-ltl-packaging', description: 'Compare box strength, sizing, inserts, labels, and testing requirements across common distribution routes.' },
+    ctaHeading: 'Get an Atlanta custom packaging quote built around the complete shipping route.',
+    ctaLead: 'Send dimensions, packed weight, quantity, artwork, delivery ZIP code, and target date for a structure, material, and production recommendation.'
   }
 ];
