@@ -262,5 +262,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Shipping boxes for ecommerce, parcel, and LTL', href: '/blog/shipping-boxes-ecommerce-parcel-ltl-packaging', description: 'Compare box strength, sizing, inserts, labels, and testing requirements across common distribution routes.' },
     ctaHeading: 'Get an Atlanta custom packaging quote built around the complete shipping route.',
     ctaLead: 'Send dimensions, packed weight, quantity, artwork, delivery ZIP code, and target date for a structure, material, and production recommendation.'
+  },
+  {
+    slug: 'calgary-custom-packaging',
+    city: 'Calgary',
+    region: 'Alberta',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Calgary',
+    title: 'Custom Packaging Calgary | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Calgary businesses. Quote corrugated boxes, printed mailers, industrial packaging and protective inserts for Alberta delivery.',
+    eyebrow: 'Calgary custom packaging · Alberta distribution planning',
+    heading: 'Custom packaging for Calgary products, operations, and western distribution.',
+    lead: 'Apex helps Calgary buyers specify custom corrugated boxes, branded mailers, industrial packaging, and protective components around product weight, handling conditions, order volume, and the final Alberta delivery point.',
+    image: '/images/home/protective-packaging-branded.webp',
+    imageAlt: 'Protective custom packaging and corrugated boxes prepared for Calgary industrial and commercial shipments',
+    buyingContext: 'Calgary packaging programs may need to protect industrial parts, energy-sector supplies, food products, retail goods, or ecommerce orders across long western freight lanes. Apex develops the quote around packed dimensions, weight, board strength, inserts, print, pallet configuration, quantity, and receiving requirements so the packaging supports both the product and the distribution plan.',
+    priorities: [
+      { title: 'Western freight performance', description: 'Match corrugated grade, closure, inserts, and pallet pattern to the packed weight, stacking exposure, route length, and parcel or LTL handling.' },
+      { title: 'Industrial specification control', description: 'Document dimensions, board, coatings, labels, revision status, pack count, and approved samples for dependable production and reorders.' },
+      { title: 'Calgary receiving details', description: 'Identify the plant, warehouse, 3PL, job site, or split-delivery plan early so appointments, pallets, and unloading constraints are included.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut cases specified for Calgary parcel, industrial, warehouse, and retail distribution.' },
+      { title: 'Industrial and bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization materials for parts, supplies, and pallet programs.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam, VCI materials, and void fill selected around fragility, corrosion risk, and handling conditions.' }
+    ],
+    process: [
+      { title: 'Define the Calgary shipment', description: 'Send inside dimensions, packed weight, quantity, product risks, shipping method, delivery postal code, and required date.' },
+      { title: 'Engineer the packaging system', description: 'Apex reviews corrugated strength, structure, inserts, barriers, print, labels, pallet needs, and the appropriate sample path.' },
+      { title: 'Approve production and delivery', description: 'Confirm the sample or dieline, artwork revision, pack-out, quantity, receiving instructions, and reorder specifications.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Calgary businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Calgary and Alberta businesses, with the final delivery postal code, freight method, and receiving requirements reviewed during quoting.' },
+      { q: 'Which packaging formats are available for Calgary orders?', a: 'Options include corrugated shipping boxes, printed mailers, folding cartons, polybags, protective foam and corrugated inserts, VCI materials, bulk containers, and pallet-stabilization supplies.' },
+      { q: 'What should a Calgary custom packaging RFQ include?', a: 'Provide inside dimensions, packed weight, order and annual quantities, material and print requirements, artwork status, product risks, delivery postal code, and target date.' },
+      { q: 'Can packaging be specified for industrial parts and equipment?', a: 'Yes. Share part weight, contact points, corrosion sensitivity, handling method, stacking conditions, and shipping route so the structure, cushioning, barrier materials, and pallet plan can be reviewed.' }
+    ],
+    relatedArticle: { title: 'Automotive parts packaging with VCI, foam, and pallet loads', href: '/blog/automotive-parts-packaging-boxes-vci-foam-pallet-loads', description: 'Plan corrosion control, cushioning, corrugated strength, labels, and unit-load stability for heavy parts.' },
+    ctaHeading: 'Request a Calgary packaging quote built for the product and freight route.',
+    ctaLead: 'Send dimensions, packed weight, quantity, protection needs, delivery postal code, and target date for a structure, material, and production recommendation.'
+  },
+  {
+    slug: 'new-york-custom-packaging',
+    city: 'New York',
+    region: 'New York',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging New York',
+    title: 'Custom Packaging New York | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for New York businesses. Quote printed mailers, retail boxes, shipping cases and protective inserts for NYC-area delivery.',
+    eyebrow: 'New York custom packaging · NYC fulfilment and retail',
+    heading: 'Custom packaging for New York launches, fulfilment, and retail programs.',
+    lead: 'Apex supports New York buyers with branded mailers, retail cartons, corrugated shipping boxes, and protective inserts planned around tight storage, fast-moving SKUs, presentation standards, and receiving requirements.',
+    image: '/images/home/mailer-boxes-branded.webp',
+    imageAlt: 'Premium printed mailer and retail boxes for New York ecommerce launches and store distribution',
+    buyingContext: 'New York packaging programs often balance premium presentation with limited storage, rapid launches, 3PL fulfilment, and deliveries to stores or buildings with specific receiving windows. Apex scopes structure, board, print, inserts, flat-packed storage, quantity, proofing, and the final NYC-area delivery point together so buyers can compare a complete operating plan.',
+    priorities: [
+      { title: 'Space-aware order planning', description: 'Balance unit economics against flat-packed footprint, sales velocity, SKU count, storage limits, and the next replenishment date.' },
+      { title: 'Premium brand consistency', description: 'Coordinate colour targets, board, finishes, inserts, barcode zones, and artwork revisions across ecommerce and retail formats.' },
+      { title: 'NYC receiving constraints', description: 'Share delivery windows, freight-elevator rules, pallet restrictions, 3PL appointments, or multi-location splits before production is scheduled.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded tuck-top mailers for New York ecommerce, subscription, influencer, press-kit, and product-launch programs.' },
+      { title: 'Custom cardboard boxes', href: '/services/cardboard-boxes', description: 'Retail cartons and product boxes planned around shelf presentation, packed dimensions, print, and SKU requirements.' },
+      { title: 'Packaging design support', href: '/design-support', description: 'Structural dielines, artwork preparation, mockups, and proofing for new products, seasonal launches, and packaging revisions.' }
+    ],
+    process: [
+      { title: 'Build the New York RFQ', description: 'Provide dimensions, packed weight, quantity by SKU, artwork status, delivery ZIP code, storage limits, and required in-hand date.' },
+      { title: 'Compare structure and print options', description: 'Apex reviews board, box style, inserts, finishes, print method, assembly, proofing, and sample needs against the sales channel.' },
+      { title: 'Lock production and receiving details', description: 'Approve the sample or dieline, artwork, quantity, pack-out, delivery appointment, location split, and reorder plan.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for New York businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for New York businesses, with the final ZIP code, freight method, building or 3PL receiving rules, and required date reviewed during quoting.' },
+      { q: 'What packaging can New York brands order?', a: 'Programs can include printed mailers, retail folding cartons, corrugated shipping boxes, rigid-style gift packaging, displays, polybags, protective inserts, and coordinated launch kits.' },
+      { q: 'How can New York buyers manage packaging with limited storage?', a: 'Share available storage, monthly usage, SKU count, and reorder timing. Apex can compare run quantities, flat-packed footprint, print economics, and phased or split-delivery requirements during quoting.' },
+      { q: 'What details speed up a New York custom box quote?', a: 'Send inside dimensions, packed weight, quantity by SKU, material and print preferences, artwork status, delivery ZIP code, receiving constraints, and target date.' }
+    ],
+    relatedArticle: { title: 'Custom product boxes for launches and reorders', href: '/blog/custom-product-boxes-packaging-for-launches-reorders', description: 'Plan dielines, samples, print, inserts, MOQ, and reorder controls before a product launch.' },
+    ctaHeading: 'Get a New York custom packaging quote that accounts for storage and receiving.',
+    ctaLead: 'Send dimensions, quantity by SKU, artwork, delivery ZIP code, receiving limits, and target date for a practical production recommendation.'
   }
 ];
