@@ -342,5 +342,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom product boxes for launches and reorders', href: '/blog/custom-product-boxes-packaging-for-launches-reorders', description: 'Plan dielines, samples, print, inserts, MOQ, and reorder controls before a product launch.' },
     ctaHeading: 'Get a New York custom packaging quote that accounts for storage and receiving.',
     ctaLead: 'Send dimensions, quantity by SKU, artwork, delivery ZIP code, receiving limits, and target date for a practical production recommendation.'
+  },
+  {
+    slug: 'ottawa-custom-packaging',
+    city: 'Ottawa',
+    region: 'Ontario',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Ottawa',
+    title: 'Custom Packaging Ottawa | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Ottawa businesses. Quote printed mailers, corrugated shipping boxes, retail cartons and protective inserts for Eastern Ontario delivery.',
+    eyebrow: 'Ottawa custom packaging · Eastern Ontario delivery',
+    heading: 'Custom packaging for Ottawa products, programs, and regional distribution.',
+    lead: 'Apex helps Ottawa–Gatineau buyers source corrugated boxes, branded mailers, retail cartons, and protective packaging around product specifications, bilingual artwork, order volume, and delivery requirements.',
+    image: '/images/home/hero-branded-packaging.webp',
+    imageAlt: 'Branded corrugated mailer and product boxes for Ottawa retail, ecommerce, and institutional packaging programs',
+    buyingContext: 'Ottawa packaging programs may serve ecommerce customers, retail locations, technology teams, associations, public-sector suppliers, and warehouses across Eastern Ontario and western Quebec. Apex develops the quote around dimensions, packed weight, board, print, inserts, label space, run size, and the final receiving point so the approved packaging can support the entire program.',
+    priorities: [
+      { title: 'Bilingual content planning', description: 'Reserve suitable panels for English and French copy, barcodes, handling marks, and variable labels before artwork reaches final proof.' },
+      { title: 'Ottawa–Gatineau delivery', description: 'Identify warehouses, offices, event venues, 3PLs, appointment windows, and any Ontario–Quebec quantity split during quoting.' },
+      { title: 'Documented reorder control', description: 'Keep the approved board, dieline, colour targets, artwork revision, insert, pack-out, and receiving notes together for repeat runs.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded tuck-top mailers for Ottawa ecommerce orders, member kits, product launches, subscriptions, and event materials.' },
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases specified for packed weight, parcel handling, warehouse use, and regional delivery.' },
+      { title: 'Packaging design support', href: '/design-support', description: 'Structural dielines, bilingual artwork preparation, mockups, and proofing for new packaging or controlled revisions.' }
+    ],
+    process: [
+      { title: 'Prepare the Ottawa RFQ', description: 'Send inside dimensions, packed weight, quantity, artwork status, language needs, delivery postal code, and required date.' },
+      { title: 'Review the complete specification', description: 'Apex compares structure, board, print, inserts, label areas, assembly, and sample options against the product and route.' },
+      { title: 'Approve production and receiving', description: 'Confirm the dieline or sample, artwork revision, final quantity, delivery split, appointment needs, and reorder record.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Ottawa businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Ottawa and Eastern Ontario businesses, with the final postal code, freight method, receiving requirements, and required date included in project review.' },
+      { q: 'Can Ottawa packaging include English and French artwork?', a: 'Yes. Provide approved bilingual copy and required marks early so panel space, type size, barcodes, and print tolerances can be reviewed before proof approval.' },
+      { q: 'What packaging formats can Ottawa buyers order?', a: 'Options include corrugated shipping boxes, printed mailers, folding cartons, retail displays, polybags, protective inserts, launch kits, and coordinated multi-format programs.' },
+      { q: 'What information speeds up an Ottawa custom box quote?', a: 'Send inside dimensions, packed weight, quantity, material and print preferences, artwork status, delivery postal code, receiving constraints, and target date.' }
+    ],
+    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-08-12', description: 'Plan specifications, inventory, freight, and reorders when one packaging program serves several Canadian locations.' },
+    ctaHeading: 'Request an Ottawa custom packaging quote with artwork and delivery details included.',
+    ctaLead: 'Send dimensions, quantity, bilingual artwork needs, delivery postal code, and target date for a practical structure, print, and production recommendation.'
+  },
+  {
+    slug: 'boston-custom-packaging',
+    city: 'Boston',
+    region: 'Massachusetts',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Boston',
+    title: 'Custom Packaging Boston | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Boston businesses. Quote printed mailers, product cartons, shipping boxes and protective inserts for New England delivery.',
+    eyebrow: 'Boston custom packaging · New England fulfilment',
+    heading: 'Custom packaging for Boston products, launches, and specialized shipments.',
+    lead: 'Apex supports Greater Boston buyers with custom mailers, retail cartons, corrugated shipping boxes, and protective inserts planned around valuable products, multi-SKU launches, storage limits, and receiving requirements.',
+    image: '/images/home/protective-packaging-branded.webp',
+    imageAlt: 'Protective inserts and branded custom boxes for Boston technology, retail, and ecommerce shipping programs',
+    buyingContext: 'Boston packaging programs often support technology hardware, laboratory supplies, premium consumer products, university initiatives, and ecommerce launches. Apex scopes the carton, inserts, print, proofing, quantity, storage footprint, shipment method, and Greater Boston delivery point together so protection and presentation are resolved before production.',
+    priorities: [
+      { title: 'High-value product protection', description: 'Define fragility, movement, abrasion, static, moisture, and presentation risks so the outer box and insert are engineered as one system.' },
+      { title: 'Multi-SKU launch control', description: 'Coordinate shared structures, variable artwork, labels, inserts, and quantities across product families without losing revision control.' },
+      { title: 'Greater Boston receiving', description: 'Share 3PL appointments, campus or laboratory access, pallet limits, delivery windows, and any multi-location split before scheduling.' }
+    ],
+    products: [
+      { title: 'Protective packaging and inserts', href: '/services/protective-packaging', description: 'Custom foam, corrugated partitions, VCI materials, and void control selected around product risks and handling conditions.' },
+      { title: 'Custom cardboard boxes', href: '/services/cardboard-boxes', description: 'Printed product cartons and sleeves for retail, laboratory kits, small devices, and premium presentation.' },
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded corrugated mailers for Boston ecommerce, subscription, sample, launch-kit, and direct-ship programs.' }
+    ],
+    process: [
+      { title: 'Define the Boston packaging job', description: 'Provide dimensions, packed weight, fragility, quantity by SKU, artwork status, delivery ZIP code, and required date.' },
+      { title: 'Engineer and prove the pack', description: 'Apex reviews the outer structure, insert, material, print, labels, assembly, and physical or digital sample requirements.' },
+      { title: 'Lock the production standard', description: 'Approve the dieline or sample, artwork revisions, pack-out instructions, quantity, receiving plan, and reorder details.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Boston businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Greater Boston and New England businesses, with the final ZIP code, shipment method, receiving rules, and required date reviewed during quoting.' },
+      { q: 'Can Apex package fragile technology or laboratory products?', a: 'Apex can review corrugated structures, foam or corrugated inserts, static-sensitive materials, moisture controls, and shipping conditions. Buyers should provide product risks and any testing or documentation requirements with the RFQ.' },
+      { q: 'Which box types are available for Boston product launches?', a: 'Options include printed mailers, folding cartons, corrugated shipping boxes, protective inserts, product sleeves, launch kits, retail displays, and coordinated packaging across multiple SKUs.' },
+      { q: 'What details speed up a Boston custom packaging quote?', a: 'Send inside dimensions, packed weight, quantity by SKU, product risks, material and print preferences, artwork status, delivery ZIP code, and target date.' }
+    ],
+    relatedArticle: { title: 'Custom foam inserts when corrugated alone is not enough', href: '/blog/custom-foam-inserts-corrugated-alone-not-enough', description: 'Compare product risk, insert materials, testing needs, packing labour, and the total cost of damage prevention.' },
+    ctaHeading: 'Get a Boston custom packaging quote built around product risk and receiving.',
+    ctaLead: 'Send dimensions, packed weight, quantity by SKU, protection needs, delivery ZIP code, and target date for a complete packaging recommendation.'
   }
 ];
