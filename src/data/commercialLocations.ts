@@ -422,5 +422,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom foam inserts when corrugated alone is not enough', href: '/blog/custom-foam-inserts-corrugated-alone-not-enough', description: 'Compare product risk, insert materials, testing needs, packing labour, and the total cost of damage prevention.' },
     ctaHeading: 'Get a Boston custom packaging quote built around product risk and receiving.',
     ctaLead: 'Send dimensions, packed weight, quantity by SKU, protection needs, delivery ZIP code, and target date for a complete packaging recommendation.'
+  },
+  {
+    slug: 'edmonton-custom-packaging',
+    city: 'Edmonton',
+    region: 'Alberta',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Edmonton',
+    title: 'Custom Packaging Edmonton | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Edmonton businesses. Quote corrugated boxes, industrial packaging, printed mailers and protective inserts for Alberta delivery.',
+    eyebrow: 'Edmonton custom packaging · Northern Alberta distribution',
+    heading: 'Custom packaging for Edmonton operations and demanding freight routes.',
+    lead: 'Apex helps Edmonton buyers specify corrugated shipping boxes, industrial packaging, branded mailers, and protective components around product weight, handling risks, run size, and the final Alberta receiving point.',
+    image: '/images/home/protective-packaging-branded.webp',
+    imageAlt: 'Protective inserts and custom corrugated boxes for Edmonton industrial and commercial shipping programs',
+    buyingContext: 'Edmonton packaging programs may support industrial parts, energy and construction supplies, food products, ecommerce orders, or retail replenishment across northern and western freight lanes. Apex develops the quote around packed dimensions, weight, corrugated strength, cushioning, barriers, pallet configuration, order quantity, and receiving requirements so the approved pack is ready for the actual route.',
+    priorities: [
+      { title: 'Long-haul freight protection', description: 'Match board grade, closure, inserts, and pallet stability to packed weight, stacking exposure, transfers, and parcel or LTL handling.' },
+      { title: 'Industrial pack control', description: 'Document dimensions, materials, labels, corrosion or moisture risks, approved samples, pack count, and artwork revisions for dependable reorders.' },
+      { title: 'Edmonton receiving details', description: 'Identify the plant, warehouse, distributor, job site, or split-delivery plan early so appointments, pallets, labels, and unloading limits are included.' }
+    ],
+    products: [
+      { title: 'Industrial and bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization materials for Edmonton warehouse and pallet programs.' },
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases specified for packed weight, stacking, parcel handling, and long freight lanes.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam, VCI materials, and void control selected around fragility, corrosion risk, and handling conditions.' }
+    ],
+    process: [
+      { title: 'Define the Edmonton shipment', description: 'Send inside dimensions, packed weight, quantity, product risks, shipping method, delivery postal code, and required date.' },
+      { title: 'Engineer the complete pack', description: 'Apex reviews structure, corrugated grade, inserts, barriers, print, labels, pallet needs, and the appropriate sample path.' },
+      { title: 'Approve production controls', description: 'Confirm the sample or dieline, artwork revision, pack-out, quantity, receiving instructions, and reorder specification.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Edmonton businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Edmonton and northern Alberta businesses, with delivery postal code, freight method, receiving requirements, and required date reviewed during quoting.' },
+      { q: 'Which packaging formats are available for Edmonton orders?', a: 'Options include corrugated shipping boxes, printed mailers, folding cartons, polybags, protective foam and corrugated inserts, VCI materials, bulk containers, and pallet-stabilization supplies.' },
+      { q: 'Can packaging be specified for industrial parts and equipment?', a: 'Yes. Share part weight, contact points, fragility, corrosion sensitivity, handling method, stacking conditions, and shipping route so the structure, cushioning, barriers, and pallet plan can be reviewed.' },
+      { q: 'What should an Edmonton custom packaging RFQ include?', a: 'Provide inside dimensions, packed weight, order and annual quantities, material and print requirements, product risks, artwork status, delivery postal code, and target date.' }
+    ],
+    relatedArticle: { title: 'Industrial packaging for bulk and pallet shipments', href: '/blog/industrial-packaging-for-bulk-and-pallet-shipments-2026-08-31', description: 'Plan bulk containers, corrugated strength, wrapping, labels, pallet stability, and receiving requirements.' },
+    ctaHeading: 'Request an Edmonton packaging quote built for the product and freight route.',
+    ctaLead: 'Send dimensions, packed weight, quantity, protection needs, delivery postal code, and target date for a complete packaging recommendation.'
+  },
+  {
+    slug: 'houston-custom-packaging',
+    city: 'Houston',
+    region: 'Texas',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Houston',
+    title: 'Custom Packaging Houston | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Houston businesses. Quote corrugated shipping boxes, industrial packaging, printed mailers and protective inserts for Gulf Coast delivery.',
+    eyebrow: 'Houston custom packaging · Gulf Coast distribution',
+    heading: 'Custom packaging for Houston products, plants, and distribution programs.',
+    lead: 'Apex supports Houston buyers with custom corrugated boxes, industrial packaging, printed mailers, and protective components planned around packed weight, climate exposure, warehouse flow, and delivery requirements.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom printed corrugated boxes prepared for Houston industrial, retail, and distribution shipments',
+    buyingContext: 'Houston packaging programs may move industrial components, energy-sector supplies, food products, retail goods, and ecommerce orders through hot, humid storage and long regional freight lanes. Apex scopes case dimensions, board strength, coatings or barriers, inserts, print, pallet efficiency, quantity, and the final receiving point together so the packaging supports the product from pack-out to delivery.',
+    priorities: [
+      { title: 'Heat and humidity planning', description: 'Share storage and transit exposure so corrugated grade, adhesives, coatings, barriers, and product-contact risks can be reviewed before sampling.' },
+      { title: 'Industrial shipment control', description: 'Coordinate part protection, corrosion risks, labels, case pack, pallet pattern, handling marks, and revision records across production and reorders.' },
+      { title: 'Houston receiving requirements', description: 'Identify plants, warehouses, ports, 3PLs, appointments, pallet restrictions, and split deliveries during quoting rather than after production.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases engineered for packed weight, stacking, warehouse handling, and Gulf-region freight.' },
+      { title: 'Industrial and bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization supplies for Houston plant and distribution programs.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Foam, corrugated partitions, VCI materials, and void control selected around impact, abrasion, corrosion, and movement risks.' }
+    ],
+    process: [
+      { title: 'Map the Houston shipping profile', description: 'Provide inside dimensions, packed weight, quantity, product risks, climate exposure, delivery ZIP code, and required date.' },
+      { title: 'Engineer and sample the system', description: 'Apex reviews structure, board, barriers, inserts, print, labels, pallet needs, and physical or digital sample options.' },
+      { title: 'Lock production and receiving', description: 'Approve the sample or dieline, artwork revision, case pack, pallet configuration, quantity, delivery plan, and reorder record.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Houston businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Houston and Gulf Coast businesses, with the final ZIP code, shipment method, receiving requirements, and required date included in project review.' },
+      { q: 'What packaging works for Houston industrial shipments?', a: 'Depending on the product and route, options include single-wall or double-wall corrugated cases, die-cut inserts, foam, VCI materials, bulk containers, pallet wrap, and handling or identification labels.' },
+      { q: 'Can packaging account for heat and humidity?', a: 'Yes. Share expected storage, warehouse, and transit conditions so board, coatings, adhesives, barriers, ventilation, and product sensitivities can be reviewed. Final material choices depend on the complete application.' },
+      { q: 'What details speed up a Houston custom box quote?', a: 'Send inside dimensions, packed weight, quantity, material and print requirements, product risks, artwork status, delivery ZIP code, receiving constraints, and target date.' }
+    ],
+    relatedArticle: { title: 'VCI packaging for metal parts and hardware', href: '/blog/vci-packaging-metal-parts-rust-prevention-transit', description: 'Review metal type, corrosion risk, barrier materials, closure, storage, and transit details before specifying VCI packaging.' },
+    ctaHeading: 'Get a Houston packaging quote built around climate, handling, and receiving.',
+    ctaLead: 'Send dimensions, packed weight, quantity, exposure risks, delivery ZIP code, and target date for a structure, material, and production recommendation.'
   }
 ];
