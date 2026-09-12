@@ -502,5 +502,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'VCI packaging for metal parts and hardware', href: '/blog/vci-packaging-metal-parts-rust-prevention-transit', description: 'Review metal type, corrosion risk, barrier materials, closure, storage, and transit details before specifying VCI packaging.' },
     ctaHeading: 'Get a Houston packaging quote built around climate, handling, and receiving.',
     ctaLead: 'Send dimensions, packed weight, quantity, exposure risks, delivery ZIP code, and target date for a structure, material, and production recommendation.'
+  },
+  {
+    slug: 'winnipeg-custom-packaging',
+    city: 'Winnipeg',
+    region: 'Manitoba',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Winnipeg',
+    title: 'Custom Packaging Winnipeg | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Winnipeg businesses. Quote corrugated shipping boxes, food cartons, printed mailers and protective inserts for Manitoba delivery.',
+    eyebrow: 'Winnipeg custom packaging · Prairie distribution support',
+    heading: 'Custom packaging for Winnipeg production, retail, and Prairie distribution.',
+    lead: 'Apex helps Winnipeg buyers source corrugated shipping cases, printed mailers, food and retail cartons, and protective components around the product, seasonal demand, freight route, and receiving plan.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom printed corrugated shipping and retail boxes for Winnipeg businesses and Prairie distribution routes',
+    buyingContext: 'Winnipeg packaging programs often serve food processors, manufacturers, retailers, ecommerce operations, and distributors shipping across Manitoba and the Prairies. Apex develops the specification around packed weight, temperature and moisture exposure, case dimensions, print, pallet use, order quantity, storage, and delivery postal code so buyers can compare the full landed program.',
+    priorities: [
+      { title: 'Prairie freight durability', description: 'Match board grade, closure, inserts, and pallet stability to long regional lanes, transfers, stacking, and seasonal handling conditions.' },
+      { title: 'Food and retail coordination', description: 'Plan case packs, lot and barcode areas, print, secondary packaging, and shelf presentation together while documenting product-contact requirements.' },
+      { title: 'Seasonal inventory control', description: 'Balance production quantity, flat-packed storage, sales peaks, supplier lead time, and reorder points before approving the run.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut cases specified for Winnipeg parcel, pallet, warehouse, and retail replenishment routes.' },
+      { title: 'Custom cardboard boxes', href: '/services/cardboard-boxes', description: 'Printed cartons and sleeves for dry goods, retail products, kits, and branded multi-packs.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam, barriers, and void control selected around impact, movement, moisture, and abrasion risks.' }
+    ],
+    process: [
+      { title: 'Define the Winnipeg requirement', description: 'Send inside dimensions, packed weight, quantity, product sensitivities, artwork status, delivery postal code, and required date.' },
+      { title: 'Review structure and route', description: 'Apex evaluates board, box style, inserts, barriers, print, case pack, pallet needs, and the appropriate proof or sample path.' },
+      { title: 'Approve production controls', description: 'Confirm the dieline or sample, artwork revision, quantity, pack-out, receiving requirements, and reorder specification.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Winnipeg businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Winnipeg and Manitoba businesses, with the final postal code, freight method, receiving requirements, and required date reviewed during quoting.' },
+      { q: 'Which packaging formats are available for Winnipeg orders?', a: 'Options include corrugated shipping cases, printed mailers, folding cartons, retail displays, polybags, protective inserts, bulk containers, and coordinated secondary packaging.' },
+      { q: 'Can packaging be planned for Prairie weather and long freight routes?', a: 'Yes. Share expected storage, temperature, moisture, stacking, transfer, parcel, and pallet conditions so materials, closures, inserts, and barriers can be reviewed for the route.' },
+      { q: 'What should a Winnipeg custom box RFQ include?', a: 'Provide inside dimensions, packed weight, order and annual quantities, product sensitivities, material and print requirements, artwork status, delivery postal code, and target date.' }
+    ],
+    relatedArticle: { title: 'Food packaging boxes for dry, chilled, and bulk programs', href: '/blog/food-packaging-boxes-corrugated-specs-dry-chilled-bulk-food', description: 'Review board, barriers, case packs, labels, cold-chain exposure, and receiving details before requesting a food-box quote.' },
+    ctaHeading: 'Request a Winnipeg packaging quote built for the product and Prairie route.',
+    ctaLead: 'Send dimensions, packed weight, quantity, product sensitivities, delivery postal code, and target date for a practical packaging recommendation.'
+  },
+  {
+    slug: 'phoenix-custom-packaging',
+    city: 'Phoenix',
+    region: 'Arizona',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Phoenix',
+    title: 'Custom Packaging Phoenix | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Phoenix businesses. Quote corrugated shipping boxes, printed mailers, retail cartons and protective inserts for Arizona delivery.',
+    eyebrow: 'Phoenix custom packaging · Arizona fulfilment planning',
+    heading: 'Custom packaging for Phoenix brands, warehouses, and desert distribution.',
+    lead: 'Apex supports Greater Phoenix buyers with custom corrugated boxes, branded mailers, retail cartons, and protective packaging planned around heat exposure, product weight, warehouse flow, and delivery requirements.',
+    image: '/images/home/mailer-boxes-branded.webp',
+    imageAlt: 'Printed custom mailer and shipping boxes for Phoenix ecommerce, retail, and warehouse fulfilment programs',
+    buyingContext: 'Phoenix packaging may move through hot trailers, dry warehouses, parcel networks, retail distribution, and regional fulfilment centres. Apex scopes the carton, board, adhesives, inserts, print, case pack, pallet efficiency, run size, and final Arizona receiving point together so the approved specification suits both the product and its route.',
+    priorities: [
+      { title: 'Desert heat exposure', description: 'Identify trailer, dock, warehouse, and outdoor exposure so adhesives, coatings, films, inks, and product sensitivities can be reviewed before sampling.' },
+      { title: 'Fulfilment-centre efficiency', description: 'Coordinate case dimensions, pack count, labels, assembly labour, pallet pattern, and receiving rules for Phoenix-area warehouse flow.' },
+      { title: 'Scalable brand consistency', description: 'Choose a print and proofing path that preserves approved colours, artwork, structure, and insert placement across launch and reorder quantities.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded tuck-top mailers for Phoenix ecommerce, subscription, sample-kit, and direct-to-customer programs.' },
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases engineered for packed weight, stacking, parcel handling, and Southwest freight.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Foam, corrugated partitions, barriers, and void control selected around heat, impact, abrasion, and movement risks.' }
+    ],
+    process: [
+      { title: 'Map the Phoenix shipment', description: 'Provide inside dimensions, packed weight, quantity, heat sensitivity, shipping method, delivery ZIP code, and required date.' },
+      { title: 'Engineer and prove the pack', description: 'Apex reviews structure, board, adhesives, inserts, print, labels, pallet needs, and physical or digital sample options.' },
+      { title: 'Confirm production and delivery', description: 'Approve the sample or dieline, artwork revision, case pack, quantity, receiving plan, and documented reorder standard.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Phoenix businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Greater Phoenix and Arizona businesses, with delivery ZIP code, shipment method, receiving rules, and required date included in project review.' },
+      { q: 'Can custom packaging account for Phoenix heat?', a: 'Yes. Share expected trailer, warehouse, dock, and outdoor exposure plus product sensitivities so board, adhesives, coatings, films, inserts, and storage guidance can be reviewed. Final choices depend on the full application.' },
+      { q: 'Which packaging formats can Phoenix buyers order?', a: 'Options include corrugated shipping cases, printed mailers, folding cartons, retail displays, polybags, protective foam or corrugated inserts, and coordinated fulfilment packaging.' },
+      { q: 'What details speed up a Phoenix custom box quote?', a: 'Send inside dimensions, packed weight, quantity, heat or product risks, material and print requirements, artwork status, delivery ZIP code, receiving constraints, and target date.' }
+    ],
+    relatedArticle: { title: 'Packaging cost drivers for a complete box quote', href: '/blog/packaging-cost-drivers-box-quote-canada', description: 'See how dimensions, material, print, quantity, freight, storage, and reorders shape the real packaging cost.' },
+    ctaHeading: 'Get a Phoenix custom packaging quote built around heat, handling, and fulfilment.',
+    ctaLead: 'Send dimensions, packed weight, quantity, exposure risks, delivery ZIP code, and target date for a complete structure and material recommendation.'
   }
 ];
