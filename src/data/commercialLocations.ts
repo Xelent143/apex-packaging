@@ -582,5 +582,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Packaging cost drivers for a complete box quote', href: '/blog/packaging-cost-drivers-box-quote-canada', description: 'See how dimensions, material, print, quantity, freight, storage, and reorders shape the real packaging cost.' },
     ctaHeading: 'Get a Phoenix custom packaging quote built around heat, handling, and fulfilment.',
     ctaLead: 'Send dimensions, packed weight, quantity, exposure risks, delivery ZIP code, and target date for a complete structure and material recommendation.'
+  },
+  {
+    slug: 'los-angeles-custom-packaging',
+    city: 'Los Angeles',
+    region: 'California',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Los Angeles',
+    title: 'Custom Packaging Los Angeles | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Los Angeles businesses. Quote printed mailers, corrugated shipping boxes, retail cartons and protective inserts for Southern California.',
+    eyebrow: 'Los Angeles custom packaging · Southern California delivery',
+    heading: 'Custom packaging for Los Angeles brands, retail launches, and fulfilment.',
+    lead: 'Apex helps Los Angeles buyers source printed mailers, corrugated shipping cases, retail cartons, and protective inserts around the product, brand standard, fulfilment workflow, and delivery deadline.',
+    image: '/images/home/hero-branded-packaging.webp',
+    imageAlt: 'Premium branded mailer and product boxes for Los Angeles ecommerce, retail, and product launch packaging',
+    buyingContext: 'Los Angeles packaging programs often need to connect imported goods, local assembly, influencer kits, ecommerce fulfilment, retail rollouts, and regional distribution. Apex builds the quote around packed dimensions, product weight, print coverage, inserts, pack-out labour, run size, freight, and the final Southern California receiving point so the packaging performs from launch through replenishment.',
+    priorities: [
+      { title: 'Launch-ready presentation', description: 'Coordinate colour, board, coatings, inserts, opening sequence, and proofing so mailers and cartons arrive ready for retail, PR, or direct-to-consumer use.' },
+      { title: 'Fulfilment and freight fit', description: 'Set assembled dimensions, case pack, pallet pattern, labels, and parcel protection around the Los Angeles warehouse or 3PL workflow.' },
+      { title: 'Reorder consistency', description: 'Document dielines, artwork revisions, approved samples, pack-out details, and replenishment timing before the first production run.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded corrugated mailers for Los Angeles ecommerce orders, subscription programs, launch kits, and creator campaigns.' },
+      { title: 'Custom cardboard boxes', href: '/services/cardboard-boxes', description: 'Printed folding cartons, sleeves, and product boxes for cosmetics, apparel, food, wellness, and specialty retail.' },
+      { title: 'Protective packaging and inserts', href: '/services/protective-packaging', description: 'Corrugated, foam, and void-control systems for fragile products, presentation kits, and multi-piece packs.' }
+    ],
+    process: [
+      { title: 'Send the Los Angeles RFQ', description: 'Share inside dimensions, packed weight, quantity, artwork status, delivery ZIP code, channel, and required in-hand date.' },
+      { title: 'Review structure and samples', description: 'Apex recommends board, box style, inserts, print method, finishes, and a digital or physical sample path for approval.' },
+      { title: 'Approve production and delivery', description: 'Confirm the dieline, artwork revision, pack-out, quantity, receiving requirements, and reorder record before scheduling.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Los Angeles businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Los Angeles and Southern California businesses, with the delivery ZIP code, receiving requirements, quantity, and deadline reviewed during quoting.' },
+      { q: 'What packaging can Los Angeles brands customize?', a: 'Options include printed corrugated mailers, shipping cases, folding cartons, sleeves, retail displays, polybags, and corrugated or foam inserts. The recommended format depends on the product and sales channel.' },
+      { q: 'Can Apex help with packaging for a product launch?', a: 'Yes. Share the launch date, product dimensions, quantity, artwork status, desired unboxing experience, fulfilment location, and sampling needs so the schedule and production path can be assessed.' },
+      { q: 'What details speed up a Los Angeles custom box quote?', a: 'Provide inside dimensions, packed weight, order quantity, material and print preferences, artwork files, delivery ZIP code, receiving constraints, and required in-hand date.' }
+    ],
+    relatedArticle: { title: 'Product launch packaging for small runs and reorders', href: '/blog/product-launch-packaging-small-runs-samples-reorders', description: 'Plan prototypes, print, quantities, approval gates, and replenishment before a launch packaging run.' },
+    ctaHeading: 'Request a Los Angeles packaging quote built around your launch and fulfilment plan.',
+    ctaLead: 'Send dimensions, packed weight, quantity, artwork, delivery ZIP code, and in-hand date for a practical structure, print, sample, and production recommendation.'
+  },
+  {
+    slug: 'mississauga-custom-packaging',
+    city: 'Mississauga',
+    region: 'Ontario',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Mississauga',
+    title: 'Custom Packaging Mississauga | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Mississauga businesses. Quote corrugated boxes, printed mailers, retail cartons and protective inserts for Peel and GTA delivery.',
+    eyebrow: 'Mississauga custom packaging · Peel and GTA distribution',
+    heading: 'Custom packaging for Mississauga warehouses, manufacturers, and brands.',
+    lead: 'Apex supports Mississauga buyers with corrugated shipping cases, branded mailers, retail cartons, and protective packaging planned around warehouse flow, freight, receiving, and repeat orders.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom printed corrugated boxes for Mississauga warehouses, manufacturers, and GTA distribution programs',
+    buyingContext: 'Mississauga packaging programs frequently connect manufacturing, airport-area logistics, 3PL operations, wholesale distribution, retail replenishment, and parcel fulfilment. Apex scopes the box dimensions, board grade, print, inserts, case pack, pallet pattern, quantity, and receiving postal code together so procurement teams can assess protection, handling, storage, and landed cost as one program.',
+    priorities: [
+      { title: 'Warehouse-ready specifications', description: 'Coordinate case pack, pallet footprint, labels, assembly steps, and receiving requirements for Mississauga plants, warehouses, and 3PLs.' },
+      { title: 'Product and transit protection', description: 'Match corrugated strength, inserts, closure, and void control to packed weight, fragility, stacking, parcel, LTL, and warehouse handling.' },
+      { title: 'GTA inventory planning', description: 'Balance production quantity, flat-packed storage, multiple delivery points, forecast demand, supplier lead time, and reorder triggers.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases for parcel, pallet, industrial, and retail replenishment programs.' },
+      { title: 'Industrial and bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization supplies for plant and warehouse operations.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam, barriers, and void control selected around impact, movement, abrasion, and product risk.' }
+    ],
+    process: [
+      { title: 'Define the Mississauga shipment', description: 'Provide inside dimensions, packed weight, quantities, freight method, delivery postal code, receiving rules, and target date.' },
+      { title: 'Engineer and validate the pack', description: 'Apex reviews structure, board, inserts, print, labels, pallet use, and the right proof or physical sample for approval.' },
+      { title: 'Lock the production standard', description: 'Confirm the sample or dieline, artwork revision, pack-out, pallet details, quantity split, delivery plan, and reorder record.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Mississauga businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Mississauga, Peel Region, and GTA operations, with delivery postal code, freight, receiving requirements, and target date reviewed during quoting.' },
+      { q: 'Which custom boxes are available for Mississauga warehouses?', a: 'Options include RSC and FOL shipping cases, die-cut mailers, folding cartons, bulk corrugated containers, retail displays, partitions, foam inserts, and coordinated pallet-packaging supplies.' },
+      { q: 'Can packaging orders be split between GTA facilities?', a: 'Split delivery can be reviewed during quoting. Provide each receiving address, quantity allocation, dock or appointment requirements, pallet rules, and required date so freight and production can be planned.' },
+      { q: 'What should a Mississauga packaging RFQ include?', a: 'Send inside dimensions, packed product weight, order and annual quantities, material and print requirements, artwork status, delivery postal code, receiving constraints, and target date.' }
+    ],
+    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-09-11', description: 'Plan common specifications, inventory, freight, and reorders across Canadian plants, warehouses, and stores.' },
+    ctaHeading: 'Get a Mississauga packaging quote built around warehouse and delivery requirements.',
+    ctaLead: 'Send dimensions, packed weight, quantities, delivery postal code, receiving details, and target date for a complete packaging and production recommendation.'
   }
 ];
