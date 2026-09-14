@@ -662,5 +662,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-09-11', description: 'Plan common specifications, inventory, freight, and reorders across Canadian plants, warehouses, and stores.' },
     ctaHeading: 'Get a Mississauga packaging quote built around warehouse and delivery requirements.',
     ctaLead: 'Send dimensions, packed weight, quantities, delivery postal code, receiving details, and target date for a complete packaging and production recommendation.'
+  },
+  {
+    slug: 'seattle-custom-packaging',
+    city: 'Seattle',
+    region: 'Washington',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Seattle',
+    title: 'Custom Packaging Seattle | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Seattle businesses. Quote printed mailers, corrugated shipping boxes, retail cartons and protective inserts for Puget Sound delivery.',
+    eyebrow: 'Seattle custom packaging · Puget Sound fulfilment',
+    heading: 'Custom packaging for Seattle launches, ecommerce, and regional distribution.',
+    lead: 'Apex helps Seattle buyers source printed mailers, corrugated shipping cases, retail cartons, and protective inserts around the product, fulfilment workflow, run size, and Puget Sound delivery point.',
+    image: '/images/home/mailer-boxes-branded.webp',
+    imageAlt: 'Branded corrugated mailer and shipping boxes for Seattle ecommerce and Puget Sound distribution programs',
+    buyingContext: 'Seattle packaging programs often connect ecommerce fulfilment, technology launches, specialty retail, food and beverage products, and regional distribution. Apex develops each quote around packed dimensions, product risk, print coverage, order quantity, storage, parcel or pallet handling, and the final Washington delivery point so the approved pack supports both brand presentation and operating requirements.',
+    priorities: [
+      { title: 'Ecommerce-ready dimensions', description: 'Size the mailer, insert, and shipping case together to limit empty space, dimensional weight, movement, and packing complexity.' },
+      { title: 'Moisture-aware distribution', description: 'Share warehouse and transit conditions so corrugated grade, coatings, adhesives, liners, and closure can be reviewed for the actual route.' },
+      { title: 'Puget Sound receiving', description: 'Identify the fulfilment centre, 3PL, warehouse, storefront, appointment rules, pallet limits, and any split deliveries during quoting.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded die-cut mailers for Seattle ecommerce orders, subscription programs, launch kits, and direct-to-customer shipments.' },
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut cases specified for packed weight, parcel handling, warehouse transfers, and pallet distribution.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated, foam, and void-control systems designed around fragile devices, bottles, multi-piece kits, and transit risks.' }
+    ],
+    process: [
+      { title: 'Define the Seattle fulfilment job', description: 'Send dimensions, packed weight, quantity, product risks, artwork status, delivery ZIP code, and required in-hand date.' },
+      { title: 'Engineer and prove the pack', description: 'Apex reviews structure, board, inserts, print, moisture exposure, labels, and the appropriate digital or physical sample path.' },
+      { title: 'Approve production and receiving', description: 'Confirm the sample or dieline, artwork revision, pack-out, quantity, pallet details, delivery plan, and reorder record.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Seattle businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Seattle and Puget Sound businesses, with the delivery ZIP code, shipment method, receiving rules, quantity, and deadline reviewed during quoting.' },
+      { q: 'What packaging can Seattle ecommerce brands customize?', a: 'Options include printed corrugated mailers, shipping cases, folding cartons, product sleeves, retail displays, polybags, and corrugated or foam inserts.' },
+      { q: 'Can a box be designed to reduce dimensional shipping weight?', a: 'Yes. Provide the product dimensions, packed configuration, carrier method, protection needs, and current package size so structure and empty space can be reviewed. Final freight charges remain subject to the carrier.' },
+      { q: 'What details speed up a Seattle packaging quote?', a: 'Send inside dimensions, packed weight, quantity, material and print requirements, artwork status, delivery ZIP code, receiving constraints, and required date.' }
+    ],
+    relatedArticle: { title: 'Ecommerce packaging for lower damage and better unboxing', href: '/blog/ecommerce-packaging-for-lower-damage-and-better-unboxing-2026-08-30', description: 'Balance right-sizing, product protection, packing labour, returns, and branded presentation.' },
+    ctaHeading: 'Get a Seattle custom packaging quote built around fulfilment and delivery.',
+    ctaLead: 'Send dimensions, packed weight, quantity, artwork, delivery ZIP code, and target date for a practical structure, print, protection, and production recommendation.'
+  },
+  {
+    slug: 'brampton-custom-packaging',
+    city: 'Brampton',
+    region: 'Ontario',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Brampton',
+    title: 'Custom Packaging Brampton | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Brampton businesses. Quote corrugated boxes, industrial packaging, printed mailers and protective inserts for Peel and GTA delivery.',
+    eyebrow: 'Brampton custom packaging · Peel logistics support',
+    heading: 'Custom packaging for Brampton manufacturing, warehousing, and distribution.',
+    lead: 'Apex supports Brampton buyers with corrugated shipping cases, industrial packaging, printed mailers, and protective components planned around product weight, warehouse handling, freight, and repeat orders.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom corrugated shipping boxes for Brampton manufacturing, warehousing, and GTA distribution',
+    buyingContext: 'Brampton packaging programs frequently support manufacturing, transport, wholesale distribution, food operations, retail replenishment, and parcel fulfilment across Peel and the GTA. Apex scopes case dimensions, board strength, inserts, print, labels, case pack, pallet pattern, quantity, and the receiving postal code together so buyers can evaluate protection, warehouse efficiency, storage, and landed cost as one program.',
+    priorities: [
+      { title: 'Warehouse handling fit', description: 'Coordinate case pack, pallet footprint, labels, assembly, lift limits, and dock requirements for Brampton plants and distribution centres.' },
+      { title: 'Freight-ready protection', description: 'Match corrugated strength, partitions, cushioning, closure, and load stabilization to product weight, stacking, transfers, and route conditions.' },
+      { title: 'GTA reorder control', description: 'Document the approved structure, material, artwork, labels, quantity splits, supplier lead time, and replenishment trigger.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut cases for manufacturing, parcel, pallet, wholesale, and retail replenishment programs.' },
+      { title: 'Industrial and bulk packaging', href: '/services/industrial-bulk-packaging', description: 'Gaylord containers, stretch film, shrink film, and load-stabilization materials for Brampton plant and warehouse operations.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam, barriers, and void control selected around impact, abrasion, corrosion, and movement risks.' }
+    ],
+    process: [
+      { title: 'Map the Brampton shipment', description: 'Provide dimensions, packed weight, quantities, handling risks, freight method, delivery postal code, and target date.' },
+      { title: 'Engineer and validate the system', description: 'Apex reviews structure, board, inserts, barriers, print, labels, pallet use, and the appropriate proof or physical sample.' },
+      { title: 'Lock production and delivery', description: 'Approve the sample or dieline, artwork revision, pack-out, quantity split, receiving instructions, and reorder specification.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Brampton businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Brampton, Peel Region, and GTA operations, with delivery postal code, freight, receiving requirements, quantity, and target date reviewed during quoting.' },
+      { q: 'Which boxes are available for Brampton manufacturers and warehouses?', a: 'Options include RSC and FOL shipping cases, die-cut boxes, printed mailers, folding cartons, bulk corrugated containers, partitions, foam inserts, and coordinated pallet-packaging supplies.' },
+      { q: 'Can orders be split between Brampton and other GTA facilities?', a: 'Split delivery can be reviewed during quoting. Provide each address, quantity allocation, dock or appointment requirements, pallet rules, and required date so freight and production can be planned.' },
+      { q: 'What should a Brampton custom packaging RFQ include?', a: 'Send inside dimensions, packed product weight, order and annual quantities, material and print requirements, product risks, artwork status, delivery postal code, and target date.' }
+    ],
+    relatedArticle: { title: 'Pallet packaging for LTL and warehouse loads', href: '/blog/pallet-packaging-for-ltl-and-warehouse-loads-2026-09-10', description: 'Plan cases, pallet patterns, stretch wrap, edge protection, labels, and receiving requirements as one load.' },
+    ctaHeading: 'Request a Brampton packaging quote built for warehouse and freight requirements.',
+    ctaLead: 'Send dimensions, packed weight, quantities, protection needs, delivery postal code, and target date for a complete packaging and production recommendation.'
   }
 ];
