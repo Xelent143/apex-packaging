@@ -29,7 +29,7 @@ export function buildOrganizationSchema() {
       areaServed: 'CA',
       availableLanguage: ['English', 'French']
     }],
-    makesOffer: {
+    hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Custom packaging services',
       itemListElement: siteConfig.servicePages.map((s) => ({
