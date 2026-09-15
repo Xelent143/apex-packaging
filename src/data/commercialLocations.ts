@@ -742,5 +742,85 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Pallet packaging for LTL and warehouse loads', href: '/blog/pallet-packaging-for-ltl-and-warehouse-loads-2026-09-10', description: 'Plan cases, pallet patterns, stretch wrap, edge protection, labels, and receiving requirements as one load.' },
     ctaHeading: 'Request a Brampton packaging quote built for warehouse and freight requirements.',
     ctaLead: 'Send dimensions, packed weight, quantities, protection needs, delivery postal code, and target date for a complete packaging and production recommendation.'
+  },
+  {
+    slug: 'miami-custom-packaging',
+    city: 'Miami',
+    region: 'Florida',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Miami',
+    title: 'Custom Packaging Miami | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Miami businesses. Quote printed mailers, corrugated shipping boxes, retail cartons and protective inserts for South Florida delivery.',
+    eyebrow: 'Miami custom packaging · South Florida distribution',
+    heading: 'Custom packaging for Miami brands, hospitality, and export-ready distribution.',
+    lead: 'Apex helps Miami buyers source printed mailers, corrugated shipping cases, retail cartons, and protective components around product risk, brand presentation, humid conditions, and the final delivery route.',
+    image: '/images/home/hero-branded-packaging.webp',
+    imageAlt: 'Premium printed mailer and product boxes for Miami retail, hospitality, ecommerce, and export packaging programs',
+    buyingContext: 'Miami packaging programs may serve ecommerce fulfilment, hospitality, cosmetics, specialty food, retail launches, and freight moving through South Florida ports and airports. Apex builds the quote around packed dimensions, moisture sensitivity, print and finish requirements, inserts, case pack, pallet use, run size, and delivery ZIP code so the specification supports both presentation and transit.',
+    priorities: [
+      { title: 'Humidity-aware materials', description: 'Share warehouse, trailer, dock, and storage conditions so board grade, coatings, adhesives, liners, and product barriers can be reviewed before approval.' },
+      { title: 'Export and freight handling', description: 'Plan case strength, closure, pallet pattern, labels, documentation areas, and handling marks around the actual domestic or export route.' },
+      { title: 'Hospitality and retail consistency', description: 'Coordinate approved colours, finishes, inserts, pack-out details, and reorder records across launch kits, guest products, and retail cartons.' }
+    ],
+    products: [
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Branded corrugated mailers for Miami ecommerce, subscription, influencer, hospitality, and product-launch programs.' },
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut shipping cases specified for packed weight, stacking, parcel, pallet, and export handling.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated, foam, barriers, and void control selected around impact, vibration, abrasion, moisture, and movement risks.' }
+    ],
+    process: [
+      { title: 'Define the Miami shipping route', description: 'Send inside dimensions, packed weight, quantity, moisture sensitivity, shipping method, delivery ZIP code, and required date.' },
+      { title: 'Engineer and sample the pack', description: 'Apex reviews structure, board, coatings, inserts, print, labels, pallet needs, and a digital or physical sample path.' },
+      { title: 'Approve production controls', description: 'Confirm the sample or dieline, artwork revision, case pack, quantity, receiving instructions, and reorder specification.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Miami businesses?', a: 'Yes. Apex quotes custom boxes and coordinated packaging programs for Miami and South Florida businesses, with the delivery ZIP code, shipment method, receiving rules, quantity, and deadline reviewed during quoting.' },
+      { q: 'Can custom packaging account for Miami humidity?', a: 'Yes. Share expected warehouse, dock, trailer, storage, and product conditions so corrugated grade, coatings, adhesives, barriers, and closure methods can be reviewed for the application.' },
+      { q: 'Can boxes be specified for export shipments from South Florida?', a: 'Packaging can be planned around the stated export route and handling profile. Buyers should provide product details, transport mode, pallet requirements, destination, labels, and any carrier or regulatory requirements during quoting.' },
+      { q: 'What details speed up a Miami custom box quote?', a: 'Provide inside dimensions, packed weight, quantity, material and print preferences, exposure risks, artwork status, delivery ZIP code, receiving constraints, and required date.' }
+    ],
+    relatedArticle: { title: 'Custom shipping boxes for heavy products', href: '/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking', description: 'Review ECT, flute, packed weight, pallet stacking, inserts, and route conditions before requesting a shipping-box quote.' },
+    ctaHeading: 'Get a Miami packaging quote built around presentation, climate, and transit.',
+    ctaLead: 'Send dimensions, packed weight, quantity, exposure risks, delivery ZIP code, and target date for a practical structure, material, print, and production recommendation.'
+  },
+  {
+    slug: 'quebec-city-custom-packaging',
+    city: 'Québec City',
+    region: 'Québec',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Québec City',
+    title: 'Custom Packaging Québec City | Boxes, Mailers & Inserts',
+    description: 'Custom packaging for Québec City businesses. Quote corrugated boxes, printed mailers, retail cartons and protective inserts for Capitale-Nationale delivery.',
+    eyebrow: 'Québec City custom packaging · Capitale-Nationale delivery',
+    heading: 'Custom packaging for Québec City retail, manufacturing, and regional distribution.',
+    lead: 'Apex supports Québec City buyers with corrugated shipping cases, printed mailers, retail cartons, and protective packaging planned around the product, bilingual artwork, seasonal conditions, and delivery requirements.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Custom printed corrugated and retail boxes for Québec City businesses and Capitale-Nationale distribution',
+    buyingContext: 'Québec City packaging programs often support food and beverage, tourism, manufacturing, public-sector supply, ecommerce, and retail distribution across eastern Québec. Apex scopes dimensions, packed weight, board, bilingual print, inserts, case pack, pallet use, quantity, storage, and the final postal code together so the approved specification works from production through replenishment.',
+    priorities: [
+      { title: 'Bilingual artwork control', description: 'Reserve the required French and English copy, barcode, legal, ingredient, and variable-data areas before the dieline and proof are approved.' },
+      { title: 'Seasonal route protection', description: 'Share temperature, moisture, storage, transfer, and delivery conditions so board, coatings, adhesives, inserts, and closure can be reviewed.' },
+      { title: 'Regional receiving details', description: 'Identify the plant, distributor, warehouse, storefront, appointment rules, pallet limits, and any split deliveries during quoting.' }
+    ],
+    products: [
+      { title: 'Custom corrugated boxes', href: '/services/corrugated-boxes', description: 'RSC, FOL, and die-cut cases for Québec City parcel, pallet, manufacturing, and retail replenishment routes.' },
+      { title: 'Custom cardboard boxes', href: '/services/cardboard-boxes', description: 'Printed folding cartons, sleeves, and product boxes for specialty food, wellness, gifts, and retail goods.' },
+      { title: 'Protective packaging', href: '/services/protective-packaging', description: 'Corrugated partitions, foam, barriers, and void control selected around impact, movement, moisture, and abrasion risks.' }
+    ],
+    process: [
+      { title: 'Build the Québec City RFQ', description: 'Provide inside dimensions, packed weight, quantity, bilingual copy needs, artwork status, delivery postal code, and required date.' },
+      { title: 'Review structure and proof', description: 'Apex evaluates board, box style, inserts, print panels, labels, pallet needs, and the appropriate digital or physical sample.' },
+      { title: 'Confirm production and delivery', description: 'Approve the dieline or sample, final artwork revision, pack-out, quantity, receiving instructions, and reorder record.' }
+    ],
+    faqs: [
+      { q: 'Does Apex quote custom packaging for Québec City businesses?', a: 'Yes. Apex quotes custom boxes and packaging programs for Québec City and Capitale-Nationale businesses, with the final postal code, freight method, receiving requirements, quantity, and deadline reviewed during quoting.' },
+      { q: 'Can packaging artwork include French and English copy?', a: 'Yes. Supply the final approved bilingual copy, hierarchy, barcode files, legal panels, and brand standards. Apex can prepare the dieline and production proof, while the buyer remains responsible for approving regulatory content.' },
+      { q: 'Which custom boxes are available for Québec City orders?', a: 'Options include corrugated shipping cases, printed mailers, folding cartons, retail displays, polybags, protective inserts, and coordinated secondary packaging.' },
+      { q: 'What should a Québec City packaging RFQ include?', a: 'Send inside dimensions, packed weight, order and annual quantities, material and print requirements, bilingual artwork status, delivery postal code, receiving constraints, and target date.' }
+    ],
+    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-09-11', description: 'Plan common specifications, bilingual artwork, inventory, freight, and reorders across Canadian facilities and stores.' },
+    ctaHeading: 'Request a Québec City packaging quote built around artwork and delivery.',
+    ctaLead: 'Send dimensions, packed weight, quantity, bilingual artwork needs, delivery postal code, and target date for a complete packaging recommendation.'
   }
 ];
