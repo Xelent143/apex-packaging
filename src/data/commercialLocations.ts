@@ -822,5 +822,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-09-11', description: 'Plan common specifications, bilingual artwork, inventory, freight, and reorders across Canadian facilities and stores.' },
     ctaHeading: 'Request a Québec City packaging quote built around artwork and delivery.',
     ctaLead: 'Send dimensions, packed weight, quantity, bilingual artwork needs, delivery postal code, and target date for a complete packaging recommendation.'
+  },
+  {
+    slug: 'detroit-custom-packaging',
+    city: 'Detroit',
+    region: 'Michigan',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Detroit',
+    title: 'Custom Packaging Detroit | Parts Boxes & Shipping Cartons',
+    description: 'Quote custom packaging for Detroit parts suppliers and brands. Specify corrugated boxes, protective inserts and pallet packaging for Michigan delivery.',
+    eyebrow: 'Detroit custom packaging · Michigan delivery quotes',
+    heading: 'Custom packaging for Detroit parts shipments and production supply.',
+    lead: 'Metal components, service parts, and assembled kits need packaging specified for weight, contact surfaces, and handling. Apex quotes Detroit corrugated boxes, fitted inserts, and pallet packaging around the actual part and receiving address.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Closed kraft corrugated shipping box with green printed branding and line artwork',
+    buyingContext: 'A Detroit shipment headed to an assembly plant has different packing requirements from a replacement part sent by parcel. For orders serving Detroit, Dearborn, or Warren, identify the destination and handling steps before choosing a carton. Apex reviews part dimensions, sharp edges, surface finishes, unit count, and stacking conditions alongside the order quantity. Include any Windsor receiving point as a separate delivery line so the USA and Canada portions can be quoted with their own freight assumptions.',
+    priorities: [
+      { title: 'Separate parts before they reach the dock', description: 'Show where metal, painted, or machined surfaces must avoid contact. Dividers and fitted inserts can be reviewed against part movement, loading orientation, and the way operators remove each unit.' },
+      { title: 'Plan expendable packaging for container shortages', description: 'If reusable totes are unavailable, send the tote drawing, part count, and handling limits. A corrugated alternative needs its own sample review and receiving approval before replacing the established pack.' },
+      { title: 'Keep each receiving specification visible', description: 'Provide plant or distributor label layouts, part numbers, carton counts, pallet height limits, and appointment requirements. Separate Detroit-area deliveries from Windsor deliveries in the quote request.' }
+    ],
+    products: [
+      { title: 'Specify corrugated parts boxes', href: '/services/corrugated-boxes', description: 'Compare regular slotted cartons, full-overlap boxes, and die-cut structures using packed weight, closure, pallet stacking, and access at the packing bench.' },
+      { title: 'Fit protection around contact points', href: '/services/protective-packaging', description: 'Review corrugated partitions, foam inserts, and rust-prevention packaging where the product and route call for them. Supply surface sensitivity and storage conditions with the part drawing.' },
+      { title: 'Prepare pallet quantities for receiving', href: '/services/industrial-bulk-packaging', description: 'Quote bulk containers, edge protection, and wrapping materials with the load dimensions, gross weight, handling method, and permitted pallet height.' }
+    ],
+    process: [
+      { title: 'Send the part and delivery specification', description: 'Include drawings or photos, dimensions, unit weight, units per carton, order quantity, delivery ZIP code, and required arrival date. Note whether the pack is for production supply, service parts, or parcel sales.' },
+      { title: 'Review a representative packed sample', description: 'Confirm part fit, separation, closure, label position, and unloading access. Agree on any handling or transit testing needed before approving the packaging for the stated route.' },
+      { title: 'Approve the revision and receiving plan', description: 'Record the approved drawing, board and insert specification, artwork revision, pack count, and delivery instructions. Confirm production timing and freight in the quote before placing the order.' }
+    ],
+    faqs: [
+      { q: 'Can I order custom parts packaging for delivery to Detroit?', a: 'Yes. Apex quotes corrugated boxes, protective inserts, and industrial packaging for Detroit buyers. Provide the delivery ZIP code, receiving requirements, quantity, and target date so freight and production availability can be confirmed.' },
+      { q: 'Can corrugated packaging replace a reusable parts tote?', a: 'An expendable pack can be reviewed for overflow or one-way shipments. Send the tote dimensions, part count, weight, contact restrictions, and customer packaging specification. The alternative requires sample approval and any testing requested by the receiving operation.' },
+      { q: 'Can one quote cover Detroit and Windsor deliveries?', a: 'Request separate quantity and delivery lines for each address. Confirm freight scope, receiving instructions, border-related responsibilities, and required dates before approving an order; do not assume one delivered price applies to both destinations.' },
+      { q: 'What are the minimum order quantity and lead time for Detroit custom boxes?', a: 'Both depend on box construction, dimensions, print method, inserts, and quantity. Send the complete specification to receive the applicable minimum, sample schedule, production timing, and delivery estimate in the quote.' }
+    ],
+    relatedArticle: { title: 'Automotive parts packaging: boxes, inserts, and pallet loads', href: '/blog/automotive-parts-packaging-boxes-vci-foam-pallet-loads', description: 'Review part separation, corrosion exposure, foam fit, and pallet handling before finalizing the packaging specification.' },
+    ctaHeading: 'Send your Detroit parts specification for a packaging quote.',
+    ctaLead: 'Attach a drawing or product photo, packed weight, quantity, receiving ZIP code, and required date. Include Windsor delivery details separately when the order serves both sides of the border.'
   }
 ];
