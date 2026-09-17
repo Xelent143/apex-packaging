@@ -203,7 +203,7 @@ Then `netlify deploy --prod`.
 6. **Verify the public pages**:
    `/paynow` should not offer a payment button.
    `/pay` should not accept arbitrary amounts.
-   The footer should not show `Pay Now`.
+   The footer should show `Pay Now` and link to the secure payment instructions at `/paynow`.
 
 ## First-day checklist (do before sharing the URL)
 
