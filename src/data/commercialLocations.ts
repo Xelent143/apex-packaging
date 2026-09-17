@@ -862,5 +862,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Automotive parts packaging: boxes, inserts, and pallet loads', href: '/blog/automotive-parts-packaging-boxes-vci-foam-pallet-loads', description: 'Review part separation, corrosion exposure, foam fit, and pallet handling before finalizing the packaging specification.' },
     ctaHeading: 'Send your Detroit parts specification for a packaging quote.',
     ctaLead: 'Attach a drawing or product photo, packed weight, quantity, receiving ZIP code, and required date. Include Windsor delivery details separately when the order serves both sides of the border.'
+  },
+  {
+    slug: 'halifax-custom-packaging',
+    city: 'Halifax',
+    region: 'Nova Scotia',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Halifax',
+    title: 'Custom Packaging Halifax | Shipping Boxes & Mailers',
+    description: 'Request custom packaging for Halifax and Dartmouth deliveries. Quote shipping boxes, printed mailers and inserts with Nova Scotia freight and receiving details.',
+    eyebrow: 'Halifax custom packaging · Nova Scotia delivery quotes',
+    heading: 'Custom packaging for Halifax orders and Atlantic Canada distribution.',
+    lead: 'Quote corrugated shipping boxes, branded mailers, and protective inserts with the delivery plan included. Apex helps Halifax buyers specify packaging for local fulfilment, retail replenishment, and onward shipments across Atlantic Canada.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated shipping box with green printed branding and contour-line artwork',
+    buyingContext: 'A packaging order delivered to a Dartmouth warehouse and then used for regional parcel shipments has two different transport stages. Specify how empty boxes arrive, where they will be stored, and how packed products leave. For Halifax peninsula shops with limited receiving space, include unloading access and storage limits in the RFQ. For onward deliveries into New Brunswick, Prince Edward Island, or Newfoundland and Labrador, describe the actual handling route so the box and insert review reflects the shipment.',
+    priorities: [
+      { title: 'Separate inbound freight from product shipping', description: 'Request the flat-packed bundle dimensions, pallet quantity, freight scope, and receiving arrangements alongside the box price. Then assess the assembled carton against the weight and handling of your outbound product.' },
+      { title: 'Match run size to available storage', description: 'Compare the proposed order quantity with stockroom or warehouse space in Halifax or Dartmouth. Identify seasonal sales dates and your expected weekly usage so sample approval, production, and replenishment can be discussed together.' },
+      { title: 'Describe every transfer on the onward route', description: 'Tell Apex whether cartons leave by parcel, pallet freight, or a route that includes ferry transfers. Provide stacking duration, potential moisture exposure, and product sensitivity so materials and any required testing can be reviewed.' }
+    ],
+    products: [
+      { title: 'Corrugated shipping boxes', href: '/services/corrugated-boxes', description: 'Specify regular slotted, full-overlap, or die-cut boxes for wholesale cases and outbound shipments. Include packed weight, units per case, closure method, and expected stacking.' },
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Build a branded parcel pack for Halifax ecommerce orders, gift assortments, or subscription deliveries. Review internal dimensions with the full contents and protective material in place.' },
+      { title: 'Protective inserts and dividers', href: '/services/protective-packaging', description: 'Separate glass, finished surfaces, or multiple components with a fitted insert or partition. Supply product samples or drawings to check movement, clearance, and packing access.' }
+    ],
+    process: [
+      { title: 'Send the Halifax delivery brief', description: 'Provide product dimensions, packed weight, quantities, artwork status, delivery postal code, unloading access, and required arrival date. List any Dartmouth or other regional receiving address separately.' },
+      { title: 'Review the sample and freight assumptions', description: 'Check product fit, insert placement, closure, print proof, and handling requirements. Ask for the sample schedule, production timing, and freight estimate to be stated separately in the quote.' },
+      { title: 'Approve the specification for repeat orders', description: 'Record the approved board, dimensions, insert, artwork revision, pack count, and receiving instructions. Confirm the delivery scope and reorder quantity before placing the production order.' }
+    ],
+    faqs: [
+      { q: 'Can I request custom boxes for delivery to Halifax or Dartmouth?', a: 'Yes. Apex quotes custom corrugated boxes, printed mailers, and protective packaging for these delivery locations. Supply the full postal code, order quantity, receiving access, and required date so availability and freight can be confirmed.' },
+      { q: 'Is delivery included in the price of Halifax custom packaging?', a: 'Ask for the delivery scope to be itemized in your quote. The receiving address, shipment size, unloading facilities, appointment requirements, and any split deliveries affect the freight plan. Do not assume a box unit price includes freight.' },
+      { q: 'Can packaging be reviewed for shipments elsewhere in Atlantic Canada?', a: 'Yes. Describe the outbound route, product weight, stacking, transfers, and expected exposure. Material and insert choices can then be reviewed against those conditions, with sample approval and any agreed transit testing completed before production.' },
+      { q: 'What are the minimum order and lead time for Halifax printed boxes?', a: 'The applicable minimum and schedule depend on dimensions, construction, print coverage, tooling, and order quantity. Send the specification and delivery date to obtain a quote covering samples, production, and freight timing.' }
+    ],
+    relatedArticle: { title: 'Packaging supplier checklist for Canadian buyers', href: '/blog/canada-packaging-supplier-checklist-lead-time-moq-certs-samples', description: 'Use the checklist to compare sample requirements, minimum quantities, lead times, and supplier documentation before approving an order.' },
+    ctaHeading: 'Request a Halifax packaging quote with delivery details included.',
+    ctaLead: 'Send product dimensions, packed weight, quantity, artwork, and your delivery postal code. Add unloading constraints and the required arrival date so Apex can review the packaging and freight plan together.'
   }
 ];
