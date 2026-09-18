@@ -902,5 +902,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Packaging supplier checklist for Canadian buyers', href: '/blog/canada-packaging-supplier-checklist-lead-time-moq-certs-samples', description: 'Use the checklist to compare sample requirements, minimum quantities, lead times, and supplier documentation before approving an order.' },
     ctaHeading: 'Request a Halifax packaging quote with delivery details included.',
     ctaLead: 'Send product dimensions, packed weight, quantity, artwork, and your delivery postal code. Add unloading constraints and the required arrival date so Apex can review the packaging and freight plan together.'
+  },
+  {
+    slug: 'denver-custom-packaging',
+    city: 'Denver',
+    region: 'Colorado',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Denver',
+    title: 'Custom Packaging Denver | Printed Boxes & Shipping Kits',
+    description: 'Quote custom packaging for Denver businesses: printed mailers, shipping boxes and fitted inserts for outdoor gear, retail kits and Colorado deliveries.',
+    eyebrow: 'Denver custom packaging · Colorado delivery quotes',
+    heading: 'Custom packaging for Denver product kits and retail shipments.',
+    lead: 'Build a box specification around the products you actually ship. Apex quotes printed mailers, corrugated shipping boxes, and fitted protection for Denver brands sending accessories, outdoor-product kits, and retail orders.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated box with green Terralis branding and printed contour-line artwork',
+    buyingContext: 'A Denver outdoor-accessory brand may pack a single replacement item, a multi-piece starter kit, and a wholesale case from the same inventory. Those orders need different clearances and protection. Share the smallest and largest combinations before choosing one oversized box for every sale. For deliveries to Denver, Aurora, or Lakewood, list the actual receiving ZIP code and unloading facilities; a retail stockroom and a warehouse dock need separate freight assumptions. Identify onward shipments to mountain-town retailers when the pack must also work through additional transfers.',
+    priorities: [
+      { title: 'Choose box sizes from real order combinations', description: 'Send a SKU list with dimensions, weights, and common bundles. Compare a small set of carton sizes against excess space, packing time, and the packed dimensions used for carrier pricing.' },
+      { title: 'Keep kit components in their intended positions', description: 'Separate buckles, tools, bottles, or finished accessories with a fitted insert or partition where needed. Review removal access and printed instructions with a complete kit, including any promotional material.' },
+      { title: 'Plan wholesale replenishment separately', description: 'Define units per case, case labels, pallet limits, and receiving windows for Colorado retail orders. Include the handling route and expected storage conditions when requesting material recommendations and sample testing.' }
+    ],
+    products: [
+      { title: 'Printed mailers for accessory kits', href: '/services/mailer-boxes', description: 'Quote die-cut mailers for small gear assortments, customer welcome kits, and ecommerce orders. Check the closed box with all components, inserts, and literature in place.' },
+      { title: 'Corrugated cases for retail shipments', href: '/services/corrugated-boxes', description: 'Specify shipping cartons around packed weight, case count, closure method, and stacking. Keep wholesale case dimensions distinct from individual product packaging.' },
+      { title: 'Protective inserts for mixed materials', href: '/services/protective-packaging', description: 'Review partitions and fitted cushioning where hard components could mark adjacent surfaces. Supply representative products so fit, movement, and packing access can be assessed.' }
+    ],
+    process: [
+      { title: 'Submit the Denver order mix', description: 'Send product dimensions, unit weights, common bundles, quantities by box size, artwork status, and your delivery ZIP code. Add the required arrival date and any retail launch deadline.' },
+      { title: 'Check a packed sample and print proof', description: 'Review the fullest kit and smallest order in each proposed size. Confirm closure, insert fit, label space, and artwork orientation, then agree on any transit testing needed for the intended route.' },
+      { title: 'Confirm delivery and reorder details', description: 'Approve the drawing, material, print revision, quantities, and packing method. Confirm freight scope, receiving access, production timing, and the specification to retain for subsequent orders.' }
+    ],
+    faqs: [
+      { q: 'Can Denver businesses order custom printed boxes from Apex?', a: 'Yes. Apex quotes printed mailers, corrugated boxes, and protective packaging for Denver delivery. Provide the construction, dimensions, quantity, artwork, receiving ZIP code, and required date so production availability and freight can be confirmed.' },
+      { q: 'Can one box fit several outdoor-accessory kits?', a: 'It may be possible when the products share similar dimensions and can be held securely. Send the full range of kit combinations. Compare adjustable inserts or multiple box sizes using packed samples before committing to a common format.' },
+      { q: 'Can a quote include Denver and Aurora receiving locations?', a: 'List each address, quantity allocation, unloading facility, and appointment requirement separately. Ask for the delivery scope and freight assumptions for each location to be included in the quote.' },
+      { q: 'What are the minimum quantity and lead time for Denver custom packaging?', a: 'Minimums and timing depend on box size, structure, print coverage, tooling, inserts, and order quantity. Request the sample schedule, production lead time, and delivery estimate with your specification rather than assuming a standard turnaround.' }
+    ],
+    relatedArticle: { title: 'Custom mailer boxes: print, inserts, and order quantities', href: '/blog/custom-mailer-boxes-ecommerce-print-inserts-moq', description: 'Compare mailer construction, print options, protective inserts, and quoting details before approving a kit format.' },
+    ctaHeading: 'Request a Denver packaging quote for your actual product mix.',
+    ctaLead: 'Send your SKU dimensions, kit combinations, quantities, artwork, and delivery ZIP code. Include receiving access and the required arrival date so Apex can review box sizes, protection, and freight together.'
   }
 ];
