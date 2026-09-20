@@ -1029,4 +1029,45 @@ export const commercialLocations: CommercialLocation[] = [
     "description": "Compare insert materials and the product details needed to assess cushioning, fit, and presentation."
   }
 }
+  ,{
+    slug: 'saskatoon-custom-packaging',
+    city: 'Saskatoon',
+    region: 'Saskatchewan',
+    country: 'Canada',
+    countryCode: 'CA',
+    focusKeyword: 'custom packaging Saskatoon',
+    title: 'Custom Packaging Saskatoon | Parts Boxes & Mailers',
+    description: 'Quote custom packaging for Saskatoon: corrugated parts boxes, printed mailers and inserts. Send kit dimensions, quantities and Saskatchewan delivery details.',
+    eyebrow: 'Saskatoon custom packaging · Saskatchewan delivery planning',
+    heading: 'Custom packaging for Saskatoon parts kits and product orders.',
+    lead: 'Build a packaging quote around the parts, accessories, or retail products you actually ship. Apex reviews corrugated boxes, printed mailers, and inserts with Saskatoon buyers before the production specification is approved.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated shipping box with green brand printing and a closed protective lid',
+    buyingContext: 'A Saskatoon parts distributor may need a box for a single replacement component, a dealer kit, and a mixed accessory order. Those packs can require different compartments and carton sizes even when the branding stays consistent. Send a representative order mix and identify which packaging deliveries go to a Saskatoon warehouse, a Martensville or Warman address, or another Saskatchewan destination. Apex can review each receiving point and quantity allocation as part of the quote.',
+    priorities: [
+      { title: 'Keep small kit components accounted for', description: 'List every item in the pack, including fasteners, instructions, and accessories. Compare separate bags, partitions, and inserts so the packer can check the contents before closing the carton.' },
+      { title: 'Compare single-part and dealer-order cartons', description: 'Share the smallest and largest typical orders with their packed weights. Review whether two carton sizes reduce empty space and packing material compared with one oversized box.' },
+      { title: 'Separate city and rural receiving details', description: 'Quote inbound packaging deliveries to each destination separately. Include postal codes, unloading access, receiving hours, and any appointment requirements; a warehouse dock and a rural receiving point need different freight assumptions.' }
+    ],
+    products: [
+      { title: 'Corrugated boxes for parts and replenishment', href: '/services/corrugated-boxes', description: 'Specify carton dimensions, board, closure, and print around packed weight, case count, and the handling route from the packing bench to the customer.' },
+      { title: 'Printed mailers for accessory kits', href: '/services/mailer-boxes', description: 'Compare tuck-top mailers for smaller product sets, with space for instructions and an insert layout that keeps the kit organized.' },
+      { title: 'Inserts and protective packaging', href: '/services/protective-packaging', description: 'Review partitions, foam, and void fill using the actual parts. Identify sharp edges, sensitive finishes, and components that must remain apart during shipping.' }
+    ],
+    process: [
+      { title: 'Send the Saskatoon order mix', description: 'Provide product dimensions, weights, photos, kit contents, quantities per box size, artwork status, delivery postal codes, and your required arrival date.' },
+      { title: 'Check a packed sample at the bench', description: 'Review product fit, loading sequence, closure, label space, and removal of each component. Include the heaviest planned kit when assessing a shared carton.' },
+      { title: 'Approve the specification and freight scope', description: 'Confirm the box and insert drawings, print proof, quantity by size, bundle or pallet format, and receiving details. Ask for production and transport timing separately in the final quote.' }
+    ],
+    faqs: [
+      { q: 'Can Apex quote custom packaging for Saskatoon businesses?', a: 'Yes. Send your box or product dimensions, quantities, print requirements, delivery postal code, and target date. Apex reviews the packaging specification and delivery scope for the project.' },
+      { q: 'Can one custom box hold several different parts kits?', a: 'It may be possible with a shared insert or different insert layouts, but the size and weight range must be reviewed. Supply each kit combination and check representative packed samples before approving a common box.' },
+      { q: 'Can I request packaging delivery outside Saskatoon?', a: 'Include each Saskatchewan delivery address and its quantity allocation in the RFQ. Freight availability, unloading access, receiving requirements, and delivery timing need to be confirmed for each destination.' },
+      { q: 'What determines the minimum order and lead time?', a: 'Box dimensions, board, print method, tooling, insert complexity, and quantity affect the quote. Ask for the minimum quantity, sample schedule, production time, and estimated transport time for your specification.' }
+    ],
+    relatedArticle: { title: 'Prepare a complete packaging quote request', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'Gather the dimensions, materials, artwork, quantities, and delivery details a supplier needs to assess a packaging order.' },
+    ctaHeading: 'Get a Saskatoon custom packaging quote for your parts and product mix.',
+    ctaLead: 'Send dimensions, kit contents, packed weights, order quantities, and delivery postal codes. Include your artwork and required arrival date so Apex can assess structure, print, samples, and freight.'
+  }
+
 ];
