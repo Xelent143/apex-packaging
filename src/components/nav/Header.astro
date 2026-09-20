@@ -27,6 +27,29 @@ const simpleNav = [
   { label: 'Home', href: '/' },
   { label: 'Blog', href: '/blog' }
 ];
+const featuredSearchItems = [
+  { label: 'Corrugated Boxes', href: '/services/corrugated-boxes', type: 'Packaging service', description: 'RSC, FOL, die-cut, printed, and heavy-duty corrugated boxes.', keywords: 'cardboard shipping cartons ecommerce' },
+  { label: 'Custom Kraft Boxes', href: '/services/custom-kraft-boxes', type: 'Packaging service', description: 'Recyclable kraft packaging for retail, food, soap, and ecommerce.', keywords: 'natural brown paperboard sustainable' },
+  { label: 'Mailer Boxes', href: '/services/mailer-boxes', type: 'Packaging service', description: 'Custom printed mailers for ecommerce, subscriptions, and product launches.', keywords: 'subscription ecommerce shipping branded' },
+  { label: 'Polybags', href: '/services/polybags', type: 'Packaging service', description: 'Flat, gusseted, wicket, slider, ZIP, anti-static, and compostable bags.', keywords: 'plastic bags mylar film pouch' },
+  { label: 'Industrial & Bulk Packaging', href: '/services/industrial-bulk-packaging', type: 'Packaging service', description: 'Gaylord boxes, pallet protection, stretch film, and bulk packaging.', keywords: 'pallet bulk shrink warehouse' },
+  { label: 'Protective Packaging', href: '/services/protective-packaging', type: 'Packaging service', description: 'Foam inserts, VCI paper, void fill, and transit protection.', keywords: 'foam inserts damage fragile vci' },
+  { label: 'CBD Boxes', href: '/services/cbd-boxes', type: 'Packaging service', description: 'Custom CBD cartons, displays, mailers, and premium gift boxes.', keywords: 'cannabis hemp tincture wellness' },
+  { label: 'Packaging Design Support', href: '/design-support', type: 'Support', description: 'Dielines, 3D mockups, artwork preparation, and structural design.', keywords: 'artwork dieline mockup print' },
+  { label: 'Sustainable Packaging', href: '/sustainability', type: 'Information', description: 'Material options and practical guidance for lower-impact packaging.', keywords: 'recycled recyclable fsc eco kraft' },
+  { label: 'Request a Quote', href: '/contact', type: 'Contact', description: 'Send product dimensions, quantity, artwork, and delivery details.', keywords: 'price estimate inquiry sales contact' },
+  { label: 'Packaging Guides & Blog', href: '/blog', type: 'Resources', description: 'Buyer guides covering materials, specifications, costs, and lead times.', keywords: 'articles help guides resources' }
+];
+const searchItems = [
+  ...featuredSearchItems,
+  ...industryBoxes.map((box) => ({
+    label: box.label,
+    href: `/industries/${box.slug}`,
+    type: 'Product category',
+    description: box.summary,
+    keywords: [...box.bestFor, ...box.materials, ...box.styles].join(' ')
+  }))
+].filter((item, index, items) => items.findIndex((candidate) => candidate.href === item.href) === index);
 const isIndustryActive = pathname === '/industries' || pathname.startsWith('/industries/');
 const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
 ---
@@ -103,12 +126,15 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
         decoding="async"
       />
     </a>
-    <form action="/services" class="hidden h-11 w-full max-w-[24rem] min-w-0 justify-self-start rounded-full border border-neutral-200 bg-white pl-5 pr-2 shadow-[0_8px_22px_rgba(15,13,10,0.07)] ring-1 ring-neutral-100 lg:flex lg:items-center xl:max-w-[26rem]" role="search">
+    <form action="/industries" data-site-search class="relative hidden h-11 w-full max-w-[24rem] min-w-0 justify-self-start rounded-full border border-neutral-200 bg-white pl-5 pr-2 shadow-[0_8px_22px_rgba(15,13,10,0.07)] ring-1 ring-neutral-100 lg:flex lg:items-center xl:max-w-[26rem]" role="search">
       <input
         class="min-w-0 flex-1 bg-transparent text-sm font-semibold text-neutral-800 outline-none placeholder:text-neutral-400"
         name="q"
         placeholder="Search packaging..."
         aria-label="Search packaging"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        autocomplete="off"
       />
       <button class="grid h-8 w-8 shrink-0 place-items-center rounded-full text-accent transition hover:bg-[#fff4cf]" type="submit" aria-label="Search">
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -116,6 +142,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
           <path d="m21 21-4.35-4.35"></path>
         </svg>
       </button>
+      <div data-search-results class="site-search-results" role="listbox" aria-label="Packaging search results" hidden></div>
     </form>
     <div class="hidden items-center justify-end gap-4 lg:flex">
       {hasPhone && (
@@ -180,7 +207,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
         )}
       </div>
 
-      <form action="/services" class="flex h-[4.15rem] items-center rounded-full border border-neutral-200 bg-white pl-4 pr-1.5 shadow-[0_8px_20px_rgba(15,13,10,0.14)] ring-1 ring-neutral-100" role="search">
+      <form action="/industries" data-site-search class="relative flex h-[4.15rem] items-center rounded-full border border-neutral-200 bg-white pl-4 pr-1.5 shadow-[0_8px_20px_rgba(15,13,10,0.14)] ring-1 ring-neutral-100" role="search">
         <svg class="h-7 w-7 shrink-0 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>
           <path d="m21 21-4.35-4.35"></path>
@@ -190,6 +217,9 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
           name="q"
           placeholder="Search packaging..."
           aria-label="Search packaging"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          autocomplete="off"
         />
         <button class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-b from-[#efbd39] to-[#c98400] text-white shadow-[0_8px_16px_rgba(201,132,0,0.28)]" type="submit" aria-label="Search">
           <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -197,6 +227,7 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
             <path d="m21 21-4.35-4.35"></path>
           </svg>
         </button>
+        <div data-search-results class="site-search-results" role="listbox" aria-label="Packaging search results" hidden></div>
       </form>
 
       <a href="/contact" class="flex h-[4.45rem] items-center justify-center gap-4 rounded-md bg-gradient-to-b from-[#efbd39] to-[#c98400] font-display text-[1.05rem] font-extrabold uppercase tracking-[0.09em] text-white shadow-[0_10px_18px_rgba(201,132,0,0.2)]">
@@ -423,6 +454,159 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
   </div>
 </header>
 
+<script id="site-search-index" type="application/json" set:html={JSON.stringify(searchItems)}></script>
+
+<script>
+  type SearchItem = {
+    label: string;
+    href: string;
+    type: string;
+    description: string;
+    keywords: string;
+  };
+
+  const normalizeSearchText = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const indexElement = document.querySelector<HTMLScriptElement>('#site-search-index');
+  const searchIndex: SearchItem[] = indexElement?.textContent ? JSON.parse(indexElement.textContent) : [];
+
+  document.querySelectorAll<HTMLFormElement>('[data-site-search]').forEach((form) => {
+    if (form.dataset.searchReady === 'true') return;
+    form.dataset.searchReady = 'true';
+
+    const input = form.querySelector<HTMLInputElement>('input[name="q"]');
+    const results = form.querySelector<HTMLElement>('[data-search-results]');
+    if (!input || !results) return;
+
+    let visibleItems: SearchItem[] = [];
+    let activeIndex = -1;
+
+    const closeResults = () => {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      activeIndex = -1;
+    };
+
+    const setActiveResult = (nextIndex: number) => {
+      const links = [...results.querySelectorAll<HTMLAnchorElement>('[data-search-result]')];
+      if (!links.length) return;
+      activeIndex = (nextIndex + links.length) % links.length;
+      links.forEach((link, index) => {
+        link.dataset.active = index === activeIndex ? 'true' : 'false';
+        link.setAttribute('aria-selected', index === activeIndex ? 'true' : 'false');
+      });
+      links[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    };
+
+    const findMatches = (query: string) => {
+      const normalizedQuery = normalizeSearchText(query);
+      if (!normalizedQuery) return searchIndex.slice(0, 7);
+      const queryWords = normalizedQuery.split(' ');
+
+      return searchIndex
+        .map((item) => {
+          const label = normalizeSearchText(item.label);
+          const searchable = normalizeSearchText(`${item.label} ${item.type} ${item.description} ${item.keywords}`);
+          if (!queryWords.every((word) => searchable.includes(word))) return null;
+
+          let score = 0;
+          if (label === normalizedQuery) score += 100;
+          if (label.startsWith(normalizedQuery)) score += 60;
+          if (label.includes(normalizedQuery)) score += 35;
+          score += queryWords.filter((word) => label.includes(word)).length * 12;
+          return { item, score };
+        })
+        .filter((match): match is { item: SearchItem; score: number } => match !== null)
+        .sort((a, b) => b.score - a.score || a.item.label.localeCompare(b.item.label))
+        .slice(0, 8)
+        .map((match) => match.item);
+    };
+
+    const renderResults = () => {
+      visibleItems = findMatches(input.value);
+      activeIndex = -1;
+      results.replaceChildren();
+
+      const heading = document.createElement('div');
+      heading.className = 'site-search-heading';
+      heading.textContent = input.value.trim() ? 'Search results' : 'Popular packaging';
+      results.append(heading);
+
+      if (!visibleItems.length) {
+        const empty = document.createElement('div');
+        empty.className = 'site-search-empty';
+        empty.innerHTML = '<strong>No matching packaging found.</strong><span>Try a product, material, or box style.</span>';
+        results.append(empty);
+
+        const browse = document.createElement('a');
+        browse.className = 'site-search-browse';
+        browse.href = '/industries';
+        browse.textContent = 'Browse all packaging categories →';
+        results.append(browse);
+      } else {
+        visibleItems.forEach((item) => {
+          const link = document.createElement('a');
+          link.href = item.href;
+          link.dataset.searchResult = 'true';
+          link.className = 'site-search-result';
+          link.setAttribute('role', 'option');
+          link.setAttribute('aria-selected', 'false');
+
+          const copy = document.createElement('span');
+          copy.className = 'site-search-result-copy';
+          const label = document.createElement('strong');
+          label.textContent = item.label;
+          const description = document.createElement('span');
+          description.textContent = item.description;
+          copy.append(label, description);
+
+          const type = document.createElement('span');
+          type.className = 'site-search-result-type';
+          type.textContent = item.type;
+          link.append(copy, type);
+          results.append(link);
+        });
+      }
+
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    };
+
+    input.addEventListener('focus', renderResults);
+    input.addEventListener('input', renderResults);
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (results.hidden) renderResults();
+        setActiveResult(activeIndex + 1);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (results.hidden) renderResults();
+        setActiveResult(activeIndex - 1);
+      } else if (event.key === 'Enter' && activeIndex >= 0) {
+        event.preventDefault();
+        const activeItem = visibleItems[activeIndex];
+        if (activeItem) window.location.assign(activeItem.href);
+      } else if (event.key === 'Escape') {
+        closeResults();
+      }
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const matches = findMatches(input.value);
+      if (input.value.trim() && matches[0]) {
+        window.location.assign(matches[0].href);
+      } else {
+        renderResults();
+      }
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (!form.contains(event.target as Node)) closeResults();
+    });
+  });
+</script>
+
 <style>
   .apex-home-theme-header > div:first-child {
     border-bottom: 1px solid rgba(225, 184, 77, 0.35);
@@ -494,5 +678,124 @@ const isServicesActive = pathname === '/services' || pathname.startsWith('/servi
     height: 2px;
     background: #e1b84d;
     content: '';
+  }
+
+  :global(.site-search-results) {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    right: 0;
+    left: 0;
+    z-index: 80;
+    max-height: min(31rem, calc(100vh - 10rem));
+    overflow-y: auto;
+    border: 1px solid #e7dfcd;
+    border-radius: 0.85rem;
+    background: white;
+    box-shadow: 0 20px 46px rgba(15, 13, 10, 0.2);
+    color: #181713;
+  }
+
+  :global(.site-search-results[hidden]) {
+    display: none;
+  }
+
+  :global(.site-search-heading) {
+    padding: 0.8rem 1rem 0.55rem;
+    border-bottom: 1px solid #eee8dc;
+    background: #faf8f3;
+    color: #8c6800;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  :global(.site-search-result) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f0ece4;
+    transition: background-color 120ms ease;
+  }
+
+  :global(.site-search-result:hover),
+  :global(.site-search-result[data-active='true']) {
+    background: #fff8df;
+  }
+
+  :global(.site-search-result-copy) {
+    min-width: 0;
+  }
+
+  :global(.site-search-result-copy strong),
+  :global(.site-search-result-copy span) {
+    display: block;
+  }
+
+  :global(.site-search-result-copy strong) {
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+
+  :global(.site-search-result-copy span) {
+    margin-top: 0.18rem;
+    overflow: hidden;
+    color: #6f6a60;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  :global(.site-search-result-type) {
+    flex: none;
+    color: #9a7200;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  :global(.site-search-empty) {
+    padding: 1.1rem 1rem 0.65rem;
+  }
+
+  :global(.site-search-empty strong),
+  :global(.site-search-empty span) {
+    display: block;
+  }
+
+  :global(.site-search-empty span) {
+    margin-top: 0.25rem;
+    color: #6f6a60;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  :global(.site-search-browse) {
+    display: block;
+    padding: 0.65rem 1rem 1rem;
+    color: #8c6800;
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+
+  @media (max-width: 1023px) {
+    :global(.site-search-results) {
+      top: calc(100% + 0.5rem);
+      max-height: min(27rem, calc(100vh - 7rem));
+      text-align: left;
+    }
+
+    :global(.site-search-result) {
+      padding: 0.9rem;
+    }
+
+    :global(.site-search-result-type) {
+      display: none;
+    }
   }
 </style>
