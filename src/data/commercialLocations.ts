@@ -942,5 +942,91 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom mailer boxes: print, inserts, and order quantities', href: '/blog/custom-mailer-boxes-ecommerce-print-inserts-moq', description: 'Compare mailer construction, print options, protective inserts, and quoting details before approving a kit format.' },
     ctaHeading: 'Request a Denver packaging quote for your actual product mix.',
     ctaLead: 'Send your SKU dimensions, kit combinations, quantities, artwork, and delivery ZIP code. Include receiving access and the required arrival date so Apex can review box sizes, protection, and freight together.'
+  },
+{
+  "slug": "san-diego-custom-packaging",
+  "city": "San Diego",
+  "region": "California",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging San Diego",
+  "title": "Custom Packaging San Diego | Boxes & Demo Kit Inserts",
+  "description": "Request custom packaging for San Diego: printed boxes, demonstration kit inserts and shipping cases. Quote quantities, samples and delivery to your ZIP code.",
+  "eyebrow": "San Diego custom packaging · Delivery quotes",
+  "heading": "Custom packaging for San Diego demonstration kits and product shipments.",
+  "lead": "Give every component a defined place before your next customer demonstration or product shipment. Apex quotes custom printed boxes, fitted inserts, and outer shipping cases for San Diego businesses.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box printed with green Terralis branding and contour-line artwork",
+  "buyingContext": "A demonstration kit has to arrive intact and make sense when opened. For a San Diego team sending sample devices or product assortments, the packaging brief should show the main item, cables, accessories, and printed instructions together. Identify which components are removed during a demonstration and whether the kit is returned afterward. Separate a presentation box used by a sales representative from an outer carton handled by a parcel carrier. For deliveries in San Diego, Carlsbad, or Chula Vista, specify each receiving address and quantity allocation so the quote can account for dock access and split shipments.",
+  "ctaHeading": "Request a San Diego quote for your complete product kit.",
+  "ctaLead": "Send component dimensions, weights, order quantities, artwork, and the delivery ZIP code. Include the demonstration sequence, return-shipping needs, and required arrival date to help define the box and insert specification.",
+  "priorities": [
+    {
+      "title": "Map the kit before sizing the box",
+      "description": "Provide an inventory of every component, including chargers, spare parts, and literature. Set compartment sizes from actual samples and allow finger access so recipients can remove items without pulling on cables."
+    },
+    {
+      "title": "Distinguish presentation from transit protection",
+      "description": "Describe whether the printed box travels inside a separate shipping carton. Review cushioning and closure with the fully packed kit; a neat presentation alone does not establish parcel-shipping performance."
+    },
+    {
+      "title": "Define the return journey",
+      "description": "If demonstration units come back to your San Diego team, include repacking instructions, space for a return label, and the intended number of uses. Ask for samples to assess insert wear and repeat closure before approving a reusable format."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed boxes for demonstration kits",
+      "href": "/services/mailer-boxes",
+      "description": "Compare die-cut mailers for product samples and accessory assortments. Confirm internal clearance, opening direction, print placement, and whether an outer shipper is needed."
+    },
+    {
+      "title": "Fitted inserts for components",
+      "href": "/services/protective-packaging",
+      "description": "Review partitions and cushioning around product geometry, surface finish, and removal access. Identify any electrostatic sensitivity or special handling requirement before choosing materials."
+    },
+    {
+      "title": "Outer corrugated shipping cases",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote an outer carton around the complete presentation pack, packed weight, handling route, and stacking conditions. Include individual parcel orders and multi-kit replenishment cases separately."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the kit and delivery brief",
+      "description": "List components, dimensions, weights, quantities, artwork status, and receiving ZIP codes. State whether orders go to one San Diego location or several county addresses, with the required date for each."
+    },
+    {
+      "title": "Review a complete packed sample",
+      "description": "Check the opening sequence, component fit, label space, and repacking procedure. Agree on any handling or transit testing and approve the print proof before releasing production."
+    },
+    {
+      "title": "Approve pricing and repeat-order details",
+      "description": "Confirm tooling, sample charges, unit pricing, freight scope, and schedule in the quote. Retain the approved drawing and artwork revision, and identify components that may change in future kit versions."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom boxes for San Diego delivery?",
+      "a": "Yes. Send the box dimensions, construction, quantity, artwork status, delivery ZIP code, and required date. Production availability, minimum quantity, and freight are confirmed against the specification."
+    },
+    {
+      "q": "Can I order inserts for a demonstration kit with several accessories?",
+      "a": "Submit the dimensions and weights of every component, preferably with representative samples. Insert options can be reviewed for fit, separation, access, and any material restrictions. Approve a fully packed sample before production."
+    },
+    {
+      "q": "Can a demonstration box also be used for return shipping?",
+      "a": "That depends on the structure, closure, insert durability, product weight, and handling conditions. Describe the expected return process and number of uses. Review a sample and any agreed transit testing; do not assume a presentation box is suitable for repeated shipping."
+    },
+    {
+      "q": "Can one quote cover San Diego, Carlsbad, and Chula Vista?",
+      "a": "Provide each receiving address, quantity allocation, unloading access, and appointment requirements. Request separate freight assumptions for each destination and distinguish production timing from delivery estimates."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Protective inserts: foam, molded pulp, and corrugated",
+    "href": "/blog/protective-packaging-inserts-foam-molded-pulp-corrugated",
+    "description": "Compare insert materials and the product details needed to assess cushioning, fit, and presentation."
   }
+}
 ];
