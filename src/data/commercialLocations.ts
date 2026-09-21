@@ -942,5 +942,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Custom mailer boxes: print, inserts, and order quantities', href: '/blog/custom-mailer-boxes-ecommerce-print-inserts-moq', description: 'Compare mailer construction, print options, protective inserts, and quoting details before approving a kit format.' },
     ctaHeading: 'Request a Denver packaging quote for your actual product mix.',
     ctaLead: 'Send your SKU dimensions, kit combinations, quantities, artwork, and delivery ZIP code. Include receiving access and the required arrival date so Apex can review box sizes, protection, and freight together.'
+  },
+  {
+    slug: 'portland-custom-packaging',
+    city: 'Portland',
+    region: 'Oregon',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Portland',
+    title: 'Custom Packaging Portland | Retail Boxes & Mailers',
+    description: 'Quote custom packaging for Portland, Oregon: printed mailers, retail assortment boxes and protective inserts with quantities, proofs and delivery details.',
+    eyebrow: 'Portland custom packaging · Oregon delivery quotes',
+    heading: 'Custom packaging for Portland retail assortments and online orders.',
+    lead: 'Turn your product assortment into a clear packaging brief. Apex quotes custom printed mailers, corrugated cases, and fitted inserts for Portland businesses shipping individual products, curated gift sets, and wholesale orders.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and printed contour lines',
+    buyingContext: 'A Portland shop selling the same goods over the counter and online needs to account for two different packing jobs. A gift set may need an organized presentation, while its parcel shipment needs secure closure and protection. Start with the contents, including jars, wrapped products, printed cards, and any seasonal substitutions. For packaging deliveries to Portland, Beaverton, or Gresham, identify the actual ZIP code and whether the receiving point is a storefront or warehouse. Quote each address separately when stock is split between a shop and a fulfilment operation.',
+    priorities: [
+      { title: 'Build the box around changing assortments', description: 'Share the dimensions and weight of every item in your standard and seasonal sets. Review whether a common outer box with different inserts works, or whether distinct sizes reduce empty space and packing materials.' },
+      { title: 'Separate shelf presentation from parcel protection', description: 'Identify which packs go straight to a customer and which travel through a carrier network. Check whether the presentation box needs an outer shipping carton, then review the complete pack with the closure and shipping label in place.' },
+      { title: 'Keep delivery quantities practical for the shop', description: 'List available storage space, expected weekly usage, and quantities allocated to each Portland-area address. Ask for bundle dimensions and freight scope so flat-packed cartons can be received without blocking the stockroom.' }
+    ],
+    products: [
+      { title: 'Printed mailers for curated orders', href: '/services/mailer-boxes', description: 'Quote branded mailers for gift assortments and direct-to-customer sales. Supply the fullest product combination and printed-card dimensions before approving the internal box size.' },
+      { title: 'Shipping cases for retail replenishment', href: '/services/corrugated-boxes', description: 'Specify case quantities, packed weights, handling conditions, and label positions for wholesale shipments. Assess the outer carton separately from any individual product box inside.' },
+      { title: 'Inserts for jars and mixed product sets', href: '/services/protective-packaging', description: 'Review partitions or fitted protection where glass, hard edges, or finished surfaces can contact adjacent items. Check removal access and product movement using representative contents.' }
+    ],
+    process: [
+      { title: 'Send your Portland packaging brief', description: 'Include product photos, dimensions, weights, assortment combinations, quantities by size, and artwork status. Add the delivery ZIP code, unloading access, required arrival date, and any separate fulfilment address.' },
+      { title: 'Approve a complete packed sample', description: 'Check the insert, product arrangement, closure, printed artwork, and shipping-label area together. Review the most demanding assortment and agree on any handling or transit testing before production approval.' },
+      { title: 'Confirm the order and repeat-run specification', description: 'Record the approved drawing, board, print revision, inserts, and quantities. Confirm production timing and delivery charges in the quote, and retain the specification when ordering replacement stock.' }
+    ],
+    faqs: [
+      { q: 'Can Portland businesses request custom printed packaging from Apex?', a: 'Yes. Request a quote with the box style, internal dimensions, quantity, artwork, and Portland delivery ZIP code. Apex can review mailers, corrugated shipping cases, and protective inserts with production availability and freight confirmed for the order.' },
+      { q: 'Can one mailer hold several seasonal gift assortments?', a: 'A shared mailer may work when the contents have compatible dimensions and can be secured with suitable inserts. Send every intended combination and review packed samples. A second box size may be more practical when products differ substantially in size or weight.' },
+      { q: 'Can I split packaging delivery between Portland and Beaverton?', a: 'Include both addresses, quantities, receiving hours, and unloading access in the request. Ask for each delivery allocation and its freight scope to be itemized before ordering; the unit box price alone does not define split-delivery charges.' },
+      { q: 'What minimum order and lead time apply to Portland custom boxes?', a: 'The applicable minimum and schedule depend on dimensions, construction, print coverage, tooling, inserts, and quantity. Request sample timing, production timing, and a delivery estimate against your specific brief and required arrival date.' }
+    ],
+    relatedArticle: { title: 'Gift boxes: inserts, rigid packaging, and mailer options', href: '/blog/gift-boxes-inserts-rigid-mailer-packaging-guide', description: 'Compare gift-box structures and insert choices before settling on the presentation and shipping format for an assortment.' },
+    ctaHeading: 'Request a Portland packaging quote for your retail assortment.',
+    ctaLead: 'Send the product list, dimensions, quantities, artwork, and delivery ZIP code. Include seasonal substitutions and receiving details so Apex can quote the box, protection, and delivery plan together.'
   }
 ];
