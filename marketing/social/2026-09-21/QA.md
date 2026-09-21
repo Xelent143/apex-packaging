@@ -11,5 +11,5 @@
 - Included PNG inspected visually: 1024 × 1536, readable Apex branding, plausible soap packaging concepts, no visible border artifacts. Additional two prompts are explicitly not generated.
 - No unsupported moisture protection, environmental certification, lead-time, MOQ or price claims in social copy. Portland copy does not imply an Apex facility there.
 - Instagram and YouTube CTAs include profile-link setup notes; video production still requires actual sample footage.
-- No application code changes; no application build needed. Staged whitespace check required before commit.
+- No application code changes; no application build needed. Normalized CSV line endings after the staged check flagged CRLF; final whitespace check passed.
 - No external social posts made.
