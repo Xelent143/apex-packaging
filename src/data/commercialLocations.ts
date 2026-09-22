@@ -982,5 +982,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Gift boxes: inserts, rigid packaging, and mailer options', href: '/blog/gift-boxes-inserts-rigid-mailer-packaging-guide', description: 'Compare gift-box structures and insert choices before settling on the presentation and shipping format for an assortment.' },
     ctaHeading: 'Request a Portland packaging quote for your retail assortment.',
     ctaLead: 'Send the product list, dimensions, quantities, artwork, and delivery ZIP code. Include seasonal substitutions and receiving details so Apex can quote the box, protection, and delivery plan together.'
+  },
+  {
+    slug: 'philadelphia-custom-packaging',
+    city: 'Philadelphia',
+    region: 'Pennsylvania',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Philadelphia',
+    title: 'Custom Packaging Philadelphia | Printed Boxes & Kits',
+    description: 'Quote custom packaging for Philadelphia: printed mailers, branded kit boxes and shipping cases with fitted protection, artwork review and delivery planning.',
+    eyebrow: 'Philadelphia custom packaging · Pennsylvania delivery quotes',
+    heading: 'Custom packaging for Philadelphia branded kits and bulk deliveries.',
+    lead: 'Order packaging around the way your kits will be distributed. Apex quotes printed mailers, corrugated shipping cases, and protective inserts for Philadelphia businesses preparing customer welcome packs, promotional kits, and event materials.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated shipping box with green Terralis branding and contour-line printing',
+    buyingContext: 'A Philadelphia kit program can involve individual parcels, cartons delivered to an office, and a bulk shipment to an event receiving point. Those destinations need different packing and labeling decisions even when the kit contents match. Supply the final Philadelphia ZIP code and receiving instructions with your brief. If quantities also go to King of Prussia or across the Delaware River to Camden or Cherry Hill, list those addresses separately so the quote identifies each allocation and delivery scope.',
+    priorities: [
+      { title: 'Keep the kit contents and printed version aligned', description: 'List each item, its dimensions, and the quantity per kit. Identify versions with different brochures, accessories, or regional inserts so the box layout can be reviewed against every intended combination.' },
+      { title: 'Choose the pack for its distribution method', description: 'An individually shipped welcome kit and a case of kits handed out at an event face different handling. Review the mailer closure, internal restraint, and need for a shipping overbox; specify how many finished kits each bulk case must hold.' },
+      { title: 'Quote the receiving point, not just the city', description: 'For a Philadelphia office or event destination, provide the receiving contact, permitted delivery window, and unloading arrangements. Separate the required arrival date from the event date and ask which freight and handling charges the quote includes.' }
+    ],
+    products: [
+      { title: 'Printed mailers for welcome and promotional kits', href: '/services/mailer-boxes', description: 'Coordinate the inside dimensions, opening sequence, artwork, and label area around the complete kit. Request quantities by printed version so common construction and separate artwork costs can be assessed.' },
+      { title: 'Corrugated cases for bulk kit deliveries', href: '/services/corrugated-boxes', description: 'Specify units per case, packed weight, carton markings, and any stacking requirements. Include the size of the finished kit rather than the unpacked products when sizing a master carton.' },
+      { title: 'Fitted inserts for mixed components', href: '/services/protective-packaging', description: 'Review dividers or fitted protection for bottles, accessories, and presentation pieces. Check movement, removal access, and clearance with representative products before approving the layout.' }
+    ],
+    process: [
+      { title: 'Send the Philadelphia kit brief', description: 'Share the contents list, dimensions, weights, quantities by version, artwork files, and assembly plan. State whether the request covers empty packaging only or whether additional packing services need to be discussed.' },
+      { title: 'Review the packed sample and proof', description: 'Confirm fit with all items, printed cards, and protective material in place. Check the artwork revision and shipping-label position, and agree on any transit evaluation needed for the intended distribution method.' },
+      { title: 'Approve quantities and delivery details', description: 'Confirm the box specification, production schedule, freight scope, and receiving instructions before placing the order. Retain the approved dieline and proof so repeat orders reference the same kit version.' }
+    ],
+    faqs: [
+      { q: 'Can I request custom printed boxes for Philadelphia delivery?', a: 'Yes. Send the box style, internal dimensions, quantity, print requirements, and delivery ZIP code. Apex can review printed mailers, corrugated cases, and inserts, with availability, pricing, and delivery terms confirmed in the quote.' },
+      { q: 'Can the same kit box work for parcel shipping and event handouts?', a: 'It may, but the complete packed kit needs to be assessed for both uses. A presentation box suitable for handouts may require a shipping overbox or additional protection for parcel handling. Include both distribution methods in the brief.' },
+      { q: 'Can a quote cover Philadelphia and New Jersey delivery addresses?', a: 'Provide each Philadelphia, Camden, or Cherry Hill receiving address and the quantity assigned to it. Ask for freight, delivery appointments, and unloading requirements to be itemized for each destination before approving the order.' },
+      { q: 'How early should I order packaging for a Philadelphia event?', a: 'Start with the required arrival date and request a schedule that includes sampling, artwork approval, production, and transit. Timing depends on the structure, print, tooling, quantity, and delivery arrangements; confirm the achievable dates before committing to the event pack.' }
+    ],
+    relatedArticle: { title: 'Product launch packaging: samples and repeat orders', href: '/blog/product-launch-packaging-small-runs-samples-reorders', description: 'Prepare the sample, artwork, and order details needed to move a branded kit from a trial run to repeat production.' },
+    ctaHeading: 'Request a Philadelphia custom packaging quote for your next kit run.',
+    ctaLead: 'Send the kit contents, quantities by version, artwork, and receiving ZIP codes. Include the required arrival date and distribution method so Apex can quote the box, protection, and delivery scope together.'
   }
 ];
