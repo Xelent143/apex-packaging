@@ -982,5 +982,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Gift boxes: inserts, rigid packaging, and mailer options', href: '/blog/gift-boxes-inserts-rigid-mailer-packaging-guide', description: 'Compare gift-box structures and insert choices before settling on the presentation and shipping format for an assortment.' },
     ctaHeading: 'Request a Portland packaging quote for your retail assortment.',
     ctaLead: 'Send the product list, dimensions, quantities, artwork, and delivery ZIP code. Include seasonal substitutions and receiving details so Apex can quote the box, protection, and delivery plan together.'
+  },
+  {
+    slug: 'austin-custom-packaging',
+    city: 'Austin',
+    region: 'Texas',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Austin',
+    title: 'Custom Packaging Austin | Printed Boxes & Launch Kits',
+    description: 'Quote custom packaging for Austin businesses: printed mailers, shipping boxes and inserts for product launches, ecommerce reorders and Central Texas delivery.',
+    eyebrow: 'Austin custom packaging · Central Texas delivery planning',
+    heading: 'Custom packaging for Austin product launches and repeat orders.',
+    lead: 'Build a packaging quote around the kit you are launching and the orders that follow. Apex helps Austin buyers specify printed mailers, shipping cartons, and protective inserts with quantities and receiving details agreed before production.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated box with green branding and contour-line printing, illustrating custom packaging for Austin product launches',
+    buyingContext: 'An Austin launch may need a presentation kit for a product demonstration and a simpler box for ongoing online orders. Quoting both versions together makes the differences visible: insert layout, print coverage, assembly time, packed weight, and the number of cartons to store. Specify whether packaging is going to an Austin office, a Round Rock fulfilment address, or a Cedar Park receiving location; each destination needs its own quantity and unloading details. Apex reviews these requirements as part of the quote rather than assuming every delivery has a warehouse dock.',
+    priorities: [
+      { title: 'Separate launch quantities from replenishment', description: 'List demonstration kits and regular shipping boxes as separate line items. A short launch run with several components can need a different structure and print approach from the recurring single-product order.' },
+      { title: 'Keep accessories accounted for', description: 'Provide a component list for the main product, cables, instructions, and promotional pieces. Insert cavities and finger access should support a complete kit and a repeatable packing sequence.' },
+      { title: 'Plan Central Texas receiving', description: 'Include the delivery ZIP code, appointment rules, dock availability, and storage limit. If Austin and Round Rock locations share an order, identify their allocations before freight is priced.' }
+    ],
+    products: [
+      { title: 'Printed launch-kit mailers', href: '/services/mailer-boxes', description: 'Custom corrugated mailers for presentation kits and ecommerce orders, with inside dimensions based on the full packed contents.' },
+      { title: 'Protective inserts for multi-piece kits', href: '/services/protective-packaging', description: 'Corrugated or foam components reviewed against product fragility, accessory count, and the intended shipment. Identify any special handling requirements in the RFQ.' },
+      { title: 'Shipping cartons for repeat orders', href: '/services/corrugated-boxes', description: 'Made-to-size outer cartons for individual parcels or grouped kits, specified around packed weight, case count, and stacking needs.' }
+    ],
+    process: [
+      { title: 'Send the kit and shipment details', description: 'Share product dimensions, component photos, packed weight, launch quantity, expected reorder volume, artwork status, Central Texas delivery address, and required date.' },
+      { title: 'Review fit before approving print', description: 'Ask for the appropriate sample path to check accessory placement, closure, and assembly. Confirm which launch features should remain in the recurring packaging specification.' },
+      { title: 'Confirm quantities and destinations', description: 'Approve the dieline, artwork revision, material specification, carton packing, and destination split. Confirm the quoted production and freight schedule before committing to a launch date.' }
+    ],
+    faqs: [
+      { q: 'Can I quote launch kits and regular ecommerce boxes together for Austin?', a: 'Yes. Send a separate quantity and contents list for each version. Apex can review whether the formats can share dimensions or components and explain which differences affect the quote.' },
+      { q: 'Can packaging be delivered to an Austin office without a loading dock?', a: 'Include that requirement with the delivery address and order quantity. Access, unloading arrangements, and any receiving appointment must be reviewed during quoting; warehouse delivery assumptions may not suit an office.' },
+      { q: 'What is the minimum order for custom boxes in Austin?', a: 'Minimum quantities depend on the box structure, material, print method, and finishing. Send your target launch and reorder quantities so Apex can assess a suitable production option and confirm the minimum in the quote.' },
+      { q: 'How do I plan delivery before an Austin product launch?', a: 'Provide the required in-hand date, artwork readiness, sample needs, and final receiving address. Ask the quote to distinguish proof approval, production, and freight timing. The schedule should be confirmed for your project before a launch commitment is made.' }
+    ],
+    relatedArticle: { title: 'Plan packaging for a small product launch', href: '/blog/product-launch-packaging-small-runs-samples-reorders', description: 'Review small-run specifications, sample decisions, and reorder planning before approving launch packaging.' },
+    ctaHeading: 'Get an Austin packaging quote for the launch and the reorder.',
+    ctaLead: 'Send the kit contents, dimensions, quantities, artwork status, delivery ZIP code, and required date. Ask Apex to quote presentation packaging and ongoing shipping needs together.'
   }
 ];
