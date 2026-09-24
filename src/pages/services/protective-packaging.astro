@@ -9,7 +9,7 @@ import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../..
 const faqs = [
   { q: 'How are custom foam inserts priced?', a: 'By material grade, density, and cavity complexity. CAD-driven cutting (CNC) on PU and PE; water-jet on cross-linked PE. Setup fee on first design; per-unit pricing on production runs.' },
   { q: 'Can Apex spec to an ISTA drop-test class?', a: 'Yes — Apex\'s protective-packaging team specs to ISTA 1A, 2A, 3A, and Amazon 6-class on request. Documentation provided with the spec.' },
-  { q: 'What is the lead time on custom foam?', a: '7–10 business days from design approval. Rush available.' },
+  { q: 'What is the lead time on custom foam?', a: 'Production and shipping time varies by foam grade, density, cavity complexity, quantity, approvals, and delivery destination. Apex confirms timing in the product-specific quotation.' },
   { q: 'Do you supply Instapak®?', a: 'Yes — both the equipment and the foam components, on a service agreement.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Protective Packaging',url:'/services/protective-packaging'}]);
@@ -17,13 +17,13 @@ const service = buildServiceSchema({ name:'Protective packaging Canada', descrip
 ---
 <BaseLayout
   title="Protective Packaging Canada — Foam Inserts, Void Fill, VCI"
-  description="Custom foam inserts, Instapak, bubble wrap, air pillows, VCI rust-prevention paper. Specified to protection level and product weight. Manufactured in Canada."
+  description="Custom foam inserts, void fill, VCI corrosion protection and cushioning systems specified to the product, shipping environment and required protection level."
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <PageHeader
     eyebrow="Service · Protective"
     heading="Protective packaging — engineered to the protection level, not pulled off a shelf."
-    lead="For Canadian shippers moving fragile, high-value, or rust-prone product. Apex specifies, manufactures, and supplies protective packaging that matches the product's weight, drop-test class, and shipping environment."
+    lead="For businesses in Canada, the United States, and international markets moving fragile, high-value, or rust-prone products. Apex specifies and coordinates protective packaging that matches product weight, the required test class, handling conditions, and delivery route."
   />
 
   <section class="py-16 md:py-24">
@@ -35,7 +35,7 @@ const service = buildServiceSchema({ name:'Protective packaging Canada', descrip
         <li><strong>ESD / anti-static foam</strong> — for electronics, PCBs, sensitive components.</li>
         <li><strong>Cross-linked PE</strong> — fine-cell foam for premium presentation.</li>
       </ul>
-      <p>Apex's design team converts product CAD or physical samples into a cavity-cut foam insert. Material grade and density are selected to product weight and drop-test requirement. Typical lead time: 7–10 business days from approved design.</p>
+      <p>Apex's design team converts product CAD or physical samples into a cavity-cut foam insert. Material grade and density are selected to product weight and drop-test requirements. Production and delivery timing is confirmed after the material, cavity design, quantity, approval path, and destination are known.</p>
 
       <h2>Void fill</h2>
       <table>

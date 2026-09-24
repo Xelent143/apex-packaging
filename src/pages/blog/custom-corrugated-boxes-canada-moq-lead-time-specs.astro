@@ -25,11 +25,11 @@ const article = buildArticleSchema({
 const faq = buildFAQSchema([
   {
     q: 'What is the minimum order quantity for custom corrugated boxes?',
-    a: 'Minimum order quantity depends on the box style, print method, and board grade. Apex can support 100-unit stock box orders and low-MOQ custom printed corrugated runs when the design and production setup are practical.'
+    a: 'Minimum order quantity depends on the box style, dimensions, print method, board grade, quantity, and delivery destination. Apex provides a product-specific minimum with the quotation.'
   },
   {
     q: 'How long do custom corrugated boxes take in Canada?',
-    a: 'Typical Apex production timing is 7-14 days after artwork sign-off, with quote and sample timing depending on dieline complexity, print approvals, and material availability.'
+    a: 'Production and shipping timing depends on box style, dimensions, board grade, print method, quantity, approvals, and delivery destination. Apex confirms the schedule in a product-specific quotation.'
   },
   {
     q: 'What specs should I send before requesting a corrugated box quote?',
@@ -55,7 +55,7 @@ const faq = buildFAQSchema([
     <div class="container max-w-default prose-apex">
       <p><strong>Custom corrugated boxes in Canada</strong> are usually bought under pressure: a product launch, a damaged shipment, a new SKU, a distributor requirement, or a buyer asking for FSC-certified packaging before the next purchase order is released. The fastest path to a usable quote is not a longer email. It is a cleaner spec.</p>
 
-      <p>Apex Packaging Solutions builds corrugated boxes for Canadian buyers who need practical numbers early: quantities, lead time, strength rating, print options, and whether the order can be produced without forcing a 5,000-unit commitment. Use this guide before you request pricing for <a href="/services/corrugated-boxes">custom corrugated boxes</a>, <a href="/services/mailer-boxes">mailer boxes</a>, or mixed packaging programs that also include <a href="/services/polybags">custom polybags</a>.</p>
+      <p>Apex Packaging Solutions supplies corrugated packaging for buyers in Canada, the United States, and international markets who need practical specifications early: quantity, schedule, strength rating, print options, and delivery requirements. Use this guide before requesting pricing for <a href="/services/corrugated-boxes">custom corrugated boxes</a>, <a href="/services/mailer-boxes">mailer boxes</a>, or mixed packaging programs that also include <a href="/services/polybags">custom polybags</a>.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
         <img src="/images/blog/custom-corrugated-boxes-generated.png" alt="Generated image of custom corrugated boxes, board samples, and packaging specification tools." width="1200" height="675" loading="eager" decoding="async" class="w-full" />
@@ -95,17 +95,17 @@ const faq = buildFAQSchema([
       <h2>MOQ depends on setup, print, and material</h2>
       <p>Minimum order quantity is not one fixed number across every corrugated project. A plain stock-size RSC carton can be practical at lower quantities. A custom die-cut printed mailer needs tooling, artwork checks, and press setup, so the minimum usually rises.</p>
 
-      <p>Apex supports low-MOQ packaging programs because many buyers are testing SKUs, launching seasonal kits, or solving a short production run. Use these planning ranges before requesting a quote:</p>
+      <p>Apex supports lower-volume packaging programs for buyers testing SKUs, launching seasonal kits, or solving a short production run. The practical minimum still depends on the exact specification:</p>
 
       <table>
         <thead>
           <tr><th>Order type</th><th>Typical planning range</th><th>What changes the MOQ</th></tr>
         </thead>
         <tbody>
-          <tr><td>Plain RSC shipping cartons</td><td>100+ units when the size and board are practical</td><td>Custom size, double-wall board, delivery timing</td></tr>
-          <tr><td>Custom-size corrugated boxes</td><td>250-500+ units</td><td>Tooling, board yield, setup time</td></tr>
-          <tr><td>Printed corrugated boxes</td><td>250-1,000+ units</td><td>Ink count, print method, artwork complexity</td></tr>
-          <tr><td>Die-cut mailer boxes</td><td>500+ units in many cases</td><td>Dieline complexity, locking tabs, coatings, inside print</td></tr>
+          <tr><td>Plain RSC shipping cartons</td><td>Quoted for the requested size, board, and quantity</td><td>Custom size, double-wall board, delivery timing</td></tr>
+          <tr><td>Custom-size corrugated boxes</td><td>Quoted after structure and board yield are reviewed</td><td>Tooling, board yield, setup time</td></tr>
+          <tr><td>Printed corrugated boxes</td><td>Quoted after print coverage and method are confirmed</td><td>Ink count, print method, artwork complexity</td></tr>
+          <tr><td>Die-cut mailer boxes</td><td>Quoted after the dieline and finishing requirements are reviewed</td><td>Dieline complexity, locking tabs, coatings, inside print</td></tr>
         </tbody>
       </table>
 
@@ -118,7 +118,7 @@ const faq = buildFAQSchema([
         <li><strong>Day 0:</strong> buyer sends dimensions, product weight, quantity, print files, and delivery address.</li>
         <li><strong>Day 1:</strong> Apex reviews the spec, flags missing details, and confirms whether a sample or dieline is needed.</li>
         <li><strong>Day 2-3:</strong> artwork is checked for bleed, panel orientation, barcode placement, and print limits.</li>
-        <li><strong>After approval:</strong> production starts, with typical custom corrugated jobs shipping in 7-14 days depending on the run.</li>
+        <li><strong>After approval:</strong> production starts according to the product-specific schedule confirmed in the quotation.</li>
       </ol>
 
       <p>If timing is tight, tell the supplier the hard date before the quote is built. A rush job may need a simpler style, fewer print colors, a stock board grade, or a split shipment.</p>

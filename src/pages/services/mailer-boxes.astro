@@ -7,23 +7,23 @@ import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
 const faqs = [
-  { q: 'What is the minimum order on custom-printed mailers?', a: '250 units for flexo. 50 units for digital. Volume pricing kicks in at 1,000.' },
+  { q: 'What is the minimum order on custom-printed mailers?', a: 'Minimum order quantities vary by structure, dimensions, material, printing method, finish, quantity, and delivery destination. Contact Apex for a mailer-specific quotation.' },
   { q: 'What artwork files do you need?', a: 'Vector logos (AI, EPS, or PDF). Brand colours as Pantone codes. Apex\'s design team can convert raster art to print-ready vector — included with order.' },
-  { q: 'How does the price compare to overseas suppliers?', a: 'For runs under 5,000 units, Apex is typically cost-comparable or cheaper after freight and duty. Above 10,000 units, overseas can win on unit cost but loses 4–6 weeks of lead time and incurs higher tariff risk.' },
+  { q: 'Where are Apex mailer boxes produced?', a: 'Approved projects are produced through qualified overseas facilities. Apex coordinates the dieline, artwork, sampling, production, quality review, freight, and delivery.' },
   { q: 'Can I print on the inside of the box?', a: 'Yes — one-colour or full-colour interior. Adds about 8–12% to per-unit cost depending on coverage.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Mailer Boxes',url:'/services/mailer-boxes'}]);
-const service = buildServiceSchema({ name:'Custom mailer boxes Canada', description:'Custom-printed mailer boxes for Canadian e-commerce. Tuck-top, magnetic close, ZIP-tear. MOQ from 250.', url:'/services/mailer-boxes'});
+const service = buildServiceSchema({ name:'Custom mailer and rigid boxes', description:'Custom-printed mailers, rigid presentation boxes, magnetic closures, drawer boxes, and premium retail structures managed from design through delivery.', url:'/services/mailer-boxes'});
 ---
 <BaseLayout
   title="Custom Mailer Boxes Canada — Printed Shipping Boxes"
-  description="Custom-printed mailer boxes manufactured in Canada. Tuck-top, magnetic close, ZIP-tear. MOQ from 250 units, full-colour exterior and interior print, 7–14 day lead time."
+  description="Custom-printed corrugated mailers, rigid boxes, magnetic closures and premium presentation packaging managed from design and sampling through overseas production and delivery."
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <PageHeader
     eyebrow="Service · Mailer Boxes"
-    heading="Custom mailer boxes — branded outside, printed inside, shipped in 7–14 days."
-    lead="For Canadian e-commerce and D2C brands that want a real unboxing without a 5,000-unit MOQ or a 6-week wait. Apex manufactures custom-printed mailer boxes domestically with MOQ from 250 units."
+    heading="Custom mailer and rigid boxes built around the unboxing experience."
+    lead="Apex supplies printed corrugated mailers, rigid presentation boxes, magnetic closures, drawers, and premium retail structures for businesses in Canada, the United States, and international markets. Qualified overseas facilities produce approved projects while Apex manages design, sampling, production, quality coordination, and delivery."
     imageSrc="/images/services/mailer-boxes-generated-banner.webp"
     imageAlt="Apex Packaging custom mailer box banner with headline, feature icons, and branded black, kraft, and white mailer boxes."
     imageIsFullBanner={true}
@@ -59,9 +59,9 @@ const service = buildServiceSchema({ name:'Custom mailer boxes Canada', descript
       <h2>Sample process</h2>
       <ol>
         <li>Send brand assets (logo, brand colours, any reference photos).</li>
-        <li>Apex returns a structural dieline and a 3D mockup in 48–72 hours.</li>
+        <li>Apex prepares the structural dieline and 3D mockup on the schedule confirmed after reviewing the brief.</li>
         <li>Approve digitally, or order a physical pre-production sample.</li>
-        <li>On approval, full production runs 7–14 days.</li>
+        <li>On approval, Apex confirms the production and shipping schedule for the selected structure, material, print method, quantity, and destination.</li>
       </ol>
     </div>
   </section>
@@ -70,13 +70,13 @@ const service = buildServiceSchema({ name:'Custom mailer boxes Canada', descript
 
   <RelatedContent items={[
     { title:'Corrugated Boxes', href:'/services/corrugated-boxes', description:'Standard and custom corrugated shipping boxes.' },
-    { title:'Design Support', href:'/design-support', description:'Send a logo — get a dieline and 3D mockup in 48–72h.' },
+    { title:'Design Support', href:'/design-support', description:'Dielines, artwork preparation, proofing, and sample coordination.' },
     { title:'Sustainability', href:'/sustainability', description:'FSC, recycled, and compostable options.' }
   ]} />
 
   <CTABand
     heading="Send brand assets and dimensions."
-    lead="A dieline and quote come back the same business day."
+    lead="Send the structure, dimensions, artwork scope, quantity, destination, and required delivery date for a product-specific quotation."
     primaryCta={{ label: 'Request a quote', href: '/contact' }}
   />
 </BaseLayout>

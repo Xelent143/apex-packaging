@@ -8,22 +8,22 @@ import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../..
 
 const faqs = [
   { q: 'Do you supply machinery as well as film?', a: 'Apex supplies stretch and shrink film; machinery (stretch wrappers, case sealers) is referred to partner equipment suppliers. The pallet-program team can manage machinery selection alongside the consumables order.' },
-  { q: 'What is the typical lead time on bulk Gaylords?', a: '5–10 business days on stock sizes; 10–15 on custom-dieline Gaylords.' },
+  { q: 'What is the typical lead time on bulk Gaylords?', a: 'Production and shipping time varies by size, board construction, liner requirements, quantity, release schedule, and delivery destination. Apex confirms timing in the quotation.' },
   { q: 'Can Apex hold inventory against a blanket PO?', a: 'Yes — most bulk customers operate on quarterly blanket POs with scheduled releases. Apex stocks the agreed inventory and ships against release calls.' },
-  { q: 'Do you ship across all provinces?', a: 'Yes — national LTL and FTL. Bulk shipments typically go FTL on the customer\'s regular freight lane.' }
+  { q: 'Where does Apex deliver bulk packaging?', a: 'Apex coordinates bulk-packaging delivery in Canada, the United States, and international markets. Freight method, release schedule, and timing are quoted for the lane.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Industrial & Bulk',url:'/services/industrial-bulk-packaging'}]);
-const service = buildServiceSchema({ name:'Industrial bulk packaging Canada', description:'Gaylord boxes, stretch film, shrink film, edge protectors for Canadian plants shipping pallet quantities.', url:'/services/industrial-bulk-packaging'});
+const service = buildServiceSchema({ name:'Industrial and bulk packaging', description:'Gaylord boxes, stretch film, shrink film, liners, strapping, and edge protection for pallet and plant programs in Canada, the United States, and international markets.', url:'/services/industrial-bulk-packaging'});
 ---
 <BaseLayout
   title="Industrial & Bulk Packaging Canada — Gaylord, Stretch Film"
-  description="Bulk packaging for Canadian plants — Gaylord boxes, custom pallet wrap, stretch film, shrink film, edge protectors, void fill. Pallet-quantity pricing."
+  description="Industrial and bulk packaging including Gaylord boxes, liners, stretch and shrink film, strapping, edge protectors and scheduled-release programs."
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <PageHeader
     eyebrow="Service · Industrial & Bulk"
     heading="Industrial and bulk packaging — built for plants that ship pallet quantities."
-    lead="Apex supplies bulk corrugated, stretch film, shrink film, edge protectors, and ancillary supplies to Canadian manufacturers across automotive, food, electronics, pharmaceutical, and industrial supply. Pallet-quantity pricing, scheduled releases against a blanket PO, single account manager."
+    lead="Apex supplies bulk corrugated, stretch film, shrink film, liners, strapping, edge protectors, and related supplies for automotive, food, electronics, pharmaceutical, and industrial programs. Project specifications, release schedules, freight, and delivery are coordinated for Canada, the United States, and international destinations."
   />
 
   <section class="py-16 md:py-24">
@@ -75,7 +75,7 @@ const service = buildServiceSchema({ name:'Industrial bulk packaging Canada', de
 
   <CTABand
     heading="Need a bulk packaging audit?"
-    lead="Send your monthly volume, current spec, and freight lane. Apex's industrial team will respond within one business day."
+    lead="Send your monthly volume, current specification, destination, and freight requirements for a product-specific review."
     primaryCta={{ label: 'Contact the industrial team', href: '/contact' }}
   />
 </BaseLayout>

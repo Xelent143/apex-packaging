@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'Apex Packaging',
   url: 'https://apexpackagingsolutions.com',
   description:
-    'Apex Packaging Solutions is a Canadian custom-packaging manufacturer producing corrugated boxes and polybags with 7–14 day turnaround, 100-unit MOQs, in-house design support, and FSC-certified options.',
+    'Apex Packaging Solutions is a Canada-based custom packaging company providing custom boxes, rigid packaging, corrugated mailers, flexible pouches, paper bags and retail packaging for businesses across Canada, the United States and international markets. Through qualified overseas production facilities, Apex manages each project from structural design, artwork and sampling through production and doorstep delivery.',
   legalName: 'Apex Packaging Solutions',
   email: 'sales@apexpackagingsolutions.com',
   phone: '+1-905-595-1634',
@@ -32,6 +32,16 @@ export const siteConfig = {
     { slug: 'polybags', label: 'Polybags' },
     { slug: 'industrial-bulk-packaging', label: 'Industrial & Bulk' },
     { slug: 'protective-packaging', label: 'Protective Packaging' }
+  ],
+  offerCatalog: [
+    'Folding cartons and retail boxes',
+    'Corrugated and mailer boxes',
+    'Rigid and magnetic-closure boxes',
+    'Custom pouches and Mylar bags',
+    'Paper shopping bags',
+    'Food, bakery, pastry, cake and confectionery boxes',
+    'Window boxes, sleeves, trays and inserts',
+    'Custom printing and premium finishing options'
   ]
 };
 

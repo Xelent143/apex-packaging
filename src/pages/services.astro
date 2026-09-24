@@ -7,12 +7,12 @@ import CTABand from '../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema } from '../lib/schema';
 
 const services = [
-  { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', meta: 'RSC · FOL · die-cut', description: 'Single-wall ECT-32 and double-wall ECT-44 / 48. MOQ from 100 units on stock styles, 250 on custom-printed flexo.' },
-  { title: 'Mailer Boxes', href: '/services/mailer-boxes', meta: 'D2C · branded · printed', description: 'Custom-printed shipping boxes for Canadian e-commerce. Tuck-top, magnetic close, ZIP-tear. MOQ from 250 units.' },
+  { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', meta: 'RSC · FOL · die-cut', description: 'Single-wall, double-wall, RSC, FOL, die-cut, display, and mailer formats quoted to the product and shipping route.' },
+  { title: 'Mailer & Rigid Boxes', href: '/services/mailer-boxes', meta: 'D2C · rigid · magnetic', description: 'Printed corrugated mailers, rigid presentation boxes, magnetic closures, drawers, and premium retail structures.' },
   { title: 'Polybags', href: '/services/polybags', meta: 'LDPE · HDPE · anti-static', description: 'Flat, gusseted, wicket, slider, ZIP. 1.0 to 6.0 mil. Anti-static, FDA, and EN 13432 compostable options.' },
   { title: 'Industrial & Bulk', href: '/services/industrial-bulk-packaging', meta: 'Gaylord · stretch · shrink', description: 'Bulk corrugated, stretch and shrink film, edge protectors. Pallet-quantity pricing.' },
   { title: 'Protective Packaging', href: '/services/protective-packaging', meta: 'Foam · VCI · void fill', description: 'Custom-cut foam inserts, Instapak®, VCI rust-prevention paper. Specified to ISTA drop-test class.' },
-  { title: 'Design Support', href: '/design-support', meta: 'Dieline · 3D · print prep', description: 'Send a logo. Apex returns a print-ready dieline plus a 3D mockup within 48–72 hours.' }
+  { title: 'Design Support', href: '/design-support', meta: 'Dieline · 3D · print prep', description: 'Structural design, dielines, artwork preparation, proofing, samples, and production-ready files.' }
 ];
 
 const breadcrumb = buildBreadcrumbSchema([
@@ -21,14 +21,14 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 ---
 <BaseLayout
-  title="Custom Packaging Services Canada — Boxes, Polybags, Industrial"
-  description="Six packaging service lines: custom corrugated boxes, mailer boxes, polybags, industrial bulk packaging, protective packaging, and design support."
+  title="Custom Packaging Services | Boxes, Pouches, Bags & Finishes"
+  description="Explore custom cartons, corrugated mailers, rigid boxes, pouches, Mylar bags, paper bags, food packaging, inserts, printing and premium finishing from Apex Packaging."
   schemaBlocks={[breadcrumb]}
 >
   <PageHeader
     eyebrow="Services"
-    heading="Six service lines. One Canadian manufacturing footprint."
-    lead="Apex manufactures custom corrugated boxes, mailer boxes, polybags, industrial and bulk packaging, and protective packaging — and includes structural design support on every order over MOQ. Each service below has its own page with specs, MOQs, and lead times."
+    heading="Custom packaging managed from brief to delivery."
+    lead="Apex supplies folding cartons, retail boxes, corrugated mailers, rigid boxes, flexible pouches, paper bags, food packaging, inserts, printing, and premium finishes. Projects are produced through qualified overseas facilities and managed by Apex for customers in Canada, the United States, and international markets."
   />
   <ServiceMatrix heading="Pick the service that fits the job." services={services} />
   <RelatedContent

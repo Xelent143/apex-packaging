@@ -1,5 +1,11 @@
 import { siteConfig } from '../site.config';
 
+const globalServiceArea = [
+  { '@type': 'Country' as const, name: 'Canada' },
+  { '@type': 'Country' as const, name: 'United States' },
+  { '@type': 'AdministrativeArea' as const, name: 'International markets' }
+];
+
 export function buildOrganizationSchema() {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -20,24 +26,24 @@ export function buildOrganizationSchema() {
       postalCode: siteConfig.postalCode,
       addressCountry: siteConfig.addressCountry
     },
-    areaServed: { '@type': 'Country', name: 'Canada' },
+    areaServed: globalServiceArea,
     contactPoint: [{
       '@type': 'ContactPoint',
       contactType: 'sales',
       telephone: siteConfig.phone,
       email: siteConfig.email,
-      areaServed: 'CA',
+      areaServed: ['CA', 'US', 'International'],
       availableLanguage: ['English', 'French']
     }],
-    hasOfferCatalog: {
+    makesOffer: {
       '@type': 'OfferCatalog',
       name: 'Custom packaging services',
-      itemListElement: siteConfig.servicePages.map((s) => ({
+      itemListElement: siteConfig.offerCatalog.map((name) => ({
         '@type': 'Offer',
         itemOffered: {
-          '@type': 'Service',
-          name: s.label,
-          areaServed: { '@type': 'Country', name: 'Canada' },
+          '@type': 'Product',
+          name,
+          areaServed: globalServiceArea,
           provider: { '@id': `${siteConfig.url}/#organization` }
         }
       }))
@@ -89,7 +95,7 @@ export function buildServiceSchema(opts: {
     description: opts.description,
     url: new URL(opts.url, siteConfig.url).href,
     provider: { '@id': `${siteConfig.url}/#organization` },
-    areaServed: opts.areaServed ?? { '@type': 'Country', name: 'Canada' }
+    areaServed: opts.areaServed ?? globalServiceArea
   };
 }
 

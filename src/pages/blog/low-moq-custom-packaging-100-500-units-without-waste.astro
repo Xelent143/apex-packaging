@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Low MOQ Custom Packaging: How to Order 100-500 Units Without Waste';
-const description = 'A practical guide to low-MOQ custom packaging in Canada: when 100-500 unit runs work, what pushes costs up, and what specs buyers should send first.';
+const title = 'Low MOQ Custom Packaging: How to Control Setup and Waste';
+const description = 'A practical guide to the variables that shape minimum orders, cost, sampling, and production efficiency for custom packaging.';
 const url = '/blog/low-moq-custom-packaging-100-500-units-without-waste';
 const datePublished = '2026-06-11';
 
@@ -24,28 +24,28 @@ const article = buildArticleSchema({
 });
 const faq = buildFAQSchema([
   {
-    q: 'What counts as a low MOQ for custom packaging in Canada?',
-    a: 'For Apex, the practical low-MOQ range usually starts at 100 units on stock RSC corrugated boxes, 250 on custom-printed corrugated or mailer formats, and around 500 on custom polybags.'
+    q: 'What counts as a low MOQ for custom packaging?',
+    a: 'There is no universal low-MOQ number. Minimums vary by packaging style, size, material, printing method, quantity, tooling, and delivery destination. Apex confirms the minimum in a product-specific quotation.'
   },
   {
     q: 'Why do some low-volume packaging quotes still come back expensive?',
     a: 'Low volume does not remove setup time. New dies, heavy print coverage, multiple inserts, unusual materials, and repeated sample changes all add labour and make a short run less efficient.'
   },
   {
-    q: 'What should a buyer send to keep a 100-500 unit run viable?',
+    q: 'What should a buyer send to keep a lower-volume run viable?',
     a: 'Send packed dimensions, unit weight, quantity target, artwork scope, material preference, delivery postal code, and the date the packaging must be in hand before requesting pricing.'
   }
 ]);
 ---
 <BaseLayout
-  title="Low MOQ Custom Packaging Canada — 100 to 500 Units"
+  title="Low MOQ Custom Packaging | Setup, Samples & Waste"
   description={description}
   image="/images/blog/low-moq-packaging-generated.png"
   schemaBlocks={[breadcrumb, article, faq]}
 >
   <PageHeader
     eyebrow="Knowledge base · Low MOQ"
-    heading="Low MOQ custom packaging — how to order 100-500 units without buying waste."
+    heading="Low MOQ custom packaging — how to control setup and avoid waste."
     lead="Short-run packaging works when the structure stays controlled, the artwork is ready, and the buyer sends the packed spec early enough to avoid extra sample loops."
     imageSrc="/images/blog/low-moq-packaging-generated.png"
     imageAlt="Technical diagram showing the four checkpoints for low-MOQ custom packaging: choose the right run type, keep the structure standard, send a complete specification, and lock the reorder notes."
@@ -53,16 +53,16 @@ const faq = buildFAQSchema([
 
   <section class="py-12 md:py-20">
     <div class="container max-w-default prose-apex">
-      <p><strong>Low MOQ custom packaging</strong> usually means <strong>100 units on stock RSC boxes, 250 on custom-printed corrugated or mailer formats, and about 500 on custom polybags</strong>. Those quantities are practical when the buyer is testing a SKU, launching a seasonal pack, or supporting a customer-specific program, but they only stay efficient if the spec is tight before production begins.</p>
+      <p><strong>Low MOQ custom packaging</strong> does not have one universal number. Minimum order quantities vary by packaging style, dimensions, material, printing method, tooling, quantity, and delivery destination. Lower-volume orders are most practical when the buyer is testing a SKU, launching a seasonal pack, or supporting a customer-specific program and the specification is settled before production begins.</p>
 
-      <p>Apex Packaging Solutions quotes low-volume runs for Canadian buyers who need packaging to move in <strong>7-14 days from artwork sign-off</strong> without being forced into 5,000-unit inventory. That is useful for procurement teams managing trial orders, plant managers adding a new part number, or ecommerce operators validating a new packout. The mistake is assuming "small quantity" automatically means "simple project." Setup time, artwork revisions, and material choices still control the economics.</p>
+      <p>Apex Packaging Solutions quotes lower-volume runs for businesses in Canada, the United States, and international markets. Production and shipping time are confirmed only after the structure, material, print method, quantity, approvals, and delivery destination are known. The mistake is assuming "small quantity" automatically means "simple project." Setup time, artwork revisions, material choices, and freight still control the economics.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
         <img src="/images/blog/low-moq-packaging-generated.png" alt="Generated image of short-run custom packaging samples, mailer boxes, cartons, and proof sheets." width="1200" height="720" loading="eager" decoding="async" class="w-full" />
         <figcaption class="px-5 py-4 text-sm text-neutral-600">Low-MOQ packaging stays viable when the buyer matches the run type to the job, limits unnecessary complexity, and sends a quote-ready specification.</figcaption>
       </figure>
 
-      <h2>When a 100-500 unit run makes operational sense</h2>
+      <h2>When a lower-volume run makes operational sense</h2>
       <p>Short-run packaging is usually the right call when the business risk of overbuying is higher than the unit-cost penalty of a smaller order. That happens in four common cases:</p>
 
       <ul>
@@ -79,13 +79,13 @@ const faq = buildFAQSchema([
 
       <table>
         <thead>
-          <tr><th>Packaging type</th><th>Practical low-MOQ starting point</th><th>What keeps the run efficient</th></tr>
+          <tr><th>Packaging type</th><th>How the minimum is determined</th><th>What keeps the run efficient</th></tr>
         </thead>
         <tbody>
-          <tr><td>Stock RSC (Regular Slotted Carton)</td><td>100 units</td><td>Existing style, limited artwork changes, standard board grades</td></tr>
-          <tr><td>Custom-printed corrugated</td><td>250 units</td><td>Simple structure, locked dimensions, controlled print coverage</td></tr>
-          <tr><td>Die-cut mailer box</td><td>250-500 units</td><td>One approved dieline, insert plan decided early, proof-ready artwork</td></tr>
-          <tr><td>Custom polybags</td><td>500 units</td><td>Stable bag dimensions, known gauge, simple print or no print</td></tr>
+          <tr><td>Stock RSC (Regular Slotted Carton)</td><td>Size, board grade, quantity, and destination</td><td>Existing style, limited artwork changes, standard board grades</td></tr>
+          <tr><td>Custom-printed corrugated</td><td>Structure, dimensions, board, print method, and quantity</td><td>Simple structure, locked dimensions, controlled print coverage</td></tr>
+          <tr><td>Die-cut mailer box</td><td>Dieline, inserts, print coverage, finishes, and quantity</td><td>One approved dieline, insert plan decided early, proof-ready artwork</td></tr>
+          <tr><td>Custom polybags</td><td>Dimensions, material structure, gauge, print, and quantity</td><td>Stable bag dimensions, known gauge, simple print or no print</td></tr>
         </tbody>
       </table>
 
@@ -117,7 +117,7 @@ const faq = buildFAQSchema([
       <p>This is where many buyers recover the value of the short run. The first order teaches the team what the real packed dimensions are, how the packaging performs in transit, and whether assembly time is acceptable. Once those points are proven, the next order can move to a higher quantity with fewer unknowns.</p>
 
       <h2>The RFQ that makes a low MOQ possible</h2>
-      <p>Estimators can protect a 100-500 unit order only when the request is specific. Send these inputs before asking for pricing:</p>
+      <p>Estimators can protect a lower-volume order only when the request is specific. Send these inputs before asking for pricing:</p>
 
       <ul>
         <li>Packaging type and dimensions after all inner packing is applied.</li>
@@ -134,7 +134,7 @@ const faq = buildFAQSchema([
       <h2>Low MOQ works best when it is treated as a controlled first run</h2>
       <p>The goal of a small packaging order is not merely to buy fewer units. The goal is to prove the structure, the artwork, the material callout, and the reorder process with limited exposure. Buyers who keep the structure standard, send a complete spec, and record the approval notes usually get the best result: a short first run that teaches the team what to scale next.</p>
 
-      <p>If you need a 100-500 unit packaging run, send the packed dimensions, quantity, and artwork scope first. Apex can quote the right format, flag the setup items that affect MOQ, and help decide whether the job should stay in a short run or move straight to a larger release.</p>
+      <p>If you need a lower-volume packaging run, send the packed dimensions, quantity, artwork scope, and delivery destination first. Apex can quote the right format, flag the setup items that affect MOQ, and help decide whether the job should stay in a short run or move to a larger release.</p>
     </div>
   </section>
 

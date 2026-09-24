@@ -7,10 +7,10 @@ import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
 const faqs = [
-  { q: 'What is the minimum order?', a: '100 units on stock RSC styles. 250 on custom-printed flexo. 50 on digital-print samples.' },
-  { q: 'What is the lead time?', a: '7–14 days from artwork sign-off for standard runs. Rush service available for 5–7 days at a 20% surcharge.' },
-  { q: 'Can I get a sample before committing?', a: 'Yes. Apex produces pre-production samples to confirm structural fit and print colour. Sample cost is credited against the full order if you proceed.' },
-  { q: 'Do you ship across Canada?', a: 'Yes — national LTL and FTL freight. Some lanes ship same-week.' },
+  { q: 'What is the minimum order?', a: 'Minimum order quantities vary by box style, dimensions, board grade, print method, quantity, and delivery destination. Contact Apex for a corrugated-box quotation.' },
+  { q: 'What is the lead time?', a: 'Production and shipping timelines depend on the box style, material, print method, quantity, approvals, and delivery destination. Apex confirms timing with the quotation.' },
+  { q: 'Can I get a sample before committing?', a: 'Yes. Apex coordinates pre-production samples to confirm structural fit and print colour. Sample requirements and costs are confirmed for the project.' },
+  { q: 'Where does Apex deliver?', a: 'Apex coordinates delivery across Canada, the United States, and international markets. Freight method and timing are confirmed for the destination.' },
   { q: 'What certifications do you carry?', a: 'FSC chain-of-custody; SQF on food-safe corrugated lines; ISO 9001.' }
 ];
 
@@ -20,20 +20,20 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: 'Corrugated Boxes', url: '/services/corrugated-boxes' }
 ]);
 const service = buildServiceSchema({
-  name: 'Custom corrugated boxes Canada',
-  description: 'Custom corrugated boxes manufactured in Canada — RSC, FOL, die-cut, telescoping. Single-wall ECT-32 to double-wall ECT-48. MOQ from 100 units.',
+  name: 'Custom corrugated boxes',
+  description: 'RSC, FOL, die-cut, telescoping, display, and mailer-box projects managed from specification and sampling through production and delivery.',
   url: '/services/corrugated-boxes'
 });
 ---
 <BaseLayout
   title="Custom Corrugated Boxes Canada — RSC, FOL, Die-Cut"
-  description="Custom corrugated boxes manufactured in Canada. Single-wall and double-wall, ECT-32 to ECT-44, MOQ from 100 units, 7–14 day lead time, FSC-certified options."
+  description="Custom corrugated boxes including RSC, FOL, die-cut, telescoping, display and mailer styles, managed from specification and sampling through production and delivery."
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <PageHeader
     eyebrow="Service · Corrugated"
-    heading="Custom corrugated boxes manufactured in Canada — every standard style, every flute, every print option."
-    lead="MOQ starts at 100 units on stock RSC styles. Lead time is 7–14 days from artwork sign-off. Single-wall ECT-32 and double-wall ECT-44 / ECT-48 are stocked."
+    heading="Custom corrugated boxes — standard styles, flute options, and custom print."
+    lead="Apex coordinates RSC, FOL, die-cut, telescoping, display, and mailer projects through qualified overseas production facilities. Minimums and timelines are confirmed by style, dimensions, board grade, print method, quantity, and destination."
     imageSrc="/images/services/corrugated-boxes-generated-banner.png"
     imageAlt="Apex Packaging custom corrugated boxes banner with branded RSC cartons, kraft boxes, die-cut displays, flute samples, feature icons, and service headline."
     imageIsFullBanner={true}
@@ -41,7 +41,7 @@ const service = buildServiceSchema({
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">
-      <h2>Box styles Apex manufactures</h2>
+      <h2>Box styles Apex supplies</h2>
 
       <h3>RSC — Regular Slotted Carton</h3>
       <p>The standard shipping box. One piece of corrugated, scored and slotted, with flaps meeting at the centre. The default choice for general shipping and storage across most product categories. Available in single- and double-wall.</p>
@@ -77,7 +77,7 @@ const service = buildServiceSchema({
 
       <h2>Print options</h2>
       <ul>
-        <li><strong>Flexographic</strong> — one to four colors, cost-effective at MOQ from 250 units.</li>
+        <li><strong>Flexographic</strong> — one to four colors, quoted according to coverage, board, and run requirements.</li>
         <li><strong>Digital</strong> — full-color, variable data, no plate cost, ideal for low-MOQ custom-printed runs.</li>
         <li><strong>Litho-laminated</strong> — premium retail-grade graphics on E-flute. Used for shelf packaging and high-end mailers.</li>
       </ul>
@@ -96,7 +96,7 @@ const service = buildServiceSchema({
 
   <RelatedContent
     items={[
-      { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom-printed mailers for Canadian D2C brands. MOQ from 250.' },
+      { title: 'Mailer Boxes', href: '/services/mailer-boxes', description: 'Custom-printed mailers, rigid presentation boxes, and premium retail structures.' },
       { title: 'Protective Packaging', href: '/services/protective-packaging', description: 'Custom foam inserts and VCI rust-prevention for high-value contents.' },
       { title: 'ECT-32 vs ECT-44 explained', href: '/blog/ect-explained', description: 'A working guide to corrugated strength ratings.' }
     ]}
@@ -104,7 +104,7 @@ const service = buildServiceSchema({
 
   <CTABand
     heading="Need a quote on corrugated?"
-    lead="Send dimensions, MOQ, target lead time, and sustainability requirements. Pricing returns within one business day."
+    lead="Send dimensions, quantity, material, print requirements, destination, and required delivery date for a product-specific quotation."
     primaryCta={{ label: 'Send your specs', href: '/contact' }}
   />
 </BaseLayout>

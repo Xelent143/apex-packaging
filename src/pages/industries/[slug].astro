@@ -82,12 +82,12 @@ const metaDescription = box.summary.length <= 110
 
 const faqs = [
   {
-    q: `Can Apex manufacture custom ${box.label.toLowerCase()} with my logo?`,
-    a: `Yes. Apex can manufacture ${box.label.toLowerCase()} with brand print, custom dimensions, material selection, and production-ready dielines.`
+    q: `Can Apex supply custom ${box.label.toLowerCase()} with my logo?`,
+    a: `Yes. Apex can coordinate ${box.label.toLowerCase()} with brand print, custom dimensions, material selection, production-ready dielines, sampling, overseas production, and delivery.`
   },
   {
     q: `What is the minimum order for ${box.label.toLowerCase()}?`,
-    a: 'Minimums depend on material, print method, and box structure. Stock corrugated programs can start lower, while custom printed cartons and specialty finishes are quoted by run size.'
+    a: 'Minimum order quantities vary by packaging style, size, material, printing method, quantity, and delivery destination. Contact Apex for a product-specific quotation.'
   },
   {
     q: 'Can I get a sample before production?',
@@ -102,7 +102,7 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const service = buildServiceSchema({
-  name: `Custom ${box.label} manufacturer Canada`,
+  name: `Custom ${box.label} supplier`,
   description: box.summary,
   url: `/industries/${box.slug}`
 });
@@ -181,7 +181,7 @@ const service = buildServiceSchema({
     <div class="container max-w-wide">
       <div class="grid gap-10 lg:grid-cols-12">
         <div class="lg:col-span-5">
-          <p class="eyebrow">Manufacturer details</p>
+          <p class="eyebrow">Packaging details</p>
           <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">
             Built around your product, channel, and reorder plan.
           </h2>
@@ -223,8 +223,8 @@ const service = buildServiceSchema({
     <div class="container max-w-wide">
       <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
         <div class="lg:col-span-4">
-          <p class="eyebrow">How Apex builds it</p>
-          <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">From dieline to production run.</h2>
+          <p class="eyebrow">How Apex manages it</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">From dieline through production and delivery.</h2>
         </div>
         <div class="grid gap-4 lg:col-span-8">
           {box.manufacturerNotes.map((note, index) => (
