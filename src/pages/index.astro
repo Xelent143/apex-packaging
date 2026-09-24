@@ -97,7 +97,6 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   schemaBlocks={schemaBlocks}
 >
   <section class="apex-banner-slider overflow-hidden border-b border-[#e2d6bd] bg-[#fffdf8]">
-    <h1 class="sr-only">Custom Packaging your customers will love</h1>
     <div class="relative aspect-[2172/724] w-full">
       {heroSlides.map((slide, index) => (
         <img
@@ -172,10 +171,14 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   <section id="categories" class="bg-[#fffdf8] py-12 md:py-24">
     <div class="container max-w-wide">
       <div class="mx-auto mb-8 max-w-4xl text-center md:mb-12">
-        <h2 class="font-display text-3xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">Your Custom Packaging Partner</h2>
-        <p class="mt-3 text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-          Choose the packaging category that matches your product, then send the size, quantity, print requirements, and launch date.
+        <h1 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">Custom Packaging Boxes in Canada</h1>
+        <p class="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
+          Custom printed boxes, mailers, bags, rigid boxes, and retail packaging made to fit your product dimensions. Request a custom packaging quote and explore low-minimum order options, with free design support on qualifying orders.
         </p>
+        <div class="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <a href="/contact" class="btn-primary">Request a Quote</a>
+          <a href="/industries" class="btn-secondary">Explore Packaging</a>
+        </div>
       </div>
       <div class="-mx-4 grid auto-cols-[minmax(9rem,42vw)] grid-flow-col grid-rows-2 gap-x-4 gap-y-7 overflow-x-auto px-4 pb-2 [scrollbar-width:none] md:mx-0 md:grid-flow-row md:grid-cols-4 md:gap-x-5 md:gap-y-10 md:overflow-visible md:px-0 md:pb-0 lg:gap-x-8 [&::-webkit-scrollbar]:hidden">
         {categories.map((cat, index) => (
@@ -196,7 +199,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
         ))}
       </div>
       <div class="mt-8 text-center md:mt-10">
-        <a href="/industries" class="btn-secondary">View all packaging categories</a>
+        <a href="/industries" class="font-semibold text-neutral-900 underline decoration-accent decoration-2 underline-offset-4">View all packaging categories</a>
       </div>
     </div>
   </section>
