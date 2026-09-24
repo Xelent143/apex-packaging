@@ -11,6 +11,7 @@ interface ImportMetaEnv {
   readonly SMTP_PASS?: string;
   readonly SMTP_FROM?: string;
   readonly QUOTE_FROM_EMAIL?: string;
+  readonly QUOTE_TO_EMAIL?: string;
   readonly RESEND_API_KEY?: string;
   readonly RESEND_FROM?: string;
   readonly PUBLIC_TAWK_TO_WIDGET_URL?: string;

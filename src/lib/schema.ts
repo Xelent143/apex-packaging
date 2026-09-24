@@ -3,7 +3,7 @@ import { siteConfig } from '../site.config';
 const globalServiceArea = [
   { '@type': 'Country' as const, name: 'Canada' },
   { '@type': 'Country' as const, name: 'United States' },
-  { '@type': 'AdministrativeArea' as const, name: 'International markets' }
+  { '@type': 'AdministrativeArea' as const, name: 'Selected international markets' }
 ];
 
 export function buildOrganizationSchema() {
@@ -32,7 +32,7 @@ export function buildOrganizationSchema() {
       contactType: 'sales',
       telephone: siteConfig.phone,
       email: siteConfig.email,
-      areaServed: ['CA', 'US', 'International'],
+      areaServed: ['CA', 'US', 'Selected international markets'],
       availableLanguage: ['English', 'French']
     }],
     makesOffer: {

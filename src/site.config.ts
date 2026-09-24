@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'Apex Packaging',
   url: 'https://apexpackagingsolutions.com',
   description:
-    'Apex Packaging Solutions is a Canada-based custom packaging company providing custom boxes, rigid packaging, corrugated mailers, flexible pouches, paper bags and retail packaging for businesses across Canada, the United States and international markets. Through qualified overseas production facilities, Apex manages each project from structural design, artwork and sampling through production and doorstep delivery.',
+    'Apex Packaging Solutions is a Canada-based custom packaging company providing custom boxes, rigid packaging, corrugated mailers, flexible pouches, paper bags and retail packaging for businesses across Canada, the United States and selected international markets. Through qualified overseas production facilities, Apex manages each project from structural design, artwork and sampling through production, quality coordination and doorstep delivery.',
   legalName: 'Apex Packaging Solutions',
   email: 'sales@apexpackagingsolutions.com',
   phone: '+1-905-595-1634',

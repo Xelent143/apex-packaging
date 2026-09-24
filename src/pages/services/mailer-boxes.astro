@@ -8,9 +8,9 @@ import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../..
 
 const faqs = [
   { q: 'What is the minimum order on custom-printed mailers?', a: 'Minimum order quantities vary by structure, dimensions, material, printing method, finish, quantity, and delivery destination. Contact Apex for a mailer-specific quotation.' },
-  { q: 'What artwork files do you need?', a: 'Vector logos (AI, EPS, or PDF). Brand colours as Pantone codes. Apex\'s design team can convert raster art to print-ready vector — included with order.' },
+  { q: 'What artwork files do you need?', a: 'Vector logos (AI, EPS, or PDF) and brand-colour references help prepare artwork. Artwork preparation requirements and any related costs are confirmed in the quotation.' },
   { q: 'Where are Apex mailer boxes produced?', a: 'Approved projects are produced through qualified overseas facilities. Apex coordinates the dieline, artwork, sampling, production, quality review, freight, and delivery.' },
-  { q: 'Can I print on the inside of the box?', a: 'Yes — one-colour or full-colour interior. Adds about 8–12% to per-unit cost depending on coverage.' }
+  { q: 'Can I print on the inside of the box?', a: 'Interior print may be available. The method, coverage, cost and production implications are confirmed for the selected structure.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Mailer Boxes',url:'/services/mailer-boxes'}]);
 const service = buildServiceSchema({ name:'Custom mailer and rigid boxes', description:'Custom-printed mailers, rigid presentation boxes, magnetic closures, drawer boxes, and premium retail structures managed from design through delivery.', url:'/services/mailer-boxes'});
@@ -52,8 +52,7 @@ const service = buildServiceSchema({ name:'Custom mailer and rigid boxes', descr
       <ul>
         <li>E-flute corrugated (standard for mailers) — light, printable, structurally rigid.</li>
         <li>B-flute (heavier feel, more protection).</li>
-        <li>FSC-certified liner on request.</li>
-        <li>30–100% recycled content available.</li>
+        <li>Material, recycled-content and certification requirements reviewed for the selected product.</li>
       </ul>
 
       <h2>Sample process</h2>

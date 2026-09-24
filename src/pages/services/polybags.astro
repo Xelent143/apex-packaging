@@ -8,8 +8,8 @@ import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../..
 
 const faqs = [
   { q: 'What gauge do I need?', a: 'Light retail/garment: 1.0–2.0 mil. General shipping: 2.0–4.0 mil. Heavy industrial/furniture/mattress: 4.0–6.0 mil. Apex\'s team recommends a gauge based on product weight, edge sharpness, and stacking pattern.' },
-  { q: 'Are food-grade polybags certified?', a: 'Yes — Apex\'s food-contact film carries FDA-compliant resin certification and Health Canada acceptance. Documentation provided with every order.' },
-  { q: 'Can polybags be recycled in Canada?', a: 'LDPE and HDPE bags are recyclable at film drop-off programs across most Canadian municipalities. Apex offers PCR-content film (30–50% post-consumer recycled) and compostable EN 13432 film for buyers with stricter requirements.' },
+  { q: 'Can Apex support food-contact packaging requirements?', a: 'Share the intended use and documentation requirement. Material availability and applicable documentation are confirmed for the specific product and destination.' },
+  { q: 'Can polybags include recycled or compostable material options?', a: 'Material and end-of-life options depend on the bag structure, performance requirements, destination and available documentation. Apex confirms applicable options in the quotation.' },
   { q: 'What is the MOQ on custom print?', a: 'Minimum order quantities vary by pouch or bag style, dimensions, material structure, printing method, quantity, and delivery destination. Contact Apex for a product-specific quotation.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Polybags',url:'/services/polybags'}]);
@@ -46,7 +46,7 @@ const service = buildServiceSchema({ name:'Custom pouches, Mylar bags and polyba
         <li><strong>Garment bags</strong> — clear or printed, low-density, with vent holes if required.</li>
         <li><strong>Mattress bags</strong> — heavy-gauge (4–6 mil), gusseted, 14"+ depth.</li>
         <li><strong>Furniture bags</strong> — extra-large, reinforced seam, dust-protection grade.</li>
-        <li><strong>Produce bags</strong> — vented, FDA-compliant film, often wicket-loaded.</li>
+        <li><strong>Produce bags</strong> — vented and wicket-loaded options, subject to the intended-use specification.</li>
         <li><strong>Pound bags</strong> — pre-cut, suitable for produce and bakery weighing.</li>
         <li><strong>PTO bags</strong> — pull-tab opening for retail dispensing.</li>
       </ul>
@@ -59,15 +59,15 @@ const service = buildServiceSchema({ name:'Custom pouches, Mylar bags and polyba
           <tr><td>HDPE</td><td>Produce, food, dispensers</td><td>0.5 – 2.0 mil</td></tr>
           <tr><td>LLDPE</td><td>Heavy industrial, mattress, furniture</td><td>3.0 – 6.0 mil</td></tr>
           <tr><td>MDPE</td><td>Strength-with-clarity applications</td><td>1.5 – 4.0 mil</td></tr>
-          <tr><td>PCR blends</td><td>Sustainability requirements</td><td>1.0 – 4.0 mil (30–50% PCR)</td></tr>
+          <tr><td>Specialty blends</td><td>Project-specific material requirements</td><td>Confirmed by quotation</td></tr>
         </tbody>
       </table>
 
       <h2>Specialty options</h2>
       <ul>
         <li><strong>Anti-static (pink)</strong> polybags for electronics shipping.</li>
-        <li><strong>FDA / food-safe</strong> film for direct food contact.</li>
-        <li><strong>Compostable</strong> polybags (EN 13432 certified).</li>
+        <li><strong>Food-contact</strong> material requirements, subject to application and documentation review.</li>
+        <li><strong>Specialty material</strong> options, subject to performance, destination and documentation review.</li>
         <li><strong>VCI bags</strong> for rust-prevention on metal parts.</li>
         <li><strong>Static-shielding</strong> metallized film for sensitive electronics.</li>
       </ul>
@@ -77,9 +77,9 @@ const service = buildServiceSchema({ name:'Custom pouches, Mylar bags and polyba
   <FAQAccordion faqs={faqs} />
 
   <RelatedContent items={[
-    { title: 'Polybag thickness guide', href:'/blog/poly-bag-thickness-guide', description:'When 1.5 mil is enough and when you need 4.' },
+    { title: 'Polybag thickness guide', href:'/blog/poly-bag-thickness-guide', description:'How to assess gauge requirements for an application.' },
     { title:'Industrial & Bulk', href:'/services/industrial-bulk-packaging', description:'Pallet wrap, shrink film, edge protectors.' },
-    { title:'Sustainability', href:'/sustainability', description:'PCR-content film and compostable polybag options.' }
+    { title:'Material options', href:'/sustainability', description:'Product-specific material and documentation requirements.' }
   ]} />
 
   <CTABand
