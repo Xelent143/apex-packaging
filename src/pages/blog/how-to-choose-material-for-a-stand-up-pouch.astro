@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'How to Choose Material for a Stand-Up Pouch';
+const description = 'A practical guide for Canadian and US buyers selecting a custom stand-up pouch material around product characteristics, format, printing and quotation requirements.';
+const url = '/blog/how-to-choose-material-for-a-stand-up-pouch';
+const datePublished = '2026-09-25';
+const image = '/images/services/polybags-generated-banner.png';
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  { q: 'What determines a stand-up pouch material?', a: 'The product, fill method, desired format, handling conditions, printing, closure features, quantity and delivery destination all affect the material specification.' },
+  { q: 'Should buyers specify a barrier material before requesting a quote?', a: 'Buyers can share the product and performance requirement, but the proposed material and any documentation should be confirmed for the exact pouch specification.' },
+  { q: 'What information is needed for a pouch quotation?', a: 'Send the product, desired pouch dimensions or fill volume, features such as a zipper or tear notch, print coverage, quantity, delivery destination and required in-hand date.' }
+]);
+---
+<BaseLayout title="Stand-Up Pouch Material Guide | Apex Packaging" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader eyebrow="Knowledge base · Flexible packaging" heading="How to choose material for a stand-up pouch." lead="Start with the product and the way the pouch will be filled, handled and displayed. Material selection follows the performance requirement; it is not a one-size-fits-all choice." imageSrc={image} imageAlt="Custom stand-up pouches and flexible packaging material options." />
+  <section class="py-12 md:py-20"><div class="container max-w-default prose-apex">
+    <p><strong>The right pouch material depends on the job.</strong> A buyer should define the product, target pouch size, handling conditions, display needs and required features before assuming a particular film structure will fit.</p>
+    <h2>Start with the product and pack format</h2>
+    <p>Share whether the pouch will hold dry goods, powders, small parts, samples or another product type, along with the expected fill volume or finished dimensions. The pouch needs enough space for the product and a practical seal area while presenting well on shelf or in shipment.</p>
+    <h2>Decide which features matter</h2>
+    <table><thead><tr><th>Feature</th><th>Buyer question</th><th>Quotation impact</th></tr></thead><tbody>
+      <tr><td>Stand-up base</td><td>Does the pouch need to remain upright at retail?</td><td>Changes the structure and finished dimensions.</td></tr>
+      <tr><td>Resealable closure</td><td>Will the customer open and close the pouch more than once?</td><td>Requires the selected closure format to be included in the specification.</td></tr>
+      <tr><td>Tear notch or hang hole</td><td>How should customers open or display the pouch?</td><td>Affects layout, conversion and available panel space.</td></tr>
+      <tr><td>Print and finish</td><td>What artwork, colour and finish is required?</td><td>Changes print method, proofing and pricing variables.</td></tr>
+    </tbody></table>
+    <h2>Request documentation instead of assuming it</h2>
+    <p>If the project has a food-contact, recycled-content, certification or end-of-life requirement, state it in the brief. Availability and documentation must be confirmed for the exact pouch, production run and delivery destination.</p>
+    <h2>Build a complete pouch RFQ</h2>
+    <ul><li>Product description and desired pouch dimensions or fill volume.</li><li>Required features, including closure, tear notch, window or hang hole.</li><li>Artwork status, print coverage and finish preferences.</li><li>First-run quantity, expected reorder quantity and delivery destination.</li><li>Any material-performance or documentation requirement.</li></ul>
+    <p>MOQ, price and production or shipping timing vary according to the full specification. Apex confirms those details in a product-specific quotation.</p>
+  </div></section>
+  <RelatedContent items={[{ title: 'Custom Mylar Bags and Pouches', href: '/industries/custom-mylar-bags', description: 'Explore pouch structures, materials and project-specific quotation requirements.' }, { title: 'Custom Polybags', href: '/services/polybags', description: 'Review flexible packaging formats and gauge considerations.' }]} />
+  <CTABand heading="Need help specifying a custom pouch?" lead="Send the product, pouch size or fill volume, features, artwork, quantity and destination for a product-specific quotation." primaryCta={{ label: 'Request a pouch quote', href: '/contact' }} />
+</BaseLayout>

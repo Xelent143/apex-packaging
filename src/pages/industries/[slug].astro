@@ -20,7 +20,7 @@ const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
 const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'apparel-boxes': [{ label: 'Folded Fit' }, { label: 'Soft Touch' }, { label: 'Mailer Ready' }, { label: 'Boutique Print' }],
   'auto-parts': [{ label: 'Heavy Duty' }, { label: 'Part Labels' }, { label: 'VCI Options' }, { label: 'Insert Ready' }],
-  'bakery-boxes': [{ label: 'Food Safe' }, { label: 'Window Cut' }, { label: 'Grease Guard' }, { label: 'Bakery Ready' }],
+  'bakery-boxes': [{ label: 'Material Review' }, { label: 'Window Cut' }, { label: 'Product Fit' }, { label: 'Bakery Ready' }],
   'bottle-boxes': [{ label: 'Bottle Fit' }, { label: 'Insert Lock' }, { label: 'Fragile Safe' }, { label: 'Gift Ready' }],
   'candle-boxes': [{ label: 'Jar Protection' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }, { label: 'Giftable' }],
   'cbd-boxes': [{ label: 'CBD Retail' }, { label: 'Copy Panels' }, { label: 'Tuck Cartons' }, { label: 'Display Ready' }],
@@ -34,7 +34,7 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'cosmetic-boxes': [{ label: 'Beauty Retail' }, { label: 'Soft Touch' }, { label: 'Foil Options' }, { label: 'Custom Inserts' }],
   'custom-kraft-soap-boxes': [{ label: 'Kraft Board' }, { label: 'Soap Sleeves' }, { label: 'Eco Options' }, { label: 'Window Cut' }],
   'custom-tuck-boxes': [{ label: 'Tuck Carton' }, { label: 'Auto Bottom' }, { label: 'Retail Ready' }, { label: 'Low MOQ' }],
-  'custom-mylar-bags': [{ label: 'Barrier Film' }, { label: 'Resealable' }, { label: 'Food Safe' }, { label: 'Custom Print' }],
+  'custom-mylar-bags': [{ label: 'Barrier Film' }, { label: 'Resealable' }, { label: 'Spec Review' }, { label: 'Custom Print' }],
   'display-boxes': [{ label: 'Counter Ready' }, { label: 'Shelf Impact' }, { label: 'Open Display' }, { label: 'Retail Print' }],
   'electronics-boxes': [{ label: 'ESD Options' }, { label: 'Foam Inserts' }, { label: 'Device Fit' }, { label: 'Handling Icons' }],
   'food-boxes': [{ label: 'Food Safe' }, { label: 'Meal Kits' }, { label: 'Fresh Print' }, { label: 'Retail Ready' }],
@@ -80,6 +80,50 @@ const metaDescription = box.summary.length <= 110
   ? `${box.summary} Apex supports custom sizes, print, samples, and production.`
   : box.summary;
 
+const productFAQs: Record<string, { q: string; a: string }> = {
+  'bakery-boxes': {
+    q: 'What should I include in a bakery-box quotation request?',
+    a: 'Include the product dimensions, packed height, quantity, artwork status, preferred structure, any material or food-contact documentation requirement, and delivery destination. Apex confirms the suitable options in the quotation.'
+  },
+  'custom-mylar-bags': {
+    q: 'What details determine a custom pouch or Mylar-bag quotation?',
+    a: 'Share the product, pouch dimensions or fill volume, material or barrier needs, closure features, print coverage, quantity and delivery destination. Availability, minimums, timing and price are confirmed for that specification.'
+  },
+  'cosmetic-boxes': {
+    q: 'What should cosmetic brands send for a box quotation?',
+    a: 'Share the product dimensions, bottle or jar shape, required insert support, artwork, print and finish preferences, quantity and delivery destination. Apex can then quote the appropriate structure and sample path.'
+  },
+  'candle-boxes': {
+    q: 'How are candle boxes specified for jars and gift sets?',
+    a: 'Provide the jar or tin dimensions, packed weight, whether an insert is required, artwork, finish preferences, quantity and delivery destination. The recommended structure, minimums and timing depend on those details.'
+  },
+  'apparel-boxes': {
+    q: 'What should I send for an apparel-box quotation?',
+    a: 'Share folded garment dimensions, packed weight, order mix, desired presentation, artwork, quantity and delivery destination. Apex can recommend a mailer, carton or presentation-box structure for the program.'
+  }
+};
+
+const supportingGuidesBySlug: Record<string, { title: string; href: string; description: string }[]> = {
+  'bakery-boxes': [
+    { title: 'Choosing the right bakery box size', href: '/blog/how-to-choose-the-right-bakery-box-size', description: 'Measure cakes, pastries and cupcakes for a practical box specification.' },
+    { title: 'Bakery packaging for fresh and frozen programs', href: '/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-09-04', description: 'Review structure, handling and quote details for bakery packaging.' }
+  ],
+  'custom-mylar-bags': [
+    { title: 'How to choose stand-up pouch material', href: '/blog/how-to-choose-material-for-a-stand-up-pouch', description: 'Compare material considerations before requesting a pouch quotation.' },
+    { title: 'Polybag thickness guide', href: '/blog/poly-bag-thickness-guide', description: 'Understand gauge as one part of a flexible-packaging specification.' }
+  ],
+  'cosmetic-boxes': [
+    { title: 'Cosmetic packaging for retail launches', href: '/blog/cosmetic-packaging-boxes-for-retail-launches-2026-09-20', description: 'Colour, insert and sample considerations for retail beauty packaging.' }
+  ],
+  'candle-boxes': [
+    { title: 'Custom box inserts for safer product presentation', href: '/blog/custom-box-inserts-for-safer-product-presentation-2026-09-07', description: 'Review insert choices for jars, gift sets and fragile contents.' }
+  ],
+  'apparel-boxes': [
+    { title: 'Apparel mailer packaging for ecommerce brands', href: '/blog/apparel-mailer-packaging-ecommerce-returns-guide', description: 'Compare mailers, boxes and return considerations for ecommerce apparel.' }
+  ]
+};
+const supportingGuides = supportingGuidesBySlug[box.slug] ?? [];
+
 const faqs = [
   {
     q: `Can Apex supply custom ${box.label.toLowerCase()} with my logo?`,
@@ -92,7 +136,8 @@ const faqs = [
   {
     q: 'Can I get a sample before production?',
     a: 'Yes. Apex can prepare a digital proof and quote pre-production samples so fit, structure, and print placement are confirmed before the full run.'
-  }
+  },
+  ...(productFAQs[box.slug] ? [productFAQs[box.slug]] : [])
 ];
 
 const breadcrumb = buildBreadcrumbSchema([
@@ -247,11 +292,12 @@ const service = buildServiceSchema({
   <FAQAccordion faqs={faqs} />
 
   <RelatedContent
-    items={related.map((item) => ({
+    heading={supportingGuides.length ? `Guides for ${box.label.toLowerCase()} buyers` : undefined}
+    items={(supportingGuides.length ? supportingGuides : related.map((item) => ({
       title: item.label,
       href: `/industries/${item.slug}`,
       description: item.summary
-    }))}
+    }))).slice(0, 3)}
   />
 
   <CTABand

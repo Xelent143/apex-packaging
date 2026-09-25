@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'How to Choose the Right Bakery Box Size';
+const description = 'A practical guide for Canadian and US bakery buyers measuring cakes, cupcakes, pastries and cookie assortments before requesting a custom bakery-box quotation.';
+const url = '/blog/how-to-choose-the-right-bakery-box-size';
+const datePublished = '2026-09-25';
+const image = '/images/home/category-banners/bakery-boxes-banner.webp';
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const faq = buildFAQSchema([
+  { q: 'How much space should be left around a bakery product?', a: 'Allow enough clearance for the product, any board or insert, and practical packing tolerance. The appropriate clearance depends on the product shape, icing, toppings, handling method and box structure.' },
+  { q: 'What dimensions should be sent for a bakery-box quotation?', a: 'Send the finished product length, width and height, the product weight, any board or insert dimensions, quantity, artwork status and delivery destination.' },
+  { q: 'Can one bakery box size work for several products?', a: 'Sometimes, but only if the fit and protection remain suitable for each product. Mixed product ranges may need separate structures or inserts to avoid movement and presentation issues.' }
+]);
+---
+<BaseLayout title="Bakery Box Size Guide | Apex Packaging" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
+  <PageHeader eyebrow="Knowledge base · Bakery packaging" heading="How to choose the right bakery box size." lead="Measure the finished product, not just the pan or tray. The right bakery box leaves practical clearance for decoration, inserts and handling without making the product look lost in transit." imageSrc={image} imageAlt="Bakery boxes sized for cakes, cupcakes, pastries and cookie assortments." />
+  <section class="py-12 md:py-20"><div class="container max-w-default prose-apex">
+    <p><strong>Start with the finished product dimensions.</strong> For cakes, pastries and decorated items, the outermost topping, icing or garnish matters more than the base. A box that technically fits can still damage the presentation if the lid or sidewall touches the product.</p>
+    <h2>Measure the packed product in three dimensions</h2>
+    <table><thead><tr><th>Measurement</th><th>What to include</th><th>Why it matters</th></tr></thead><tbody>
+      <tr><td>Length and width</td><td>Finished product, board, tray or liner</td><td>Sets the internal footprint and prevents sidewall contact.</td></tr>
+      <tr><td>Height</td><td>Decorations, domes, icing, picks and toppings</td><td>Prevents lid contact and crushed presentation.</td></tr>
+      <tr><td>Packed weight</td><td>Product plus board, tray and accessories</td><td>Helps assess the structure and handling requirements.</td></tr>
+    </tbody></table>
+    <h2>Choose a structure around the product and channel</h2>
+    <p>Window cartons can help customers view cookies, pastries and cupcakes at retail. Cake boxes often need a stable base and adequate lid clearance. Sleeves and trays can suit assortments when the product is already in a tray. The best structure also depends on whether the package is carried from a counter, stocked on a shelf or shipped to a customer.</p>
+    <h2>Account for packing tolerance</h2>
+    <p>Do not specify a box with zero clearance. Packing speed, hand placement, product variation and any board or insert all need room. The required tolerance is product-specific; share product photos and a sample where the fit is especially close.</p>
+    <h2>Send a quote-ready bakery brief</h2>
+    <ul><li>Finished length, width, height and packed weight.</li><li>Product photos and the board, tray or insert dimensions.</li><li>Preferred structure, window requirement and artwork status.</li><li>Quantity, delivery destination and required in-hand date.</li><li>Any food-contact or documentation requirement that must be reviewed.</li></ul>
+    <p>MOQ, pricing and timing vary with the structure, dimensions, material, print method, quantity and delivery destination. A product-specific quotation confirms the workable options.</p>
+  </div></section>
+  <RelatedContent items={[{ title: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', description: 'Review bakery box structures, materials and quotation requirements.' }, { title: 'Bakery packaging for fresh and frozen programs', href: '/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-09-04', description: 'Plan packaging around handling, product type and the route to market.' }]} />
+  <CTABand heading="Need a bakery box sized around the finished product?" lead="Send dimensions, photos, quantity, artwork status and delivery destination for a product-specific quotation." primaryCta={{ label: 'Request a bakery-box quote', href: '/contact' }} />
+</BaseLayout>
