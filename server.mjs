@@ -8,6 +8,7 @@ import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
 import { handleStripeWebhook } from './server/privatePaymentLinks.mjs';
 import { sendSmtpEmail } from './server/smtpEmail.mjs';
 import { createApexTestCheckoutSession } from './server/stripeCheckout.mjs';
+import { permanentRedirects } from './redirects.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
@@ -17,14 +18,6 @@ const defaultQuoteSender = 'Apex Packaging <sales@apexpackagingsolutions.com>';
 const quoteFailureLogPath = resolve(__dirname, 'data', 'quote-email-failures.jsonl');
 const canonicalHost = 'apexpackagingsolutions.com';
 const wwwHost = 'www.apexpackagingsolutions.com';
-const permanentRedirects = new Map([
-  ['/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-08-05', '/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-09-04'],
-  ['/blog/custom-mailer-boxes-for-subscription-brands-2026-07-14', '/blog/custom-mailer-boxes-for-subscription-brands-2026-09-12'],
-  ['/blog/custom-mailer-boxes-for-subscription-brands-2026-08-13', '/blog/custom-mailer-boxes-for-subscription-brands-2026-09-12'],
-  ['/blog/apparel-packaging-for-ecommerce-and-retail-2026-08-04', '/blog/apparel-packaging-boxes-garment-bags-mailers'],
-  ['/blog/apparel-packaging-for-ecommerce-and-retail-2026-09-03', '/blog/apparel-packaging-boxes-garment-bags-mailers']
-]);
-
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
   '.gif': 'image/gif',

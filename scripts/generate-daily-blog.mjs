@@ -2,8 +2,9 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = resolve(new URL('..', import.meta.url).pathname);
+const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const blogDir = join(root, 'src', 'pages', 'blog');
 const blogIndex = join(blogDir, 'index.astro');
 const startDate = '2026-07-14';
@@ -56,6 +57,11 @@ const topics = [
 
 const today = process.env.APEX_BLOG_TODAY || pakistanDate(new Date());
 const indexSource = await readFile(blogIndex, 'utf8');
+const hasUnusedTopic = topics.some(([, titleBase]) => !indexSource.includes(`title: '${titleBase} -`));
+if (!hasUnusedTopic) {
+  console.log('Daily blog paused: every configured topic already has a published buyer guide. Add a genuinely new topic before publishing another article.');
+  process.exit(0);
+}
 const existingDates = [...indexSource.matchAll(/date: '(\d{4}-\d{2}-\d{2})'/g)].map((m) => m[1]);
 const latestDate = existingDates.sort().at(-1) || previousDay(startDate);
 const datesToPublish = datesBetween(nextDay(latestDate), today).filter((date) => date >= startDate).slice(0, maxCatchUp);
@@ -71,6 +77,10 @@ let nextIndex = indexSource;
 const published = [];
 for (const date of datesToPublish) {
   const post = buildPost(date);
+  if (nextIndex.includes(`title: '${post.titleBase} -`)) {
+    console.log(`Skipped ${post.slug}: this topic already has a published buyer guide.`);
+    continue;
+  }
   const articlePath = join(blogDir, `${post.slug}.astro`);
 
   if (!existsSync(articlePath)) {
@@ -167,7 +177,7 @@ const faq = buildFAQSchema([
       <p>Apex Packaging Solutions supports buyers in ${escapeHtml(post.location)} with custom packaging programs that connect structure, material, print, and delivery planning. This guide explains the practical details to confirm before approving ${escapeHtml(post.keyword)} for a launch, reorder, or multi-SKU program.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
-        <img src={image} alt="${escapeAttr(post.titleBase)} HD packaging banner for Apex Packaging buyers." width="1600" height="720" loading="eager" decoding="async" class="w-full" />
+        <img src={image} alt="${escapeAttr(imageAltFor(post.image))}" width="1600" height="720" loading="eager" decoding="async" class="w-full" />
         <figcaption class="px-5 py-4 text-sm text-neutral-600">A cleaner RFQ starts with the product, dimensions, material target, artwork state, quantity, and delivery route.</figcaption>
       </figure>
 
@@ -263,6 +273,19 @@ function renderBanner(post) {
   </g>
 </svg>
 `;
+}
+
+function imageAltFor(image) {
+  const alternatives = {
+    '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp': 'Open branded corrugated mailer filled with boxed products, tissue, and paper void fill',
+    '/images/blog/custom-kraft-boxes-natural-product-brands-banner-v2.webp': 'Natural kraft product boxes with printed branding and retail packaging details',
+    '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp': 'Kraft corrugated shipping boxes with dividers, board samples, tape, and handling labels',
+    '/images/blog/poly-mailers-apparel-soft-goods-banner-v2.webp': 'Branded poly mailers with folded clothing, gauge samples, shipping labels, and a return strip',
+    '/images/blog/protective-packaging-insert-sample-kit-generated.png': 'Protective packaging sample kit with foam, moulded fibre, and corrugated inserts',
+    '/images/blog/gaylord-boxes-procurement-generated.png': 'Lined corrugated bulk containers secured on pallets in a warehouse',
+    '/images/apex-update/styles/cbd-boxes-premium.png': 'Black, kraft, and white CBD presentation boxes with gold botanical details'
+  };
+  return alternatives[image] || 'Assorted custom packaging materials and branded product boxes';
 }
 
 function pakistanDate(date) {

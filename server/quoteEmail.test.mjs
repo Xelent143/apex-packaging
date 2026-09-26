@@ -122,6 +122,39 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
   assert.equal(sentEmail.reply_to, 'alex@example.com');
 });
 
+test('handleQuoteRequest returns JSON for the interactive RFQ flow', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Interactive RFQ');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('product', 'Mailer Boxes');
+  formData.set('finishes', 'Matte lamination');
+  formData.append('finishes', 'Foil stamping');
+  formData.set('postalCode', 'M5V 2T6');
+
+  let sentEmail;
+  const request = new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  });
+
+  const response = await handleQuoteRequest(request, {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async (_apiKey, email) => {
+      sentEmail = email;
+      return { id: 'email_123' };
+    }
+  });
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: true });
+  assert.match(sentEmail.text, /Finishes \/ Add-ons: Matte lamination, Foil stamping/);
+  assert.match(sentEmail.text, /ZIP \/ Postal Code: M5V 2T6/);
+});
+
 test('handleQuoteRequest records failed delivery and still redirects', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');

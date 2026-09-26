@@ -28,7 +28,8 @@ const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/apexpackagingsolutions/', image: '/images/footer-icons/social/instagram.png' },
   { label: 'Pinterest', href: 'https://ca.pinterest.com/apackagingsolutions/', image: '/images/footer-icons/social/pinterest.png' },
   { label: 'YouTube', href: 'https://www.youtube.com/@APEXPackagingCanada', image: '/images/footer-icons/social/youtube.png' },
-  { label: 'TikTok', href: 'https://www.tiktok.com/@apexpackagingsolutions' }
+  { label: 'TikTok', href: 'https://www.tiktok.com/@apexpackagingsolutions', shortLabel: 'TT' },
+  { label: 'Trustpilot', href: 'https://www.trustpilot.com/evaluate/apexpackagingsolutions.com', shortLabel: 'TP' }
 ];
 
 const paymentMarks = [
@@ -140,7 +141,7 @@ const paymentMarks = [
                 {item.image ? (
                   <img src={item.image} alt="" width="96" height="96" loading="lazy" decoding="async" class="h-full w-full object-cover" />
                 ) : (
-                  <span class="font-display text-sm font-black tracking-[-0.08em]" aria-hidden="true">TT</span>
+                  <span class="font-display text-sm font-black tracking-[-0.08em]" aria-hidden="true">{item.shortLabel}</span>
                 )}
               </a>
             ))}

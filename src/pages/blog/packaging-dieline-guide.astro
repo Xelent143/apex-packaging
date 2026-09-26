@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Packaging Dieline Guide';
+const description = 'Prepare packaging artwork correctly with cut lines, fold lines, bleed, safe zones, glue areas, CMYK files, fonts, images, and a practical prepress checklist.';
+const url = '/blog/packaging-dieline-guide';
+const faqs = [
+  { q: 'What is a packaging dieline?', a: 'A packaging dieline is the flat technical drawing used to cut, crease, fold, glue, and position artwork for a package. It represents the approved structure and must match the converter\'s production specification.' },
+  { q: 'How much bleed should packaging artwork include?', a: 'Use the amount stated by the printer or converter for the exact dieline. A common starting point is 3 mm or 1/8 inch, but it is not universal and should not override the supplied production specification.' },
+  { q: 'Should dieline marks appear in the final print artwork?', a: 'Dieline layers are normally kept as separate named technical layers and set to non-printing where the workflow supports it. Do not flatten cut, crease, glue, and artwork information into one uncontrolled image.' },
+  { q: 'Which file format should I send?', a: 'A press-ready PDF made from the approved dieline is commonly used for review, with packaged AI or other editable source files supplied when required. Confirm the accepted format, colour profile, linked images, fonts, and PDF standard with the production partner.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+const article = buildArticleSchema({ title, description, url, datePublished: '2026-09-26', author: 'Apex Packaging Solutions' });
+---
+<BaseLayout title={`${title} | Apex Packaging`} description={description} schemaBlocks={[breadcrumb, article, buildFAQSchema(faqs)]}>
+  <PageHeader eyebrow="Artwork and prepress" heading={title} lead="A dieline connects structural design to printed artwork. Keep technical lines controlled, build art to the approved revision, and check every panel before production." />
+
+  <article class="py-14 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>What a packaging dieline is</h2>
+      <p>A <strong>dieline</strong> is a flat technical drawing of a package before it is cut, folded, and assembled. It shows the panels, flaps, tabs, cuts, creases, glue areas, and other production features that define the finished structure. Designers place artwork on this drawing so logos, copy, barcodes, and graphics land on the correct faces after conversion.</p>
+      <p>The correct term is <em>dieline</em>. A dieline should come from the converter, structural designer, or an approved existing specification. Downloaded templates can help with early concepts, but they should not be treated as production-ready when the material, tooling, tolerances, or equipment are different.</p>
+
+      <h2>Read the technical lines before designing</h2>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Dieline element</th><th>What it controls</th><th>Artwork risk</th></tr></thead>
+          <tbody>
+            <tr><td>Cut line</td><td>The final outside edge, window, slot, or opening</td><td>Text or logos placed too close can be trimmed.</td></tr>
+            <tr><td>Crease / fold line</td><td>Where board bends during assembly</td><td>Small type, barcodes, and fine artwork can distort across the fold.</td></tr>
+            <tr><td>Bleed boundary</td><td>Artwork extending past a cut edge</td><td>Insufficient bleed can leave an unprinted sliver after normal cutting variation.</td></tr>
+            <tr><td>Safe zone</td><td>Recommended distance for important content</td><td>Critical copy outside the safe area may be cut, folded, or visually crowded.</td></tr>
+            <tr><td>Glue area</td><td>Panels where adhesive must bond</td><td>Ink, varnish, or lamination can interfere with adhesion if not planned.</td></tr>
+            <tr><td>Non-visible flap</td><td>Dust flaps, internal tabs, and concealed faces</td><td>Artwork may be wasted or create unintended show-through.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Bleed and safe zones</h2>
+      <p>Bleed extends backgrounds and images beyond the cut line so normal registration and cutting tolerances do not reveal an unprinted edge. Many packaging workflows begin around 3 mm or 1/8 inch, but the supplied dieline specification is authoritative. Complex windows, shaped cuts, or large-format corrugated work may require different handling.</p>
+      <p>The safe zone protects important content from cuts, folds, glue seams, and panel edges. Keep legal copy, barcodes, nutrition or ingredient panels, and small type within the safe area required by the converter. If content must cross a fold, review a physical mockup rather than judging only the flat file.</p>
+
+      <h2>Artwork positioning on a flat structure</h2>
+      <p>A flat dieline does not read like a finished box. Side panels may appear upside down relative to the front panel because they rotate into place during assembly. Label every panel before artwork begins: front, back, left, right, top, bottom, inside lid, glue flap, and insert surface. Build a folded paper mockup or review a 3D rendering to catch orientation errors.</p>
+      <ul>
+        <li>Confirm the primary display panel and opening direction.</li>
+        <li>Check whether the box is viewed on shelf, in a shipping case, or during unboxing.</li>
+        <li>Keep barcodes away from curves, seams, folds, high-gloss interference, and poorly supported panels.</li>
+        <li>Reserve variable-data, date-code, lot-code, and label areas before the visual design is approved.</li>
+        <li>Use separate artwork versions when regulations or languages differ by market.</li>
+      </ul>
+
+      <h2>Colour, images, and fonts</h2>
+      <h3>CMYK and spot colours</h3>
+      <p>Most process-print packaging artwork is prepared in CMYK. Brand colours may be specified as spot colours when the print method and budget support them. An RGB screen preview is not a colour guarantee. Define critical colours, substrate assumptions, white-ink layers, overprint behaviour, and coating areas before proof approval.</p>
+      <h3>Image resolution</h3>
+      <p>Use images with enough effective resolution at final placed size. A common target for close-view printed graphics is about 300 pixels per inch, while some large corrugated graphics are produced at different effective resolutions. Enlarging a small web image inside the layout does not add detail. Check the printer's requirement for the selected process.</p>
+      <h3>Fonts and linked assets</h3>
+      <p>Package fonts or convert approved display text to outlines when instructed, while retaining an editable master. Supply linked images rather than relying on missing local paths. Before outlining regulatory or frequently changing copy, confirm the revision and keep a source file that can still be edited.</p>
+
+      <h2>File structure and export</h2>
+      <p>Keep the dieline on a separate, clearly named layer. Separate cut, crease, perforation, varnish, foil, embossing, white ink, and artwork layers when those operations apply. Use the spot-colour names and overprint settings supplied by the production partner. Do not recolour or move the approved dieline to make the artwork easier to fit.</p>
+      <p>A press-ready PDF is often the review file, with editable source artwork supplied when required. Ask which PDF standard, colour profile, transparency handling, marks, and bleed settings are expected. The production proof should state the dieline revision so an old structure is not paired with new artwork.</p>
+
+      <h2>Prepress checklist</h2>
+      <ol>
+        <li>Confirm finished inside dimensions, material, caliper, and dieline revision.</li>
+        <li>Identify every visible and hidden panel with the opening direction.</li>
+        <li>Extend backgrounds through the required bleed.</li>
+        <li>Keep critical content inside safe zones and away from folds or glue.</li>
+        <li>Check CMYK, spot colours, white ink, coatings, foil, and overprint settings.</li>
+        <li>Verify effective image resolution and linked assets.</li>
+        <li>Proofread copy, legal panels, ingredients, SKUs, and market-specific language.</li>
+        <li>Generate and test barcodes at final size using the intended substrate and finish.</li>
+        <li>Package fonts or follow the printer's outlining requirements.</li>
+        <li>Review a folded mockup or 3D proof, then approve a controlled final PDF.</li>
+      </ol>
+
+      <h2>Common dieline mistakes</h2>
+      <p>Frequent problems include using an unapproved online template, placing art on the wrong panel, omitting bleed, positioning copy over a crease, printing inside glue areas, failing to account for a window, supplying RGB artwork, stretching low-resolution images, using an old revision, and approving the flat file without checking the assembled orientation.</p>
+      <p>For structural development, see <a href="/design-support">packaging design support</a>. For broader print-production checks, use the <a href="/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits">packaging artwork requirements guide</a>. When you are ready to price the job, send the approved dimensions, material direction, artwork status, quantity, and destination through the <a href="/contact">three-step packaging RFQ</a>.</p>
+    </div>
+  </article>
+
+  <FAQAccordion faqs={faqs} />
+  <RelatedContent items={[
+    { title: 'Packaging Artwork Requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Review bleed, barcodes, colour controls, ink limits, and revision checks.' },
+    { title: 'Packaging Design Support', href: '/design-support', description: 'Structural dielines, artwork preparation, proofs, mockups, and sample coordination.' },
+    { title: 'Custom Mailer Boxes', href: '/services/mailer-boxes', description: 'Explore printed mailer structures, inside print, inserts, and premium finishes.' }
+  ]} />
+  <CTABand heading="Have product dimensions but no production dieline?" lead="Send the product, dimensions, packaging style, artwork, quantity, and destination. Apex can review the structural and artwork path before production." primaryCta={{ label: 'Start a packaging RFQ', href: '/contact' }} />
+</BaseLayout>

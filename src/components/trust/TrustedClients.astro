@@ -1,0 +1,36 @@
+---
+interface ClientLogo {
+  name: string;
+  src: string;
+  href?: string;
+  width: number;
+  height: number;
+}
+
+interface Props {
+  clients?: ClientLogo[];
+}
+
+const { clients = [] } = Astro.props;
+---
+
+{clients.length > 0 && (
+  <section class="border-y border-neutral-200 bg-white py-10" aria-labelledby="trusted-clients-heading">
+    <div class="container max-w-wide">
+      <h2 id="trusted-clients-heading" class="text-center font-display text-xl font-extrabold text-neutral-900">Clients we've worked with</h2>
+      <ul class="mt-7 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 lg:grid-cols-6">
+        {clients.map((client) => (
+          <li class="flex min-h-20 items-center justify-center rounded-md border border-neutral-200 bg-neutral-50 p-4">
+            {client.href ? (
+              <a href={client.href} aria-label={client.name} target="_blank" rel="noopener noreferrer">
+                <img src={client.src} alt={`${client.name} logo`} width={client.width} height={client.height} loading="lazy" decoding="async" class="max-h-12 w-auto object-contain" />
+              </a>
+            ) : (
+              <img src={client.src} alt={`${client.name} logo`} width={client.width} height={client.height} loading="lazy" decoding="async" class="max-h-12 w-auto object-contain" />
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}

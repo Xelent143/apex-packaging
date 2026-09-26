@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
 import FAQAccordion from '../components/sections/FAQAccordion.astro';
+import RelatedContent from '../components/sections/RelatedContent.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildFAQSchema } from '../lib/schema';
 
@@ -60,6 +61,12 @@ const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Su
   </section>
 
   <FAQAccordion faqs={faqs} />
+
+  <RelatedContent items={[
+    { title: 'Packaging Dieline Guide', href: '/blog/packaging-dieline-guide', description: 'Review cut lines, creases, bleed, safe zones, glue areas, file setup, and prepress checks.' },
+    { title: 'Packaging Artwork Requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare barcodes, colours, imagery, and controlled artwork revisions.' },
+    { title: 'Packaging Material Comparison', href: '/blog/packaging-material-comparison-guide', description: 'Choose a material family before structural design and sampling.' }
+  ]} />
 
   <CTABand
     heading="To start a design engagement, send your assets."

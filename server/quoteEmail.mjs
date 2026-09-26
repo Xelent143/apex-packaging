@@ -10,6 +10,8 @@ const FIELD_LABELS = {
   unit: 'Unit',
   material: 'Material',
   printing: 'Printing',
+  finishes: 'Finishes / Add-ons',
+  productContents: 'Product / Contents',
   quantity: 'Quantity',
   name: 'Name',
   company: 'Company',
@@ -17,6 +19,8 @@ const FIELD_LABELS = {
   phone: 'Phone',
   city: 'City',
   country: 'Country',
+  postalCode: 'ZIP / Postal Code',
+  privacyConsent: 'Privacy Consent',
   stateProvince: 'State / Province',
   shipmentAddress: 'Shipment Address',
   type: 'Project Type',
@@ -152,10 +156,11 @@ export async function sendQuoteEmail(apiKey, email) {
 }
 
 export async function handleQuoteRequest(request, options) {
+  const wantsJson = request.headers.get('accept')?.includes('application/json');
   if (!options.apiKey) return jsonResponse({ error: 'Email service is not configured.' }, 503);
 
   const submission = await requestToQuoteSubmission(request);
-  if (submission.isSpam) return redirectResponse('/thank-you');
+  if (submission.isSpam) return wantsJson ? jsonResponse({ ok: true }, 200) : redirectResponse('/thank-you');
   if (!isEmail(submission.fields.email || '')) return jsonResponse({ error: 'A valid email address is required.' }, 400);
 
   const email = buildQuoteEmail(submission, { from: options.from, to: options.to });
@@ -185,6 +190,7 @@ export async function handleQuoteRequest(request, options) {
   }
 
   const requestedRedirect = submission.redirectTo;
+  if (wantsJson) return jsonResponse({ ok: true }, 200);
   return redirectResponse(isSafeRedirectPath(requestedRedirect) ? requestedRedirect : '/thank-you');
 }
 

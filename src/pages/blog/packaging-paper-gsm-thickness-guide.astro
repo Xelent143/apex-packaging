@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Packaging Paper GSM & Thickness Guide';
+const description = 'Understand packaging paper GSM, caliper, board construction, strength, printing, and practical material ranges for folding cartons and corrugated boxes.';
+const url = '/blog/packaging-paper-gsm-thickness-guide';
+const faqs = [
+  { q: 'Does a higher GSM always make packaging stronger?', a: 'No. GSM measures mass per square metre, not stiffness, compression strength, tear resistance, moisture resistance, or corrugated construction. Fibre type, density, coating, flute, adhesive, grain direction, and converting quality also affect performance.' },
+  { q: 'Can GSM be converted directly to millimetres?', a: 'Not reliably across different materials. Two papers with the same GSM can have different calipers because their fibre composition, density, coatings, and manufacturing processes differ. Use the supplier\'s measured caliper or a physical sample.' },
+  { q: 'What GSM is best for a folding carton?', a: 'There is no universal best value. Small lightweight cartons may use a lighter paperboard, while larger cartons or products needing stiffness may require heavier board. The structure, product weight, dimensions, print, finishes, and handling route should be reviewed together.' },
+  { q: 'How should corrugated board be specified?', a: 'Specify the liner and medium combination, flute or wall construction, relevant strength requirement, finished dimensions, packed weight, stacking conditions, and shipping route. A single GSM number does not fully describe corrugated performance.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+const article = buildArticleSchema({ title, description, url, datePublished: '2026-09-26', author: 'Apex Packaging Solutions' });
+---
+<BaseLayout title={`${title} | Apex Packaging`} description={description} schemaBlocks={[breadcrumb, article, buildFAQSchema(faqs)]}>
+  <PageHeader eyebrow="Packaging specifications" heading={title} lead="GSM is useful, but it is only one part of a packaging specification. Use it alongside caliper, construction, product weight, printing, finishing, and the actual handling route." />
+
+  <article class="py-14 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>What GSM means in packaging</h2>
+      <p><strong>GSM</strong> means grams per square metre. It describes the mass of a sheet material over a standard area. If a paper is listed as 300 GSM, one square metre of that paper weighs approximately 300 grams. Buyers use GSM to compare papers and paperboards within a known material family, but GSM does not by itself describe thickness, rigidity, burst strength, or how a finished package will perform.</p>
+      <p>This distinction matters when requesting <a href="/services/cardboard-boxes">custom folding cartons</a>, sleeves, printed mailers, or <a href="/services/corrugated-boxes">corrugated shipping boxes</a>. A carton that looks substantial on a sample table may still crease poorly, bow after lamination, or fail under packed weight if the board and structure are not matched to the application.</p>
+
+      <h2>GSM versus thickness or caliper</h2>
+      <p>Thickness—often called <strong>caliper</strong>—is the physical distance between the two faces of a sheet. It may be stated in microns, millimetres, points, or thousandths of an inch. GSM and caliper often rise together within the same product line, but they are not interchangeable. Dense coated stock can have a higher GSM while remaining relatively thin. A bulkier uncoated or recycled board can be thicker at a similar GSM.</p>
+      <p>That is why universal GSM-to-millimetre conversion charts should be treated as rough references rather than production specifications. When fit, stiffness, scoring, or insert tolerances matter, ask for the exact board name, nominal GSM, measured caliper, and a representative sample.</p>
+
+      <h2>Why GSM alone does not determine strength</h2>
+      <ul>
+        <li><strong>Fibre composition:</strong> long virgin fibres, recycled fibres, and mixed furnishes can produce different tear and folding behaviour.</li>
+        <li><strong>Density and bulk:</strong> two sheets with equal mass can have different thickness and bending stiffness.</li>
+        <li><strong>Coatings and laminations:</strong> clay coating, film lamination, and printed layers add mass but do not necessarily add structural strength in the same proportion.</li>
+        <li><strong>Grain direction:</strong> folding across the wrong direction can increase cracking or reduce panel behaviour.</li>
+        <li><strong>Structure:</strong> tabs, folds, gussets, inserts, and panel spans determine how load moves through a package.</li>
+        <li><strong>Corrugated construction:</strong> liner GSM, medium GSM, flute profile, adhesive, and single- or double-wall construction work as a system.</li>
+        <li><strong>Environment:</strong> humidity, cold storage, condensation, compression time, and repeated handling can reduce effective performance.</li>
+      </ul>
+
+      <h2>Practical material ranges</h2>
+      <p>The ranges below are orientation points, not automatic recommendations. Mills and converters describe materials differently, and the finished package must be tested against the product and route.</p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Material family</th><th>Common indicative range</th><th>Typical packaging use</th><th>What else to confirm</th></tr></thead>
+          <tbody>
+            <tr><td>Wrapping and tissue papers</td><td>About 17–120 GSM</td><td>Interleaving, branded tissue, wraps, and light protective layers</td><td>Tear, opacity, colour transfer, print method, and product contact</td></tr>
+            <tr><td>Kraft and bag papers</td><td>About 70–200 GSM</td><td>Paper bags, wraps, liners, and some sleeves</td><td>Fibre grade, wet strength, handles, coatings, and load</td></tr>
+            <tr><td>Folding carton paperboard</td><td>About 250–500+ GSM</td><td>Retail cartons, sleeves, small product boxes, and printed inserts</td><td>Caliper, stiffness, grain, scoring, coating, and panel size</td></tr>
+            <tr><td>Rigid-box wrap paper</td><td>Varies by decorative paper</td><td>Wrapped chipboard or greyboard presentation boxes</td><td>Core-board thickness, wrap adhesion, corner finish, and scuff resistance</td></tr>
+            <tr><td>Corrugated liners and medium</td><td>Specified as a combined board system</td><td>Mailers, RSC cases, displays, inserts, and shipping cartons</td><td>Flute, wall construction, ECT or other performance target, humidity, and packed weight</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Choosing a specification by product and use</h2>
+      <h3>Light retail products</h3>
+      <p>Small cosmetics, soap bars, accessories, and dry products may work in folding carton board when the panel dimensions are controlled and the product does not create concentrated loads. The board still needs enough stiffness for shelf presentation, barcode scanning, filling, and transport in an outer case.</p>
+      <h3>Heavier or fragile products</h3>
+      <p>Bottles, jars, electronics, and multi-piece kits may need a stronger carton, an insert, or a corrugated structure. Do not solve every protection problem by increasing GSM. Reducing empty space, supporting the product, shortening unsupported panels, and choosing the correct flute can be more effective.</p>
+      <h3>Shipping and warehouse cases</h3>
+      <p>Parcel and pallet packaging should be specified around packed weight, orientation, stack height, time under load, humidity, drop exposure, closures, and pallet pattern. Review the <a href="/blog/ect-explained">ECT guide</a> and confirm the complete corrugated board specification rather than comparing liner GSM alone.</p>
+
+      <h2>Printing and finishing considerations</h2>
+      <p>High ink coverage, white ink, varnish, foil, embossing, debossing, windows, and lamination can change the way a board converts. Heavy coatings can affect folds; embossing can reduce local strength; a large window removes material from a panel; and dark solid colours can make cracking or scuffing more visible. Approve artwork on the final <a href="/blog/packaging-dieline-guide">packaging dieline</a>, then review a representative proof or physical sample when appearance and fit are critical.</p>
+
+      <h2>A better RFQ checklist</h2>
+      <ul>
+        <li>Inside dimensions and product dimensions, including tolerances.</li>
+        <li>Packed weight and how the load is supported.</li>
+        <li>Required quantity, reorder estimate, and delivery destination.</li>
+        <li>Retail, parcel, LTL, pallet, cold-chain, or warehouse route.</li>
+        <li>Preferred material family, or permission to recommend one.</li>
+        <li>Print coverage, colours, coatings, windows, foil, embossing, and inserts.</li>
+        <li>Any recycled-content, certification, product-contact, or documentation requirement.</li>
+      </ul>
+      <p>For a quote that can be compared accurately, ask suppliers to state the exact material construction instead of writing only “premium board” or “thick cardboard.” The <a href="/blog/packaging-material-comparison-guide">packaging material comparison guide</a> can help narrow the starting material before you submit an RFQ.</p>
+    </div>
+  </article>
+
+  <FAQAccordion faqs={faqs} />
+  <RelatedContent items={[
+    { title: 'Packaging Material Comparison Guide', href: '/blog/packaging-material-comparison-guide', description: 'Compare kraft, SBS, corrugated, rigid board, and recycled options by use and performance.' },
+    { title: 'Custom Cardboard Boxes', href: '/services/cardboard-boxes', description: 'Review folding cartons, sleeves, windows, print, and finish options.' },
+    { title: 'Custom Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Compare corrugated structures, flute, strength, and shipping applications.' }
+  ]} />
+  <CTABand heading="Need help selecting packaging board?" lead="Send the product dimensions, packed weight, quantity, print requirements, destination, and route. Apex can recommend a material and sample path for the quotation." primaryCta={{ label: 'Start a packaging RFQ', href: '/contact' }} />
+</BaseLayout>

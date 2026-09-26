@@ -1,173 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PackagingIcon from '../components/ui/PackagingIcon.astro';
+import RFQForm from '../components/forms/RFQForm.astro';
+import TrustpilotTrustBox from '../components/trust/TrustpilotTrustBox.astro';
 import { siteConfig } from '../site.config';
 import { buildBreadcrumbSchema } from '../lib/schema';
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
-  { name: 'Contact', url: '/contact' }
+  { name: 'Request a Quote', url: '/contact' }
 ]);
 ---
 <BaseLayout
-  title="Get a Custom Packaging Quote in Canada | Apex Packaging"
-  description="Request a product-specific custom packaging quote from Apex Packaging in Canada with dimensions, material, quantity, artwork, destination, and required delivery timing."
+  title="Custom Packaging Quote | Apex Packaging"
+  description="Request a custom packaging quote with box type, dimensions, material, printing, finishes, quantity, artwork, and delivery details for Canada or the United States."
   schemaBlocks={[breadcrumb]}
 >
-  <section class="bg-neutral-50 py-8 md:py-12">
+  <section class="bg-neutral-50 py-10 md:py-16">
     <div class="container max-w-wide">
-      <div class="mx-auto max-w-[64rem] overflow-hidden rounded-[1.5rem] border border-[#d8cba7] bg-[#e9e2d7] shadow-popover md:rounded-[2rem]">
-        <div class="bg-accent px-6 py-5 text-center md:px-8 md:py-6">
-          <h1 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-4xl">
-            Get Custom Quote
-          </h1>
-        </div>
-
-        <form
-          class="grid gap-5 p-5 md:gap-6 md:p-8"
-          action="/api/quote"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <input type="hidden" name="source" value="Request Quote Contact Form" />
-          <input type="hidden" name="redirectTo" value="/thank-you" />
-          <input type="hidden" name="company" value="Not provided" />
-          <label class="hidden" aria-hidden="true">
-            Website
-            <input name="website" tabindex="-1" autocomplete="off" />
-          </label>
-
-          <fieldset class="grid gap-3">
-            <legend class="mb-1 flex items-center gap-3 font-display text-xl font-extrabold text-neutral-900">
-              <span class="grid h-10 w-10 place-items-center rounded-md bg-accent text-neutral-950" aria-hidden="true">
-                <PackagingIcon name="quote-review" class="h-5 w-5" />
-              </span>
-              Product Information
-            </legend>
-            <input
-              class="h-14 border border-transparent bg-white px-5 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
-              name="product"
-              placeholder="Product Name"
-              aria-label="Product name"
-            />
-          </fieldset>
-
-          <fieldset class="grid gap-3">
-            <legend class="mb-1 flex items-center gap-3 font-display text-xl font-extrabold text-neutral-900">
-              <span class="grid h-10 w-10 place-items-center rounded-md bg-accent text-neutral-950" aria-hidden="true">
-                <PackagingIcon name="custom-spec" class="h-5 w-5" />
-              </span>
-              Select Sizes
-            </legend>
-            <div class="grid gap-3 md:grid-cols-[1fr_1fr_1fr_8rem]">
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="unit" aria-label="Measurement unit">
-                <option>Unit</option>
-                <option>inch</option>
-                <option>cm</option>
-                <option>mm</option>
-              </select>
-            </div>
-          </fieldset>
-
-          <fieldset class="grid gap-3">
-            <legend class="mb-1 flex items-center gap-3 font-display text-xl font-extrabold text-neutral-900">
-              <span class="grid h-10 w-10 place-items-center rounded-md bg-accent text-neutral-950" aria-hidden="true">
-                <PackagingIcon name="sample-run" class="h-5 w-5" />
-              </span>
-              Choose Materials
-            </legend>
-            <div class="grid gap-3 md:grid-cols-[1fr_1fr_0.9fr]">
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="material" aria-label="Packaging material">
-                <option>Stock</option>
-                <option>Cardboard Boxes</option>
-                <option>Kraft Boxes</option>
-                <option>Rigid Boxes</option>
-                <option>Corrugated Boxes</option>
-                <option>Mylar Bags</option>
-                <option>Gable Boxes</option>
-              </select>
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="printing" aria-label="Printing option">
-                <option>Printing</option>
-                <option>Full-color exterior</option>
-                <option>Inside and outside print</option>
-                <option>Black ink only</option>
-                <option>No print</option>
-              </select>
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
-            </div>
-          </fieldset>
-
-          <fieldset class="grid gap-3">
-            <legend class="mb-1 flex items-center gap-3 font-display text-xl font-extrabold text-neutral-900">
-              <span class="grid h-10 w-10 place-items-center rounded-md bg-accent text-neutral-950" aria-hidden="true">
-                <PackagingIcon name="design-proof" class="h-5 w-5" />
-              </span>
-              Upload Artwork
-            </legend>
-            <label class="flex min-h-14 cursor-pointer items-center bg-white px-4 text-base font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
-              <span class="sr-only">Upload artwork file</span>
-              <input class="text-base" name="artwork" type="file" aria-label="Upload artwork file" />
-            </label>
-          </fieldset>
-
-          <fieldset class="grid gap-3">
-            <legend class="mb-1 flex items-center gap-3 font-display text-xl font-extrabold text-neutral-900">
-              <span class="grid h-10 w-10 place-items-center rounded-md bg-accent text-neutral-950" aria-hidden="true">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
-                </svg>
-              </span>
-              Personal Information
-            </legend>
-            <div class="grid gap-3 md:grid-cols-3">
-              <input required class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
-              <input required type="email" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" autocomplete="email" aria-label="Email address" />
-              <input required type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" autocomplete="tel" aria-label="Contact number" />
-            </div>
-            <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="country" placeholder="Country (Optional)" autocomplete="country-name" aria-label="Country" />
-          </fieldset>
-
-          <fieldset class="grid gap-3">
-            <legend class="mb-1 flex items-center gap-3 font-display text-xl font-extrabold text-neutral-900">
-              <span class="grid h-10 w-10 place-items-center rounded-md bg-accent text-neutral-950" aria-hidden="true">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
-                </svg>
-              </span>
-              Additional Information
-            </legend>
-            <textarea
-              required
-              class="min-h-[10rem] border border-transparent bg-white px-4 py-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
-              name="details"
-              placeholder="Message..."
-              aria-label="Project details"
-            ></textarea>
-          </fieldset>
-
-          <div class="flex justify-end pt-1">
-            <button class="min-h-14 rounded-md bg-accent px-10 py-3 text-lg font-black text-neutral-950 transition hover:bg-warning" type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
+      <div class="mx-auto mb-8 max-w-3xl text-center md:mb-12">
+        <p class="eyebrow">Packaging RFQ</p>
+        <h1 class="mt-3 font-display text-3xl font-extrabold uppercase leading-tight text-neutral-900 md:text-5xl">Request a custom packaging quote</h1>
+        <p class="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">Share the core specification in three short steps. Apex reviews product fit, material, print, production, freight, and delivery requirements before responding.</p>
       </div>
 
-      <div class="mx-auto mt-6 max-w-[64rem] grid gap-4 text-sm text-neutral-600 md:grid-cols-3">
+      <div class="mx-auto max-w-[68rem]">
+        <RFQForm source="Request Quote Contact Form" />
+        <TrustpilotTrustBox class="mt-6 rounded-xl border border-neutral-200 bg-white p-5 shadow-card" />
+      </div>
+
+      <div class="mx-auto mt-7 grid max-w-[68rem] gap-4 text-sm text-neutral-600 md:grid-cols-3">
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
           <strong class="block font-display text-neutral-900">Direct contact</strong>
           <a class="mt-2 block break-all text-accent hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           <a class="mt-2 block text-accent hover:underline" href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a>
         </div>
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
-          <strong class="block font-display text-neutral-900">Quote review</strong>
-          <span class="mt-2 block">Apex reviews the product, dimensions, material, print, quantity, destination, and required delivery date.</span>
+          <strong class="block font-display text-neutral-900">What Apex reviews</strong>
+          <span class="mt-2 block">Product fit, dimensions, material, print, quantity, destination, artwork status, and required delivery date.</span>
         </div>
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
-          <strong class="block font-display text-neutral-900">Address</strong>
+          <strong class="block font-display text-neutral-900">Business address</strong>
           <span class="mt-2 block">{siteConfig.formattedAddress}</span>
         </div>
       </div>

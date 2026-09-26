@@ -1,0 +1,323 @@
+---
+interface Props {
+  source: string;
+  compact?: boolean;
+}
+
+const { source, compact = false } = Astro.props;
+const inputClass = 'rfq-input';
+---
+
+<form
+  class:list={['rfq-form', compact && 'rfq-form--compact']}
+  action="/api/quote"
+  method="POST"
+  enctype="multipart/form-data"
+  data-rfq-form
+  novalidate
+>
+  <input type="hidden" name="source" value={source} />
+  <input type="hidden" name="redirectTo" value="/thank-you" />
+  <label class="hidden" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+
+  <div class="rfq-header">
+    <div>
+      <p class="rfq-kicker">Request for quote</p>
+      <h2 class="rfq-title">Tell us what you need</h2>
+    </div>
+    <p class="rfq-step-label" aria-live="polite" data-step-label>Step 1 of 3</p>
+  </div>
+
+  <ol class="rfq-progress" aria-label="Quote form progress">
+    {['Packaging', 'Customization', 'Contact'].map((label, index) => (
+      <li class:list={['rfq-progress-item', index === 0 && 'is-active']} data-progress-item aria-current={index === 0 ? 'step' : undefined}>
+        <span>{index + 1}</span>{label}
+      </li>
+    ))}
+  </ol>
+
+  <div class="rfq-body">
+    <div class="rfq-alert rfq-alert--error" role="alert" tabindex="-1" hidden data-form-error></div>
+
+    <section class="rfq-panel" data-step="1" aria-labelledby={`rfq-step-1-${source.replace(/\W+/g, '-').toLowerCase()}`}>
+      <div class="rfq-section-heading">
+        <p class="rfq-kicker">Step 1</p>
+        <h3 id={`rfq-step-1-${source.replace(/\W+/g, '-').toLowerCase()}`}>Packaging requirements</h3>
+        <p>Start with the package style, finished inside dimensions, and estimated order quantity.</p>
+      </div>
+
+      <div class="rfq-grid rfq-grid--two">
+        <label class="rfq-field">
+          <span>Product / box type <b aria-hidden="true">*</b></span>
+          <select class={inputClass} name="product" required>
+            <option value="">Select a packaging type</option>
+            <option>Mailer Boxes</option>
+            <option>Rigid Boxes</option>
+            <option>Folding Cartons / Cardboard Boxes</option>
+            <option>Corrugated Boxes</option>
+            <option>Shipping Boxes</option>
+            <option>Display Boxes</option>
+            <option>Polybags / Pouches</option>
+            <option>Protective Packaging / Inserts</option>
+            <option>Industrial / Bulk Packaging</option>
+            <option>Other</option>
+          </select>
+          <span class="rfq-field-error" data-field-error></span>
+        </label>
+        <label class="rfq-field">
+          <span>Quantity <b aria-hidden="true">*</b></span>
+          <input class={inputClass} name="quantity" type="number" inputmode="numeric" min="1" step="1" placeholder="e.g. 1,000" required />
+          <span class="rfq-field-error" data-field-error></span>
+        </label>
+      </div>
+
+      <fieldset class="rfq-fieldset">
+        <legend>Inside dimensions <span>(use your best estimate)</span></legend>
+        <div class="rfq-dimensions">
+          <label class="rfq-field"><span>Length <b aria-hidden="true">*</b></span><input class={inputClass} name="length" type="number" inputmode="decimal" min="0.01" step="any" required /><span class="rfq-field-error" data-field-error></span></label>
+          <label class="rfq-field"><span>Width <b aria-hidden="true">*</b></span><input class={inputClass} name="width" type="number" inputmode="decimal" min="0.01" step="any" required /><span class="rfq-field-error" data-field-error></span></label>
+          <label class="rfq-field"><span>Depth / height <b aria-hidden="true">*</b></span><input class={inputClass} name="depth" type="number" inputmode="decimal" min="0.01" step="any" required /><span class="rfq-field-error" data-field-error></span></label>
+          <label class="rfq-field"><span>Unit <b aria-hidden="true">*</b></span><select class={inputClass} name="unit" required><option value="">Select</option><option value="inches">Inches</option><option value="mm">Millimetres</option><option value="cm">Centimetres</option></select><span class="rfq-field-error" data-field-error></span></label>
+        </div>
+      </fieldset>
+
+      <label class="rfq-field">
+        <span>What will the packaging hold?</span>
+        <input class={inputClass} name="productContents" placeholder="Product, packed weight, and intended use" />
+      </label>
+    </section>
+
+    <section class="rfq-panel" data-step="2" aria-labelledby={`rfq-step-2-${source.replace(/\W+/g, '-').toLowerCase()}`} hidden>
+      <div class="rfq-section-heading">
+        <p class="rfq-kicker">Step 2</p>
+        <h3 id={`rfq-step-2-${source.replace(/\W+/g, '-').toLowerCase()}`}>Customization</h3>
+        <p>Select known preferences. Apex can recommend a production-ready alternative after reviewing the product.</p>
+      </div>
+
+      <div class="rfq-grid rfq-grid--two">
+        <label class="rfq-field">
+          <span>Material <b aria-hidden="true">*</b></span>
+          <select class={inputClass} name="material" required>
+            <option value="">Select a material</option>
+            <option>Corrugated board</option>
+            <option>SBS / coated paperboard</option>
+            <option>Kraft paperboard</option>
+            <option>Rigid / chipboard</option>
+            <option>Recycled-content board</option>
+            <option>Poly film / flexible packaging</option>
+            <option>Not sure — recommend one</option>
+          </select>
+          <span class="rfq-field-error" data-field-error></span>
+        </label>
+        <label class="rfq-field">
+          <span>Printing <b aria-hidden="true">*</b></span>
+          <select class={inputClass} name="printing" required>
+            <option value="">Select print coverage</option>
+            <option>Outside only</option>
+            <option>Inside only</option>
+            <option>Inside + outside</option>
+            <option>No printing</option>
+            <option>Not sure — recommend one</option>
+          </select>
+          <span class="rfq-field-error" data-field-error></span>
+        </label>
+      </div>
+
+      <fieldset class="rfq-fieldset">
+        <legend>Finishes / add-ons <span>(select any that apply)</span></legend>
+        <div class="rfq-options">
+          {['Matte lamination', 'Gloss coating', 'Spot UV', 'Foil stamping', 'Embossing', 'Debossing', 'Window', 'Custom inserts', 'Other / not sure'].map((option) => (
+            <label><input type="checkbox" name="finishes" value={option} /><span>{option}</span></label>
+          ))}
+        </div>
+      </fieldset>
+
+      <label class="rfq-field">
+        <span>Artwork or reference file <small>(optional, maximum 8 MB)</small></span>
+        <input class="rfq-file" name="artwork" type="file" accept=".pdf,.ai,.eps,.svg,.png,.jpg,.jpeg,.webp" />
+        <span class="rfq-field-error" data-field-error></span>
+      </label>
+    </section>
+
+    <section class="rfq-panel" data-step="3" aria-labelledby={`rfq-step-3-${source.replace(/\W+/g, '-').toLowerCase()}`} hidden>
+      <div class="rfq-section-heading">
+        <p class="rfq-kicker">Step 3</p>
+        <h3 id={`rfq-step-3-${source.replace(/\W+/g, '-').toLowerCase()}`}>Contact and delivery</h3>
+        <p>These details help Apex review freight, timing, and the right production route.</p>
+      </div>
+
+      <div class="rfq-grid rfq-grid--two">
+        <label class="rfq-field"><span>Full name <b aria-hidden="true">*</b></span><input class={inputClass} name="name" autocomplete="name" required /><span class="rfq-field-error" data-field-error></span></label>
+        <label class="rfq-field"><span>Company name <b aria-hidden="true">*</b></span><input class={inputClass} name="company" autocomplete="organization" required /><span class="rfq-field-error" data-field-error></span></label>
+        <label class="rfq-field"><span>Business email <b aria-hidden="true">*</b></span><input class={inputClass} name="email" type="email" autocomplete="email" required /><span class="rfq-field-error" data-field-error></span></label>
+        <label class="rfq-field"><span>Phone <b aria-hidden="true">*</b></span><input class={inputClass} name="phone" type="tel" autocomplete="tel" required /><span class="rfq-field-error" data-field-error></span></label>
+        <label class="rfq-field"><span>Country <b aria-hidden="true">*</b></span><select class={inputClass} name="country" autocomplete="country-name" required><option value="">Select country</option><option>Canada</option><option>United States</option><option>Other</option></select><span class="rfq-field-error" data-field-error></span></label>
+        <label class="rfq-field"><span>ZIP / postal code <b aria-hidden="true">*</b></span><input class={inputClass} name="postalCode" autocomplete="postal-code" required /><span class="rfq-field-error" data-field-error></span></label>
+      </div>
+
+      <label class="rfq-field">
+        <span>Additional requirements</span>
+        <textarea class={inputClass} name="details" rows="5" placeholder="Target date, shipping route, sustainability requirements, artwork status, or questions"></textarea>
+      </label>
+
+      <label class="rfq-consent">
+        <input type="checkbox" name="privacyConsent" value="Agreed" required />
+        <span>I agree that Apex Packaging Solutions may use these details to respond to this quote request. See the <a href="/privacy">privacy policy</a>.</span>
+      </label>
+      <span class="rfq-field-error" data-consent-error></span>
+    </section>
+
+    <div class="rfq-actions">
+      <button class="rfq-button rfq-button--secondary" type="button" data-previous hidden>Previous</button>
+      <button class="rfq-button rfq-button--primary" type="button" data-next>Continue</button>
+      <button class="rfq-button rfq-button--primary" type="submit" data-submit hidden>Submit quote request</button>
+    </div>
+
+    <p class="rfq-security">Your information is sent securely to the existing Apex sales inbox. Uploaded files are limited to 8 MB.</p>
+  </div>
+
+  <div class="rfq-success" role="status" tabindex="-1" hidden data-success>
+    <p class="rfq-kicker">Request received</p>
+    <h3>Thank you. Apex will review your packaging specifications.</h3>
+    <p>Your dimensions, customization choices, contact details, and any uploaded artwork have been sent to the sales team.</p>
+    <a href="/services">Review packaging services</a>
+  </div>
+</form>
+
+<script>
+  const emitRfqEvent = (form: HTMLFormElement, event: string, details: Record<string, unknown> = {}) => {
+    const payload = { event, form_source: form.dataset.source || form.querySelector<HTMLInputElement>('[name="source"]')?.value || 'Website RFQ', ...details };
+    window.dispatchEvent(new CustomEvent(event, { detail: payload }));
+    const dataLayerWindow = window as Window & { dataLayer?: Record<string, unknown>[] };
+    dataLayerWindow.dataLayer?.push(payload);
+  };
+
+  document.querySelectorAll<HTMLFormElement>('[data-rfq-form]').forEach((form) => {
+    const panels = Array.from(form.querySelectorAll<HTMLElement>('[data-step]'));
+    const progressItems = Array.from(form.querySelectorAll<HTMLElement>('[data-progress-item]'));
+    const stepLabel = form.querySelector<HTMLElement>('[data-step-label]');
+    const previousButton = form.querySelector<HTMLButtonElement>('[data-previous]');
+    const nextButton = form.querySelector<HTMLButtonElement>('[data-next]');
+    const submitButton = form.querySelector<HTMLButtonElement>('[data-submit]');
+    const formError = form.querySelector<HTMLElement>('[data-form-error]');
+    const success = form.querySelector<HTMLElement>('[data-success]');
+    let currentStep = 0;
+    let started = false;
+    let submitting = false;
+
+    const markStarted = () => {
+      if (started) return;
+      started = true;
+      emitRfqEvent(form, 'rfq_started');
+    };
+
+    const showStep = (index: number) => {
+      currentStep = index;
+      panels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== currentStep; });
+      progressItems.forEach((item, itemIndex) => {
+        item.classList.toggle('is-active', itemIndex === currentStep);
+        item.classList.toggle('is-complete', itemIndex < currentStep);
+        if (itemIndex === currentStep) item.setAttribute('aria-current', 'step');
+        else item.removeAttribute('aria-current');
+      });
+      if (stepLabel) stepLabel.textContent = `Step ${currentStep + 1} of ${panels.length}`;
+      if (previousButton) previousButton.hidden = currentStep === 0;
+      if (nextButton) nextButton.hidden = currentStep === panels.length - 1;
+      if (submitButton) submitButton.hidden = currentStep !== panels.length - 1;
+      panels[currentStep]?.querySelector<HTMLElement>('h3')?.focus({ preventScroll: true });
+    };
+
+    const validateControl = (control: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+      const error = control.closest('.rfq-field')?.querySelector<HTMLElement>('[data-field-error]');
+      let message = control.validationMessage;
+      if (control.type === 'file') {
+        const file = (control as HTMLInputElement).files?.[0];
+        if (file && file.size > 8 * 1024 * 1024) message = 'Please upload a file smaller than 8 MB.';
+      }
+      control.setAttribute('aria-invalid', message ? 'true' : 'false');
+      if (error) error.textContent = message;
+      return !message;
+    };
+
+    const validateStep = () => {
+      const panel = panels[currentStep];
+      const controls = Array.from(panel.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input, select, textarea'));
+      const consent = panel.querySelector<HTMLInputElement>('[name="privacyConsent"]');
+      let valid = true;
+      controls.forEach((control) => { if (!validateControl(control)) valid = false; });
+      const consentError = panel.querySelector<HTMLElement>('[data-consent-error]');
+      if (consentError) consentError.textContent = consent && !consent.checked ? 'Please confirm the privacy consent to continue.' : '';
+      if (!valid) controls.find((control) => !control.checkValidity() || (control.type === 'file' && Boolean((control as HTMLInputElement).files?.[0] && (control as HTMLInputElement).files![0].size > 8 * 1024 * 1024)))?.focus();
+      return valid;
+    };
+
+    form.addEventListener('focusin', markStarted, { once: true });
+    form.addEventListener('input', (event) => {
+      const control = event.target;
+      if (control instanceof HTMLInputElement || control instanceof HTMLSelectElement || control instanceof HTMLTextAreaElement) validateControl(control);
+    });
+
+    nextButton?.addEventListener('click', () => {
+      markStarted();
+      if (!validateStep()) return;
+      emitRfqEvent(form, currentStep === 0 ? 'rfq_step_1_completed' : 'rfq_step_2_completed');
+      showStep(Math.min(currentStep + 1, panels.length - 1));
+    });
+    previousButton?.addEventListener('click', () => showStep(Math.max(currentStep - 1, 0)));
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      markStarted();
+      if (submitting || !validateStep()) return;
+      submitting = true;
+      if (formError) { formError.hidden = true; formError.textContent = ''; }
+      if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Sending…'; }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Your quote request could not be sent. Please try again or email Apex directly.');
+        emitRfqEvent(form, 'rfq_submitted_successfully');
+        form.querySelector<HTMLElement>('.rfq-header')!.hidden = true;
+        form.querySelector<HTMLElement>('.rfq-progress')!.hidden = true;
+        form.querySelector<HTMLElement>('.rfq-body')!.hidden = true;
+        if (success) { success.hidden = false; success.focus(); }
+      } catch (error) {
+        if (formError) {
+          formError.textContent = error instanceof Error ? error.message : 'Your quote request could not be sent.';
+          formError.hidden = false;
+          formError.focus();
+        }
+      } finally {
+        submitting = false;
+        if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Submit quote request'; }
+      }
+    });
+  });
+</script>
+
+<style>
+  .rfq-form{overflow:hidden;border:1px solid #d8cba7;border-radius:1.5rem;background:#f6f1e7;box-shadow:0 18px 45px rgba(7,28,50,.14)}
+  .rfq-header{display:flex;align-items:end;justify-content:space-between;gap:1rem;padding:1.25rem 1.25rem 1rem;background:#071c32;color:#fff}
+  .rfq-kicker{font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#d6a329}
+  .rfq-title{margin-top:.25rem;font-family:Archivo,sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase}
+  .rfq-step-label{flex:none;font-size:.8rem;font-weight:800;color:#e8d89e}
+  .rfq-progress{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #d8cba7;background:#fff}
+  .rfq-progress-item{display:flex;align-items:center;justify-content:center;gap:.45rem;padding:.85rem .35rem;font-size:.72rem;font-weight:800;color:#777;text-align:center}
+  .rfq-progress-item span{display:grid;width:1.65rem;height:1.65rem;place-items:center;border:1px solid #c9c9c9;border-radius:50%;font-size:.7rem}
+  .rfq-progress-item.is-active{color:#071c32;background:#fff8df}.rfq-progress-item.is-active span{border-color:#c99700;background:#c99700;color:#071c32}.rfq-progress-item.is-complete span{border-color:#1f6672;background:#1f6672;color:#fff}
+  .rfq-body{padding:1.25rem}.rfq-panel{min-height:28rem}.rfq-section-heading h3{margin-top:.3rem;font-family:Archivo,sans-serif;font-size:1.55rem;font-weight:800;color:#171717}.rfq-section-heading p:last-child{margin-top:.45rem;max-width:42rem;color:#616161;line-height:1.6}
+  .rfq-grid{display:grid;gap:1rem;margin-top:1.25rem}.rfq-field{display:grid;gap:.4rem}.rfq-field>span:first-child,.rfq-fieldset legend{font-size:.84rem;font-weight:800;color:#242424}.rfq-field b{color:#9d3f2e}.rfq-field small,.rfq-fieldset legend span{font-weight:500;color:#6b6b6b}
+  .rfq-input,.rfq-file{box-sizing:border-box;width:100%;min-height:3.2rem;border:1px solid #cfc5b1;border-radius:.45rem;background:#fff;padding:.72rem .85rem;color:#171717}.rfq-input:focus,.rfq-file:focus{outline:3px solid rgba(201,151,0,.25);border-color:#a87500}.rfq-input[aria-invalid=true],.rfq-file[aria-invalid=true]{border-color:#a23f32}
+  textarea.rfq-input{resize:vertical}.rfq-field-error{min-height:1rem;font-size:.75rem;font-weight:650;color:#8d3127}.rfq-fieldset{margin-top:1.25rem}.rfq-dimensions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:.65rem}
+  .rfq-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.7rem}.rfq-options label{display:flex;align-items:center;gap:.55rem;min-height:2.85rem;border:1px solid #d7cfbf;border-radius:.45rem;background:#fff;padding:.55rem .7rem;font-size:.82rem;font-weight:650}.rfq-options input,.rfq-consent input{width:1rem;height:1rem;accent-color:#1f6672}
+  .rfq-consent{display:flex;align-items:flex-start;gap:.65rem;margin-top:1rem;font-size:.82rem;line-height:1.5;color:#555}.rfq-consent input{flex:none;margin-top:.2rem}.rfq-consent a{text-decoration:underline;text-decoration-color:#c99700;text-decoration-thickness:2px;text-underline-offset:3px}
+  .rfq-actions{display:flex;justify-content:flex-end;gap:.75rem;margin-top:1.4rem;padding-top:1.15rem;border-top:1px solid #d8cba7}.rfq-button{min-height:3rem;border-radius:.45rem;padding:.7rem 1.25rem;font-weight:850}.rfq-button:focus-visible{outline:3px solid rgba(31,102,114,.35);outline-offset:2px}.rfq-button--primary{background:#c99700;color:#071c32}.rfq-button--primary:hover{background:#e2b73d}.rfq-button--secondary{border:1px solid #bdb4a4;background:#fff;color:#333}.rfq-button:disabled{cursor:wait;opacity:.7}
+  .rfq-security{margin-top:.8rem;font-size:.72rem;color:#6c6c6c;text-align:right}.rfq-alert{margin-bottom:1rem;border-radius:.45rem;padding:.8rem 1rem;font-size:.84rem;font-weight:700}.rfq-alert--error{border:1px solid #cf8b82;background:#fff0ed;color:#79291f}.rfq-success{padding:3rem 1.5rem;text-align:center}.rfq-success h3{margin:.6rem auto 0;max-width:38rem;font-family:Archivo,sans-serif;font-size:1.8rem;font-weight:800;color:#171717}.rfq-success p:not(.rfq-kicker){margin:1rem auto 0;max-width:38rem;color:#5f5f5f;line-height:1.7}.rfq-success a{display:inline-flex;margin-top:1.5rem;border-radius:.45rem;background:#c99700;padding:.8rem 1.2rem;font-weight:800;color:#071c32}
+  @media(min-width:640px){.rfq-header,.rfq-body{padding-left:1.75rem;padding-right:1.75rem}.rfq-grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}.rfq-dimensions{grid-template-columns:repeat(4,minmax(0,1fr))}.rfq-options{grid-template-columns:repeat(3,minmax(0,1fr))}.rfq-progress-item{font-size:.8rem}}
+  @media(max-width:420px){.rfq-header{align-items:start;flex-direction:column}.rfq-options{grid-template-columns:1fr}.rfq-progress-item{flex-direction:column}.rfq-actions{justify-content:stretch}.rfq-button{flex:1;padding-left:.7rem;padding-right:.7rem}}
+</style>

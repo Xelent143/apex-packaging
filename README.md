@@ -139,7 +139,7 @@ apex-packaging/
 └── package.json
 ```
 
-## Pages built (18)
+## Main page architecture
 
 - `/` Home
 - `/services` Services overview
@@ -153,7 +153,8 @@ apex-packaging/
 - `/design-support`
 - `/about`
 - `/contact`
-- `/blog` index + 3 starter posts (ECT explained, RSC vs FOL, polybag thickness guide)
+- `/blog` knowledge base, including GSM, dieline, and material-comparison guides
+- `/locations/[slug]` reusable location landing pages backed by `src/data/commercialLocations.ts`
 - `/404`, `/privacy`
 
 ## SEO + GEO
@@ -209,12 +210,13 @@ Then `netlify deploy --prod`.
 
 1. **Replace placeholder phone + email** in `src/site.config.ts` (currently `+1-000-000-0000` and `hello@apexpackagingsolutions.com`).
 2. **Confirm plant city** — set `addressLocality` and `addressRegion` in `src/site.config.ts` (currently generic Canada + Ontario).
-3. **Connect the contact form** — `src/pages/contact.astro` has a placeholder `<form action="#">`. Wire to Formspree, Netlify Forms, your CRM, or a Vercel serverless function.
+3. **Verify quote delivery** — the three-step RFQ posts to `/api/quote` and uses the configured Hostinger SMTP or Resend credentials. Confirm a production test reaches `QUOTE_TO_EMAIL` before launch.
 4. **Swap stock imagery** — the design uses none yet. Add real plant-floor photos to `public/images/` and reference from the Hero / ServiceMatrix sections (mark filenames descriptively: `corrugated-line-canada.jpg`, not `IMG_0023.jpg`).
 5. **Replace the OG card** — `public/og-default.svg` is a generic dark card with the tagline. For better social previews, generate a 1200×630 PNG version with real photography behind the type.
 6. **Set SITE_URL** in the Vercel/Netlify dashboard or `.env` before production build.
 7. **Set the Stripe payment env vars** before using the private payment-link workflow.
 8. **Verify the FSC / ISO / SQF certification claims** in copy — they're written assuming Apex actually holds these. Remove any that aren't real.
+9. **Add trust integrations only after approval** — configure the official Trustpilot values and approved client logos using `docs/trust-integrations.md`; both sections remain hidden without genuine data.
 
 ## Documentation
 
@@ -223,5 +225,6 @@ The full research and strategy that produced this site lives in:
 - `strategy.md` — positioning + voice + IA
 - `research/` — competitor synthesis, keywords, SERP scrapes
 - `design-notes.md` — design DNA rationale
+- `docs/trust-integrations.md` — official Trustpilot configuration and approved client-logo workflow
 
 Keep these — they're the source of truth when extending the site.

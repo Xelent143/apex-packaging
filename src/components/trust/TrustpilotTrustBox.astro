@@ -1,0 +1,36 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+const businessUnitId = import.meta.env.PUBLIC_TRUSTPILOT_BUSINESS_UNIT_ID;
+const templateId = import.meta.env.PUBLIC_TRUSTPILOT_TEMPLATE_ID;
+const reviewUrl = import.meta.env.PUBLIC_TRUSTPILOT_REVIEW_URL;
+const enabled = Boolean(businessUnitId && templateId && reviewUrl);
+---
+
+{enabled && (
+  <div class={className} data-trustpilot-container>
+    <div
+      class="trustpilot-widget"
+      data-locale="en-CA"
+      data-template-id={templateId}
+      data-businessunit-id={businessUnitId}
+      data-style-height="52px"
+      data-style-width="100%"
+      data-theme="light"
+    >
+      <a href={reviewUrl} target="_blank" rel="noopener noreferrer">Review Apex Packaging Solutions on Trustpilot</a>
+    </div>
+    <script is:inline>
+      if (!document.querySelector('script[data-apex-trustpilot]')) {
+        const script = document.createElement('script');
+        script.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+        script.async = true;
+        script.dataset.apexTrustpilot = 'true';
+        document.head.appendChild(script);
+      }
+    </script>
+  </div>
+)}

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from '../../lib/schema';
+
+const title = 'Packaging Material Comparison Guide';
+const description = 'Compare kraft paper, SBS paperboard, corrugated board, rigid chipboard, and recycled packaging materials by strength, print, finish, cost, shipping, and best use.';
+const url = '/blog/packaging-material-comparison-guide';
+const faqs = [
+  { q: 'Which packaging material is best for shipping?', a: 'Corrugated board is a common starting point for parcel and freight shipping because its fluted construction provides cushioning and compression resistance. The correct flute, wall construction, board strength, dimensions, closures, and inserts depend on packed weight and the shipping route.' },
+  { q: 'Is kraft packaging always more sustainable?', a: 'Not automatically. A natural brown appearance does not prove recycled content, responsible fibre sourcing, recyclability in every market, or lower lifecycle impact. Request material composition and certification documentation for the exact product.' },
+  { q: 'What is the difference between SBS and rigid board?', a: 'SBS is a printable paperboard often converted into folding cartons. Rigid or chipboard is a much thicker non-folding core typically wrapped with printed or decorative paper to create presentation boxes.' },
+  { q: 'Can recycled board support premium printing?', a: 'Yes in many applications, but surface shade, smoothness, fibre variation, coating, and batch consistency can affect the result. Approve the exact substrate and a representative proof or sample before production.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+const article = buildArticleSchema({ title, description, url, datePublished: '2026-09-26', author: 'Apex Packaging Solutions' });
+---
+<BaseLayout title={`${title} | Apex Packaging`} description={description} schemaBlocks={[breadcrumb, article, buildFAQSchema(faqs)]}>
+  <PageHeader eyebrow="Material selection" heading={title} lead="Choose packaging material by product weight, presentation, print, protection, shipping, storage, and end-of-life requirements—not appearance alone." />
+
+  <article class="py-14 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Quick packaging material comparison</h2>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Material</th><th>Strength and appearance</th><th>Print and finishes</th><th>Common best use</th></tr></thead>
+          <tbody>
+            <tr><td>Kraft paper / kraft board</td><td>Natural appearance; performance varies by fibre and construction</td><td>Strong for simple graphics and selected full-colour work; brown base affects colour</td><td>Natural-look cartons, sleeves, bags, wraps, and some mailers</td></tr>
+            <tr><td>SBS / coated paperboard</td><td>Smooth, clean, foldable retail board</td><td>Excellent colour, small text, foil, embossing, lamination, and spot coatings</td><td>Folding cartons for cosmetics, food-adjacent goods, wellness, and retail products</td></tr>
+            <tr><td>Corrugated board</td><td>Fluted structure for compression, cushioning, and shipping</td><td>Flexo, digital, or litho-laminated graphics depending on quality and run needs</td><td>Shipping cases, mailers, displays, ecommerce, and protective inserts</td></tr>
+            <tr><td>Rigid / chipboard</td><td>Thick presentation structure with a premium feel</td><td>Wrapped print papers, textured papers, foil, embossing, magnets, ribbons, and inserts</td><td>Gift sets, launch kits, luxury products, and durable presentation boxes</td></tr>
+            <tr><td>Recycled-content papers and boards</td><td>Varies by furnish, coating, and construction</td><td>Can support strong print results; shade and surface consistency must be reviewed</td><td>Projects with a documented recycled-content objective and compatible performance needs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Kraft paper and kraft paperboard</h2>
+      <p>Kraft is valued for its natural brown tone, fibre-forward appearance, and broad use across bags, wraps, liners, sleeves, cartons, and corrugated liners. It can fit brands that want a restrained visual system, but “kraft” covers many grades. Virgin kraft, recycled kraft, coated kraft, paper bag stock, and kraft-backed board do not perform identically.</p>
+      <p>Dark inks and simple line work often reproduce well on natural kraft. Light colours may shift because the substrate is not white, and white ink may be needed when bright brand colours are important. Foil, embossing, windows, and coatings may be available depending on the exact board and structure.</p>
+      <p><strong>Cost:</strong> relative cost depends on grade, coating, print coverage, quantity, and conversion—not just the word “kraft.” <strong>Sustainability:</strong> confirm fibre source, recycled content, certifications, coatings, adhesives, and local recovery options instead of relying on colour as proof.</p>
+
+      <h2>SBS and coated paperboard</h2>
+      <p>Solid bleached sulfate, commonly called SBS, is a smooth white paperboard used for high-quality folding cartons. It supports detailed graphics, small copy, colour control, foil, embossing, debossing, windows, and laminations. Its clean surface makes it a common choice for cosmetics, supplements, confectionery, candles, soap, electronics accessories, and other shelf products.</p>
+      <p>SBS is not a shipping case by itself. A folding carton may need an insert and an outer corrugated case for parcel or distribution handling. Board GSM, caliper, grain direction, panel size, scoring, and product weight all affect whether a carton feels rigid and folds cleanly. See the <a href="/blog/packaging-paper-gsm-thickness-guide">GSM and thickness guide</a> before comparing quotations.</p>
+      <p><strong>Cost:</strong> coated white board and premium finishes usually cost more than basic natural board, while efficient dielines and sensible coverage can control waste. <strong>Best use:</strong> retail packaging where print precision and panel presentation matter.</p>
+
+      <h2>Corrugated board</h2>
+      <p>Corrugated combines liner papers with a fluted medium. The resulting structure can provide compression strength, cushioning, and stiffness without using a solid mass of paperboard. Single-wall and double-wall constructions, flute profiles, liner combinations, and converting quality determine performance.</p>
+      <p>Corrugated can range from a basic brown RSC shipping case to a full-colour <a href="/services/mailer-boxes">printed mailer box</a> or litho-laminated retail display. Flexographic print suits many shipping and brand-marking applications. Digital print can support short runs and detailed graphics. Litho lamination can provide a smoother premium face when the structure and budget justify it.</p>
+      <p><strong>Cost:</strong> dimensions, board grade, flute, print coverage, tooling, run size, pack-out, pallet efficiency, and freight all matter. A slightly smaller case can sometimes reduce total landed cost more than a lighter liner. <strong>Best use:</strong> parcel, warehouse, LTL, ecommerce, displays, and products needing structural protection.</p>
+
+      <h2>Rigid board or chipboard</h2>
+      <p>Rigid boxes use a thick paper-based core that is cut and wrapped rather than folded like a paperboard carton. The result is a substantial presentation format used for gift sets, premium launches, cosmetics, electronics, jewellery, and media kits. Common structures include lift-off lids, drawer boxes, book-style magnetic closures, and shoulder boxes.</p>
+      <p>Rigid packaging supports decorative papers, printed wraps, foil, embossing, debossing, ribbons, magnets, foam, paperboard, or moulded inserts. It usually occupies more storage and shipping cube than a flat folding carton. It may also require a protective shipper if sent through parcel networks.</p>
+      <p><strong>Cost:</strong> generally higher than folding cartons or standard corrugated because of material, wrapping, assembly, inserts, and freight volume. <strong>Best use:</strong> high-value presentation where the packaging experience supports the product and channel.</p>
+
+      <h2>Recycled-content materials</h2>
+      <p>Recycled content can be incorporated into kraft, paperboard, corrugated liner, medium, rigid core, and other paper-based packaging. Performance depends on the furnish and manufacturing controls. Buyers should state whether they need a minimum recycled-content percentage, post-consumer content, chain-of-custody certification, restricted substances, or customer-specific documentation.</p>
+      <p>Recycled material is not automatically the lowest-impact choice for every package. Over-specifying board can increase material and freight; under-specifying it can increase damage and replacement shipments. The practical objective is enough material to protect the product, efficient dimensions, responsible sourcing, and a credible recovery path in the destination market.</p>
+
+      <h2>Printing and finishing compatibility</h2>
+      <ul>
+        <li><strong>Natural kraft:</strong> account for the brown base and test white ink or colour shifts.</li>
+        <li><strong>SBS:</strong> well suited to detailed CMYK, spot colours, foil, embossing, and coated finishes.</li>
+        <li><strong>Corrugated:</strong> choose flexo, digital, or litho lamination around run size, graphics, flute, and required surface quality.</li>
+        <li><strong>Rigid board:</strong> the wrap material carries most print and decorative finishing; corners, seams, and insert fit need sample review.</li>
+        <li><strong>Recycled board:</strong> approve substrate shade, smoothness, print density, and batch expectations.</li>
+      </ul>
+
+      <h2>How to choose the right material</h2>
+      <ol>
+        <li>Define the product dimensions, packed weight, fragility, surface sensitivity, and number of components.</li>
+        <li>Map the route: retail shelf, parcel, courier, pallet, LTL, cold storage, or direct presentation.</li>
+        <li>Decide whether the package is primary, secondary, tertiary, or a presentation layer inside a shipper.</li>
+        <li>Set print, barcode, finish, window, insert, and opening requirements.</li>
+        <li>State quantity, reorder cadence, flat-pack or assembled storage constraints, and destination.</li>
+        <li>Document sustainability and certification requirements that apply to the exact product.</li>
+        <li>Compare representative samples and a complete landed quotation, not material names alone.</li>
+      </ol>
+      <p>Use the approved material together with a controlled <a href="/blog/packaging-dieline-guide">packaging dieline</a>. Then request a sample appropriate to the risk: a white structural sample for fit, a printed proof for artwork, or a production-equivalent sample for high-value launches.</p>
+    </div>
+  </article>
+
+  <FAQAccordion faqs={faqs} />
+  <RelatedContent items={[
+    { title: 'Packaging Paper GSM & Thickness Guide', href: '/blog/packaging-paper-gsm-thickness-guide', description: 'Understand mass, caliper, stiffness, corrugated construction, and material ranges.' },
+    { title: 'Custom Kraft Boxes', href: '/services/custom-kraft-boxes', description: 'Explore natural kraft folding cartons and branded paperboard packaging.' },
+    { title: 'Custom Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Review shipping cases, mailers, displays, flute, and board-strength options.' }
+  ]} />
+  <CTABand heading="Compare materials for your actual product." lead="Send dimensions, packed weight, channel, print, finishes, quantity, destination, and documentation needs for a product-specific recommendation." primaryCta={{ label: 'Start a packaging RFQ', href: '/contact' }} />
+</BaseLayout>
