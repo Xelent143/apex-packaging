@@ -10,8 +10,8 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 ---
 <BaseLayout
-  title="Get Custom Quote | Apex Packaging"
-  description="Request a product-specific custom packaging quote with dimensions, material, quantity, artwork, destination, and required delivery timing."
+  title="Get a Custom Packaging Quote in Canada | Apex Packaging"
+  description="Request a product-specific custom packaging quote from Apex Packaging in Canada with dimensions, material, quantity, artwork, destination, and required delivery timing."
   schemaBlocks={[breadcrumb]}
 >
   <section class="bg-neutral-50 py-8 md:py-12">
@@ -158,8 +158,9 @@ const breadcrumb = buildBreadcrumbSchema([
 
       <div class="mx-auto mt-6 max-w-[64rem] grid gap-4 text-sm text-neutral-600 md:grid-cols-3">
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
-          <strong class="block font-display text-neutral-900">Direct email</strong>
+          <strong class="block font-display text-neutral-900">Direct contact</strong>
           <a class="mt-2 block break-all text-accent hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          <a class="mt-2 block text-accent hover:underline" href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a>
         </div>
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
           <strong class="block font-display text-neutral-900">Quote review</strong>

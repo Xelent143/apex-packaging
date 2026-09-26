@@ -7,12 +7,12 @@ import CTABand from '../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../lib/schema';
 
 const finishes = [
-  { title: 'Custom embossed packaging boxes', body: 'Embossing and debossing create raised or recessed detail in selected parts of the package. Suitability depends on the board, artwork, structure and production method.' },
-  { title: 'Custom gold foil stamped boxes', body: 'Gold foil and other metallic foil treatments can add contrast to logos, type and selected graphic elements. Coverage and registration are confirmed for the chosen structure.' },
-  { title: 'Custom holographic foil packaging boxes', body: 'Holographic foil can be considered for premium retail projects where the board, artwork and finish direction support the treatment.' },
-  { title: 'Custom matte laminated boxes', body: 'Matte lamination can create a low-gloss presentation and protect printed surfaces. The appropriate material and finish are reviewed with the box specification.' },
-  { title: 'Custom soft touch laminated packaging', body: 'Soft-touch laminations are a tactile finish option for selected packaging programs. The quotation confirms the available production path, cost and timing.' },
-  { title: 'Custom spot UV box packaging', body: 'Spot UV adds gloss to selected artwork areas over a contrasting surface. It should be planned with the final dieline and print file.' }
+  { title: 'Custom embossed boxes Canada', body: 'Embossing and debossing create raised or recessed detail in selected parts of the package. Suitability depends on the board, artwork, structure and production method.' },
+  { title: 'Custom gold foil packaging boxes Canada', body: 'Gold foil and other metallic foil treatments can add contrast to logos, type and selected graphic elements. Coverage and registration are confirmed for the chosen structure.' },
+  { title: 'Custom holographic foil boxes Canada', body: 'Holographic foil can be considered for premium retail projects where the board, artwork and finish direction support the treatment.' },
+  { title: 'Custom matte laminated boxes Canada', body: 'Matte lamination can create a low-gloss presentation and protect printed surfaces. The appropriate material and finish are reviewed with the box specification.' },
+  { title: 'Custom soft touch laminated packaging Canada', body: 'Soft-touch laminations are a tactile finish option for selected packaging programs. The quotation confirms the available production path, cost and timing.' },
+  { title: 'Custom spot UV box packaging Canada', body: 'Spot UV adds gloss to selected artwork areas over a contrasting surface. It should be planned with the final dieline and print file.' }
 ];
 const faqs = [
   { q: 'Which packaging finish is right for my box?', a: 'The suitable finish depends on the product, box structure, board, artwork, sales channel, quantity and brand direction. Send reference images and the product brief so Apex can confirm the available options.' },
@@ -23,15 +23,15 @@ const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'P
 const service = buildServiceSchema({ name: 'Custom packaging finishes', description: 'Custom embossed, foil-stamped, matte, soft-touch and spot-UV packaging finishes for product-specific packaging projects.', url: '/packaging-finishes' });
 ---
 <BaseLayout
-  title="Custom Packaging Finishes | Foil, Embossing, Matte & Spot UV"
-  description="Explore custom packaging finishes including embossed boxes, gold foil, holographic foil, matte lamination, soft touch and spot UV. Options are quoted to your box specification."
+  title="Custom Packaging Finishes Canada | Foil, Embossing & Spot UV"
+  description="Explore custom packaging finishes in Canada including embossed boxes, gold foil, holographic foil, matte lamination, soft touch and spot UV. Options are quoted to your box specification."
   image="/images/home/finishes/gold-foiling.webp"
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <PageHeader
     eyebrow="Packaging finishes · Custom print"
-    heading="Custom packaging finishes for branded boxes and retail presentation."
-    lead="Compare embossing, foil, matte lamination, soft touch and spot UV before requesting a project-specific box quotation. The right finish depends on the structure, material, artwork and intended use."
+    heading="Custom packaging finishes in Canada for branded boxes and retail presentation."
+    lead="Compare embossing, foil, matte lamination, soft touch and spot UV for Canada-bound packaging projects before requesting a project-specific box quotation. The right finish depends on the structure, material, artwork and intended use."
     imageSrc="/images/home/finishes/gold-foiling.webp"
     imageAlt="Gold foil and premium finishing details on custom packaging boxes."
   />
