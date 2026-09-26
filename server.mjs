@@ -17,6 +17,13 @@ const defaultQuoteSender = 'Apex Packaging <sales@apexpackagingsolutions.com>';
 const quoteFailureLogPath = resolve(__dirname, 'data', 'quote-email-failures.jsonl');
 const canonicalHost = 'apexpackagingsolutions.com';
 const wwwHost = 'www.apexpackagingsolutions.com';
+const permanentRedirects = new Map([
+  ['/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-08-05', '/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-09-04'],
+  ['/blog/custom-mailer-boxes-for-subscription-brands-2026-07-14', '/blog/custom-mailer-boxes-for-subscription-brands-2026-09-12'],
+  ['/blog/custom-mailer-boxes-for-subscription-brands-2026-08-13', '/blog/custom-mailer-boxes-for-subscription-brands-2026-09-12'],
+  ['/blog/apparel-packaging-for-ecommerce-and-retail-2026-08-04', '/blog/apparel-packaging-boxes-garment-bags-mailers'],
+  ['/blog/apparel-packaging-for-ecommerce-and-retail-2026-09-03', '/blog/apparel-packaging-boxes-garment-bags-mailers']
+]);
 
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
@@ -45,6 +52,13 @@ const server = createServer(async (req, res) => {
       res.writeHead(req.method === 'GET' || req.method === 'HEAD' ? 301 : 308, {
         Location: canonicalRedirect
       });
+      res.end();
+      return;
+    }
+
+    const redirectTarget = permanentRedirects.get(url.pathname.replace(/\/$/, ''));
+    if (redirectTarget) {
+      res.writeHead(301, { Location: `${redirectTarget}${url.search}` });
       res.end();
       return;
     }

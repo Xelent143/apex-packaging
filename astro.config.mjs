@@ -10,11 +10,18 @@ const nonIndexableSitemapPaths = new Set([
   '/paynow',
   '/thank-you'
 ]);
+const redirectedSitemapPaths = new Set([
+  '/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-08-05',
+  '/blog/custom-mailer-boxes-for-subscription-brands-2026-07-14',
+  '/blog/custom-mailer-boxes-for-subscription-brands-2026-08-13',
+  '/blog/apparel-packaging-for-ecommerce-and-retail-2026-08-04',
+  '/blog/apparel-packaging-for-ecommerce-and-retail-2026-09-03'
+]);
 
 function isIndexableSitemapUrl(page) {
   const { pathname } = new URL(page);
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
-  return !nonIndexableSitemapPaths.has(normalizedPath);
+  return !nonIndexableSitemapPaths.has(normalizedPath) && !redirectedSitemapPaths.has(normalizedPath);
 }
 
 export default defineConfig({

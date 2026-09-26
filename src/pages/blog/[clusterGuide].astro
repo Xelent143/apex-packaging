@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from '../../lib/schema';
+
+type Guide = {
+  slug: string; title: string; description: string; commercial: { title: string; href: string; description: string }; image: string; imageAlt: string;
+  answer: string; decisionTitle: string; decisionIntro: string; rows: [string, string, string][]; checklist: string[]; faq: { q: string; a: string }[]; cta: string;
+};
+export const guides: Guide[] = [
+  {
+    slug: 'how-much-do-custom-bakery-boxes-cost', title: 'How Much Do Custom Bakery Boxes Cost?', description: 'A practical guide to the variables that affect a custom bakery-box quotation for buyers in Canada and the USA.', commercial: { title: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', description: 'Review bakery box structures, materials and quotation requirements.' }, image: '/images/home/category-banners/bakery-boxes-banner.webp', imageAlt: 'Custom bakery boxes for cakes, pastries and cookie assortments.',
+    answer: 'Custom bakery-box pricing is not one fixed figure. Dimensions, structure, material, print coverage, finishing, quantity, samples and delivery destination all affect a product-specific quotation.', decisionTitle: 'What changes a bakery-box quotation?', decisionIntro: 'Share the complete brief so the quote reflects the packaging you will actually use rather than a simplified placeholder.',
+    rows: [['Dimensions and structure', 'Cake boxes, windows, sleeves and trays use different amounts of material and conversion work.', 'Finished product size, height, board or tray.'], ['Printing and finish', 'Colour coverage, coatings and premium finishes change print setup and production requirements.', 'Artwork, print coverage and finish preference.'], ['Quantity and delivery', 'Run size and destination affect production planning and freight.', 'First-run quantity, reorder expectations and destination.']],
+    checklist: ['Finished product dimensions, including toppings and any board or insert.', 'Preferred box style, window requirement and artwork status.', 'Quantity, desired delivery date and destination.', 'Any material or documentation requirement that needs review.'],
+    faq: [{ q: 'Can Apex provide a bakery-box price without dimensions?', a: 'A preliminary discussion is possible, but dimensions, structure, print and quantity are needed for a useful product-specific quotation.' }, { q: 'Do window boxes cost the same as plain bakery boxes?', a: 'Not necessarily. The structure, window requirement, material, print and quantity determine the quotation.' }], cta: 'Send the finished product dimensions, artwork status, quantity and destination for a bakery-box quotation.'
+  },
+  {
+    slug: 'kraft-vs-cardboard-bakery-boxes', title: 'Kraft vs Cardboard Bakery Boxes: Which Should You Choose?', description: 'Compare kraft and paperboard bakery-box options around presentation, printing, product fit and quotation requirements.', commercial: { title: 'Custom Bakery Boxes', href: '/industries/bakery-boxes', description: 'Review bakery box structures, materials and quotation requirements.' }, image: '/images/home/category-banners/bakery-boxes-banner.webp', imageAlt: 'Kraft and printed bakery box packaging options.',
+    answer: 'Choose the board around the product, presentation, printing and handling needs. Kraft and paperboard can both work for bakery packaging; the practical choice depends on the exact structure and quotation requirements.', decisionTitle: 'Compare the specification, not a label', decisionIntro: 'A material name alone does not determine fit, appearance or printing performance. Confirm the proposed board for the selected bakery-box structure.',
+    rows: [['Retail presentation', 'The board colour and surface affect the visual direction of the finished carton.', 'Brand references and desired shelf appearance.'], ['Print requirements', 'Artwork coverage and finish preferences influence the proposed print path.', 'Logo files, colour references and desired coverage.'], ['Product and handling', 'Product dimensions, grease exposure and route-to-market shape the structure and material discussion.', 'Product photos, packed weight and sales channel.']],
+    checklist: ['Finished product dimensions and any liner, board or insert.', 'Reference images or existing packaging.', 'Artwork and desired print treatment.', 'Quantity, delivery destination and required in-hand date.'],
+    faq: [{ q: 'Is kraft always the right choice for bakery packaging?', a: 'No. The right material depends on the selected structure, product, printing, handling and the documentation requirements for the project.' }, { q: 'Can Apex compare two material options in one quote?', a: 'Yes. Share the packaging brief and the options you want compared; availability and pricing are confirmed for the exact specification.' }], cta: 'Send the product, artwork, quantity and destination to compare bakery-box material options.'
+  },
+  {
+    slug: 'how-to-select-pouch-size-and-capacity', title: 'How to Select the Right Pouch Size and Capacity', description: 'A practical guide for Canadian and US buyers selecting custom pouch dimensions and capacity before requesting a quotation.', commercial: { title: 'Custom Mylar Bags and Pouches', href: '/industries/custom-mylar-bags', description: 'Explore pouch structures, materials and project-specific quotation requirements.' }, image: '/images/services/polybags-generated-banner.png', imageAlt: 'Custom stand-up pouches and Mylar bag size options.',
+    answer: 'Start with the product and the desired fill or finished dimensions. Pouch size and capacity depend on the product form, target pack format, seal area, features and the way the pouch will be displayed or shipped.', decisionTitle: 'Measure the packed product', decisionIntro: 'A pouch sized from a rough estimate can leave too little seal area or too much empty space. Product samples and target dimensions make the quotation more reliable.',
+    rows: [['Product form', 'A dry product, powder, small parts or sample pack can occupy a pouch differently.', 'Product description and fill amount or volume.'], ['Pouch format', 'Stand-up, flat and gusseted structures use space differently.', 'Preferred format or request for a recommendation.'], ['Features and display', 'Zippers, tear notches, windows and hanging requirements affect the finished pouch.', 'Required features and retail or shipment use.']],
+    checklist: ['Product sample, fill amount or finished product dimensions.', 'Preferred pouch format and intended use.', 'Closure, tear notch, window or hang-hole requirements.', 'Artwork, quantity, destination and required in-hand date.'],
+    faq: [{ q: 'Can pouch capacity be determined from a product weight alone?', a: 'Not reliably. Product density and form affect the required dimensions, so a sample, fill volume or finished dimensions are useful.' }, { q: 'Should a pouch sample be considered before production?', a: 'A sample can be useful where fill, seal area, product fit or presentation needs validation. Requirements and costs are confirmed for the project.' }], cta: 'Send the product, target fill or dimensions, features, artwork, quantity and destination for a pouch quotation.'
+  },
+  {
+    slug: 'pouch-zippers-tear-notches-and-windows', title: 'Zippers, Tear Notches and Windows for Custom Pouches', description: 'A practical guide to selecting custom pouch closures, opening features and windows before requesting a quote in Canada or the USA.', commercial: { title: 'Custom Mylar Bags and Pouches', href: '/industries/custom-mylar-bags', description: 'Explore pouch structures, materials and project-specific quotation requirements.' }, image: '/images/services/polybags-generated-banner.png', imageAlt: 'Custom pouches with resealable closures, tear notches and product windows.',
+    answer: 'Choose pouch features around how the customer opens, uses and displays the product. Zippers, tear notches and windows are specification choices that affect the finished structure, artwork layout and quotation.', decisionTitle: 'Choose features with the full pouch in mind', decisionIntro: 'A feature is useful only when it works with the product, pouch dimensions, required seal area and intended sales channel.',
+    rows: [['Zipper or resealable closure', 'Useful where buyers want the pouch to be opened and closed again.', 'Expected customer use and preferred closure behaviour.'], ['Tear notch', 'Provides a planned opening point and needs suitable space near the pouch seal.', 'Opening preference and artwork layout.'], ['Window or hang hole', 'Can support product visibility or retail display but changes the pouch layout.', 'Window placement, display method and product visibility goal.']],
+    checklist: ['Product and pouch dimensions or fill amount.', 'Required closure and opening features.', 'Window location or hang-display needs.', 'Artwork, quantity, delivery destination and required date.'],
+    faq: [{ q: 'Can a pouch include more than one feature?', a: 'Potentially. The appropriate combination depends on the pouch structure, dimensions, product and artwork layout.' }, { q: 'Do features affect pouch price and timing?', a: 'Yes. Features are part of the product specification, so the quotation confirms their impact on minimums, production timing and price.' }], cta: 'Send the product, pouch format, feature requirements, artwork, quantity and destination for a product-specific quotation.'
+  }
+];
+export function getStaticPaths() { return guides.map((guide) => ({ params: { 'clusterGuide': guide.slug }, props: { guide } })); }
+const { guide } = Astro.props as { guide: Guide };
+const url = `/blog/${guide.slug}`;
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: guide.title, url }]);
+const article = buildArticleSchema({ title: guide.title, description: guide.description, url, datePublished: '2026-09-26', author: 'Apex Packaging Solutions' });
+---
+<BaseLayout title={`${guide.title} | Apex Packaging`} description={guide.description} image={guide.image} schemaBlocks={[breadcrumb, article, buildFAQSchema(guide.faq)]}>
+  <PageHeader eyebrow="Knowledge base · Buyer guide" heading={guide.title} lead={guide.answer} imageSrc={guide.image} imageAlt={guide.imageAlt} />
+  <section class="py-12 md:py-20"><div class="container max-w-default prose-apex">
+    <p class="text-sm text-neutral-600">Published September 26, 2026 · Apex Packaging Solutions</p>
+    <p><strong>{guide.answer}</strong></p>
+    <h2>{guide.decisionTitle}</h2><p>{guide.decisionIntro}</p>
+    <table><thead><tr><th>Decision</th><th>Why it matters</th><th>What to send</th></tr></thead><tbody>{guide.rows.map(([decision, reason, input]) => <tr><td>{decision}</td><td>{reason}</td><td>{input}</td></tr>)}</tbody></table>
+    <h2>Prepare a quote-ready brief</h2><ul>{guide.checklist.map((item) => <li>{item}</li>)}</ul>
+    <p>Minimum order quantities, pricing, production time and shipping time vary by the selected structure, dimensions, material, printing method, quantity and delivery destination. Apex confirms these details in the product-specific quotation.</p>
+    <h2>Frequently asked questions</h2>
+    {guide.faq.map((item) => <section><h3>{item.q}</h3><p>{item.a}</p></section>)}
+  </div></section>
+  <RelatedContent items={[guide.commercial]} />
+  <CTABand heading="Ready for a product-specific packaging quotation?" lead={guide.cta} primaryCta={{ label: 'Request a quote', href: '/contact' }} />
+</BaseLayout>
