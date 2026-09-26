@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RFQForm from '../components/forms/RFQForm.astro';
-import TrustpilotTrustBox from '../components/trust/TrustpilotTrustBox.astro';
 import { siteConfig } from '../site.config';
 import { buildBreadcrumbSchema } from '../lib/schema';
 
@@ -25,7 +24,6 @@ const breadcrumb = buildBreadcrumbSchema([
 
       <div class="mx-auto max-w-[68rem]">
         <RFQForm source="Request Quote Contact Form" />
-        <TrustpilotTrustBox class="mt-6 rounded-xl border border-neutral-200 bg-white p-5 shadow-card" />
       </div>
 
       <div class="mx-auto mt-7 grid max-w-[68rem] gap-4 text-sm text-neutral-600 md:grid-cols-3">

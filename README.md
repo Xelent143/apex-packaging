@@ -216,7 +216,7 @@ Then `netlify deploy --prod`.
 6. **Set SITE_URL** in the Vercel/Netlify dashboard or `.env` before production build.
 7. **Set the Stripe payment env vars** before using the private payment-link workflow.
 8. **Verify the FSC / ISO / SQF certification claims** in copy — they're written assuming Apex actually holds these. Remove any that aren't real.
-9. **Add trust integrations only after approval** — configure the official Trustpilot values and approved client logos using `docs/trust-integrations.md`; both sections remain hidden without genuine data.
+9. **Add client logos only after approval** — use the approved client-logo workflow in `docs/trust-integrations.md`; the section remains hidden without genuine data.
 
 ## Documentation
 
@@ -225,6 +225,6 @@ The full research and strategy that produced this site lives in:
 - `strategy.md` — positioning + voice + IA
 - `research/` — competitor synthesis, keywords, SERP scrapes
 - `design-notes.md` — design DNA rationale
-- `docs/trust-integrations.md` — official Trustpilot configuration and approved client-logo workflow
+- `docs/trust-integrations.md` — approved client-logo workflow
 
 Keep these — they're the source of truth when extending the site.
