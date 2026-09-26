@@ -21,13 +21,13 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 ---
 <BaseLayout
-  title="Custom Packaging Services | Boxes, Pouches, Bags & Finishes"
-  description="Explore custom cartons, corrugated mailers, rigid boxes, pouches, Mylar bags, paper bags, food packaging, inserts, printing and premium finishing from Apex Packaging."
+  title="Custom Packaging & Custom Boxes Canada | Apex Packaging"
+  description="Explore custom packaging and custom boxes: cartons, mailers, rigid boxes, pouches, bags, food packaging, inserts, printing and finishing from Apex Packaging."
   schemaBlocks={[breadcrumb]}
 >
   <PageHeader
     eyebrow="Services"
-    heading="Custom packaging managed from brief to delivery."
+    heading="Custom packaging and custom boxes, managed from brief to delivery."
     lead="Apex supplies folding cartons, retail boxes, corrugated mailers, rigid boxes, flexible pouches, paper bags, food packaging, inserts, printing, and premium finishes. Projects are produced through qualified overseas facilities and managed by Apex for customers in Canada, the United States, and international markets."
   />
   <ServiceMatrix heading="Pick the service that fits the job." services={services} />
@@ -39,6 +39,12 @@ const breadcrumb = buildBreadcrumbSchema([
       { title: 'Packaging for Canadian Multi-Location Buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-08-12', description: 'Plan specifications, samples, freight, and reorders across multiple receiving points.' }
     ]}
   />
+  <section class="border-y border-neutral-200 bg-neutral-50 py-10 md:py-14">
+    <div class="container max-w-default">
+      <h2 class="font-display text-2xl font-bold text-neutral-900 md:text-3xl">Looking for custom packaging near you?</h2>
+      <p class="mt-3 max-w-3xl leading-relaxed text-neutral-600">Apex is Canada-based and coordinates product-specific packaging delivery for buyers in Canada, the United States and international markets. Start with the city page closest to your receiving location, then send the product and delivery details for a quotation.</p>
+    </div>
+  </section>
   <CTABand
     heading="Not sure which service fits your product?"
     lead="Send dimensions and a description. Apex will recommend the right packaging type and quote the spec."

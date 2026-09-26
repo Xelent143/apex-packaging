@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
+import RelatedContent from '../components/sections/RelatedContent.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../lib/schema';
+
+const faqs = [
+  { q: 'What is considered a wholesale custom-box order?', a: 'Wholesale custom-box planning starts with a defined product specification and quantity. Minimums, pricing and production timing vary by structure, dimensions, material, printing, finishing, order quantity and delivery destination.' },
+  { q: 'Can multiple box sizes be quoted together?', a: 'Yes. Share each SKU, its dimensions, artwork status, quantity and delivery plan. A multi-SKU quotation can compare the appropriate structures and order assumptions for each item.' },
+  { q: 'How should a buyer plan repeat orders?', a: 'Keep the approved dieline, board specification, print files, quantity assumptions and delivery requirements together. Apex can use that information to prepare a product-specific reorder quotation when requirements are confirmed.' }
+];
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Wholesale Custom Boxes', url: '/wholesale-custom-boxes' }
+]);
+const service = buildServiceSchema({
+  name: 'Wholesale custom boxes',
+  description: 'Wholesale custom boxes and packaging planning for product-specific quantities, repeat orders and multi-SKU programs.',
+  url: '/wholesale-custom-boxes'
+});
+---
+<BaseLayout
+  title="Custom Boxes Wholesale Canada | Wholesale Packaging"
+  description="Plan wholesale custom boxes around your product, quantity, print, delivery and reorder needs. Apex provides product-specific quotations for Canada, the USA and international markets."
+  image="/images/apex-update/banners/banner-1.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Wholesale packaging · Commercial planning"
+    heading="Wholesale custom boxes, planned for your product and reorder cycle."
+    lead="Apex coordinates wholesale custom packaging for buyers who need a clear specification, order plan and delivery requirements. Price, minimums and timing are confirmed for the exact project rather than assumed from a generic volume tier."
+    imageSrc="/images/apex-update/banners/banner-1.webp"
+    imageAlt="Custom boxes, mailers and retail packaging prepared for a wholesale order."
+  />
+
+  <section class="bg-neutral-50 py-12 md:py-24">
+    <div class="container max-w-wide grid gap-5 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card"><p class="eyebrow">01 · Define</p><h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900">Build the product specification</h2><p class="mt-3 leading-relaxed text-neutral-600">Confirm packed dimensions, product weight, structure, material, artwork, any inserts and the destination before comparing order options.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card"><p class="eyebrow">02 · Quote</p><h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900">Match quantity to the project</h2><p class="mt-3 leading-relaxed text-neutral-600">First-run quantity, expected reorders, number of SKUs and delivery plan give context for a usable wholesale custom-box quotation.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card"><p class="eyebrow">03 · Record</p><h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900">Make the reorder repeatable</h2><p class="mt-3 leading-relaxed text-neutral-600">Keep approved artwork, dielines, materials, samples and delivery requirements with the purchase record to reduce open questions next time.</p></article>
+    </div>
+  </section>
+
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>What to include in a wholesale custom packaging request</h2>
+      <p>Wholesale packaging works best when purchasing, operations and brand teams use the same brief. This prevents a quote from being built around incomplete dimensions or artwork that cannot be produced as planned.</p>
+      <ul>
+        <li>Product dimensions and packed weight for every SKU.</li>
+        <li>Preferred box type, material, print coverage and finish.</li>
+        <li>Artwork files, required information panels and sample requirements.</li>
+        <li>First order quantity, expected reorder pattern and delivery destination.</li>
+        <li>Required in-hand date and any receiving or freight constraints.</li>
+      </ul>
+      <p>Apex confirms the appropriate minimums, price and schedule after reviewing those project details. That approach protects against assuming the same result for boxes that have different structures, print requirements or delivery routes.</p>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent items={[
+    { title: 'Custom Corrugated Boxes', href: '/services/corrugated-boxes', description: 'Review shipping cartons, board grades and custom print options.' },
+    { title: 'Custom Packaging for Small Business', href: '/blog/low-moq-custom-packaging-100-500-units-without-waste', description: 'See the considerations that shape a lower-volume first run.' },
+    { title: 'Packaging Artwork Requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare production-ready artwork before the proof stage.' }
+  ]} />
+
+  <CTABand
+    heading="Request a wholesale custom-box quotation."
+    lead="Send product dimensions, artwork, quantity, delivery destination and required date for a project-specific proposal."
+    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+  />
+</BaseLayout>

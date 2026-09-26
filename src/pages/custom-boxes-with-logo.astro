@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
+import RelatedContent from '../components/sections/RelatedContent.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../lib/schema';
+
+const faqs = [
+  { q: 'What do I need to quote custom boxes with a logo?', a: 'Send the packed product dimensions, preferred box style, artwork or logo files, print and finish preferences, quantity, delivery destination and required in-hand date. Apex confirms the suitable production path in a product-specific quotation.' },
+  { q: 'Can a logo be printed inside and outside a box?', a: 'Interior and exterior print can be discussed as part of the project specification. The available print method, coverage, cost and production considerations depend on the selected structure and quantity.' },
+  { q: 'Do custom printed boxes require a minimum order?', a: 'Yes, but there is no universal minimum. It depends on the box structure, dimensions, material, printing method, finishing, quantity and delivery destination.' }
+];
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Custom Boxes With Logo', url: '/custom-boxes-with-logo' }
+]);
+const service = buildServiceSchema({
+  name: 'Custom boxes with logo',
+  description: 'Custom printed boxes with logo, product-specific structures, print options and quotation support for Canada and the USA.',
+  url: '/custom-boxes-with-logo'
+});
+---
+<BaseLayout
+  title="Custom Boxes With Logo Canada | Custom Printed Boxes"
+  description="Custom boxes with logo and custom printed boxes for retail, ecommerce and product launches. Share your product, artwork, quantity and destination for a project-specific quote."
+  image="/images/home/hero-slides/category-showcase-4.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Custom printing · Commercial packaging"
+    heading="Custom boxes with logo, built for your product and brand."
+    lead="Apex coordinates custom printed boxes for retail, ecommerce, launches and reorders. The box structure, artwork, material, print method and delivery plan are quoted around the specific project."
+    imageSrc="/images/home/hero-slides/category-showcase-4.webp"
+    imageAlt="Custom printed product boxes with branded artwork and logo placement."
+  />
+
+  <section class="bg-neutral-50 py-12 md:py-24">
+    <div class="container max-w-wide grid gap-10 lg:grid-cols-12 lg:gap-14">
+      <div class="lg:col-span-5">
+        <p class="eyebrow">Printed packaging choices</p>
+        <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">Choose the box before the print treatment.</h2>
+        <p class="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">A logo performs differently on a mailer, folding carton, rigid box or corrugated shipper. Start with product fit and the customer experience, then match the board, print and finish to the selected structure.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-3 lg:col-span-7">
+        <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card"><h3 class="font-display text-xl font-extrabold text-neutral-900">Retail cartons</h3><p class="mt-2 leading-relaxed text-neutral-600">Paperboard boxes for shelf presentation, product information and branded front panels.</p></article>
+        <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card"><h3 class="font-display text-xl font-extrabold text-neutral-900">Ecommerce mailers</h3><p class="mt-2 leading-relaxed text-neutral-600">Printed mailers for product protection, unboxing and shipping-label planning.</p></article>
+        <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card"><h3 class="font-display text-xl font-extrabold text-neutral-900">Premium boxes</h3><p class="mt-2 leading-relaxed text-neutral-600">Rigid and gift-box structures for launches, sets and presentation-led products.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>What affects a custom printed box quotation?</h2>
+      <p>Custom packaging boxes with logo are quoted from the finished specification rather than a generic template. Dimensions, board, structure, print coverage, finishes, inserts, quantity, samples and delivery destination all affect the production path.</p>
+      <ul>
+        <li><strong>Product and structure:</strong> packed size, weight, protection needs and sales channel determine the box style.</li>
+        <li><strong>Artwork:</strong> vector logo files, colour references and panel requirements make print review more reliable.</li>
+        <li><strong>Print and finish:</strong> coverage, interior print, coatings, foil or embossing are confirmed for the chosen material and run.</li>
+        <li><strong>Order planning:</strong> quantity, destination and required delivery date determine the project-specific MOQ, pricing and timeline.</li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+
+  <RelatedContent items={[
+    { title: 'Custom Product Packaging', href: '/industries/product-boxes', description: 'Compare product-box structures, materials, print and quote requirements.' },
+    { title: 'Custom Mailer Boxes', href: '/services/mailer-boxes', description: 'Explore printed mailers and presentation boxes for ecommerce programs.' },
+    { title: 'Packaging Artwork Requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare a logo, dieline and production file for review.' }
+  ]} />
+
+  <CTABand
+    heading="Ready to quote custom boxes with your logo?"
+    lead="Send the product dimensions, preferred style, artwork status, quantity, destination and required delivery date."
+    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+  />
+</BaseLayout>
