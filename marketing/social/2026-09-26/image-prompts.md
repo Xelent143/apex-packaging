@@ -1,0 +1,15 @@
+# Image production prompts — 2026-09-26
+
+Mode: built-in image generation. Use the repository Apex logo as a brand reference: `public/images/brand/selected/apex-packaging-logo-header.png`. All concepts are illustrative mockups, not customer orders or facility photographs. No certifications, performance claims, third-party event logos, or shipping addresses.
+
+## 1 — Merchandise bundle portrait (generated)
+
+Use case: product-mockup. Create a photorealistic professional packaging campaign photograph, portrait 1024x1536. Reference image is Apex Packaging logo, use faithfully as a printed mark on the front of a kraft corrugated merchandise mailer. Scene: warm neutral studio packing bench, open mailer holding neatly folded black cotton shirt and small white ceramic keepsake in a separate fitted kraft divider compartment, small blank printed card beside shirt. Closed larger outer shipping carton behind it, ruler beside mailer. Physically plausible folded cardboard construction and realistic paper grain. Warm black, white, kraft and muted gold brand accents. Soft daylight, restrained editorial styling, camera three-quarter overhead, entire mailer visible, generous negative space at top. Only text is referenced Apex Packaging branding. No event logos, certification marks, addresses, claims, badges, watermark, or tiny text. This is an illustrative bundle concept, not an actual client order.
+
+## 2 — Bundle fit square (production-ready alternate)
+
+Use case: product-mockup. Produce a 1024x1024 photorealistic overhead studio photograph for Facebook/Instagram. Show one open kraft mailer with Apex Packaging logo faithfully printed from the reference, two folded black shirts of visibly different folded sizes beside it, a white ceramic keepsake and a separate kraft insert. These are sample comparison objects, not all contents intended to fit together. Warm neutral bench, black, white and muted gold accents, soft directional daylight, crisp paper grain, realistic folds. Keep every object within frame with a 10% safe margin. No overlay text, rulers with invented numbers, personal data, certification marks, event logos or watermark. Alt text: Apex mailer beside two folded shirt sizes, a ceramic keepsake and a kraft insert for a bundle-fit review.
+
+## 3 — Event allocation landscape (production-ready alternate)
+
+Use case: product-mockup. Produce a 1536x1024 photorealistic editorial packaging still for LinkedIn. Show one assembled Apex Packaging kraft merchandise mailer in front, a neat stack of flat mailer blanks at one side and one larger open outer shipping carton behind. Reference Apex logo printed clearly on the assembled mailer. Use a neutral studio packing bench with realistic corrugated edges, soft side lighting, warm black, white and muted gold palette. Leave clean upper space for optional editor-added copy. No people, facility signage, freight labels, addresses, certifications, delivery claims, event logos or watermark. Make all cardboard folds physically plausible. Alt text: An Apex merchandise mailer, flat packaging blanks and an outer carton illustrate assembly and bulk shipping choices.
