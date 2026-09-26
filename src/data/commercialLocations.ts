@@ -1022,5 +1022,45 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Plan packaging for a small product launch', href: '/blog/product-launch-packaging-small-runs-samples-reorders', description: 'Review small-run specifications, sample decisions, and reorder planning before approving launch packaging.' },
     ctaHeading: 'Get an Austin packaging quote for the launch and the reorder.',
     ctaLead: 'Send the kit contents, dimensions, quantities, artwork status, delivery ZIP code, and required date. Ask Apex to quote presentation packaging and ongoing shipping needs together.'
+  },
+  {
+    slug: 'nashville-custom-packaging',
+    city: 'Nashville',
+    region: 'Tennessee',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Nashville',
+    title: 'Custom Packaging Nashville | Merchandise & Shipping Boxes',
+    description: 'Quote custom packaging for Nashville merchandise, gift bundles and ecommerce orders. Compare printed mailers, shipping boxes and inserts with delivery planning.',
+    eyebrow: 'Nashville custom packaging · Merchandise and event orders',
+    heading: 'Custom packaging for Nashville merchandise bundles and event deliveries.',
+    lead: 'Bring the merchandise list, bundle quantities, and receiving deadline to one packaging quote. Apex helps Nashville buyers specify printed mailers, protective components, and outer shipping cartons for direct orders and bulk event allocations.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated box with dark green branding and contour-line print, illustrating a printed merchandise shipping box',
+    buyingContext: 'A Nashville merchandise program can combine apparel, printed cards, and a breakable keepsake in one bundle. The box must fit the largest garment size while keeping the smaller items from moving. Event allocations introduce a second decision: whether the bundles arrive assembled or as flat packaging for an on-site packing team. Give Apex the Nashville receiving address and any separate Franklin or Murfreesboro allocation so carton counts, storage needs, and freight can be reviewed by destination. A venue deadline should be paired with its actual receiving window, contact, and unloading rules.',
+    priorities: [
+      { title: 'Check the full merchandise size range', description: 'Measure folded garments across the sizes in the program and list every accompanying item. Compare a shared box with an adjustable insert against separate sizes before ordering packaging for the whole assortment.' },
+      { title: 'Distinguish parcel orders from event cases', description: 'An individual ecommerce bundle and a case holding multiple event bundles have different handling requirements. State the packed weight and bundle count for each, including whether the presentation box needs an outer shipper.' },
+      { title: 'Quote the actual Nashville receiving window', description: 'Share venue or warehouse appointment requirements, delivery ZIP code, unloading access, and the date staff can accept cartons. If packaging is being assembled on site, allow time for counting, packing, and handling exceptions before the event.' }
+    ],
+    products: [
+      { title: 'Printed merchandise mailers', href: '/services/mailer-boxes', description: 'Die-cut corrugated mailers for apparel bundles, promotional merchandise, and direct orders, sized around the contents and packing sequence.' },
+      { title: 'Inserts for mixed product bundles', href: '/services/protective-packaging', description: 'Corrugated or foam components to separate keepsakes from soft goods. Share fragility and surface-finish requirements so the protection can be reviewed for the intended shipment.' },
+      { title: 'Outer cartons for bulk allocations', href: '/services/corrugated-boxes', description: 'Shipping cases for grouped merchandise kits, with case quantities, identification marks, and packed weight specified for receiving and distribution.' }
+    ],
+    process: [
+      { title: 'Send a bundle and destination worksheet', description: 'Provide component dimensions, garment size range, packed weight, quantity by version, artwork status, delivery addresses, and the required receiving dates.' },
+      { title: 'Review a representative packed sample', description: 'Ask for a suitable sample option and check the largest bundle, insert access, closure, and assembly steps. Confirm whether parcel orders need additional outer protection before approving the specification.' },
+      { title: 'Approve artwork and allocation details', description: 'Confirm the dieline, print revision, case labels, quantities per destination, and who will assemble the kits. Agree on production and freight timing before tying the packaging order to an event date.' }
+    ],
+    faqs: [
+      { q: 'Can I order custom merchandise boxes for Nashville delivery?', a: 'Apex can quote printed mailers, shipping cartons, and protective components for Nashville delivery. Send the complete bundle dimensions, quantities, artwork requirements, delivery ZIP code, and receiving deadline for a project-specific quote.' },
+      { q: 'Can one box fit several apparel sizes and a keepsake?', a: 'It may be possible, but the folded dimensions and keepsake protection need to be checked together. Supply the smallest and largest packed combinations so a sample can establish fit, movement, and closure before the design is approved.' },
+      { q: 'Can custom packaging ship directly to a Nashville event venue?', a: 'Submit the venue address, receiving contact, allowed delivery dates, appointment rules, and unloading requirements with your RFQ. Direct delivery feasibility and freight arrangements must be confirmed for that destination; an event date alone is not enough to schedule receiving.' },
+      { q: 'What minimum quantity and lead time apply to Nashville custom boxes?', a: 'Minimums and timing depend on structure, material, print, finishing, sample approvals, and freight. Include your quantity by version and required in-hand date so Apex can confirm the production option and schedule in the quote.' }
+    ],
+    relatedArticle: { title: 'Apparel packaging for ecommerce and returns', href: '/blog/apparel-mailer-packaging-ecommerce-returns-guide', description: 'Compare garment fit, parcel protection, and return handling before choosing packaging for merchandise orders.' },
+    ctaHeading: 'Request a Nashville merchandise packaging quote.',
+    ctaLead: 'Send the bundle contents, size range, quantities, artwork, and delivery ZIP code. Include event receiving instructions so Apex can review the box, protection, and freight requirements together.'
   }
 ];
