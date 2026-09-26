@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
+import RelatedContent from '../components/sections/RelatedContent.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../lib/schema';
+
+const finishes = [
+  { title: 'Custom embossed packaging boxes', body: 'Embossing and debossing create raised or recessed detail in selected parts of the package. Suitability depends on the board, artwork, structure and production method.' },
+  { title: 'Custom gold foil stamped boxes', body: 'Gold foil and other metallic foil treatments can add contrast to logos, type and selected graphic elements. Coverage and registration are confirmed for the chosen structure.' },
+  { title: 'Custom holographic foil packaging boxes', body: 'Holographic foil can be considered for premium retail projects where the board, artwork and finish direction support the treatment.' },
+  { title: 'Custom matte laminated boxes', body: 'Matte lamination can create a low-gloss presentation and protect printed surfaces. The appropriate material and finish are reviewed with the box specification.' },
+  { title: 'Custom soft touch laminated packaging', body: 'Soft-touch laminations are a tactile finish option for selected packaging programs. The quotation confirms the available production path, cost and timing.' },
+  { title: 'Custom spot UV box packaging', body: 'Spot UV adds gloss to selected artwork areas over a contrasting surface. It should be planned with the final dieline and print file.' }
+];
+const faqs = [
+  { q: 'Which packaging finish is right for my box?', a: 'The suitable finish depends on the product, box structure, board, artwork, sales channel, quantity and brand direction. Send reference images and the product brief so Apex can confirm the available options.' },
+  { q: 'Can finishes be combined on one custom box?', a: 'Potentially. Combinations such as matte lamination with foil or spot UV depend on the selected material, artwork and production route.' },
+  { q: 'Do premium finishes change the quote or production schedule?', a: 'Yes. Finishes are part of the product specification, so they can affect minimum order quantity, pricing, sample requirements and production timing.' }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }]);
+const service = buildServiceSchema({ name: 'Custom packaging finishes', description: 'Custom embossed, foil-stamped, matte, soft-touch and spot-UV packaging finishes for product-specific packaging projects.', url: '/packaging-finishes' });
+---
+<BaseLayout
+  title="Custom Packaging Finishes | Foil, Embossing, Matte & Spot UV"
+  description="Explore custom packaging finishes including embossed boxes, gold foil, holographic foil, matte lamination, soft touch and spot UV. Options are quoted to your box specification."
+  image="/images/home/finishes/gold-foiling.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Packaging finishes · Custom print"
+    heading="Custom packaging finishes for branded boxes and retail presentation."
+    lead="Compare embossing, foil, matte lamination, soft touch and spot UV before requesting a project-specific box quotation. The right finish depends on the structure, material, artwork and intended use."
+    imageSrc="/images/home/finishes/gold-foiling.webp"
+    imageAlt="Gold foil and premium finishing details on custom packaging boxes."
+  />
+
+  <section class="bg-neutral-50 py-12 md:py-24">
+    <div class="container max-w-wide grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {finishes.map((finish) => <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card"><h2 class="font-display text-xl font-extrabold text-neutral-900">{finish.title}</h2><p class="mt-3 leading-relaxed text-neutral-600">{finish.body}</p></article>)}
+    </div>
+  </section>
+
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <h2>Prepare the finish direction before artwork approval</h2>
+      <p>Share the product, packaging structure, artwork, target quantity, delivery destination and any reference packaging. These inputs help confirm whether the requested finish works with the selected board and print process before a proof or sample is approved.</p>
+      <ul><li>Mark the artwork areas that need foil, embossing, spot UV or another finish.</li><li>Send brand-colour references and a vector logo where available.</li><li>State whether the box is for ecommerce, shelf retail, gifting or another channel.</li><li>Include quantity and required in-hand date so the quotation can confirm the production path.</li></ul>
+    </div>
+  </section>
+
+  <FAQAccordion faqs={faqs} />
+  <RelatedContent items={[
+    { title: 'Custom Boxes With Logo', href: '/custom-boxes-with-logo', description: 'Plan structure, logo placement, print and finish around the complete box specification.' },
+    { title: 'Custom Rigid Boxes', href: '/industries/rigid-boxes', description: 'Review premium box structures, inserts and presentation options.' },
+    { title: 'Packaging Artwork Requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare the dieline and production artwork for a finish review.' }
+  ]} />
+  <CTABand heading="Request a finish-specific box quotation." lead="Send the product, structure, artwork, finish direction, quantity and destination for a project-specific proposal." primaryCta={{ label: 'Request a quote', href: '/contact' }} />
+</BaseLayout>

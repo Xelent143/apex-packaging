@@ -251,11 +251,11 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
     <div class="container max-w-wide">
       <div class="mb-8 text-center md:mb-12">
         <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Premium Finishes</h2>
-        <p class="mt-3 text-base text-neutral-600">Finishing options that give custom boxes a premium retail feel.</p>
+        <p class="mt-3 text-base text-neutral-600">Finishing options that give custom boxes a premium retail feel. <a href="/packaging-finishes" class="font-semibold text-neutral-900 underline decoration-accent decoration-2 underline-offset-4">Explore custom packaging finishes</a>.</p>
       </div>
       <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
         {finishes.map((finish) => (
-          <a href="/design-support" class="group relative block w-[82vw] max-w-[24rem] shrink-0 snap-start overflow-hidden rounded-md bg-neutral-900 md:w-auto md:max-w-none">
+          <a href="/packaging-finishes" class="group relative block w-[82vw] max-w-[24rem] shrink-0 snap-start overflow-hidden rounded-md bg-neutral-900 md:w-auto md:max-w-none">
             <img
               src={`/images/home/finishes/${finish.image}.webp`}
               srcset={responsiveImageSrcset(`/images/home/finishes/${finish.image}.webp`, [480, 640, 768])}
