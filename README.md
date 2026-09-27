@@ -210,7 +210,7 @@ Then `netlify deploy --prod`.
 
 1. **Replace placeholder phone + email** in `src/site.config.ts` (currently `+1-000-000-0000` and `hello@apexpackagingsolutions.com`).
 2. **Confirm plant city** — set `addressLocality` and `addressRegion` in `src/site.config.ts` (currently generic Canada + Ontario).
-3. **Verify quote delivery** — the three-step RFQ posts to `/api/quote` and uses the configured Hostinger SMTP or Resend credentials. Confirm a production test reaches `QUOTE_TO_EMAIL` before launch.
+3. **Verify quote delivery** — the RFQ posts to `/api/quote` and uses the configured Hostinger SMTP or Resend credentials. Confirm a production test reaches `QUOTE_TO_EMAIL` before launch.
 4. **Swap stock imagery** — the design uses none yet. Add real plant-floor photos to `public/images/` and reference from the Hero / ServiceMatrix sections (mark filenames descriptively: `corrugated-line-canada.jpg`, not `IMG_0023.jpg`).
 5. **Replace the OG card** — `public/og-default.svg` is a generic dark card with the tagline. For better social previews, generate a 1200×630 PNG version with real photography behind the type.
 6. **Set SITE_URL** in the Vercel/Netlify dashboard or `.env` before production build.
