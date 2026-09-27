@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
-import RFQForm from '../components/forms/RFQForm.astro';
 import TrustedClients from '../components/trust/TrustedClients.astro';
 import { buildFAQSchema } from '../lib/schema';
 import { featuredIndustryBoxes } from '../data/industryBoxes';
@@ -351,9 +350,120 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
       </div>
 
       <div class="grid min-w-0 gap-8 xl:grid-cols-12 xl:items-center xl:gap-10">
-        <div class="min-w-0 xl:col-span-7">
-          <RFQForm source="Home Quote Form" compact={true} />
-        </div>
+        <form class="apex-quote-form min-w-0 max-w-full overflow-hidden rounded-[2rem] rounded-tr-[3.75rem] border border-[#d8cba7] bg-[#f6f1e7] shadow-popover xl:col-span-7" action="/api/quote" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="source" value="Home Quote Form" />
+          <input type="hidden" name="redirectTo" value="/thank-you" />
+          <label class="hidden" aria-hidden="true">
+            Website
+            <input name="website" tabindex="-1" autocomplete="off" />
+          </label>
+          <div class="bg-[#c99700] px-5 py-5 text-center md:px-7">
+            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-3xl">Get Custom Quote</h3>
+          </div>
+
+          <div class="grid gap-5 p-4 md:p-7">
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
+                  <PackagingIcon name="quote-review" class="h-4 w-4" />
+                </span>
+                Product Information
+              </legend>
+              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name" aria-label="Product name" />
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
+                  <PackagingIcon name="custom-spec" class="h-4 w-4" />
+                </span>
+                Select Sizes
+              </legend>
+              <div class="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.82fr)]">
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit" aria-label="Measurement unit">
+                  <option>Unit</option>
+                  <option>inch</option>
+                  <option>cm</option>
+                  <option>mm</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
+                  <PackagingIcon name="sample-run" class="h-4 w-4" />
+                </span>
+                Choose Materials
+              </legend>
+              <div class="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.85fr)]">
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material" aria-label="Packaging material">
+                  <option>Stock</option>
+                  <option>Cardboard Boxes</option>
+                  <option>Kraft Boxes</option>
+                  <option>Rigid Boxes</option>
+                  <option>Corrugated Boxes</option>
+                </select>
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing" aria-label="Printing option">
+                  <option>Printing</option>
+                  <option>Full-color exterior</option>
+                  <option>Inside and outside print</option>
+                  <option>No print</option>
+                </select>
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
+              </div>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
+                  <PackagingIcon name="design-proof" class="h-4 w-4" />
+                </span>
+                Upload Artwork
+              </legend>
+              <label class="flex min-h-12 cursor-pointer items-center bg-white px-4 text-sm font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
+                <span class="sr-only">Upload artwork file</span>
+                <input class="text-sm" name="artwork" type="file" aria-label="Upload artwork file" />
+              </label>
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
+                  </svg>
+                </span>
+                Personal Information
+              </legend>
+              <div class="grid min-w-0 gap-2 sm:grid-cols-3">
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" type="tel" autocomplete="tel" aria-label="Contact number" />
+              </div>
+              <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="country" placeholder="Country (Optional)" autocomplete="country-name" aria-label="Country" />
+            </fieldset>
+
+            <fieldset class="grid gap-3">
+              <legend class="mb-1 flex items-center gap-2 font-display text-base font-extrabold text-neutral-800">
+                <span class="grid h-6 w-6 place-items-center rounded bg-[#c99700] text-neutral-950" aria-hidden="true">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
+                  </svg>
+                </span>
+                Additional Information
+              </legend>
+              <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..." aria-label="Project details"></textarea>
+            </fieldset>
+
+            <div class="flex justify-end pt-1">
+              <button class="min-h-12 rounded-md bg-[#c99700] px-10 py-3 font-black text-neutral-950 transition hover:bg-warning" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
 
         <aside class="min-w-0 xl:col-span-5">
           <div class="max-w-2xl">
