@@ -29,7 +29,7 @@ const FIELD_LABELS = {
   attachmentNote: 'Attachment Delivery Note'
 };
 
-const INTERNAL_FIELDS = new Set(['redirectTo', 'website']);
+const INTERNAL_FIELDS = new Set(['redirectTo', 'website', 'humanConfirmation']);
 
 export async function formDataToQuoteSubmission(formData) {
   const fields = {};
@@ -55,7 +55,8 @@ export async function formDataToQuoteSubmission(formData) {
     fields,
     files,
     redirectTo: String(formData.get('redirectTo') || ''),
-    isSpam: Boolean(String(formData.get('website') || '').trim())
+    isSpam: Boolean(String(formData.get('website') || '').trim()),
+    isHumanConfirmed: String(formData.get('humanConfirmation') || '') === 'confirmed'
   };
 }
 
@@ -75,7 +76,8 @@ export async function requestToQuoteSubmission(request) {
       fields,
       files: [],
       redirectTo: String(body?.redirectTo || ''),
-      isSpam: Boolean(String(body?.website || '').trim())
+      isSpam: Boolean(String(body?.website || '').trim()),
+      isHumanConfirmed: String(body?.humanConfirmation || '') === 'confirmed'
     };
   }
 
@@ -161,6 +163,7 @@ export async function handleQuoteRequest(request, options) {
 
   const submission = await requestToQuoteSubmission(request);
   if (submission.isSpam) return wantsJson ? jsonResponse({ ok: true }, 200) : redirectResponse('/thank-you');
+  if (!submission.isHumanConfirmed) return jsonResponse({ error: 'Please confirm that you are not a robot.' }, 400);
   if (!isEmail(submission.fields.email || '')) return jsonResponse({ error: 'A valid email address is required.' }, 400);
 
   const email = buildQuoteEmail(submission, { from: options.from, to: options.to });

@@ -98,6 +98,7 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
   formData.set('name', 'Alex Buyer');
   formData.set('email', 'alex@example.com');
   formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
   formData.set('redirectTo', '/thank-you');
 
   let sentEmail;
@@ -122,6 +123,27 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
   assert.equal(sentEmail.reply_to, 'alex@example.com');
 });
 
+test('handleQuoteRequest rejects submissions without human confirmation', async () => {
+  const formData = new FormData();
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      throw new Error('Email should not be sent');
+    }
+  });
+
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), { error: 'Please confirm that you are not a robot.' });
+});
+
 test('handleQuoteRequest returns JSON for the interactive RFQ flow', async () => {
   const formData = new FormData();
   formData.set('source', 'Interactive RFQ');
@@ -131,6 +153,7 @@ test('handleQuoteRequest returns JSON for the interactive RFQ flow', async () =>
   formData.set('finishes', 'Matte lamination');
   formData.append('finishes', 'Foil stamping');
   formData.set('postalCode', 'M5V 2T6');
+  formData.set('humanConfirmation', 'confirmed');
 
   let sentEmail;
   const request = new Request('https://example.com/api/quote', {
@@ -161,6 +184,7 @@ test('handleQuoteRequest records failed delivery and still redirects', async () 
   formData.set('name', 'Alex Buyer');
   formData.set('email', 'alex@example.com');
   formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
   formData.set('redirectTo', '/thank-you');
 
   let failedSubmission;
@@ -193,6 +217,7 @@ test('handleQuoteRequest still redirects if failed-delivery backup throws', asyn
   formData.set('name', 'Alex Buyer');
   formData.set('email', 'alex@example.com');
   formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
   formData.set('redirectTo', '/thank-you');
 
   const request = new Request('https://example.com/api/quote', {
@@ -222,6 +247,7 @@ test('handleQuoteRequest retries without attachments if the email provider rejec
   formData.set('name', 'Alex Buyer');
   formData.set('email', 'alex@example.com');
   formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
   formData.set('redirectTo', '/thank-you');
   formData.set('artwork', new File(['sample artwork'], 'dieline.pdf', { type: 'application/pdf' }));
 

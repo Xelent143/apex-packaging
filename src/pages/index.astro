@@ -459,6 +459,11 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
               <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..." aria-label="Project details"></textarea>
             </fieldset>
 
+            <label class="flex min-h-12 items-center gap-3 rounded-md border border-[#d8cba7] bg-white px-4 text-sm font-bold text-neutral-800">
+              <input class="h-5 w-5 accent-[#1f6672]" type="checkbox" name="humanConfirmation" value="confirmed" required />
+              <span>I am not a robot</span>
+            </label>
+
             <div class="flex justify-end pt-1">
               <button class="min-h-12 rounded-md bg-[#c99700] px-10 py-3 font-black text-neutral-950 transition hover:bg-warning" type="submit">Submit</button>
             </div>
