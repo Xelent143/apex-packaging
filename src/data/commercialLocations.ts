@@ -24,6 +24,46 @@ export interface CommercialLocation {
 
 export const commercialLocations: CommercialLocation[] = [
   {
+    slug: 'minneapolis-custom-packaging',
+    city: 'Minneapolis',
+    region: 'Minnesota',
+    country: 'United States',
+    countryCode: 'US',
+    focusKeyword: 'custom packaging Minneapolis',
+    title: 'Custom Packaging Minneapolis | Shipping Boxes & Inserts',
+    description: 'Quote custom packaging for Minneapolis parts suppliers and ecommerce teams. Compare shipping boxes, mailers and inserts with Twin Cities delivery requirements.',
+    eyebrow: 'Custom packaging for Minneapolis · Minnesota',
+    heading: 'Custom packaging for Minneapolis parts orders and replenishment runs.',
+    lead: 'A replacement part, its hardware bag, and the installation sheet need to arrive together. Apex quotes custom corrugated boxes, mailers, and inserts for Minneapolis buyers shipping individual parts or replenishing dealer inventory.',
+    image: '/images/home/corrugated-boxes-branded.webp',
+    imageAlt: 'Kraft corrugated shipping box with green printed branding and closed top flaps',
+    buyingContext: 'A Minneapolis warehouse may ship one repair kit by parcel and a case of the same kits to a St. Paul dealer. Those orders need different packing instructions even when the inner kit stays the same. Build the RFQ around the packed kit, the number of kits per outer case, and the receiving address. Apex can compare box and insert options against those requirements before artwork is fitted to a dieline.',
+    priorities: [
+      { title: 'Keep each service kit complete', description: 'List loose fasteners, cables, manuals, and the main part separately. Identify which pieces need compartments or bags so small components do not move into empty space during shipping.' },
+      { title: 'Separate parcel and dealer quantities', description: 'Provide weights for both a single kit and a full replenishment case. A mailer that fits an individual order should not automatically become the outer carton for a heavier dealer shipment.' },
+      { title: 'Specify the Twin Cities receiving point', description: 'Include the actual Minneapolis, St. Paul, or Bloomington ZIP code, dock access, and appointment requirements. Quote each receiving point separately when an order is split between facilities.' }
+    ],
+    products: [
+      { title: 'Corrugated shipping boxes', href: '/services/corrugated-boxes', description: 'Compare regular slotted cartons and die-cut structures for individual parts, boxed kits, and dealer replenishment cases.' },
+      { title: 'Custom protective inserts', href: '/services/protective-packaging', description: 'Review corrugated or foam inserts around component shape, surface sensitivity, and the space needed for accessories.' },
+      { title: 'Printed mailer boxes', href: '/services/mailer-boxes', description: 'Specify a branded mailer for smaller service kits or ecommerce orders, with clear label space and packing instructions.' }
+    ],
+    process: [
+      { title: 'Send the kit and shipping details', description: 'Share component dimensions, total packed weight, photos, quantity by box size, and destination ZIP code. Identify the most fragile part and the required arrival date.' },
+      { title: 'Check the fit before printing', description: 'Ask Apex to review the structure and sample approach. Confirm access to the part, retention of small pieces, closure, and label placement before approving production artwork.' },
+      { title: 'Confirm the delivered order scope', description: 'Review the quoted board, print coverage, insert count, freight terms, and delivery schedule. Confirm any cross-border charges and responsibilities in writing before placing the order.' }
+    ],
+    faqs: [
+      { q: 'Can I request custom packaging for a Minneapolis delivery address?', a: 'Yes. Send Apex the packaging specification and Minneapolis ZIP code for a project quote. Include the delivery deadline, unloading access, and any warehouse appointment rules so the quote can address freight and timing.' },
+      { q: 'Can the same inner kit work for parcel and dealer orders?', a: 'It may, but the outer packaging needs a separate review. Provide the single-kit weight and the number of kits in a dealer case. Confirm the fit and protection of each configuration before approving it for shipment.' },
+      { q: 'What should a replacement-parts packaging quote include?', a: 'Include dimensions and weight for every component, the number of kits, box quantities by size, artwork, and destination details. Photos showing sharp edges, delicate surfaces, or loose hardware help identify where an insert or separate bag may be needed.' },
+      { q: 'Does a corrugated box provide temperature protection for Minnesota deliveries?', a: 'An ordinary corrugated shipping box is not a temperature-controlled package. If your contents have temperature limits, include the required range and transit conditions in the RFQ so any additional packaging and validation needs can be assessed.' }
+    ],
+    relatedArticle: { title: 'Build a complete packaging RFQ', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'Gather the dimensions, quantities, artwork, and delivery details needed to compare packaging quotes.' },
+    ctaHeading: 'Send your Minneapolis packaging specification for a quote.',
+    ctaLead: 'Include the kit dimensions, packed weight, quantities by size, and Twin Cities delivery ZIP code. Apex will review the box, insert, print, and freight requirements with you.'
+  },
+  {
     slug: 'toronto-custom-packaging',
     city: 'Toronto',
     region: 'Ontario',
