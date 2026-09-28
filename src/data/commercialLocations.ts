@@ -1062,5 +1062,91 @@ export const commercialLocations: CommercialLocation[] = [
     relatedArticle: { title: 'Apparel packaging for ecommerce and returns', href: '/blog/apparel-mailer-packaging-ecommerce-returns-guide', description: 'Compare garment fit, parcel protection, and return handling before choosing packaging for merchandise orders.' },
     ctaHeading: 'Request a Nashville merchandise packaging quote.',
     ctaLead: 'Send the bundle contents, size range, quantities, artwork, and delivery ZIP code. Include event receiving instructions so Apex can review the box, protection, and freight requirements together.'
-  }
+  },
+{
+    "slug": "cleveland-custom-packaging",
+    "city": "Cleveland",
+    "region": "Ohio",
+    "country": "United States",
+    "countryCode": "US",
+    "focusKeyword": "custom packaging Cleveland",
+    "title": "Custom Packaging Cleveland | Printed Boxes & Parts Kits",
+    "description": "Request custom packaging for Cleveland parts kits and product samples. Quote printed boxes, fitted inserts and shipping cartons with Northeast Ohio delivery details.",
+    "eyebrow": "Cleveland custom packaging \u00b7 Parts and sample programs",
+    "heading": "Custom packaging for Cleveland parts kits and product samples.",
+    "lead": "Give customers a complete, identifiable kit from the first sample through replacement orders. Apex helps Cleveland buyers quote printed boxes, fitted protective components, and shipping cartons around the actual parts list, packing process, and delivery requirements.",
+    "image": "/images/home/corrugated-boxes-branded.webp",
+    "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line printing on the front and lid",
+    "buyingContext": "A product sample used by a sales team may contain several finishes or component sizes, while a replacement order contains just one item. Buying the same presentation pack for both can leave unused space and unnecessary assembly work. For Cleveland programs, send the sample assortment and replacement-order combinations as separate packing briefs. Identify whether empty packaging will arrive at a Cleveland office, a Parma packing operation, or a Solon warehouse, and distinguish that delivery from the later shipment of your finished kits. Apex can review the box sizes, insert layout, print requirements, and destination quantities together.",
+    "priorities": [
+        {
+            "title": "Make sample identification part of the layout",
+            "description": "Map each sample to a printed label or removable card before finalizing insert cavities. Leave room for part numbers and revision information so a customer can identify an item without dismantling the whole kit."
+        },
+        {
+            "title": "Separate presentation from replacement shipping",
+            "description": "List which components need a presentation box and which ship individually. Compare a dedicated replacement carton with the sample-kit box using packed dimensions, protection, and assembly steps."
+        },
+        {
+            "title": "Specify Northeast Ohio receiving access",
+            "description": "Provide the delivery ZIP code, receiving hours, dock access, and quantity for each Cleveland, Parma, or Solon address. Request bundle dimensions if flat packaging must pass through an office doorway or fit limited storage."
+        }
+    ],
+    "products": [
+        {
+            "title": "Printed sample-kit boxes",
+            "href": "/services/mailer-boxes",
+            "description": "Corrugated mailers sized for an organized sample assortment, with print areas for product identification and instructions. Review whether the presentation pack needs an outer shipping carton."
+        },
+        {
+            "title": "Dividers and fitted inserts",
+            "href": "/services/protective-packaging",
+            "description": "Corrugated or foam components reviewed for sample separation, contact surfaces, removal access, and repeated handling. Provide part weights and any abrasion restrictions."
+        },
+        {
+            "title": "Replacement-part shipping cartons",
+            "href": "/services/corrugated-boxes",
+            "description": "Custom cartons for individual components or grouped replacements, specified around packed weight, closure, cushioning, and the intended distribution route."
+        }
+    ],
+    "process": [
+        {
+            "title": "Send the parts matrix",
+            "description": "Share dimensions, weights, photos, quantity per kit, sample identifiers, and the most common replacement combinations. Include order quantities, artwork status, delivery addresses, and required dates."
+        },
+        {
+            "title": "Check a loaded sample",
+            "description": "Ask for an appropriate sample option and check fit, separation, finger access, labeling, and closure with actual components. Agree on any shipment testing needed before approving a production specification."
+        },
+        {
+            "title": "Approve the pack and reorder record",
+            "description": "Confirm the dieline, insert layout, material, print revision, and destination split. Keep a record of approved component dimensions so later product changes trigger a fit review before packaging is reordered."
+        }
+    ],
+    "faqs": [
+        {
+            "q": "Can Apex quote custom boxes for a Cleveland sample-kit program?",
+            "a": "Yes. Send the full sample list, dimensions, weights, quantities, print requirements, and Cleveland delivery ZIP code. Apex can review mailers, inserts, and outer cartons as separate quote items so the scope is clear."
+        },
+        {
+            "q": "Can the same insert hold several component sizes?",
+            "a": "Possibly, depending on the size range, weight, contact restrictions, and how the kit is handled. Send all variants and check a representative loaded sample. A common insert should not be approved based on the smallest component alone."
+        },
+        {
+            "q": "Does a printed sample box also work as a parcel shipping box?",
+            "a": "That depends on the contents, structure, protection, and handling conditions. Identify whether the box will travel by parcel or inside a larger case. The quote and sample review should establish whether an outer shipper or additional cushioning is needed."
+        },
+        {
+            "q": "What minimum quantity and lead time apply to Cleveland packaging orders?",
+            "a": "Minimums and timing vary with structure, materials, print, finishing, sample approvals, and freight. Supply quantities by version and your required arrival date. Apex will need to confirm the production option and delivery schedule for the specific project."
+        }
+    ],
+    "relatedArticle": {
+        "title": "Plan protective inserts for product kits",
+        "href": "/blog/protective-packaging-inserts-foam-molded-pulp-corrugated",
+        "description": "Compare insert materials and the product details needed to review protection before requesting a kit quote."
+    },
+    "ctaHeading": "Request a Cleveland sample-kit packaging quote.",
+    "ctaLead": "Send the parts matrix, kit quantities, artwork, delivery ZIP code, and required date. Include replacement-order combinations so Apex can quote the presentation pack and ongoing shipping needs together."
+}
 ];
