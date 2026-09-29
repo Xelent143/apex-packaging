@@ -1148,5 +1148,91 @@ export const commercialLocations: CommercialLocation[] = [
     },
     "ctaHeading": "Request a Cleveland sample-kit packaging quote.",
     "ctaLead": "Send the parts matrix, kit quantities, artwork, delivery ZIP code, and required date. Include replacement-order combinations so Apex can quote the presentation pack and ongoing shipping needs together."
+},
+{
+  "slug": "baltimore-custom-packaging",
+  "city": "Baltimore",
+  "region": "Maryland",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Baltimore",
+  "title": "Custom Packaging Baltimore | Gift Boxes & Retail Cartons",
+  "description": "Quote custom packaging for Baltimore retail gift sets and store replenishment. Compare printed mailers, dividers and shipping cartons with Maryland delivery details.",
+  "eyebrow": "Baltimore custom packaging \u00b7 Retail gift sets",
+  "heading": "Custom packaging for Baltimore gift sets and retail replenishment.",
+  "lead": "Build a packaging order around the way your products are sold and restocked. Apex helps Baltimore buyers specify printed gift-set boxes, product dividers, and shipping cartons for individual orders and store deliveries.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line printing across the lid and front",
+  "buyingContext": "A gift assortment sold as one unit needs a different packing plan from the same products shipped individually to restock a shelf. For a Baltimore retail program, separate the customer-facing set from the master carton used for replenishment. Show which products stay together, which stores receive loose units, and who assembles the gift sets. If empty packaging is delivered to a Baltimore shop, a Towson stockroom, or a Columbia packing site, list each destination and its allocation. That lets the quote account for carton quantities, flat-pack storage, and receiving access before artwork is approved.",
+  "priorities": [
+    {
+      "title": "Size the assortment before choosing the box",
+      "description": "Provide the full gift-set contents, including tissue, cards, sleeves, and dividers. Check the tallest item and the smallest assortment so seasonal changes do not leave a loose or overfilled pack."
+    },
+    {
+      "title": "Specify the store replenishment unit",
+      "description": "Define whether a store receives completed gift sets or separate products. State units per carton and any shelf-ready identification needs; mixed cases should have a packing list that matches the receiving count."
+    },
+    {
+      "title": "Plan Maryland delivery by address",
+      "description": "Share ZIP codes, receiving hours, stairs or dock access, and available storage for each Baltimore-area destination. Distinguish the arrival of empty boxes from later deliveries of packed merchandise."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed gift-set mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Corrugated mailers with space for brand artwork and a grouped product presentation. Specify whether the set is handed to a shopper or sent by parcel so outer protection can be reviewed."
+    },
+    {
+      "title": "Dividers for mixed assortments",
+      "href": "/services/protective-packaging",
+      "description": "Protective components that separate items and keep the pack organized. Supply product weights, surface restrictions, and removal requirements to guide material and layout choices."
+    },
+    {
+      "title": "Store replenishment cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Shipping cartons sized around the agreed store order quantity, with identification areas for assortment codes, unit counts, and destination labels."
+    }
+  ],
+  "process": [
+    {
+      "title": "Submit the assortment and allocation",
+      "description": "Send product dimensions, weights, photos, quantities by box version, artwork status, and delivery addresses. Identify who packs the sets and the date packaging must be available for assembly."
+    },
+    {
+      "title": "Review fit and packing time",
+      "description": "Request a suitable sample option and pack a complete set. Check separation, closure, product removal, and the number of assembly steps. Review parcel protection separately from the in-store presentation."
+    },
+    {
+      "title": "Approve print and case details",
+      "description": "Confirm the dieline, material, artwork revision, units per case, and destination quantities. Agree on production and freight timing before scheduling a store promotion around the delivery."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom gift boxes for Baltimore retailers?",
+      "a": "Yes. Send the product assortment, dimensions, weights, box quantities, print requirements, and delivery ZIP code. Apex can review printed mailers, dividers, and replenishment cartons as separate items in the quote."
+    },
+    {
+      "q": "Can one gift box cover multiple seasonal assortments?",
+      "a": "Possibly, if the size range and protection requirements allow it. Provide every planned assortment and check representative packed samples. A common outer box may still need different dividers or packing materials for each version."
+    },
+    {
+      "q": "Can packaging be allocated between Baltimore and other Maryland addresses?",
+      "a": "Include each address, quantity, receiving contact, and unloading restrictions in the quote request. Split-delivery feasibility, freight charges, and scheduling need to be confirmed for the specific order."
+    },
+    {
+      "q": "What are the minimum order and lead time for Baltimore custom packaging?",
+      "a": "Minimums and timing depend on box structure, material, printing, finishing, approvals, and freight. Provide quantities by version and your required receiving date so Apex can confirm an appropriate production option and schedule."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare protective inserts for grouped products",
+    "href": "/blog/protective-packaging-inserts-foam-molded-pulp-corrugated",
+    "description": "Review insert materials and the product specifications needed to plan separation and protection for a retail assortment."
+  },
+  "ctaHeading": "Request a Baltimore retail packaging quote.",
+  "ctaLead": "Send your gift-set contents, store case quantities, artwork, delivery ZIP codes, and required dates. Apex can review presentation boxes, dividers, and replenishment cartons together."
 }
 ];
