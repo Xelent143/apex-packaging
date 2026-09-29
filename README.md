@@ -57,7 +57,7 @@ Optional:
 PRIVATE_PAYMENT_RECORDS_DIR=/absolute/path/for/payment-records
 ```
 
-Use the Apex Packaging Solutions Stripe account secret key, not the Clothixpack key, unless payments should intentionally settle in the Clothixpack account.
+Use the Apex Packaging Solutions Stripe account secret key for all production payments.
 
 ### Private payment link workflow
 
