@@ -139,7 +139,7 @@ export const commercialLocations: CommercialLocation[] = [
       { q: 'What details speed up a Vancouver packaging quote?', a: 'Send the product or inside dimensions, packed weight, quantity, material preference, print coverage, artwork status, delivery postal code, and required date.' },
       { q: 'Can Apex help with dielines and samples before production?', a: 'Yes. Design support can include structural dielines, artwork preparation, 3D mockups, and physical or digital sample options based on the project.' }
     ],
-    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-08-12', description: 'Plan specifications, inventory, freight, and reorders when packaging serves more than one Canadian location.' },
+    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-09-11', description: 'Plan specifications, inventory, freight, and reorders when packaging serves more than one Canadian location.' },
     ctaHeading: 'Request a Vancouver custom packaging quote with delivery details included.',
     ctaLead: 'Send dimensions, quantity, artwork, delivery postal code, and target date. Apex will recommend a practical structure, material, print, and sample path.'
   },
@@ -379,7 +379,7 @@ export const commercialLocations: CommercialLocation[] = [
       { q: 'What packaging formats can Ottawa buyers order?', a: 'Options include corrugated shipping boxes, printed mailers, folding cartons, retail displays, polybags, protective inserts, launch kits, and coordinated multi-format programs.' },
       { q: 'What information speeds up an Ottawa custom box quote?', a: 'Send inside dimensions, packed weight, quantity, material and print preferences, artwork status, delivery postal code, receiving constraints, and target date.' }
     ],
-    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-08-12', description: 'Plan specifications, inventory, freight, and reorders when one packaging program serves several Canadian locations.' },
+    relatedArticle: { title: 'Custom packaging in Canada for multi-location buyers', href: '/blog/custom-packaging-in-canada-for-multi-location-buyers-2026-09-11', description: 'Plan specifications, inventory, freight, and reorders when one packaging program serves several Canadian locations.' },
     ctaHeading: 'Request an Ottawa custom packaging quote with artwork and delivery details included.',
     ctaLead: 'Send dimensions, quantity, bilingual artwork needs, delivery postal code, and target date for a practical structure, print, and production recommendation.'
   },

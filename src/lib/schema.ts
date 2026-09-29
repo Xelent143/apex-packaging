@@ -35,13 +35,13 @@ export function buildOrganizationSchema() {
       areaServed: ['CA', 'US', 'Selected international markets'],
       availableLanguage: ['English', 'French']
     }],
-    makesOffer: {
+    hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Custom packaging services',
       itemListElement: siteConfig.offerCatalog.map((name) => ({
         '@type': 'Offer',
         itemOffered: {
-          '@type': 'Product',
+          '@type': 'Service',
           name,
           areaServed: globalServiceArea,
           provider: { '@id': `${siteConfig.url}/#organization` }
