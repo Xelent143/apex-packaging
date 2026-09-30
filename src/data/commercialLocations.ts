@@ -1234,5 +1234,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Baltimore retail packaging quote.",
   "ctaLead": "Send your gift-set contents, store case quantities, artwork, delivery ZIP codes, and required dates. Apex can review presentation boxes, dividers, and replenishment cartons together."
+},
+{
+  "slug": "charlotte-custom-packaging",
+  "city": "Charlotte",
+  "region": "North Carolina",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Charlotte",
+  "title": "Custom Packaging Charlotte | Apparel Mailers & Boxes",
+  "description": "Request custom packaging for Charlotte apparel orders. Quote printed mailer boxes, protective bags and bulk cartons with bundle sizing and delivery requirements.",
+  "eyebrow": "Charlotte custom packaging · Apparel order packing",
+  "heading": "Custom packaging for Charlotte apparel bundles and repeat orders.",
+  "lead": "Folded garments, accessory bundles, and multi-item orders need packaging sized around the actual packed assortment. Request printed mailer boxes, garment bags, and shipping cartons for your Charlotte fulfillment operation.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated mailer box with green Terralis branding and contour-line printing on the lid and front",
+  "buyingContext": "A single folded shirt and a sweatshirt bundle can require different packing depths even when they share a brand design. For a Charlotte apparel program, send the packed dimensions of common order combinations before choosing a standard mailer. Separate the package used for an individual customer order from cartons that move inventory to a packing site. If packaging is received in Charlotte, Concord, or Gastonia, identify the actual delivery address, unloading access, and storage allowance for each order. The quote should distinguish the arrival of empty packaging from the parcel service you use to send finished orders to customers.",
+  "priorities": [
+    {
+      "title": "Measure garments after folding",
+      "description": "Record length, width, and height with garment bags, cards, tissue, and accessories included. Quote the smallest routine order and the largest planned bundle so the box range follows real orders."
+    },
+    {
+      "title": "Define the return packing method",
+      "description": "Decide whether customers should reuse the original box and whether they need new tape or a separate return bag. Check opening damage and reclosure with a sample before adding reuse instructions to the artwork."
+    },
+    {
+      "title": "Specify Charlotte-area receiving limits",
+      "description": "Provide the delivery ZIP code, appointment requirements, dock or ground-level access, and available storage at each fulfillment address. Ask for packed bundle dimensions when empty mailers must fit shelving or a small stockroom."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed apparel mailer boxes",
+      "href": "/services/mailer-boxes",
+      "description": "Corrugated mailers sized for folded garments and accessory sets. Compare inside and outside print scope, usable packing depth, closure, and any additional protection needed for parcel handling."
+    },
+    {
+      "title": "Garment bags and soft-order mailers",
+      "href": "/services/polybags",
+      "description": "Bag options for separating garments within a box or packing suitable soft goods. Specify dimensions, closure, film requirements, and print content so each bag has a defined role in the order."
+    },
+    {
+      "title": "Inventory transfer cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Corrugated cartons for grouped stock transfers and replenishment. Include garment count, total packed weight, handling method, and space needed for SKU and destination labels."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the order mix and quantities",
+      "description": "Share garment measurements after folding, bundle photos, order quantities by size, artwork status, and delivery ZIP codes. Identify seasonal variations that change the packed height or accessory count."
+    },
+    {
+      "title": "Trial the pack and reopening",
+      "description": "Request a suitable sample option and pack representative orders. Check movement, closure, label placement, opening, and the proposed return method. Agree on any transit testing before approving production."
+    },
+    {
+      "title": "Approve sizes and reorder references",
+      "description": "Confirm the dielines, materials, print versions, packing quantities, and delivery schedule. Keep an approved size reference for each order type and review fit again when a garment or bundle changes."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom mailer boxes for Charlotte apparel brands?",
+      "a": "Yes. Send folded garment dimensions, bundle contents, quantities by box size, print requirements, and the receiving ZIP code. Apex can review mailer boxes, garment bags, and inventory cartons as separate quote items."
+    },
+    {
+      "q": "Should every apparel order use the same box size?",
+      "a": "That depends on the range of packed dimensions and the order mix. Compare the smallest and largest common orders in samples. A second box size may be worth quoting when one format leaves substantial empty space or compresses larger bundles."
+    },
+    {
+      "q": "Can customers reuse the mailer for a return?",
+      "a": "Potentially, depending on the structure, how it is opened, and its condition after delivery. Specify the intended return procedure, check reclosure in a sample, and establish whether fresh tape or a separate return bag is needed."
+    },
+    {
+      "q": "What minimum order and delivery timing apply to Charlotte?",
+      "a": "Minimums and timing depend on structure, material, print, finishing, approvals, and freight. Include quantities for each size and artwork version, the receiving address, and the date needed for packing. Confirm the production schedule and freight terms in the quote."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan apparel packaging and customer returns",
+    "href": "/blog/apparel-mailer-packaging-ecommerce-returns-guide",
+    "description": "Review apparel mailer choices, garment protection, and return packing requirements before preparing your specifications."
+  },
+  "ctaHeading": "Request a Charlotte apparel packaging quote.",
+  "ctaLead": "Send folded product dimensions, bundle quantities, artwork, and your delivery ZIP code. Include your planned return method so the quote addresses the full packing process."
 }
 ];
