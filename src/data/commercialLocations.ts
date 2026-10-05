@@ -1406,5 +1406,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Milwaukee accessory packaging quote.",
   "ctaLead": "Send your component list, individual and case quantities, artwork, and delivery ZIP codes. Include the packing date so Apex can review box fit, protective components, and delivery requirements together."
+},
+{
+  "slug": "london-ontario-custom-packaging",
+  "city": "London",
+  "region": "Ontario",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging London Ontario",
+  "title": "Custom Packaging London Ontario | Boxes & Mailers",
+  "description": "Quote custom packaging for London, Ontario: printed gift-set mailers, protective inserts and shipping cartons. Send quantities and delivery details to Apex.",
+  "eyebrow": "London, Ontario packaging · Custom boxes and mailers",
+  "heading": "Custom packaging for London, Ontario gift sets and repeat orders.",
+  "lead": "Order printed mailers, fitted inserts, and shipping cartons around the products your London business actually packs. Apex reviews set sizes, print requirements, quantities, and delivery details together so your quote covers both launch stock and replenishment.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated mailer with green branding and contour-line printing, shown closed on a neutral background",
+  "buyingContext": "A London brand selling individual products and mixed gift sets needs more than one attractive sample box. A two-item set may need a different insert from a larger seasonal bundle, while wholesale orders need an outer case with a defined pack count. Start with a table of product combinations and expected quantities. For delivery to London, St. Thomas, or Woodstock, list each receiving address separately so empty packaging can be allocated to the right packing site.",
+  "priorities": [
+    {
+      "title": "Size the box around the full gift set",
+      "description": "Include the tallest container, any protective wrap, printed cards, and the space needed to remove each item. Compare a dedicated box for each set against a shared outer size with different inserts before committing to print quantities."
+    },
+    {
+      "title": "Separate seasonal artwork from repeat stock",
+      "description": "Identify which artwork changes by occasion and which branded packaging stays in use. Ask for separate quantities and pricing for each version so a short seasonal run does not determine the entire replenishment order."
+    },
+    {
+      "title": "Plan Southwestern Ontario receiving by address",
+      "description": "Specify postal codes, business hours, dock or ground-level access, and available storage at each London-area packing site. Confirm delivery terms for empty boxes separately from the later shipment of your finished gift sets."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed gift-set mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Tuck-top corrugated boxes quoted around the finished bundle. Compare internal dimensions, inside and outside print coverage, closure, and the need for an additional shipping carton."
+    },
+    {
+      "title": "Inserts for mixed product sizes",
+      "href": "/services/protective-packaging",
+      "description": "Protective layouts for sets containing different shapes and weights. Share photos of the intended arrangement and identify surfaces that must remain separated during handling."
+    },
+    {
+      "title": "Replenishment and wholesale cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Outer cartons for a stated number of individual products or completed sets. Include total packed weight, storage conditions, case labels, and pallet requirements in the specification."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the London packaging brief",
+      "description": "Provide product dimensions and weights, a list of set combinations, quantities per version, artwork status, and delivery postal codes. State when your team needs to begin packing rather than only the customer launch date."
+    },
+    {
+      "title": "Review a complete sample arrangement",
+      "description": "Ask about sample options and load the proposed box with every product, insert, and card. Check closure, product movement, and ease of removal; agree on any transit testing needed for the shipping method."
+    },
+    {
+      "title": "Approve versions and delivery allocations",
+      "description": "Confirm the dieline, material, print proof, insert reference, and quantity for each set. Record the approved specification and address allocations so repeat orders can be checked against the same references."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for a business in London, Ontario?",
+      "a": "Yes. Send your product measurements, packaging quantities, artwork requirements, receiving postal code, and target packing date. Identify whether you need individual mailers, gift-set inserts, outer cartons, or a combination so each item can be scoped."
+    },
+    {
+      "q": "Can different gift sets use the same mailer box?",
+      "a": "Sometimes. Compare the largest complete set with the smaller combinations and review insert options for each. A shared box can simplify stock, but excess space or an unsuitable insert may make separate sizes more practical. Confirm fit using representative products."
+    },
+    {
+      "q": "Can packaging be quoted for London and St. Thomas receiving sites?",
+      "a": "Provide both addresses, the quantity allocated to each, and receiving restrictions. Split delivery can be reviewed during quoting; confirm freight charges, packing arrangements, and scheduling before approving production."
+    },
+    {
+      "q": "What minimum quantity and lead time should London buyers plan for?",
+      "a": "Minimums and timing depend on box structure, material, print method, version count, sample approval, and delivery requirements. Request quantities by design and confirm the production and freight schedule in your quote rather than assuming one minimum or lead time applies to every format."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan boxes and inserts for gift bundles",
+    "href": "/blog/gift-boxes-inserts-rigid-mailer-packaging-guide",
+    "description": "Review the dimensions, insert choices, and presentation requirements to include when quoting a multi-product gift set."
+  },
+  "ctaHeading": "Get a custom packaging quote for London, Ontario.",
+  "ctaLead": "Send your gift-set combinations, product measurements, quantities by design, and receiving postal codes. Include your packing date so Apex can review mailers, inserts, outer cartons, and delivery as one project."
 }
 ];
