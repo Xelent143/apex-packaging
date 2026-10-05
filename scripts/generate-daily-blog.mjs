@@ -8,7 +8,7 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const blogDir = join(root, 'src', 'pages', 'blog');
 const blogIndex = join(blogDir, 'index.astro');
 const startDate = '2026-07-14';
-const maxCatchUp = Number(process.env.APEX_BLOG_MAX_CATCHUP || 7);
+const maxCatchUp = Number(process.env.APEX_BLOG_MAX_CATCHUP || 365);
 
 const serviceImages = {
   'mailer-boxes': '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp',
@@ -55,16 +55,24 @@ const topics = [
   ['custom packaging Canada', 'Custom Packaging in Canada for Multi-Location Buyers', 'spec control, freight, samples, and reorder timing', 'corrugated-boxes', 'custom packaging Canada']
 ];
 
+const editions = [
+  ['Procurement Checklist', 'specification control, quote comparison, and supplier questions'],
+  ['Cost and MOQ Guide', 'cost drivers, minimum orders, tooling, and reorder planning'],
+  ['Material Selection Guide', 'material performance, print compatibility, and product fit'],
+  ['Shipping and Damage Guide', 'transit risks, packing efficiency, and damage prevention'],
+  ['Artwork and Print Guide', 'dielines, colour control, proofs, and production approval'],
+  ['Sustainable Buying Guide', 'verified claims, material reduction, and disposal pathways'],
+  ['Launch Planning Guide', 'samples, timelines, inventory, and multi-SKU coordination'],
+  ['USA and Canada Buyer Guide', 'regional delivery, documentation, and repeat-order control']
+];
+
 const today = process.env.APEX_BLOG_TODAY || pakistanDate(new Date());
 const indexSource = await readFile(blogIndex, 'utf8');
-const hasUnusedTopic = topics.some(([, titleBase]) => !indexSource.includes(`title: '${titleBase} -`));
-if (!hasUnusedTopic) {
-  console.log('Daily blog paused: every configured topic already has a published buyer guide. Add a genuinely new topic before publishing another article.');
-  process.exit(0);
-}
 const existingDates = [...indexSource.matchAll(/date: '(\d{4}-\d{2}-\d{2})'/g)].map((m) => m[1]);
-const latestDate = existingDates.sort().at(-1) || previousDay(startDate);
-const datesToPublish = datesBetween(nextDay(latestDate), today).filter((date) => date >= startDate).slice(0, maxCatchUp);
+const existingDateSet = new Set(existingDates);
+const datesToPublish = datesBetween(startDate, today)
+  .filter((date) => !existingDateSet.has(date))
+  .slice(0, maxCatchUp);
 
 if (!datesToPublish.length) {
   console.log(`Daily blog is already current through ${today}.`);
@@ -77,10 +85,6 @@ let nextIndex = indexSource;
 const published = [];
 for (const date of datesToPublish) {
   const post = buildPost(date);
-  if (nextIndex.includes(`title: '${post.titleBase} -`)) {
-    console.log(`Skipped ${post.slug}: this topic already has a published buyer guide.`);
-    continue;
-  }
   const articlePath = join(blogDir, `${post.slug}.astro`);
 
   if (!existsSync(articlePath)) {
@@ -96,19 +100,26 @@ for (const date of datesToPublish) {
 await writeFile(blogIndex, nextIndex, 'utf8');
 console.log(`Published ${published.length} daily blog(s): ${published.join(', ')}`);
 
+if (!nextIndex.includes(`date: '${today}'`)) {
+  throw new Error(`Daily blog verification failed: ${today} PKT is still missing from the blog index.`);
+}
+
 function buildPost(date) {
   const dayNumber = daysSince(startDate, date);
   const [keyword, titleBase, angle, service, category] = topics[dayNumber % topics.length];
+  const cycle = Math.floor(dayNumber / topics.length);
+  const [edition, editionAngle] = editions[cycle % editions.length];
   const location = dayNumber % 2 === 0 ? 'Canada' : 'the USA and Canada';
-  const slug = `${slugify(titleBase)}-${date}`;
-  const title = `${titleBase}: ${angle[0].toUpperCase()}${angle.slice(1)}`;
-  const indexTitle = `${titleBase} - ${angle}`;
-  const description = `A practical buyer guide to ${keyword} in ${location}: ${angle}, quote details, internal links, and production checks before ordering.`;
+  const datedTitleBase = `${titleBase}: ${edition}`;
+  const slug = `${slugify(datedTitleBase)}-${date}`;
+  const title = `${datedTitleBase}: ${editionAngle[0].toUpperCase()}${editionAngle.slice(1)}`;
+  const indexTitle = `${datedTitleBase} - ${editionAngle}`;
+  const description = `A practical ${edition.toLowerCase()} for ${keyword} in ${location}: ${angle}, ${editionAngle}, and production checks before ordering.`;
   return {
     date,
     keyword,
     title,
-    titleBase,
+    titleBase: datedTitleBase,
     indexTitle,
     description,
     slug,

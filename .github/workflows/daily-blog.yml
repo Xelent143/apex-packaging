@@ -28,7 +28,17 @@ jobs:
         run: npm ci
 
       - name: Generate and publish daily blog post
+        env:
+          APEX_BLOG_MAX_CATCHUP: 365
         run: npm run blog:generate-daily
+
+      - name: Verify today's Pakistan-date post exists
+        run: |
+          PKT_DATE="$(TZ=Asia/Karachi date +%F)"
+          if ! grep -q "date: '$PKT_DATE'" src/pages/blog/index.astro; then
+            echo "Daily blog publisher failed: $PKT_DATE is missing from the blog index."
+            exit 1
+          fi
 
       - name: Validate site
         run: |
