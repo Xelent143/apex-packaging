@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Shipping Supplies Buyers Should Standardize: Material Selection Guide: Material performance, print compatibility, and product fit';
-const description = 'A practical material selection guide for shipping supplies in Canada: cartons, tape, void fill, labels, and pallet wrap, material performance, print compatibility, and product fit, and production checks before ordering.';
+const title = 'Shipping Supplies Material Guide | Apex Packaging';
+const description = 'Choose shipping-supply materials for Canada: cartons, tape, void fill, labels, and pallet wrap, with checks for protection, print, fit, and production.';
 const url = '/blog/shipping-supplies-buyers-should-standardize-material-selection-guide-2026-10-06';
 const datePublished = '2026-10-06';
 const image = '/images/blog/gaylord-boxes-procurement-generated.png';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Shipping Supplies Buyers Should Standardize: Material Selection Guide: Material performance, print compatibility, and product fit"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}
