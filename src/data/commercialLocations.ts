@@ -1492,5 +1492,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Get a custom packaging quote for London, Ontario.",
   "ctaLead": "Send your gift-set combinations, product measurements, quantities by design, and receiving postal codes. Include your packing date so Apex can review mailers, inserts, outer cartons, and delivery as one project."
+},
+{
+  "slug": "kitchener-waterloo-custom-packaging",
+  "city": "Kitchener–Waterloo",
+  "region": "Ontario",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Kitchener Waterloo",
+  "title": "Custom Packaging Kitchener Waterloo | Boxes & Inserts",
+  "description": "Quote custom packaging for Kitchener–Waterloo equipment kits and component orders. Compare printed boxes, fitted inserts and cartons with Apex.",
+  "eyebrow": "Kitchener–Waterloo packaging · Boxes and protective inserts",
+  "heading": "Custom packaging for Kitchener–Waterloo equipment kits and component orders.",
+  "lead": "Give demonstration units, accessories, and replacement components a defined packing layout. Apex quotes custom boxes and protective inserts for Kitchener–Waterloo businesses around the complete kit, order quantity, print requirements, and receiving address.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and fine contour-line printing on a neutral surface",
+  "buyingContext": "A demonstration kit and a replacement-component shipment rarely need the same box interior. The demo may contain a main unit, cables, adapters, and printed instructions; a replacement order may contain only one part. For teams packing in Kitchener, Waterloo, or Cambridge, separate those configurations before requesting prices. List which items ship together, which surfaces need protection, and where empty packaging will be received. This gives Apex a practical basis for comparing shared box sizes against dedicated component cartons.",
+  "priorities": [
+    {
+      "title": "Map every item in the demonstration kit",
+      "description": "Supply measurements and weights for the main unit and each accessory, including bags and cable coils. Identify removal order and label visibility so the insert layout supports packing and unpacking without hiding essential components."
+    },
+    {
+      "title": "Quote replacement packs separately",
+      "description": "Specify the smallest complete replacement order as well as the full kit. Compare dedicated cartons with a common outer box and alternate inserts; account for unused space, packing labour, and storage of each version."
+    },
+    {
+      "title": "Allocate stock by Waterloo Region receiving site",
+      "description": "Provide a postal code and quantity for each Kitchener, Waterloo, or Cambridge location. Note loading access, receiving hours, and available storage for flat boxes and inserts. Confirm freight for empty packaging separately from your outbound equipment shipments."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated equipment cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Shipping cartons specified around packed weight, dimensions, closure, and handling. Include any separate presentation box when measuring the complete shipment."
+    },
+    {
+      "title": "Fitted kit inserts",
+      "href": "/services/protective-packaging",
+      "description": "Compare protective materials and compartment layouts for the unit and accessories. Flag sensitive surfaces and any static-control requirements for technical review rather than assuming an ordinary insert is suitable."
+    },
+    {
+      "title": "Printed demonstration mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Branded mailer formats for suitable kit sizes. Review opening direction, print areas, labels, and whether the packed kit needs an additional outer shipping carton."
+    }
+  ],
+  "process": [
+    {
+      "title": "Submit the kit and component matrix",
+      "description": "Send photos, dimensions, weights, quantities per configuration, artwork status, and receiving postal codes. State when your packing team needs packaging on hand and distinguish first-order quantities from expected reorders."
+    },
+    {
+      "title": "Check fit with representative contents",
+      "description": "Review available sample options and pack the actual equipment, accessories, and instructions. Check clearance, closure, movement, and removal. Agree on transit testing appropriate to the product and shipping method before approving the design."
+    },
+    {
+      "title": "Approve a repeatable packing specification",
+      "description": "Record the box drawing, insert revision, material, print proof, and component list for each configuration. Confirm production timing, delivery allocations, and freight terms in the quote before placing the order."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Kitchener and Waterloo businesses?",
+      "a": "Yes. Provide product dimensions, packed weight, quantities, artwork requirements, delivery postal codes, and the required packing date. Apex reviews the box, protective components, and delivery requirements together for the quote."
+    },
+    {
+      "q": "Can one box hold different equipment kit configurations?",
+      "a": "A shared outer box may work with different inserts when the dimensions and weights allow it. Compare every configuration, including the smallest order. Use representative contents to check fit and protection before choosing a common size."
+    },
+    {
+      "q": "Are standard foam or corrugated inserts suitable for static-sensitive electronics?",
+      "a": "Do not assume a standard insert provides static protection. Identify sensitive components and provide your handling and material requirements in the RFQ. Material suitability and any required verification must be confirmed for the specific product."
+    },
+    {
+      "q": "What minimum order and delivery timing apply in Kitchener–Waterloo?",
+      "a": "Minimums and timing vary by structure, material, print method, version count, and approval requirements. Request pricing by configuration and provide each receiving address. Confirm the production schedule and freight terms in the quote; there is no single lead time for every kit."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare protective insert options",
+    "href": "/blog/protective-packaging-inserts-foam-molded-pulp-corrugated",
+    "description": "Review foam, moulded pulp, and corrugated insert considerations before preparing your equipment-kit RFQ."
+  },
+  "ctaHeading": "Request a Kitchener–Waterloo custom packaging quote.",
+  "ctaLead": "Send your kit configurations, component measurements, quantities, artwork, and delivery postal codes. Apex can review boxes, inserts, and receiving requirements as one packaging project."
 }
 ];
