@@ -1578,5 +1578,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Kitchener–Waterloo custom packaging quote.",
   "ctaLead": "Send your kit configurations, component measurements, quantities, artwork, and delivery postal codes. Apex can review boxes, inserts, and receiving requirements as one packaging project."
+},
+{
+  "slug": "hamilton-custom-packaging",
+  "city": "Hamilton",
+  "region": "Ontario",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Hamilton",
+  "title": "Custom Packaging Hamilton | Parts Boxes & Protective Inserts",
+  "description": "Quote custom packaging for Hamilton businesses: corrugated parts boxes, dividers and protective inserts. Send dimensions, quantities and delivery details to Apex.",
+  "eyebrow": "Hamilton packaging quotes · Ontario",
+  "heading": "Custom packaging for Hamilton parts orders and production runs.",
+  "lead": "Fabricated brackets, finished metal components, and mixed hardware orders need packaging that accounts for weight concentration and exposed edges. Apex quotes custom boxes, dividers, and protective inserts for Hamilton buyers using the actual parts and packing method.",
+  "image": "/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp",
+  "imageAlt": "Kraft corrugated boxes with a compartment divider, board samples, paper cushioning and handling labels",
+  "buyingContext": "A carton holding twenty identical components presents a different packing problem from a service order containing two parts and loose fixings. For a Hamilton production or distribution program, send both configurations to Apex. Separate the carton needed at the packing bench from any outer case used for consolidated shipments. Include delivery details for Hamilton, Stoney Creek, or Ancaster so the quote accounts for the receiving site, not just the box dimensions.",
+  "priorities": [
+    {
+      "title": "Keep finished surfaces apart",
+      "description": "Identify painted faces, projecting threads, and sharp edges on the part drawing or photos. Compare partitions and fitted protective components around those contact points. A divider separates parts; it does not by itself confirm adequate cushioning or puncture resistance."
+    },
+    {
+      "title": "Quote unit packs and production quantities separately",
+      "description": "List the part count and total packed weight for each order type. Compare a dedicated service-parts carton with a larger production carton before standardizing on one size. Include the packing sequence so operators can reach every compartment without forcing parts into place."
+    },
+    {
+      "title": "Define the Hamilton receiving arrangement",
+      "description": "Provide the postal code, receiving hours, dock or ground-level access, and space available for flat cartons at each site. If packaging stock is split between Stoney Creek and Ancaster, give the quantity per address. Keep inbound empty-packaging freight separate from your own outbound parts freight."
+    }
+  ],
+  "products": [
+    {
+      "title": "Custom corrugated parts boxes",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare regular slotted cartons, full-overlap styles, and die-cut formats for your packed dimensions. Review board choice with the weight distribution, closure, stacking, and handling requirements."
+    },
+    {
+      "title": "Dividers and protective inserts",
+      "href": "/services/protective-packaging",
+      "description": "Specify separation, restraint, and surface protection for each component. Send representative parts for fit review and agree on any required shipment testing before approving production."
+    },
+    {
+      "title": "Bulk packaging for repeat parts orders",
+      "href": "/services/industrial-bulk-packaging",
+      "description": "Review larger containers and pallet packaging for consolidated quantities. Provide the proposed pallet arrangement, handling equipment, and storage conditions so the quote reflects the complete load."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send a parts-based quote request",
+      "description": "Include dimensions, individual and packed weights, part count, order quantities, surface concerns, artwork, and Hamilton-area delivery postal codes. State the date packaging must reach your packing team."
+    },
+    {
+      "title": "Review the packed sample",
+      "description": "Confirm sample availability and review a pack using the actual contents. Check edge clearance, movement, closure, removal, and how the box behaves during your intended handling. Record any testing required for the shipment rather than relying on a board rating alone."
+    },
+    {
+      "title": "Approve the specification and stock plan",
+      "description": "Record the carton drawing, divider layout, material, print proof, and number of parts per box. Confirm minimum order, production timing, freight, and delivery allocations in the quote. Keep revision references with reorder requests."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom boxes for Hamilton metal parts?",
+      "a": "Yes. Send part dimensions, weights, quantities, photos or drawings, surface-protection needs, and delivery details. Apex can review the outer carton and protective components together. Material suitability must be confirmed for the specific contents and shipment."
+    },
+    {
+      "q": "Can the same carton serve bulk orders and small service orders?",
+      "a": "Sometimes, but compare the smallest and largest packed configurations first. A common box may require different dividers or excess filling for small orders. Request separate prices when dedicated sizes could simplify packing or reduce unused space."
+    },
+    {
+      "q": "Does a corrugated divider protect metal parts against rust?",
+      "a": "A corrugated divider primarily separates components. Do not treat it as corrosion protection. State your corrosion-control requirements separately, including any approved wrapping or bag specification, so the complete pack can be reviewed."
+    },
+    {
+      "q": "How are minimum quantities and delivery to Hamilton confirmed?",
+      "a": "Minimum quantities depend on structure, material, print, and the number of versions. Provide a quantity per version and a postal code for each receiving site. Production timing and freight terms are confirmed in the quote after the specification and approvals are reviewed."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan packaging for metal parts and hardware",
+    "href": "/blog/vci-packaging-metal-parts-rust-prevention-transit",
+    "description": "Review corrosion-protection considerations alongside the box and insert requirements in your parts RFQ."
+  },
+  "ctaHeading": "Send your Hamilton parts packaging RFQ.",
+  "ctaLead": "Share part measurements, packed weights, quantities, drawings, and receiving postal codes. Request a quote covering the carton, protective components, and delivery plan."
 }
 ];
