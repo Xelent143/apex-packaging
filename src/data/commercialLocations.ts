@@ -1664,5 +1664,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Send your Hamilton parts packaging RFQ.",
   "ctaLead": "Share part measurements, packed weights, quantities, drawings, and receiving postal codes. Request a quote covering the carton, protective components, and delivery plan."
+},
+{
+  "slug": "sacramento-custom-packaging",
+  "city": "Sacramento",
+  "region": "California",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Sacramento",
+  "title": "Custom Packaging Sacramento | Boxes & Protective Inserts",
+  "description": "Quote custom packaging for Sacramento home goods and retail orders. Compare printed boxes, protective inserts, quantities and delivery requirements.",
+  "eyebrow": "Sacramento custom packaging \u00b7 California delivery planning",
+  "heading": "Custom packaging for Sacramento home goods and retail orders.",
+  "lead": "Quote boxes and protective components around the products you actually ship. Apex helps Sacramento buyers compare packaging for single items, mixed-size bundles, and repeat retail orders.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Printed kraft corrugated box with a fitted lid and green branding, an example of custom packaging for Sacramento orders",
+  "buyingContext": "A home-goods order can combine a small accessory with a larger decorative item, leaving a standard carton difficult to fill consistently. For Sacramento packaging buyers, the useful starting point is a list of actual order combinations: what ships alone, what sells together, and which items need separate compartments. Quote the empty packaging delivered to your Sacramento packing site, then assess the finished parcel against your own customer delivery requirements. These are separate freight decisions.",
+  "priorities": [
+    {
+      "title": "Choose sizes from your order mix",
+      "description": "Share dimensions and packed weights for the most frequent single-item and bundled orders. Compare two or three carton sizes with one common carton before committing to tooling. Include the space needed for wrapping, inserts, and hands to remove the product."
+    },
+    {
+      "title": "Protect finishes and projecting edges",
+      "description": "Identify glazed surfaces, painted corners, handles, or other vulnerable features with photos. Request a divider or insert layout that holds the contents apart. Approve protection against representative handling conditions using a packed sample, rather than assuming a thicker box solves every damage issue."
+    },
+    {
+      "title": "Plan Sacramento-area stock receiving",
+      "description": "Provide the receiving ZIP code, storage space, unloading access, and preferred carton bundle quantities. If stock is allocated between Sacramento, West Sacramento, and Elk Grove addresses, specify the quantity at each site so freight and receiving arrangements can be reviewed separately."
+    }
+  ],
+  "products": [
+    {
+      "title": "Custom corrugated shipping boxes",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare slotted cartons and die-cut structures for single products and larger combinations. Set the inside dimensions after allowing for the approved protective materials."
+    },
+    {
+      "title": "Protective inserts and dividers",
+      "href": "/services/protective-packaging",
+      "description": "Review separation and restraint for items with different weights or shapes. Include both full and partial order configurations in the sample review."
+    },
+    {
+      "title": "Printed mailers for smaller orders",
+      "href": "/services/mailer-boxes",
+      "description": "Consider branded mailers for compact accessories or coordinated gift sets. Review closure, print placement, and the need for an outer shipping carton with the actual contents."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the order configurations",
+      "description": "Supply a product list, dimensions, packed weights, order combinations, quantities per box size, artwork status, and delivery ZIP codes. State when packaging must arrive for packing, not just the customer launch date."
+    },
+    {
+      "title": "Review fit and packing steps",
+      "description": "Confirm sample options and pack representative products. Check movement, closure, surface contact, and unpacking. Document any shipment testing and acceptance criteria required before production approval."
+    },
+    {
+      "title": "Approve sizes and reorder references",
+      "description": "Confirm the drawing, material, insert layout, print proof, and quantity for each version. Record minimum quantities, production timing, freight terms, and receiving allocations in the quote. Retain the approved revision for repeat orders."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Sacramento home-goods brands?",
+      "a": "Yes. Send product dimensions, packed weights, photos, quantities, and delivery details. Apex can review custom corrugated boxes, mailers, and protective components together. Final structure and material selection depend on the contents and handling requirements."
+    },
+    {
+      "q": "Should different home-goods products share one box size?",
+      "a": "Compare the actual order combinations first. A common carton may simplify stock management but require more filling or a different insert for each product. Request prices for dedicated sizes alongside the common-box option to compare packing work and storage needs."
+    },
+    {
+      "q": "Can packaging stock be delivered to more than one Sacramento-area address?",
+      "a": "Provide each receiving address, quantity allocation, unloading access, and target date during quoting. Split delivery and freight costs can then be assessed. Do not assume a quote for one destination covers additional delivery points."
+    },
+    {
+      "q": "What are the minimum quantity and lead time for printed boxes?",
+      "a": "These depend on size, structure, material, print method, and the number of artwork versions. Request quantities per version and share your required in-hand date. Minimum orders and timing are confirmed after the specification and approval steps are reviewed."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare mailers and shipping boxes for ecommerce",
+    "href": "/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers",
+    "description": "Review packaging formats before choosing the box and protective components for your Sacramento order mix."
+  },
+  "ctaHeading": "Request a Sacramento custom packaging quote.",
+  "ctaLead": "Send your product measurements, order combinations, quantities, artwork, and receiving ZIP codes. Ask Apex to quote box sizes, protective components, and packaging delivery together."
 }
 ];
