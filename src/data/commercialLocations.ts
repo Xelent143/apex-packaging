@@ -1751,4 +1751,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Sacramento custom packaging quote.",
   "ctaLead": "Send your product measurements, order combinations, quantities, artwork, and receiving ZIP codes. Ask Apex to quote box sizes, protective components, and packaging delivery together."
 }
+,
+{
+  "slug": "tampa-custom-packaging",
+  "city": "Tampa",
+  "region": "Florida",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Tampa",
+  "title": "Custom Packaging Tampa | Branded Boxes & Gift Kits",
+  "description": "Request custom packaging for Tampa retail and hospitality kits. Quote branded boxes, fitted inserts, order quantities and delivery to your packing site.",
+  "eyebrow": "Tampa packaging quotes · Florida",
+  "heading": "Custom packaging for Tampa hospitality kits and retail orders.",
+  "lead": "Build a packaging quote around the kit you need to assemble. Apex reviews branded boxes, mailers, and protective components for Tampa buyers preparing guest gifts, event bundles, and repeat retail orders.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green printed branding and a fitted lid for a coordinated product presentation",
+  "buyingContext": "A guest welcome kit handed over at a Tampa hotel has different handling requirements from the same assortment mailed to a customer. Start with the contents, assembly location, and final delivery method. If kits include a folded textile, a boxed accessory, and a printed card, specify the position of each item rather than choosing the outer box from appearance alone. For allocations across Tampa, St. Petersburg, and Clearwater, distinguish delivery of empty packaging to your packing team from distribution of finished kits.",
+  "priorities": [
+    {
+      "title": "Separate hand-delivered kits from parcel orders",
+      "description": "Identify which boxes will be presented directly and which will travel through a parcel network. Ask whether the presentation box needs an outer shipping carton. Review the full pack with actual contents before approving a single structure for both channels."
+    },
+    {
+      "title": "Keep changing kit contents manageable",
+      "description": "List the standard assortment and each substitution. Compare a fixed insert with adjustable dividers when event quantities or guest selections change. Leave room for printed cards and check that shorter items remain accessible without tipping out the entire kit."
+    },
+    {
+      "title": "Quote each Tampa Bay receiving point",
+      "description": "Provide ZIP codes, receiving hours, unloading access, and quantities per address. A hotel receiving room and a fulfillment warehouse may accept different shipment sizes. State whether cartons must arrive flat and how much packaging stock the assembly site can store."
+    }
+  ],
+  "products": [
+    {
+      "title": "Branded mailer boxes",
+      "href": "/services/mailer-boxes",
+      "description": "Review die-cut mailers for compact gift assortments and repeat ecommerce orders. Confirm inside dimensions, lid artwork, closure, and packing steps using the complete kit."
+    },
+    {
+      "title": "Corrugated outer cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote shipping cartons for individual presentation boxes or consolidated kits. Include the packed weight, number of units per case, and any separation needed between finished boxes."
+    },
+    {
+      "title": "Fitted inserts and dividers",
+      "href": "/services/protective-packaging",
+      "description": "Compare components that position accessories and keep products apart. Identify exposed corners and finish-sensitive surfaces so fit and protection can be reviewed together."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send your kit and allocation list",
+      "description": "Share product measurements, weights, photographs, kit variations, artwork, and quantities per version. Include each delivery ZIP code and the date empty packaging must reach the Tampa-area assembly team."
+    },
+    {
+      "title": "Review assembly and presentation",
+      "description": "Confirm sample options, then check the packing sequence, product movement, lid closure, and removal of individual items. Review any required transport testing for mailed kits before production approval."
+    },
+    {
+      "title": "Approve artwork and delivery terms",
+      "description": "Record the final structure, materials, insert layout, artwork version, and case quantities. Confirm minimum orders, production timing, freight, and receiving arrangements in the quote. Keep the approved specification for recurring orders."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom gift-kit boxes for Tampa businesses?",
+      "a": "Yes. Send the kit contents, dimensions, packed weight, quantities, artwork, and receiving ZIP code. Apex can review the outer box and inserts together. Indicate whether the finished kits will be handed to recipients or shipped individually."
+    },
+    {
+      "q": "Can one box fit several hospitality gift assortments?",
+      "a": "It may, depending on the size and weight differences. Supply every assortment and request a fit review for the smallest and largest configurations. Different inserts may allow a shared outer box; compare that option with dedicated sizes before ordering."
+    },
+    {
+      "q": "Can empty boxes ship directly to a Tampa hotel or assembly partner?",
+      "a": "Provide the address, receiving contact, delivery window, unloading restrictions, and allocated quantity when requesting a quote. Delivery arrangements and freight are confirmed for the specified site. Shipping empty packaging does not include assembling or distributing finished kits unless separately agreed."
+    },
+    {
+      "q": "What should I include for an event-date packaging quote?",
+      "a": "Give the date your packing team needs the packaging, the event date, quantities per artwork version, and the status of product samples and print files. Ask Apex to confirm sampling, approval, production, and freight timing before committing to the schedule."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan packaging for launches and repeat orders",
+    "href": "/blog/product-launch-packaging-small-runs-samples-reorders",
+    "description": "Review sample and reorder planning before committing to packaging for a Tampa event or recurring kit program."
+  },
+  "ctaHeading": "Request a Tampa custom packaging quote.",
+  "ctaLead": "Send your kit list, dimensions, quantities, artwork, and receiving ZIP codes. Ask Apex to quote branded boxes, inserts, and delivery around your assembly deadline."
+}
 ];
