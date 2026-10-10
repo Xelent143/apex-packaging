@@ -1838,4 +1838,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Tampa custom packaging quote.",
   "ctaLead": "Send your kit list, dimensions, quantities, artwork, and receiving ZIP codes. Ask Apex to quote branded boxes, inserts, and delivery around your assembly deadline."
 }
+,
+{
+  "slug": "moncton-custom-packaging",
+  "city": "Moncton",
+  "region": "New Brunswick",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Moncton",
+  "title": "Custom Packaging Moncton | Retail & Shipping Boxes",
+  "description": "Quote custom packaging for Moncton businesses: printed boxes, shipping cartons and dividers. Send sizes, order quantities and New Brunswick delivery details.",
+  "eyebrow": "Moncton packaging quotes · New Brunswick",
+  "heading": "Custom packaging for Moncton retail replenishment and parcel orders.",
+  "lead": "Retail replenishment cartons and individual parcel boxes need separate specifications. Send Apex your unit sizes, case quantities, and order mix to quote custom packaging for your Moncton packing operation.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with a fitted lid, green brand printing and fine contour-line artwork",
+  "buyingContext": "A Moncton business sending six retail units to a shop and one unit to an online customer has two packing jobs. Start with the saleable unit, then specify the master carton and the individual shipping pack. For stock received in Moncton, Dieppe, or Riverview, identify where empty boxes will be stored and assembled. If packed orders continue to other New Brunswick destinations, describe that onward handling separately so the packaging quote reflects both the receiving site and the intended use.",
+  "priorities": [
+    {
+      "title": "Set the unit count before sizing the case",
+      "description": "List the retail pack dimensions and the number of units in each replenishment order. Compare a fixed case quantity with smaller cartons for partial orders. Include dividers and handling clearance when calculating internal dimensions."
+    },
+    {
+      "title": "Reserve space for each approved label",
+      "description": "Show the barcode, product identification, and shipping-label areas on the artwork brief. If your business uses English and French copy, supply approved text for both and identify which panels must remain visible after sealing. Confirm final wording before print approval."
+    },
+    {
+      "title": "Specify the Greater Moncton receiving site",
+      "description": "Include the postal code, unloading access, receiving hours, and storage limit for each Moncton, Dieppe, or Riverview address. Request flat-packed bundle quantities that the packing team can handle. Separate delivery of empty packaging from delivery of finished goods."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated replenishment cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote cartons around the unit count, packed weight, and stacking requirements. Compare standard slotted boxes with die-cut structures where packing access or closure needs differ."
+    },
+    {
+      "title": "Printed parcel mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Review mailers for individual retail orders. Specify the product and protective allowance before selecting a size, then check lid artwork and shipping-label placement together."
+    },
+    {
+      "title": "Dividers and protective components",
+      "href": "/services/protective-packaging",
+      "description": "Keep adjacent retail units separated and account for empty positions in partial cases. Ask for a fit review using the actual product and any finish-sensitive surfaces."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the unit and case specifications",
+      "description": "Provide dimensions, weights, units per case, order quantities by size, artwork versions, and receiving postal codes. State the date empty packaging must reach your packing team, including any time needed for assembly."
+    },
+    {
+      "title": "Check full and partial packs",
+      "description": "Confirm sample options and review both a full replenishment carton and the smallest parcel order. Check product movement, closure, label visibility, and packing sequence. Agree on any transport testing needed before approving materials."
+    },
+    {
+      "title": "Approve the quote and reorder record",
+      "description": "Record box dimensions, material, print proof, dividers, and quantities per version. Confirm minimum orders, production timing, freight, and receiving arrangements. Retain the approved drawing and artwork revision for repeat orders."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom boxes for a Moncton business?",
+      "a": "Yes. Send the product measurements, packed weights, box quantities, artwork, and delivery postal code. Apex can review corrugated cartons, printed mailers, and protective components for the specified packing operation."
+    },
+    {
+      "q": "Should retail replenishment and online orders use the same box?",
+      "a": "Compare the contents and handling first. A case holding several retail units may leave too much space around a single order. Request a separate parcel option and compare the packaging cost, packing work, and storage requirements before choosing sizes."
+    },
+    {
+      "q": "Can I request packaging delivery to Dieppe or Riverview?",
+      "a": "Include the exact address, allocated quantity, receiving hours, and unloading restrictions with the quote request. Freight and delivery arrangements are confirmed for each destination; a Moncton delivery quote does not automatically cover multiple receiving points."
+    },
+    {
+      "q": "How are minimum quantities and bilingual artwork versions quoted?",
+      "a": "Provide quantities for each size and artwork version, along with approved English and French text where required. Minimum quantities and print costs depend on the structure, material, and print method. Ask for the quantity per version and approval schedule to be stated in the quote."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare mailers and cartons for ecommerce orders",
+    "href": "/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers",
+    "description": "Review common shipping formats before specifying your Moncton parcel and retail replenishment packs."
+  },
+  "ctaHeading": "Request a Moncton custom packaging quote.",
+  "ctaLead": "Send your retail unit sizes, case counts, parcel order mix, artwork, and delivery postal codes. Ask Apex to quote boxes, protective components, and freight for your packing schedule."
+}
 ];
