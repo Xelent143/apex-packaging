@@ -1,0 +1,15 @@
+# Image prompts — 2026-10-10
+
+## 1. Unit, case and pallet — generated
+
+Create a professional photorealistic packaging editorial photo, portrait 1024x1536, for Apex Packaging Solutions. In a clean neutral warehouse sample area show three distinct scales of packaging: foreground a small closed kraft parcel mailer; middle an open corrugated replenishment carton with six plain charcoal retail cartons arranged in a neat 2 by 3 grid with kraft dividers; background a modest low pallet of closed corrugated cartons with corner boards and clear stretch film. Whole foreground and middle boxes fully in frame with generous margins. Print the exact words 'APEX PACKAGING' in crisp black uppercase directly on foreground mailer and middle carton, small gold rule below, no invented emblem. Warm black, natural kraft, white and restrained gold palette. Soft directional daylight, convincing paper grain, realistic folds and film reflections, three-quarter camera angle. No people, no numerical specifications, no certification marks, no extra text or watermarks. This is an illustrative packaging concept, not a tested load diagram. Keep pallet low and plausible, no overhang. Leave upper area uncluttered.
+
+Saved as `assets/unit-case-pallet.png`, using built-in image generation. Illustrative concept only; no load-performance claim.
+
+## 2. Full and partial replenishment cases — production-ready alternate
+
+Create a photorealistic square 1024x1024 packaging studio photograph for Apex Packaging Solutions. Show two open kraft corrugated sample cartons side by side: one containing six charcoal retail packs separated by kraft dividers, the other containing three with a visibly separate paper cushioning sample beside it. Clean white workbench, warm black background accents, restrained gold detail. Print exactly “APEX PACKAGING” in black on the front carton panels, with no emblem. Three-quarter overhead view, all boxes fully inside frame, generous crop margins, soft daylight, realistic board grain and folds. No hands, no measurements, no safety claims, no certification symbols or other text. Present samples under review, not a validated packing method. Leave upper quarter clear for optional editorial copy.
+
+## 3. Pallet packaging quote brief — production-ready alternate
+
+Create a photorealistic landscape 1536x1024 editorial still life for Apex Packaging Solutions. On a warehouse sample bench place a roll of clear stretch film, kraft corner-board samples, a folded top sheet and a closed kraft corrugated carton. The carton bears only the exact black wordmark “APEX PACKAGING” above a thin gold rule. In soft-focus background show a low, neatly aligned pallet of boxes without overhang. Warm neutral light, natural kraft, charcoal and white palette, realistic material textures. Keep all foreground objects fully visible, leave the left third uncluttered for copy. No workers, diagrams, numbers, certification badges or performance claims. This is an illustrative material-review scene, not a prescribed wrap pattern or proof of tested load stability.
