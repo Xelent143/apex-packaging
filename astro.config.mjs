@@ -24,8 +24,6 @@ export default defineConfig({
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap({
-      changefreq: 'weekly',
-      lastmod: new Date(),
       filter: isIndexableSitemapUrl
     })
   ],
