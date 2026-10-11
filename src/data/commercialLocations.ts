@@ -1925,4 +1925,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Moncton custom packaging quote.",
   "ctaLead": "Send your retail unit sizes, case counts, parcel order mix, artwork, and delivery postal codes. Ask Apex to quote boxes, protective components, and freight for your packing schedule."
 }
+,
+{
+  "slug": "raleigh-custom-packaging",
+  "city": "Raleigh",
+  "region": "North Carolina",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Raleigh",
+  "title": "Custom Packaging Raleigh | Branded Kit & Shipping Boxes",
+  "description": "Request custom packaging for Raleigh welcome kits and recurring orders. Quote printed boxes, inserts and shipping cartons with North Carolina delivery details.",
+  "eyebrow": "Raleigh packaging quotes · North Carolina",
+  "heading": "Custom packaging for Raleigh welcome kits and recurring orders.",
+  "lead": "Build a box specification around the items your team actually sends. Apex can quote branded boxes, fitted components, and outer cartons for Raleigh employee welcome kits, customer gifts, and repeat onboarding orders.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green brand printing, a fitted lid and contour-line artwork",
+  "buyingContext": "A welcome kit containing a notebook, drinkware, and apparel can change every time a garment size or accessory changes. For Raleigh buyers, the quote should distinguish a batch assembled at an office from kits packed individually by a fulfillment partner. Supply the receiving address in Raleigh, Cary, or Durham and identify who will store the empty boxes, assemble the contents, and apply shipping labels. If several offices share the design, specify quantities and delivery requirements for each site.",
+  "priorities": [
+    {
+      "title": "Allow for the largest kit combination",
+      "description": "List every item and measure the largest garment fold alongside the rigid accessories. Request a fit review for both the fullest kit and the smallest assortment. Inserts or separate compartments can help keep a heavy item from pressing against printed materials."
+    },
+    {
+      "title": "Keep recurring stock useful between hiring rounds",
+      "description": "Compare an evergreen printed box with a replaceable welcome card or sleeve. State which artwork stays constant and which changes by team or campaign. Quote initial quantities and anticipated replenishment quantities separately so storage and reorder decisions use the same specification."
+    },
+    {
+      "title": "Separate office receipt from individual distribution",
+      "description": "For each Raleigh, Cary, or Durham receiving site, provide the ZIP code, receiving hours, unloading access, and storage constraints. An office receiving bundled empty boxes has different handling needs from a fulfillment partner receiving palletized stock. Confirm freight to the named destination in the quote."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed welcome-kit mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Review a die-cut mailer sized around the complete assortment. Check lid presentation, packing access, closure, and space for a shipping label before approving print placement."
+    },
+    {
+      "title": "Inserts for mixed contents",
+      "href": "/services/protective-packaging",
+      "description": "Quote components that separate drinkware, accessories, and paper items. Supply actual product measurements and identify surfaces that should not rub during handling. Confirm samples and any required transport testing."
+    },
+    {
+      "title": "Outer shipping cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare a protective outer carton for a single presentation box with a master carton for several assembled kits. Specify packed weight, units per case, and the intended shipping method for each format."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the assortment and delivery brief",
+      "description": "Provide the contents list, dimensions, weights, photographs, quantities per kit version, and approved brand files. Include delivery ZIP codes and the date your assembly team needs empty packaging, allowing time to pack before the onboarding date."
+    },
+    {
+      "title": "Review fit and the packing sequence",
+      "description": "Confirm sample options and try the largest and smallest combinations. Check how inserts load, whether the lid closes without pressure, and where the card and label sit. Record any protection or testing requirements before production approval."
+    },
+    {
+      "title": "Confirm pricing and the repeat-order specification",
+      "description": "Approve dimensions, material, insert layout, artwork revision, and order quantities together. Ask for minimum quantities, production timing, freight, and delivery terms in writing. Retain the approved specification so later hiring rounds can be quoted consistently."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom welcome-kit boxes for Raleigh businesses?",
+      "a": "Yes. Send your kit contents, dimensions, weights, artwork, quantities, and receiving ZIP code. Apex can review printed boxes, inserts, and outer cartons around your assembly and shipping plan. Availability, minimum quantities, and timing are confirmed in the quote."
+    },
+    {
+      "q": "Can one welcome box accommodate different apparel sizes?",
+      "a": "Possibly. Measure the largest folded garment and show the smallest kit combination too. Ask for a sample fit review before choosing a common size. A shared outer box with different internal components may be an option when the contents vary."
+    },
+    {
+      "q": "Does a packaging quote include assembling and mailing employee kits?",
+      "a": "Specify those requirements separately. A quote for empty boxes and inserts should identify the packaging supplied and its delivery destination. Kit assembly, product sourcing, and individual distribution should only be included when explicitly agreed in the scope."
+    },
+    {
+      "q": "Can I request separate deliveries to Raleigh, Cary, and Durham?",
+      "a": "Provide the address, receiving contact, unloading restrictions, and allocated quantity for each site. Ask for freight and delivery arrangements by destination. Also identify whether each location can receive pallets or needs smaller bundled quantities."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan packaging for launches and repeat orders",
+    "href": "/blog/product-launch-packaging-small-runs-samples-reorders",
+    "description": "Review sample approval and reorder planning before committing to your first welcome-kit packaging run."
+  },
+  "ctaHeading": "Request a Raleigh custom packaging quote.",
+  "ctaLead": "Send your kit contents, largest assortment dimensions, quantities, artwork, and receiving ZIP codes. Ask Apex to quote branded boxes, inserts, and freight for your next onboarding schedule."
+}
 ];
