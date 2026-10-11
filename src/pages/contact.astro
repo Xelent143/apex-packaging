@@ -8,6 +8,10 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Request a Quote', url: '/contact' }
 ]);
+
+const mapQuery = `${siteConfig.streetAddress}, ${siteConfig.addressLocality}, ${siteConfig.addressRegion} ${siteConfig.postalCode}, ${siteConfig.addressCountry}`;
+const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
+const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=15&output=embed`;
 ---
 <BaseLayout
   title="Custom Packaging Quote | Apex Packaging"
@@ -173,9 +177,31 @@ const breadcrumb = buildBreadcrumbSchema([
         </div>
         <div class="rounded-xl border border-neutral-200 bg-white px-5 py-4 shadow-card">
           <strong class="block font-display text-neutral-900">Business address</strong>
-          <span class="mt-2 block">{siteConfig.formattedAddress}</span>
+          <a class="mt-2 block text-accent hover:underline" href={mapsSearchUrl} target="_blank" rel="noopener noreferrer">
+            {siteConfig.formattedAddress}
+          </a>
         </div>
       </div>
+
+      <section id="location" class="mx-auto mt-8 max-w-[68rem] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-card">
+        <div class="flex flex-col justify-between gap-4 border-b border-neutral-200 px-5 py-5 md:flex-row md:items-center md:px-7">
+          <div>
+            <p class="eyebrow">Visit Apex</p>
+            <h2 class="mt-2 font-display text-2xl font-extrabold text-neutral-900">Our London, Ontario location</h2>
+            <p class="mt-2 text-sm text-neutral-600 md:text-base">{siteConfig.formattedAddress}</p>
+          </div>
+          <a class="btn-primary shrink-0" href={mapsSearchUrl} target="_blank" rel="noopener noreferrer">
+            Open in Google Maps
+          </a>
+        </div>
+        <iframe
+          title="Map to Apex Packaging Solutions in London, Ontario"
+          src={mapsEmbedUrl}
+          class="h-[22rem] w-full border-0 md:h-[28rem]"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
     </div>
   </section>
 </BaseLayout>

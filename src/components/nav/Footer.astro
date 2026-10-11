@@ -11,9 +11,12 @@ const infoLinks = [
   ['About Us', '/about'],
   ['Contact Us', '/contact'],
   ['Pay Now', '/paynow'],
-  ['Sitemap', '/sitemap-index.xml'],
+  ['Our Location', '/contact#location'],
   ['Portfolio', '/services']
 ];
+
+const mapQuery = `${siteConfig.streetAddress}, ${siteConfig.addressLocality}, ${siteConfig.addressRegion} ${siteConfig.postalCode}, ${siteConfig.addressCountry}`;
+const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
 
 const productLinks = [
   ['Soap Boxes', '/industries/soap-boxes'],
@@ -125,7 +128,9 @@ const paymentMarks = [
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
               </span>
-              <span class="pt-1 font-semibold">{siteConfig.formattedAddress}</span>
+              <a href={mapsSearchUrl} target="_blank" rel="noopener noreferrer" class="pt-1 font-semibold hover:text-accent">
+                {siteConfig.formattedAddress}
+              </a>
             </li>
           </ul>
         </div>
@@ -176,7 +181,7 @@ const paymentMarks = [
       <div class="flex gap-5">
         <a href="/privacy" class="hover:text-accent">Privacy</a>
         <a href="/terms-and-conditions" class="hover:text-accent">Terms</a>
-        <a href="/sitemap-index.xml" class="hover:text-accent">Sitemap</a>
+        <a href="/contact#location" class="hover:text-accent">Our Location</a>
         <a href="/contact" class="hover:text-accent">Get Quote</a>
       </div>
     </div>
