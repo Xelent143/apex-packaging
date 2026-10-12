@@ -1924,5 +1924,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Moncton custom packaging quote.",
   "ctaLead": "Send your retail unit sizes, case counts, parcel order mix, artwork, and delivery postal codes. Ask Apex to quote boxes, protective components, and freight for your packing schedule."
+},
+{
+  "slug": "richmond-virginia-custom-packaging",
+  "city": "Richmond",
+  "region": "Virginia",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Richmond VA",
+  "title": "Custom Packaging Richmond VA | Sample & Shipping Boxes",
+  "description": "Request custom packaging for Richmond, VA: branded sample boxes, shipping cartons and inserts. Send product sizes, quantities and delivery details for a quote.",
+  "eyebrow": "Richmond packaging quotes \u00b7 Virginia",
+  "heading": "Custom packaging for Richmond sample assortments and repeat orders.",
+  "lead": "Give buyers a clear view of your product range with packaging sized for the actual assortment. Ask Apex to quote printed boxes, corrugated shippers, and inserts for your Richmond sample program or recurring order mix.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line printing across the lid and front",
+  "buyingContext": "A sample box can hold several small products while a repeat order contains multiples of only one item. Specifying both around the same outer dimensions may simplify storage, but the internal fit still needs review. For a Richmond packing team, identify which assortments are assembled in advance and which are selected after an order arrives. Include the receiving ZIP code and whether empty packaging goes to a Richmond address or a separate Henrico or Chesterfield site. Apex can review the box structure, component quantities, and delivery requirements together before you approve a production run.",
+  "priorities": [
+    {
+      "title": "Map every assortment to a packing layout",
+      "description": "List each sample size and weight, then show which combinations share a box. Include cards, product labels, and any protective wraps in the dimensions. Check the smallest assortment as well as the fullest pack so unused positions do not allow movement."
+    },
+    {
+      "title": "Compare a shared shell with separate sizes",
+      "description": "Request pricing for a common outer box with interchangeable dividers and for dedicated boxes where the contents differ substantially. Compare insert assembly, empty storage space, and packed dimensions alongside the unit price. A common box only helps if the packing team can use it consistently."
+    },
+    {
+      "title": "Separate packaging delivery from customer shipments",
+      "description": "Give the Richmond-area receiving address, unloading access, receiving hours, and quantity assigned to each site. Describe onward parcel shipping separately. If samples are needed for a sales meeting, specify when the packing team needs empty boxes rather than only the meeting date."
+    }
+  ],
+  "products": [
+    {
+      "title": "Branded sample mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Quote a hinged mailer around the complete sample layout. Review the opening sequence, lid print, closure, and space for a shipping label before approving the dieline."
+    },
+    {
+      "title": "Corrugated repeat-order cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Specify cartons for the quantity and packed weight of recurring orders. Share stacking and handling conditions so the proposed board and structure can be reviewed for that use."
+    },
+    {
+      "title": "Dividers and fitted inserts",
+      "href": "/services/protective-packaging",
+      "description": "Separate items that could rub or strike each other. Ask about removable components for changing assortments and confirm fit with actual products before ordering production quantities."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send an assortment matrix",
+      "description": "Provide product measurements, weights, combinations, quantities by box size, and artwork versions. Mark the recurring configuration and occasional variants, then include the Virginia delivery ZIP code and required receiving date."
+    },
+    {
+      "title": "Review fit and packing work",
+      "description": "Confirm sample availability and check product removal, closure, insert assembly, and label visibility. Trial the least-filled configuration as well as the full box. Agree on any shipment testing needed for the intended handling route."
+    },
+    {
+      "title": "Confirm price and reorder specifications",
+      "description": "Ask the quote to identify minimum quantities, tooling, print, inserts, freight, and approval timing. Retain the approved dimensions, material specification, and artwork revision so future sample runs can be compared with the same baseline."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Richmond, Virginia?",
+      "a": "Yes. Send your product dimensions, packed weights, assortment list, quantities, artwork, and Richmond-area delivery ZIP code. Apex can review printed mailers, shipping cartons, and protective components for the requested application."
+    },
+    {
+      "q": "Can one sample box hold several product combinations?",
+      "a": "A common outer box may work with different inserts or dividers. Check each combination, including partially filled packs, before approving the structure. Ask for a comparison with dedicated sizes when empty space or assembly work becomes significant."
+    },
+    {
+      "q": "What details are needed for delivery to Henrico or Chesterfield?",
+      "a": "Provide the exact receiving address, allocated quantities, unloading facilities, receiving hours, and any appointment requirements. Freight and delivery feasibility must be confirmed for each location in the quote."
+    },
+    {
+      "q": "What are the minimum quantity and lead time for printed boxes?",
+      "a": "Both depend on the box structure, material, print method, artwork versions, and approval requirements. Request quantity breaks and a schedule that includes sample review, print approval, production, and freight to your specified Virginia address."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan sample runs and packaging reorders",
+    "href": "/blog/product-launch-packaging-small-runs-samples-reorders",
+    "description": "Prepare the sample, artwork, and repeat-order details needed before a custom packaging production run."
+  },
+  "ctaHeading": "Request a Richmond custom packaging quote.",
+  "ctaLead": "Send your assortment list, product measurements, quantities by version, artwork, and receiving ZIP code. Ask Apex to quote boxes, inserts, and freight for your Richmond packing schedule."
 }
 ];
