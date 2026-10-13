@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Custom Mailer Boxes for Subscription Brands: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for custom mailer boxes in Canada: subscription launches, inserts, and repeat shipments, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Custom Mailer Boxes for Subscription Brands';
+const description = 'Plan subscription mailers, inserts, and repeat shipments to reduce transit damage and improve packing efficiency.';
 const url = '/blog/custom-mailer-boxes-for-subscription-brands-shipping-and-damage-guide-2026-10-12';
 const datePublished = '2026-10-12';
 const image = '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Custom Mailer Boxes for Subscription Brands: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

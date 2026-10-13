@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Pallet Packaging for LTL and Warehouse Loads: Material Selection Guide: Material performance, print compatibility, and product fit';
-const description = 'A practical material selection guide for pallet packaging in Canada: stretch film, corner boards, top sheets, and load stability, material performance, print compatibility, and product fit, and production checks before ordering.';
+const title = 'Pallet Packaging for LTL: Material Selection Guide';
+const description = 'Plan stretch film, corner boards, top sheets, and load stability for LTL shipments and warehouse pallet handling.';
 const url = '/blog/pallet-packaging-for-ltl-and-warehouse-loads-material-selection-guide-2026-10-10';
 const datePublished = '2026-10-10';
 const image = '/images/blog/gaylord-boxes-procurement-generated.png';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Pallet Packaging for LTL and Warehouse Loads: Material Selection Guide: Material performance, print compatibility, and product fit"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

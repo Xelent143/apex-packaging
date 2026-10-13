@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Luxury Packaging Boxes for Premium Retail Products: Material Selection Guide: Material performance, print compatibility, and product fit';
-const description = 'A practical material selection guide for luxury packaging boxes in Canada: rigid board, soft-touch finishes, foil, and inserts, material performance, print compatibility, and product fit, and production checks before ordering.';
+const title = 'Luxury Packaging Boxes: Material Selection Guide';
+const description = 'Choose rigid board, soft-touch finishes, foil, and inserts for premium retail packaging with practical production guidance.';
 const url = '/blog/luxury-packaging-boxes-for-premium-retail-products-material-selection-guide-2026-10-08';
 const datePublished = '2026-10-08';
 const image = '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Luxury Packaging Boxes for Premium Retail Products: Material Selection Guide: Material performance, print compatibility, and product fit"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

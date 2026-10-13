@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Custom Kraft Boxes for Natural Product Brands: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for custom kraft boxes in the USA and Canada: board colour, print contrast, and retail presentation, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Custom Kraft Boxes for Natural Product Brands';
+const description = 'Choose kraft board, print contrast, and protective details for natural-product packaging that works in retail and transit.';
 const url = '/blog/custom-kraft-boxes-for-natural-product-brands-shipping-and-damage-guide-2026-10-13';
 const datePublished = '2026-10-13';
 const image = '/images/blog/custom-kraft-boxes-natural-product-brands-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Custom Kraft Boxes for Natural Product Brands: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Custom Box Inserts for Safer Product Presentation: Material Selection Guide: Material performance, print compatibility, and product fit';
-const description = 'A practical material selection guide for custom box inserts in the USA and Canada: corrugated, foam, molded pulp, and assembly labour, material performance, print compatibility, and product fit, and production checks before ordering.';
+const title = 'Custom Box Inserts: Material Selection Guide';
+const description = 'Compare corrugated, foam, and moulded-pulp box inserts for product protection, presentation, assembly, and production planning.';
 const url = '/blog/custom-box-inserts-for-safer-product-presentation-material-selection-guide-2026-10-07';
 const datePublished = '2026-10-07';
 const image = '/images/blog/protective-packaging-insert-sample-kit-generated.png';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Custom Box Inserts for Safer Product Presentation: Material Selection Guide: Material performance, print compatibility, and product fit"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

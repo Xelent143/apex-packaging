@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Moving and Storage Boxes for Warehouses and Offices: Material Selection Guide: Material performance, print compatibility, and product fit';
-const description = 'A practical material selection guide for moving and storage boxes in the USA and Canada: board grade, hand holes, labels, and stacking, material performance, print compatibility, and product fit, and production checks before ordering.';
+const title = 'Moving & Storage Boxes: Material Selection Guide';
+const description = 'Specify board grade, hand holes, labels, and stacking performance for warehouse and office moving or storage boxes.';
 const url = '/blog/moving-and-storage-boxes-for-warehouses-and-offices-material-selection-guide-2026-10-09';
 const datePublished = '2026-10-09';
 const image = '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Moving and Storage Boxes for Warehouses and Offices: Material Selection Guide: Material performance, print compatibility, and product fit"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}
