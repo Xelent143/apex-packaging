@@ -2011,4 +2011,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Richmond custom packaging quote.",
   "ctaLead": "Send your assortment list, product measurements, quantities by version, artwork, and receiving ZIP code. Ask Apex to quote boxes, inserts, and freight for your Richmond packing schedule."
 }
+,
+{
+  "slug": "victoria-bc-custom-packaging",
+  "city": "Victoria",
+  "region": "British Columbia",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Victoria BC",
+  "title": "Custom Packaging Victoria BC | Retail & Shipping Boxes",
+  "description": "Quote custom packaging for Victoria, BC: printed retail boxes, mailers and protective inserts. Share quantities and Vancouver Island delivery details with Apex.",
+  "eyebrow": "Victoria packaging quotes · British Columbia",
+  "heading": "Custom packaging for Victoria retail pickup and shipped orders.",
+  "lead": "Plan boxes around how customers receive your products. Apex can quote branded mailers, corrugated cartons, and protective components for Victoria businesses handling shop pickup, parcel orders, or both.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print on the lid and front",
+  "buyingContext": "A box handed across a shop counter and a box sent through a parcel network face different handling. For a Victoria packaging order, separate the presentation pack from any outer shipper before comparing prices. Include the protective wrap, printed card, and complete product weight in the specification. Also distinguish delivery of empty packaging to your Vancouver Island packing site from onward shipments to customers. A quote should identify the receiving postal code, shipment quantity, unloading arrangements, and required arrival date for the packaging itself.",
+  "priorities": [
+    {
+      "title": "Decide which pack needs an outer shipper",
+      "description": "Show the retail presentation box and the complete shipped order. Ask whether the proposed mailer can serve both uses or whether a separate shipping carton is needed. Review closure, label placement, and protection with the actual contents before approving a shared format."
+    },
+    {
+      "title": "Match replenishment to available storage",
+      "description": "Measure the space available for flat boxes and separate inserts at your shop or packing room. Request quantity breaks with the packed delivery volume so a lower unit price can be compared against storage and replenishment needs. Identify seasonal artwork separately from boxes intended for repeat use."
+    },
+    {
+      "title": "Specify the Vancouver Island receiving point",
+      "description": "Provide the exact destination in Victoria, Saanich, Langford, or another receiving community. State whether delivery goes to a loading dock or a storefront, and flag access limits or appointment requirements. Ask for freight and the proposed delivery schedule to be confirmed for that address."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed pickup and parcel mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Quote hinged mailers sized around the product and presentation materials. Compare an unprinted exterior with branded interior printing where shipping labels would cover the outer artwork."
+    },
+    {
+      "title": "Outer corrugated shipping cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Request a shipper around the retail pack plus its protective components. Provide packed weight and expected handling so board and closure options can be reviewed for the intended journey."
+    },
+    {
+      "title": "Inserts for mixed product packs",
+      "href": "/services/protective-packaging",
+      "description": "Keep products separated and check clearance around fragile surfaces. Review insert assembly, product removal, and fit for each assortment rather than approving from the empty box alone."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the pickup and shipping order mix",
+      "description": "List product dimensions, weights, typical combinations, and quantities by box size. Include artwork status, your receiving postal code, and the date empty packaging must arrive for packing."
+    },
+    {
+      "title": "Check fit in both buying channels",
+      "description": "Confirm sample options and trial a complete pickup pack and a sealed shipping pack. Review presentation, movement, closure, label zones, and packing time. Agree on any shipment testing needed before production approval."
+    },
+    {
+      "title": "Confirm a complete delivered quote",
+      "description": "Request separate details for boxes, inserts, tooling, print, and freight. Confirm minimum quantities, approval deadlines, and receiving arrangements. Save the final specification and artwork revision for future Victoria reorders."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom boxes for Victoria, BC?",
+      "a": "Yes. Send product sizes, packed weights, quantities, print requirements, and the delivery postal code. Apex can review mailers, corrugated cartons, and protective components for your Victoria packing operation."
+    },
+    {
+      "q": "Can the same box work for shop pickup and parcel shipping?",
+      "a": "It may, depending on the contents and handling. A presentation box can require an outer carton or additional protection for parcel delivery. Review the complete packed product, closure, and label placement, and confirm any testing needed before choosing one format."
+    },
+    {
+      "q": "What should I include for a Vancouver Island delivery quote?",
+      "a": "Provide the full receiving address, quantity, unloading access, receiving hours, and required arrival date. Identify storefront deliveries and appointment requirements. Freight and delivery timing should be confirmed for the specific destination rather than assumed from a mainland quote."
+    },
+    {
+      "q": "Can I compare small runs with a larger repeat order?",
+      "a": "Ask for quantity breaks for each structure and artwork version. Minimum quantities depend on the material, print method, and box construction. Compare tooling, freight, storage volume, and sample approval requirements alongside the unit price."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare ecommerce mailers and shipping cartons",
+    "href": "/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers",
+    "description": "Review packaging formats before choosing a shared pickup box or a separate parcel shipping pack."
+  },
+  "ctaHeading": "Request a Victoria custom packaging quote.",
+  "ctaLead": "Send your pickup and parcel order mix, product measurements, quantities, artwork, and receiving postal code. Ask Apex to quote the boxes, protection, and freight needed for your Vancouver Island packing schedule."
+}
 ];
