@@ -2098,4 +2098,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Victoria custom packaging quote.",
   "ctaLead": "Send your pickup and parcel order mix, product measurements, quantities, artwork, and receiving postal code. Ask Apex to quote the boxes, protection, and freight needed for your Vancouver Island packing schedule."
 }
+,
+{
+  "slug": "columbus-custom-packaging",
+  "city": "Columbus",
+  "region": "Ohio",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Columbus Ohio",
+  "title": "Custom Packaging Columbus Ohio | Subscription & Shipping Boxes",
+  "description": "Request custom packaging for Columbus, Ohio: printed subscription mailers, shipping cartons and inserts. Quote quantities, artwork versions and delivery with Apex.",
+  "eyebrow": "Columbus packaging quotes · Ohio",
+  "heading": "Custom packaging for Columbus subscription and repeat-order programs.",
+  "lead": "Build a box specification that can handle the next assortment as well as the first. Apex can quote printed mailers, corrugated shipping cartons, and inserts for Columbus businesses packing recurring customer orders.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated shipping box with green Terralis branding and contour-line artwork across the front and lid",
+  "buyingContext": "Subscription packaging creates two buying decisions: how many boxes to order now and how much variation the next shipment can accommodate. For a Columbus packing operation, list the smallest and largest planned assortments before choosing a common box. Separate the recurring brand artwork from date-specific cards or sleeves so unused packaging can be considered for later runs. Include the delivery address for empty boxes, whether packing happens in Columbus, Grove City, or Westerville; that inbound shipment has its own receiving requirements and schedule, separate from parcels sent to subscribers.",
+  "priorities": [
+    {
+      "title": "Compare a common box with two size bands",
+      "description": "Map each planned assortment by dimensions and packed weight. Ask for pricing on a shared outer box with adaptable inserts and on two dedicated sizes. Compare unused space, packing steps, and shipping-label placement alongside the quoted box price."
+    },
+    {
+      "title": "Keep recurring artwork separate from monthly content",
+      "description": "Identify which print elements remain on every order and which change with each release. Request separate quantities for artwork versions. A permanent branded mailer with a replaceable card may make surplus stock easier to use, but confirm the fit and full cost before selecting that approach."
+    },
+    {
+      "title": "Quote delivery to the actual Ohio packing site",
+      "description": "Provide the receiving ZIP code, unloading access, and hours for your Columbus-area shop, warehouse, or fulfillment partner. For split deliveries to Grove City and Westerville, specify the quantity for each address. Ask for freight, carton counts, and any appointment requirements to be included in the quote."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed subscription mailers",
+      "href": "/services/mailer-boxes",
+      "description": "Review hinged mailers around the full assortment, insert, and printed card. Specify interior and exterior print separately, and leave a clear area for the shipping label and closure."
+    },
+    {
+      "title": "Corrugated cartons for larger replenishment orders",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote shipping cartons for heavier or multi-box orders using the actual packed weight. Share handling and stacking conditions so the proposed material and closure can be reviewed before production."
+    },
+    {
+      "title": "Inserts for changing assortments",
+      "href": "/services/protective-packaging",
+      "description": "Ask about dividers or fitted components that separate items without forcing every assortment into the same layout. Check removal, assembly time, and movement with the smallest planned pack as well as the largest."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send a release-by-release packing brief",
+      "description": "Provide product measurements, weights, expected combinations, order quantities, artwork versions, and the Columbus-area receiving address. State the date boxes must arrive for packing, rather than only the subscriber dispatch date."
+    },
+    {
+      "title": "Trial the assortment range",
+      "description": "Confirm sample availability and pack representative products in each proposed size. Check closure, presentation, unused space, and insert assembly. Agree on any shipment testing needed for the intended contents and parcel handling before approving production."
+    },
+    {
+      "title": "Confirm the first order and repeat specification",
+      "description": "Request quantity breaks and separate details for tooling, print, inserts, and freight. Confirm minimums by artwork version and approval deadlines. Record the approved dieline and material specification so the next release can be reviewed against the same baseline."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Columbus, Ohio?",
+      "a": "Yes. Send product dimensions, packed weights, quantities, print requirements, and your receiving ZIP code. Apex can review mailers, corrugated cartons, and protective components for your Columbus-area packing program."
+    },
+    {
+      "q": "Can one subscription box fit a different assortment each month?",
+      "a": "A shared outer box may work when the planned products fit within an agreed size and weight range. Inserts or dividers may need to change. Review the least-filled and largest assortments, and compare dedicated sizes if a common box adds too much empty space or packing work."
+    },
+    {
+      "q": "Can packaging be quoted for delivery to a Grove City fulfillment partner?",
+      "a": "Include the exact address, receiving contact requirements, unloading facilities, allocated quantity, and appointment rules in the request. Ask Apex to confirm freight and delivery timing for that destination; do not assume the quote for another Columbus-area address applies."
+    },
+    {
+      "q": "What are the minimum order and lead time for branded subscription boxes?",
+      "a": "Minimums and timing depend on the structure, material, print method, artwork versions, and approvals. Request quantity breaks and a schedule covering sample review, artwork approval, production, and delivery before your packing date."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan custom mailers for subscription brands",
+    "href": "/blog/custom-mailer-boxes-for-subscription-brands-2026-09-12",
+    "description": "Review assortment fit, print requirements, and reorder planning before requesting a subscription packaging quote."
+  },
+  "ctaHeading": "Request a Columbus custom packaging quote.",
+  "ctaLead": "Send your upcoming assortments, product sizes, quantities by release, artwork, and Ohio receiving ZIP code. Ask Apex to compare box sizes, inserts, print, and delivered pricing for your next packing run."
+}
 ];
