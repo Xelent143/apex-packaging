@@ -2097,5 +2097,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Victoria custom packaging quote.",
   "ctaLead": "Send your pickup and parcel order mix, product measurements, quantities, artwork, and receiving postal code. Ask Apex to quote the boxes, protection, and freight needed for your Vancouver Island packing schedule."
+},
+{
+  "slug": "cincinnati-custom-packaging",
+  "city": "Cincinnati",
+  "region": "Ohio",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Cincinnati",
+  "title": "Custom Packaging Cincinnati | Printed Boxes & Mailers",
+  "description": "Request custom packaging for Cincinnati retail and ecommerce orders. Quote printed boxes, mailers, inserts and freight to your Ohio or Northern Kentucky site.",
+  "eyebrow": "Cincinnati packaging quotes \u00b7 Ohio",
+  "heading": "Custom packaging for Cincinnati retail cases and parcel orders.",
+  "lead": "Order packaging around the way your products leave the packing bench. Apex can quote printed mailers, corrugated shipping boxes, and protective inserts for Cincinnati businesses supplying stores and individual customers.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print across the lid and front",
+  "buyingContext": "A wholesale order of twelve units and a single online purchase need different packing specifications. For Cincinnati buyers, the starting point is a list of retail units, case quantities, and direct-to-customer combinations. Decide which product pack stays unchanged across channels and where an outer carton or insert is needed. Keep the delivery of empty packaging separate from the onward shipment of finished orders: a Cincinnati office, a West Chester warehouse, and a Northern Kentucky fulfillment site each need their own receiving details in the quote.",
+  "priorities": [
+    {
+      "title": "Define the unit, inner pack, and master case",
+      "description": "List the number of products at each packing level and identify which boxes carry customer-facing artwork. Include dividers and protective wrap in the measurements. Ask for a case layout that can be checked with actual products before ordering the full run."
+    },
+    {
+      "title": "Keep retail labels clear of parcel labels",
+      "description": "Mark barcode, SKU, and shipping-label areas on the artwork. A branded retail box may need an outer shipper so parcel labels do not cover product information. Compare that approach with a printed mailer for orders sent directly to customers."
+    },
+    {
+      "title": "Price delivery for the actual receiving site",
+      "description": "Provide the full ZIP code and unloading details for Cincinnati, West Chester, Covington, or another destination. For split orders, specify quantities at each address. Confirm appointment needs and pallet access before comparing delivered prices across Ohio and Northern Kentucky."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated cartons for wholesale cases",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote cases around the retail units, case count, and total packed weight. Include expected stacking and handling so the proposed board specification can be reviewed for your shipment."
+    },
+    {
+      "title": "Printed mailers for individual orders",
+      "href": "/services/mailer-boxes",
+      "description": "Build a parcel pack around your most common order combinations. Compare dedicated sizes with a shared mailer and inserts, allowing room for literature and protective materials."
+    },
+    {
+      "title": "Dividers and protective inserts",
+      "href": "/services/protective-packaging",
+      "description": "Separate products inside multi-unit cases and control movement in single-order packs. Check loading direction, product removal, and assembly time using the complete assortment."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send a channel-by-channel packing list",
+      "description": "Share product dimensions, weights, retail case counts, parcel combinations, and quantities by box size. Include artwork files, the receiving address, and the date packaging is needed at your packing site."
+    },
+    {
+      "title": "Review a complete packed configuration",
+      "description": "Confirm sample options and trial both the wholesale case and the parcel pack. Check closure, internal movement, label visibility, and access to each item. Agree on any handling tests needed before approving production."
+    },
+    {
+      "title": "Compare the delivered order cost",
+      "description": "Ask the quote to separate boxes, inserts, printing, tooling, and freight. Confirm minimum quantities and approval deadlines for each format. Retain the approved case count, dimensions, and artwork revision for repeat Cincinnati orders."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Cincinnati businesses?",
+      "a": "Yes. Send product measurements, packed weights, quantities, print requirements, and the receiving ZIP code. Apex can review corrugated boxes, printed mailers, and protective components for your retail or ecommerce packing program."
+    },
+    {
+      "q": "Can I order retail cases and ecommerce mailers together?",
+      "a": "Request both in one quote, with quantities and specifications listed separately. Different structures or print methods can have different minimums and schedules. Confirm whether the formats will ship together or require separate deliveries."
+    },
+    {
+      "q": "What details are needed for delivery to Northern Kentucky?",
+      "a": "Provide the exact address, quantities, unloading facilities, receiving hours, and appointment requirements. Identify any split between Ohio and Kentucky sites. Freight and timing must be confirmed for each destination in the quote."
+    },
+    {
+      "q": "Should a retail product box also be the shipping box?",
+      "a": "That depends on its structure, contents, and expected handling. Review closure, protection, and the space needed for shipping labels. An outer carton may be appropriate where the retail presentation must remain intact; confirm the complete pack before production."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan cartons for parcel and wholesale shipping",
+    "href": "/blog/shipping-boxes-ecommerce-parcel-ltl-packaging",
+    "description": "Review shipping-box specifications before comparing individual parcel packs with larger wholesale cases."
+  },
+  "ctaHeading": "Request a Cincinnati custom packaging quote.",
+  "ctaLead": "Send your retail case counts, parcel order combinations, dimensions, quantities, and delivery ZIP code. Ask Apex for a quote covering boxes, inserts, print, and freight to your Cincinnati-area receiving site."
 }
 ];
