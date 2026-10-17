@@ -1,0 +1,49 @@
+{
+  "pin_lengths": [
+    {
+      "title": 57,
+      "description": 215
+    },
+    {
+      "title": 54,
+      "description": 213
+    },
+    {
+      "title": 55,
+      "description": 228
+    },
+    {
+      "title": 57,
+      "description": 224
+    },
+    {
+      "title": 57,
+      "description": 209
+    }
+  ],
+  "x_length_with_23_char_link": 192,
+  "threads_length_with_full_link": 414,
+  "utm_links": 11,
+  "destinations": [
+    {
+      "url": "https://apexpackagingsolutions.com/blog/retail-display-boxes-for-counter-and-shelf-programs-shipping-and-damage-guide-2026-10-17",
+      "status": 200,
+      "title": "Retail Display Boxes for Counter and Shelf Programs: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+    },
+    {
+      "url": "https://apexpackagingsolutions.com/services/corrugated-boxes",
+      "status": 200,
+      "title": "Custom Corrugated Boxes Canada | Apex Packaging"
+    },
+    {
+      "url": "https://apexpackagingsolutions.com/design-support",
+      "status": 200,
+      "title": "Packaging Design Support Canada \u2014 Dieline &amp; 3D Mockup"
+    },
+    {
+      "url": "https://apexpackagingsolutions.com/contact",
+      "status": 200,
+      "title": "Custom Packaging Quote | Apex Packaging"
+    }
+  ]
+}
