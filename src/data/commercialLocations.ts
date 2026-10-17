@@ -2183,5 +2183,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Cincinnati custom packaging quote.",
   "ctaLead": "Send your retail case counts, parcel order combinations, dimensions, quantities, and delivery ZIP code. Ask Apex for a quote covering boxes, inserts, print, and freight to your Cincinnati-area receiving site."
+},
+{
+  "slug": "pittsburgh-custom-packaging",
+  "city": "Pittsburgh",
+  "region": "Pennsylvania",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Pittsburgh",
+  "title": "Custom Packaging Pittsburgh | Boxes & Protective Inserts",
+  "description": "Quote custom packaging for Pittsburgh parts kits and repeat shipments. Compare printed boxes, protective inserts and freight for your Pennsylvania receiving site.",
+  "eyebrow": "Pittsburgh packaging quotes · Pennsylvania",
+  "heading": "Custom packaging for Pittsburgh parts kits and repeat shipments.",
+  "lead": "Build a box specification around the part, its accessories, and the person opening the shipment. Apex can quote corrugated cartons, printed mailers, and protective inserts for Pittsburgh businesses sending replacement components and customer kits.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print across the lid and front",
+  "buyingContext": "A replacement assembly may ship with a cable, fasteners, and installation literature, while a reorder contains only the main component. Treat those as separate packing configurations before choosing a shared carton. For a Pittsburgh receiving site, include the actual delivery ZIP code and access details; an office stockroom and a warehouse dock require different unloading arrangements. List deliveries to Pittsburgh, Monroeville, or Cranberry Township separately when packaging stock is divided between teams.",
+  "priorities": [
+    {
+      "title": "Map the full kit and the replacement-only order",
+      "description": "Record dimensions and weights for every item, including bags of small hardware. Decide which components need individual compartments and which can share a cavity. Compare a common outer box with interchangeable inserts against dedicated sizes."
+    },
+    {
+      "title": "Make missing components easy to spot",
+      "description": "Arrange the pack so the operator can check the contents before sealing it. Reserve a visible position for instructions and keep loose accessories away from finished surfaces. Review the packed sample with the team that will assemble daily orders."
+    },
+    {
+      "title": "Specify each Pennsylvania receiving address",
+      "description": "Give quantities, receiving hours, pallet access, and appointment requirements for each site. Identify deliveries that need liftgate service or smaller drop quantities. Confirm freight for the full address before comparing the cost of one bulk order with staged replenishment."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated cartons for component shipments",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote the carton around the complete protected load, with room for closures and cushioning. Share packed weight, storage conditions, and expected handling so the board specification can be reviewed."
+    },
+    {
+      "title": "Inserts for parts and accessory separation",
+      "href": "/services/protective-packaging",
+      "description": "Compare compartments, dividers, and cushioning around contact points. Include protruding connectors and surface-sensitive areas in the brief. Material suitability and any special protection requirements need review before approval."
+    },
+    {
+      "title": "Printed mailers for customer kits",
+      "href": "/services/mailer-boxes",
+      "description": "Use a hinged mailer where the kit size and handling allow it. Plan artwork around shipping labels and show the opening sequence in the sample review. Confirm whether the pack also needs an outer shipping carton."
+    }
+  ],
+  "process": [
+    {
+      "title": "Submit a kit-by-kit quote brief",
+      "description": "Send a component list, measurements, weights, order combinations, and quantities by format. Include artwork status, the receiving ZIP code, and the date empty packaging must reach your Pittsburgh-area packing site."
+    },
+    {
+      "title": "Trial the pack at the assembly bench",
+      "description": "Confirm sample options, then check loading order, component movement, closure, and unpacking. Record packing time and any loose items. Agree on the handling tests required for your product before releasing production."
+    },
+    {
+      "title": "Approve the specification for repeat orders",
+      "description": "Ask for boxes, inserts, print, tooling, and freight to be itemized. Confirm minimum quantities and the production schedule. Save the approved dimensions, insert layout, and artwork revision so future orders can be quoted against the same specification."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Pittsburgh parts suppliers?",
+      "a": "Yes. Send the component measurements, packed weights, kit contents, quantities, printing needs, and delivery ZIP code. Apex can review corrugated cartons, mailers, and protective components for the proposed packing configuration."
+    },
+    {
+      "q": "Can one box hold both a complete kit and a replacement part?",
+      "a": "Sometimes a shared outer box with different inserts is practical. Compare product movement, protection, assembly time, and shipping size for both configurations. A dedicated smaller carton may suit the replacement-only order better; review packed samples before deciding."
+    },
+    {
+      "q": "Do protective inserts provide anti-static protection?",
+      "a": "Do not assume that a standard foam or corrugated insert provides anti-static protection. If your components have electrostatic sensitivity, state the required material properties and verification criteria in the quote brief so suitable options can be reviewed."
+    },
+    {
+      "q": "What is needed to quote delivery outside Pittsburgh city limits?",
+      "a": "Provide the full receiving address in Monroeville, Cranberry Township, or your other destination, along with quantities, unloading facilities, and appointment needs. Pricing and timing must be confirmed for each address, including any split delivery."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Review specifications for shipping cartons",
+    "href": "/blog/shipping-boxes-ecommerce-parcel-ltl-packaging",
+    "description": "Compare parcel and freight packing requirements before finalizing the outer carton for your component kits."
+  },
+  "ctaHeading": "Request a Pittsburgh custom packaging quote.",
+  "ctaLead": "Send your kit list, replacement-order combinations, dimensions, quantities, and receiving ZIP code. Ask Apex to price the cartons, inserts, printing, and freight needed for your packing schedule."
 }
 ];
