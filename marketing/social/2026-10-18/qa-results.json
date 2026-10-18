@@ -1,0 +1,54 @@
+{
+  "baseline": "f58931e0ed93c8f00dd355108da490a52c314867",
+  "live_destinations": [
+    {
+      "url": "https://apexpackagingsolutions.com/blog/cbd-packaging-boxes-for-compliance-and-shelf-impact-shipping-and-damage-guide-2026-10-18",
+      "status": 200,
+      "title": "CBD Packaging Boxes for Compliance and Shelf Impact: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+    },
+    {
+      "url": "https://apexpackagingsolutions.com/contact",
+      "status": 200,
+      "title": "Custom Packaging Quote | Apex Packaging"
+    },
+    {
+      "url": "https://apexpackagingsolutions.com/design-support",
+      "status": 200,
+      "title": "Packaging Design Support Canada \u2014 Dieline &amp; 3D Mockup"
+    },
+    {
+      "url": "https://apexpackagingsolutions.com/services/cbd-boxes",
+      "status": 200,
+      "title": "Custom CBD Boxes Canada | Premium CBD Packaging"
+    }
+  ],
+  "pin_lengths": [
+    {
+      "title": 51,
+      "description": 201
+    },
+    {
+      "title": 48,
+      "description": 199
+    },
+    {
+      "title": 45,
+      "description": 202
+    },
+    {
+      "title": 54,
+      "description": 205
+    },
+    {
+      "title": 55,
+      "description": 196
+    }
+  ],
+  "x_length_with_shortened_url": 195,
+  "threads_length_with_full_url": 414,
+  "utm_rows": 11,
+  "image_dimensions": [
+    1024,
+    1536
+  ]
+}
