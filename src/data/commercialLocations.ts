@@ -2269,5 +2269,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Pittsburgh custom packaging quote.",
   "ctaLead": "Send your kit list, replacement-order combinations, dimensions, quantities, and receiving ZIP code. Ask Apex to price the cartons, inserts, printing, and freight needed for your packing schedule."
+},
+{
+  "slug": "kelowna-custom-packaging",
+  "city": "Kelowna",
+  "region": "British Columbia",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Kelowna",
+  "title": "Custom Packaging Kelowna | Gift Boxes & Shipping Cartons",
+  "description": "Quote custom packaging for Kelowna gift assortments and retail orders. Compare printed boxes, dividers and shipping cartons with freight to your Okanagan site.",
+  "eyebrow": "Kelowna packaging quotes · British Columbia",
+  "heading": "Custom packaging for Kelowna gift assortments and retail orders.",
+  "lead": "A bottle, a jar, and a boxed accessory need different support inside the same gift pack. Apex can quote printed boxes, corrugated dividers, and outer shipping cartons for Kelowna businesses building seasonal assortments or replenishing retail stock.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print across the lid and front",
+  "buyingContext": "Plan the presentation pack and the delivery pack together. An assortment collected at a Kelowna shop may need a different outer carton when sent to a customer by parcel. List each bottle or jar size, filled weight, closure, and accessory before requesting a shared box. For packaging deliveries to Kelowna, West Kelowna, or Lake Country, provide the full receiving address and unloading arrangements. Quote each destination separately when empty boxes will be split between a retail stockroom and a packing site.",
+  "priorities": [
+    {
+      "title": "Separate glass from accessories",
+      "description": "Record the widest point and overall height of every container, including caps and gift wrapping. Identify contact points between items and ask for dividers or cushioning to be reviewed around the full assortment. Do not choose a cavity from nominal bottle volume alone."
+    },
+    {
+      "title": "Keep seasonal artwork separate from the box size",
+      "description": "Compare a repeatable outer structure with artwork versions for different gift programs. List quantities by design and note whether a sleeve, label, or printed box is preferred. Confirm minimum quantities for each version before allocating the order."
+    },
+    {
+      "title": "Plan storage at each Okanagan receiving site",
+      "description": "Specify available space for flat-packed cartons and inserts, the receiving hours, and whether a dock or liftgate is needed. Include the postal code for each delivery and the date packaging must arrive for assembly, rather than only the customer dispatch date."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed mailers for compact gift assortments",
+      "href": "/services/mailer-boxes",
+      "description": "Review a hinged mailer for the complete assortment, with room for the insert and literature. Check the loaded closure and opening sequence. A presentation mailer may still need an outer carton for parcel shipping."
+    },
+    {
+      "title": "Corrugated cartons for parcel and retail stock",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote outer cartons using the filled pack dimensions and weight. Distinguish single gift orders from multi-unit retail cases so the board, dividers, and case quantities can be assessed for each handling route."
+    },
+    {
+      "title": "Protective components for mixed contents",
+      "href": "/services/protective-packaging",
+      "description": "Compare dividers and cushioning around glass, lids, and finished surfaces. State any leakage, temperature, or material-contact requirements explicitly. Confirm sample and testing options for the complete pack before approving production."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the assortment and order quantities",
+      "description": "Provide item measurements, filled weights, photos, quantities by gift combination, and print files. Identify pickup orders, parcel shipments, and retail cases separately. Add the receiving postal code and requested packaging arrival date."
+    },
+    {
+      "title": "Review a loaded sample",
+      "description": "Ask about sample availability and assemble the pack with the actual products. Check loading order, divider fit, lid clearance, and movement. Agree on appropriate handling tests; an attractive empty sample does not establish protection for filled glass containers."
+    },
+    {
+      "title": "Approve the delivered quote and reorder details",
+      "description": "Request separate costs for boxes, inserts, printing, tooling, and freight. Confirm quantities by artwork version and the approval deadline. Keep the approved dimensions, pack layout, and artwork revision available for repeat Kelowna orders."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom gift packaging for Kelowna businesses?",
+      "a": "Yes. Send the assortment dimensions, filled weights, quantities, print requirements, and receiving postal code. Apex can review printed boxes, corrugated cartons, and protective components for the proposed retail or shipping pack."
+    },
+    {
+      "q": "Can a gift box be used to ship bottles by parcel?",
+      "a": "That depends on the complete structure, dividers, cushioning, filled weight, and handling conditions. Review a loaded sample and agree on testing requirements. A separate outer shipping carton may be needed; the appearance of the gift box alone does not establish shipping performance."
+    },
+    {
+      "q": "Can seasonal gift assortments share one box size?",
+      "a": "A shared outer box may work with different inserts or layouts. Compare fit, packing time, and material use for every assortment. List quantities by artwork and insert version so minimums and costs can be confirmed separately."
+    },
+    {
+      "q": "What is needed for delivery to West Kelowna or Lake Country?",
+      "a": "Include the full address, postal code, receiving hours, unloading access, and quantity for each site. Note any appointment or liftgate requirement. Freight and delivery timing need confirmation for each destination before the packaging order is approved."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare gift-box structures and inserts",
+    "href": "/blog/gift-boxes-inserts-rigid-mailer-packaging-guide",
+    "description": "Review presentation formats and insert choices before specifying a mixed-product gift assortment."
+  },
+  "ctaHeading": "Request a Kelowna custom packaging quote.",
+  "ctaLead": "Send your gift assortment list, filled weights, dimensions, quantities by design, and receiving postal code. Ask Apex to price the boxes, protective components, print, and freight for your Okanagan packing schedule."
 }
 ];
