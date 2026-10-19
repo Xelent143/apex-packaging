@@ -2355,5 +2355,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Kelowna custom packaging quote.",
   "ctaLead": "Send your gift assortment list, filled weights, dimensions, quantities by design, and receiving postal code. Ask Apex to price the boxes, protective components, print, and freight for your Okanagan packing schedule."
+},
+{
+  "slug": "indianapolis-custom-packaging",
+  "city": "Indianapolis",
+  "region": "Indiana",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Indianapolis",
+  "title": "Custom Packaging Indianapolis | Parts Kits & Shipping Boxes",
+  "description": "Quote custom packaging for Indianapolis parts kits and distribution orders. Compare corrugated cartons, inserts and pallet-ready packaging with Apex.",
+  "eyebrow": "Indianapolis packaging quotes · Indiana",
+  "heading": "Custom packaging for Indianapolis parts kits and distribution orders.",
+  "lead": "Apex quotes corrugated cartons, protective inserts, and pallet-ready packaging for Indianapolis teams shipping parts kits, replacement orders, and multi-unit cases. Start with the packed product and receiving plan, not a generic box size.",
+  "image": "/images/blog/automotive-parts-packaging-generated.png",
+  "imageAlt": "Corrugated parts cartons, protective inserts, and a secured pallet load for Indianapolis distribution orders",
+  "buyingContext": "A complete repair kit and a single replacement component rarely need the same packaging. For an Indianapolis program, list each order configuration, packed weight, and whether the product moves by parcel, LTL, or a warehouse transfer. A shared outer carton can be practical, but only if inserts, void space, closure, and handling are reviewed with the loaded product. Include the receiving ZIP code, dock or liftgate access, and whether empty cartons are delivered to an Indianapolis packing line, a Plainfield warehouse, or another Indiana site. That lets the quote address the box and the inbound delivery rather than treating freight as an afterthought.",
+  "priorities": [
+    {
+      "title": "Separate kit and replacement specifications",
+      "description": "Document the heaviest and most space-consuming version of each order, then note loose hardware, manuals, and return components. Compare shared cartons with dedicated replacement boxes using the actual packed dimensions, packing time, and expected handling."
+    },
+    {
+      "title": "Control movement around finished parts",
+      "description": "Identify surfaces that can scratch, chip, or contact another component in transit. Corrugated partitions, foam, VCI, or other protection should be selected from the product risk and required material properties; do not assume an insert provides protection it was not designed to deliver."
+    },
+    {
+      "title": "Quote the inbound receiving plan",
+      "description": "Specify whether cartons arrive flat-packed or assembled, the allowed pallet height, delivery appointment needs, receiving hours, and quantity per site. Confirm the packaging arrival date needed for assembly rather than only the date your customer expects an outbound shipment."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated boxes for parts and cases",
+      "href": "/services/corrugated-boxes",
+      "description": "Review RSC, full-overlap, and die-cut shipping cartons around packed weight, closure method, case count, stacking, and the intended parcel or freight route."
+    },
+    {
+      "title": "Protective inserts for packed components",
+      "href": "/services/protective-packaging",
+      "description": "Compare corrugated partitions, foam, and other protective components using the loaded kit, contact points, surface sensitivity, and required access at the packing bench."
+    },
+    {
+      "title": "Pallet and bulk packaging support",
+      "href": "/services/industrial-bulk-packaging",
+      "description": "Plan wrapping, edge protection, bulk containers, and load stability together with carton size, gross pallet weight, handling equipment, and warehouse receiving rules."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the Indianapolis RFQ details",
+      "description": "Provide product drawings or measurements, packed weights, order configurations, quantities, artwork or labels, delivery ZIP code, and the required packaging arrival date. Describe parcel, LTL, and warehouse-transfer routes separately."
+    },
+    {
+      "title": "Review a loaded pack",
+      "description": "Assess the closure, product movement, insert fit, packing sequence, and pallet pattern with representative contents. If the contents are sensitive to corrosion, static, or abrasion, state the applicable requirement and verification criteria before material selection."
+    },
+    {
+      "title": "Approve production and receiving details",
+      "description": "Confirm the approved structure, print revision, pack quantity, pallet requirements, and delivery instructions. Retain the specification and sample record so repeat Indianapolis orders can be quoted against the same controlled details."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Indianapolis parts and distribution orders?",
+      "a": "Yes. Send product measurements, packed weights, kit contents, quantities, print or label requirements, and the delivery ZIP code. Apex can review corrugated cartons, protective components, and pallet packaging for the proposed route."
+    },
+    {
+      "q": "Can a parts kit and replacement component use the same outer box?",
+      "a": "Sometimes, particularly when the outer dimensions are similar and dedicated inserts control movement. Compare the loaded fit, packing time, shipping size, and protection for every configuration. A smaller replacement-only carton may be more practical for some orders."
+    },
+    {
+      "q": "Do corrugated inserts prevent scratches or static damage?",
+      "a": "Not automatically. The correct protective material depends on product surfaces, contact points, electrostatic sensitivity, storage conditions, and the shipment route. State the required performance and verification criteria in the quote brief so appropriate options can be reviewed."
+    },
+    {
+      "q": "What is needed for delivery to Plainfield or another Indianapolis-area warehouse?",
+      "a": "Provide the full receiving address, ZIP code, quantity, hours, unloading equipment, pallet limits, and appointment requirements. Freight and delivery timing must be confirmed for each destination, especially when packaging is split across sites."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Automotive parts packaging: cartons, inserts, and pallet loads",
+    "href": "/blog/automotive-parts-packaging-boxes-vci-foam-pallet-loads",
+    "description": "Review part separation, material requirements, corrugated strength, and unit-load stability before approving a parts packaging specification."
+  },
+  "ctaHeading": "Request an Indianapolis custom packaging quote.",
+  "ctaLead": "Send your kit list, packed weights, dimensions, quantities, labels or artwork, receiving ZIP code, and target date. Ask Apex to quote the cartons, inserts, pallet packaging, and freight for your Indiana operation."
 }
 ];
