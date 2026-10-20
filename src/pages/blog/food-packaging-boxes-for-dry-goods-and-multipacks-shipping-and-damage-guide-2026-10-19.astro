@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Food Packaging Boxes for Dry Goods and Multipacks: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for food packaging boxes in the USA and Canada: board choice, liners, pack counts, and pallet routes, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Food Packaging Boxes: Shipping and Damage Guide';
+const description = 'A practical guide to food packaging boxes for US and Canadian shipments, covering board choice, liners, pack counts, pallet routes, and damage prevention.';
 const url = '/blog/food-packaging-boxes-for-dry-goods-and-multipacks-shipping-and-damage-guide-2026-10-19';
 const datePublished = '2026-10-19';
 const image = '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Food Packaging Boxes for Dry Goods and Multipacks: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

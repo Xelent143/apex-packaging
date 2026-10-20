@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Protective Packaging for Fragile Product Kits: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for protective packaging in Canada: foam, void fill, inserts, and carton fit, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Protective Packaging for Fragile Kits: Damage Guide';
+const description = 'A practical Canadian guide to protective packaging for fragile kits, covering foam, void fill, inserts, carton fit, packing efficiency, and damage prevention.';
 const url = '/blog/protective-packaging-for-fragile-product-kits-shipping-and-damage-guide-2026-10-16';
 const datePublished = '2026-10-16';
 const image = '/images/blog/protective-packaging-insert-sample-kit-generated.png';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Protective Packaging for Fragile Product Kits: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

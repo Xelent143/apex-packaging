@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Poly Mailers for Apparel and Soft Goods: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for poly mailers in the USA and Canada: film gauge, opacity, closures, and returns, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Poly Mailers: Shipping and Damage Guide';
+const description = 'A practical guide to poly mailers for US and Canadian apparel shipments, covering film gauge, opacity, closures, returns, and damage prevention.';
 const url = '/blog/poly-mailers-for-apparel-and-soft-goods-shipping-and-damage-guide-2026-10-15';
 const datePublished = '2026-10-15';
 const image = '/images/blog/poly-mailers-apparel-soft-goods-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Poly Mailers for Apparel and Soft Goods: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

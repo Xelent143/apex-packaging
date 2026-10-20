@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'CBD Packaging Boxes for Compliance and Shelf Impact: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for CBD packaging boxes in Canada: label space, child resistance, and brand control, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'CBD Packaging Boxes: Shipping and Damage Guide';
+const description = 'A practical Canadian guide to CBD packaging boxes, covering label space, child resistance, brand control, packing efficiency, and damage prevention.';
 const url = '/blog/cbd-packaging-boxes-for-compliance-and-shelf-impact-shipping-and-damage-guide-2026-10-18';
 const datePublished = '2026-10-18';
 const image = '/images/apex-update/styles/cbd-boxes-premium.png';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="CBD Packaging Boxes for Compliance and Shelf Impact: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

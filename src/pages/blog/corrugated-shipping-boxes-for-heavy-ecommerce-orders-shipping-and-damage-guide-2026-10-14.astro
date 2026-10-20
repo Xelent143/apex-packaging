@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Corrugated Shipping Boxes for Heavy Ecommerce Orders: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for corrugated shipping boxes in Canada: ECT ratings, flute choice, and parcel handling, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Corrugated Shipping Boxes: Damage-Prevention Guide';
+const description = 'A practical Canadian guide to corrugated shipping boxes, covering ECT ratings, flute selection, parcel handling, packing efficiency, and damage prevention.';
 const url = '/blog/corrugated-shipping-boxes-for-heavy-ecommerce-orders-shipping-and-damage-guide-2026-10-14';
 const datePublished = '2026-10-14';
 const image = '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Corrugated Shipping Boxes for Heavy Ecommerce Orders: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

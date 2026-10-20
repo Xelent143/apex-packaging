@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Cosmetic Packaging Boxes for Retail Launches: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for cosmetic packaging boxes in Canada: colour control, inserts, scuff risk, and samples, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Cosmetic Packaging Boxes: Shipping and Damage Guide';
+const description = 'A practical Canadian guide to cosmetic packaging boxes, covering colour control, inserts, scuff risk, samples, packing efficiency, and damage prevention.';
 const url = '/blog/cosmetic-packaging-boxes-for-retail-launches-shipping-and-damage-guide-2026-10-20';
 const datePublished = '2026-10-20';
 const image = '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Cosmetic Packaging Boxes for Retail Launches: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}
