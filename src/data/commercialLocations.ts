@@ -2441,5 +2441,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request an Indianapolis custom packaging quote.",
   "ctaLead": "Send your kit list, packed weights, dimensions, quantities, labels or artwork, receiving ZIP code, and target date. Ask Apex to quote the cartons, inserts, pallet packaging, and freight for your Indiana operation."
+},
+{
+  "slug": "burnaby-custom-packaging",
+  "city": "Burnaby",
+  "region": "British Columbia",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Burnaby",
+  "title": "Custom Packaging Burnaby | Branded Boxes & Mailers",
+  "description": "Request custom packaging for Burnaby retail pickup and shipped orders. Quote branded mailers, corrugated boxes and inserts with delivery to your BC packing site.",
+  "eyebrow": "Burnaby packaging quotes · British Columbia",
+  "heading": "Custom packaging for Burnaby retail pickup and shipped orders.",
+  "lead": "Branded mailers, fitted inserts, and shipping cartons serve different jobs when the same Burnaby product range sells over a counter and online. Send Apex your packed dimensions and quantities by sales channel for a quote that separates presentation, protection, and delivery costs.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark branded presentation box with a gold printed logo and curved line artwork",
+  "buyingContext": "A pickup order may need a compact branded box that staff can assemble at the counter. The same assortment sent by parcel needs a review of movement, closure, cushioning, and outer-carton requirements. For a Burnaby program, identify where empty packaging will arrive and where orders will be packed: a retail stockroom, an office packing area, or a separate warehouse. If stock is split between Burnaby and Vancouver, specify quantities and receiving details for each address. Apex can price the proposed structures and delivery allocations together, so a low box price does not hide extra packing materials or an impractical storage requirement.",
+  "priorities": [
+    {
+      "title": "Define pickup and parcel packs separately",
+      "description": "List the product combinations sold through each channel, including accessories and printed cards. Compare a shared presentation box plus a shipping outer with a dedicated mailer. Check the complete packed size and material use before choosing one structure for both."
+    },
+    {
+      "title": "Fit packaging stock to the receiving space",
+      "description": "For a Burnaby storefront, state whether cartons must arrive flat and how much storage is available. For warehouse delivery, provide dock access, appointment rules, pallet limits, and receiving hours. Quote each destination using its full postal code."
+    },
+    {
+      "title": "Keep artwork useful across repeat orders",
+      "description": "Identify permanent branding, variable product labels, and seasonal messages. A common box with a separate campaign card may reduce artwork versions, but quantities, print minimums, and insert costs still need confirmation in the quote."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed mailers for direct orders",
+      "href": "/services/mailer-boxes",
+      "description": "Compare tuck-top formats, inside and outside printing, closure, and insert space for your actual order mix. Review whether the mailer needs additional shipping protection."
+    },
+    {
+      "title": "Corrugated cartons for shipping and replenishment",
+      "href": "/services/corrugated-boxes",
+      "description": "Specify an outer carton around the filled retail pack or multi-unit case. Include packed weight, stacking conditions, closure method, and the intended handling route."
+    },
+    {
+      "title": "Protective components for mixed assortments",
+      "href": "/services/protective-packaging",
+      "description": "Review dividers, cushioning, and fitted inserts where items can collide or mark one another. Select materials using product surfaces, weight, and handling requirements."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the Burnaby quote brief",
+      "description": "Include product dimensions, filled weights, order combinations, quantities by design, artwork, receiving postal codes, and the date packaging is needed. Separate pickup orders from parcel shipments and wholesale cases."
+    },
+    {
+      "title": "Check assembly with representative products",
+      "description": "Ask about sample availability and test the proposed pack with actual contents. Check lid clearance, loading sequence, product movement, and closure. Agree on handling tests before treating the pack as ready for your shipping route."
+    },
+    {
+      "title": "Approve the full delivered specification",
+      "description": "Confirm box and insert quantities, artwork revisions, tooling charges, freight, and delivery allocations. Obtain production and transit timing for the approved specification before scheduling a Burnaby launch or replenishment run."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom boxes delivered to Burnaby?",
+      "a": "Yes. Provide the product measurements, packed weights, quantities, print requirements, and receiving postal code. Include unloading access and delivery hours so the quote can cover the packaging and freight to your Burnaby site."
+    },
+    {
+      "q": "Can one branded box work for retail pickup and online orders?",
+      "a": "It may, but the parcel version can require an outer carton, cushioning, or a different closure. Compare complete loaded packs for both channels. A box that presents well at pickup does not by itself establish protection during shipping."
+    },
+    {
+      "q": "Can an order be split between Burnaby and Vancouver?",
+      "a": "Request separate delivery allocations in the quote and provide the quantity, address, postal code, and receiving requirements for each site. Confirm any additional freight or handling charges before approving the order."
+    },
+    {
+      "q": "What minimum quantity and lead time apply to printed Burnaby orders?",
+      "a": "Minimums and timing depend on the structure, material, print method, artwork versions, and delivery plan. Ask for quantities by design, sampling options, production timing after approval, and estimated transit time in the written quote."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare ecommerce mailers, cartons, and poly mailers",
+    "href": "/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers",
+    "description": "Review packaging formats for different order types before selecting the parcel pack for your retail range."
+  },
+  "ctaHeading": "Request a Burnaby custom packaging quote.",
+  "ctaLead": "Send your product measurements, order combinations, quantities by design, artwork, and receiving postal code. Ask Apex to price the branded boxes, protective components, and delivery for your Burnaby packing plan."
 }
 ];
