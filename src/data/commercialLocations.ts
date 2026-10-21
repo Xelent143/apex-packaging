@@ -2527,5 +2527,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Burnaby custom packaging quote.",
   "ctaLead": "Send your product measurements, order combinations, quantities by design, artwork, and receiving postal code. Ask Apex to price the branded boxes, protective components, and delivery for your Burnaby packing plan."
+},
+{
+  "slug": "surrey-custom-packaging",
+  "city": "Surrey",
+  "region": "British Columbia",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Surrey",
+  "title": "Custom Packaging Surrey | Homeware Boxes & Inserts",
+  "description": "Quote custom packaging for Surrey homeware orders. Compare branded boxes, protective inserts and shipping cartons with delivery to your BC packing location.",
+  "eyebrow": "Surrey packaging quotes · British Columbia",
+  "heading": "Custom packaging for Surrey homeware sets and individual orders.",
+  "lead": "A candle, a ceramic accessory, and a boxed gift set need different space and protection. Ask Apex to quote branded boxes, dividers, and shipping cartons around the homeware combinations your Surrey team actually packs.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark presentation box with gold brand lettering, a floral emblem, and curved gold line artwork",
+  "buyingContext": "For a Surrey homeware range, start with an order matrix: single items, paired products, and full gift assortments. A box sized for the largest set can leave smaller orders with unnecessary movement and filler. Compare a small family of carton sizes with a common printed presentation box and interchangeable inserts. Identify whether empty packaging will arrive at a Surrey stockroom, a South Surrey retail location, or a separate packing warehouse. Delivery of empty boxes and onward shipment of filled orders are separate costs and should have separate requirements in the brief.",
+  "priorities": [
+    {
+      "title": "Separate fragile items within mixed sets",
+      "description": "Record product weights, handles, lids, and surfaces that can rub together. Review partitions or fitted inserts using actual items, including any sleeve or primary container. A branded box alone does not establish parcel protection."
+    },
+    {
+      "title": "Compare two sizes against one shared box",
+      "description": "Provide quantities for single-item and gift-set orders. Ask for the total cost of boxes, inserts, filler, and assembly for each option. Check filled dimensions before comparing carrier charges for your outgoing parcels."
+    },
+    {
+      "title": "Plan receiving at each Surrey address",
+      "description": "Include postal codes, delivery hours, unloading equipment, and available storage. If packaging is divided between a retail stockroom and a warehouse, give the quantity allocation for each site and request separate freight details."
+    }
+  ],
+  "products": [
+    {
+      "title": "Branded mailer boxes",
+      "href": "/services/mailer-boxes",
+      "description": "Compare printed tuck-top boxes for homeware gift sets, with space for product protection and a message card. Confirm whether an outer shipping carton is required."
+    },
+    {
+      "title": "Protective inserts and dividers",
+      "href": "/services/protective-packaging",
+      "description": "Review separation for mixed materials and fragile shapes. Select the insert around the product geometry, loading sequence, and handling conditions."
+    },
+    {
+      "title": "Custom corrugated shipping cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Size parcel outers or multi-unit replenishment cases around the complete filled pack. Include packed weight, closure, stacking, and label placement in the specification."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send your Surrey order matrix",
+      "description": "Share product measurements, weights, photographs, quantities by combination, artwork versions, receiving postal codes, and the required date. Identify which items ship individually and which travel together."
+    },
+    {
+      "title": "Review a representative loaded sample",
+      "description": "Ask about sampling and use actual products to check insert fit, lid clearance, movement, and assembly time. Agree on handling tests for fragile assortments before approving the shipping pack."
+    },
+    {
+      "title": "Approve quantities and delivery costs",
+      "description": "Confirm box and insert counts, print proofs, tooling charges, packing format, and freight. Obtain production timing after approval and transit estimates to the Surrey receiving location before planning your launch."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging delivered to Surrey, BC?",
+      "a": "Yes. Send product dimensions, packed weights, quantities, print requirements, and the receiving postal code. Include delivery hours and unloading access so the quote can account for freight to your Surrey packing site."
+    },
+    {
+      "q": "Can the same box hold a single item and a homeware gift set?",
+      "a": "Sometimes, with different inserts, but a shared box can add empty space and packing material to smaller orders. Compare complete loaded samples and total packing costs with a two-size option before choosing the structure."
+    },
+    {
+      "q": "Do ceramic products need a shipping carton outside the printed box?",
+      "a": "That depends on the product, insert, box construction, closure, and shipping route. Provide the actual item and packed weight for review. Confirm the sample and handling tests; the appearance of a printed box is not evidence of protection."
+    },
+    {
+      "q": "What minimum order applies to custom boxes for Surrey?",
+      "a": "Minimum quantities depend on material, structure, print method, and the number of artwork versions. Request pricing by design and quantity, including sample costs, tooling, freight, and production timing after approval."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare ecommerce mailers, cartons, and poly mailers",
+    "href": "/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers",
+    "description": "Review the role of each shipping format before choosing the outer packaging for your homeware orders."
+  },
+  "ctaHeading": "Request a Surrey custom packaging quote.",
+  "ctaLead": "Send your homeware order combinations, product dimensions, weights, quantities, artwork, and delivery postal code. Ask Apex to compare branded boxes, protective inserts, and shipping cartons for your Surrey operation."
 }
 ];
