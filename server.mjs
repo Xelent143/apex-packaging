@@ -7,7 +7,6 @@ import { createBrotliCompress, createGzip } from 'node:zlib';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
 import { handleStripeWebhook } from './server/privatePaymentLinks.mjs';
 import { sendSmtpEmail } from './server/smtpEmail.mjs';
-import { createApexTestCheckoutSession, handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
 import { permanentRedirects } from './redirects.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
@@ -75,22 +74,6 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    if (req.method === 'POST' && url.pathname === '/api/create-checkout-session') {
-      const request = new Request(url, {
-        method: 'POST',
-        headers: nodeHeadersToWebHeaders(req.headers),
-        body: req,
-        duplex: 'half'
-      });
-      const response = await handleCreateCheckoutSession(request, {
-        secretKey: process.env.STRIPE_SECRET_KEY || '',
-        siteUrl: process.env.SITE_URL || url.origin
-      });
-
-      await writeWebResponse(res, response);
-      return;
-    }
-
     if (req.method === 'POST' && url.pathname === '/api/stripe-webhook') {
       const request = new Request(url, {
         method: 'POST',
@@ -105,37 +88,6 @@ const server = createServer(async (req, res) => {
       });
 
       await writeWebResponse(res, response);
-      return;
-    }
-
-    if (req.method === 'GET' && url.pathname === '/api/test-checkout-session') {
-      if (!isLocalHost(url.hostname)) {
-        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-        res.end('Not Found');
-        return;
-      }
-
-      if (!(process.env.STRIPE_SECRET_KEY || '')) {
-        res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' });
-        res.end('Stripe is not configured.');
-        return;
-      }
-
-      try {
-        const session = await createApexTestCheckoutSession({
-          fetchImpl: fetch,
-          secretKey: process.env.STRIPE_SECRET_KEY || '',
-          successUrl: `${process.env.SITE_URL || url.origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-          cancelUrl: `${process.env.SITE_URL || url.origin}/payment-cancelled?mock=1`
-        });
-
-        if (!session.url) throw new Error('Stripe did not return a checkout URL.');
-        res.writeHead(303, { Location: session.url });
-        res.end();
-      } catch (error) {
-        res.writeHead(502, { 'Content-Type': 'text/plain; charset=utf-8' });
-        res.end(error.message || 'Stripe checkout could not be started.');
-      }
       return;
     }
 
@@ -253,10 +205,6 @@ function getCompressionEncoding(req, ext) {
   if (acceptEncoding.includes('br')) return 'br';
   if (acceptEncoding.includes('gzip')) return 'gzip';
   return '';
-}
-
-function isLocalHost(hostname) {
-  return hostname === '127.0.0.1' || hostname === 'localhost';
 }
 
 function nodeHeadersToWebHeaders(nodeHeaders) {

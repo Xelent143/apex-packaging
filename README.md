@@ -41,7 +41,7 @@ Quote requests are hard-routed to `sales@apexpackagingsolutions.com` in code so 
 
 ## Stripe payments
 
-The public site no longer exposes a generic payment form. The old `/paynow` and `/pay` routes now act as neutral informational pages only. Apex should issue a fixed-amount Stripe Checkout link privately after a quote or invoice is approved.
+The public site does not expose a payment form or checkout-session endpoint. The `/paynow` and `/pay` routes are informational pages that direct customers to contact Apex for payment assistance. The private payment-link workflow remains available only for authorized staff and should be reviewed before use.
 
 ### Production environment variables
 

@@ -4,7 +4,6 @@ import sitemap from '@astrojs/sitemap';
 import { redirectedSitemapPaths } from './redirects.mjs';
 
 const nonIndexableSitemapPaths = new Set([
-  '/mock-stripe-checkout',
   '/pay',
   '/payment-cancelled',
   '/payment-success',
