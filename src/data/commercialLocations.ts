@@ -2613,5 +2613,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Surrey custom packaging quote.",
   "ctaLead": "Send your homeware order combinations, product dimensions, weights, quantities, artwork, and delivery postal code. Ask Apex to compare branded boxes, protective inserts, and shipping cartons for your Surrey operation."
+},
+{
+  "slug": "salt-lake-city-custom-packaging",
+  "city": "Salt Lake City",
+  "region": "Utah",
+  "country": "USA",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Salt Lake City",
+  "title": "Custom Packaging Salt Lake City | Outdoor Accessory Boxes",
+  "description": "Quote custom packaging for Salt Lake City outdoor accessories. Compare printed boxes, removable inserts and retail cartons with delivery to your Utah packing site.",
+  "eyebrow": "Salt Lake City packaging quotes · Utah",
+  "heading": "Custom packaging for Salt Lake City outdoor accessory brands.",
+  "lead": "Turn a strap, repair kit, or accessory bundle into a clearly organized pack. Ask Apex to quote printed boxes, removable inserts, and replenishment cartons for your Salt Lake City retail and online orders.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark branded presentation box with gold lettering, a floral emblem, and curved gold line artwork",
+  "buyingContext": "An outdoor accessory range can include both soft goods and small rigid components. A full bundle may need a divided insert, while a replacement strap can fit in a smaller pack. For Salt Lake City buyers, quote the bundle and replacement orders separately before committing every SKU to one box. If empty packaging goes to a Salt Lake City assembly site and a separate warehouse in West Valley City or Sandy, provide quantities and receiving details for each address. Keep inbound packaging freight separate from the cost of shipping finished orders to customers.",
+  "priorities": [
+    {
+      "title": "Keep hardware away from finished surfaces",
+      "description": "Show where buckles, clips, and tools sit beside coated or textile products. Compare a folded divider with a removable insert using actual contents. Check that components remain in their assigned positions when the closed box is handled."
+    },
+    {
+      "title": "Price the bundle and replacement pack separately",
+      "description": "Send the expected order split between complete kits and individual replacement items. Compare board use, insert quantities, assembly time, and filled dimensions. A smaller replacement carton may avoid sending mostly empty space."
+    },
+    {
+      "title": "Specify Utah receiving and stock allocation",
+      "description": "List each receiving ZIP code, dock or ground-level access, appointment requirements, and available storage. Ask for flat-pack bundle counts and freight by destination so your Salt Lake City team can plan space before delivery."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed mailer boxes for accessory bundles",
+      "href": "/services/mailer-boxes",
+      "description": "Compare tuck-top formats with room for the complete kit, instructions, and an insert. Review inside and outside artwork areas against the approved dieline."
+    },
+    {
+      "title": "Removable inserts and dividers",
+      "href": "/services/protective-packaging",
+      "description": "Keep small components organized while allowing the box to serve more than one assortment. Confirm fit, loading order, removal access, and material options with a loaded sample."
+    },
+    {
+      "title": "Retail replenishment cartons",
+      "href": "/services/corrugated-boxes",
+      "description": "Group saleable packs into counted cases for retail delivery. Specify units per case, packed weight, stacking conditions, and case-label placement before choosing the board."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send an accessory and order breakdown",
+      "description": "Provide dimensions, weights, photographs, bundle contents, quantities by SKU, artwork versions, and receiving ZIP codes. Identify the date packaging must reach the Utah assembly team."
+    },
+    {
+      "title": "Check the pack with actual contents",
+      "description": "Ask about sample options. Load the complete assortment, inspect lid clearance and component movement, and measure packing time. Agree on handling tests appropriate to your parcel or retail distribution route."
+    },
+    {
+      "title": "Approve the production and freight details",
+      "description": "Confirm the box specification, insert counts, print proof, tooling charges, and quantities per design. Obtain production timing after approval and a separate transit estimate for each receiving address."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom boxes delivered to Salt Lake City?",
+      "a": "Yes. Send product measurements, quantities by design, print requirements, and the receiving ZIP code. Include unloading access and delivery hours so the quote can account for delivery to your Salt Lake City packing location."
+    },
+    {
+      "q": "Can one printed box accommodate different outdoor accessory bundles?",
+      "a": "A shared outer box with different inserts may work when the assortments have similar size and weight. Compare loaded samples and assembly costs. A small replacement item may still need its own shipping format."
+    },
+    {
+      "q": "Does a printed mailer need an outer shipping carton?",
+      "a": "The answer depends on the contents, box construction, insert, closure, and handling conditions. Provide a representative loaded pack for review and agree on testing before treating the printed box as the complete shipping pack."
+    },
+    {
+      "q": "What minimum order applies to Salt Lake City custom packaging?",
+      "a": "Minimums depend on structure, material, print method, and artwork versions. Request pricing by quantity and design, including samples, tooling, freight, and production timing after approval."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan custom mailer print, inserts, and quantities",
+    "href": "/blog/custom-mailer-boxes-ecommerce-print-inserts-moq",
+    "description": "Review the specifications needed to compare mailer quotes before selecting a box for your accessory range."
+  },
+  "ctaHeading": "Request a Salt Lake City packaging quote.",
+  "ctaLead": "Send your accessory dimensions, bundle combinations, quantities, artwork, and delivery ZIP code. Ask Apex to compare printed boxes, removable inserts, and retail cartons for your Utah packing operation."
 }
 ];
