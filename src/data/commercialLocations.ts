@@ -2699,5 +2699,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Salt Lake City packaging quote.",
   "ctaLead": "Send your accessory dimensions, bundle combinations, quantities, artwork, and delivery ZIP code. Ask Apex to compare printed boxes, removable inserts, and retail cartons for your Utah packing operation."
+},
+{
+  "slug": "omaha-custom-packaging",
+  "city": "Omaha",
+  "region": "Nebraska",
+  "country": "USA",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Omaha",
+  "title": "Custom Packaging Omaha | Sales Kits & Printed Boxes",
+  "description": "Quote custom packaging for Omaha sales samples and dealer kits. Compare printed boxes, divided inserts and shipping cartons with Nebraska delivery details.",
+  "eyebrow": "Omaha packaging quotes · Nebraska",
+  "heading": "Custom packaging for Omaha sales samples and dealer kits.",
+  "lead": "Give each sample a defined place in the box. Ask Apex to quote printed presentation boxes, divided inserts, and shipping cartons for sample programs assembled in Omaha.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark presentation box with gold brand lettering, a floral emblem, and curved gold line artwork",
+  "buyingContext": "A sales representative may carry the same sample case through several demonstrations, while a dealer receives a kit once by parcel. Those uses call for different structures. For an Omaha sample program, separate reusable demonstration packs from mailed assortments before requesting prices. If assembly takes place in Omaha and replenishment stock goes to Bellevue or Council Bluffs, provide a receiving address and quantity for each site. Council Bluffs deliveries should be listed separately as an Iowa destination, rather than grouped under the Nebraska address.",
+  "priorities": [
+    {
+      "title": "Design around repeated sample removal",
+      "description": "List every sample, its dimensions, weight, and how it is lifted from the pack. Allow finger access and space for identification cards. Review how the insert holds its shape after several demonstrations, not only how it looks when first loaded."
+    },
+    {
+      "title": "Separate the presentation pack from the shipping pack",
+      "description": "A sales box may need an outer carton for a mailed kit. Quote the complete loaded assembly, including closure and cushioning. Use actual samples to assess movement, surface contact, and protection before approving the parcel format."
+    },
+    {
+      "title": "Allocate stock across the Omaha receiving sites",
+      "description": "Specify ZIP codes, unloading access, receiving hours, and the number of kits assembled at each address. Ask for empty-box bundle dimensions so your team can estimate shelf space alongside the samples awaiting assembly."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed boxes for sample assortments",
+      "href": "/services/mailer-boxes",
+      "description": "Compare tuck-top boxes with space for samples, a product card, and an insert. Keep changeable sample details on a separate card when the outer branding will stay the same."
+    },
+    {
+      "title": "Divided inserts for removable samples",
+      "href": "/services/protective-packaging",
+      "description": "Review compartments around the actual sample shapes. Include removal access, loading order, and any surfaces that must stay apart during transport."
+    },
+    {
+      "title": "Outer shipping cartons for dealer kits",
+      "href": "/services/corrugated-boxes",
+      "description": "Size the carton around the finished presentation pack. Provide packed weight, shipping method, and case quantities so the protective structure can be reviewed."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the sample list and distribution plan",
+      "description": "Share sample measurements, photographs, weights, kit quantities, artwork, and delivery ZIP codes. Identify which packs are carried by representatives and which ship to dealers, plus your required receiving date."
+    },
+    {
+      "title": "Review a loaded prototype",
+      "description": "Ask about sampling options. Check removal access, compartment labels, lid clearance, and repeated opening with the actual contents. Agree on handling tests for mailed kits before approving the final specification."
+    },
+    {
+      "title": "Confirm versions, costs, and delivery timing",
+      "description": "Approve the dieline and artwork, then confirm quantities by version, insert counts, tooling, and freight. Request production timing after approval and a separate transit estimate to each receiving site."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom sample boxes delivered to Omaha?",
+      "a": "Yes. Send the sample list, dimensions, weights, quantity, print requirements, and receiving ZIP code. Include unloading access and receiving hours so the quote can account for delivery to your Omaha assembly site."
+    },
+    {
+      "q": "Can one box hold different dealer sample assortments?",
+      "a": "A shared outer box with different inserts may work if the assortments have similar dimensions. Compare loaded prototypes and quantities by insert version. A substantially smaller assortment may be better quoted in a separate box size."
+    },
+    {
+      "q": "Can a sample presentation box ship without an outer carton?",
+      "a": "That depends on its construction, closure, contents, and handling conditions. Ask for a review of the complete loaded pack and appropriate testing. A presentation finish alone does not establish shipping protection."
+    },
+    {
+      "q": "What minimum quantity applies to Omaha sample packaging?",
+      "a": "Minimum quantities depend on structure, materials, print method, and artwork versions. Request a breakdown by design, including samples, tooling, freight, and the production schedule after approval."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Prepare a packaging brief before the dieline",
+    "href": "/blog/packaging-design-services-send-before-dieline-built",
+    "description": "Gather product dimensions, pack contents, and artwork requirements before committing to a sample-kit structure."
+  },
+  "ctaHeading": "Request an Omaha sample packaging quote.",
+  "ctaLead": "Send your sample list, dimensions, kit quantities, artwork, and receiving ZIP codes. Ask Apex to compare presentation boxes, divided inserts, and parcel outers for your Omaha sales program."
 }
 ];
