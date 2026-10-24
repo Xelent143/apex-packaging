@@ -2785,5 +2785,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request an Omaha sample packaging quote.",
   "ctaLead": "Send your sample list, dimensions, kit quantities, artwork, and receiving ZIP codes. Ask Apex to compare presentation boxes, divided inserts, and parcel outers for your Omaha sales program."
+},
+{
+  "slug": "tucson-custom-packaging",
+  "city": "Tucson",
+  "region": "Arizona",
+  "country": "USA",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Tucson",
+  "title": "Custom Packaging Tucson | Ceramic & Gift Boxes",
+  "description": "Request custom packaging for Tucson ceramic and gift sets. Compare printed boxes, fitted inserts and shipping cartons with quantities and Arizona delivery costs.",
+  "eyebrow": "Tucson packaging quotes \u00b7 Arizona",
+  "heading": "Custom packaging for Tucson ceramic and gift sets.",
+  "lead": "A mug handle, a glazed surface, and a loose gift accessory each need a defined position in the pack. Send Apex your Tucson gift-set specifications to compare printed boxes, fitted inserts, and parcel shipping cartons.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark printed gift box with gold lettering, a floral emblem, and curved gold line artwork",
+  "buyingContext": "A ceramic set handed over at a Tucson shop and the same set shipped to a customer face different handling conditions. Build the quote around both sales channels. Record the widest points of each piece, including handles and lids, rather than relying on nominal product dimensions. If stock is packed in Tucson and a second team assembles orders in Marana or Oro Valley, specify the quantities and receiving address for each site. Request inbound freight for empty packaging separately from the cost of sending finished orders to customers.",
+  "priorities": [
+    {
+      "title": "Keep handles and glazed surfaces clear",
+      "description": "Show the vulnerable points on photographs or drawings. Review insert contact areas, clearance around handles, and separation between pieces. A tight fit alone does not establish protection; assess a loaded sample using the actual ceramics."
+    },
+    {
+      "title": "Compare pickup packs with parcel packs",
+      "description": "A printed gift box may suit presentation but still require cushioning and an outer shipping carton. Quote the complete parcel assembly with its packed weight and dimensions. Keep removable product cards separate from the permanent artwork when gift assortments change."
+    },
+    {
+      "title": "Plan storage and delivery at each Tucson-area site",
+      "description": "Provide receiving ZIP codes, business hours, unloading access, and available indoor storage. Ask for flat-pack bundle dimensions and insert packing counts. Tell Apex if packaging or filled orders will encounter heat or extended storage so material suitability can be reviewed."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed boxes for coordinated gift sets",
+      "href": "/services/mailer-boxes",
+      "description": "Compare tuck-top structures around the complete assortment, insert, and gift card. Review lid clearance and print areas on a dieline before final artwork approval."
+    },
+    {
+      "title": "Protective inserts for irregular ceramic shapes",
+      "href": "/services/protective-packaging",
+      "description": "Review dividers and fitted cushioning around handles, rims, and separate lids. Include access for loading and removal without forcing a fragile component against the insert."
+    },
+    {
+      "title": "Shipping cartons for finished gift packs",
+      "href": "/services/corrugated-boxes",
+      "description": "Size the outer carton around the loaded gift pack and its cushioning. Specify parcel handling, packed weight, closure, and any multi-pack wholesale case requirements."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the ceramic set and channel breakdown",
+      "description": "Provide measurements, weights, photographs, quantities by assortment, artwork versions, and delivery ZIP codes. State how many sets are collected locally versus shipped, and when empty packaging must reach the packing team."
+    },
+    {
+      "title": "Evaluate the complete loaded sample",
+      "description": "Ask about prototype options and load actual products. Check component movement, handle clearance, lid closure, and packing time. Agree on suitable handling tests for the complete parcel pack before approving its construction."
+    },
+    {
+      "title": "Approve costs and receiving dates",
+      "description": "Confirm box and insert specifications, print proofs, quantities per design, sample charges, and tooling. Request production timing after approval, transit estimates, and freight terms for each Arizona receiving address."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom gift boxes delivered to Tucson?",
+      "a": "Yes. Send product dimensions, photographs, packed weights, quantities, print requirements, and your receiving ZIP code. Include dock or ground-level access and receiving hours so delivery requirements can be included in the quote."
+    },
+    {
+      "q": "Can one insert hold different ceramic mug shapes?",
+      "a": "Possibly, if the sizes and support points are compatible. Review samples of every shape, including handle clearance. Separate inserts may be needed when a shared cavity allows movement or places pressure on a fragile part."
+    },
+    {
+      "q": "Is a printed gift box enough for parcel shipping?",
+      "a": "That depends on the contents, construction, cushioning, closure, and handling conditions. Review and test the complete loaded pack. An outer carton may be needed to protect both the ceramics and the presentation finish."
+    },
+    {
+      "q": "What minimum order applies to Tucson custom packaging?",
+      "a": "Minimums depend on the box structure, material, print process, and number of artwork or insert versions. Ask for quantity-based pricing with tooling, samples, freight, and production timing listed separately."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare gift boxes, inserts, and shipping formats",
+    "href": "/blog/gift-boxes-inserts-rigid-mailer-packaging-guide",
+    "description": "Review how the presentation box, insert, and outer carton work together before preparing your gift-set packaging brief."
+  },
+  "ctaHeading": "Request a Tucson gift packaging quote.",
+  "ctaLead": "Send your ceramic dimensions, gift-set combinations, quantities, artwork, and delivery ZIP codes. Ask Apex to price printed boxes, protective inserts, and shipping cartons for your Tucson packing operation."
 }
 ];
