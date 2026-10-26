@@ -2871,5 +2871,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Tucson gift packaging quote.",
   "ctaLead": "Send your ceramic dimensions, gift-set combinations, quantities, artwork, and delivery ZIP codes. Ask Apex to price printed boxes, protective inserts, and shipping cartons for your Tucson packing operation."
+},
+{
+  "slug": "louisville-custom-packaging",
+  "city": "Louisville",
+  "region": "Kentucky",
+  "country": "USA",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Louisville",
+  "title": "Custom Packaging Louisville | Event & Corporate Gift Boxes",
+  "description": "Quote custom packaging for Louisville event and corporate gifts. Compare printed boxes, inserts and shipping cartons with quantities and Kentucky delivery details.",
+  "eyebrow": "Louisville packaging quotes · Kentucky",
+  "heading": "Custom packaging for Louisville events and corporate gifts.",
+  "lead": "Give each recipient a complete, organized gift set. Ask Apex to quote printed boxes and fitted inserts for your Louisville event, employee welcome program, or client gift shipment.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark printed gift box with gold lettering, a floral emblem, and curved gold line artwork",
+  "buyingContext": "An event pack assembled at a Louisville office has different receiving needs from empty boxes sent to a venue or finished gifts mailed to individual recipients. Define where assembly happens before requesting pricing. For orders split between Louisville, Jeffersontown, and nearby Southern Indiana addresses, list each destination and quantity separately. Venue delivery may require an appointment, a named receiving contact, and a specific arrival window; confirm those details with the recipient before approving freight.",
+  "priorities": [
+    {
+      "title": "Separate permanent branding from event details",
+      "description": "Keep dates, recipient names, and changing messages on cards or sleeves when the main box will be reordered. Quote each artwork version separately so a short event run does not get confused with ongoing welcome-kit demand."
+    },
+    {
+      "title": "Arrange mixed gifts around their actual dimensions",
+      "description": "A notebook, drinkware item, and small accessory need distinct support and removal space. Provide the complete assortment, including tissue and printed cards. Compare insert layouts for the largest set and any reduced version before selecting a shared box."
+    },
+    {
+      "title": "Work backward from the Louisville handover date",
+      "description": "Allow time for receiving empty packaging, assembling gifts, checking counts, and moving finished packs to the venue. Request production and transit estimates separately. Identify indoor storage and unloading restrictions at each address instead of treating the event date as the packaging delivery date."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed boxes for event gift assortments",
+      "href": "/services/mailer-boxes",
+      "description": "Compare tuck-top formats sized for the complete set. Review the visible artwork with the lid open and closed, and keep adhesive labels away from the main presentation panel."
+    },
+    {
+      "title": "Inserts for organized welcome kits",
+      "href": "/services/protective-packaging",
+      "description": "Specify compartments for drinkware, stationery, and accessories. Check that the recipient can remove each item without disturbing the rest of the arrangement."
+    },
+    {
+      "title": "Outer cartons for mailed gifts and venue batches",
+      "href": "/services/corrugated-boxes",
+      "description": "Quote individual parcel outers separately from cartons holding multiple presentation boxes. Include filled weights, pack counts, and any cushioning needed to preserve the printed finish."
+    }
+  ],
+  "process": [
+    {
+      "title": "Share the gift list and delivery allocation",
+      "description": "Send dimensions, weights, photographs, quantities per assortment, artwork, and receiving ZIP codes. State whether Apex is quoting empty packaging only and identify the team responsible for gift assembly and onward delivery."
+    },
+    {
+      "title": "Review a complete sample pack",
+      "description": "Ask about prototype options and load the actual gifts, inserts, and message card. Check lid closure, item removal, presentation, and assembly time. Agree on suitable handling tests for any version sent through parcel networks."
+    },
+    {
+      "title": "Approve specifications and arrival windows",
+      "description": "Confirm the dieline, print proof, box and insert quantities, and version names. Request itemized tooling, sampling, freight, and production timing after approval. Confirm venue acceptance requirements before booking delivery."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom gift boxes delivered to Louisville?",
+      "a": "Yes. Provide the gift dimensions, quantity, print requirements, and receiving ZIP code. Include the receiving contact, unloading access, and required arrival window so the quote can address your delivery requirements."
+    },
+    {
+      "q": "Can the same box work for an event and an employee welcome program?",
+      "a": "It may work when both assortments fit the same structure. Use changeable cards or sleeves for program-specific details, and compare separate inserts if the contents differ. Review loaded samples before committing to a common size."
+    },
+    {
+      "q": "Does a packaging quote include gift assembly and individual shipping?",
+      "a": "Do not assume those services are included. Identify who supplies the gifts, assembles the packs, and ships to recipients. Ask Apex to confirm the quoted scope and any additional services in writing."
+    },
+    {
+      "q": "How should I request pricing for a fixed Louisville event date?",
+      "a": "Give the event date and the earlier date when packaging must reach your assembly team. Include quantities by version and delivery address. Ask for sample, approval, production, and transit milestones before placing the order; timing depends on the approved specifications."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare gift boxes, inserts, and shipping formats",
+    "href": "/blog/gift-boxes-inserts-rigid-mailer-packaging-guide",
+    "description": "Plan how the presentation box, insert, and shipping carton fit together before requesting event-packaging prices."
+  },
+  "ctaHeading": "Request a Louisville gift packaging quote.",
+  "ctaLead": "Send your gift assortment, dimensions, quantities, artwork versions, receiving ZIP codes, and event date. Ask Apex to compare printed boxes, inserts, and shipping cartons for your Louisville program."
 }
 ];
