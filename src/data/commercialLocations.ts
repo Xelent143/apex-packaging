@@ -2871,5 +2871,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Tucson gift packaging quote.",
   "ctaLead": "Send your ceramic dimensions, gift-set combinations, quantities, artwork, and delivery ZIP codes. Ask Apex to price printed boxes, protective inserts, and shipping cartons for your Tucson packing operation."
+},
+{
+  "slug": "reno-custom-packaging",
+  "city": "Reno",
+  "region": "Nevada",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Reno",
+  "title": "Custom Packaging Reno | Returns Boxes & Shipping Kits",
+  "description": "Quote custom packaging for Reno fulfillment teams. Compare corrugated boxes, protective inserts and return-kit packaging with Nevada delivery requirements.",
+  "eyebrow": "Reno custom packaging \u00b7 Outbound and return shipments",
+  "heading": "Custom packaging for Reno shipments and customer return kits.",
+  "lead": "Request boxes and protective components for products that travel out to customers and may come back for service. Apex can quote a coordinated packaging specification for your Reno or Sparks packing operation.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Printed kraft corrugated box with fitted lid and branded side panels",
+  "buyingContext": "A return program needs more than an outbound box with an extra label. Customers may discard cushioning, open a closure incorrectly, or send back only part of the original set. For Reno and Sparks fulfillment teams, separate the initial product shipment from the replacement packaging sent to a customer who no longer has the original pack. Specify the contents, loading instructions, protection, and closure for each journey. Apex can review these requirements together and quote the empty packaging delivered to your Nevada receiving address.",
+  "priorities": [
+    {
+      "title": "Define what comes back",
+      "description": "List the product, detachable accessories, and components excluded from a service return. A return-only insert can differ from the outbound retail pack; size both against the actual contents and packed weight."
+    },
+    {
+      "title": "Make repacking understandable",
+      "description": "Reserve space for illustrated packing instructions and a return-label area. Review whether customers can place the product in its correct orientation and secure the closure without specialist packing equipment."
+    },
+    {
+      "title": "Separate Nevada receiving from customer shipping",
+      "description": "Provide Reno and Sparks receiving ZIP codes, appointment requirements, unloading access, and storage capacity. Freight for empty packaging is a separate requirement from the parcel route your filled kits will take."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated outbound and return boxes",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare box styles and board specifications for each packed product. Identify whether a second journey uses the original box or a fresh return kit."
+    },
+    {
+      "title": "Protective inserts for customer repacking",
+      "href": "/services/protective-packaging",
+      "description": "Review cushioning, orientation, and component separation using real products. Ask about sample options and handling tests for the complete loaded package."
+    },
+    {
+      "title": "Dielines and packing instruction areas",
+      "href": "/design-support",
+      "description": "Plan print zones for branding, instructions, and shipping labels. Confirm closure details and proof each artwork version before production."
+    }
+  ],
+  "process": [
+    {
+      "title": "Document both shipment scenarios",
+      "description": "Send dimensions, weights, photographs, annual volumes, order quantities, and the expected return contents. Include your Nevada delivery address and the date empty packaging is needed."
+    },
+    {
+      "title": "Trial the packing sequence",
+      "description": "Load the outbound and return samples with actual items. Check fit, movement, closure, label visibility, and whether someone unfamiliar with the product can follow the instructions. Agree on testing before approval."
+    },
+    {
+      "title": "Approve each packaging version",
+      "description": "Record box and insert part numbers, approved artwork, quantities per version, and pack counts. Confirm tooling, samples, freight terms, production timing, and receiving arrangements in the quote."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging delivered to Reno or Sparks?",
+      "a": "Yes. Provide the receiving ZIP code, quantity, product dimensions, packed weight, print requirements, and target date. Include appointment and unloading restrictions so delivery can be assessed with the packaging quote."
+    },
+    {
+      "q": "Can customers reuse the original box for a return?",
+      "a": "That depends on the box condition, closure, protection, and product. Evaluate the complete pack for the intended journeys. Provide a separate return kit when the original packaging is missing or unsuitable; reuse should not be assumed without review."
+    },
+    {
+      "q": "Should a return kit use the same insert as the outbound pack?",
+      "a": "Only when the return contents and support requirements match. If accessories stay with the customer, the remaining product may move inside an outbound insert. Review a sample with the actual return contents before approving a shared design."
+    },
+    {
+      "q": "What affects the price of a Reno return packaging program?",
+      "a": "Box dimensions, board, inserts, print coverage, quantities per version, tooling, and delivery requirements affect pricing. Ask for separate outbound and return-kit line items, plus sample costs, freight terms, and production timing."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Shipping boxes for parcel and LTL orders",
+    "href": "/blog/shipping-boxes-ecommerce-parcel-ltl-packaging",
+    "description": "Review box construction and shipment requirements before specifying outbound cartons and customer return packaging."
+  },
+  "ctaHeading": "Request a Reno shipping and return-kit packaging quote.",
+  "ctaLead": "Send product measurements, outbound and return contents, quantities, artwork needs, and receiving ZIP codes. Ask Apex to quote the boxes, inserts, and delivery plan for your Nevada operation."
 }
 ];
