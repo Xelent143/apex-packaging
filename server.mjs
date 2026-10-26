@@ -7,6 +7,7 @@ import { createBrotliCompress, createGzip } from 'node:zlib';
 import { handleQuoteRequest, sendQuoteEmail } from './server/quoteEmail.mjs';
 import { handleStripeWebhook } from './server/privatePaymentLinks.mjs';
 import { sendSmtpEmail } from './server/smtpEmail.mjs';
+import { handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
 import { permanentRedirects } from './redirects.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
@@ -85,6 +86,23 @@ const server = createServer(async (req, res) => {
         secretKey: process.env.STRIPE_SECRET_KEY || '',
         webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
         recordsDir: process.env.PRIVATE_PAYMENT_RECORDS_DIR || undefined
+      });
+
+      await writeWebResponse(res, response);
+      return;
+    }
+
+    if (req.method === 'POST' && url.pathname === '/api/create-checkout-session') {
+      const request = new Request(url, {
+        method: 'POST',
+        headers: nodeHeadersToWebHeaders(req.headers),
+        body: req,
+        duplex: 'half'
+      });
+      const response = await handleCreateCheckoutSession(request, {
+        enabled: process.env.STRIPE_CHECKOUT_ENABLED === 'true',
+        secretKey: process.env.STRIPE_SECRET_KEY || '',
+        siteUrl: process.env.SITE_URL || url.origin
       });
 
       await writeWebResponse(res, response);

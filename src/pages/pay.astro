@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
+import PaymentForm from '../components/sections/PaymentForm.astro';
 import { buildBreadcrumbSchema } from '../lib/schema';
-import { siteConfig } from '../site.config';
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -10,31 +10,20 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 ---
 <BaseLayout
-  title="Payment Assistance | Apex Packaging Solutions"
-  description="Contact Apex Packaging Solutions for help with an approved quote, invoice, or payment."
+  title="Pay Apex Packaging Invoice | Secure Stripe Checkout"
+  description="Pay an approved Apex Packaging quote or invoice using secure Stripe-hosted checkout."
   schemaBlocks={[breadcrumb]}
   noindex
 >
   <PageHeader
-    eyebrow="Payment assistance"
-    heading="Online payment is currently unavailable."
-    lead="The website does not accept online payments at this time. Please contact Apex before sending payment for an approved quote or invoice."
+    eyebrow="Secure payment"
+    heading="Pay an approved quote or invoice."
+    lead="Review the policy links, confirm your agreement, and then continue to Stripe-hosted checkout. Card details are handled by Stripe and not stored on this website."
   />
 
-  <section class="bg-white">
-    <div class="container max-w-wide py-16 md:py-24">
-      <div class="mx-auto flex min-h-[18rem] max-w-3xl flex-col items-center justify-center gap-7 text-center md:min-h-[22rem] md:gap-8">
-        <div class="rounded-md border border-[#ead58d] bg-[#fff8df] px-6 py-5 text-base leading-relaxed text-neutral-800 md:px-8 md:py-6 md:text-lg">
-          Do not enter card or banking information on this website. Apex will confirm payment instructions directly after reviewing your quote or invoice.
-        </div>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <a href="/contact" class="btn-primary">Contact Apex</a>
-          <a href={`mailto:${siteConfig.email}`} class="btn-secondary">Email {siteConfig.email}</a>
-        </div>
-        <p class="max-w-xl text-sm leading-relaxed text-neutral-500 md:text-base">
-          Include your quote or invoice number so the team can assist you promptly.
-        </p>
-      </div>
+  <section class="bg-neutral-50 py-12 md:py-24">
+    <div class="container max-w-wide">
+      <PaymentForm />
     </div>
   </section>
 </BaseLayout>

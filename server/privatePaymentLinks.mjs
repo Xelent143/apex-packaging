@@ -153,7 +153,14 @@ export async function handleStripeWebhook(request, options = {}) {
     return jsonResponse({ error: error.message || 'Invalid Stripe signature.' }, 400);
   }
 
-  if (event.type === 'checkout.session.completed') {
+  if (event.type === 'checkout.session.completed' && event.data.object?.payment_status !== 'unpaid') {
+    await updatePaymentRecordStatusBySession(event.data.object, 'paid', {
+      recordsDir: options.recordsDir,
+      eventType: event.type
+    });
+  }
+
+  if (event.type === 'checkout.session.async_payment_succeeded') {
     await updatePaymentRecordStatusBySession(event.data.object, 'paid', {
       recordsDir: options.recordsDir,
       eventType: event.type

@@ -147,6 +147,7 @@ test('handleStripeWebhook marks payment requests as paid', async () => {
             object: {
               id: 'cs_test_private_paid',
               payment_intent: 'pi_test_paid',
+              payment_status: 'paid',
               customer_email: 'buyer@example.com',
               metadata: { payment_request_id: record.paymentRequestId }
             }

@@ -56,6 +56,10 @@ export async function requestToCheckoutRequest(request) {
 }
 
 export async function handleCreateCheckoutSession(request, options) {
+  if (options.enabled === false) {
+    return errorResponse(request, options.siteUrl, 'Online payment is currently unavailable.', 503);
+  }
+
   const submission = await requestToCheckoutRequest(request);
   if (submission.isSpam) return redirectResponse('/payment-cancelled');
 
@@ -141,7 +145,8 @@ export async function createStripeCheckoutSession(submission, options) {
     headers: {
       Authorization: `Bearer ${options.secretKey}`,
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Stripe-Version': '2026-02-25.clover'
+      'Stripe-Version': '2026-02-25.clover',
+      ...(consentRecord?.consentId ? { 'Idempotency-Key': `checkout-${consentRecord.consentId}` } : {})
     },
     body: params
   });

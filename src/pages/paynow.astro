@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
 import { buildBreadcrumbSchema } from '../lib/schema';
-import { siteConfig } from '../site.config';
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -10,29 +9,25 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 ---
 <BaseLayout
-  title="Payment Assistance | Apex Packaging Solutions"
-  description="Contact Apex Packaging Solutions for help with an approved quote, invoice, or payment."
+  title="Pay Now | Apex Packaging Secure Checkout"
+  description="Open Apex Packaging secure checkout to pay an approved quote or invoice. Card details are entered on Stripe and not stored on this website."
   schemaBlocks={[breadcrumb]}
   noindex
 >
   <PageHeader
-    eyebrow="Payment assistance"
-    heading="Online payment is currently unavailable."
-    lead="The website does not accept online payments at this time. Please contact Apex before sending payment for an approved quote or invoice."
+    eyebrow="Secure payment"
+    heading="Pay Now"
+    lead="Open the secure payment flow for approved quotes and invoices. You will review the Terms & Conditions and Refund Policy before continuing to Stripe checkout."
   />
 
   <section class="bg-white">
     <div class="container max-w-wide py-16 md:py-24">
-      <div class="mx-auto flex min-h-[18rem] max-w-3xl flex-col items-center justify-center gap-7 text-center md:min-h-[22rem] md:gap-8">
-        <div class="rounded-md border border-[#ead58d] bg-[#fff8df] px-6 py-5 text-base leading-relaxed text-neutral-800 md:px-8 md:py-6 md:text-lg">
-          Do not enter card or banking information on this website. Apex will confirm payment instructions directly after reviewing your quote or invoice.
-        </div>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <a href="/contact" class="btn-primary">Contact Apex</a>
-          <a href={`mailto:${siteConfig.email}`} class="btn-secondary">Email {siteConfig.email}</a>
-        </div>
-        <p class="max-w-xl text-sm leading-relaxed text-neutral-500 md:text-base">
-          Include your quote or invoice number so the team can assist you promptly.
+      <div class="mx-auto flex min-h-[18rem] max-w-3xl flex-col items-center justify-center gap-8 md:min-h-[22rem] md:gap-10">
+        <a href="/pay" class="inline-flex min-w-[14rem] items-center justify-center rounded-[1.1rem] bg-neutral-900 px-10 py-5 font-display text-2xl font-bold text-white shadow-[0_14px_30px_rgba(17,13,27,0.18)] transition-transform duration-150 hover:-translate-y-0.5 hover:bg-accent hover:text-neutral-900 md:min-w-[16rem] md:px-12 md:py-6 md:text-3xl">
+          Pay Now
+        </a>
+        <p class="max-w-xl text-center text-sm leading-relaxed text-neutral-500 md:text-base">
+          Review the policy links on the payment page, confirm your agreement, then enter the amount you want to pay. CAD is the default.
         </p>
       </div>
     </div>

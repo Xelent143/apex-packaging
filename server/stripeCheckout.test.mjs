@@ -91,6 +91,7 @@ test('validateCheckoutRequest rejects invalid payment requests', () => {
 
 test('createStripeCheckoutSession posts expected session payload', async () => {
   let requestBody;
+  let requestHeaders;
   const session = await createStripeCheckoutSession(
     {
       amountCents: 125000,
@@ -115,6 +116,7 @@ test('createStripeCheckoutSession posts expected session payload', async () => {
       },
       fetchImpl: async (_url, init) => {
         requestBody = new URLSearchParams(String(init.body));
+        requestHeaders = init.headers;
         return Response.json({ id: 'cs_test_123', url: 'https://checkout.stripe.com/c/pay/cs_test_123' });
       }
     }
@@ -129,6 +131,21 @@ test('createStripeCheckoutSession posts expected session payload', async () => {
   assert.equal(requestBody.get('metadata[consent_id]'), 'consent_123');
   assert.equal(requestBody.get('metadata[consent_ip]'), '203.0.113.8');
   assert.equal(requestBody.get('metadata[consent_signature]'), 'Alex Buyer');
+  assert.equal(requestHeaders['Idempotency-Key'], 'checkout-consent_123');
+});
+
+test('handleCreateCheckoutSession stays disabled unless the environment enables it', async () => {
+  const response = await handleCreateCheckoutSession(new Request('https://apex.example/api/create-checkout-session', {
+    method: 'POST',
+    headers: { accept: 'application/json' }
+  }), {
+    enabled: false,
+    secretKey: 'rk_test_restricted',
+    siteUrl: 'https://apex.example'
+  });
+
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { error: 'Online payment is currently unavailable.' });
 });
 
 test('recordPaymentConsent appends audit details to a jsonl file', async () => {
