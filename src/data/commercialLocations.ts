@@ -2957,5 +2957,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Reno shipping and return-kit packaging quote.",
   "ctaLead": "Send product measurements, outbound and return contents, quantities, artwork needs, and receiving ZIP codes. Ask Apex to quote the boxes, inserts, and delivery plan for your Nevada operation."
+},
+{
+  "slug": "spokane-custom-packaging",
+  "city": "Spokane",
+  "region": "Washington",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Spokane",
+  "title": "Custom Packaging Spokane | Parts Kits & Shipping Boxes",
+  "description": "Quote custom packaging for Spokane parts kits and dealer orders. Compare printed boxes, dividers and shipping cartons with Washington delivery requirements.",
+  "eyebrow": "Spokane custom packaging · Parts and dealer orders",
+  "heading": "Custom packaging for Spokane parts kits and dealer replenishment.",
+  "lead": "Pack small components, service kits, and dealer restock orders around a documented contents list. Ask Apex to quote boxes, dividers, and printed packaging for your Spokane or Spokane Valley operation.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with a fitted lid, green brand print and contour-line artwork",
+  "buyingContext": "A service kit may contain one main component and several small fittings, while a dealer order contains multiple kits in an outer case. Treat those as two packaging specifications. For a Spokane packing operation supplying customers across eastern Washington and northern Idaho, identify what is packed locally, what a dealer opens, and which components need individual identification. Quote the empty packaging delivered to your Spokane or Spokane Valley receiving address separately from the onward shipment of filled orders. Apex can review the kit layout and case quantities together so a change to one component does not leave the rest of the packaging specification unclear.",
+  "priorities": [
+    {
+      "title": "Keep fittings with the correct kit",
+      "description": "List each component, quantity, weight, and surface that needs protection. Review compartments or individually contained fittings so small items do not migrate beneath the main part during handling."
+    },
+    {
+      "title": "Set dealer case quantities before sizing",
+      "description": "Specify whether dealers receive complete kits, loose replacement parts, or both. Compare the loaded kit dimensions against the outer-case layout and the weight your receiving team can handle."
+    },
+    {
+      "title": "Quote the actual Inland Northwest delivery point",
+      "description": "Provide the Spokane or Spokane Valley ZIP code, dock access, receiving hours, and storage limit for flat boxes. If packaging also goes to a Coeur d’Alene location, list its address and quantity separately rather than assuming the same freight terms."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated kit boxes and outer cases",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare die-cut kit boxes with shipping cartons sized around the packed assortment. Confirm board, closure, and case counts against the actual weight and handling route."
+    },
+    {
+      "title": "Dividers and protective components",
+      "href": "/services/protective-packaging",
+      "description": "Review separation for fittings, finished surfaces, and heavier components. Use loaded samples to check movement and ease of removal before approving the insert."
+    },
+    {
+      "title": "Print layouts for kit identification",
+      "href": "/design-support",
+      "description": "Reserve space for part numbers, revision labels, contents checks, and dealer-facing branding. Keep variable identification areas clear of folds and closures."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the kit and replenishment brief",
+      "description": "Include a component list, measurements, weights, photographs, kit quantities, dealer case counts, and artwork. Add your Washington receiving address and required packaging arrival date."
+    },
+    {
+      "title": "Check the assembly and unpacking sequence",
+      "description": "Load samples with actual components. Confirm that fittings remain contained, labels can be read, and dealers can remove a kit without disturbing adjacent packs. Agree on handling tests for the filled package."
+    },
+    {
+      "title": "Approve versions and delivery terms",
+      "description": "Record box and divider part numbers, kit revisions, print files, quantities, and pack counts. Ask for tooling, samples, freight, and production timing as separate quote details before placing the order."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Spokane and Spokane Valley?",
+      "a": "Yes. Send product measurements, packed weights, kit contents, quantities, artwork requirements, and the receiving ZIP code. Include unloading or appointment restrictions so the packaging and delivery requirements can be reviewed together."
+    },
+    {
+      "q": "Can one box hold several service-kit versions?",
+      "a": "A shared outer box may work when the dimensions and weights are compatible. Different inserts or labelled compartments may still be required. Compare every version with actual components before approving a common structure."
+    },
+    {
+      "q": "Should dealer restock orders use the same box as individual kits?",
+      "a": "Not necessarily. An individual kit needs component control and identification, while an outer case needs to contain the agreed number of kits through handling. Specify both loaded formats and assess their fit, weight, and protection together."
+    },
+    {
+      "q": "What affects the minimum quantity and price for Spokane custom boxes?",
+      "a": "Structure, board, print method, insert design, and quantities per artwork version affect the quote. Provide expected reorder volumes as well as the first order, and request written minimums, sample costs, tooling charges, freight terms, and timing."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Review packaging for parts and component shipments",
+    "href": "/blog/automotive-parts-packaging-boxes-vci-foam-pallet-loads",
+    "description": "Compare boxes, cushioning, and pallet-load requirements when preparing a parts packaging specification."
+  },
+  "ctaHeading": "Request a Spokane parts packaging quote.",
+  "ctaLead": "Send your component list, kit sizes, dealer case quantities, artwork, and receiving ZIP codes. Ask Apex to price boxes, protective components, and delivery for your Spokane packing schedule."
 }
 ];
