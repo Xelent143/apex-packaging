@@ -3043,5 +3043,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Spokane parts packaging quote.",
   "ctaLead": "Send your component list, kit sizes, dealer case quantities, artwork, and receiving ZIP codes. Ask Apex to price boxes, protective components, and delivery for your Spokane packing schedule."
+},
+{
+  "slug": "laval-custom-packaging",
+  "city": "Laval",
+  "region": "Québec",
+  "country": "Canada",
+  "countryCode": "CA",
+  "focusKeyword": "custom packaging Laval",
+  "title": "Custom Packaging Laval | Retail Cartons & Shipping Boxes",
+  "description": "Quote custom packaging for Laval retail and wholesale orders. Plan printed cartons, corrugated cases, artwork versions and delivery to your Québec receiving site.",
+  "eyebrow": "Laval custom packaging · Retail and wholesale orders",
+  "heading": "Custom packaging for Laval retail assortments and wholesale cases.",
+  "lead": "Order retail cartons and shipping cases around the way your products are sold and replenished. Ask Apex to quote packaging for your Laval operation with quantities, artwork versions, and receiving requirements defined together.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with a fitted lid, green brand print and contour-line artwork",
+  "buyingContext": "A Laval brand supplying stores and online customers may need a printed carton for each item, a mixed assortment for a retailer, and a separate parcel box for direct orders. Start with the unit that each customer buys. Then define the quantity and arrangement inside each shipping case. If empty packaging is delivered to Laval but finished orders leave from a Montréal fulfilment site, identify both stages in the brief. The packaging delivery quote should name the actual receiving postal code; the filled-product shipping route informs the box and protection specification.",
+  "priorities": [
+    {
+      "title": "Separate retail units from replenishment cases",
+      "description": "List individual product dimensions and the number of units each store orders. Compare single-product cases with mixed assortments before selecting the outer dimensions, dividers, and case identification."
+    },
+    {
+      "title": "Control French and English artwork versions",
+      "description": "Supply approved copy for every panel and language version. Reserve space for variable labels, product codes, and barcodes. Assign a file revision to each carton so a change to one product does not alter another print run."
+    },
+    {
+      "title": "Define the Laval receiving allocation",
+      "description": "Provide the Laval postal code, unloading access, receiving hours, and storage capacity for flat cartons. List any separate Montréal or North Shore delivery with its own quantities and appointment requirements."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed retail cartons",
+      "href": "/services/cardboard-boxes",
+      "description": "Compare carton styles around the product dimensions, closure, shelf presentation, and label area. Confirm the board and print specification using an approved sample."
+    },
+    {
+      "title": "Corrugated replenishment cases",
+      "href": "/services/corrugated-boxes",
+      "description": "Size shipping cases around the agreed retail-unit count. Review loaded weight, stacking, and the handling route before choosing board and closure requirements."
+    },
+    {
+      "title": "Artwork and structural design support",
+      "href": "/design-support",
+      "description": "Prepare dielines and check panel placement across related products. Keep language versions, barcode zones, and artwork revisions identified in the approval record."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the product and order matrix",
+      "description": "Include measurements, weights, retail-unit quantities, case counts, artwork files, and first-order volumes. Add the Laval receiving address and the date your packing team needs empty packaging."
+    },
+    {
+      "title": "Trial the carton and case together",
+      "description": "Pack actual products into samples. Check closures, label visibility, product removal, and the fit of the retail units inside the shipping case. Agree on appropriate handling tests for the filled package."
+    },
+    {
+      "title": "Approve each version before production",
+      "description": "Record structure, board, print file revision, quantities per version, and case markings. Request written minimums, tooling and sample charges, freight terms, and production timing in the quote."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom packaging for Laval businesses?",
+      "a": "Yes. Send product dimensions, packed weights, order quantities, artwork needs, and the delivery postal code. Apex can review retail cartons, corrugated shipping boxes, and design support for your Laval packaging program."
+    },
+    {
+      "q": "Can related products share a carton size?",
+      "a": "A common carton may work if the products fit securely and the closures work for each version. Compare actual samples and any inserts required. Quote quantities by artwork version even when the carton dimensions are shared."
+    },
+    {
+      "q": "Can I request French and English packaging artwork?",
+      "a": "Include the approved French and English text and specify whether both appear on one carton or on separate versions. Design support can review placement on the dieline. Your team should approve the wording and applicable labelling requirements before production."
+    },
+    {
+      "q": "How should I quote delivery to Laval and Montréal?",
+      "a": "Provide each receiving address, postal code, quantity allocation, unloading arrangement, and requested arrival date. Ask for freight and delivery conditions by destination so the split is included in the quotation rather than added after approval."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Plan product boxes for launches and reorders",
+    "href": "/blog/custom-product-boxes-packaging-for-launches-reorders",
+    "description": "Review product-box specifications and approval details before ordering cartons for a new range or replenishment run."
+  },
+  "ctaHeading": "Request a Laval retail and shipping packaging quote.",
+  "ctaLead": "Send product sizes, retail quantities, case counts, approved artwork, and receiving postal codes. Ask Apex to price the cartons, shipping cases, and delivery requirements for your next order."
 }
 ];
