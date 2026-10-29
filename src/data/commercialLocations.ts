@@ -3130,4 +3130,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Laval retail and shipping packaging quote.",
   "ctaLead": "Send product sizes, retail quantities, case counts, approved artwork, and receiving postal codes. Ask Apex to price the cartons, shipping cases, and delivery requirements for your next order."
 }
+,
+{
+  "slug": "wichita-custom-packaging",
+  "city": "Wichita",
+  "region": "Kansas",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Wichita",
+  "title": "Custom Packaging Wichita | Sample Kits & Printed Boxes",
+  "description": "Request custom packaging for Wichita sample kits and business orders. Compare printed boxes, fitted inserts, order quantities and delivery to your Kansas site.",
+  "eyebrow": "Wichita custom packaging · Business sample kits",
+  "heading": "Custom packaging for Wichita samples that need to arrive ready to present.",
+  "lead": "Build a box around the samples your customer needs to compare. Ask Apex to quote printed boxes and inserts for Wichita sales teams, showroom shipments, and business orders, with the presentation pack and shipping requirements specified together.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated presentation box with a fitted lid, green Terralis branding and contour-line print",
+  "buyingContext": "A Wichita business sending finish swatches, small product samples, or showroom selections needs more than a box sized to the largest item. The recipient should be able to identify each sample, take it out, and return it to the correct position. Separate the presentation layout from the parcel protection brief. If your team assembles kits in Wichita and distributes them to sales staff in Derby or Andover, specify where empty boxes arrive and where filled kits travel. Those are different inputs to the packaging quote.",
+  "priorities": [
+    {
+      "title": "Keep samples in a readable comparison order",
+      "description": "Map each sample to a labelled position and allow finger access for removal. Include the dimensions of tags, sample cards, and literature so the closed lid does not press against the contents."
+    },
+    {
+      "title": "Plan for additions and replacement samples",
+      "description": "A range may gain a new finish before the next box order. Compare a fixed insert with a layout that reserves a labelled spare position. Specify replacement insert quantities separately from complete presentation kits."
+    },
+    {
+      "title": "Separate Wichita receiving from field distribution",
+      "description": "Give the Wichita receiving ZIP code, unloading access, and space available for flat boxes. List Derby or Andover allocations separately if empty packaging must go to those addresses. Describe parcel shipment or hand delivery for the finished kits."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed corrugated presentation boxes",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare a die-cut box with a separate shipping outer when the presentation surface needs protection. Select dimensions using the loaded sample layout and confirm board requirements against the packed weight."
+    },
+    {
+      "title": "Inserts for removable samples",
+      "href": "/services/protective-packaging",
+      "description": "Review dividers and fitted components for pieces that must stay separate but remain easy to remove. Trial the actual sample surfaces against the insert material before approval."
+    },
+    {
+      "title": "Artwork and layout support",
+      "href": "/design-support",
+      "description": "Coordinate sample names, lid graphics, reference numbers, and instructions on the dieline. Keep replaceable product information on a separate card when it changes more often than the box."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the sample inventory",
+      "description": "Provide item dimensions, weights, photographs, quantity per kit, total kit volume, and artwork. Identify any printed literature and the Wichita-area receiving address, along with the required packaging arrival date."
+    },
+    {
+      "title": "Try a complete presentation and shipment",
+      "description": "Load actual samples, close the box, and rehearse removal and repacking. Check that labels remain visible and surfaces do not rub. Agree on handling tests for the filled shipping configuration before approving production."
+    },
+    {
+      "title": "Confirm the quote by component",
+      "description": "Record box, insert, and artwork revisions together. Request quantities and prices for complete sets and spare components, plus tooling, samples, freight, minimum order quantities, and production timing."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom sample-kit packaging for Wichita?",
+      "a": "Yes. Share the sample list, measurements, weights, kit quantities, print requirements, and receiving ZIP code. Include whether recipients receive the kits by parcel or in person so the presentation box and shipping protection can be reviewed together."
+    },
+    {
+      "q": "Can I order spare inserts without changing the printed box?",
+      "a": "Include spare insert quantities in the quotation request. Reusing a box depends on the new layout fitting its internal dimensions and supporting the loaded weight. Approve a sample of the revised combination before placing the order."
+    },
+    {
+      "q": "Does a presentation box need an outer shipping carton?",
+      "a": "It may, especially if the printed surface must arrive clean or the contents require additional cushioning. Compare the complete packed configuration, including closures and any outer carton, against the expected handling route."
+    },
+    {
+      "q": "How do I request delivery to Wichita, Derby, and Andover?",
+      "a": "Provide each delivery address, quantity allocation, receiving hours, and unloading restrictions. Ask for freight terms by destination and confirm the empty-packaging arrival date separately from your finished-kit distribution schedule."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare gift-box and presentation-kit structures",
+    "href": "/blog/gift-boxes-inserts-rigid-mailer-packaging-guide",
+    "description": "Review box formats and insert choices before preparing the sample layout and shipping specification."
+  },
+  "ctaHeading": "Request a Wichita sample-kit packaging quote.",
+  "ctaLead": "Send your sample inventory, kit quantities, artwork, receiving ZIP codes, and required arrival date. Ask Apex to price the presentation boxes, inserts, and shipping components for your next business order."
+}
 ];
