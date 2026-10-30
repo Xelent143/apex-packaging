@@ -1,9 +1,6 @@
-name: Daily blog publisher
+name: Manual blog publisher
 
 on:
-  schedule:
-    # 09:00 UTC is 2:00 PM Pakistan time.
-    - cron: '0 9 * * *'
   workflow_dispatch:
 
 permissions:
