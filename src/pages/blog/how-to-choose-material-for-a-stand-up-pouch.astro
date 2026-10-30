@@ -3,40 +3,117 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
-import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
+import { buildBreadcrumbSchema, buildArticleSchema } from '../../lib/schema';
 
-const title = 'How to Choose Material for a Stand-Up Pouch';
-const description = 'A practical guide for Canadian and US buyers selecting a custom stand-up pouch material around product characteristics, format, printing and quotation requirements.';
+const title = 'How to Choose Stand-Up Pouch Materials';
+const description = 'Compare stand-up pouch materials by product needs, oxygen and moisture barrier, sealing, filling conditions, trade-offs and supplier evidence.';
 const url = '/blog/how-to-choose-material-for-a-stand-up-pouch';
 const datePublished = '2026-09-25';
+const dateModified = '2026-10-31';
 const image = '/images/services/polybags-generated-banner.png';
-const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
-const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
-const faq = buildFAQSchema([
-  { q: 'What determines a stand-up pouch material?', a: 'The product, fill method, desired format, handling conditions, printing, closure features, quantity and delivery destination all affect the material specification.' },
-  { q: 'Should buyers specify a barrier material before requesting a quote?', a: 'Buyers can share the product and performance requirement, but the proposed material and any documentation should be confirmed for the exact pouch specification.' },
-  { q: 'What information is needed for a pouch quotation?', a: 'Send the product, desired pouch dimensions or fill volume, features such as a zipper or tear notch, print coverage, quantity, delivery destination and required in-hand date.' }
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'How to Choose Stand-Up Pouch Materials', url }
 ]);
+const article = {
+  ...buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' }),
+  dateModified
+};
 ---
-<BaseLayout title="Stand-Up Pouch Material Guide | Apex Packaging" description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
-  <PageHeader eyebrow="Knowledge base · Flexible packaging" heading="How to choose material for a stand-up pouch." lead="Start with the product and the way the pouch will be filled, handled and displayed. Material selection follows the performance requirement; it is not a one-size-fits-all choice." imageSrc={image} imageAlt="Custom stand-up pouches and flexible packaging material options." />
-  <section class="py-12 md:py-20"><div class="container max-w-default prose-apex">
-    <p><strong>The right pouch material depends on the job.</strong> A buyer should define the product, target pouch size, handling conditions, display needs and required features before assuming a particular film structure will fit.</p>
-    <h2>Start with the product and pack format</h2>
-    <p>Share whether the pouch will hold dry goods, powders, small parts, samples or another product type, along with the expected fill volume or finished dimensions. The pouch needs enough space for the product and a practical seal area while presenting well on shelf or in shipment.</p>
-    <h2>Decide which features matter</h2>
-    <table><thead><tr><th>Feature</th><th>Buyer question</th><th>Quotation impact</th></tr></thead><tbody>
-      <tr><td>Stand-up base</td><td>Does the pouch need to remain upright at retail?</td><td>Changes the structure and finished dimensions.</td></tr>
-      <tr><td>Resealable closure</td><td>Will the customer open and close the pouch more than once?</td><td>Requires the selected closure format to be included in the specification.</td></tr>
-      <tr><td>Tear notch or hang hole</td><td>How should customers open or display the pouch?</td><td>Affects layout, conversion and available panel space.</td></tr>
-      <tr><td>Print and finish</td><td>What artwork, colour and finish is required?</td><td>Changes print method, proofing and pricing variables.</td></tr>
-    </tbody></table>
-    <h2>Request documentation instead of assuming it</h2>
-    <p>If the project has a food-contact, recycled-content, certification or end-of-life requirement, state it in the brief. Availability and documentation must be confirmed for the exact pouch, production run and delivery destination.</p>
-    <h2>Build a complete pouch RFQ</h2>
-    <ul><li>Product description and desired pouch dimensions or fill volume.</li><li>Required features, including closure, tear notch, window or hang hole.</li><li>Artwork status, print coverage and finish preferences.</li><li>First-run quantity, expected reorder quantity and delivery destination.</li><li>Any material-performance or documentation requirement.</li></ul>
-    <p>MOQ, price and production or shipping timing vary according to the full specification. Apex confirms those details in a product-specific quotation.</p>
-  </div></section>
-  <RelatedContent items={[{ title: 'Custom Mylar Bags and Pouches', href: '/industries/custom-mylar-bags', description: 'Explore pouch structures, materials and project-specific quotation requirements.' }, { title: 'Custom Polybags', href: '/services/polybags', description: 'Review flexible packaging formats and gauge considerations.' }]} />
-  <CTABand heading="Need help specifying a custom pouch?" lead="Send the product, pouch size or fill volume, features, artwork, quantity and destination for a product-specific quotation." primaryCta={{ label: 'Request a pouch quote', href: '/contact' }} />
+<BaseLayout title={title} description={description} image={image} schemaBlocks={[breadcrumb, article]}>
+  <PageHeader
+    eyebrow="Knowledge base · Flexible packaging"
+    heading="How to choose stand-up pouch materials."
+    lead="Translate the product, shelf-life goal, filling process and handling risks into measurable requirements before comparing film structures."
+    imageSrc={image}
+    imageAlt="Printed stand-up pouches representing flexible packaging material choices."
+  />
+
+  <section class="py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <p><strong>There is no universal “best” stand-up pouch material.</strong> A suitable structure must work with the product, intended shelf life, fill and seal process, closure, distribution environment and applicable regulatory requirements. Start by describing those conditions, then ask suppliers to propose and document a complete structure rather than selecting a material from one headline property.</p>
+      <p>For a purchasing enquiry, review Apex’s <a href="/industries/custom-mylar-bags">custom bags and pouches</a> or <a href="/services/polybags">custom polybags</a>. Send the product, fill process, pouch format, dimensions or fill quantity, artwork, order quantity and destination.</p>
+
+      <h2>Turn the product into performance requirements</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-[680px]">
+          <thead><tr><th>Product question</th><th>Why the supplier needs it</th><th>Evidence to request</th></tr></thead>
+          <tbody>
+            <tr><td>Is the product sensitive to oxygen, moisture, light or aroma loss?</td><td>Different layers and thicknesses can address different transmission or light-control needs.</td><td>Relevant transmission data, test conditions and shelf-life validation plan.</td></tr>
+            <tr><td>Is the product oily, acidic, abrasive, sharp or chemically active?</td><td>The product-contact layer, adhesives and inks must be suitable for the intended contents and use.</td><td>Compatibility statement and applicable regulatory documentation for the exact construction.</td></tr>
+            <tr><td>How is it filled and sealed?</td><td>Product in the seal area, jaw temperature, dwell, pressure and line speed can affect seal formation.</td><td>Recommended sealing window and trial results on the intended equipment.</td></tr>
+            <tr><td>What storage and distribution conditions apply?</td><td>Temperature, humidity, flexing, drops and abrasion can affect the finished pouch.</td><td>Conditioned testing or package validation appropriate to the route.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A shelf-life target is not the same as a barrier specification. Product formulation, initial quality, headspace, package area, seal integrity, storage conditions and distribution all contribute. A qualified product or packaging professional should establish the validation plan.</p>
+
+      <h2>Understand the main material trade-offs</h2>
+      <p>The descriptions below are general educational categories. Actual layer combinations, thicknesses, adhesives, coatings and performance vary by supplier and conversion process.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-[680px]">
+          <thead><tr><th>General construction family</th><th>Potential reason to evaluate it</th><th>Trade-offs and questions</th></tr></thead>
+          <tbody>
+            <tr><td>Polyethylene-focused structure</td><td>Can offer a simple sealing layer and may support a mono-material design goal when the complete structure and local collection pathway qualify.</td><td>Confirm barrier, stiffness, heat resistance, print protection and actual recyclability claims for the market.</td></tr>
+            <tr><td>PET/PE or similar printed laminate</td><td>Can combine a printable outer web with a heat-sealable inner web.</td><td>Ask about barrier level, flex-crack behaviour, layer compatibility and end-of-life limitations.</td></tr>
+            <tr><td>Metallized or foil-containing laminate</td><td>May be considered where light and gas or moisture transmission targets are demanding.</td><td>Opacity, flexing, pinholes, metal detection, microwave use and recycling pathways may affect suitability.</td></tr>
+            <tr><td>Paper-appearance laminate</td><td>Can provide a fibre-based visual or tactile surface.</td><td>Paper appearance does not prove repulpability or recyclability; confirm the full structure, barrier and seal performance.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Do not compare structures by a marketing label alone. Request the full specification in a controlled document and evaluate the performance data under relevant conditions.</p>
+
+      <h2>Compare barrier data correctly</h2>
+      <p>Oxygen transmission rate and water-vapour transmission rate describe different properties. ASTM D3985 is a method for oxygen gas transmission through plastic film and sheeting; ASTM F1249 addresses water-vapour transmission through plastic film and sheeting. A number without the method, temperature, relative humidity, units and specimen construction is incomplete.</p>
+      <p>Barrier data from a flat film specimen also does not automatically predict the shelf life of the finished pouch. Seals, closures, gusset folds, flexing and manufacturing variation can change package performance. Ask how the supplier connects material data to the converted pouch and your validation plan.</p>
+
+      <h2>Treat sealing as a system</h2>
+      <p>The sealant layer must work with the actual filling line and product. ASTM F88/F88M provides a method for measuring seal strength of flexible barrier materials, while ASTM F1921/F1921M addresses hot seal strength, often called hot tack, while a seal is still hot. Neither test supplies a universal pass value for every pouch.</p>
+      <ul>
+        <li>Provide the filling temperature and whether product dust, oil or particles can reach the seal area.</li>
+        <li>Record sealing-jaw type, temperature range, dwell time, pressure and line speed.</li>
+        <li>Define how leaks, channel seals, distorted zippers and weak gusset intersections will be assessed.</li>
+        <li>Test the final pouch with the intended product or a justified simulant and the intended process.</li>
+      </ul>
+
+      <h2>Confirm food-contact and market requirements</h2>
+      <p>For food packaging in Canada, the food business is responsible for ensuring packaging materials are safe and suitable for their intended use. CFIA guidance discusses retaining current supplier or manufacturer documentation. For the United States, FDA authorization depends on the substance and intended food-contact use. A generic “food grade” claim is not enough to establish suitability for every product, temperature or use.</p>
+      <p>State the product, market, contact conditions and process in the RFQ, then request documentation for the exact proposed construction. Also identify any recycled-content, certification or end-of-life claim that must be substantiated in the destination market.</p>
+
+      <h2>Supplier questions for a useful comparison</h2>
+      <ol>
+        <li>What is the complete layer structure and nominal thickness of each layer?</li>
+        <li>Which layer contacts the product, and what supports its suitability for the intended use?</li>
+        <li>What oxygen- and moisture-transmission data apply, under which methods and conditions?</li>
+        <li>What sealing window is recommended for the intended equipment and line speed?</li>
+        <li>How are zipper, valve, spout, window or hang-hole areas incorporated and evaluated, if required?</li>
+        <li>What tolerances apply to pouch dimensions, feature positions and print registration?</li>
+        <li>Which tests are proposed for seal integrity, handling and distribution, and what are the acceptance criteria?</li>
+        <li>Which regulatory, recycled-content or end-of-life statements can be documented for the exact construction and market?</li>
+      </ol>
+
+      <h2>Build the RFQ around evidence, not assumptions</h2>
+      <p>Send the product description, formulation considerations, fill method, shelf-life target, storage range, pouch dimensions or fill amount, closure features, artwork, quantity and destination. Add the tests and documents required for approval. The <a href="/blog/custom-packaging-rfq-template-12-specs-buyers-include">12-field packaging RFQ template</a> helps organize those inputs.</p>
+
+      <h2>References and technical resources</h2>
+      <ul>
+        <li><a href="https://store.astm.org/products-services/standards-and-publications/standards/paper-standards-and-packaging-standards.html" rel="noopener noreferrer">ASTM flexible-barrier standards index, including D3985, F1249, F88/F88M and F1921/F1921M</a></li>
+        <li><a href="https://inspection.canada.ca/en/preventive-controls/food-establishments" rel="noopener noreferrer">CFIA guidance on packaging materials for food establishments</a></li>
+        <li><a href="https://www.fda.gov/food/food-ingredients-packaging/food-packaging-other-substances-come-contact-food-information-consumers" rel="noopener noreferrer">FDA overview of food packaging and food-contact substances</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <RelatedContent items={[
+    { title: 'Custom Bags and Pouches', href: '/industries/custom-mylar-bags', description: 'Review the commercial pouch page and request project pricing.' },
+    { title: 'Custom Polybags', href: '/services/polybags', description: 'Explore the related flexible-packaging service page.' },
+    { title: 'Packaging RFQ Template', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'Prepare the 12 fields needed for a comparable supplier quotation.' }
+  ]} />
+  <CTABand
+    heading="Brief the pouch around the product and process."
+    lead="Send the product, fill method, performance needs, format, artwork, quantity and destination for a project quotation."
+    primaryCta={{ label: 'Request a pouch quote', href: '/contact' }}
+  />
 </BaseLayout>
