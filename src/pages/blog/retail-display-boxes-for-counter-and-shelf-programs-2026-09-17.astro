@@ -5,97 +5,126 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Retail Display Boxes for Counter and Shelf Programs: Load, visibility, artwork panels, and replenishment';
-const description = 'A practical buyer guide to retail display boxes in the USA and Canada: load, visibility, artwork panels, and replenishment, quote details, internal links, and production checks before ordering.';
+const title = 'Retail Display Boxes: Plan Product Load, Facings and Replenishment';
+const description = 'Plan counter and shelf display boxes around product load, facings, replenishment, artwork, barcodes and retail setup before requesting a quote.';
 const url = '/blog/retail-display-boxes-for-counter-and-shelf-programs-2026-09-17';
 const datePublished = '2026-09-17';
+const dateModified = '2026-10-31';
 const image = '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp';
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Blog', url: '/blog' },
-  { name: 'Retail Display Boxes for Counter and Shelf Programs', url }
+  { name: 'Retail Display Boxes', url }
 ]);
-const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const article = {
+  ...buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' }),
+  dateModified
+};
 const faq = buildFAQSchema([
   {
-    q: 'What should buyers include in a retail display boxes quote request?',
-    a: 'Send dimensions, product weight, material preference, print requirements, quantity, delivery location, sample needs, and any compliance or sustainability requirements.'
+    q: 'Should a buyer choose a counter display or a shelf display first?',
+    a: 'Start with the retailer location, available footprint, product dimensions, required facings and replenishment method. Those constraints should determine the display format rather than the format being chosen in isolation.'
   },
   {
-    q: 'How does Apex Packaging Solutions help with retail display boxes?',
-    a: 'Apex reviews the product, route, artwork, material choices, and reorder plan so buyers can compare cost, protection, presentation, and lead time before production.'
+    q: 'How many product facings should a display have?',
+    a: 'Use the retailer planogram or merchandising objective together with unit dimensions, packed load and replenishment frequency. There is no universal facing count that works for every product or store.'
   },
   {
-    q: 'When should samples be requested?',
-    a: 'Samples should be requested when the product is fragile, the fit is tight, artwork is new, the order is a launch, or the packaging will be used for retail display.'
+    q: 'When should barcode placement be checked?',
+    a: 'Check it on the assembled, loaded display before production. Confirm the barcode type, quiet zones, print surface, orientation and intended scanning point with the responsible retailer or GS1 guidance.'
   }
 ]);
 ---
-<BaseLayout
-  title="Retail Display Boxes for Counter and Shelf Programs: Load, visibility, artwork panels, and replenishment"
-  description={description}
-  image={image}
-  schemaBlocks={[breadcrumb, article, faq]}
->
+<BaseLayout title={title} description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
   <PageHeader
-    eyebrow="Knowledge base · retail displays"
-    heading="Retail Display Boxes for Counter and Shelf Programs - load, visibility, artwork panels, and replenishment."
-    lead="A practical procurement guide for buyers comparing materials, print, protection, lead time, and reorder planning before approving production."
+    eyebrow="Knowledge base · Retail displays"
+    heading="Retail display boxes: plan product load, facings and replenishment."
+    lead="Define how the display is loaded, opened, presented and restocked before approving its structure or artwork."
     imageSrc={image}
-    imageAlt="Retail Display Boxes for Counter and Shelf Programs premium Apex Packaging banner image with product mockups, cartons, and RFQ planning details."
+    imageAlt="Retail display planning materials showing product load, artwork panels and replenishment details."
   />
 
   <section class="py-12 md:py-20">
     <div class="container max-w-default prose-apex">
-      <p><strong>retail display boxes</strong> decisions work best when the buyer defines the product, the sales channel, and the handling route before asking for pricing. A low first quote can become expensive if the material scuffs, the carton is hard to pack, the artwork needs revision, or the package fails during shipping.</p>
-      <p>Apex Packaging Solutions supports buyers in the USA and Canada with custom packaging programs that connect structure, material, print, and delivery planning. This guide explains the practical details to confirm before approving retail display boxes for a launch, reorder, or multi-SKU program.</p>
+      <p><strong>A retail display box should be designed around a specific product load and store task.</strong> The buyer needs to define the unit dimensions, packed weight, number of facings, opening sequence, available counter or shelf space and replenishment method. Those inputs affect the front opening, wall height, product support, artwork panels and whether the display travels inside a separate shipping case.</p>
+      <p>Use this guide to prepare a display brief. For a purchasing enquiry, review Apex’s <a href="/industries/display-boxes">custom display boxes</a> page and send the product details, intended retail location, quantity, artwork status and delivery destination.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
-        <img src={image} alt="Kraft corrugated shipping boxes with dividers, board samples, tape, and handling labels" width="1600" height="720" loading="eager" decoding="async" class="w-full" />
-        <figcaption class="px-5 py-4 text-sm text-neutral-600">A cleaner RFQ starts with the product, dimensions, material target, artwork state, quantity, and delivery route.</figcaption>
+        <img src={image} alt="Retail display planning materials with cartons, product-loading notes and artwork references." width="1600" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">The approved display should connect the store footprint to a repeatable product load and setup sequence.</figcaption>
       </figure>
 
-      <h2>Start with the product and the route</h2>
-      <p>The product shape, weight, surface finish, and fragility should guide the packaging format. A small retail product, a subscription shipment, a palletized industrial part, and a premium gift set each need a different balance of protection and presentation. Buyers should also identify whether the package ships parcel, LTL, pallet, courier, or retail distribution.</p>
-      <p>That route affects board grade, film gauge, closure method, insert style, and label placement. When the route is unclear, suppliers have to guess, and those guesses usually create revisions later.</p>
+      <h2>Choose the format from the retail task</h2>
+      <table>
+        <thead><tr><th>Format to evaluate</th><th>Useful when</th><th>Questions to resolve</th></tr></thead>
+        <tbody>
+          <tr><td>Counter display tray</td><td>A compact assortment is placed near a till or service counter</td><td>Footprint, viewing angle, product removal and staff replenishment</td></tr>
+          <tr><td>Shelf-ready display</td><td>The loaded unit moves onto a shelf with limited store handling</td><td>Outer-case removal, shelf depth, front lip, facings and remaining-unit stability</td></tr>
+          <tr><td>Shipper-display system</td><td>The display also performs part of the distribution task</td><td>Transit protection, opening instructions, store setup and disposal of transport components</td></tr>
+        </tbody>
+      </table>
+      <p>These are planning categories, not interchangeable specifications. The retailer’s planogram, handling rules and distribution route should control the final structure.</p>
 
-      <h2>Confirm material and print expectations early</h2>
-      <p>Material choice affects cost, strength, appearance, and lead time. Corrugated board, paperboard, rigid board, LDPE film, HDPE film, molded pulp, and foam each solve different problems. Print method also matters. A simple one-colour shipper is not quoted the same way as a full-colour retail carton with coating, foil, or tight colour matching.</p>
-      <p>If artwork is already prepared, send dielines, colour references, barcode locations, and any finish notes. If artwork is not prepared, review <a href="/design-support">packaging design support</a> before finalizing the quote so the structure and design are built together.</p>
+      <h2>Define the complete product load</h2>
+      <p>Record each unit’s maximum dimensions and packed weight, then specify the assortment and count loaded into one display. Include product variation, primary-pack friction, hanging features and any surfaces that should remain visible. A display that holds one sample may behave differently when fully loaded or partly depleted.</p>
+      <p>State the required facings and the order in which staff or shoppers remove products. Product movement can block the front panel, allow units to rotate or make the final units difficult to reach. Review the full, half-full and nearly empty conditions rather than only the launch photo.</p>
 
-      <h2>Use samples when fit or presentation matters</h2>
-      <p>Samples are helpful when the product is fragile, the insert fit is close, the retail face must be checked, or the package is a first launch. A sample can reveal packing friction, label conflicts, weak closure points, or artwork issues before production. It is also useful when a buyer is comparing two material options that look similar on paper.</p>
-      <p>For repeat orders, the approved sample becomes the benchmark. Keep notes on board grade, dimensions, print method, finish, and packing instructions so reorders do not drift from the original approval.</p>
+      <h2>Write the setup and replenishment sequence</h2>
+      <ol>
+        <li>Describe whether the display arrives preloaded, flat or inside an outer case.</li>
+        <li>Identify every tear strip, removable panel, fold, lock or packing component used during setup.</li>
+        <li>Record the expected orientation on the counter or shelf.</li>
+        <li>Show how staff replenish the display without damaging artwork or mixing SKUs.</li>
+        <li>Define what happens to transport material after setup.</li>
+      </ol>
+      <p>A short trial with the people who will pack and replenish the unit can reveal unclear instructions, slow assembly or a front opening that does not work with the loaded product.</p>
 
-      <h2>What to send before requesting a quote</h2>
+      <h2>Place artwork around the assembled display</h2>
+      <p>Map the primary viewing panel, price or promotion area, product windows and any retailer-required label zones on the assembled structure. Artwork should use the final dieline revision so opening features and removable panels do not cut through important copy.</p>
+      <p>Barcode placement needs a separate check. GS1 Canada advises preserving quiet zones, keeping symbols away from package edges and using a smooth surface. A trade item sold in a different packaging level or configuration may also need its own identifier. Confirm the responsible barcode and scan point before files are released.</p>
+
+      <h2>Decide how the display travels</h2>
+      <p>A display may travel loaded inside an outer case, perform as part of the shipper or be assembled at the store. Each route exposes it to different handling and compression conditions. Define the entire packed system, not only the visible tray, and select validation from the real distribution environment. ISTA’s official guidance emphasizes choosing tests with knowledge of that environment rather than using one test for every package.</p>
+      <p><strong>Hypothetical example:</strong> a six-facing counter tray is stable when full but the last two units tip after repeated shopper handling. The correction might involve the product arrangement or internal support; adding board thickness without reviewing the load does not necessarily solve the buyer’s problem.</p>
+
+      <h2>Retail display RFQ checklist</h2>
       <ul>
-        <li>Product dimensions, weight, photos, and any fragile or scuff-sensitive areas.</li>
-        <li>Preferred packaging format, or permission for Apex to recommend one.</li>
-        <li>Artwork files, colour expectations, label zones, and barcode placement.</li>
-        <li>Quantity, launch timing, reorder frequency, and delivery destination.</li>
-        <li>Material preferences, sustainability requirements, or compliance notes.</li>
-        <li>Shipping route, pallet pattern, carrier method, and whether samples are needed.</li>
+        <li>Product drawings, photos, unit dimensions, unit weight and permitted variation.</li>
+        <li>SKU assortment, units per display, facings and replenishment sequence.</li>
+        <li>Retailer footprint, shelf or counter constraints and planogram requirements.</li>
+        <li>Preloaded, flat-packed or shipper-display delivery method.</li>
+        <li>Outer-case and pallet information where the display travels through distribution.</li>
+        <li>Final artwork status, viewing priorities, labels and barcode requirements.</li>
+        <li>Quantity by version, delivery destinations and required approval stages.</li>
       </ul>
 
-      <h2>How to compare quotes fairly</h2>
-      <p>Packaging quotes should be compared by total fit, not just unit price. Check whether each quote includes the same material, size, print coverage, tooling, sampling, freight assumptions, and lead time. A lower unit price may not help if it excludes a needed insert, uses a weaker board, or assumes a higher MOQ than the buyer can actually use.</p>
-      <p>Buyers can also review the related guide to <a href="/blog/custom-packaging-rfq-template-12-specs-buyers-include">custom packaging RFQ details</a> to reduce back-and-forth before production approval.</p>
+      <h2>Frequently asked questions</h2>
+      <h3>Should I choose a counter display or a shelf display first?</h3>
+      <p>Start with the retailer location, available footprint, product dimensions, required facings and replenishment method. Those constraints should determine the format.</p>
+      <h3>How many product facings should a display have?</h3>
+      <p>Use the planogram or merchandising objective together with the unit dimensions, full load and replenishment frequency. There is no universal facing count.</p>
+      <h3>When should barcode placement be checked?</h3>
+      <p>Check it on the assembled, loaded display before production. Confirm the barcode type, quiet zones, print surface, orientation and intended scanning point.</p>
 
-      <h2>Conclusion</h2>
-      <p>Strong retail display boxes programs come from clear specifications. When buyers define the product, route, material, print, samples, and reorder plan before asking for pricing, Apex can recommend packaging that protects the product, presents the brand clearly, and supports repeatable purchasing.</p>
+      <h2>Primary references</h2>
+      <ul>
+        <li><a href="https://www.gs1ca.org/barcodes/" rel="noopener noreferrer">GS1 Canada: barcode placement, quiet zones and verification</a></li>
+        <li><a href="https://www.gs1ca.org/standards/global-trade-item-numbers/" rel="noopener noreferrer">GS1 Canada: GTINs for products and packaging levels</a></li>
+        <li><a href="https://www.ista.org/getting_started_with_design.php" rel="noopener noreferrer">ISTA: distribution-aware package design and testing</a></li>
+      </ul>
     </div>
   </section>
 
   <RelatedContent items={[
-    { title: 'Relevant packaging service', href: '/services/corrugated-boxes', description: 'Review Apex packaging options connected to this buyer guide.' },
-    { title: 'RFQ checklist', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'See the key specs buyers should send before requesting pricing.' },
-    { title: 'Request a Quote', href: '/contact', description: 'Send dimensions, artwork, quantity, and delivery details for production pricing.' }
+    { title: 'Custom Display Boxes', href: '/industries/display-boxes', description: 'Review the commercial display-box page for a purchasing enquiry.' },
+    { title: 'Retail Display Format Guide', href: '/blog/retail-display-packaging-counter-trays-pdq-guide', description: 'Compare counter trays and shelf-ready display formats.' },
+    { title: 'Packaging RFQ Template', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'Organize the specifications needed for a comparable quote.' }
   ]} />
 
   <CTABand
-    heading="Quote the package around the real product."
-    lead="Send your dimensions, artwork, quantity, and route. Apex can help compare material, structure, print, and lead time before production."
-    primaryCta={{ label: 'Request a packaging quote', href: '/contact' }}
+    heading="Quote the display around the real retail task."
+    lead="Send the product load, retail footprint, setup method, artwork status, quantity and destination for a display-box quotation."
+    primaryCta={{ label: 'Request a display-box quote', href: '/contact' }}
   />
 </BaseLayout>

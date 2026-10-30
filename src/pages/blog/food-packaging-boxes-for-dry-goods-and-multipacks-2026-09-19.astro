@@ -5,97 +5,123 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Food Packaging Boxes for Dry Goods and Multipacks: Board choice, liners, pack counts, and pallet routes';
-const description = 'A practical buyer guide to food packaging boxes in the USA and Canada: board choice, liners, pack counts, and pallet routes, quote details, internal links, and production checks before ordering.';
+const title = 'Food Multipack Boxes: Plan Counts, Fit and Distribution';
+const description = 'Plan dry-food multipack and outer cases around primary packs, case count, packed weight, pallet route, labels and food-contact documentation.';
 const url = '/blog/food-packaging-boxes-for-dry-goods-and-multipacks-2026-09-19';
 const datePublished = '2026-09-19';
+const dateModified = '2026-10-31';
 const image = '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp';
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Blog', url: '/blog' },
-  { name: 'Food Packaging Boxes for Dry Goods and Multipacks', url }
+  { name: 'Food Multipack Boxes', url }
 ]);
-const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const article = {
+  ...buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' }),
+  dateModified
+};
 const faq = buildFAQSchema([
   {
-    q: 'What should buyers include in a food packaging boxes quote request?',
-    a: 'Send dimensions, product weight, material preference, print requirements, quantity, delivery location, sample needs, and any compliance or sustainability requirements.'
+    q: 'Is a dry-food multipack the same as food-contact packaging?',
+    a: 'Not necessarily. A carton or case may hold already sealed primary packs, or a component may contact food directly. Map every packaging layer and obtain documentation appropriate to its intended use.'
   },
   {
-    q: 'How does Apex Packaging Solutions help with food packaging boxes?',
-    a: 'Apex reviews the product, route, artwork, material choices, and reorder plan so buyers can compare cost, protection, presentation, and lead time before production.'
+    q: 'Can board strength be selected from case weight alone?',
+    a: 'No. Case dimensions, board construction, stacking pattern, storage time, humidity, pallet support, handling and product support all affect performance.'
   },
   {
-    q: 'When should samples be requested?',
-    a: 'Samples should be requested when the product is fragile, the fit is tight, artwork is new, the order is a launch, or the packaging will be used for retail display.'
+    q: 'Does a new multipack configuration need a new barcode?',
+    a: 'It may. GS1 Canada explains that different products, packaging formats or packaging levels can require unique identifiers. Confirm the GTIN allocation and retailer requirements with the responsible data owner.'
   }
 ]);
 ---
-<BaseLayout
-  title="Food Packaging Boxes for Dry Goods and Multipacks: Board choice, liners, pack counts, and pallet routes"
-  description={description}
-  image={image}
-  schemaBlocks={[breadcrumb, article, faq]}
->
+<BaseLayout title={title} description={description} image={image} schemaBlocks={[breadcrumb, article, faq]}>
   <PageHeader
-    eyebrow="Knowledge base · food packaging"
-    heading="Food Packaging Boxes for Dry Goods and Multipacks - board choice, liners, pack counts, and pallet routes."
-    lead="A practical procurement guide for buyers comparing materials, print, protection, lead time, and reorder planning before approving production."
+    eyebrow="Knowledge base · Food multipacks"
+    heading="Food multipack boxes: plan counts, fit and distribution."
+    lead="Map the sealed primary pack, retail multipack, shipping case and pallet before specifying the box or its labels."
     imageSrc={image}
-    imageAlt="Food Packaging Boxes for Dry Goods and Multipacks premium Apex Packaging banner image with product mockups, cartons, and RFQ planning details."
+    imageAlt="Dry-food primary packs arranged with multipack and outer-case planning notes."
   />
 
   <section class="py-12 md:py-20">
     <div class="container max-w-default prose-apex">
-      <p><strong>food packaging boxes</strong> decisions work best when the buyer defines the product, the sales channel, and the handling route before asking for pricing. A low first quote can become expensive if the material scuffs, the carton is hard to pack, the artwork needs revision, or the package fails during shipping.</p>
-      <p>Apex Packaging Solutions supports buyers in the USA and Canada with custom packaging programs that connect structure, material, print, and delivery planning. This guide explains the practical details to confirm before approving food packaging boxes for a launch, reorder, or multi-SKU program.</p>
+      <p><strong>A food multipack or outer case should begin with the sealed primary package and the distribution hierarchy.</strong> Buyers need to define unit dimensions, case count, packed weight, orientation, retail presentation, pallet route, label data and whether any packaging component contacts food. Those decisions affect fit, board specification, handling and documentation.</p>
+      <p>Use this guide to prepare the project brief. For an Apex purchasing enquiry, review <a href="/industries/food-boxes">custom food packaging boxes</a> and send primary-pack details, required counts, artwork, quantities and delivery destinations.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
-        <img src={image} alt="Kraft corrugated shipping boxes with dividers, board samples, tape, and handling labels" width="1600" height="720" loading="eager" decoding="async" class="w-full" />
-        <figcaption class="px-5 py-4 text-sm text-neutral-600">A cleaner RFQ starts with the product, dimensions, material target, artwork state, quantity, and delivery route.</figcaption>
+        <img src={image} alt="Dry-food primary packs shown with multipack, shipping-case and pallet planning information." width="1600" height="720" loading="eager" decoding="async" class="w-full" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Keep the role and requirements of each packaging level separate in the specification.</figcaption>
       </figure>
 
-      <h2>Start with the product and the route</h2>
-      <p>The product shape, weight, surface finish, and fragility should guide the packaging format. A small retail product, a subscription shipment, a palletized industrial part, and a premium gift set each need a different balance of protection and presentation. Buyers should also identify whether the package ships parcel, LTL, pallet, courier, or retail distribution.</p>
-      <p>That route affects board grade, film gauge, closure method, insert style, and label placement. When the route is unclear, suppliers have to guess, and those guesses usually create revisions later.</p>
+      <h2>Map every packaging level</h2>
+      <table>
+        <thead><tr><th>Level</th><th>Main question</th><th>Information to record</th></tr></thead>
+        <tbody>
+          <tr><td>Primary pack</td><td>What directly contains and protects the food?</td><td>Maximum dimensions, weight, seal areas, product variation and intended use</td></tr>
+          <tr><td>Retail multipack</td><td>How many units are sold together?</td><td>Count, orientation, opening, consumer information and barcode ownership</td></tr>
+          <tr><td>Shipping case</td><td>How does the product move through distribution?</td><td>Case count, packed weight, closure, labels and handling route</td></tr>
+          <tr><td>Pallet load</td><td>How are cases supported and stacked?</td><td>Pattern, layers, overhang limits, storage and transport conditions</td></tr>
+        </tbody>
+      </table>
+      <p>A single box can sometimes perform more than one role, but the buyer should still document each requirement. Retail graphics do not replace shipping-case performance, and an outer case does not replace the food-safety requirements of a direct-contact component.</p>
 
-      <h2>Confirm material and print expectations early</h2>
-      <p>Material choice affects cost, strength, appearance, and lead time. Corrugated board, paperboard, rigid board, LDPE film, HDPE film, molded pulp, and foam each solve different problems. Print method also matters. A simple one-colour shipper is not quoted the same way as a full-colour retail carton with coating, foil, or tight colour matching.</p>
-      <p>If artwork is already prepared, send dielines, colour references, barcode locations, and any finish notes. If artwork is not prepared, review <a href="/design-support">packaging design support</a> before finalizing the quote so the structure and design are built together.</p>
+      <h2>Set the count from geometry and handling</h2>
+      <p>Measure representative filled primary packs, including seals, gussets, closures and permitted fill variation. Compare arrangements using the actual orientation and allow for practical loading rather than calculating from nominal dimensions alone. Record whether staff, a case packer or the consumer opens the pack.</p>
+      <p>Case count also changes packed weight, manual handling, pallet efficiency and the number of retail units exposed when a case is opened. Evaluate those trade-offs with operations and the retailer instead of selecting the largest count automatically.</p>
 
-      <h2>Use samples when fit or presentation matters</h2>
-      <p>Samples are helpful when the product is fragile, the insert fit is close, the retail face must be checked, or the package is a first launch. A sample can reveal packing friction, label conflicts, weak closure points, or artwork issues before production. It is also useful when a buyer is comparing two material options that look similar on paper.</p>
-      <p>For repeat orders, the approved sample becomes the benchmark. Keep notes on board grade, dimensions, print method, finish, and packing instructions so reorders do not drift from the original approval.</p>
+      <h2>Specify the distribution case as a system</h2>
+      <p>Case weight is not enough to prescribe a corrugated construction. Dimensions, flute and liner combination, box style, product support, stacking pattern, humidity, storage duration, pallet deck and handling route all influence performance. Ask suppliers to state the complete board and box specification behind a quote.</p>
+      <p>ASTM D642’s official summary describes compression testing for shipping containers and notes that the package can be tested with or without contents. That test addresses a defined question; it does not establish suitability for every distribution hazard. Use route-specific validation and acceptance criteria.</p>
 
-      <h2>What to send before requesting a quote</h2>
+      <h2>Separate food-contact documentation from general box approval</h2>
+      <p>Identify which components contact food directly and which hold an already sealed primary pack. The Canadian Food Inspection Agency states that food businesses are responsible for the safety and suitability of packaging materials and that most packaging is not generally preapproved by CFIA. Obtain supplier documentation for the intended use and keep it with the product and packaging specification.</p>
+      <p>Do not extend documentation for one coating, adhesive, ink or material to another construction without evidence. Regulatory, allergen, migration and hygiene questions should be reviewed by the responsible food-safety team.</p>
+
+      <h2>Control labels and packaging-level identifiers</h2>
+      <p>Record the data owner and required identifier at each level. GS1 Canada explains that different packaging formats and levels can need distinct GTINs. Barcode size, quiet zones, placement and print surface should be checked on the assembled pack for the intended scanner and retail process.</p>
+      <p><strong>Hypothetical example:</strong> six sealed pouches fit a retail multipack, while four multipacks fit a shipping case. Changing the pouch count changes the consumer unit, case weight, carton artwork and possibly the identifier. Treat it as a controlled packaging change rather than only a dimensional revision.</p>
+
+      <h2>Food-box RFQ checklist</h2>
       <ul>
-        <li>Product dimensions, weight, photos, and any fragile or scuff-sensitive areas.</li>
-        <li>Preferred packaging format, or permission for Apex to recommend one.</li>
-        <li>Artwork files, colour expectations, label zones, and barcode placement.</li>
-        <li>Quantity, launch timing, reorder frequency, and delivery destination.</li>
-        <li>Material preferences, sustainability requirements, or compliance notes.</li>
-        <li>Shipping route, pallet pattern, carrier method, and whether samples are needed.</li>
+        <li>Product category and whether each component has direct or indirect food contact.</li>
+        <li>Filled primary-pack dimensions, weight, variation and orientation.</li>
+        <li>Units per multipack and multipacks or units per shipping case.</li>
+        <li>Retail-display, opening, tamper or consumer-information requirements.</li>
+        <li>Case dimensions, packed weight, closure and pallet configuration.</li>
+        <li>Storage, humidity, parcel, case and pallet route assumptions.</li>
+        <li>Artwork, barcode ownership, GTINs and variable-label zones.</li>
+        <li>Required supplier documentation, quantities and delivery destinations.</li>
       </ul>
 
-      <h2>How to compare quotes fairly</h2>
-      <p>Packaging quotes should be compared by total fit, not just unit price. Check whether each quote includes the same material, size, print coverage, tooling, sampling, freight assumptions, and lead time. A lower unit price may not help if it excludes a needed insert, uses a weaker board, or assumes a higher MOQ than the buyer can actually use.</p>
-      <p>Buyers can also review the related guide to <a href="/blog/custom-packaging-rfq-template-12-specs-buyers-include">custom packaging RFQ details</a> to reduce back-and-forth before production approval.</p>
+      <h2>Frequently asked questions</h2>
+      <h3>Is a dry-food multipack the same as food-contact packaging?</h3>
+      <p>Not necessarily. A box may hold sealed primary packs, or a component may contact food directly. Map every layer and obtain documentation for its intended use.</p>
+      <h3>Can board strength be selected from case weight alone?</h3>
+      <p>No. Case dimensions, construction, stacking, storage, humidity, pallet support, handling and product support also affect performance.</p>
+      <h3>Does a new multipack need a new barcode?</h3>
+      <p>It may. Different products, packaging formats or packaging levels can require unique identifiers. Confirm allocation and retailer requirements with the responsible data owner.</p>
 
-      <h2>Conclusion</h2>
-      <p>Strong food packaging boxes programs come from clear specifications. When buyers define the product, route, material, print, samples, and reorder plan before asking for pricing, Apex can recommend packaging that protects the product, presents the brand clearly, and supports repeatable purchasing.</p>
+      <h2>Primary references</h2>
+      <ul>
+        <li><a href="https://inspection.canada.ca/en/preventive-controls/food-establishments" rel="noopener noreferrer">Canadian Food Inspection Agency: packaging-material responsibility and documentation</a></li>
+        <li><a href="https://inspection.canada.ca/en/food-safety-industry/toolkit-food-businesses/sfcr-handbook-food-businesses" rel="noopener noreferrer">CFIA: Safe Food for Canadians Regulations handbook</a></li>
+        <li><a href="https://www.gs1ca.org/standards/global-trade-item-numbers/" rel="noopener noreferrer">GS1 Canada: GTINs for products and packaging levels</a></li>
+        <li><a href="https://store.astm.org/standards/d642" rel="noopener noreferrer">ASTM D642 official summary: compression testing of shipping containers</a></li>
+      </ul>
     </div>
   </section>
 
   <RelatedContent items={[
-    { title: 'Relevant packaging service', href: '/services/corrugated-boxes', description: 'Review Apex packaging options connected to this buyer guide.' },
-    { title: 'RFQ checklist', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'See the key specs buyers should send before requesting pricing.' },
-    { title: 'Request a Quote', href: '/contact', description: 'Send dimensions, artwork, quantity, and delivery details for production pricing.' }
+    { title: 'Custom Food Packaging Boxes', href: '/industries/food-boxes', description: 'Review the commercial food-box page for a purchasing enquiry.' },
+    { title: 'Corrugated Shipping Boxes', href: '/services/corrugated-boxes', description: 'Review outer-case packaging for distribution projects.' },
+    { title: 'Dry and Chilled Food Packaging Guide', href: '/blog/food-packaging-boxes-corrugated-specs-dry-chilled-bulk-food', description: 'Compare route and specification questions for broader food programs.' }
   ]} />
 
   <CTABand
-    heading="Quote the package around the real product."
-    lead="Send your dimensions, artwork, quantity, and route. Apex can help compare material, structure, print, and lead time before production."
-    primaryCta={{ label: 'Request a packaging quote', href: '/contact' }}
+    heading="Quote the box around the complete pack hierarchy."
+    lead="Send primary-pack details, counts, packed weights, artwork, route, documentation needs, quantities and destinations for a food-box quotation."
+    primaryCta={{ label: 'Request a food-box quote', href: '/contact' }}
   />
 </BaseLayout>
