@@ -94,8 +94,8 @@ const responsiveImagePath = (src: string, width: number) => src.replace(/\.(webp
 const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((width) => `${responsiveImagePath(src, width)} ${width}w`).join(', ');
 ---
 <BaseLayout
-  title="Custom Boxes Canada | Custom Packaging Solutions | Apex"
-  description="Apex Packaging Solutions supplies custom packaging boxes, custom boxes, printed boxes, mailers, pouches and retail packaging for Canada, the USA and international markets."
+  title="Custom Boxes & Printed Packaging Canada | Apex"
+  description="Canada-based Apex supplies custom boxes, printed packaging, mailers, rigid boxes, pouches and bags, with US service available. Request a project quote."
   schemaBlocks={schemaBlocks}
 >
   <section class="apex-banner-slider overflow-hidden border-b border-[#e2d6bd] bg-[#fffdf8]">
@@ -173,15 +173,16 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   <section id="categories" class="bg-[#fffdf8] py-12 md:py-24">
     <div class="container max-w-wide">
       <div class="mx-auto mb-8 max-w-4xl text-center md:mb-12">
-        <h1 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">Premium Custom Packaging That Makes Your Brand Stand Out</h1>
+        <h1 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">Custom Boxes & Printed Packaging for Canadian Businesses</h1>
         <p class="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-          Custom boxes, custom printed boxes, mailers, bags, rigid boxes, and retail packaging made to fit your product dimensions. Request a custom packaging quote and explore product-specific order options, with design support available for qualifying orders.
+          Apex Packaging Solutions supplies custom printed folding cartons, corrugated and mailer boxes, rigid boxes, display and retail packaging, pouches, and bags for businesses across Canada, with service available in the United States. From its Canada-based project team, Apex coordinates structural design, artwork, proofs, and samples through production with qualified overseas facilities and delivery to the approved destination.
         </p>
         <div class="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
           <a href="/contact" class="btn-primary">Request a Quote</a>
           <a href="/industries" class="btn-secondary">Explore Packaging</a>
         </div>
       </div>
+      <h2 class="sr-only">Explore custom packaging by product and style</h2>
       <div class="-mx-4 grid auto-cols-[minmax(9rem,42vw)] grid-flow-col grid-rows-2 gap-x-4 gap-y-7 overflow-x-auto px-4 pb-2 [scrollbar-width:none] md:mx-0 md:grid-flow-row md:grid-cols-4 md:gap-x-5 md:gap-y-10 md:overflow-visible md:px-0 md:pb-0 lg:gap-x-8 [&::-webkit-scrollbar]:hidden">
         {categories.map((cat, index) => (
           <a href={cat.href} class:list={['apex-category-card group min-w-0 snap-start text-center', index >= 8 && 'max-md:hidden']}>
@@ -252,7 +253,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   <section class="bg-[#fffdf8] py-12 md:py-24">
     <div class="container max-w-wide">
       <div class="mb-8 text-center md:mb-12">
-        <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Premium Finishes</h2>
+        <h2 class="font-display text-3xl font-extrabold uppercase text-neutral-900 md:text-5xl">Custom packaging finishes and print effects</h2>
         <p class="mt-3 text-base text-neutral-600">Finishing options that give custom boxes a premium retail feel. <a href="/packaging-finishes" class="font-semibold text-neutral-900 underline decoration-accent decoration-2 underline-offset-4">Explore custom packaging finishes</a>.</p>
       </div>
       <div class="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
@@ -285,7 +286,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
     <div class="container max-w-wide relative">
       <div class="max-w-4xl">
         <p class="eyebrow">Why Apex</p>
-        <h2 class="mt-3 font-display text-3xl font-extrabold text-neutral-50 md:text-6xl">Why Choose Us?</h2>
+        <h2 class="mt-3 font-display text-3xl font-extrabold text-neutral-50 md:text-6xl">Why businesses choose Apex for custom packaging</h2>
         <p class="mt-3 max-w-2xl text-base font-semibold uppercase tracking-wide text-neutral-200 md:mt-4 md:text-lg">
           Custom packaging support from brief to reorder.
         </p>
@@ -341,7 +342,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
       <div class="mb-8 max-w-4xl md:mb-10">
         <p class="eyebrow">RFQ desk</p>
         <div class="mt-3 flex flex-wrap items-end gap-x-6 gap-y-3">
-          <h2 class="font-display text-3xl font-extrabold uppercase leading-none text-neutral-900 md:text-5xl">Get Custom Quote</h2>
+          <h2 class="font-display text-3xl font-extrabold uppercase leading-none text-neutral-900 md:text-5xl">Request a custom packaging quote</h2>
           <span class="mb-1 rounded-md bg-white px-4 py-2 text-sm font-black uppercase tracking-wide text-success shadow-card">Quote-specific delivery review</span>
         </div>
         <p class="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
@@ -358,7 +359,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
             <input name="website" tabindex="-1" autocomplete="off" />
           </label>
           <div class="bg-[#c99700] px-5 py-5 text-center md:px-7">
-            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-3xl">Get Custom Quote</h3>
+            <h3 class="font-display text-2xl font-extrabold uppercase tracking-wide text-neutral-950 md:text-3xl">Project specifications</h3>
           </div>
 
           <div class="grid gap-5 p-4 md:p-7">
@@ -473,7 +474,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
         <aside class="min-w-0 xl:col-span-5">
           <div class="max-w-2xl">
             <h3 class="font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">
-              Custom Boxes, Designed for Your Brand, Made for Your Needs - Without the Hassle.
+              Packaging support for your product and brand
             </h3>
             <p class="mt-5 text-base font-semibold leading-relaxed text-neutral-600">
               Ensuring the perfect fit, protection, branding, and presentation for your custom boxes is effortless with Apex's comprehensive support.
@@ -481,7 +482,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
             <p class="mt-4 text-base font-semibold leading-relaxed text-neutral-600">
               Get expert guidance, access proven box styles, and find the right size by sending your product details. Apex helps select materials, printing techniques, finishes, laminations, and add-ons tailored to your packaging needs and purpose.
             </p>
-            <h4 class="mt-7 font-display text-xl font-extrabold text-neutral-900">Still, There's More!</h4>
+            <h4 class="mt-7 font-display text-xl font-extrabold text-neutral-900">Artwork and brand preparation</h4>
             <p class="mt-3 text-base font-semibold leading-relaxed text-neutral-600">
               Upload your logo or artwork, and our packaging designers can refine it to match your brand identity while keeping the structure practical for production.
             </p>
