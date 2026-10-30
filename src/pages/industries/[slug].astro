@@ -88,7 +88,7 @@ const commercialSeoBySlug: Record<string, { title: string; description: string; 
   'chocolate-boxes': { title: 'Custom Chocolate Packaging Boxes Canada | Apex Packaging', description: 'Custom chocolate packaging boxes for bars, truffles, gift assortments and seasonal collections, with insert, print and finish choices quoted to specification.', heading: 'Custom chocolate packaging boxes for bars, assortments and gift programs.' },
   'christmas-boxes': { title: 'Custom Christmas Gift Boxes Canada | Apex Packaging', description: 'Custom Christmas gift packaging boxes for seasonal retail, confectionery and corporate gifting, with structures, print and delivery requirements reviewed by project.', heading: 'Custom Christmas gift packaging boxes for seasonal retail and gifting programs.' },
   'cigarette-boxes': { title: 'Custom Cigarette Packaging Boxes Canada | Apex Packaging', description: 'Custom cigarette packaging boxes and small-format retail cartons with production specifications and required information panels reviewed by project.', heading: 'Custom cigarette packaging boxes for small-format retail programs.' },
-  'coffee-packaging': { title: 'Custom Coffee Packaging Boxes Canada | Apex Packaging', description: 'Custom coffee packaging for roasters, subscriptions and retail programs, including pouches, cartons, mailers and product-specific print options.', heading: 'Custom coffee packaging for wholesale, retail and subscription programs.' },
+  'coffee-packaging': { title: 'Custom Coffee Packaging Canada | Apex Packaging', description: 'Custom coffee packaging for roasters, subscriptions and retail programs, including pouches, cartons, mailers and product-specific print options.', heading: 'Custom coffee packaging for wholesale, retail and subscription programs.' },
   'cosmetic-boxes': { title: 'Custom Cosmetic Packaging Boxes Canada | Apex Packaging', description: 'Custom cosmetic packaging boxes for skincare, makeup, jars and beauty retail launches, with structures, inserts, printing and finishes quoted to specification.', heading: 'Custom cosmetic packaging boxes for beauty products, retail presentation and launch planning.' },
   'custom-kraft-soap-boxes': { title: 'Custom Kraft Soap Boxes Canada | Apex Packaging', description: 'Custom kraft soap boxes for handmade soap, skincare and wellness retail, with sleeves, windows, print and product-specific quotation support.', heading: 'Custom kraft soap boxes for wholesale and retail packaging programs.' },
   'custom-mylar-bags': { title: 'Custom Mylar Bags Canada | Apex Packaging', description: 'Custom printed Mylar bags and pouches for retail products, with material, size, closure, print and project-specific quote requirements.', heading: 'Custom printed Mylar bags for wholesale and retail pouch programs.' },
@@ -128,6 +128,129 @@ const metaDescription = commercialSeo?.description ?? (box.summary.length <= 110
   : box.summary);
 const commercialHeading = commercialSeo?.heading ?? `Custom ${box.label.toLowerCase()} built around your product, channel and reorder plan.`;
 const commercialKeyword = commercialSeo?.title.replace(' | Apex Packaging', '') ?? `Custom ${box.label} Canada`;
+
+type DecisionRow = { option: string; application: string; tradeoff: string };
+type BuyerContent = {
+  intro: string;
+  structures: DecisionRow[];
+  materials: DecisionRow[];
+  measurements: string[];
+  printing: string[];
+  sampling: string[];
+  commercialFactors: string[];
+  faqs: { q: string; a: string }[];
+  related: { title: string; href: string; description: string }[];
+  quoteLead: string;
+};
+
+const buyerContentBySlug: Record<string, BuyerContent> = {
+  'rigid-boxes': {
+    intro: 'Apex supplies custom rigid boxes for premium gift sets, cosmetics, tech kits, launch packaging, and retail products that need a stronger presentation format. Send the complete product dimensions, packed weight, preferred opening style, artwork, quantity, destination, and timing context for a project-specific quotation.',
+    structures: [
+      { option: 'Two-piece lift-off lid', application: 'Gift sets, cosmetics, accessories, and presentation kits', tradeoff: 'Straightforward opening and a strong display surface; lid depth and fit tolerance must be sampled.' },
+      { option: 'Magnetic book-style box', application: 'Launch kits, premium retail sets, and repeat-use presentation', tradeoff: 'Controlled reveal and positive closure; magnets, hinge action, and any ribbon pull add components and assembly.' },
+      { option: 'Drawer or sleeve-and-tray box', application: 'Jewelry, beauty, electronics, and compact product sets', tradeoff: 'Distinct sliding reveal; drawer friction, pull detail, and insert alignment require physical testing.' },
+      { option: 'Rigid setup box', application: 'Premium retail products, launch packaging, and gift presentation', tradeoff: 'Board thickness, wrap, corners, and finished tolerances must be developed as one specification.' }
+    ],
+    materials: [
+      { option: 'Rigid board with printed paper wrap', application: 'Full-colour brand graphics and controlled exterior presentation', tradeoff: 'Wrap stock, print, lamination, corners, and fold-over areas must be developed as one specification.' },
+      { option: 'Specialty lamination over printed paper wrap', application: 'Premium presentation where the surface appearance supports the brand direction', tradeoff: 'The lamination, printed wrap, corners, and fold-over areas must be reviewed together.' },
+      { option: 'Paperboard or folded-board insert', application: 'Light products, organized kits, and paper-forward packouts', tradeoff: 'Efficient to print and fold, but support depends on geometry and product weight.' },
+      { option: 'Foam insert', application: 'Precise cavities, fragile items, or elevated display', tradeoff: 'Protection, appearance, tooling, and the mixed-material packout should be weighed together.' }
+    ],
+    measurements: [
+      'Measure every component in the final kit, including caps, cables, manuals, accessories, tissue, and sample items.',
+      'Share the complete packed weight, preferred orientation, fragile points, and the order in which items should be revealed.',
+      'Define the acceptable product movement and finger-access or removal needs around each insert cavity.',
+      'Allow for wrap thickness, insert tolerances, lid clearance, drawer travel, and any closure component.',
+      'Provide the distribution route and outer-shipping plan; a presentation box is not automatically a parcel shipper.'
+    ],
+    printing: [
+      'Printed paper wraps can carry full-colour artwork, subject to the selected stock and production process.',
+      'Foil, embossing, spot UV, matte, or soft-touch finishes can add hierarchy when compatible with the wrap and construction.',
+      'Fine details should be kept away from wrapped edges, corners, hinge folds, and other high-stress areas.',
+      'Insert print and tissue should be specified with the outer box so colour and presentation can be reviewed together.'
+    ],
+    sampling: [
+      'Provide vector logos where possible, final copy, colour references, mandatory marks, and the current approved dieline revision.',
+      'Use a structural sample to review product fit, lid clearance, magnet alignment, drawer friction, hinge action, insert removal, and assembly.',
+      'Use a digital proof to check layout; request a printed or production-representative sample when wrap, colour, foil, texture, or finish decisions are critical.',
+      'Approve the complete box-and-insert packout rather than reviewing the outer shell in isolation.'
+    ],
+    commercialFactors: [
+      'box style, dimensions, board thickness, wrap stock, and number of components;',
+      'closure hardware, insert material, cavity complexity, and assembly;',
+      'print coverage, foil or other finishes, artwork versions, and colour-control needs;',
+      'tooling, sample route, artwork readiness, quantity, packing configuration, and destination.'
+    ],
+    faqs: [
+      { q: 'Which rigid-box style should I choose?', a: 'Choose around the opening sequence, product arrangement, display needs, and fulfilment process. Two-piece boxes provide a familiar lift-off presentation, magnetic styles create a book-like reveal, and drawer boxes suit compact sets where a sliding experience is useful. A structural sample should confirm the final choice.' },
+      { q: 'Does every rigid box need an insert?', a: 'No. An insert is useful when products need fixed orientation, separation, protection, or a planned reveal. Products that already fit securely may need tissue or a simpler platform instead. The insert decision should reflect packed weight, fragility, removal, material preference, and assembly.' },
+      { q: 'Can rigid boxes be used as shipping boxes?', a: 'A rigid presentation box is not automatically designed for parcel distribution. The shipping route and handling expectations should be documented so the required outer shipper and protective components can be specified separately.' },
+      { q: 'What should I inspect on a rigid-box sample?', a: 'Check the complete product fit, opening and closing action, lid clearance, magnet alignment or drawer friction, corner wrapping, insert removal, finish placement, and how the box behaves inside its planned shipping pack.' },
+      { q: 'What affects rigid-box minimums, price, and timing?', a: 'Structure, size, board and wrap, number of components, closure, insert, print, finishes, tooling, sample route, quantity, packing, and destination all matter. A complete supplier quotation should state the project-specific minimum, price, and schedule.' }
+    ],
+    related: [
+      { title: 'Luxury rigid-box structure and finish guide', href: '/blog/luxury-rigid-boxes-premium-products-structure-inserts-finishes', description: 'Compare presentation structures, inserts, finishes, measurements, and sample decisions.' },
+      { title: 'Custom box inserts for safer presentation', href: '/blog/custom-box-inserts-for-safer-product-presentation-2026-09-07', description: 'Review paperboard, foam, molded, and protective insert considerations.' },
+      { title: 'Packaging finishes', href: '/packaging-finishes', description: 'Review foil, embossing, coatings, and other established finish options.' }
+    ],
+    quoteLead: 'For a complete RFQ, send every product and accessory dimension, complete packed weight, preferred opening style, closure and insert requirements, visual direction, artwork status, target quantity, destination, and timing context.'
+  },
+  'coffee-packaging': {
+    intro: 'Apex supplies custom coffee packaging for roasters, subscription brands, retail programs, sample packs, and shipping kits. Send the coffee format and fill weight, target dimensions, preferred pack style, artwork count, quantity, destination, and timing context for a project-specific quotation.',
+    structures: [
+      { option: 'Stand-up pouch', application: 'Retail coffee, smaller pack formats, samples, and product lines needing a shelf-facing panel', tradeoff: 'Compact and display-friendly; base gusset, zipper, seal zones, and filled stability must match the product.' },
+      { option: 'Side-gusset bag', application: 'Traditional roasted-coffee presentation and larger filled formats', tradeoff: 'Uses side expansion efficiently; the filled shape and available front, back, and gusset artwork areas differ from a stand-up pouch.' },
+      { option: 'Paperboard carton or sleeve', application: 'Secondary retail presentation, multi-packs, gift sets, and products already sealed in an inner pack', tradeoff: 'Adds display and information panels but does not replace the required primary coffee barrier packaging.' },
+      { option: 'Corrugated subscription mailer', application: 'Single-SKU or mixed coffee subscriptions, tasting kits, and ecommerce shipments', tradeoff: 'Supports shipping and unboxing; it must be sized around the filled bags, inserts, literature, and route.' }
+    ],
+    materials: [
+      { option: 'Barrier pouch structure', application: 'Primary coffee bags or pouches where barrier and seal performance are required', tradeoff: 'The structure must be matched to the roast, filling process, intended shelf life, valve, and documentation requirements.' },
+      { option: 'Kraft paperboard carton', application: 'Secondary display, grouping, information space, and gift presentation', tradeoff: 'The carton provides structure and print area but relies on a suitable sealed inner package for the coffee.' },
+      { option: 'Valve-ready film structure', application: 'Roasted-coffee packs where the product and filling process require degassing', tradeoff: 'Valve suitability, placement, sealing, and the complete film structure must be evaluated together.' },
+      { option: 'Corrugated board', application: 'Subscription mailers and ecommerce shipping packs', tradeoff: 'Provides distribution structure; flute, liner, insert, and print choices depend on packed weight and shipping conditions.' }
+    ],
+    measurements: [
+      'Share the coffee format and intended fill weight, then provide a filled reference pack or target filled dimensions after the product settles.',
+      'Identify bag width, height, gusset or base depth, headspace, fill opening, and required seal areas.',
+      'Mark zipper, tear-notch, valve, barcode, and mandatory-copy zones before artwork is finalized.',
+      'For cartons and subscription mailers, measure the complete filled bags plus dividers, cards, samples, and protective material.',
+      'Provide the number and orientation of bags per pack, complete packed weight, sales channel, and shipping route.'
+    ],
+    printing: [
+      'Custom-printed pouch film is suited to established artwork and SKU programs; the print process and colour controls are confirmed with the material and order plan.',
+      'Matte or gloss appearance and kraft surfaces affect artwork contrast and must be reviewed with the exact material structure.',
+      'Paperboard cartons and corrugated mailers use their own compatible print and finish routes; do not assume one colour result across film and board.'
+    ],
+    sampling: [
+      'Provide vector logos where possible, colour references, final copy, barcode files, required information panels, and each approved SKU version.',
+      'Confirm the latest bag or box dieline before releasing production artwork, including seals, gussets, folds, zipper, and valve zones.',
+      'Use a representative filled sample to evaluate capacity, settling, closure access, shelf stance, carton fit, and subscription-mailer packout.',
+      'Confirm which proof or sample is intended to assess layout, colour, material, valve placement, sealing, or full production performance.'
+    ],
+    commercialFactors: [
+      'bag style and dimensions, material construction, closure, valve, and other components;',
+      'print coverage, finish, number of SKUs, shared versus separate artwork, and colour-control needs;',
+      'cartons, sleeves, inserts, or subscription mailers included in the program;',
+      'tooling or cylinders where applicable, samples, artwork readiness, quantity, packing, destination, and documentation requirements.'
+    ],
+    faqs: [
+      { q: 'Which coffee package should I quote first?', a: 'Start with the primary pack that touches or contains the coffee: stand-up pouch or side-gusset bag, including fill weight, barrier, valve, closure, and filling requirements. Add cartons, sleeves, or subscription mailers only after the filled primary pack dimensions are understood.' },
+      { q: 'Does a kraft-look coffee bag have the required barrier?', a: 'Not necessarily. Kraft describes appearance, not the full material construction. The product, filling method, required barrier, shelf-life, valve, food-contact, and documentation criteria should be established before a supplier structure is selected.' },
+      { q: 'When should a coffee pouch use a degassing valve?', a: 'Valve requirements depend on the coffee, roast timing, filling process, package structure, and intended shelf life. A qualified packaging supplier should determine valve suitability and placement from those inputs; the bag style alone is not enough.' },
+      { q: 'How do I size a coffee subscription mailer?', a: 'Measure the actual filled bags after settling, then arrange every bag, card, sample, divider, or protective component in the intended orientation. Share that complete packout, packed weight, and shipping route so the corrugated mailer and any insert can be developed together.' },
+      { q: 'What affects coffee-packaging minimums, price, and timing?', a: 'Bag dimensions, material structure, valve and closure, print process, SKU count, cartons or mailers, tooling, samples, artwork readiness, quantity, packing, destination, and documentation needs all affect the plan. A complete supplier quotation should state the project-specific minimum, price, and schedule.' }
+    ],
+    related: [
+      { title: 'Choose material for a stand-up pouch', href: '/blog/how-to-choose-material-for-a-stand-up-pouch', description: 'Prepare barrier, product, closure, and material requirements for supplier review.' },
+      { title: 'Select pouch size and capacity', href: '/blog/how-to-select-pouch-size-and-capacity', description: 'Build a size brief around fill weight, filled dimensions, gussets, and seal zones.' },
+      { title: 'Printed mailer boxes for subscriptions', href: '/services/mailer-boxes', description: 'Plan the corrugated outer pack around filled coffee bags, inserts, and the shipping route.' }
+    ],
+    quoteLead: 'For a complete RFQ, send the coffee format and fill weight, target filled dimensions, preferred bag or carton style, required barrier and shelf-life criteria, closure requirements, food-contact or documentation requirements, SKU and artwork count, outer-mailer packout, target quantity, destination, and timing context.'
+  }
+};
+const buyerContent = buyerContentBySlug[box.slug];
 
 const productFAQs: Record<string, { q: string; a: string }> = {
   'bakery-boxes': {
@@ -173,9 +296,9 @@ const supportingGuidesBySlug: Record<string, { title: string; href: string; desc
     { title: 'Apparel mailer packaging for ecommerce brands', href: '/blog/apparel-mailer-packaging-ecommerce-returns-guide', description: 'Compare mailers, boxes and return considerations for ecommerce apparel.' }
   ]
 };
-const supportingGuides = supportingGuidesBySlug[box.slug] ?? [];
+const supportingGuides = buyerContent?.related ?? supportingGuidesBySlug[box.slug] ?? [];
 
-const faqs = [
+const defaultFaqs = [
   {
     q: `Can Apex supply custom ${box.label.toLowerCase()} with my logo?`,
     a: `Yes. Apex can coordinate ${box.label.toLowerCase()} with brand print, custom dimensions, material selection, production-ready dielines, sampling, overseas production, and delivery.`
@@ -190,6 +313,7 @@ const faqs = [
   },
   ...(productFAQs[box.slug] ? [productFAQs[box.slug]] : [])
 ];
+const faqs = buyerContent?.faqs ?? defaultFaqs;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -276,14 +400,14 @@ const service = buildServiceSchema({
   <section id="details" class="scroll-mt-28 bg-neutral-50 py-12 md:scroll-mt-32 md:py-24">
     <div class="container max-w-wide">
       <div class="grid gap-10 lg:grid-cols-12">
-        <div class="lg:col-span-5">
+        <div class:list={[buyerContent ? 'lg:col-span-8' : 'lg:col-span-5']}>
           <p class="eyebrow">Packaging details</p>
           <h1 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-5xl">{commercialKeyword}</h1>
           <p class="mt-4 text-base leading-relaxed text-neutral-600 md:mt-5 md:text-lg">
-            {commercialHeading} Apex starts with dimensions, product weight, retail or shipping use, print goals, and target quantity. From there, the team recommends structure, board grade, print method, and sample path.
+            {buyerContent?.intro ?? `${commercialHeading} Apex starts with dimensions, product weight, retail or shipping use, print goals, and target quantity. From there, the team recommends structure, board grade, print method, and sample path.`}
           </p>
         </div>
-        <div class="grid gap-4 sm:grid-cols-2 lg:col-span-7 lg:gap-5">
+        {!buyerContent && <div class="grid gap-4 sm:grid-cols-2 lg:col-span-7 lg:gap-5">
           <article class="rounded-md border border-neutral-200 bg-white p-5 shadow-card md:p-6">
             <h3 class="font-display text-xl font-extrabold text-neutral-900">Best For</h3>
             <ul class="mt-4 space-y-2 text-neutral-600">
@@ -308,12 +432,100 @@ const service = buildServiceSchema({
               {box.printOptions.map((item) => <li class="flex gap-2"><span class="font-bold text-accent">•</span><span>{item}</span></li>)}
             </ul>
           </article>
-        </div>
+        </div>}
       </div>
     </div>
   </section>
 
-  <section class="border-y border-neutral-200 bg-white py-12 md:py-24">
+  {buyerContent && (
+    <>
+      <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+        <div class="container max-w-wide">
+          <div class="grid gap-10 lg:grid-cols-2">
+            <article class="min-w-0">
+              <p class="eyebrow">Structures and applications</p>
+              <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">Select the format around the product and buying use.</h2>
+              <div class="mt-7 overflow-x-auto rounded-md border border-neutral-200">
+                <table class="min-w-[680px] w-full border-collapse text-left text-sm leading-relaxed">
+                  <thead class="bg-neutral-900 text-white">
+                    <tr><th class="p-4">Structure</th><th class="p-4">Suitable applications</th><th class="p-4">Trade-off to evaluate</th></tr>
+                  </thead>
+                  <tbody>
+                    {buyerContent.structures.map((row) => (
+                      <tr class="border-t border-neutral-200 align-top">
+                        <th scope="row" class="p-4 font-bold text-neutral-900">{row.option}</th>
+                        <td class="p-4 text-neutral-600">{row.application}</td>
+                        <td class="p-4 text-neutral-600">{row.tradeoff}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="min-w-0">
+              <p class="eyebrow">Material choices</p>
+              <h2 class="mt-3 font-display text-3xl font-extrabold leading-tight text-neutral-900 md:text-4xl">Compare appearance, performance, and packout.</h2>
+              <div class="mt-7 overflow-x-auto rounded-md border border-neutral-200">
+                <table class="min-w-[680px] w-full border-collapse text-left text-sm leading-relaxed">
+                  <thead class="bg-neutral-900 text-white">
+                    <tr><th class="p-4">Material direction</th><th class="p-4">Suitable applications</th><th class="p-4">Trade-off to evaluate</th></tr>
+                  </thead>
+                  <tbody>
+                    {buyerContent.materials.map((row) => (
+                      <tr class="border-t border-neutral-200 align-top">
+                        <th scope="row" class="p-4 font-bold text-neutral-900">{row.option}</th>
+                        <td class="p-4 text-neutral-600">{row.application}</td>
+                        <td class="p-4 text-neutral-600">{row.tradeoff}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-neutral-200 bg-neutral-50 py-12 md:py-20">
+        <div class="container max-w-wide">
+          <div class="grid gap-5 md:grid-cols-2">
+            <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card md:p-8">
+              <p class="eyebrow">Measurement and fit</p>
+              <h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900 md:text-3xl">Measure the complete packout.</h2>
+              <ul class="mt-5 space-y-3 text-base leading-relaxed text-neutral-600">
+                {buyerContent.measurements.map((item) => <li class="flex gap-3"><span class="font-black text-accent">•</span><span>{item}</span></li>)}
+              </ul>
+            </article>
+            <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card md:p-8">
+              <p class="eyebrow">Printing and finishing</p>
+              <h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900 md:text-3xl">Design for the selected material.</h2>
+              <ul class="mt-5 space-y-3 text-base leading-relaxed text-neutral-600">
+                {buyerContent.printing.map((item) => <li class="flex gap-3"><span class="font-black text-accent">•</span><span>{item}</span></li>)}
+              </ul>
+            </article>
+            <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card md:p-8">
+              <p class="eyebrow">Artwork and samples</p>
+              <h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900 md:text-3xl">Approve the right proof for each decision.</h2>
+              <ul class="mt-5 space-y-3 text-base leading-relaxed text-neutral-600">
+                {buyerContent.sampling.map((item) => <li class="flex gap-3"><span class="font-black text-accent">•</span><span>{item}</span></li>)}
+              </ul>
+            </article>
+            <article class="rounded-md border border-neutral-200 bg-white p-6 shadow-card md:p-8">
+              <p class="eyebrow">Commercial planning</p>
+              <h2 class="mt-3 font-display text-2xl font-extrabold text-neutral-900 md:text-3xl">What changes minimums, price, and timing.</h2>
+              <p class="mt-4 text-base leading-relaxed text-neutral-600">A complete quotation requires:</p>
+              <ul class="mt-5 space-y-3 text-base leading-relaxed text-neutral-600">
+                {buyerContent.commercialFactors.map((item) => <li class="flex gap-3"><span class="font-black text-accent">•</span><span>{item}</span></li>)}
+              </ul>
+              <p class="mt-5 text-base font-semibold leading-relaxed text-neutral-800">There is no universal minimum, price, or lead time that applies to every specification.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  {!buyerContent && <section class="border-y border-neutral-200 bg-white py-12 md:py-24">
     <div class="container max-w-wide">
       <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
         <div class="lg:col-span-4">
@@ -330,13 +542,13 @@ const service = buildServiceSchema({
           <article class="grid gap-3 rounded-md border border-[#c8dbdd] bg-[#eef6f6] p-4 md:grid-cols-[auto_1fr] md:items-center md:gap-4 md:p-5">
             <span class="grid h-12 w-12 place-items-center rounded-md bg-[#1f6672] font-mono text-sm font-black text-white">RFQ</span>
             <p class="text-base font-semibold leading-relaxed text-neutral-800 md:text-lg">
-              Send dimensions, quantity, artwork, product weight, and launch date. Apex will return a practical material, structure, and pricing recommendation.
+              {buyerContent?.quoteLead ?? 'Send dimensions, quantity, artwork, product weight, and launch date. Apex will return a practical material, structure, and pricing recommendation.'}
             </p>
           </article>
         </div>
       </div>
     </div>
-  </section>
+  </section>}
 
   <FAQAccordion faqs={faqs} />
 
@@ -350,8 +562,8 @@ const service = buildServiceSchema({
   />
 
   <CTABand
-    heading={`Need custom ${box.label.toLowerCase()}?`}
-    lead="Share the product size, material preference, quantity, and target delivery date. Apex will recommend the right box structure and print path."
+    heading={buyerContent ? `Request a ${box.label.toLowerCase()} quotation` : `Need custom ${box.label.toLowerCase()}?`}
+    lead={buyerContent?.quoteLead ?? 'Share the product size, material preference, quantity, and target delivery date. Apex will recommend the right box structure and print path.'}
     primaryCta={{ label: 'Send your specs', href: '/contact' }}
   />
 </BaseLayout>

@@ -1,81 +1,220 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
-import FAQAccordion from '../../components/sections/FAQAccordion.astro';
-import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
-import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
+import RelatedContent from '../../components/sections/RelatedContent.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+
+const title = 'Custom Mailer Boxes Canada | Apex Packaging';
+const description =
+  'Custom mailer boxes for wholesale ecommerce, subscription and retail programs, with corrugated structures, print and quote requirements confirmed by project.';
+
+const serviceSchema = buildServiceSchema({
+  name: 'Custom printed corrugated mailer boxes',
+  description,
+  url: '/services/mailer-boxes'
+});
+const breadcrumb = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Mailer Boxes', url: '/services/mailer-boxes' }
+]);
 
 const faqs = [
-  { q: 'What is the minimum order on custom-printed mailers?', a: 'Minimum order quantities vary by structure, dimensions, material, printing method, finish, quantity, and delivery destination. Contact Apex for a mailer-specific quotation.' },
-  { q: 'What artwork files do you need?', a: 'Vector logos (AI, EPS, or PDF) and brand-colour references help prepare artwork. Artwork preparation requirements and any related costs are confirmed in the quotation.' },
-  { q: 'Where are Apex mailer boxes produced?', a: 'Approved projects are produced through qualified overseas facilities. Apex coordinates the dieline, artwork, sampling, production, quality review, freight, and delivery.' },
-  { q: 'Can I print on the inside of the box?', a: 'Interior print may be available. The method, coverage, cost and production implications are confirmed for the selected structure.' }
+  {
+    q: 'Which mailer structure is suitable for ecommerce and subscription orders?',
+    a:
+      'A die-cut tuck-top mailer with front locking tabs is a common starting point because it combines presentation with a self-contained corrugated structure. The final dieline should reflect the packed product, inserts, opening experience, shipping route, and any operational features such as a tear strip.',
+  },
+  {
+    q: 'Should I choose E-flute or B-flute corrugated board?',
+    a:
+      'E-flute is slimmer and generally gives a cleaner print surface, which can suit compact retail-style mailers. B-flute adds rigidity and crush resistance but has a more pronounced corrugated profile. Product weight, dimensions, handling, stacking, and route should guide the choice.',
+  },
+  {
+    q: 'How should I measure products for a custom mailer?',
+    a:
+      'Measure the complete packed arrangement, not only the bare product. Include tissue, manuals, dividers, protective fill, samples, or inserts, then share the longest length, width, and depth, packed weight, orientation, and expected shipping route.',
+  },
+  {
+    q: 'Can mailer boxes be printed inside and outside?',
+    a:
+      'Interior, exterior, and two-sided print are common mailer specifications. Buyers should define the required print surfaces, artwork detail, colour expectations, board, and finish before evaluating which production process is suitable.',
+  },
+  {
+    q: 'What files and samples are needed before production?',
+    a:
+      'Provide vector logos where possible, colour references, final copy, barcode requirements, and the current approved dieline revision. A structural sample can confirm fit and assembly; a printed proof or production-representative sample may be appropriate when colour and finish decisions are important.',
+  },
+  {
+    q: 'What affects minimum quantities, pricing, and timing?',
+    a:
+      'The structure, dimensions, board and liner, print process, number of print surfaces, finishes, insert design, artwork readiness, sample route, quantity, packing, and destination all affect the production plan. A complete quotation should state the project-specific minimum, price, and schedule.',
+  },
 ];
-const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Mailer Boxes',url:'/services/mailer-boxes'}]);
-const service = buildServiceSchema({ name:'Custom mailer and rigid boxes', description:'Custom-printed mailers, rigid presentation boxes, magnetic closures, drawer boxes, and premium retail structures managed from design through delivery.', url:'/services/mailer-boxes'});
 ---
-<BaseLayout
-  title="Custom Mailer Boxes Canada | Apex Packaging"
-  description="Custom mailer boxes for wholesale ecommerce, subscription and retail programs, with corrugated structures, print and quote requirements confirmed by project."
-  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
->
+
+<BaseLayout title={title} description={description} schemaBlocks={[breadcrumb, serviceSchema, buildFAQSchema(faqs)]}>
   <PageHeader
     eyebrow="Service · Mailer Boxes"
     heading="Custom Mailer Boxes Canada"
-    lead="Apex supplies printed corrugated mailers, rigid presentation boxes, magnetic closures, drawers, and premium retail structures for businesses in Canada, the United States, and international markets. Qualified overseas facilities produce approved projects while Apex manages design, sampling, production, quality coordination, and delivery."
+    lead="Apex supplies custom printed corrugated mailer boxes for ecommerce orders, subscription programs and retail shipments across Canada, with service available in the United States and international markets. Apex coordinates design, artwork, sampling, overseas production and delivery around the approved project specification. Send your packed product dimensions, quantity, artwork requirements and destination to request a quotation."
     imageSrc="/images/services/mailer-boxes-generated-banner.webp"
     imageAlt="Apex Packaging custom mailer box banner with headline, feature icons, and branded black, kraft, and white mailer boxes."
     imageIsFullBanner={true}
   />
 
-  <section class="py-16 md:py-24">
-    <div class="container max-w-default prose-apex">
-      <h2>Structural options</h2>
-      <ul>
-        <li><strong>Tuck-top mailer</strong> — friction-tab closure, the standard e-commerce mailer.</li>
-        <li><strong>Magnetic-close mailer</strong> — premium retail-feel, hidden magnet closure.</li>
-        <li><strong>ZIP-tear opening</strong> — perforated pull-strip for unboxing experience.</li>
-        <li><strong>Dispenser-style</strong> — open-flap design for repeat-access products.</li>
-        <li><strong>Custom dieline</strong> — Apex's design team draws a structural dieline from product dimensions.</li>
-      </ul>
-
-      <h2>Print options</h2>
-      <ul>
-        <li><strong>Exterior full-colour print</strong> with one-pass digital or flexo. Spot colour matching to brand swatch.</li>
-        <li><strong>Interior print</strong> — one colour or full-colour. Used for inside-lid messaging or pattern.</li>
-        <li><strong>Spot UV, foil stamp, embossing</strong> available on litho-laminated stock.</li>
-        <li><strong>Spot coatings</strong> — matte, soft-touch, gloss.</li>
-      </ul>
-
-      <h2>Material options</h2>
-      <ul>
-        <li>E-flute corrugated (standard for mailers) — light, printable, structurally rigid.</li>
-        <li>B-flute (heavier feel, more protection).</li>
-        <li>Material, recycled-content and certification requirements reviewed for the selected product.</li>
-      </ul>
-
-      <h2>Sample process</h2>
-      <ol>
-        <li>Send brand assets (logo, brand colours, any reference photos).</li>
-        <li>Apex prepares the structural dieline and 3D mockup on the schedule confirmed after reviewing the brief.</li>
-        <li>Approve digitally, or order a physical pre-production sample.</li>
-        <li>On approval, Apex confirms the production and shipping schedule for the selected structure, material, print method, quantity, and destination.</li>
-      </ol>
+  <section class="border-b border-neutral-200 bg-white py-14">
+    <div class="container max-w-wide prose-apex">
+      <p class="eyebrow">Structure and application</p>
+      <h2>Choose the mailer around the shipping job</h2>
+      <p>
+        A mailer should protect the packed product while remaining practical to assemble, close, ship, and open. Start with the product arrangement and distribution route, then determine whether the project needs a standard mailer layout or a custom dieline. For heavier or less presentation-led shipments, compare the format with our
+        <a href="/services/corrugated-boxes">corrugated shipping box options</a>.
+      </p>
+      <div class="mt-8 overflow-x-auto">
+        <table class="min-w-[720px]">
+          <thead>
+            <tr><th>Structure</th><th>Suitable applications</th><th>Planning consideration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Die-cut tuck-top mailer</td>
+              <td>Ecommerce orders, subscription packs, launch kits, and curated sets</td>
+              <td>Front locking tabs and dust flaps should be checked against the packed product and intended opening sequence.</td>
+            </tr>
+            <tr>
+              <td>Mailer with fitted insert</td>
+              <td>Multi-item kits, fragile components, or products that need a fixed presentation</td>
+              <td>The insert changes the usable interior and must be developed with the outer box, not added after sizing.</td>
+            </tr>
+            <tr>
+              <td>Custom operational mailer</td>
+              <td>Programs needing a tear strip, special locking detail, or unusual packout</td>
+              <td>Extra operations can affect tooling, assembly, material use, sampling, and production planning.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <FAQAccordion faqs={faqs} />
+  <section class="border-b border-neutral-200 bg-neutral-50 py-14">
+    <div class="container max-w-wide prose-apex">
+      <p class="eyebrow">Board and liner choices</p>
+      <h2>Balance print appearance with distribution strength</h2>
+      <div class="mt-8 overflow-x-auto">
+        <table class="min-w-[720px]">
+          <thead>
+            <tr><th>Choice</th><th>Practical advantage</th><th>Trade-off to evaluate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>E-flute corrugated</td><td>Slimmer profile and a cleaner surface for detailed presentation graphics</td><td>May provide less rigidity than a heavier flute for demanding products or routes.</td></tr>
+            <tr><td>B-flute corrugated</td><td>Greater rigidity and crush resistance for larger or heavier packouts</td><td>Thicker profile and a more visible corrugated surface can affect fine print appearance.</td></tr>
+            <tr><td>Kraft outer liner</td><td>Natural brown appearance that suits restrained, high-contrast graphics</td><td>Process colours and white areas will not appear the same as on a white liner.</td></tr>
+            <tr><td>White outer liner</td><td>Brighter base for colour contrast, photography, and detailed brand artwork</td><td>Material appearance and cost should be compared with the kraft alternative for the specific job.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Board selection should be confirmed against product weight, dimensions, stacking, handling, moisture exposure, and shipping route. If the packout needs additional cushioning or separation, review
+        <a href="/services/protective-packaging">protective packaging options</a> at the same time as the box.
+      </p>
+    </div>
+  </section>
 
-  <RelatedContent items={[
-    { title:'Corrugated Boxes', href:'/services/corrugated-boxes', description:'Standard and custom corrugated shipping boxes.' },
-    { title:'Packaging Dieline Guide', href:'/blog/packaging-dieline-guide', description:'Prepare artwork for cuts, folds, bleed, glue areas, print, and prepress review.' },
-    { title:'Packaging Material Comparison', href:'/blog/packaging-material-comparison-guide', description:'Compare paperboard, corrugated, rigid board, kraft, and recycled materials.' }
-  ]} />
+  <section class="border-b border-neutral-200 bg-white py-14">
+    <div class="container max-w-wide grid gap-10 lg:grid-cols-2">
+      <article class="prose-apex">
+        <p class="eyebrow">Measurement and fit</p>
+        <h2>Measure the complete packed order</h2>
+        <p>The finished mailer is only as accurate as the packout information used to create it. Send:</p>
+        <ul>
+          <li>the longest length, width, and depth of the complete product arrangement;</li>
+          <li>the packed weight and the number and orientation of all items;</li>
+          <li>space required for tissue, manuals, dividers, samples, or void fill;</li>
+          <li>fragile points, presentation requirements, and acceptable movement;</li>
+          <li>the shipping method, destination pattern, and expected handling conditions.</li>
+        </ul>
+        <p>
+          A physical product sample or representative packout can reduce uncertainty where shapes are irregular or tolerances are tight. The dieline should not be finalized from a product length alone.
+        </p>
+      </article>
+      <article class="prose-apex">
+        <p class="eyebrow">Inserts and packout</p>
+        <h2>Secure products without overcomplicating fulfilment</h2>
+        <p>Common insert approaches include folded corrugated components, paperboard dividers, or appropriate void fill. The choice depends on protection, presentation, assembly time, material preference, and the number of product variants.</p>
+        <ul>
+          <li>Folded corrugated inserts can integrate protection with the shipping pack.</li>
+          <li>Paperboard dividers suit lighter products and organized multi-item layouts.</li>
+          <li>Void fill is flexible for changing packouts but may create more fulfilment variation.</li>
+        </ul>
+        <p>Prototype the outer box and insert together so fit, assembly, and removal can be assessed as one system.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-neutral-200 bg-neutral-50 py-14">
+    <div class="container max-w-wide grid gap-10 lg:grid-cols-2">
+      <article class="prose-apex">
+        <p class="eyebrow">Print and finish</p>
+        <h2>Match the print process to the artwork and board</h2>
+        <p>Exterior, interior, and two-sided artwork are common mailer specifications. The appropriate production route depends on graphic detail, colour expectations, board surface, finish, quantity, and the number of artwork versions.</p>
+        <ul>
+          <li><strong>Flexographic print</strong> can suit simpler graphics and production runs where efficient direct-to-board printing is appropriate.</li>
+          <li><strong>Digital print</strong> can support detailed graphics, shorter campaigns, and artwork variation, subject to the selected board and production route.</li>
+          <li><strong>Litho-laminated print</strong> can provide a refined printed surface when detailed brand presentation is the priority.</li>
+        </ul>
+        <p>Coatings and specialty finishes must be checked for compatibility with the liner, print method, fold lines, and shipping wear. Review the established <a href="/packaging-finishes">packaging finish options</a> before specifying them.</p>
+      </article>
+      <article class="prose-apex">
+        <p class="eyebrow">Artwork and sampling</p>
+        <h2>Approve structure before production artwork is released</h2>
+        <ol>
+          <li><strong>Provide source files.</strong> Send vector logos where possible, final copy, colour references, barcodes, and any mandatory placement rules.</li>
+          <li><strong>Work on the current dieline.</strong> Keep a clear revision so artwork is not applied to an obsolete structure.</li>
+          <li><strong>Review a structural sample.</strong> Confirm size, fit, closure, assembly, opening, and insert performance with the intended packout.</li>
+          <li><strong>Approve the proof route.</strong> Digital proofs check layout; a printed or production-representative sample may be required when material, colour, or finish decisions are critical.</li>
+        </ol>
+        <p>Production artwork should follow the approved dieline and documented revision. Final legal copy and barcode data remain the buyer’s responsibility. See the <a href="/design-support">packaging design support overview</a> for the existing design workflow.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-neutral-200 bg-white py-14">
+    <div class="container max-w-default prose-apex">
+      <p class="eyebrow">Commercial planning</p>
+      <h2>What changes minimums, pricing, and timelines</h2>
+      <p>A useful estimate requires more than a box dimension. Project-specific minimums, price, and timing are influenced by:</p>
+      <ul class="columns-1 gap-10 md:columns-2">
+        <li>custom versus established structure and required tooling;</li>
+        <li>finished dimensions, flute, liner, and total material use;</li>
+        <li>exterior, interior, or two-sided print coverage;</li>
+        <li>print process, colour control, coatings, and specialty finishes;</li>
+        <li>insert material, complexity, and assembly requirements;</li>
+        <li>quantity, artwork versions, packout, and carton configuration;</li>
+        <li>artwork readiness and the sample or proof route;</li>
+        <li>destination, freight plan, and any required project documentation.</li>
+      </ul>
+      <p>These variables should be documented before a supplier confirms a production plan; no universal minimum or lead time applies to every specification.</p>
+    </div>
+  </section>
+
+  <FAQAccordion heading="Mailer box buyer FAQs" faqs={faqs} />
+
+  <RelatedContent
+    heading="Plan the mailer before requesting production"
+    items={[
+      { title: 'Custom mailer boxes for ecommerce', href: '/blog/custom-mailer-boxes-ecommerce-print-inserts-moq', description: 'Compare flute, liner, print surfaces, inserts, and quote inputs.' },
+      { title: 'Packaging dielines and fit', href: '/blog/packaging-dieline-guide', description: 'Understand cut lines, fold lines, safety areas, and revision control.' },
+      { title: 'Prepare packaging artwork', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Organize logos, bleed, barcodes, colour references, and production files.' },
+    ]}
+  />
 
   <CTABand
-    heading="Send brand assets and dimensions."
-    lead="Send the structure, dimensions, artwork scope, quantity, destination, and required delivery date for a product-specific quotation."
-    primaryCta={{ label: 'Request a quote', href: '/contact' }}
+    heading="Request a mailer box quotation"
+    lead="Send the complete packed dimensions and weight, product count and orientation, shipping route, preferred board and liner, required print surfaces, artwork versions, insert requirements, target quantity, destination, and timing context. These inputs form the basis of a capability and quotation review."
+    primaryCta={{ label: 'Send mailer requirements', href: '/contact' }}
   />
 </BaseLayout>
