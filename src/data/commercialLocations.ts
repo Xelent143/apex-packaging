@@ -3217,4 +3217,91 @@ export const commercialLocations: CommercialLocation[] = [
   "ctaHeading": "Request a Wichita sample-kit packaging quote.",
   "ctaLead": "Send your sample inventory, kit quantities, artwork, receiving ZIP codes, and required arrival date. Ask Apex to price the presentation boxes, inserts, and shipping components for your next business order."
 }
+,
+{
+  "slug": "toledo-custom-packaging",
+  "city": "Toledo",
+  "region": "Ohio",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Toledo",
+  "title": "Custom Packaging Toledo | Parts Boxes & Protective Inserts",
+  "description": "Quote custom packaging for Toledo replacement parts. Compare corrugated boxes, protective inserts, print quantities and freight to your Ohio receiving site.",
+  "eyebrow": "Toledo custom packaging \u00b7 Replacement parts orders",
+  "heading": "Custom packaging for Toledo parts that ship individually or in sets.",
+  "lead": "A replacement bracket, a finished cover, and its fastening hardware need different support inside one carton. Ask Apex to quote boxes and inserts for Toledo parts orders using the actual component weights, surface finishes, and packing sequence.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated box with a fitted lid, green Terralis logo and printed contour lines",
+  "buyingContext": "A Toledo parts distributor may ship one replacement item to a repair shop and a complete set to a customer assembling a product. A shared outer box can simplify purchasing, but only if each internal layout holds its contents securely. Identify which components can touch, which finishes need separation, and which small items need their own compartment. For orders packed in Toledo and delivered onward to Maumee or Perrysburg, describe the finished shipment separately from the address where Apex should deliver empty packaging.",
+  "priorities": [
+    {
+      "title": "Keep hardware away from finished surfaces",
+      "description": "List sharp edges, threaded ends, and cosmetic surfaces in the brief. Compare partitions or fitted inserts with separate bags for fasteners. Check the complete pack for movement and abrasion before selecting the material."
+    },
+    {
+      "title": "Compare single-part and service-set layouts",
+      "description": "Provide quantities for each order format. Ask whether interchangeable inserts can use one outer carton, and compare that option with separate box sizes. Include unused space and packed weight in the decision."
+    },
+    {
+      "title": "Specify the Toledo receiving point",
+      "description": "Give the delivery ZIP code, dock access, receiving hours, and storage allowance for flat cartons and inserts. Identify Maumee or Perrysburg deliveries as separate allocations when empty packaging must arrive at more than one site."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated boxes sized for parts",
+      "href": "/services/corrugated-boxes",
+      "description": "Compare slotted and die-cut structures around the loaded dimensions. Define closure, stacking, and handling requirements before approving the board specification."
+    },
+    {
+      "title": "Protective inserts and separators",
+      "href": "/services/protective-packaging",
+      "description": "Review components that restrain the part without pressing against a vulnerable finish. Supply actual items for fit checks and agree on a handling test for the packed configuration."
+    },
+    {
+      "title": "Bags for small kit components",
+      "href": "/services/polybags",
+      "description": "Keep screws, clips, and instructions identifiable within the set. Specify bag dimensions, closure, printed identification, and any material requirements for review."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send a component and quantity list",
+      "description": "Include part drawings or measurements, weights, photographs, units per box, order volumes, and the receiving address. Mark which surfaces must remain free from scuffs and which items require separate containment."
+    },
+    {
+      "title": "Trial the packing and unpacking sequence",
+      "description": "Load a representative set, close the carton, and check that hardware cannot migrate between compartments. Ask the receiving team to unpack it and confirm that labels and component counts are easy to read."
+    },
+    {
+      "title": "Approve the complete purchasing specification",
+      "description": "Record box and insert revisions, print files, quantities, and sample approval together. Request separate pricing for tooling, samples, freight, and spare inserts, with minimum quantities and timing confirmed in the quote."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex quote custom parts packaging for Toledo?",
+      "a": "Yes. Send part dimensions, weights, finish details, quantities, and the Toledo receiving ZIP code. Include whether orders contain individual parts or complete sets so the box and internal protection can be reviewed together."
+    },
+    {
+      "q": "Can different replacement parts use the same outer box?",
+      "a": "They may be able to share a carton with different inserts. Compare fit, loaded weight, unused space, and component restraint for each configuration. Approve samples of every planned combination before ordering."
+    },
+    {
+      "q": "What should a quote include for printed parts boxes?",
+      "a": "Provide artwork, part-number areas, label dimensions, and quantities by printed version. Ask the quote to identify board, box style, inserts, tooling, samples, minimum order quantities, freight, and production timing."
+    },
+    {
+      "q": "How do I request packaging deliveries to Toledo and nearby sites?",
+      "a": "List each address and ZIP code, allocation, unloading arrangements, and required arrival date. Request freight terms by destination, including any cross-border delivery responsibilities, before approving the order."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Compare corrugated styles for your shipping specification",
+    "href": "/blog/rsc-vs-fol-box-styles",
+    "description": "Review slotted and overlapping-flap box styles before choosing a structure for the packed part."
+  },
+  "ctaHeading": "Request a Toledo parts-packaging quote.",
+  "ctaLead": "Send your part list, sizes, weights, quantities, artwork, and delivery ZIP codes. Ask Apex to price the boxes, inserts, and small-component bags for your next replacement-parts order."
+}
 ];
