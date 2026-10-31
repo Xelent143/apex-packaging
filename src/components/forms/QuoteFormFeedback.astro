@@ -1,0 +1,108 @@
+---
+import { siteConfig } from '../../site.config';
+---
+
+<div
+  class="hidden rounded-md border border-[#b54708] bg-[#fff4ed] px-4 py-4 text-sm text-[#7a271a]"
+  data-quote-feedback
+  role="alert"
+  aria-live="assertive"
+  tabindex="-1"
+>
+  <p class="font-bold" data-quote-message></p>
+  <p class="mt-2 hidden text-xs" data-quote-reference>
+    Reference: <span class="font-mono font-semibold" data-quote-reference-value></span>
+  </p>
+  <div class="mt-4 hidden space-y-3" data-quote-recovery>
+    <button
+      class="min-h-11 rounded-md bg-neutral-900 px-5 py-2 font-bold text-white transition hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+      type="button"
+      data-quote-retry
+    >
+      Try again
+    </button>
+    <p>
+      Or contact Apex directly:
+      <a class="font-bold underline underline-offset-2" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      or <a class="font-bold underline underline-offset-2" href={siteConfig.phoneHref}>{siteConfig.phoneDisplay}</a>.
+    </p>
+  </div>
+</div>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>('form[data-quote-form]');
+
+  for (const form of forms) {
+    if (form.dataset.quoteEnhanced === 'true') continue;
+    form.dataset.quoteEnhanced = 'true';
+
+    const feedback = form.querySelector<HTMLElement>('[data-quote-feedback]');
+    const message = form.querySelector<HTMLElement>('[data-quote-message]');
+    const reference = form.querySelector<HTMLElement>('[data-quote-reference]');
+    const referenceValue = form.querySelector<HTMLElement>('[data-quote-reference-value]');
+    const recovery = form.querySelector<HTMLElement>('[data-quote-recovery]');
+    const retry = form.querySelector<HTMLButtonElement>('[data-quote-retry]');
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    if (!feedback || !message || !reference || !referenceValue || !recovery || !retry || !submit) continue;
+
+    const submitLabel = submit.textContent || 'Submit';
+    let submissionInFlight = false;
+
+    retry.addEventListener('click', () => {
+      if (!submissionInFlight) form.requestSubmit();
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (submissionInFlight) return;
+      submissionInFlight = true;
+      feedback.classList.add('hidden');
+      recovery.classList.add('hidden');
+      reference.classList.add('hidden');
+      form.setAttribute('aria-busy', 'true');
+      submit.disabled = true;
+      retry.disabled = true;
+      submit.textContent = 'Submitting…';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form)
+        });
+        const outcome = await response.json().catch(() => ({}));
+
+        if (response.ok && outcome.status === 'provider_accepted' && outcome.redirectTo) {
+          window.location.assign(outcome.redirectTo);
+          return;
+        }
+
+        message.textContent = outcome.error || 'We couldn’t submit your request. Please try again or contact us by email or phone.';
+        if (outcome.correlationId) {
+          referenceValue.textContent = outcome.correlationId;
+          reference.classList.remove('hidden');
+        }
+        recovery.classList.remove('hidden');
+        feedback.classList.remove('hidden');
+        feedback.focus();
+
+        if (outcome.field) {
+          const field = form.elements.namedItem(outcome.field);
+          if (field instanceof HTMLElement) field.focus();
+        }
+      } catch {
+        message.textContent = 'We couldn’t submit your request. Please try again or contact us by email or phone.';
+        recovery.classList.remove('hidden');
+        feedback.classList.remove('hidden');
+        feedback.focus();
+      } finally {
+        submissionInFlight = false;
+        form.removeAttribute('aria-busy');
+        submit.disabled = false;
+        retry.disabled = false;
+        submit.textContent = submitLabel;
+      }
+    });
+  }
+</script>

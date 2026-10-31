@@ -7,6 +7,9 @@ import {
   isSafeRedirectPath
 } from './quoteEmail.mjs';
 
+const correlationId = '00000000-0000-4000-8000-000000000001';
+const createCorrelationId = () => correlationId;
+
 test('formDataToQuoteSubmission extracts form fields and skips honeypot values', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');
@@ -92,9 +95,9 @@ test('isSafeRedirectPath only allows same-site redirect paths', () => {
   assert.equal(isSafeRedirectPath('//bad.example'), false);
 });
 
-test('handleQuoteRequest sends email and redirects after success', async () => {
+test('homepage quote follows the provider-accepted path and includes a correlation reference', async () => {
   const formData = new FormData();
-  formData.set('source', 'Contact Page');
+  formData.set('source', 'Home Quote Form');
   formData.set('name', 'Alex Buyer');
   formData.set('email', 'alex@example.com');
   formData.set('details', 'Need 500 boxes');
@@ -114,13 +117,15 @@ test('handleQuoteRequest sends email and redirects after success', async () => {
     sendEmail: async (_apiKey, email) => {
       sentEmail = email;
       return { id: 'email_123' };
-    }
+    },
+    createCorrelationId
   });
 
   assert.equal(response.status, 303);
-  assert.equal(response.headers.get('Location'), '/thank-you');
+  assert.equal(response.headers.get('Location'), `/thank-you?reference=${correlationId}`);
   assert.equal(sentEmail.to[0], 'sales@apexpackagingsolutions.com');
   assert.equal(sentEmail.reply_to, 'alex@example.com');
+  assert.match(sentEmail.text, new RegExp(`Reference: ${correlationId}`));
 });
 
 test('handleQuoteRequest rejects submissions without human confirmation', async () => {
@@ -130,6 +135,7 @@ test('handleQuoteRequest rejects submissions without human confirmation', async 
 
   const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
     method: 'POST',
+    headers: { Accept: 'application/json' },
     body: formData
   }), {
     apiKey: 'test-key',
@@ -137,11 +143,18 @@ test('handleQuoteRequest rejects submissions without human confirmation', async 
     to: 'sales@apexpackagingsolutions.com',
     sendEmail: async () => {
       throw new Error('Email should not be sent');
-    }
+    },
+    createCorrelationId
   });
 
   assert.equal(response.status, 400);
-  assert.deepEqual(await response.json(), { error: 'Please confirm that you are not a robot.' });
+  assert.deepEqual(await response.json(), {
+    ok: false,
+    status: 'validation_failed',
+    error: 'Please confirm that you are not a robot.',
+    field: 'humanConfirmation',
+    correlationId
+  });
 });
 
 test('handleQuoteRequest returns JSON for the interactive RFQ flow', async () => {
@@ -169,16 +182,24 @@ test('handleQuoteRequest returns JSON for the interactive RFQ flow', async () =>
     sendEmail: async (_apiKey, email) => {
       sentEmail = email;
       return { id: 'email_123' };
-    }
+    },
+    createCorrelationId
   });
 
   assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { ok: true });
+  assert.deepEqual(await response.json(), {
+    ok: true,
+    status: 'provider_accepted',
+    message: 'Thank you. Your quote request has been submitted.',
+    correlationId,
+    attachmentOmitted: false,
+    redirectTo: `/thank-you?reference=${correlationId}`
+  });
   assert.match(sentEmail.text, /Finishes \/ Add-ons: Matte lamination, Foil stamping/);
   assert.match(sentEmail.text, /ZIP \/ Postal Code: M5V 2T6/);
 });
 
-test('handleQuoteRequest records failed delivery and still redirects', async () => {
+test('contact quote shows a retryable failure outcome when the provider rejects delivery', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');
   formData.set('name', 'Alex Buyer');
@@ -187,9 +208,10 @@ test('handleQuoteRequest records failed delivery and still redirects', async () 
   formData.set('humanConfirmation', 'confirmed');
   formData.set('redirectTo', '/thank-you');
 
-  let failedSubmission;
+  let failureRecord;
   const request = new Request('https://example.com/api/quote', {
     method: 'POST',
+    headers: { Accept: 'application/json' },
     body: formData
   });
 
@@ -200,18 +222,29 @@ test('handleQuoteRequest records failed delivery and still redirects', async () 
     sendEmail: async () => {
       throw new Error('Provider rejected message');
     },
-    onDeliveryFailure: async (submission, error) => {
-      failedSubmission = { submission, error };
-    }
+    onDeliveryFailure: async (failure) => {
+      failureRecord = failure;
+    },
+    createCorrelationId
   });
 
-  assert.equal(response.status, 303);
-  assert.equal(response.headers.get('Location'), '/thank-you');
-  assert.equal(failedSubmission.submission.fields.email, 'alex@example.com');
-  assert.match(failedSubmission.error.message, /Provider rejected message/);
+  assert.equal(response.status, 502);
+  const outcome = await response.json();
+  assert.deepEqual(outcome, {
+    ok: false,
+    status: 'delivery_failed',
+    error: 'We couldn’t submit your request. Please try again or contact us by email or phone.',
+    correlationId
+  });
+  assert.deepEqual(failureRecord, {
+    correlationId,
+    stage: 'primary_delivery'
+  });
+  assert.doesNotMatch(JSON.stringify(outcome), /Provider rejected|alex@example\.com/);
+  assert.doesNotMatch(JSON.stringify(failureRecord), /Provider rejected|alex@example\.com|fields/);
 });
 
-test('handleQuoteRequest still redirects if failed-delivery backup throws', async () => {
+test('failed-delivery backup errors do not change the safe provider-failure response', async () => {
   const formData = new FormData();
   formData.set('source', 'Contact Page');
   formData.set('name', 'Alex Buyer');
@@ -222,6 +255,7 @@ test('handleQuoteRequest still redirects if failed-delivery backup throws', asyn
 
   const request = new Request('https://example.com/api/quote', {
     method: 'POST',
+    headers: { Accept: 'application/json' },
     body: formData
   });
 
@@ -234,11 +268,12 @@ test('handleQuoteRequest still redirects if failed-delivery backup throws', asyn
     },
     onDeliveryFailure: async () => {
       throw new Error('Backup path is not writable');
-    }
+    },
+    createCorrelationId
   });
 
-  assert.equal(response.status, 303);
-  assert.equal(response.headers.get('Location'), '/thank-you');
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).status, 'delivery_failed');
 });
 
 test('handleQuoteRequest retries without attachments if the email provider rejects them', async () => {
@@ -265,13 +300,120 @@ test('handleQuoteRequest retries without attachments if the email provider rejec
       sentEmails.push(email);
       if (email.attachments?.length) throw new Error('Provider rejected attachments');
       return { id: 'email_123' };
-    }
+    },
+    createCorrelationId
   });
 
   assert.equal(response.status, 303);
+  assert.equal(response.headers.get('Location'), `/thank-you?reference=${correlationId}&artwork=omitted#artwork-omitted`);
   assert.equal(sentEmails.length, 2);
   assert.equal(sentEmails[0].attachments[0].filename, 'dieline.pdf');
   assert.equal(sentEmails[1].attachments, undefined);
   assert.match(sentEmails[1].text, /Attachment Delivery Note/);
   assert.match(sentEmails[1].text, /dieline.pdf/);
+});
+
+test('non-JavaScript provider failure returns an error page instead of a success redirect', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Contact Page');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+  formData.set('redirectTo', '/thank-you');
+
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Referer: 'https://example.com/contact' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      throw new Error('Provider raw failure');
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 502);
+  assert.equal(response.headers.get('Location'), null);
+  assert.match(response.headers.get('Content-Type'), /text\/html/);
+  const html = await response.text();
+  assert.match(html, /We couldn’t submit your request\. Please try again or contact us by email or phone\./);
+  assert.match(html, /href="\/contact"/);
+  assert.match(html, /mailto:sales@apexpackagingsolutions\.com/);
+  assert.match(html, /tel:\+19055951634/);
+  assert.doesNotMatch(html, /Provider raw failure|alex@example\.com/);
+});
+
+test('honeypot rejection does not send email or create an accepted or failure record', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Home Quote Form');
+  formData.set('name', 'Automated Submitter');
+  formData.set('email', 'bot@example.com');
+  formData.set('website', 'https://spam.example');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let sendCalled = false;
+  let failureRecordCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      sendCalled = true;
+    },
+    onDeliveryFailure: async () => {
+      failureRecordCalled = true;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), {
+    ok: false,
+    status: 'rejected',
+    error: 'We could not process this request. Please review the form and try again, or contact Apex directly.',
+    correlationId
+  });
+  assert.equal(sendCalled, false);
+  assert.equal(failureRecordCalled, false);
+});
+
+test('invalid contact-form email remains a validation outcome and is not sent', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'not-an-email');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let sendCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      sendCalled = true;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), {
+    ok: false,
+    status: 'validation_failed',
+    error: 'Enter a valid email address.',
+    field: 'email',
+    correlationId
+  });
+  assert.equal(sendCalled, false);
 });

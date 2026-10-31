@@ -1,5 +1,10 @@
+import { randomUUID } from 'node:crypto';
+
 const RESEND_EMAILS_URL = 'https://api.resend.com/emails';
 const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024;
+const DELIVERY_FAILURE_MESSAGE = 'We couldn’t submit your request. Please try again or contact us by email or phone.';
+const REJECTION_MESSAGE = 'We could not process this request. Please review the form and try again, or contact Apex directly.';
+const SUBMISSION_SUCCESS_MESSAGE = 'Thank you. Your quote request has been submitted.';
 
 const FIELD_LABELS = {
   source: 'Source',
@@ -102,6 +107,10 @@ export function buildQuoteEmail(submission, options) {
   const clientName = submission.fields.name || 'Website visitor';
   const clientEmail = submission.fields.email || '';
   const subject = `New quote inquiry from ${clientName}`;
+  const referenceHtml = submission.correlationId
+    ? `<p style="margin:0 0 16px;"><strong>Reference:</strong> ${escapeHtml(submission.correlationId)}</p>`
+    : '';
+  const referenceText = submission.correlationId ? `Reference: ${submission.correlationId}\n` : '';
 
   const htmlRows = rows
     .map(({ label, value }) => `
@@ -121,10 +130,11 @@ export function buildQuoteEmail(submission, options) {
       <div style="font-family:Arial,sans-serif;color:#171717;line-height:1.5;">
         <h2 style="margin:0 0 12px;">New quote inquiry</h2>
         <p style="margin:0 0 16px;"><strong>Source:</strong> ${escapeHtml(submission.source)}</p>
+        ${referenceHtml}
         <table style="border-collapse:collapse;width:100%;max-width:720px;">${htmlRows}</table>
       </div>
     `,
-    text: `New quote inquiry\nSource: ${submission.source}\n\n${textRows}`
+    text: `New quote inquiry\nSource: ${submission.source}\n${referenceText}\n${textRows}`
   };
 
   if (isEmail(clientEmail)) email.reply_to = clientEmail;
@@ -159,19 +169,57 @@ export async function sendQuoteEmail(apiKey, email) {
 
 export async function handleQuoteRequest(request, options) {
   const wantsJson = request.headers.get('accept')?.includes('application/json');
-  if (!options.apiKey) return jsonResponse({ error: 'Email service is not configured.' }, 503);
+  const correlationId = options.createCorrelationId?.() || randomUUID();
+  if (!options.apiKey) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'delivery_failed',
+      error: DELIVERY_FAILURE_MESSAGE,
+      correlationId
+    }, 503, options);
+  }
 
   const submission = await requestToQuoteSubmission(request);
-  if (submission.isSpam) return wantsJson ? jsonResponse({ ok: true }, 200) : redirectResponse('/thank-you');
-  if (!submission.isHumanConfirmed) return jsonResponse({ error: 'Please confirm that you are not a robot.' }, 400);
-  if (!isEmail(submission.fields.email || '')) return jsonResponse({ error: 'A valid email address is required.' }, 400);
+  submission.correlationId = correlationId;
+  if (submission.isSpam) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'rejected',
+      error: REJECTION_MESSAGE,
+      correlationId
+    }, 400, options);
+  }
+  if (!submission.isHumanConfirmed) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'validation_failed',
+      error: 'Please confirm that you are not a robot.',
+      field: 'humanConfirmation',
+      correlationId
+    }, 400, options);
+  }
+  if (!isEmail(submission.fields.email || '')) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'validation_failed',
+      error: 'Enter a valid email address.',
+      field: 'email',
+      correlationId
+    }, 400, options);
+  }
 
   const email = buildQuoteEmail(submission, { from: options.from, to: options.to });
+  let providerAccepted = false;
+  let attachmentOmitted = false;
   try {
     await options.sendEmail(options.apiKey, email);
-  } catch (error) {
+    providerAccepted = true;
+  } catch {
     if (!email.attachments?.length) {
-      await safeRecordDeliveryFailure(options, submission, error, email);
+      await safeRecordDeliveryFailure(options, {
+        correlationId,
+        stage: 'primary_delivery'
+      });
     } else {
       const fallbackEmail = buildQuoteEmail(
         {
@@ -186,15 +234,43 @@ export async function handleQuoteRequest(request, options) {
       );
       try {
         await options.sendEmail(options.apiKey, fallbackEmail);
-      } catch (fallbackError) {
-        await safeRecordDeliveryFailure(options, submission, fallbackError, fallbackEmail);
+        providerAccepted = true;
+        attachmentOmitted = true;
+      } catch {
+        await safeRecordDeliveryFailure(options, {
+          correlationId,
+          stage: 'attachment_fallback_delivery'
+        });
       }
     }
   }
 
+  if (!providerAccepted) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'delivery_failed',
+      error: DELIVERY_FAILURE_MESSAGE,
+      correlationId
+    }, 502, options);
+  }
+
   const requestedRedirect = submission.redirectTo;
-  if (wantsJson) return jsonResponse({ ok: true }, 200);
-  return redirectResponse(isSafeRedirectPath(requestedRedirect) ? requestedRedirect : '/thank-you');
+  const redirectTarget = addReferenceToPath(
+    isSafeRedirectPath(requestedRedirect) ? requestedRedirect : '/thank-you',
+    correlationId,
+    attachmentOmitted
+  );
+  if (wantsJson) {
+    return jsonResponse({
+      ok: true,
+      status: 'provider_accepted',
+      message: SUBMISSION_SUCCESS_MESSAGE,
+      correlationId,
+      attachmentOmitted,
+      redirectTo: redirectTarget
+    }, 200);
+  }
+  return redirectResponse(redirectTarget);
 }
 
 export function isSafeRedirectPath(value) {
@@ -204,11 +280,76 @@ export function isSafeRedirectPath(value) {
   return true;
 }
 
-async function safeRecordDeliveryFailure(options, submission, error, email) {
+function addReferenceToPath(path, correlationId, attachmentOmitted = false) {
+  const url = new URL(path, 'https://apex.invalid');
+  url.searchParams.set('reference', correlationId);
+  if (attachmentOmitted) {
+    url.searchParams.set('artwork', 'omitted');
+    url.hash = 'artwork-omitted';
+  }
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function outcomeResponse(request, wantsJson, body, status, options) {
+  if (wantsJson) return jsonResponse(body, status);
+  return htmlOutcomeResponse(request, body, status, options);
+}
+
+function htmlOutcomeResponse(request, body, status, options) {
+  const retryPath = getSafeRetryPath(request);
+  const contactEmail = options.contactEmail || 'sales@apexpackagingsolutions.com';
+  const contactPhone = options.contactPhone || '905 595 1634';
+  const contactPhoneHref = options.contactPhoneHref || 'tel:+19055951634';
+  const title = body.status === 'validation_failed' ? 'Check your quote request' : 'Quote request not submitted';
+  const message = escapeHtml(body.error || DELIVERY_FAILURE_MESSAGE);
+  const reference = escapeHtml(body.correlationId || '');
+
+  return new Response(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>${escapeHtml(title)} — Apex Packaging Solutions</title>
+  </head>
+  <body style="font-family:Arial,sans-serif;max-width:44rem;margin:4rem auto;padding:0 1.25rem;line-height:1.6;color:#171717;">
+    <main>
+      <h1>${escapeHtml(title)}</h1>
+      <p>${message}</p>
+      <p><small>Reference: ${reference}</small></p>
+      <p><a href="${escapeHtml(retryPath)}">Return to the form and try again</a></p>
+      <p>Contact Apex directly at <a href="mailto:${escapeHtml(contactEmail)}">${escapeHtml(contactEmail)}</a> or <a href="${escapeHtml(contactPhoneHref)}">${escapeHtml(contactPhone)}</a>.</p>
+    </main>
+  </body>
+</html>`, {
+    status,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-store'
+    }
+  });
+}
+
+function getSafeRetryPath(request) {
+  const fallback = '/contact';
+  const referer = request.headers.get('referer');
+  if (!referer) return fallback;
   try {
-    await options.onDeliveryFailure?.(submission, error, email);
-  } catch (recordError) {
-    console.error('Quote delivery failure backup failed:', recordError?.message || recordError);
+    const requestUrl = new URL(request.url);
+    const refererUrl = new URL(referer);
+    if (requestUrl.origin !== refererUrl.origin) return fallback;
+    if (!['/', '/contact'].includes(refererUrl.pathname)) return fallback;
+    return `${refererUrl.pathname}${refererUrl.hash}`;
+  } catch {
+    return fallback;
+  }
+}
+
+async function safeRecordDeliveryFailure(options, failure) {
+  try {
+    await options.onDeliveryFailure?.(failure);
+  } catch {
+    console.error(`Quote delivery failure backup failed [${failure.correlationId}]`);
   }
 }
 
@@ -222,7 +363,10 @@ function redirectResponse(location) {
 function jsonResponse(body, status) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json' }
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store'
+    }
   });
 }
 

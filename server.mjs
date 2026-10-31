@@ -143,16 +143,12 @@ function createQuoteEmailSender() {
   }, email);
 }
 
-async function recordQuoteDeliveryFailure(submission, error, email) {
-  console.error('Quote email delivery failed:', error?.message || error);
+async function recordQuoteDeliveryFailure(failure) {
+  console.error(`Quote email delivery failed [${failure.correlationId}]`);
   const record = {
     failedAt: new Date().toISOString(),
-    error: error?.message || String(error),
-    to: email?.to || [],
-    subject: email?.subject || '',
-    source: submission.source,
-    fields: submission.fields,
-    files: submission.files.map(({ content, ...file }) => file)
+    correlationId: failure.correlationId,
+    stage: failure.stage
   };
 
   await mkdir(dirname(quoteFailureLogPath), { recursive: true });

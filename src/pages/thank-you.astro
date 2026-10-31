@@ -9,10 +9,19 @@ import CTABand from '../components/sections/CTABand.astro';
   noindex
 >
   <PageHeader
-    eyebrow="Request sent"
-    heading="Thanks — your quote request is in the inbox."
-    lead="Apex will review the packaging style, dimensions, material, print, quantity, destination, and required delivery date before replying."
+    eyebrow="Request accepted"
+    heading="Thank you. Your quote request has been submitted."
+    lead="Keep the reference below if you need to contact Apex about this request."
   />
+
+  <p class="container mt-6 hidden max-w-default text-center text-sm text-neutral-600" data-quote-success-reference>
+    Reference: <span class="font-mono font-semibold" data-quote-success-reference-value></span>
+  </p>
+
+  <div id="artwork-omitted" class="container mt-6 hidden max-w-default rounded-md border border-[#b54708] bg-[#fff4ed] px-5 py-4 text-sm text-[#7a271a]" data-artwork-omitted>
+    <p><strong>Your uploaded artwork was not included with the submitted request.</strong></p>
+    <p class="mt-2">Please email the artwork separately to <a class="font-bold underline underline-offset-2" href="mailto:sales@apexpackagingsolutions.com">sales@apexpackagingsolutions.com</a> so the team can match it to your request.</p>
+  </div>
 
   <CTABand
     eyebrow="Need to add something?"
@@ -22,3 +31,22 @@ import CTABand from '../components/sections/CTABand.astro';
     secondaryCta={{ label: 'Back to home', href: '/' }}
   />
 </BaseLayout>
+
+<style>
+  #artwork-omitted:target {
+    display: block;
+  }
+</style>
+
+<script>
+  const reference = new URLSearchParams(window.location.search).get('reference');
+  const artworkOmitted = new URLSearchParams(window.location.search).get('artwork') === 'omitted';
+  const referenceContainer = document.querySelector<HTMLElement>('[data-quote-success-reference]');
+  const referenceValue = document.querySelector<HTMLElement>('[data-quote-success-reference-value]');
+  const artworkOmittedMessage = document.querySelector<HTMLElement>('[data-artwork-omitted]');
+  if (reference && referenceContainer && referenceValue && /^[0-9a-f-]{36}$/i.test(reference)) {
+    referenceValue.textContent = reference;
+    referenceContainer.classList.remove('hidden');
+  }
+  if (artworkOmitted && artworkOmittedMessage) artworkOmittedMessage.classList.remove('hidden');
+</script>
