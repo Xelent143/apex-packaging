@@ -105,7 +105,8 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
           src={slide.src}
           srcset={responsiveImageSrcset(slide.src, [721, 1080, 1442])}
           sizes="100vw"
-          alt={slide.alt}
+          alt=""
+          aria-hidden="true"
           width="2172"
           height="724"
           class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
@@ -190,7 +191,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
               src={cat.image}
               srcset={responsiveImageSrcset(cat.image, [320, 500, 620])}
               sizes="(max-width: 767px) 42vw, (max-width: 1023px) 25vw, 249px"
-              alt={cat.alt}
+              alt=""
               width="418"
               height="418"
               loading="lazy"
@@ -263,7 +264,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
               src={`/images/home/finishes/${finish.image}.webp`}
               srcset={responsiveImageSrcset(`/images/home/finishes/${finish.image}.webp`, [480, 640, 768])}
               sizes="(max-width: 767px) 82vw, (max-width: 1023px) 50vw, 33vw"
-              alt={`${finish.title} packaging finish`}
+              alt=""
               width="768"
               height="341"
               loading="lazy"
@@ -526,7 +527,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
             src={cat.image}
             srcset={responsiveImageSrcset(cat.image, [320, 500, 620])}
             sizes="(max-width: 767px) 48vw, 13rem"
-            alt={cat.alt}
+            alt=""
             width="418"
             height="418"
             loading="lazy"
