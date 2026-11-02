@@ -81,7 +81,7 @@ const commercialSeoBySlug: Record<string, { title: string; description: string; 
   'bakery-boxes': { title: 'Custom Bakery Boxes Canada | Apex Packaging', description: 'Custom bakery boxes for cakes, pastries, cookies and seasonal programs, with product fit, materials, print and quote requirements reviewed by project.', heading: 'Custom bakery boxes for wholesale, retail and seasonal programs.' },
   'bottle-boxes': { title: 'Custom Bottle Packaging Boxes Canada | Apex Packaging', description: 'Custom bottle packaging boxes for glass, plastic, wellness and retail bottles, with product-specific inserts, print and shipping options.', heading: 'Custom bottle packaging boxes for product fit, protection and retail presentation.' },
   'candle-boxes': { title: 'Custom Candle Packaging Boxes Canada | Apex Packaging', description: 'Custom candle packaging boxes for jars, tins, gift sets and retail launches, with inserts, print and finishing options quoted to specification.', heading: 'Custom candle packaging boxes for product protection and shelf presentation.' },
-  'cbd-boxes': { title: 'Custom CBD Packaging Boxes Canada | Apex Packaging', description: 'Custom CBD packaging boxes for tinctures, jars, balms and retail sets, with structure, print and required information panels reviewed by project.', heading: 'Custom CBD packaging boxes for retail products and project-specific requirements.' },
+  'cbd-boxes': { title: 'Custom CBD Packaging Boxes Canada | Apex Packaging', description: 'Custom CBD packaging boxes for tinctures, jars, balms and retail sets, with structure, print and space for client-supplied product information planned by project.', heading: 'Custom CBD packaging boxes for retail products and project-specific requirements.' },
   'cbd-gift-boxes': { title: 'Custom CBD Gift Boxes Canada | Apex Packaging', description: 'Custom CBD gift box packaging for wellness sets, tinctures and retail bundles, with inserts, print and finish options quoted to specification.', heading: 'Custom CBD gift box packaging for product sets and premium retail presentation.' },
   'cereal-boxes': { title: 'Custom Cereal Packaging Boxes Canada | Apex', description: 'Custom cereal packaging boxes for dry-food retail, private-label and sample programs, with product dimensions, print and shipment requirements reviewed by project.', heading: 'Custom cereal packaging boxes for dry-food retail and private-label programs.', h1: 'Custom Cereal Boxes Packaging Canada' },
   'chocolate-bar-boxes': { title: 'Custom Chocolate Bar Packaging Boxes Canada | Apex Packaging', description: 'Custom chocolate bar packaging boxes for retail bars, seasonal collections and gift programs, with sleeves, cartons, print and finish options quoted to specification.', heading: 'Custom chocolate bar packaging boxes for retail bars and seasonal gift programs.' },
@@ -459,7 +459,7 @@ const service = buildServiceSchema({
     <p class="sr-only">{customLabel}</p>
     <img
       src={heroImage}
-      alt={`${box.label} custom packaging hero banner`}
+      alt={box.slug === 'cbd-boxes' ? box.alt : `${box.label} custom packaging hero banner`}
       width="2172"
       height="724"
       class="aspect-[2172/724] w-full object-cover object-center"
@@ -467,6 +467,11 @@ const service = buildServiceSchema({
       decoding="async"
       fetchpriority="high"
     />
+    {box.slug === 'cbd-boxes' && (
+      <p class="absolute bottom-0 right-0 bg-neutral-950/85 px-3 py-2 text-xs font-semibold text-white">
+        Concept packaging visualization, not a customer-project photograph.
+      </p>
+    )}
     <HeroFeatureStrip items={heroFeatureItems} />
   </section>
 

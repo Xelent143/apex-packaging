@@ -214,13 +214,13 @@ export const industryBoxes: IndustryBox[] = [
     image: '/images/apex-update/styles/cbd-boxes-premium.png',
     heroBanner: '/images/services/cbd-boxes-premium-hero.png',
     icon: '/images/industry-icons/cbd-boxes.png',
-    alt: 'Apex Packaging branded CBD gift packaging',
+    alt: 'Concept visualization of branded CBD cartons and gift packaging',
     summary: 'CBD packaging for tinctures, jars, balms, gummies, and retail sets with controlled, brand-ready paperboard production.',
     bestFor: ['Tincture cartons', 'Topical jars', 'Gummy cartons', 'Retail gift sets'],
-    materials: ['Paperboard cartons', 'Rigid gift board', 'Kraft board', 'Tamper-evident labels and sleeves'],
+    materials: ['Paperboard cartons', 'Rigid gift board', 'Kraft board', 'Paperboard sleeves'],
     styles: ['Reverse tuck cartons', 'Sleeve boxes', 'Display trays', 'Gift sets'],
     printOptions: defaultPrintOptions,
-    manufacturerNotes: ['Artwork panels can reserve space for compliance copy', 'Child-resistant formats can be quoted where required', 'Short-run seasonal SKUs can be produced digitally']
+    manufacturerNotes: ['Artwork panels can reserve space for client-supplied product information', 'The buyer confirms regulatory content and market requirements', 'Short-run seasonal SKUs can be produced digitally']
   },
   {
     slug: 'cereal-boxes',

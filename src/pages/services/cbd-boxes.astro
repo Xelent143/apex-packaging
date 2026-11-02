@@ -44,8 +44,8 @@ const faqs = [
     a: 'Yes. Apex can quote soft-touch laminate, foil, embossing, spot UV, kraft stocks, rigid gift boxes, sleeves, display trays, and retail tuck cartons.'
   },
   {
-    q: 'Can the dieline leave room for compliance copy?',
-    a: 'Yes. The print layout can reserve panels for ingredients, warnings, dosage or use notes, batch codes, barcode zones, and other client-supplied regulatory content.'
+    q: 'Can the dieline leave room for client-supplied product information?',
+    a: 'Yes. The print layout can reserve panels for ingredients, warnings, dosage or use notes, batch codes, barcode zones, and other client-supplied content. Apex coordinates panel space and artwork placement; the buyer remains responsible for confirming the content and market requirements.'
   },
   {
     q: 'What CBD box styles are available?',
@@ -78,7 +78,7 @@ const service = buildServiceSchema({
   <section class="relative isolate min-h-[44rem] overflow-hidden bg-[#efe7da] md:min-h-0">
     <img
       src={heroImage}
-      alt="Premium CBD packaging boxes with black, gold, kraft, and white custom box styles"
+      alt="Concept visualization of CBD packaging boxes in black, gold, kraft, and white styles"
       width="2048"
       height="768"
       class="absolute inset-0 h-full w-full object-cover object-[70%_center] opacity-45 md:static md:min-h-[39rem] md:opacity-100 md:object-[76%_center] lg:object-[72%_center]"
@@ -114,6 +114,7 @@ const service = buildServiceSchema({
               View Box Styles
             </a>
           </div>
+          <p class="mt-4 text-xs font-semibold text-neutral-700">Concept packaging visualization, not a customer-project photograph.</p>
         </div>
       </div>
     </div>
@@ -150,7 +151,7 @@ const service = buildServiceSchema({
     <div class="container max-w-wide">
       <div class="grid gap-8 md:grid-cols-3">
         {[
-          ['Compliance-ready panels', 'Reserve clean zones for client-supplied warnings, ingredients, batch codes, barcodes, and claim language.'],
+          ['Information-panel planning', 'Reserve clean zones for client-supplied warnings, ingredients, batch codes, barcodes, and claim language. The buyer confirms the required content.'],
           ['Premium finish options', 'Matte, soft-touch, foil, embossing, spot UV, kraft textures, and luxury rigid-board presentations.'],
           ['Sample-first workflow', 'Review dielines, proofs, and physical samples before committing to a larger production run.']
         ].map(([title, copy]) => (
@@ -171,7 +172,7 @@ const service = buildServiceSchema({
         <li><strong>Sales channel</strong> such as retail shelf, ecommerce mailer, wholesale case, or launch kit.</li>
         <li><strong>Material direction</strong> including kraft, SBS paperboard, rigid board, corrugated, or recycled-content goals.</li>
         <li><strong>Finish direction</strong> such as foil, embossing, matte, soft-touch, spot UV, or a clean uncoated kraft feel.</li>
-        <li><strong>Artwork and compliance content</strong> supplied by your team for panel planning and proofing.</li>
+        <li><strong>Artwork and client-approved product information</strong> supplied by your team for panel planning and proofing.</li>
       </ul>
     </div>
   </section>
