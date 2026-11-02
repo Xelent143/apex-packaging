@@ -132,7 +132,7 @@ const labelAlreadyIncludesCustom = box.slug === 'custom-mylar-bags' || box.slug 
 const customLabel = labelAlreadyIncludesCustom ? box.label : `Custom ${box.label}`;
 const customLabelLower = labelAlreadyIncludesCustom ? box.label.toLowerCase() : `custom ${box.label.toLowerCase()}`;
 
-type DecisionRow = { option: string; application: string; tradeoff: string };
+type DecisionRow = { option: string; application: string; tradeoff: string; href?: string };
 type BuyerContent = {
   intro: string;
   structures: DecisionRow[];
@@ -147,6 +147,58 @@ type BuyerContent = {
 };
 
 const buyerContentBySlug: Record<string, BuyerContent> = {
+  'product-boxes': {
+    intro: 'Apex supplies custom product packaging for retail, ecommerce, launches, kits, and reorder programs across Canada, with service available in the United States and selected international markets. Start with the product dimensions, complete packed weight, protection needs, presentation goal, sales channel, quantity, artwork status, and destination so Apex can compare folding cartons, corrugated mailers, rigid boxes, and the required internal fit before preparing a quotation.',
+    structures: [
+      { option: 'Folding carton', href: '/industries/custom-tuck-boxes', application: 'Lightweight retail products, secondary packaging, and items that benefit from printed information panels', tradeoff: 'Efficient to store and assemble; product weight, closure, board choice, and any insert must support the packed item.' },
+      { option: 'Corrugated mailer', href: '/services/mailer-boxes', application: 'Ecommerce orders, subscriptions, kits, and products moving through parcel distribution', tradeoff: 'Combines presentation with shipping structure; flute, fit, movement control, packed weight, and route must be evaluated together.' },
+      { option: 'Rigid presentation box', href: '/industries/rigid-boxes', application: 'Premium sets, launches, gifts, and products where the opening experience is central', tradeoff: 'Creates a substantial presentation format; construction, insert, components, assembly, outer shipping protection, and sample approval add planning.' }
+    ],
+    materials: [
+      { option: 'Paperboard carton', application: 'Retail display, information panels, compact products, and secondary packaging', tradeoff: 'Print-friendly and space-efficient; the grade, folds, closures, insert, and outer shipping pack must suit the product and route.' },
+      { option: 'Corrugated board', application: 'Mailers, ecommerce kits, and products needing more distribution structure', tradeoff: 'Board specification cannot be selected from product weight alone; dimensions, flute, liners, movement, handling, stacking, and route also matter.' },
+      { option: 'Rigid board and wrap', application: 'Premium presentation boxes and multi-component sets', tradeoff: 'Supports a deliberate reveal but requires coordinated wrap, corners, fit, insert, assembly, and shipping protection.' },
+      { option: 'Insert or internal restraint', href: '/blog/custom-box-inserts-for-safer-product-presentation-2026-09-07', application: 'Products that need fixed orientation, separation, removal access, or a planned presentation', tradeoff: 'Material and geometry should follow product weight, fragility, contact points, assembly, disposal goals, and the complete packout.' }
+    ],
+    measurements: [
+      'Measure the product at its maximum length, width, and height, including caps, handles, cables, accessories, literature, and any protruding or fragile points.',
+      'Share the preferred orientation, complete packed weight, number of components, and the order in which the buyer should see or remove them.',
+      'Describe the acceptable movement, contact points, finger access, and clearance needed around an insert or internal restraint.',
+      'Provide assembled product dimensions as well as the intended inner and outer packout; nominal product measurements alone do not define a finished box.',
+      'Document the sales channel, packing method, case quantity, storage conditions, and shipping route so presentation packaging and distribution protection are not confused.'
+    ],
+    printing: [
+      'Build production artwork on the supplier-approved dieline and keep critical copy, barcodes, and registration-sensitive details clear of folds, seams, closures, and cut edges.',
+      'Provide vector logos where possible, final copy, colour references, mandatory marks, and clearly named files for every SKU or artwork version.',
+      'Plan the front, back, side, and opening sequence around how the pack will be displayed, shipped, opened, and replenished rather than treating every panel equally.',
+      'Review colour and finish expectations on the selected substrate; a screen proof confirms layout but does not by itself prove the final printed result.'
+    ],
+    sampling: [
+      'Use a dieline proof to confirm dimensions, copy, barcode placement, panel orientation, and the current artwork revision.',
+      'Use a structural sample to check product fit, clearance, closure, assembly, insert removal, opening sequence, and the complete packed weight.',
+      'Pack every component in the intended orientation and assess the presentation box inside its planned shipping protection where parcel or freight handling applies.',
+      'Record the approved structure, dimensions, materials, artwork revision, insert arrangement, packing method, and sample decision so reorders use the same specification.'
+    ],
+    commercialFactors: [
+      'box format, internal and external dimensions, material direction, packed weight, and shipping route;',
+      'product protection, insert geometry, number of components, closure, assembly, and packing method;',
+      'print coverage, finish direction, colour controls, artwork readiness, and number of SKUs;',
+      'sample route, tooling where applicable, target quantity, case pack, destination, and timing context.'
+    ],
+    faqs: [
+      { q: 'Should my product use a folding carton, corrugated mailer, or rigid box?', a: 'Choose from the product weight and dimensions, required protection, presentation goal, sales channel, packing process, and shipping route. Folding cartons suit many lighter retail and secondary packs, corrugated mailers add distribution structure for ecommerce, and rigid boxes prioritize presentation. A structural sample should confirm the selected format and fit.' },
+      { q: 'What product measurements should I send for a quotation?', a: 'Send the maximum length, width, and height of every product and accessory, the preferred orientation, complete packed weight, fragile or protruding points, and any clearance or removal needs. Include the intended case pack and shipping method when the product will travel inside an outer shipper.' },
+      { q: 'When does a product box need an insert?', a: 'An insert is useful when products need fixed orientation, separation, movement control, removal access, or a planned reveal. The decision should consider product weight, fragility, contact points, assembly, material preference, disposal goals, and how the complete pack will be shipped.' },
+      { q: 'Can the same box provide presentation and shipping protection?', a: 'Sometimes, but the two jobs should be evaluated separately. A corrugated mailer may combine them for a suitable packout, while a folding carton or rigid presentation box may need an outer shipper and protective components. Share the actual distribution route so the complete packaging system can be reviewed.' },
+      { q: 'What affects product-box quantities, price, samples, and timing?', a: 'Format, dimensions, material direction, insert and closure, print and finish, number of SKUs, tooling, sample route, artwork readiness, quantity, packing configuration, destination, and timing context all affect the plan. Apex confirms the project-specific quantity, price, sample path, and schedule in the quotation.' }
+    ],
+    related: [
+      { title: 'Packaging artwork requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare dielines, bleed, barcode zones, colour references, and controlled artwork revisions.' },
+      { title: 'Custom boxes with logo', href: '/custom-boxes-with-logo', description: 'Review branding and print preparation once the product structure and fit are defined.' },
+      { title: 'Retail boxes', href: '/industries/retail-boxes', description: 'Plan shelf, display, information-panel, and retail-channel requirements.' }
+    ],
+    quoteLead: 'For a complete quotation, send every product and accessory dimension, preferred orientation, complete packed weight, sales and shipping channels, protection or insert requirements, presentation direction, preferred box format, artwork and SKU count, target quantity, packing configuration, destination, and timing context.'
+  },
   'rigid-boxes': {
     intro: 'Apex supplies custom rigid boxes for premium gift sets, cosmetics, tech kits, launch packaging, and retail products that need a stronger presentation format. Send the complete product dimensions, packed weight, preferred opening style, artwork, quantity, destination, and timing context for a project-specific quotation.',
     structures: [
@@ -310,6 +362,8 @@ const buyerContentBySlug: Record<string, BuyerContent> = {
 const buyerContent = buyerContentBySlug[box.slug];
 const quoteHeading = box.slug === 'custom-mylar-bags'
   ? 'Request a custom printed bag or pouch quotation'
+  : box.slug === 'product-boxes'
+    ? 'Request a product packaging quotation'
   : buyerContent
     ? `Request a ${box.label.toLowerCase()} quotation`
     : `Need ${customLabelLower}?`;
@@ -605,7 +659,7 @@ const service = buildServiceSchema({
                   <tbody>
                     {buyerContent.structures.map((row) => (
                       <tr class="border-t border-neutral-200 align-top">
-                        <th scope="row" class="p-4 font-bold text-neutral-900">{row.option}</th>
+                        <th scope="row" class="p-4 font-bold text-neutral-900">{row.href ? <a class="underline decoration-neutral-300 underline-offset-4 hover:decoration-accent" href={row.href}>{row.option}</a> : row.option}</th>
                         <td class="p-4 text-neutral-600">{row.application}</td>
                         <td class="p-4 text-neutral-600">{row.tradeoff}</td>
                       </tr>
@@ -625,7 +679,7 @@ const service = buildServiceSchema({
                   <tbody>
                     {buyerContent.materials.map((row) => (
                       <tr class="border-t border-neutral-200 align-top">
-                        <th scope="row" class="p-4 font-bold text-neutral-900">{row.option}</th>
+                        <th scope="row" class="p-4 font-bold text-neutral-900">{row.href ? <a class="underline decoration-neutral-300 underline-offset-4 hover:decoration-accent" href={row.href}>{row.option}</a> : row.option}</th>
                         <td class="p-4 text-neutral-600">{row.application}</td>
                         <td class="p-4 text-neutral-600">{row.tradeoff}</td>
                       </tr>
