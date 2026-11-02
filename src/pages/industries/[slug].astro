@@ -128,6 +128,9 @@ const metaDescription = commercialSeo?.description ?? (box.summary.length <= 110
   : box.summary);
 const commercialHeading = commercialSeo?.heading ?? `Custom ${box.label.toLowerCase()} built around your product, channel and reorder plan.`;
 const commercialKeyword = commercialSeo?.h1 ?? commercialSeo?.title.replace(' | Apex Packaging', '') ?? `Custom ${box.label} Canada`;
+const labelAlreadyIncludesCustom = box.slug === 'custom-mylar-bags' || box.slug === 'custom-kraft-soap-boxes';
+const customLabel = labelAlreadyIncludesCustom ? box.label : `Custom ${box.label}`;
+const customLabelLower = labelAlreadyIncludesCustom ? box.label.toLowerCase() : `custom ${box.label.toLowerCase()}`;
 
 type DecisionRow = { option: string; application: string; tradeoff: string };
 type BuyerContent = {
@@ -248,9 +251,68 @@ const buyerContentBySlug: Record<string, BuyerContent> = {
       { title: 'Printed mailer boxes for subscriptions', href: '/services/mailer-boxes', description: 'Plan the corrugated outer pack around filled coffee bags, inserts, and the shipping route.' }
     ],
     quoteLead: 'For a complete RFQ, send the coffee format and fill weight, target filled dimensions, preferred bag or carton style, required barrier and shelf-life criteria, closure requirements, food-contact or documentation requirements, SKU and artwork count, outer-mailer packout, target quantity, destination, and timing context.'
+  },
+  'custom-mylar-bags': {
+    intro: 'Apex supplies custom printed bags and pouches for retail, refill, sample, and dry-product programs in Canada, the United States, and selected international markets. A quotation starts with the product, target fill quantity, filled dimensions, pouch format, intended use, artwork, quantity, and destination so size, material requirements, sealing, and print preparation can be reviewed as one specification.',
+    structures: [
+      { option: 'Stand-up pouch', application: 'Retail packs, refill programs, samples, and products that need a shelf-facing panel', tradeoff: 'The base gusset, target fill, filled stance, headspace, and seal zones must work together.' },
+      { option: 'Flat pouch', application: 'Samples, compact portions, slim products, and lightweight refill packs', tradeoff: 'Efficient for flatter packouts; capacity, opening method, and usable print area depend on the product and seal layout.' },
+      { option: 'Zipper bag', application: 'Products intended for repeated consumer access after first opening', tradeoff: 'The zipper, initial seal, tear opening, and fill line use headspace and must suit the product and packing process.' },
+      { option: 'Hang-hole retail bag', application: 'Light products displayed on hooks or peg systems', tradeoff: 'Header strength, hole position, filled weight, seals, and artwork clearance require review as one layout.' }
+    ],
+    materials: [
+      { option: 'Product compatibility', application: 'Identify what will touch the package, including product form, oils, aromas, powders, or sharp edges', tradeoff: 'The buyer and supplier should confirm that the complete proposed structure suits the product and intended use.' },
+      { option: 'Barrier requirement', application: 'Define the required protection from oxygen, moisture, light, aroma transfer, or other relevant exposure', tradeoff: 'The word “Mylar” does not identify a complete construction or prove a barrier level; requirements need a project-specific structure and supporting evidence.' },
+      { option: 'Filling and sealing conditions', application: 'Document fill temperature, equipment, seal method, closure, opening feature, and expected handling', tradeoff: 'A structure must run through the planned filling and sealing process as well as protect the packed product.' },
+      { option: 'Appearance and documentation', application: 'State clear, opaque, metallic, kraft-look, matte, gloss, disposal, or documentation requirements', tradeoff: 'Appearance does not establish performance, and any material or end-of-life claim must match the final documented structure and destination.' }
+    ],
+    measurements: [
+      'Describe the product form, target fill weight or volume, density where relevant, and how the product settles after filling.',
+      'Provide a representative filled pack or target filled width, height, and depth; flat dimensions alone do not show the final packout.',
+      'State the pouch width, height, base or side gusset, required headspace, fill opening, and seal areas if these are already known.',
+      'Mark the intended positions for a zipper, tear notch, hang hole, window, barcode, date code, and mandatory copy before artwork is finalized.',
+      'For cartons or shipping cases, share the number and orientation of filled pouches per case, complete packed weight, and distribution route.'
+    ],
+    printing: [
+      'Build production artwork on the supplier-approved dieline and keep critical copy clear of seals, gussets, folds, closures, and opening features.',
+      'Provide vector logos where possible, final copy, barcode files, colour references, and clearly named artwork versions for every SKU.',
+      'Confirm print coverage, clear or unprinted areas, finish direction, and any variable date-code or label zone in the quotation brief.',
+      'Review colour expectations on the selected pouch surface; a screen proof confirms layout but does not by itself prove the final printed colour or material performance.'
+    ],
+    sampling: [
+      'Use a digital proof to check copy, placement, dimensions, and dieline revision before production artwork is released.',
+      'Decide which questions a sample must answer: filled capacity, shelf stance, zipper access, opening, seal area, print appearance, or case packout.',
+      'Where compatibility, filling, or sealing is critical, plan representative product and line trials with the responsible supplier or packer before production approval.',
+      'Record the approved structure, dieline, artwork revision, sample decision, and case pack so reorders use the same controlled specification.'
+    ],
+    commercialFactors: [
+      'pouch format, flat and filled dimensions, gusset, seal layout, closure, opening feature, and hang or window requirement;',
+      'product compatibility, barrier criteria, filling and sealing method, intended use, and required documentation;',
+      'print coverage, finish direction, colour controls, number of SKUs, artwork readiness, and tooling where applicable;',
+      'sample route, target quantity, packing configuration, delivery destination, and timing context.'
+    ],
+    faqs: [
+      { q: 'Does “Mylar” identify the material structure or barrier performance?', a: 'No. The marketplace often uses “Mylar” as a broad product label, but the word alone does not state the full pouch construction or prove oxygen, moisture, light, or aroma performance. Give the supplier the product, shelf-life goal, filling method, handling route, and measurable barrier requirements so the complete proposed structure can be reviewed.' },
+      { q: 'How should I choose the size of a custom pouch?', a: 'Start with the product form and target fill quantity, then measure a representative filled pack after the product settles. Share the filled width, height, and depth along with gusset, headspace, seal, closure, and display requirements. Weight alone may not predict capacity when product density or shape varies.' },
+      { q: 'What should I provide for material selection?', a: 'Provide the product, intended shelf life, relevant oxygen, moisture, light, or aroma concerns, filling temperature and equipment, sealing method, closure, distribution conditions, intended use, destination, and any documentation requirements. The complete structure should be selected from those inputs rather than from appearance alone.' },
+      { q: 'What artwork files are needed for a printed pouch quotation?', a: 'Send the current dieline if one exists, vector logos where possible, final copy, barcode files, colour references, print coverage, finish direction, required clear areas, and the number of SKU versions. Production artwork should be released only on the supplier-approved dieline.' },
+      { q: 'What affects pouch quantities, price, samples, and timing?', a: 'Format, dimensions, material requirements, closure and other features, print process, colour controls, number of SKUs, tooling, sample route, artwork readiness, quantity, packing, destination, and documentation needs all affect the plan. Apex confirms the project-specific quantity, price, sample path, and schedule in the quotation.' }
+    ],
+    related: [
+      { title: 'How to choose stand-up pouch materials', href: '/blog/how-to-choose-material-for-a-stand-up-pouch', description: 'Translate product, barrier, filling, sealing, and handling needs into a supplier brief.' },
+      { title: 'How to select pouch size and capacity', href: '/blog/how-to-select-pouch-size-and-capacity', description: 'Prepare dimensions around the product, fill quantity, gussets, seals, and finished pack.' },
+      { title: 'Packaging artwork requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Review dielines, bleed, barcode zones, colour preparation, and revision control.' },
+      { title: 'Coffee packaging', href: '/industries/coffee-packaging', description: 'Plan coffee pouches, cartons, and subscription mailers around the coffee program.' }
+    ],
+    quoteLead: 'For a complete quotation, send the product and intended use, target fill quantity, representative filled dimensions, preferred pouch format, compatibility and barrier requirements, filling and sealing method, closure or display features, artwork and SKU count, target quantity, packing configuration, destination, and timing context.'
   }
 };
 const buyerContent = buyerContentBySlug[box.slug];
+const quoteHeading = box.slug === 'custom-mylar-bags'
+  ? 'Request a custom printed bag or pouch quotation'
+  : buyerContent
+    ? `Request a ${box.label.toLowerCase()} quotation`
+    : `Need ${customLabelLower}?`;
 
 const productFAQs: Record<string, { q: string; a: string }> = {
   'bakery-boxes': {
@@ -306,7 +368,7 @@ const supportingGuides = buyerContent?.related ?? supportingGuidesBySlug[box.slu
 
 const defaultFaqs = [
   {
-    q: `Can Apex supply custom ${box.label.toLowerCase()} with my logo?`,
+    q: `Can Apex supply ${customLabelLower} with my logo?`,
     a: `Yes. Apex can coordinate ${box.label.toLowerCase()} with brand print, custom dimensions, material selection, production-ready dielines, sampling, overseas production, and delivery.`
   },
   {
@@ -328,7 +390,7 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const service = buildServiceSchema({
-  name: `Custom ${box.label} supplier`,
+  name: `${customLabel} supplier`,
   description: box.summary,
   url: `/industries/${box.slug}`
 });
@@ -340,7 +402,7 @@ const service = buildServiceSchema({
   schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
 >
   <section class="relative overflow-hidden border-b border-neutral-200 bg-white">
-    <p class="sr-only">Custom {box.label}</p>
+    <p class="sr-only">{customLabel}</p>
     <img
       src={heroImage}
       alt={`${box.label} custom packaging hero banner`}
@@ -571,6 +633,11 @@ const service = buildServiceSchema({
                   </tbody>
                 </table>
               </div>
+              {box.slug === 'custom-mylar-bags' && (
+                <p class="mt-4 text-sm leading-relaxed text-neutral-600">
+                  Technical reference: Mylar Specialty Films identifies <a class="font-semibold text-neutral-900 underline underline-offset-2" href="https://mylar.com/trademarks/">Mylar® as a PET-film trademark</a> and publishes <a class="font-semibold text-neutral-900 underline underline-offset-2" href="https://mylar.com/wp-content/uploads/2025/08/mylar_mc2-1.pdf">grade-specific product information</a>. A trade name alone therefore does not replace the complete pouch construction and project requirements.
+                </p>
+              )}
             </article>
           </div>
         </div>
@@ -648,11 +715,11 @@ const service = buildServiceSchema({
       title: item.label,
       href: `/industries/${item.slug}`,
       description: item.summary
-    }))).slice(0, 3)}
+    }))).slice(0, box.slug === 'custom-mylar-bags' ? 4 : 3)}
   />
 
   <CTABand
-    heading={buyerContent ? `Request a ${box.label.toLowerCase()} quotation` : `Need custom ${box.label.toLowerCase()}?`}
+    heading={quoteHeading}
     lead={buyerContent?.quoteLead ?? 'Share the product size, material preference, quantity, and target delivery date. Apex will recommend the right box structure and print path.'}
     primaryCta={{ label: 'Send your specs', href: '/contact' }}
   />
