@@ -3216,5 +3216,91 @@ export const commercialLocations: CommercialLocation[] = [
   },
   "ctaHeading": "Request a Wichita sample-kit packaging quote.",
   "ctaLead": "Send your sample inventory, kit quantities, artwork, receiving ZIP codes, and required arrival date. Ask Apex to price the presentation boxes, inserts, and shipping components for your next business order."
+},
+{
+  "slug": "albuquerque-custom-packaging",
+  "city": "Albuquerque",
+  "region": "New Mexico",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Albuquerque",
+  "title": "Custom Packaging Albuquerque | Retail Boxes & Mailers",
+  "description": "Quote custom packaging for Albuquerque retail brands. Plan printed boxes, mailers and inserts for gift assortments, parcel orders and New Mexico delivery.",
+  "eyebrow": "Albuquerque packaging quotes \u00b7 New Mexico delivery",
+  "heading": "Custom packaging for Albuquerque retail assortments and shipped gifts.",
+  "lead": "Build a packaging quote around the assortment customers buy. Apex coordinates custom box production through overseas facilities for Albuquerque businesses, with structure, print and delivery requirements agreed before production.",
+  "image": "/images/home/hero-branded-packaging.webp",
+  "imageAlt": "Dark blue Lorien presentation box with gold lettering and decorative wave lines",
+  "buyingContext": "A gift assortment sold at an Albuquerque shop may also need to travel as a parcel. Separate the presentation box from the shipping carton in your specification, and list every combination of products that must fit. For packing teams in Albuquerque and Rio Rancho, provide quantities and receiving ZIP codes separately so empty-box freight and storage requirements can be reviewed before ordering.",
+  "priorities": [
+    {
+      "title": "Keep assortment changes manageable",
+      "description": "Provide the smallest and largest product combinations. Ask whether a common outer box with different inserts can support seasonal assortments without excessive empty space."
+    },
+    {
+      "title": "Specify the parcel configuration",
+      "description": "Show the packed gift box inside its proposed shipper. Review movement, cushioning and closure together; a decorative retail box alone does not establish parcel protection."
+    },
+    {
+      "title": "Plan flat storage and assembly",
+      "description": "Compare assembled presentation boxes with folding formats against available shelf space and packing labour. Include receiving access and pallet restrictions for each New Mexico destination."
+    }
+  ],
+  "products": [
+    {
+      "title": "Printed mailer boxes",
+      "href": "/services/mailer-boxes",
+      "description": "Tuck-top formats for repeat online orders, coordinated with the assortment dimensions and print coverage."
+    },
+    {
+      "title": "Protective inserts",
+      "href": "/services/protective-packaging",
+      "description": "Separators and fitted components to keep bottles, jars or accessories from contacting each other."
+    },
+    {
+      "title": "Corrugated shipping boxes",
+      "href": "/services/corrugated-boxes",
+      "description": "Outer cartons sized around the completed presentation pack and its cushioning."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the assortment matrix",
+      "description": "List product dimensions, weights, combinations, quantities and artwork status. Add the delivery ZIP code and required arrival date."
+    },
+    {
+      "title": "Review the packed sample",
+      "description": "Check product fit, removal, lid clearance and assembly time. Agree any transit testing needed for the actual packed shipment."
+    },
+    {
+      "title": "Approve the delivery scope",
+      "description": "Confirm artwork, material, quantity, packing method and receiving instructions. Request a documented production and freight schedule before approval."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Apex supply custom boxes to Albuquerque?",
+      "a": "Apex can review custom packaging projects for Albuquerque delivery. Production is coordinated through overseas facilities; the quote should confirm freight scope, receiving address and schedule."
+    },
+    {
+      "q": "Can one box hold several gift assortments?",
+      "a": "Potentially. Share every assortment and product dimension so a common box with alternate inserts can be assessed. A packed sample helps identify movement and unused space."
+    },
+    {
+      "q": "What is the minimum order quantity?",
+      "a": "Minimums depend on structure, material, printing and production setup. Send your planned quantities for each size and artwork version to receive a project-specific quote."
+    },
+    {
+      "q": "Are presentation boxes suitable for parcel shipping?",
+      "a": "That depends on the construction and packed contents. Request review of the outer shipping carton, cushioning and closure, and agree testing requirements before treating the pack as parcel-ready."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Packaging supplier checklist",
+    "href": "/blog/canada-packaging-supplier-checklist-lead-time-moq-certs-samples",
+    "description": "Use the sample, lead-time and specification questions when comparing your packaging quotes."
+  },
+  "ctaHeading": "Request an Albuquerque custom packaging quote.",
+  "ctaLead": "Send assortment dimensions, packed weights, quantities, artwork and receiving ZIP codes. Ask Apex to quote the gift box, inserts and outer shipper as a complete packing plan."
 }
 ];
