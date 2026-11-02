@@ -32,11 +32,11 @@ export const commercialLocations: CommercialLocation[] = [
     focusKeyword: 'custom packaging Toronto',
     title: 'Custom Packaging Toronto | Boxes, Mailers & Inserts',
     description: 'Custom packaging for Toronto brands and businesses. Quote corrugated boxes, printed mailers, retail cartons and protective inserts for GTA delivery.',
-    eyebrow: 'Toronto packaging supplier · Ontario production support',
+    eyebrow: 'Toronto service area · Overseas production coordination',
     heading: 'Custom packaging for Toronto launches, reorders, and shipping programs.',
-    lead: 'Apex helps Toronto and GTA buyers specify custom boxes, branded mailers, retail cartons, and protective inserts around the product, order volume, and delivery plan.',
+    lead: 'From its London, Ontario business base, Apex coordinates custom packaging projects for Toronto and GTA buyers through qualified overseas production facilities. Quotes are built around the product, order volume, artwork, and delivery plan.',
     image: '/images/home/hero-branded-packaging.webp',
-    imageAlt: 'Branded custom corrugated mailer and product boxes suitable for Toronto retail and ecommerce orders',
+    imageAlt: 'Closed dark blue presentation box with gold Lorien branding and a wave pattern',
     buyingContext: 'Toronto packaging programs often need one specification to work across e-commerce fulfilment, retail shelves, events, and regional warehouses. Apex builds the quote around packed weight, dimensions, print coverage, run size, and the GTA delivery point so buyers can compare a complete production plan rather than an incomplete unit price.',
     priorities: [
       { title: 'GTA delivery planning', description: 'Quote with the final dock, warehouse, 3PL, or multi-location split identified early so freight and pack-out assumptions are visible.' },
@@ -1418,10 +1418,10 @@ export const commercialLocations: CommercialLocation[] = [
   "description": "Quote custom packaging for London, Ontario: printed gift-set mailers, protective inserts and shipping cartons. Send quantities and delivery details to Apex.",
   "eyebrow": "London, Ontario packaging · Custom boxes and mailers",
   "heading": "Custom packaging for London, Ontario gift sets and repeat orders.",
-  "lead": "Order printed mailers, fitted inserts, and shipping cartons around the products your London business actually packs. Apex reviews set sizes, print requirements, quantities, and delivery details together so your quote covers both launch stock and replenishment.",
+  "lead": "Apex is based in London, Ontario and coordinates custom packaging projects through qualified overseas production facilities. London buyers can request printed mailers, fitted inserts, and shipping cartons quoted around their products, quantities, artwork, and delivery requirements.",
   "image": "/images/home/corrugated-boxes-branded.webp",
   "imageAlt": "Kraft corrugated mailer with green branding and contour-line printing, shown closed on a neutral background",
-  "buyingContext": "A London brand selling individual products and mixed gift sets needs more than one attractive sample box. A two-item set may need a different insert from a larger seasonal bundle, while wholesale orders need an outer case with a defined pack count. Start with a table of product combinations and expected quantities. For delivery to London, St. Thomas, or Woodstock, list each receiving address separately so empty packaging can be allocated to the right packing site.",
+  "buyingContext": "London is Apex's documented business base. Packaging is produced through qualified overseas facilities, while London, St. Thomas, Woodstock, and other destinations are treated as delivery and service areas confirmed for each quotation. A brand selling individual products and mixed gift sets may need different inserts for different bundles and an outer case with a defined wholesale pack count. Start with a table of product combinations, expected quantities, and receiving addresses so empty packaging can be allocated to the correct packing site.",
   "priorities": [
     {
       "title": "Size the box around the full gift set",
@@ -1470,7 +1470,7 @@ export const commercialLocations: CommercialLocation[] = [
   "faqs": [
     {
       "q": "Can Apex quote custom packaging for a business in London, Ontario?",
-      "a": "Yes. Send your product measurements, packaging quantities, artwork requirements, receiving postal code, and target packing date. Identify whether you need individual mailers, gift-set inserts, outer cartons, or a combination so each item can be scoped."
+      "a": "Yes. Apex is based in London, Ontario and coordinates production through qualified overseas facilities. Send your product measurements, packaging quantities, artwork requirements, receiving postal code, and target packing date. Identify whether you need individual mailers, gift-set inserts, outer cartons, or a combination so each item can be scoped."
     },
     {
       "q": "Can different gift sets use the same mailer box?",
