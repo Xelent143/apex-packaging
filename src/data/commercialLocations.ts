@@ -76,7 +76,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Chicago brands and Midwest distribution.',
     lead: 'Apex supports Chicago buyers with made-to-spec corrugated boxes, printed mailers, retail packaging, and protective components planned around freight, receiving, and reorder needs.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated boxes arranged for Chicago brand shipping and Midwest distribution programs',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Chicago operations may supply local retail, parcel orders, Midwest distribution centres, and cross-border customers from the same packaging program. Apex scopes each project around product protection, pallet efficiency, print requirements, delivery location, and replenishment timing so the approved specification works beyond the first shipment.',
     priorities: [
       { title: 'Midwest distribution fit', description: 'Set case dimensions, board grade, pack count, and pallet pattern together to reduce avoidable cube and handling issues.' },
@@ -116,7 +116,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Vancouver brands, fulfilment, and retail distribution.',
     lead: 'Apex helps Vancouver and Lower Mainland buyers source custom boxes, printed mailers, retail cartons, and protective packaging around product dimensions, order volume, freight, and launch timing.',
     image: '/images/home/mailer-boxes-branded.webp',
-    imageAlt: 'Professional branded mailer boxes for Vancouver ecommerce, retail, and subscription packaging programs',
+    imageAlt: 'Open kraft and closed white corrugated mailer boxes with Apex Packaging branding',
     buyingContext: 'Vancouver packaging buyers often balance limited storage, regional fulfilment, retail presentation, and longer inbound freight lanes. Apex develops the quote around the packed product, production quantity, board and print requirements, delivery postal code, and reorder cadence so the packaging specification fits both the brand and the operating plan.',
     priorities: [
       { title: 'Lower Mainland delivery details', description: 'Identify the Vancouver-area warehouse, 3PL, storefront, or split-delivery plan early so freight and receiving requirements are included in the quote.' },
@@ -156,7 +156,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Dallas brands and high-volume distribution programs.',
     lead: 'Apex supports Dallas–Fort Worth buyers with custom corrugated boxes, branded mailers, retail packaging, and protective components planned around the product, warehouse flow, and delivery schedule.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated boxes prepared for Dallas Fort Worth shipping and distribution programs',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Dallas packaging programs may move through parcel networks, regional warehouses, retail distribution, and LTL lanes from one central specification. Apex scopes board strength, case dimensions, print, inserts, pallet efficiency, order quantity, and the DFW receiving point together so the quote reflects the complete distribution job.',
     priorities: [
       { title: 'Distribution-centre efficiency', description: 'Plan case dimensions, pack count, pallet pattern, labels, and handling marks together for smoother DFW warehouse receiving and replenishment.' },
@@ -196,7 +196,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Montreal brands, retail programs, and distribution.',
     lead: 'Apex helps Montreal and Greater Montreal buyers source custom boxes, printed mailers, retail cartons, and protective packaging around product requirements, order volume, and Quebec delivery plans.',
     image: '/images/home/hero-branded-packaging.webp',
-    imageAlt: 'Branded corrugated mailer and retail boxes for Montreal ecommerce and distribution packaging programs',
+    imageAlt: 'Closed dark blue presentation box with gold Lorien branding and wave-line artwork',
     buyingContext: 'Montreal packaging programs can serve bilingual retail launches, ecommerce fulfilment, local warehouses, and distribution across Quebec from one coordinated specification. Apex builds the quote around dimensions, packed weight, board, print coverage, label space, quantity, and the final receiving point so buyers can assess the complete production and delivery plan.',
     priorities: [
       { title: 'Bilingual artwork planning', description: 'Reserve suitable panels for French and English copy, required marks, barcodes, and variable labels before the dieline and artwork are approved.' },
@@ -236,7 +236,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Atlanta brands and Southeast distribution networks.',
     lead: 'Apex supports Atlanta-area buyers with custom corrugated boxes, printed mailers, retail packaging, and protective components planned around warehouse flow, transit demands, and reorder timing.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated shipping boxes for Atlanta warehouse and Southeast distribution programs',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Atlanta operations often connect parcel fulfilment, regional distribution centres, retail replenishment, and LTL routes across the Southeast. Apex scopes case dimensions, corrugated strength, print, inserts, pallet efficiency, order quantity, and receiving details together so the packaging is designed for the full route rather than a single handoff.',
     priorities: [
       { title: 'Southeast distribution fit', description: 'Coordinate case pack, pallet pattern, labels, board strength, and handling requirements for warehouse and regional delivery routes.' },
@@ -276,7 +276,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Calgary products, operations, and western distribution.',
     lead: 'Apex helps Calgary buyers specify custom corrugated boxes, branded mailers, industrial packaging, and protective components around product weight, handling conditions, order volume, and the final Alberta delivery point.',
     image: '/images/home/protective-packaging-branded.webp',
-    imageAlt: 'Protective custom packaging and corrugated boxes prepared for Calgary industrial and commercial shipments',
+    imageAlt: 'Moulded fibre tray with a dark green Verdella paper sleeve',
     buyingContext: 'Calgary packaging programs may need to protect industrial parts, energy-sector supplies, food products, retail goods, or ecommerce orders across long western freight lanes. Apex develops the quote around packed dimensions, weight, board strength, inserts, print, pallet configuration, quantity, and receiving requirements so the packaging supports both the product and the distribution plan.',
     priorities: [
       { title: 'Western freight performance', description: 'Match corrugated grade, closure, inserts, and pallet pattern to the packed weight, stacking exposure, route length, and parcel or LTL handling.' },
@@ -316,7 +316,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for New York launches, fulfilment, and retail programs.',
     lead: 'Apex supports New York buyers with branded mailers, retail cartons, corrugated shipping boxes, and protective inserts planned around tight storage, fast-moving SKUs, presentation standards, and receiving requirements.',
     image: '/images/home/mailer-boxes-branded.webp',
-    imageAlt: 'Premium printed mailer and retail boxes for New York ecommerce launches and store distribution',
+    imageAlt: 'Open kraft and closed white corrugated mailer boxes with Apex Packaging branding',
     buyingContext: 'New York packaging programs often balance premium presentation with limited storage, rapid launches, 3PL fulfilment, and deliveries to stores or buildings with specific receiving windows. Apex scopes structure, board, print, inserts, flat-packed storage, quantity, proofing, and the final NYC-area delivery point together so buyers can compare a complete operating plan.',
     priorities: [
       { title: 'Space-aware order planning', description: 'Balance unit economics against flat-packed footprint, sales velocity, SKU count, storage limits, and the next replenishment date.' },
@@ -356,7 +356,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Ottawa products, programs, and regional distribution.',
     lead: 'Apex helps Ottawa–Gatineau buyers source corrugated boxes, branded mailers, retail cartons, and protective packaging around product specifications, bilingual artwork, order volume, and delivery requirements.',
     image: '/images/home/hero-branded-packaging.webp',
-    imageAlt: 'Branded corrugated mailer and product boxes for Ottawa retail, ecommerce, and institutional packaging programs',
+    imageAlt: 'Closed dark blue presentation box with gold Lorien branding and wave-line artwork',
     buyingContext: 'Ottawa packaging programs may serve ecommerce customers, retail locations, technology teams, associations, public-sector suppliers, and warehouses across Eastern Ontario and western Quebec. Apex develops the quote around dimensions, packed weight, board, print, inserts, label space, run size, and the final receiving point so the approved packaging can support the entire program.',
     priorities: [
       { title: 'Bilingual content planning', description: 'Reserve suitable panels for English and French copy, barcodes, handling marks, and variable labels before artwork reaches final proof.' },
@@ -396,7 +396,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Boston products, launches, and specialized shipments.',
     lead: 'Apex supports Greater Boston buyers with custom mailers, retail cartons, corrugated shipping boxes, and protective inserts planned around valuable products, multi-SKU launches, storage limits, and receiving requirements.',
     image: '/images/home/protective-packaging-branded.webp',
-    imageAlt: 'Protective inserts and branded custom boxes for Boston technology, retail, and ecommerce shipping programs',
+    imageAlt: 'Moulded fibre tray with a dark green Verdella paper sleeve',
     buyingContext: 'Boston packaging programs often support technology hardware, laboratory supplies, premium consumer products, university initiatives, and ecommerce launches. Apex scopes the carton, inserts, print, proofing, quantity, storage footprint, shipment method, and Greater Boston delivery point together so protection and presentation are resolved before production.',
     priorities: [
       { title: 'High-value product protection', description: 'Define fragility, movement, abrasion, static, moisture, and presentation risks so the outer box and insert are engineered as one system.' },
@@ -436,7 +436,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Edmonton operations and demanding freight routes.',
     lead: 'Apex helps Edmonton buyers specify corrugated shipping boxes, industrial packaging, branded mailers, and protective components around product weight, handling risks, run size, and the final Alberta receiving point.',
     image: '/images/home/protective-packaging-branded.webp',
-    imageAlt: 'Protective inserts and custom corrugated boxes for Edmonton industrial and commercial shipping programs',
+    imageAlt: 'Moulded fibre tray with a dark green Verdella paper sleeve',
     buyingContext: 'Edmonton packaging programs may support industrial parts, energy and construction supplies, food products, ecommerce orders, or retail replenishment across northern and western freight lanes. Apex develops the quote around packed dimensions, weight, corrugated strength, cushioning, barriers, pallet configuration, order quantity, and receiving requirements so the approved pack is ready for the actual route.',
     priorities: [
       { title: 'Long-haul freight protection', description: 'Match board grade, closure, inserts, and pallet stability to packed weight, stacking exposure, transfers, and parcel or LTL handling.' },
@@ -476,7 +476,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Houston products, plants, and distribution programs.',
     lead: 'Apex supports Houston buyers with custom corrugated boxes, industrial packaging, printed mailers, and protective components planned around packed weight, climate exposure, warehouse flow, and delivery requirements.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated boxes prepared for Houston industrial, retail, and distribution shipments',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Houston packaging programs may move industrial components, energy-sector supplies, food products, retail goods, and ecommerce orders through hot, humid storage and long regional freight lanes. Apex scopes case dimensions, board strength, coatings or barriers, inserts, print, pallet efficiency, quantity, and the final receiving point together so the packaging supports the product from pack-out to delivery.',
     priorities: [
       { title: 'Heat and humidity planning', description: 'Share storage and transit exposure so corrugated grade, adhesives, coatings, barriers, and product-contact risks can be reviewed before sampling.' },
@@ -516,7 +516,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Winnipeg production, retail, and Prairie distribution.',
     lead: 'Apex helps Winnipeg buyers source corrugated shipping cases, printed mailers, food and retail cartons, and protective components around the product, seasonal demand, freight route, and receiving plan.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated shipping and retail boxes for Winnipeg businesses and Prairie distribution routes',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Winnipeg packaging programs often serve food processors, manufacturers, retailers, ecommerce operations, and distributors shipping across Manitoba and the Prairies. Apex develops the specification around packed weight, temperature and moisture exposure, case dimensions, print, pallet use, order quantity, storage, and delivery postal code so buyers can compare the full landed program.',
     priorities: [
       { title: 'Prairie freight durability', description: 'Match board grade, closure, inserts, and pallet stability to long regional lanes, transfers, stacking, and seasonal handling conditions.' },
@@ -556,7 +556,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Phoenix brands, warehouses, and desert distribution.',
     lead: 'Apex supports Greater Phoenix buyers with custom corrugated boxes, branded mailers, retail cartons, and protective packaging planned around heat exposure, product weight, warehouse flow, and delivery requirements.',
     image: '/images/home/mailer-boxes-branded.webp',
-    imageAlt: 'Printed custom mailer and shipping boxes for Phoenix ecommerce, retail, and warehouse fulfilment programs',
+    imageAlt: 'Open kraft and closed white corrugated mailer boxes with Apex Packaging branding',
     buyingContext: 'Phoenix packaging may move through hot trailers, dry warehouses, parcel networks, retail distribution, and regional fulfilment centres. Apex scopes the carton, board, adhesives, inserts, print, case pack, pallet efficiency, run size, and final Arizona receiving point together so the approved specification suits both the product and its route.',
     priorities: [
       { title: 'Desert heat exposure', description: 'Identify trailer, dock, warehouse, and outdoor exposure so adhesives, coatings, films, inks, and product sensitivities can be reviewed before sampling.' },
@@ -596,7 +596,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Los Angeles brands, retail launches, and fulfilment.',
     lead: 'Apex helps Los Angeles buyers source printed mailers, corrugated shipping cases, retail cartons, and protective inserts around the product, brand standard, fulfilment workflow, and delivery deadline.',
     image: '/images/home/hero-branded-packaging.webp',
-    imageAlt: 'Premium branded mailer and product boxes for Los Angeles ecommerce, retail, and product launch packaging',
+    imageAlt: 'Closed dark blue presentation box with gold Lorien branding and wave-line artwork',
     buyingContext: 'Los Angeles packaging programs often need to connect imported goods, local assembly, influencer kits, ecommerce fulfilment, retail rollouts, and regional distribution. Apex builds the quote around packed dimensions, product weight, print coverage, inserts, pack-out labour, run size, freight, and the final Southern California receiving point so the packaging performs from launch through replenishment.',
     priorities: [
       { title: 'Launch-ready presentation', description: 'Coordinate colour, board, coatings, inserts, opening sequence, and proofing so mailers and cartons arrive ready for retail, PR, or direct-to-consumer use.' },
@@ -636,7 +636,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Mississauga warehouses, manufacturers, and brands.',
     lead: 'Apex supports Mississauga buyers with corrugated shipping cases, branded mailers, retail cartons, and protective packaging planned around warehouse flow, freight, receiving, and repeat orders.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated boxes for Mississauga warehouses, manufacturers, and GTA distribution programs',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Mississauga packaging programs frequently connect manufacturing, airport-area logistics, 3PL operations, wholesale distribution, retail replenishment, and parcel fulfilment. Apex scopes the box dimensions, board grade, print, inserts, case pack, pallet pattern, quantity, and receiving postal code together so procurement teams can assess protection, handling, storage, and landed cost as one program.',
     priorities: [
       { title: 'Warehouse-ready specifications', description: 'Coordinate case pack, pallet footprint, labels, assembly steps, and receiving requirements for Mississauga plants, warehouses, and 3PLs.' },
@@ -676,7 +676,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Seattle launches, ecommerce, and regional distribution.',
     lead: 'Apex helps Seattle buyers source printed mailers, corrugated shipping cases, retail cartons, and protective inserts around the product, fulfilment workflow, run size, and Puget Sound delivery point.',
     image: '/images/home/mailer-boxes-branded.webp',
-    imageAlt: 'Branded corrugated mailer and shipping boxes for Seattle ecommerce and Puget Sound distribution programs',
+    imageAlt: 'Open kraft and closed white corrugated mailer boxes with Apex Packaging branding',
     buyingContext: 'Seattle packaging programs often connect ecommerce fulfilment, technology launches, specialty retail, food and beverage products, and regional distribution. Apex develops each quote around packed dimensions, product risk, print coverage, order quantity, storage, parcel or pallet handling, and the final Washington delivery point so the approved pack supports both brand presentation and operating requirements.',
     priorities: [
       { title: 'Ecommerce-ready dimensions', description: 'Size the mailer, insert, and shipping case together to limit empty space, dimensional weight, movement, and packing complexity.' },
@@ -716,7 +716,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Brampton manufacturing, warehousing, and distribution.',
     lead: 'Apex supports Brampton buyers with corrugated shipping cases, industrial packaging, printed mailers, and protective components planned around product weight, warehouse handling, freight, and repeat orders.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom corrugated shipping boxes for Brampton manufacturing, warehousing, and GTA distribution',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Brampton packaging programs frequently support manufacturing, transport, wholesale distribution, food operations, retail replenishment, and parcel fulfilment across Peel and the GTA. Apex scopes case dimensions, board strength, inserts, print, labels, case pack, pallet pattern, quantity, and the receiving postal code together so buyers can evaluate protection, warehouse efficiency, storage, and landed cost as one program.',
     priorities: [
       { title: 'Warehouse handling fit', description: 'Coordinate case pack, pallet footprint, labels, assembly, lift limits, and dock requirements for Brampton plants and distribution centres.' },
@@ -756,7 +756,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Miami brands, hospitality, and export-ready distribution.',
     lead: 'Apex helps Miami buyers source printed mailers, corrugated shipping cases, retail cartons, and protective components around product risk, brand presentation, humid conditions, and the final delivery route.',
     image: '/images/home/hero-branded-packaging.webp',
-    imageAlt: 'Premium printed mailer and product boxes for Miami retail, hospitality, ecommerce, and export packaging programs',
+    imageAlt: 'Closed dark blue presentation box with gold Lorien branding and wave-line artwork',
     buyingContext: 'Miami packaging programs may serve ecommerce fulfilment, hospitality, cosmetics, specialty food, retail launches, and freight moving through South Florida ports and airports. Apex builds the quote around packed dimensions, moisture sensitivity, print and finish requirements, inserts, case pack, pallet use, run size, and delivery ZIP code so the specification supports both presentation and transit.',
     priorities: [
       { title: 'Humidity-aware materials', description: 'Share warehouse, trailer, dock, and storage conditions so board grade, coatings, adhesives, liners, and product barriers can be reviewed before approval.' },
@@ -796,7 +796,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Québec City retail, manufacturing, and regional distribution.',
     lead: 'Apex supports Québec City buyers with corrugated shipping cases, printed mailers, retail cartons, and protective packaging planned around the product, bilingual artwork, seasonal conditions, and delivery requirements.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Custom printed corrugated and retail boxes for Québec City businesses and Capitale-Nationale distribution',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'Québec City packaging programs often support food and beverage, tourism, manufacturing, public-sector supply, ecommerce, and retail distribution across eastern Québec. Apex scopes dimensions, packed weight, board, bilingual print, inserts, case pack, pallet use, quantity, storage, and the final postal code together so the approved specification works from production through replenishment.',
     priorities: [
       { title: 'Bilingual artwork control', description: 'Reserve the required French and English copy, barcode, legal, ingredient, and variable-data areas before the dieline and proof are approved.' },
@@ -836,7 +836,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Detroit parts shipments and production supply.',
     lead: 'Metal components, service parts, and assembled kits need packaging specified for weight, contact surfaces, and handling. Apex quotes Detroit corrugated boxes, fitted inserts, and pallet packaging around the actual part and receiving address.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Closed kraft corrugated shipping box with green printed branding and line artwork',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'A Detroit shipment headed to an assembly plant has different packing requirements from a replacement part sent by parcel. For orders serving Detroit, Dearborn, or Warren, identify the destination and handling steps before choosing a carton. Apex reviews part dimensions, sharp edges, surface finishes, unit count, and stacking conditions alongside the order quantity. Include any Windsor receiving point as a separate delivery line so the USA and Canada portions can be quoted with their own freight assumptions.',
     priorities: [
       { title: 'Separate parts before they reach the dock', description: 'Show where metal, painted, or machined surfaces must avoid contact. Dividers and fitted inserts can be reviewed against part movement, loading orientation, and the way operators remove each unit.' },
@@ -876,7 +876,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Halifax orders and Atlantic Canada distribution.',
     lead: 'Quote corrugated shipping boxes, branded mailers, and protective inserts with the delivery plan included. Apex helps Halifax buyers specify packaging for local fulfilment, retail replenishment, and onward shipments across Atlantic Canada.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Kraft corrugated shipping box with green printed branding and contour-line artwork',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'A packaging order delivered to a Dartmouth warehouse and then used for regional parcel shipments has two different transport stages. Specify how empty boxes arrive, where they will be stored, and how packed products leave. For Halifax peninsula shops with limited receiving space, include unloading access and storage limits in the RFQ. For onward deliveries into New Brunswick, Prince Edward Island, or Newfoundland and Labrador, describe the actual handling route so the box and insert review reflects the shipment.',
     priorities: [
       { title: 'Separate inbound freight from product shipping', description: 'Request the flat-packed bundle dimensions, pallet quantity, freight scope, and receiving arrangements alongside the box price. Then assess the assembled carton against the weight and handling of your outbound product.' },
@@ -916,7 +916,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Denver product kits and retail shipments.',
     lead: 'Build a box specification around the products you actually ship. Apex quotes printed mailers, corrugated shipping boxes, and fitted protection for Denver brands sending accessories, outdoor-product kits, and retail orders.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Kraft corrugated box with green Terralis branding and printed contour-line artwork',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'A Denver outdoor-accessory brand may pack a single replacement item, a multi-piece starter kit, and a wholesale case from the same inventory. Those orders need different clearances and protection. Share the smallest and largest combinations before choosing one oversized box for every sale. For deliveries to Denver, Aurora, or Lakewood, list the actual receiving ZIP code and unloading facilities; a retail stockroom and a warehouse dock need separate freight assumptions. Identify onward shipments to mountain-town retailers when the pack must also work through additional transfers.',
     priorities: [
       { title: 'Choose box sizes from real order combinations', description: 'Send a SKU list with dimensions, weights, and common bundles. Compare a small set of carton sizes against excess space, packing time, and the packed dimensions used for carrier pricing.' },
@@ -956,7 +956,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Portland retail assortments and online orders.',
     lead: 'Turn your product assortment into a clear packaging brief. Apex quotes custom printed mailers, corrugated cases, and fitted inserts for Portland businesses shipping individual products, curated gift sets, and wholesale orders.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Closed kraft corrugated box with green Terralis branding and printed contour lines',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'A Portland shop selling the same goods over the counter and online needs to account for two different packing jobs. A gift set may need an organized presentation, while its parcel shipment needs secure closure and protection. Start with the contents, including jars, wrapped products, printed cards, and any seasonal substitutions. For packaging deliveries to Portland, Beaverton, or Gresham, identify the actual ZIP code and whether the receiving point is a storefront or warehouse. Quote each address separately when stock is split between a shop and a fulfilment operation.',
     priorities: [
       { title: 'Build the box around changing assortments', description: 'Share the dimensions and weight of every item in your standard and seasonal sets. Review whether a common outer box with different inserts works, or whether distinct sizes reduce empty space and packing materials.' },
@@ -996,7 +996,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Austin product launches and repeat orders.',
     lead: 'Build a packaging quote around the kit you are launching and the orders that follow. Apex helps Austin buyers specify printed mailers, shipping cartons, and protective inserts with quantities and receiving details agreed before production.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Kraft corrugated box with green branding and contour-line printing, illustrating custom packaging for Austin product launches',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'An Austin launch may need a presentation kit for a product demonstration and a simpler box for ongoing online orders. Quoting both versions together makes the differences visible: insert layout, print coverage, assembly time, packed weight, and the number of cartons to store. Specify whether packaging is going to an Austin office, a Round Rock fulfilment address, or a Cedar Park receiving location; each destination needs its own quantity and unloading details. Apex reviews these requirements as part of the quote rather than assuming every delivery has a warehouse dock.',
     priorities: [
       { title: 'Separate launch quantities from replenishment', description: 'List demonstration kits and regular shipping boxes as separate line items. A short launch run with several components can need a different structure and print approach from the recurring single-product order.' },
@@ -1036,7 +1036,7 @@ export const commercialLocations: CommercialLocation[] = [
     heading: 'Custom packaging for Nashville merchandise bundles and event deliveries.',
     lead: 'Bring the merchandise list, bundle quantities, and receiving deadline to one packaging quote. Apex helps Nashville buyers specify printed mailers, protective components, and outer shipping cartons for direct orders and bulk event allocations.',
     image: '/images/home/corrugated-boxes-branded.webp',
-    imageAlt: 'Kraft corrugated box with dark green branding and contour-line print, illustrating a printed merchandise shipping box',
+    imageAlt: 'Closed kraft corrugated box with green Terralis branding and contour-line artwork',
     buyingContext: 'A Nashville merchandise program can combine apparel, printed cards, and a breakable keepsake in one bundle. The box must fit the largest garment size while keeping the smaller items from moving. Event allocations introduce a second decision: whether the bundles arrive assembled or as flat packaging for an on-site packing team. Give Apex the Nashville receiving address and any separate Franklin or Murfreesboro allocation so carton counts, storage needs, and freight can be reviewed by destination. A venue deadline should be paired with its actual receiving window, contact, and unloading rules.',
     priorities: [
       { title: 'Check the full merchandise size range', description: 'Measure folded garments across the sizes in the program and list every accompanying item. Compare a shared box with an adjustable insert against separate sizes before ordering packaging for the whole assortment.' },
@@ -1076,7 +1076,7 @@ export const commercialLocations: CommercialLocation[] = [
     "heading": "Custom packaging for Cleveland parts kits and product samples.",
     "lead": "Give customers a complete, identifiable kit from the first sample through replacement orders. Apex helps Cleveland buyers quote printed boxes, fitted protective components, and shipping cartons around the actual parts list, packing process, and delivery requirements.",
     "image": "/images/home/corrugated-boxes-branded.webp",
-    "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line printing on the front and lid",
+    "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
     "buyingContext": "A product sample used by a sales team may contain several finishes or component sizes, while a replacement order contains just one item. Buying the same presentation pack for both can leave unused space and unnecessary assembly work. For Cleveland programs, send the sample assortment and replacement-order combinations as separate packing briefs. Identify whether empty packaging will arrive at a Cleveland office, a Parma packing operation, or a Solon warehouse, and distinguish that delivery from the later shipment of your finished kits. Apex can review the box sizes, insert layout, print requirements, and destination quantities together.",
     "priorities": [
         {
@@ -1162,7 +1162,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Baltimore gift sets and retail replenishment.",
   "lead": "Build a packaging order around the way your products are sold and restocked. Apex helps Baltimore buyers specify printed gift-set boxes, product dividers, and shipping cartons for individual orders and store deliveries.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line printing across the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A gift assortment sold as one unit needs a different packing plan from the same products shipped individually to restock a shelf. For a Baltimore retail program, separate the customer-facing set from the master carton used for replenishment. Show which products stay together, which stores receive loose units, and who assembles the gift sets. If empty packaging is delivered to a Baltimore shop, a Towson stockroom, or a Columbia packing site, list each destination and its allocation. That lets the quote account for carton quantities, flat-pack storage, and receiving access before artwork is approved.",
   "priorities": [
     {
@@ -1248,7 +1248,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Charlotte apparel bundles and repeat orders.",
   "lead": "Folded garments, accessory bundles, and multi-item orders need packaging sized around the actual packed assortment. Request printed mailer boxes, garment bags, and shipping cartons for your Charlotte fulfillment operation.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated mailer box with green Terralis branding and contour-line printing on the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A single folded shirt and a sweatshirt bundle can require different packing depths even when they share a brand design. For a Charlotte apparel program, send the packed dimensions of common order combinations before choosing a standard mailer. Separate the package used for an individual customer order from cartons that move inventory to a packing site. If packaging is received in Charlotte, Concord, or Gastonia, identify the actual delivery address, unloading access, and storage allowance for each order. The quote should distinguish the arrival of empty packaging from the parcel service you use to send finished orders to customers.",
   "priorities": [
     {
@@ -1334,7 +1334,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Milwaukee equipment accessories and distributor orders.",
   "lead": "Package attachments, accessory sets, and service items around the way customers receive them. Request a quote for printed boxes, fitted protection, and corrugated cases for your Milwaukee packing operation.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line printing across the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "An accessory sold individually online may also ship in a case of six to a distributor. Those orders need different packing specifications, even when the product and retail artwork stay the same. For a Milwaukee program, identify which box holds the saleable unit, which components keep it in position, and which carton carries a grouped order. Include Milwaukee, Waukesha, or West Allis receiving addresses separately when packaging goes to more than one assembly or fulfillment site. Apex can review the box and insert requirements together; material selection, testing, freight, and production timing are confirmed against the actual order.",
   "priorities": [
     {
@@ -1506,7 +1506,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Kitchener–Waterloo equipment kits and component orders.",
   "lead": "Give demonstration units, accessories, and replacement components a defined packing layout. Apex quotes custom boxes and protective inserts for Kitchener–Waterloo businesses around the complete kit, order quantity, print requirements, and receiving address.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Closed kraft corrugated box with green Terralis branding and fine contour-line printing on a neutral surface",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A demonstration kit and a replacement-component shipment rarely need the same box interior. The demo may contain a main unit, cables, adapters, and printed instructions; a replacement order may contain only one part. For teams packing in Kitchener, Waterloo, or Cambridge, separate those configurations before requesting prices. List which items ship together, which surfaces need protection, and where empty packaging will be received. This gives Apex a practical basis for comparing shared box sizes against dedicated component cartons.",
   "priorities": [
     {
@@ -1592,7 +1592,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Hamilton parts orders and production runs.",
   "lead": "Fabricated brackets, finished metal components, and mixed hardware orders need packaging that accounts for weight concentration and exposed edges. Apex quotes custom boxes, dividers, and protective inserts for Hamilton buyers using the actual parts and packing method.",
   "image": "/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp",
-  "imageAlt": "Kraft corrugated boxes with a compartment divider, board samples, paper cushioning and handling labels",
+  "imageAlt": "Kraft corrugated boxes, divider grid, corrugated pads, tape and handling labels",
   "buyingContext": "A carton holding twenty identical components presents a different packing problem from a service order containing two parts and loose fixings. For a Hamilton production or distribution program, send both configurations to Apex. Separate the carton needed at the packing bench from any outer case used for consolidated shipments. Include delivery details for Hamilton, Stoney Creek, or Ancaster so the quote accounts for the receiving site, not just the box dimensions.",
   "priorities": [
     {
@@ -1678,7 +1678,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Sacramento home goods and retail orders.",
   "lead": "Quote boxes and protective components around the products you actually ship. Apex helps Sacramento buyers compare packaging for single items, mixed-size bundles, and repeat retail orders.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Printed kraft corrugated box with a fitted lid and green branding, an example of custom packaging for Sacramento orders",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A home-goods order can combine a small accessory with a larger decorative item, leaving a standard carton difficult to fill consistently. For Sacramento packaging buyers, the useful starting point is a list of actual order combinations: what ships alone, what sells together, and which items need separate compartments. Quote the empty packaging delivered to your Sacramento packing site, then assess the finished parcel against your own customer delivery requirements. These are separate freight decisions.",
   "priorities": [
     {
@@ -1765,7 +1765,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Tampa hospitality kits and retail orders.",
   "lead": "Build a packaging quote around the kit you need to assemble. Apex reviews branded boxes, mailers, and protective components for Tampa buyers preparing guest gifts, event bundles, and repeat retail orders.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green printed branding and a fitted lid for a coordinated product presentation",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A guest welcome kit handed over at a Tampa hotel has different handling requirements from the same assortment mailed to a customer. Start with the contents, assembly location, and final delivery method. If kits include a folded textile, a boxed accessory, and a printed card, specify the position of each item rather than choosing the outer box from appearance alone. For allocations across Tampa, St. Petersburg, and Clearwater, distinguish delivery of empty packaging to your packing team from distribution of finished kits.",
   "priorities": [
     {
@@ -1852,7 +1852,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Moncton retail replenishment and parcel orders.",
   "lead": "Retail replenishment cartons and individual parcel boxes need separate specifications. Send Apex your unit sizes, case quantities, and order mix to quote custom packaging for your Moncton packing operation.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with a fitted lid, green brand printing and fine contour-line artwork",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A Moncton business sending six retail units to a shop and one unit to an online customer has two packing jobs. Start with the saleable unit, then specify the master carton and the individual shipping pack. For stock received in Moncton, Dieppe, or Riverview, identify where empty boxes will be stored and assembled. If packed orders continue to other New Brunswick destinations, describe that onward handling separately so the packaging quote reflects both the receiving site and the intended use.",
   "priorities": [
     {
@@ -1938,7 +1938,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Richmond sample assortments and repeat orders.",
   "lead": "Give buyers a clear view of your product range with packaging sized for the actual assortment. Ask Apex to quote printed boxes, corrugated shippers, and inserts for your Richmond sample program or recurring order mix.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line printing across the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A sample box can hold several small products while a repeat order contains multiples of only one item. Specifying both around the same outer dimensions may simplify storage, but the internal fit still needs review. For a Richmond packing team, identify which assortments are assembled in advance and which are selected after an order arrives. Include the receiving ZIP code and whether empty packaging goes to a Richmond address or a separate Henrico or Chesterfield site. Apex can review the box structure, component quantities, and delivery requirements together before you approve a production run.",
   "priorities": [
     {
@@ -2025,7 +2025,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Victoria retail pickup and shipped orders.",
   "lead": "Plan boxes around how customers receive your products. Apex can quote branded mailers, corrugated cartons, and protective components for Victoria businesses handling shop pickup, parcel orders, or both.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print on the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A box handed across a shop counter and a box sent through a parcel network face different handling. For a Victoria packaging order, separate the presentation pack from any outer shipper before comparing prices. Include the protective wrap, printed card, and complete product weight in the specification. Also distinguish delivery of empty packaging to your Vancouver Island packing site from onward shipments to customers. A quote should identify the receiving postal code, shipment quantity, unloading arrangements, and required arrival date for the packaging itself.",
   "priorities": [
     {
@@ -2111,7 +2111,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Cincinnati retail cases and parcel orders.",
   "lead": "Order packaging around the way your products leave the packing bench. Apex can quote printed mailers, corrugated shipping boxes, and protective inserts for Cincinnati businesses supplying stores and individual customers.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print across the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A wholesale order of twelve units and a single online purchase need different packing specifications. For Cincinnati buyers, the starting point is a list of retail units, case quantities, and direct-to-customer combinations. Decide which product pack stays unchanged across channels and where an outer carton or insert is needed. Keep the delivery of empty packaging separate from the onward shipment of finished orders: a Cincinnati office, a West Chester warehouse, and a Northern Kentucky fulfillment site each need their own receiving details in the quote.",
   "priorities": [
     {
@@ -2197,7 +2197,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Pittsburgh parts kits and repeat shipments.",
   "lead": "Build a box specification around the part, its accessories, and the person opening the shipment. Apex can quote corrugated cartons, printed mailers, and protective inserts for Pittsburgh businesses sending replacement components and customer kits.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print across the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A replacement assembly may ship with a cable, fasteners, and installation literature, while a reorder contains only the main component. Treat those as separate packing configurations before choosing a shared carton. For a Pittsburgh receiving site, include the actual delivery ZIP code and access details; an office stockroom and a warehouse dock require different unloading arrangements. List deliveries to Pittsburgh, Monroeville, or Cranberry Township separately when packaging stock is divided between teams.",
   "priorities": [
     {
@@ -2283,7 +2283,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Kelowna gift assortments and retail orders.",
   "lead": "A bottle, a jar, and a boxed accessory need different support inside the same gift pack. Apex can quote printed boxes, corrugated dividers, and outer shipping cartons for Kelowna businesses building seasonal assortments or replenishing retail stock.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with green Terralis branding and contour-line print across the lid and front",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "Plan the presentation pack and the delivery pack together. An assortment collected at a Kelowna shop may need a different outer carton when sent to a customer by parcel. List each bottle or jar size, filled weight, closure, and accessory before requesting a shared box. For packaging deliveries to Kelowna, West Kelowna, or Lake Country, provide the full receiving address and unloading arrangements. Quote each destination separately when empty boxes will be split between a retail stockroom and a packing site.",
   "priorities": [
     {
@@ -2369,7 +2369,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Indianapolis parts kits and distribution orders.",
   "lead": "Apex quotes corrugated cartons, protective inserts, and pallet-ready packaging for Indianapolis teams shipping parts kits, replacement orders, and multi-unit cases. Start with the packed product and receiving plan, not a generic box size.",
   "image": "/images/blog/automotive-parts-packaging-generated.png",
-  "imageAlt": "Corrugated parts cartons, protective inserts, and a secured pallet load for Indianapolis distribution orders",
+  "imageAlt": "Kraft corrugated boxes with foam and corrugated inserts, bagged metal parts and palletized cartons",
   "buyingContext": "A complete repair kit and a single replacement component rarely need the same packaging. For an Indianapolis program, list each order configuration, packed weight, and whether the product moves by parcel, LTL, or a warehouse transfer. A shared outer carton can be practical, but only if inserts, void space, closure, and handling are reviewed with the loaded product. Include the receiving ZIP code, dock or liftgate access, and whether empty cartons are delivered to an Indianapolis packing line, a Plainfield warehouse, or another Indiana site. That lets the quote address the box and the inbound delivery rather than treating freight as an afterthought.",
   "priorities": [
     {
@@ -2455,7 +2455,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Burnaby retail pickup and shipped orders.",
   "lead": "Branded mailers, fitted inserts, and shipping cartons serve different jobs when the same Burnaby product range sells over a counter and online. Send Apex your packed dimensions and quantities by sales channel for a quote that separates presentation, protection, and delivery costs.",
   "image": "/images/home/hero-branded-packaging.webp",
-  "imageAlt": "Dark branded presentation box with a gold printed logo and curved line artwork",
+  "imageAlt": "Closed dark blue presentation box with gold Lorien branding and wave-line artwork",
   "buyingContext": "A pickup order may need a compact branded box that staff can assemble at the counter. The same assortment sent by parcel needs a review of movement, closure, cushioning, and outer-carton requirements. For a Burnaby program, identify where empty packaging will arrive and where orders will be packed: a retail stockroom, an office packing area, or a separate warehouse. If stock is split between Burnaby and Vancouver, specify quantities and receiving details for each address. Apex can price the proposed structures and delivery allocations together, so a low box price does not hide extra packing materials or an impractical storage requirement.",
   "priorities": [
     {
@@ -2541,7 +2541,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Surrey homeware sets and individual orders.",
   "lead": "A candle, a ceramic accessory, and a boxed gift set need different space and protection. Ask Apex to quote branded boxes, dividers, and shipping cartons around the homeware combinations your Surrey team actually packs.",
   "image": "/images/home/hero-branded-packaging.webp",
-  "imageAlt": "Dark presentation box with gold brand lettering, a floral emblem, and curved gold line artwork",
+  "imageAlt": "Closed dark blue presentation box with gold Lorien branding and wave-line artwork",
   "buyingContext": "For a Surrey homeware range, start with an order matrix: single items, paired products, and full gift assortments. A box sized for the largest set can leave smaller orders with unnecessary movement and filler. Compare a small family of carton sizes with a common printed presentation box and interchangeable inserts. Identify whether empty packaging will arrive at a Surrey stockroom, a South Surrey retail location, or a separate packing warehouse. Delivery of empty boxes and onward shipment of filled orders are separate costs and should have separate requirements in the brief.",
   "priorities": [
     {
@@ -2627,7 +2627,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Salt Lake City outdoor accessory brands.",
   "lead": "Turn a strap, repair kit, or accessory bundle into a clearly organized pack. Ask Apex to quote printed boxes, removable inserts, and replenishment cartons for your Salt Lake City retail and online orders.",
   "image": "/images/home/hero-branded-packaging.webp",
-  "imageAlt": "Dark branded presentation box with gold lettering, a floral emblem, and curved gold line artwork",
+  "imageAlt": "Closed dark blue presentation box with gold Lorien branding and wave-line artwork",
   "buyingContext": "An outdoor accessory range can include both soft goods and small rigid components. A full bundle may need a divided insert, while a replacement strap can fit in a smaller pack. For Salt Lake City buyers, quote the bundle and replacement orders separately before committing every SKU to one box. If empty packaging goes to a Salt Lake City assembly site and a separate warehouse in West Valley City or Sandy, provide quantities and receiving details for each address. Keep inbound packaging freight separate from the cost of shipping finished orders to customers.",
   "priorities": [
     {
@@ -2713,7 +2713,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Omaha sales samples and dealer kits.",
   "lead": "Give each sample a defined place in the box. Ask Apex to quote printed presentation boxes, divided inserts, and shipping cartons for sample programs assembled in Omaha.",
   "image": "/images/home/hero-branded-packaging.webp",
-  "imageAlt": "Dark presentation box with gold brand lettering, a floral emblem, and curved gold line artwork",
+  "imageAlt": "Closed dark blue presentation box with gold Lorien branding and wave-line artwork",
   "buyingContext": "A sales representative may carry the same sample case through several demonstrations, while a dealer receives a kit once by parcel. Those uses call for different structures. For an Omaha sample program, separate reusable demonstration packs from mailed assortments before requesting prices. If assembly takes place in Omaha and replenishment stock goes to Bellevue or Council Bluffs, provide a receiving address and quantity for each site. Council Bluffs deliveries should be listed separately as an Iowa destination, rather than grouped under the Nebraska address.",
   "priorities": [
     {
@@ -2799,7 +2799,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Tucson ceramic and gift sets.",
   "lead": "A mug handle, a glazed surface, and a loose gift accessory each need a defined position in the pack. Send Apex your Tucson gift-set specifications to compare printed boxes, fitted inserts, and parcel shipping cartons.",
   "image": "/images/home/hero-branded-packaging.webp",
-  "imageAlt": "Dark printed gift box with gold lettering, a floral emblem, and curved gold line artwork",
+  "imageAlt": "Closed dark blue presentation box with gold Lorien branding and wave-line artwork",
   "buyingContext": "A ceramic set handed over at a Tucson shop and the same set shipped to a customer face different handling conditions. Build the quote around both sales channels. Record the widest points of each piece, including handles and lids, rather than relying on nominal product dimensions. If stock is packed in Tucson and a second team assembles orders in Marana or Oro Valley, specify the quantities and receiving address for each site. Request inbound freight for empty packaging separately from the cost of sending finished orders to customers.",
   "priorities": [
     {
@@ -2885,7 +2885,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Reno shipments and customer return kits.",
   "lead": "Request boxes and protective components for products that travel out to customers and may come back for service. Apex can quote a coordinated packaging specification for your Reno or Sparks packing operation.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Printed kraft corrugated box with fitted lid and branded side panels",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A return program needs more than an outbound box with an extra label. Customers may discard cushioning, open a closure incorrectly, or send back only part of the original set. For Reno and Sparks fulfillment teams, separate the initial product shipment from the replacement packaging sent to a customer who no longer has the original pack. Specify the contents, loading instructions, protection, and closure for each journey. Apex can review these requirements together and quote the empty packaging delivered to your Nevada receiving address.",
   "priorities": [
     {
@@ -2971,7 +2971,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Spokane parts kits and dealer replenishment.",
   "lead": "Pack small components, service kits, and dealer restock orders around a documented contents list. Ask Apex to quote boxes, dividers, and printed packaging for your Spokane or Spokane Valley operation.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with a fitted lid, green brand print and contour-line artwork",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A service kit may contain one main component and several small fittings, while a dealer order contains multiple kits in an outer case. Treat those as two packaging specifications. For a Spokane packing operation supplying customers across eastern Washington and northern Idaho, identify what is packed locally, what a dealer opens, and which components need individual identification. Quote the empty packaging delivered to your Spokane or Spokane Valley receiving address separately from the onward shipment of filled orders. Apex can review the kit layout and case quantities together so a change to one component does not leave the rest of the packaging specification unclear.",
   "priorities": [
     {
@@ -3057,7 +3057,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Laval retail assortments and wholesale cases.",
   "lead": "Order retail cartons and shipping cases around the way your products are sold and replenished. Ask Apex to quote packaging for your Laval operation with quantities, artwork versions, and receiving requirements defined together.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated box with a fitted lid, green brand print and contour-line artwork",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A Laval brand supplying stores and online customers may need a printed carton for each item, a mixed assortment for a retailer, and a separate parcel box for direct orders. Start with the unit that each customer buys. Then define the quantity and arrangement inside each shipping case. If empty packaging is delivered to Laval but finished orders leave from a Montréal fulfilment site, identify both stages in the brief. The packaging delivery quote should name the actual receiving postal code; the filled-product shipping route informs the box and protection specification.",
   "priorities": [
     {
@@ -3144,7 +3144,7 @@ export const commercialLocations: CommercialLocation[] = [
   "heading": "Custom packaging for Wichita samples that need to arrive ready to present.",
   "lead": "Build a box around the samples your customer needs to compare. Ask Apex to quote printed boxes and inserts for Wichita sales teams, showroom shipments, and business orders, with the presentation pack and shipping requirements specified together.",
   "image": "/images/home/corrugated-boxes-branded.webp",
-  "imageAlt": "Kraft corrugated presentation box with a fitted lid, green Terralis branding and contour-line print",
+  "imageAlt": "Closed kraft corrugated box with green Terralis branding and contour-line artwork",
   "buyingContext": "A Wichita business sending finish swatches, small product samples, or showroom selections needs more than a box sized to the largest item. The recipient should be able to identify each sample, take it out, and return it to the correct position. Separate the presentation layout from the parcel protection brief. If your team assembles kits in Wichita and distributes them to sales staff in Derby or Andover, specify where empty boxes arrive and where filled kits travel. Those are different inputs to the packaging quote.",
   "priorities": [
     {
