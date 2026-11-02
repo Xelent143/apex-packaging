@@ -28,7 +28,7 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'cereal-boxes': [{ label: 'Food Grade' }, { label: 'Large Panels' }, { label: 'Liner Ready' }, { label: 'Shelf Ready' }],
   'chocolate-bar-boxes': [{ label: 'Bar Sleeves' }, { label: 'Food Safe' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }],
   'chocolate-boxes': [{ label: 'Food Safe' }, { label: 'Gift Finish' }, { label: 'Insert Trays' }, { label: 'Foil Detail' }],
-  'christmas-boxes': [{ label: 'Holiday Print' }, { label: 'Gift Ready' }, { label: 'Foil Detail' }, { label: 'Seasonal Runs' }],
+  'christmas-boxes': [{ label: 'Holiday Print' }, { label: 'Gift Ready' }, { label: 'Foil Detail' }, { label: 'Seasonal Planning' }],
   'cigarette-boxes': [{ label: 'Small Format' }, { label: 'Copy Zones' }, { label: 'Display Trays' }, { label: 'Batch Space' }],
   'coffee-packaging': [{ label: 'Freshness' }, { label: 'Valve Options' }, { label: 'Retail Ready' }, { label: 'Custom Print' }],
   'cosmetic-boxes': [{ label: 'Beauty Retail' }, { label: 'Soft Touch' }, { label: 'Foil Options' }, { label: 'Custom Inserts' }],
@@ -86,7 +86,7 @@ const commercialSeoBySlug: Record<string, { title: string; description: string; 
   'cereal-boxes': { title: 'Custom Cereal Packaging Boxes Canada | Apex', description: 'Custom cereal packaging boxes for dry-food retail, private-label and sample programs, with product dimensions, print and shipment requirements reviewed by project.', heading: 'Custom cereal packaging boxes for dry-food retail and private-label programs.', h1: 'Custom Cereal Boxes Packaging Canada' },
   'chocolate-bar-boxes': { title: 'Custom Chocolate Bar Packaging Boxes Canada | Apex Packaging', description: 'Custom chocolate bar packaging boxes for retail bars, seasonal collections and gift programs, with sleeves, cartons, print and finish options quoted to specification.', heading: 'Custom chocolate bar packaging boxes for retail bars and seasonal gift programs.' },
   'chocolate-boxes': { title: 'Custom Chocolate Packaging Boxes Canada | Apex Packaging', description: 'Custom chocolate packaging boxes for bars, truffles, gift assortments and seasonal collections, with insert, print and finish choices quoted to specification.', heading: 'Custom chocolate packaging boxes for bars, assortments and gift programs.' },
-  'christmas-boxes': { title: 'Custom Christmas Gift Boxes Canada | Apex Packaging', description: 'Custom Christmas gift packaging boxes for seasonal retail, confectionery and corporate gifting, with structures, print and delivery requirements reviewed by project.', heading: 'Custom Christmas gift packaging boxes for seasonal retail and gifting programs.' },
+  'christmas-boxes': { title: 'Custom Christmas Gift Boxes Canada | Apex Packaging', description: 'Custom Christmas gift boxes for retail bundles, confectionery and corporate gifting, planned around product combinations, inserts, artwork variants and packout.', heading: 'Custom Christmas gift packaging boxes for seasonal retail and gifting programs.' },
   'cigarette-boxes': { title: 'Custom Cigarette Packaging Boxes Canada | Apex Packaging', description: 'Custom cigarette packaging boxes and small-format retail cartons with production specifications and required information panels reviewed by project.', heading: 'Custom cigarette packaging boxes for small-format retail programs.' },
   'coffee-packaging': { title: 'Custom Coffee Packaging Canada | Apex Packaging', description: 'Custom coffee packaging for roasters, subscriptions and retail programs, including pouches, cartons, mailers and product-specific print options.', heading: 'Custom coffee packaging for wholesale, retail and subscription programs.' },
   'cosmetic-boxes': { title: 'Custom Cosmetic Packaging Boxes Canada | Apex Packaging', description: 'Custom cosmetic packaging boxes for skincare, makeup, jars and beauty retail launches, with structures, inserts, printing and finishes quoted to specification.', heading: 'Custom cosmetic packaging boxes for beauty products, retail presentation and launch planning.' },
@@ -96,7 +96,7 @@ const commercialSeoBySlug: Record<string, { title: string; description: string; 
   'display-boxes': { title: 'Custom Display Boxes Canada | Apex Packaging', description: 'Custom countertop display boxes for retail counters, shelves and product launches, with display structure, print and quantity requirements reviewed by project.', heading: 'Custom countertop display boxes for retail visibility and product launches.' },
   'electronics-boxes': { title: 'Custom Electronics Packaging Boxes Canada | Apex Packaging', description: 'Custom electronic packaging boxes for devices, accessories and tech kits, with product protection, inserts and print requirements quoted to specification.', heading: 'Custom electronic packaging boxes for devices, accessories and tech products.' },
   'food-boxes': { title: 'Custom Food Packaging Boxes Canada | Apex Packaging', description: 'Custom food packaging boxes for retail products, meal kits and dry goods, with material, structure, print and documentation requirements reviewed by project.', heading: 'Custom food packaging boxes specified around the product, channel and handling needs.' },
-  'gift-boxes': { title: 'Custom Gift Boxes Wholesale Canada | Apex Packaging', description: 'Custom gift boxes for retail sets, corporate programs and seasonal launches, with product-specific structures, inserts, print and finish options.', heading: 'Custom gift boxes for wholesale, retail presentation and seasonal programs.' },
+  'gift-boxes': { title: 'Custom Gift Boxes Wholesale Canada | Apex Packaging', description: 'Custom gift boxes for corporate, retail and promotional sets, with structure, product fit, inserts, opening experience and shipping protection reviewed by project.', heading: 'Custom gift boxes for wholesale, retail presentation and promotional programs.' },
   'hair-extension-boxes': { title: 'Custom Hair Extension Packaging Boxes Canada | Apex Packaging', description: 'Custom hair extension packaging boxes for beauty retail, salon programs and premium product sets, with structure, print and finish options.', heading: 'Custom hair extension packaging boxes for beauty retail and salon programs.' },
   'hardware-boxes': { title: 'Custom Hardware Packaging Boxes Canada | Apex Packaging', description: 'Custom hardware packaging boxes for parts, tools and retail kits, specified for product weight, organization, print and delivery requirements.', heading: 'Custom hardware packaging boxes for parts, tools and retail programs.' },
   'health-boxes': { title: 'Custom Wellness & Healthcare Product Boxes Canada | Apex', description: 'Custom boxes for supplements, wellness kits, medical accessories and healthcare retail products, planned around product fit and information-panel requirements.', heading: 'Custom healthcare packaging boxes for health products and supplement programs.', h1: 'Custom Healthcare Packaging Boxes Canada' },
@@ -147,6 +147,112 @@ type BuyerContent = {
 };
 
 const buyerContentBySlug: Record<string, BuyerContent> = {
+  'christmas-boxes': {
+    intro: 'Apex supplies custom Christmas gift boxes and seasonal packaging for retail bundles, confectionery, ornaments, corporate gifts, and promotional sets. Start the quotation with every product and accessory, the intended arrangement, complete packed weight, sales and shipping channels, artwork variants, quantity, destination, and required approval milestones so the structure, insert, packout, and production plan can be reviewed together.',
+    structures: [
+      { option: 'Folding carton or window carton', href: '/industries/custom-tuck-boxes', application: 'Confectionery, ornaments, compact gifts, and retail products that benefit from printed information panels or product visibility', tradeoff: 'Product weight, closure, window position, insert, and outer shipping protection must suit the complete packout.' },
+      { option: 'Corrugated mailer', href: '/services/mailer-boxes', application: 'Ecommerce gift sets, subscription-style seasonal kits, and bundles moving through parcel distribution', tradeoff: 'Board specification, internal fit, movement control, packed weight, and route need to be evaluated together.' },
+      { option: 'Rigid gift box', href: '/industries/rigid-boxes', application: 'Corporate gifts, premium retail sets, and multi-item programs where presentation and opening sequence matter', tradeoff: 'Construction, insert, assembly, finished tolerances, and protective shipping packaging add approval steps.' },
+      { option: 'Sleeve-and-tray set', application: 'Confectionery assortments, compact gift sets, and products that need a controlled reveal', tradeoff: 'Sleeve fit, tray clearance, insert layout, removal access, and packed orientation should be checked in a sample.' }
+    ],
+    materials: [
+      { option: 'Printed paperboard', application: 'Folding cartons, sleeves, and compact retail gift packaging', tradeoff: 'Board direction, folds, closures, print coverage, insert needs, and shipping protection must follow the packed product.' },
+      { option: 'Corrugated board', application: 'Christmas mailers, ecommerce bundles, and kits that need distribution structure', tradeoff: 'Packed weight alone does not select the board; dimensions, movement, handling, stacking, and route also matter.' },
+      { option: 'Rigid board with paper wrap', application: 'Premium presentation boxes and corporate gift sets', tradeoff: 'Wrap, corners, closure, insert, assembly, and outer shipping protection should be approved as one pack.' },
+      { option: 'Paperboard or foam insert', href: '/blog/custom-box-inserts-for-safer-product-presentation-2026-09-07', application: 'Mixed products that need separation, fixed orientation, removal access, or a planned presentation', tradeoff: 'Material and geometry depend on product weight, fragility, contact points, assembly, and the complete shipping packout.' }
+    ],
+    measurements: [
+      'List every product, accessory, card, sample, and packing component in each Christmas bundle, including the maximum length, width, height, and weight of each item.',
+      'Show the preferred arrangement and opening sequence, including which product should appear first and how buyers should remove each component.',
+      'State acceptable movement, fragile or protruding points, product-separation needs, and the finger access required around an insert.',
+      'Provide the complete packed weight and the intended inner pack, presentation box, outer shipper, case quantity, and pallet or parcel route where applicable.',
+      'Identify every bundle or SKU variation so shared structures, changed product combinations, and artwork variants can be reviewed before dielines are released.'
+    ],
+    printing: [
+      'Build each artwork version on the supplier-approved dieline and keep critical copy, barcodes, and registration-sensitive details clear of folds, seams, closures, windows, and cut edges.',
+      'Use a controlled master design for recurring brand elements, then name every Christmas artwork, language, product, or recipient variant clearly.',
+      'Provide vector logos where possible, final copy, colour references, barcode files, and a version list showing which artwork belongs to each packout.',
+      'Confirm print and finish expectations on the selected substrate; a screen proof confirms layout but does not by itself prove the final printed colour or surface result.'
+    ],
+    sampling: [
+      'Use a dieline proof to confirm dimensions, copy, barcode placement, panel orientation, and the correct artwork revision for every variant.',
+      'Use a structural sample to check product combinations, insert fit, removal access, closure, assembly, opening sequence, and complete packed weight.',
+      'Review the finished presentation pack inside its intended shipping protection when it will travel through parcel or freight handling.',
+      'Set project-specific dates for specification approval, structural sampling, artwork approval, production review, freight planning, and receipt; the supplier quotation should confirm the feasible schedule rather than relying on a general seasonal promise.'
+    ],
+    commercialFactors: [
+      'box format, dimensions, product combinations, insert geometry, closure, assembly, and complete packed weight;',
+      'number of bundle configurations, artwork variants, languages, SKUs, and approved dielines;',
+      'print coverage, finishes, colour controls, artwork readiness, sample route, and tooling where applicable;',
+      'target quantity by variant, packing configuration, destination, approval milestones, freight method, and required receipt window.'
+    ],
+    faqs: [
+      { q: 'How early should a Christmas packaging project be planned?', a: 'Plan backward from the required receipt window and include time for specification review, structural development, samples, artwork approval, production, packing, and freight. The feasible schedule depends on the final structure, variants, quantity, destination, and approval speed, so it should be confirmed in the project quotation rather than assumed from a general seasonal lead time.' },
+      { q: 'Can several Christmas gift-set combinations use one box structure?', a: 'Sometimes. Share every product combination, orientation, and packed weight so the common outer dimensions and insert requirements can be compared. A shared structure may still need different inserts, labels, sleeves, or artwork, and each intended packout should be checked before approval.' },
+      { q: 'What measurements are needed for a multi-item Christmas gift box?', a: 'Provide the maximum dimensions and weight of every item and accessory, the preferred arrangement, complete packed weight, fragile points, removal sequence, insert clearances, and the intended outer shipping pack. Include all bundle variants rather than measuring only the largest product.' },
+      { q: 'How should seasonal artwork variants be prepared?', a: 'Use the approved dieline, final copy, vector logos where possible, colour references, barcode files, and clearly named versions for each SKU, language, recipient, or campaign. Keep critical elements clear of folds, seams, closures, windows, and cut edges, and approve every version against the correct packout.' },
+      { q: 'What affects Christmas-box quantities, price, samples, and timing?', a: 'Structure, dimensions, insert, product combinations, print coverage, finishes, artwork variants, tooling, sample route, assembly, quantity by version, packing configuration, destination, freight method, and approval readiness all affect the plan. Apex confirms project-specific quantities, price, sample path, and schedule in the quotation.' }
+    ],
+    related: [
+      { title: 'Gift boxes for corporate and retail sets', href: '/industries/gift-boxes', description: 'Compare evergreen gift-box structures, inserts, opening experience, and protective shipping packaging.' },
+      { title: 'Packaging artwork requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare controlled dielines, bleed, barcode zones, colour references, and artwork revisions.' },
+      { title: 'Gift-box inserts and packaging formats', href: '/blog/gift-boxes-inserts-rigid-mailer-packaging-guide', description: 'Plan product fit, insert requirements, presentation, and shipping protection for multi-item sets.' }
+    ],
+    quoteLead: 'For a complete Christmas packaging quotation, send every product and accessory dimension, all bundle combinations, preferred arrangement, complete packed weight, insert and presentation requirements, box format, artwork and variant list, target quantity by version, packing configuration, destination, approval milestones, freight method, and required receipt window.'
+  },
+  'gift-boxes': {
+    intro: 'Apex supplies custom gift boxes for evergreen corporate programs, retail sets, promotional kits, and branded product bundles. Send every product and accessory dimension, preferred arrangement, complete packed weight, presentation goal, sales and shipping channels, artwork, quantity, and destination so Apex can compare the box structure, insert, opening experience, and protective shipping pack before preparing a quotation.',
+    structures: [
+      { option: 'Rigid presentation box', href: '/industries/rigid-boxes', application: 'Corporate gifts, premium retail sets, launch kits, and programs where the opening experience is central', tradeoff: 'Construction, closure, insert, assembly, finished tolerances, and outer shipping protection require coordinated approval.' },
+      { option: 'Two-piece lift-off-lid box', application: 'Retail bundles, accessories, confectionery sets, and compact corporate gifts', tradeoff: 'Lid depth, fit, removal resistance, product height, and insert clearance should be checked in a physical sample.' },
+      { option: 'Corrugated gift mailer', href: '/services/mailer-boxes', application: 'Ecommerce gifts, promotional kits, and programs where the decorated pack also provides shipping structure', tradeoff: 'Presentation and distribution duties must be reviewed together, including board specification, movement control, packed weight, and route.' },
+      { option: 'Sleeve-and-tray set', application: 'Compact products, accessories, printed collateral, and sets that benefit from a sliding reveal', tradeoff: 'Sleeve friction, tray clearance, pull detail, insert alignment, and removal access need sample review.' }
+    ],
+    materials: [
+      { option: 'Rigid board with paper wrap', application: 'Premium presentation and repeat corporate or retail programs', tradeoff: 'Wrap, corners, closure, insert, assembly, and shipping protection should be developed as one specification.' },
+      { option: 'Printed paperboard', application: 'Folding gift cartons, sleeves, and compact retail or promotional sets', tradeoff: 'Board direction, closure, product weight, insert, print coverage, and outer shipper determine whether the format is suitable.' },
+      { option: 'Corrugated board', application: 'Gift mailers and sets moving through ecommerce or parcel distribution', tradeoff: 'The board decision depends on dimensions, complete packed weight, internal movement, handling, stacking, and route—not weight alone.' },
+      { option: 'Paperboard or foam insert', href: '/blog/custom-box-inserts-for-safer-product-presentation-2026-09-07', application: 'Sets that need fixed orientation, component separation, removal access, or a planned reveal', tradeoff: 'Insert material and geometry should follow product weight, fragility, contact points, assembly, disposal goals, and the shipping packout.' }
+    ],
+    measurements: [
+      'Measure every product and accessory at its maximum length, width, and height, including caps, handles, cables, literature, cards, and other packing components.',
+      'Share the preferred arrangement, complete packed weight, fragile or protruding points, and the order in which recipients should see and remove the items.',
+      'Define acceptable movement, contact points, product separation, finger access, and clearance around each insert cavity.',
+      'Provide the assembled presentation-pack dimensions and the intended protective outer pack, case quantity, and shipping route.',
+      'List every product or artwork variation so shared structures, insert changes, and reorder specifications can be controlled.'
+    ],
+    printing: [
+      'Build production artwork on the supplier-approved dieline and keep critical copy, barcodes, and registration-sensitive details clear of folds, seams, closures, and cut edges.',
+      'Provide vector logos where possible, final copy, colour references, barcode files, print coverage, and clearly named artwork for every version.',
+      'Plan the exterior, lid, tray, interior panels, and opening sequence around what the recipient should see at each stage rather than treating every surface equally.',
+      'Review colour and finish expectations on the selected substrate; a screen proof confirms layout but does not by itself prove the final printed result.'
+    ],
+    sampling: [
+      'Use a dieline proof to confirm dimensions, copy, barcode placement, panel orientation, and the current artwork revision.',
+      'Use a structural sample to check product fit, insert clearance, closure, assembly, removal access, opening sequence, and the complete packed weight.',
+      'Review the presentation pack inside its intended protective mailer or shipper when it will move through parcel or freight handling.',
+      'Record the approved structure, dimensions, materials, artwork revision, insert arrangement, packing method, outer protection, and sample decision for reorders.'
+    ],
+    commercialFactors: [
+      'box structure, dimensions, closure, insert geometry, product count, arrangement, and complete packed weight;',
+      'presentation goal, opening sequence, assembly, protective outer packaging, case pack, and shipping route;',
+      'print coverage, finishes, colour controls, artwork readiness, SKU count, sample route, and tooling where applicable;',
+      'target quantity by version, packing configuration, destination, reorder plan, and timing context.'
+    ],
+    faqs: [
+      { q: 'Which gift-box structure should I choose?', a: 'Choose from the product dimensions and weight, number of components, presentation goal, opening sequence, packing process, sales channel, and shipping route. Rigid boxes prioritize presentation, two-piece boxes provide a direct reveal, corrugated mailers add distribution structure, and sleeve-and-tray sets create a sliding opening. A structural sample should confirm the chosen format and fit.' },
+      { q: 'What measurements are needed for a multi-item gift set?', a: 'Send the maximum dimensions and weight of every product, accessory, card, and packing component, plus the preferred arrangement, complete packed weight, fragile points, removal sequence, insert clearances, and intended protective outer pack.' },
+      { q: 'When does a gift box need an insert?', a: 'An insert is useful when products need fixed orientation, separation, movement control, removal access, or a planned reveal. Its material and geometry should follow product weight, fragility, contact points, assembly, disposal goals, and how the complete pack will be shipped.' },
+      { q: 'Does a presentation gift box also need shipping packaging?', a: 'Often it does. A rigid, two-piece, or sleeve-and-tray presentation box may need a corrugated mailer, shipper, cushioning, or other movement control for distribution. A suitable corrugated gift mailer may combine presentation and shipping structure, but the complete packout and route still need review.' },
+      { q: 'What affects gift-box quantities, price, samples, and timing?', a: 'Structure, dimensions, closure, insert, product count, print coverage, finishes, artwork versions, tooling, sample route, assembly, protective shipping packaging, quantity, destination, and artwork readiness all affect the plan. Apex confirms project-specific quantities, price, sample path, and schedule in the quotation.' }
+    ],
+    related: [
+      { title: 'Rigid-box structure and finish guide', href: '/blog/luxury-rigid-boxes-premium-products-structure-inserts-finishes', description: 'Compare presentation structures, fit, inserts, opening experience, finishes, and sample decisions.' },
+      { title: 'Custom box inserts for product presentation', href: '/blog/custom-box-inserts-for-safer-product-presentation-2026-09-07', description: 'Plan product restraint, separation, removal access, and the intended presentation.' },
+      { title: 'Protective packaging for gift-set shipping', href: '/services/protective-packaging', description: 'Review the outer packaging and movement control needed beyond the presentation box.' }
+    ],
+    quoteLead: 'For a complete gift-box quotation, send every product and accessory dimension, preferred arrangement and opening sequence, complete packed weight, insert and closure requirements, presentation direction, box format, artwork and SKU count, target quantity by version, protective shipping pack, packing configuration, destination, reorder plan, and timing context.'
+  },
   'product-boxes': {
     intro: 'Apex supplies custom product packaging for retail, ecommerce, launches, kits, and reorder programs across Canada, with service available in the United States and selected international markets. Start with the product dimensions, complete packed weight, protection needs, presentation goal, sales channel, quantity, artwork status, and destination so Apex can compare folding cartons, corrugated mailers, rigid boxes, and the required internal fit before preparing a quotation.',
     structures: [
@@ -364,6 +470,10 @@ const quoteHeading = box.slug === 'custom-mylar-bags'
   ? 'Request a custom printed bag or pouch quotation'
   : box.slug === 'product-boxes'
     ? 'Request a product packaging quotation'
+  : box.slug === 'christmas-boxes'
+    ? 'Request a Christmas packaging quotation'
+  : box.slug === 'gift-boxes'
+    ? 'Request a custom gift-box quotation'
   : buyerContent
     ? `Request a ${box.label.toLowerCase()} quotation`
     : `Need ${customLabelLower}?`;
@@ -419,6 +529,19 @@ const supportingGuidesBySlug: Record<string, { title: string; href: string; desc
   ]
 };
 const supportingGuides = buyerContent?.related ?? supportingGuidesBySlug[box.slug] ?? [];
+const relatedHeading = box.slug === 'christmas-boxes'
+  ? 'Christmas packaging planning resources'
+  : box.slug === 'gift-boxes'
+    ? 'Gift-box planning resources'
+    : supportingGuides.length
+      ? `Guides for ${box.label.toLowerCase()} buyers`
+      : undefined;
+
+const conceptImageDescriptions: Record<string, string> = {
+  'christmas-boxes': 'Concept visualization of red Christmas gift-box packaging with Wintera branding',
+  'gift-boxes': 'Concept visualization of a cream gift box with black ribbon and Norden branding'
+};
+const conceptImageDescription = conceptImageDescriptions[box.slug];
 
 const defaultFaqs = [
   {
@@ -459,7 +582,7 @@ const service = buildServiceSchema({
     <p class="sr-only">{customLabel}</p>
     <img
       src={heroImage}
-      alt={box.slug === 'cbd-boxes' ? box.alt : `${box.label} custom packaging hero banner`}
+      alt={box.slug === 'cbd-boxes' ? box.alt : conceptImageDescription ?? `${box.label} custom packaging hero banner`}
       width="2172"
       height="724"
       class="aspect-[2172/724] w-full object-cover object-center"
@@ -470,6 +593,11 @@ const service = buildServiceSchema({
     {box.slug === 'cbd-boxes' && (
       <p class="absolute bottom-0 right-0 bg-neutral-950/85 px-3 py-2 text-xs font-semibold text-white">
         Concept packaging visualization, not a customer-project photograph.
+      </p>
+    )}
+    {conceptImageDescription && (
+      <p class="absolute bottom-0 right-0 bg-neutral-950/85 px-3 py-2 text-xs font-semibold text-white">
+        {conceptImageDescription}; not a customer-project photograph.
       </p>
     )}
     <HeroFeatureStrip items={heroFeatureItems} />
@@ -769,7 +897,7 @@ const service = buildServiceSchema({
   <FAQAccordion faqs={faqs} />
 
   <RelatedContent
-    heading={supportingGuides.length ? `Guides for ${box.label.toLowerCase()} buyers` : undefined}
+    heading={relatedHeading}
     items={(supportingGuides.length ? supportingGuides : related.map((item) => ({
       title: item.label,
       href: `/industries/${item.slug}`,
