@@ -1,17 +1,11 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — explicit allow for GEO / AEO visibility
+# Model-training preference controls — existing permissions preserved
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended
@@ -25,5 +19,15 @@ Allow: /
 
 User-agent: meta-externalagent
 Allow: /
+
+# Named AI search and retrieval crawlers — existing permissions preserved
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Search crawlers, including Googlebot, Bingbot, and OAI-SearchBot,
+# inherit the unrestricted User-agent: * policy above.
 
 Sitemap: https://apexpackagingsolutions.com/sitemap-index.xml
