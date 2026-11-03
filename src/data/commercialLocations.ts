@@ -23,6 +23,92 @@ export interface CommercialLocation {
 }
 
 export const commercialLocations: CommercialLocation[] = [
+{
+  "slug": "tulsa-custom-packaging",
+  "city": "Tulsa",
+  "region": "Oklahoma",
+  "country": "United States",
+  "countryCode": "US",
+  "focusKeyword": "custom packaging Tulsa",
+  "title": "Custom Packaging Tulsa | Dealer Kits & Shipping Boxes",
+  "description": "Quote custom packaging for Tulsa businesses: printed dealer kits, corrugated shipping boxes and fitted inserts. Plan quantities, artwork and Oklahoma delivery.",
+  "eyebrow": "Tulsa packaging supply \u00b7 Made-to-spec production",
+  "heading": "Custom packaging for Tulsa dealer kits and replenishment orders.",
+  "lead": "Give a complete starter kit and a small refill order the packaging each needs. Apex coordinates custom boxes and inserts for Tulsa buyers through overseas production partners, with specifications and delivery requirements agreed before production.",
+  "image": "/images/home/corrugated-boxes-branded.webp",
+  "imageAlt": "Kraft corrugated shipping box with green Terralis branding and printed contour lines",
+  "buyingContext": "A dealer starter kit may carry display samples, accessories and printed instructions, while its next shipment contains only replacement stock. Quoting both against one large box can leave refill orders with unnecessary empty space. For Tulsa programs, specify the full kit and the smallest recurring shipment separately, then compare shared artwork with different box sizes. Identify Tulsa, Broken Arrow or Owasso receiving addresses individually so freight assumptions match the actual delivery plan.",
+  "priorities": [
+    {
+      "title": "Separate launch kits from refills",
+      "description": "List the contents and packed weight of each order type. Compare a fitted starter-kit insert with a simpler refill carton before committing to tooling."
+    },
+    {
+      "title": "Keep instructions visible",
+      "description": "Reserve a pocket or top layer for setup sheets. Mark the artwork revision and dealer SKU on the packing specification so older instructions do not enter a new kit."
+    },
+    {
+      "title": "Quote each receiving point",
+      "description": "Provide ZIP codes, dock access and quantities for Tulsa-area deliveries. A commercial warehouse and a smaller dealer location may require different unloading arrangements."
+    }
+  ],
+  "products": [
+    {
+      "title": "Corrugated shipping boxes",
+      "href": "/services/corrugated-boxes",
+      "description": "Size outer cartons around full kits or replenishment packs, with board selection based on weight and handling."
+    },
+    {
+      "title": "Printed mailer boxes",
+      "href": "/services/mailer-boxes",
+      "description": "Present samples and compact accessories in branded opening-style boxes with coordinated printed instructions."
+    },
+    {
+      "title": "Protective inserts",
+      "href": "/services/protective-packaging",
+      "description": "Separate components and define the packing sequence with fitted corrugated or foam options reviewed against your product."
+    }
+  ],
+  "process": [
+    {
+      "title": "Send the kit and refill lists",
+      "description": "Include component dimensions, weights, order quantities by format, artwork files and the Oklahoma delivery ZIP code."
+    },
+    {
+      "title": "Review fit and artwork",
+      "description": "Confirm insert access, instruction placement and labels on a proposed structure. Agree the sample approach and any handling tests required."
+    },
+    {
+      "title": "Approve the delivery specification",
+      "description": "Sign off quantities, final artwork, master-case packing and receiving details. Confirm the quoted schedule before arranging a dealer rollout."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Tulsa buyers order different boxes for starter kits and refills?",
+      "a": "Yes. Request separate sizes and quantities in the same brief. Each structure may have its own tooling and production minimum, which should be confirmed in the quote."
+    },
+    {
+      "q": "Does Apex manufacture these boxes in Tulsa?",
+      "a": "Apex coordinates production through overseas facilities from its London, Ontario business base. Tulsa is a delivery service area, not a claimed local manufacturing location."
+    },
+    {
+      "q": "Can dealer instructions be included in the packaging design?",
+      "a": "The structure can allow space for instruction sheets or a dedicated compartment. Supply the document size and revision; confirm printing and pack-out responsibilities when quoting."
+    },
+    {
+      "q": "What determines pricing and delivery timing to Tulsa?",
+      "a": "Box dimensions, materials, print coverage, quantities, tooling, sample requirements and freight all affect the proposal. Share the receiving address and required date so feasibility can be reviewed before approval."
+    }
+  ],
+  "relatedArticle": {
+    "title": "Packaging supplier checklist",
+    "href": "/blog/canada-packaging-supplier-checklist-lead-time-moq-certs-samples",
+    "description": "Review the questions to ask about samples, minimum quantities and production specifications before placing an order."
+  },
+  "ctaHeading": "Request a Tulsa kit and refill packaging quote.",
+  "ctaLead": "Send your component list, quantities by box size, artwork status and delivery ZIP code. Ask Apex to compare starter-kit and replenishment formats in one proposal."
+},
   {
     slug: 'toronto-custom-packaging',
     city: 'Toronto',
