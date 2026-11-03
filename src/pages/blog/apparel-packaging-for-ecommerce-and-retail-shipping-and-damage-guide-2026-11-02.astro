@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Apparel Packaging for Ecommerce and Retail: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for apparel packaging in the USA and Canada: garment bags, mailers, boxes, and return flow, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Apparel Packaging: Shipping, Transit & Damage Guide';
+const description = 'Learn how to protect apparel packaging in transit with the right mailers, boxes, pack-out, and production checks for ecommerce and retail programs.';
 const url = '/blog/apparel-packaging-for-ecommerce-and-retail-shipping-and-damage-guide-2026-11-02';
 const datePublished = '2026-11-02';
 const image = '/images/blog/poly-mailers-apparel-soft-goods-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Apparel Packaging for Ecommerce and Retail: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}

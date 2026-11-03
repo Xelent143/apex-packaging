@@ -5,8 +5,8 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildArticleSchema, buildFAQSchema } from '../../lib/schema';
 
-const title = 'Custom Product Boxes for Launch Kits and Reorders: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention';
-const description = 'A practical shipping and damage guide for custom product boxes in Canada: structure, artwork, sampling, and reorder control, transit risks, packing efficiency, and damage prevention, and production checks before ordering.';
+const title = 'Custom Product Boxes: Shipping & Damage Guide';
+const description = 'Learn how to protect custom product boxes in transit with the right structure, samples, pack-out, and production checks for launch and reorder programs.';
 const url = '/blog/custom-product-boxes-for-launch-kits-and-reorders-shipping-and-damage-guide-2026-11-01';
 const datePublished = '2026-11-01';
 const image = '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp';
@@ -33,7 +33,7 @@ const faq = buildFAQSchema([
 ]);
 ---
 <BaseLayout
-  title="Custom Product Boxes for Launch Kits and Reorders: Shipping and Damage Guide: Transit risks, packing efficiency, and damage prevention"
+  title={title}
   description={description}
   image={image}
   schemaBlocks={[breadcrumb, article, faq]}
