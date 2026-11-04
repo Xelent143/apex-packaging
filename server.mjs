@@ -68,6 +68,7 @@ const server = createServer(async (req, res) => {
         from: getQuoteSender(),
         to: process.env.QUOTE_TO_EMAIL || defaultQuoteRecipient,
         sendEmail: createQuoteEmailSender(),
+        providerTimeoutMs: process.env.QUOTE_PROVIDER_TIMEOUT_MS,
         onDeliveryFailure: recordQuoteDeliveryFailure
       });
 
@@ -134,13 +135,13 @@ function getQuoteSender() {
 
 function createQuoteEmailSender() {
   if (!process.env.SMTP_PASS) return sendQuoteEmail;
-  return (_apiKey, email) => sendSmtpEmail({
+  return (_apiKey, email, operation) => sendSmtpEmail({
     host: process.env.SMTP_HOST || 'smtp.hostinger.com',
     port: process.env.SMTP_PORT || '465',
     username: process.env.SMTP_USER || defaultQuoteRecipient,
     password: process.env.SMTP_PASS,
     envelopeFrom: process.env.SMTP_USER || defaultQuoteRecipient
-  }, email);
+  }, email, operation);
 }
 
 async function recordQuoteDeliveryFailure(failure) {

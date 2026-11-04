@@ -2,7 +2,7 @@ import tls from 'node:tls';
 import { Buffer } from 'node:buffer';
 import { sanitizeFilename } from './quoteEmail.mjs';
 
-export async function sendSmtpEmail(config, email) {
+export async function sendSmtpEmail(config, email, operation = {}) {
   const host = config.host || 'smtp.hostinger.com';
   const port = Number(config.port || 465);
   const username = config.username;
@@ -10,6 +10,14 @@ export async function sendSmtpEmail(config, email) {
   if (!username || !password) throw new Error('SMTP username and password are required.');
 
   const socket = tls.connect({ host, port, servername: host });
+  const abortSocket = () => socket.destroy(new Error('SMTP operation aborted.'));
+  if (operation.signal?.aborted) abortSocket();
+  operation.signal?.addEventListener('abort', abortSocket, { once: true });
+  if (!operation.signal) {
+    socket.setTimeout(Number(operation.timeoutMs || 15_000), () => {
+      socket.destroy(new Error('SMTP operation timed out.'));
+    });
+  }
   const smtp = createSmtpSession(socket);
   try {
     await smtp.expect(220);
@@ -27,6 +35,7 @@ export async function sendSmtpEmail(config, email) {
     await smtp.command('QUIT', 221).catch(() => {});
     return { id: 'smtp-sent' };
   } finally {
+    operation.signal?.removeEventListener('abort', abortSocket);
     socket.end();
   }
 }

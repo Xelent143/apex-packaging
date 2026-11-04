@@ -115,8 +115,22 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
             </legend>
             <label class="flex min-h-14 cursor-pointer items-center bg-white px-4 text-base font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
               <span class="sr-only">Upload artwork file</span>
-              <input class="text-base" name="artwork" type="file" aria-label="Upload artwork file" />
+              <input
+                class="text-base"
+                name="artwork"
+                type="file"
+                accept=".pdf,.ai,.eps,.png,.jpg,.jpeg,.webp,application/pdf,application/postscript,image/png,image/jpeg,image/webp"
+                aria-label="Upload artwork file"
+                aria-describedby="contact-artwork-help contact-artwork-warning"
+                data-artwork-input
+                data-max-bytes="8388608"
+                data-supported-extensions=".pdf,.ai,.eps,.png,.jpg,.jpeg,.webp"
+                data-supported-mime-types=",application/octet-stream,application/pdf,application/postscript,application/illustrator,application/vnd.adobe.illustrator,application/x-illustrator,image/x-eps,image/png,image/jpeg,image/pjpeg,image/webp"
+                data-artwork-email={siteConfig.email}
+              />
             </label>
+            <p id="contact-artwork-help" class="text-sm font-medium text-neutral-600">PDF, AI, EPS, PNG, JPG, JPEG or WEBP. Maximum 8 MB.</p>
+            <p id="contact-artwork-warning" class="hidden text-sm font-bold text-[#7a271a]" role="status" aria-live="polite" data-artwork-warning></p>
           </fieldset>
 
           <fieldset class="grid gap-3">
@@ -131,7 +145,7 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
             <div class="grid gap-3 md:grid-cols-3">
               <input required class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
               <input required type="email" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" autocomplete="email" aria-label="Email address" />
-              <input required type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" autocomplete="tel" aria-label="Contact number" />
+              <input type="tel" class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number (Optional)" autocomplete="tel" aria-label="Contact number (optional)" />
             </div>
             <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="country" placeholder="Country (Optional)" autocomplete="country-name" aria-label="Country" />
           </fieldset>

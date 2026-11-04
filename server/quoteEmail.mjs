@@ -1,10 +1,30 @@
 import { randomUUID } from 'node:crypto';
 
 const RESEND_EMAILS_URL = 'https://api.resend.com/emails';
-const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024;
+export const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024;
+export const MAX_QUOTE_REQUEST_BYTES = 10 * 1024 * 1024;
+export const DEFAULT_PROVIDER_TIMEOUT_MS = 15_000;
 const DELIVERY_FAILURE_MESSAGE = 'We couldn’t submit your request. Please try again or contact us by email or phone.';
+const DELIVERY_UNCERTAIN_MESSAGE = 'We couldn’t confirm whether your request was submitted. Please contact us by email or phone and provide the reference below before trying again.';
+const REQUEST_TOO_LARGE_MESSAGE = 'Your request is too large to submit. Artwork must be 8 MB or smaller. Please remove the file and try again, or email the artwork separately.';
+const INVALID_REQUEST_MESSAGE = 'We could not read your request. Please review the form and try again, or contact Apex directly.';
 const REJECTION_MESSAGE = 'We could not process this request. Please review the form and try again, or contact Apex directly.';
 const SUBMISSION_SUCCESS_MESSAGE = 'Thank you. Your quote request has been submitted.';
+const SUPPORTED_ARTWORK_EXTENSIONS = new Set(['.pdf', '.ai', '.eps', '.png', '.jpg', '.jpeg', '.webp']);
+const SUPPORTED_ARTWORK_MIME_TYPES = new Set([
+  '',
+  'application/octet-stream',
+  'application/pdf',
+  'application/postscript',
+  'application/illustrator',
+  'application/vnd.adobe.illustrator',
+  'application/x-illustrator',
+  'image/x-eps',
+  'image/png',
+  'image/jpeg',
+  'image/pjpeg',
+  'image/webp'
+]);
 
 const FIELD_LABELS = {
   source: 'Source',
@@ -66,27 +86,33 @@ export async function formDataToQuoteSubmission(formData) {
 }
 
 export async function requestToQuoteSubmission(request) {
-  const contentType = request.headers.get('content-type') || '';
+  const limitedRequest = await readLimitedRequest(request, MAX_QUOTE_REQUEST_BYTES);
+  const contentType = limitedRequest.headers.get('content-type') || '';
 
-  if (contentType.includes('application/json')) {
-    const body = await request.json();
-    const fields = {};
-    for (const [key, value] of Object.entries(body || {})) {
-      if (INTERNAL_FIELDS.has(key) || value == null) continue;
-      const text = String(value).trim();
-      if (text) fields[key] = text;
+  try {
+    if (contentType.includes('application/json')) {
+      const body = await limitedRequest.json();
+      const fields = {};
+      for (const [key, value] of Object.entries(body || {})) {
+        if (INTERNAL_FIELDS.has(key) || value == null) continue;
+        const text = String(value).trim();
+        if (text) fields[key] = text;
+      }
+      return {
+        source: fields.source || 'Website Quote Form',
+        fields,
+        files: [],
+        redirectTo: String(body?.redirectTo || ''),
+        isSpam: Boolean(String(body?.website || '').trim()),
+        isHumanConfirmed: String(body?.humanConfirmation || '') === 'confirmed'
+      };
     }
-    return {
-      source: fields.source || 'Website Quote Form',
-      fields,
-      files: [],
-      redirectTo: String(body?.redirectTo || ''),
-      isSpam: Boolean(String(body?.website || '').trim()),
-      isHumanConfirmed: String(body?.humanConfirmation || '') === 'confirmed'
-    };
-  }
 
-  return formDataToQuoteSubmission(await request.formData());
+    return formDataToQuoteSubmission(await limitedRequest.formData());
+  } catch (error) {
+    if (error instanceof QuoteRequestError) throw error;
+    throw new QuoteRequestError(400, 'invalid_request', INVALID_REQUEST_MESSAGE);
+  }
 }
 
 export function buildQuoteEmail(submission, options) {
@@ -149,14 +175,15 @@ export function buildQuoteEmail(submission, options) {
   return email;
 }
 
-export async function sendQuoteEmail(apiKey, email) {
+export async function sendQuoteEmail(apiKey, email, operation = {}) {
   const response = await fetch(RESEND_EMAILS_URL, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(email)
+    body: JSON.stringify(email),
+    signal: operation.signal
   });
 
   if (!response.ok) {
@@ -179,7 +206,19 @@ export async function handleQuoteRequest(request, options) {
     }, 503, options);
   }
 
-  const submission = await requestToQuoteSubmission(request);
+  let submission;
+  try {
+    submission = await requestToQuoteSubmission(request);
+  } catch (error) {
+    if (!(error instanceof QuoteRequestError)) throw error;
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: error.outcomeStatus,
+      error: error.publicMessage,
+      correlationId,
+      retryAllowed: true
+    }, error.httpStatus, options);
+  }
   submission.correlationId = correlationId;
   if (submission.isSpam) {
     return outcomeResponse(request, wantsJson, {
@@ -208,13 +247,51 @@ export async function handleQuoteRequest(request, options) {
     }, 400, options);
   }
 
+  if (!submission.fields.name) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'validation_failed',
+      error: 'Enter your name.',
+      field: 'name',
+      correlationId
+    }, 400, options);
+  }
+
+  const requiredDetailsField = requiredProjectDetailsField(submission.source);
+  if (requiredDetailsField && !submission.fields[requiredDetailsField]) {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'validation_failed',
+      error: 'Tell us briefly what packaging you need.',
+      field: requiredDetailsField,
+      correlationId
+    }, 400, options);
+  }
+
+  const skippedFiles = submission.files.filter((file) => file.skipped);
+  if (skippedFiles.length) {
+    submission.fields.attachmentNote = 'The customer submitted the quote request without the artwork file. Ask them to email it separately and match it using the reference.';
+  }
   const email = buildQuoteEmail(submission, { from: options.from, to: options.to });
   let providerAccepted = false;
-  let attachmentOmitted = false;
+  let attachmentOmitted = skippedFiles.length > 0;
   try {
-    await options.sendEmail(options.apiKey, email);
+    await sendWithTimeout(options, email);
     providerAccepted = true;
-  } catch {
+  } catch (error) {
+    if (error instanceof ProviderTimeoutError) {
+      await safeRecordDeliveryFailure(options, {
+        correlationId,
+        stage: 'provider_timeout_unknown'
+      });
+      return outcomeResponse(request, wantsJson, {
+        ok: false,
+        status: 'delivery_uncertain',
+        error: DELIVERY_UNCERTAIN_MESSAGE,
+        correlationId,
+        retryAllowed: false
+      }, 504, options);
+    }
     if (!email.attachments?.length) {
       await safeRecordDeliveryFailure(options, {
         correlationId,
@@ -233,10 +310,23 @@ export async function handleQuoteRequest(request, options) {
         { from: options.from, to: options.to }
       );
       try {
-        await options.sendEmail(options.apiKey, fallbackEmail);
+        await sendWithTimeout(options, fallbackEmail);
         providerAccepted = true;
         attachmentOmitted = true;
-      } catch {
+      } catch (fallbackError) {
+        if (fallbackError instanceof ProviderTimeoutError) {
+          await safeRecordDeliveryFailure(options, {
+            correlationId,
+            stage: 'attachment_fallback_timeout_unknown'
+          });
+          return outcomeResponse(request, wantsJson, {
+            ok: false,
+            status: 'delivery_uncertain',
+            error: DELIVERY_UNCERTAIN_MESSAGE,
+            correlationId,
+            retryAllowed: false
+          }, 504, options);
+        }
         await safeRecordDeliveryFailure(options, {
           correlationId,
           stage: 'attachment_fallback_delivery'
@@ -303,6 +393,9 @@ function htmlOutcomeResponse(request, body, status, options) {
   const title = body.status === 'validation_failed' ? 'Check your quote request' : 'Quote request not submitted';
   const message = escapeHtml(body.error || DELIVERY_FAILURE_MESSAGE);
   const reference = escapeHtml(body.correlationId || '');
+  const retryLink = body.retryAllowed === false
+    ? ''
+    : `<p><a href="${escapeHtml(retryPath)}">Return to the form and try again</a></p>`;
 
   return new Response(`<!doctype html>
 <html lang="en">
@@ -317,7 +410,7 @@ function htmlOutcomeResponse(request, body, status, options) {
       <h1>${escapeHtml(title)}</h1>
       <p>${message}</p>
       <p><small>Reference: ${reference}</small></p>
-      <p><a href="${escapeHtml(retryPath)}">Return to the form and try again</a></p>
+      ${retryLink}
       <p>Contact Apex directly at <a href="mailto:${escapeHtml(contactEmail)}">${escapeHtml(contactEmail)}</a> or <a href="${escapeHtml(contactPhoneHref)}">${escapeHtml(contactPhone)}</a>.</p>
     </main>
   </body>
@@ -408,9 +501,107 @@ async function fileToEmailAttachment(field, file) {
     return attachment;
   }
 
+  if (!isSupportedArtworkFile(attachment)) {
+    attachment.skipped = 'Unsupported file type. Supported artwork files are PDF, AI, EPS, PNG, JPG, JPEG, and WEBP.';
+    return attachment;
+  }
+
   const bytes = Buffer.from(await file.arrayBuffer());
   attachment.content = bytes.toString('base64');
   return attachment;
+}
+
+async function readLimitedRequest(request, maxBytes) {
+  const declaredLength = Number(request.headers.get('content-length'));
+  if (Number.isFinite(declaredLength) && declaredLength > maxBytes) {
+    throw new QuoteRequestError(413, 'request_too_large', REQUEST_TOO_LARGE_MESSAGE);
+  }
+
+  if (!request.body) return request;
+
+  const reader = request.body.getReader();
+  const chunks = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > maxBytes) {
+        await reader.cancel('Quote request exceeds the allowed size.');
+        throw new QuoteRequestError(413, 'request_too_large', REQUEST_TOO_LARGE_MESSAGE);
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+
+  const body = Buffer.concat(chunks.map((chunk) => Buffer.from(chunk)), total);
+  return new Request(request.url, {
+    method: request.method,
+    headers: request.headers,
+    body
+  });
+}
+
+async function sendWithTimeout(options, email) {
+  const timeoutMs = normalizeProviderTimeout(
+    options.providerTimeoutMs,
+    options.minimumProviderTimeoutMs
+  );
+  const controller = new AbortController();
+  let timer;
+  const providerOperation = Promise.resolve().then(() => options.sendEmail(
+    options.apiKey,
+    email,
+    { signal: controller.signal, timeoutMs }
+  ));
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      reject(new ProviderTimeoutError());
+      controller.abort();
+    }, timeoutMs);
+  });
+
+  try {
+    return await Promise.race([providerOperation, deadline]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function normalizeProviderTimeout(value, minimum = 5_000) {
+  const timeout = Number(value || DEFAULT_PROVIDER_TIMEOUT_MS);
+  if (!Number.isFinite(timeout)) return DEFAULT_PROVIDER_TIMEOUT_MS;
+  return Math.min(Math.max(timeout, Math.max(1, Number(minimum) || 5_000)), 30_000);
+}
+
+function requiredProjectDetailsField(source) {
+  if (source === 'Home Quote Form') return 'message';
+  if (source === 'Request Quote Contact Form') return 'details';
+  return '';
+}
+
+function isSupportedArtworkFile(file) {
+  const extension = file.name.toLowerCase().match(/\.[^.]+$/)?.[0] || '';
+  return SUPPORTED_ARTWORK_EXTENSIONS.has(extension)
+    && SUPPORTED_ARTWORK_MIME_TYPES.has(file.type.toLowerCase());
+}
+
+class QuoteRequestError extends Error {
+  constructor(httpStatus, outcomeStatus, publicMessage) {
+    super(outcomeStatus);
+    this.httpStatus = httpStatus;
+    this.outcomeStatus = outcomeStatus;
+    this.publicMessage = publicMessage;
+  }
+}
+
+class ProviderTimeoutError extends Error {
+  constructor() {
+    super('provider_timeout');
+  }
 }
 
 function formatUploadedFileSummary(file) {

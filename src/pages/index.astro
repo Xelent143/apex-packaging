@@ -5,6 +5,7 @@ import TrustedClients from '../components/trust/TrustedClients.astro';
 import QuoteFormFeedback from '../components/forms/QuoteFormFeedback.astro';
 import { buildFAQSchema } from '../lib/schema';
 import { featuredIndustryBoxes } from '../data/industryBoxes';
+import { siteConfig } from '../site.config';
 
 const categories = featuredIndustryBoxes.map((box) => ({
   title: box.slug === 'auto-parts' ? 'Auto Parts Boxes' : box.label,
@@ -429,8 +430,22 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
               </legend>
               <label class="flex min-h-12 cursor-pointer items-center bg-white px-4 text-sm font-semibold text-neutral-500 transition hover:ring-1 hover:ring-accent">
                 <span class="sr-only">Upload artwork file</span>
-                <input class="text-sm" name="artwork" type="file" aria-label="Upload artwork file" />
+                <input
+                  class="text-sm"
+                  name="artwork"
+                  type="file"
+                  accept=".pdf,.ai,.eps,.png,.jpg,.jpeg,.webp,application/pdf,application/postscript,image/png,image/jpeg,image/webp"
+                  aria-label="Upload artwork file"
+                  aria-describedby="home-artwork-help home-artwork-warning"
+                  data-artwork-input
+                  data-max-bytes="8388608"
+                  data-supported-extensions=".pdf,.ai,.eps,.png,.jpg,.jpeg,.webp"
+                  data-supported-mime-types=",application/octet-stream,application/pdf,application/postscript,application/illustrator,application/vnd.adobe.illustrator,application/x-illustrator,image/x-eps,image/png,image/jpeg,image/pjpeg,image/webp"
+                  data-artwork-email={siteConfig.email}
+                />
               </label>
+              <p id="home-artwork-help" class="text-xs font-medium text-neutral-600">PDF, AI, EPS, PNG, JPG, JPEG or WEBP. Maximum 8 MB.</p>
+              <p id="home-artwork-warning" class="hidden text-sm font-bold text-[#7a271a]" role="status" aria-live="polite" data-artwork-warning></p>
             </fieldset>
 
             <fieldset class="grid gap-3">
@@ -443,9 +458,9 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 Personal Information
               </legend>
               <div class="grid min-w-0 gap-2 sm:grid-cols-3">
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number*" type="tel" autocomplete="tel" aria-label="Contact number" />
+                <input required class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
+                <input required class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="email" placeholder="Email ID*" type="email" autocomplete="email" aria-label="Email address" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="phone" placeholder="Contact Number (Optional)" type="tel" autocomplete="tel" aria-label="Contact number (optional)" />
               </div>
               <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="country" placeholder="Country (Optional)" autocomplete="country-name" aria-label="Country" />
             </fieldset>
@@ -459,7 +474,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 </span>
                 Additional Information
               </legend>
-              <textarea class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="Message..." aria-label="Project details"></textarea>
+              <textarea required class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="What packaging do you need?*" aria-label="Project details"></textarea>
             </fieldset>
 
             <label class="flex min-h-12 items-center gap-3 rounded-md border border-[#d8cba7] bg-white px-4 text-sm font-bold text-neutral-800">

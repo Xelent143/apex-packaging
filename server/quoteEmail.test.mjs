@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
+import { File } from 'node:buffer';
 import { test } from 'node:test';
 import {
+  MAX_QUOTE_REQUEST_BYTES,
   buildQuoteEmail,
   formDataToQuoteSubmission,
   handleQuoteRequest,
@@ -100,7 +102,7 @@ test('homepage quote follows the provider-accepted path and includes a correlati
   formData.set('source', 'Home Quote Form');
   formData.set('name', 'Alex Buyer');
   formData.set('email', 'alex@example.com');
-  formData.set('details', 'Need 500 boxes');
+  formData.set('message', 'Need 500 boxes');
   formData.set('humanConfirmation', 'confirmed');
   formData.set('redirectTo', '/thank-you');
 
@@ -416,4 +418,306 @@ test('invalid contact-form email remains a validation outcome and is not sent', 
     correlationId
   });
   assert.equal(sendCalled, false);
+});
+
+test('homepage and contact submissions require their visible project-details fields but not phone', async () => {
+  for (const testCase of [
+    { source: 'Home Quote Form', requiredField: 'message' },
+    { source: 'Request Quote Contact Form', requiredField: 'details' }
+  ]) {
+    const formData = new FormData();
+    formData.set('source', testCase.source);
+    formData.set('name', 'Alex Buyer');
+    formData.set('email', 'alex@example.com');
+    formData.set('humanConfirmation', 'confirmed');
+
+    let sendCalled = false;
+    const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: formData
+    }), {
+      apiKey: 'test-key',
+      from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+      to: 'sales@apexpackagingsolutions.com',
+      sendEmail: async () => {
+        sendCalled = true;
+      },
+      createCorrelationId
+    });
+
+    assert.equal(response.status, 400);
+    assert.equal((await response.json()).field, testCase.requiredField);
+    assert.equal(sendCalled, false);
+  }
+});
+
+test('oversized artwork is omitted with disclosure and the non-JavaScript quote still submits', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+  formData.set('redirectTo', '/thank-you');
+  formData.set('artwork', new File([
+    new Uint8Array((8 * 1024 * 1024) + 1)
+  ], 'large-dieline.pdf', { type: 'application/pdf' }));
+
+  let sentEmail;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async (_apiKey, email) => {
+      sentEmail = email;
+      return { id: 'email_oversized' };
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 303);
+  assert.equal(response.headers.get('Location'), `/thank-you?reference=${correlationId}&artwork=omitted#artwork-omitted`);
+  assert.equal(sentEmail.attachments, undefined);
+  assert.match(sentEmail.text, /Attachment Delivery Note/);
+  assert.match(sentEmail.text, /large-dieline.pdf \(8\.0 MB\) - File is larger than 8\.0 MB and was not attached/);
+});
+
+test('unsupported artwork is omitted with explicit JSON disclosure', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+  formData.set('redirectTo', '/thank-you');
+  formData.set('artwork', new File(['archive'], 'artwork.zip', { type: 'application/zip' }));
+
+  let sentEmail;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async (_apiKey, email) => {
+      sentEmail = email;
+      return { id: 'email_unsupported' };
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 200);
+  const outcome = await response.json();
+  assert.equal(outcome.attachmentOmitted, true);
+  assert.equal(outcome.redirectTo, `/thank-you?reference=${correlationId}&artwork=omitted#artwork-omitted`);
+  assert.equal(sentEmail.attachments, undefined);
+  assert.match(sentEmail.text, /Unsupported file type/);
+});
+
+test('declared oversized request bodies are rejected before provider delivery', async () => {
+  let sendCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Content-Length': String(MAX_QUOTE_REQUEST_BYTES + 1)
+    },
+    body: '{}'
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      sendCalled = true;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 413);
+  assert.equal((await response.json()).status, 'request_too_large');
+  assert.equal(sendCalled, false);
+});
+
+test('chunked oversized request bodies are rejected while streaming', async () => {
+  let chunksSent = 0;
+  const body = new ReadableStream({
+    pull(controller) {
+      if (chunksSent >= 11) {
+        controller.close();
+        return;
+      }
+      chunksSent += 1;
+      controller.enqueue(new Uint8Array(1024 * 1024));
+    }
+  });
+  let sendCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/octet-stream'
+    },
+    body,
+    duplex: 'half'
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      sendCalled = true;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 413);
+  assert.equal((await response.json()).status, 'request_too_large');
+  assert.equal(sendCalled, false);
+  assert.ok(chunksSent <= 11);
+});
+
+test('malformed or unsupported request bodies receive a controlled rejection', async () => {
+  let sendCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/octet-stream'
+    },
+    body: 'not form data'
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      sendCalled = true;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), {
+    ok: false,
+    status: 'invalid_request',
+    error: 'We could not read your request. Please review the form and try again, or contact Apex directly.',
+    correlationId,
+    retryAllowed: true
+  });
+  assert.equal(sendCalled, false);
+});
+
+test('provider timeout is reported as uncertain without an automatic retry', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let sendCount = 0;
+  let providerAborted = false;
+  let failureRecord;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async (_apiKey, _email, operation) => {
+      sendCount += 1;
+      return new Promise((_resolve, reject) => {
+        operation.signal.addEventListener('abort', () => {
+          providerAborted = true;
+          reject(new Error('Mock provider aborted'));
+        }, { once: true });
+      });
+    },
+    providerTimeoutMs: 5,
+    minimumProviderTimeoutMs: 1,
+    onDeliveryFailure: async (record) => {
+      failureRecord = record;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 504);
+  assert.deepEqual(await response.json(), {
+    ok: false,
+    status: 'delivery_uncertain',
+    error: 'We couldn’t confirm whether your request was submitted. Please contact us by email or phone and provide the reference below before trying again.',
+    correlationId,
+    retryAllowed: false
+  });
+  assert.equal(sendCount, 1);
+  assert.equal(providerAborted, true);
+  assert.deepEqual(failureRecord, { correlationId, stage: 'provider_timeout_unknown' });
+});
+
+test('an attachment provider timeout does not trigger a possibly duplicate fallback send', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+  formData.set('artwork', new File(['artwork'], 'dieline.pdf', { type: 'application/pdf' }));
+
+  let sendCount = 0;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => {
+      sendCount += 1;
+      return new Promise(() => {});
+    },
+    providerTimeoutMs: 5,
+    minimumProviderTimeoutMs: 1,
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 504);
+  assert.equal((await response.json()).status, 'delivery_uncertain');
+  assert.equal(sendCount, 1);
+});
+
+test('non-JavaScript timeout response prevents an uncertain retry', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Referer: 'https://example.com/contact' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    sendEmail: async () => new Promise(() => {}),
+    providerTimeoutMs: 5,
+    minimumProviderTimeoutMs: 1,
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 504);
+  const html = await response.text();
+  assert.match(html, /couldn’t confirm whether your request was submitted/);
+  assert.doesNotMatch(html, /Return to the form and try again/);
+  assert.match(html, new RegExp(correlationId));
 });

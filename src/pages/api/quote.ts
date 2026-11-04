@@ -12,11 +12,16 @@ export const POST: APIRoute = async ({ request }) => {
       ? import.meta.env.SMTP_FROM || import.meta.env.QUOTE_FROM_EMAIL || defaultQuoteSender
       : import.meta.env.RESEND_FROM || import.meta.env.QUOTE_FROM_EMAIL || defaultQuoteSender,
     to: import.meta.env.QUOTE_TO_EMAIL || defaultQuoteRecipient,
-    sendEmail: import.meta.env.SMTP_PASS ? sendViaSmtp : sendQuoteEmail
+    sendEmail: import.meta.env.SMTP_PASS ? sendViaSmtp : sendQuoteEmail,
+    providerTimeoutMs: import.meta.env.QUOTE_PROVIDER_TIMEOUT_MS
   });
 };
 
-function sendViaSmtp(_apiKey: string, email: Parameters<typeof sendSmtpEmail>[1]) {
+function sendViaSmtp(
+  _apiKey: string,
+  email: Parameters<typeof sendSmtpEmail>[1],
+  operation: Parameters<typeof sendSmtpEmail>[2]
+) {
   return sendSmtpEmail(
     {
       host: import.meta.env.SMTP_HOST || 'smtp.hostinger.com',
@@ -25,6 +30,7 @@ function sendViaSmtp(_apiKey: string, email: Parameters<typeof sendSmtpEmail>[1]
       password: import.meta.env.SMTP_PASS,
       envelopeFrom: import.meta.env.SMTP_USER || defaultQuoteRecipient
     },
-    email
+    email,
+    operation
   );
 }

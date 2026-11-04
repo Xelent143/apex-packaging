@@ -43,11 +43,39 @@ import { siteConfig } from '../../site.config';
     const recovery = form.querySelector<HTMLElement>('[data-quote-recovery]');
     const retry = form.querySelector<HTMLButtonElement>('[data-quote-retry]');
     const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const artwork = form.querySelector<HTMLInputElement>('input[data-artwork-input]');
+    const artworkWarning = form.querySelector<HTMLElement>('[data-artwork-warning]');
 
     if (!feedback || !message || !reference || !referenceValue || !recovery || !retry || !submit) continue;
 
     const submitLabel = submit.textContent || 'Submit';
     let submissionInFlight = false;
+
+    const updateArtworkWarning = () => {
+      if (!artwork || !artworkWarning) return;
+      const file = artwork.files?.[0];
+      if (!file) {
+        artworkWarning.classList.add('hidden');
+        artworkWarning.textContent = '';
+        return;
+      }
+      const maximumBytes = Number(artwork.dataset.maxBytes || 0);
+      const supportedExtensions = (artwork.dataset.supportedExtensions || '').split(',');
+      const supportedMimeTypes = (artwork.dataset.supportedMimeTypes || '').split(',');
+      const artworkEmail = artwork.dataset.artworkEmail || 'sales@apexpackagingsolutions.com';
+      const extension = file.name.toLowerCase().match(/\.[^.]+$/)?.[0] || '';
+      const mimeType = file.type.toLowerCase();
+      let warning = '';
+      if (maximumBytes && file.size > maximumBytes) {
+        warning = `This file is larger than 8 MB and will not be attached. You can still submit the quotation request and email the artwork separately to ${artworkEmail}.`;
+      } else if (!supportedExtensions.includes(extension) || (mimeType && !supportedMimeTypes.includes(mimeType))) {
+        warning = `This file type is not supported and will not be attached. You can still submit the quotation request and email the artwork separately to ${artworkEmail}.`;
+      }
+      artworkWarning.textContent = warning;
+      artworkWarning.classList.toggle('hidden', !warning);
+    };
+
+    artwork?.addEventListener('change', updateArtworkWarning);
 
     retry.addEventListener('click', () => {
       if (!submissionInFlight) form.requestSubmit();
@@ -59,6 +87,7 @@ import { siteConfig } from '../../site.config';
       submissionInFlight = true;
       feedback.classList.add('hidden');
       recovery.classList.add('hidden');
+      retry.classList.remove('hidden');
       reference.classList.add('hidden');
       form.setAttribute('aria-busy', 'true');
       submit.disabled = true;
@@ -83,6 +112,7 @@ import { siteConfig } from '../../site.config';
           referenceValue.textContent = outcome.correlationId;
           reference.classList.remove('hidden');
         }
+        retry.classList.toggle('hidden', outcome.retryAllowed === false);
         recovery.classList.remove('hidden');
         feedback.classList.remove('hidden');
         feedback.focus();
