@@ -1,0 +1,14 @@
+.git
+.github
+.env
+.env.*
+.DS_Store
+node_modules
+dist
+coverage
+*.log
+data/private-payment-links
+data/quote-email-failures.jsonl
+docs
+marketing
+research
