@@ -49,3 +49,18 @@ test('D08 subscription-mailer duplicates redirect directly to the retained artic
 
   assert.equal(permanentRedirects.has(retainedSubscriptionMailerArticle), false);
 });
+
+const retainedPilotLaunchArticle = '/blog/low-moq-custom-packaging-for-test-launches-2026-08-27';
+const retiredPilotLaunchArticles = [
+  '/blog/low-moq-custom-packaging-for-test-launches-procurement-checklist-2026-07-28',
+  '/blog/low-moq-custom-packaging-for-test-launches-shipping-and-damage-guide-2026-10-26'
+];
+
+test('D15 pilot-launch duplicates redirect directly to the retained article', () => {
+  for (const path of retiredPilotLaunchArticles) {
+    assert.equal(permanentRedirects.get(path), retainedPilotLaunchArticle);
+    assert.equal(redirectedSitemapPaths.has(path), true);
+  }
+
+  assert.equal(permanentRedirects.has(retainedPilotLaunchArticle), false);
+});

@@ -31,6 +31,8 @@ export const permanentRedirects = new Map([
   ['/blog/gift-boxes-for-premium-product-bundles-2026-08-24', '/blog/gift-boxes-for-premium-product-bundles-2026-09-23'],
   ['/blog/industrial-packaging-for-bulk-and-pallet-shipments-2026-08-01', '/blog/industrial-packaging-for-bulk-and-pallet-shipments-2026-08-31'],
   ['/blog/low-moq-custom-packaging-for-test-launches-2026-07-28', '/blog/low-moq-custom-packaging-for-test-launches-2026-08-27'],
+  ['/blog/low-moq-custom-packaging-for-test-launches-procurement-checklist-2026-07-28', '/blog/low-moq-custom-packaging-for-test-launches-2026-08-27'],
+  ['/blog/low-moq-custom-packaging-for-test-launches-shipping-and-damage-guide-2026-10-26', '/blog/low-moq-custom-packaging-for-test-launches-2026-08-27'],
   ['/blog/luxury-packaging-boxes-for-premium-retail-products-2026-08-09', '/blog/luxury-packaging-boxes-for-premium-retail-products-2026-09-08'],
   ['/blog/moving-and-storage-boxes-for-warehouses-and-offices-2026-08-10', '/blog/moving-and-storage-boxes-for-warehouses-and-offices-2026-09-09'],
   ['/blog/packaging-design-services-before-production-2026-07-30', '/blog/packaging-design-services-before-production-2026-08-29'],
