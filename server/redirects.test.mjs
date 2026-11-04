@@ -64,3 +64,19 @@ test('D15 pilot-launch duplicates redirect directly to the retained article', ()
 
   assert.equal(permanentRedirects.has(retainedPilotLaunchArticle), false);
 });
+
+const retainedSustainablePackagingArticle = '/blog/sustainable-packaging-choices-buyers-can-verify-2026-08-28';
+const retiredSustainablePackagingArticles = [
+  '/blog/sustainable-packaging-choices-buyers-can-verify-material-selection-guide-2026-09-27',
+  '/blog/sustainable-packaging-choices-buyers-can-verify-procurement-checklist-2026-07-29',
+  '/blog/sustainable-packaging-choices-buyers-can-verify-shipping-and-damage-guide-2026-10-27'
+];
+
+test('D27 sustainability duplicates redirect directly to the retained article', () => {
+  for (const path of retiredSustainablePackagingArticles) {
+    assert.equal(permanentRedirects.get(path), retainedSustainablePackagingArticle);
+    assert.equal(redirectedSitemapPaths.has(path), true);
+  }
+
+  assert.equal(permanentRedirects.has(retainedSustainablePackagingArticle), false);
+});
