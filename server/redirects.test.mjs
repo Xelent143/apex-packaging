@@ -33,3 +33,19 @@ test('D04 corrugated duplicates redirect directly to the retained article', () =
 
   assert.equal(permanentRedirects.has(retainedCorrugatedArticle), false);
 });
+
+const retainedSubscriptionMailerArticle = '/blog/custom-mailer-boxes-for-subscription-brands-2026-09-12';
+const retiredSubscriptionMailerArticles = [
+  '/blog/custom-mailer-boxes-for-subscription-brands-cost-and-moq-guide-2026-08-13',
+  '/blog/custom-mailer-boxes-for-subscription-brands-procurement-checklist-2026-07-14',
+  '/blog/custom-mailer-boxes-for-subscription-brands-shipping-and-damage-guide-2026-10-12'
+];
+
+test('D08 subscription-mailer duplicates redirect directly to the retained article', () => {
+  for (const path of retiredSubscriptionMailerArticles) {
+    assert.equal(permanentRedirects.get(path), retainedSubscriptionMailerArticle);
+    assert.equal(redirectedSitemapPaths.has(path), true);
+  }
+
+  assert.equal(permanentRedirects.has(retainedSubscriptionMailerArticle), false);
+});
