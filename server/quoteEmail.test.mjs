@@ -721,3 +721,260 @@ test('non-JavaScript timeout response prevents an uncertain retry', async () => 
   assert.doesNotMatch(html, /Return to the form and try again/);
   assert.match(html, new RegExp(correlationId));
 });
+
+test('durable mode does not call the provider when enquiry storage fails', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let providerCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Idempotency-Key': 'quote/browser-1' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async () => { throw new Error('database unavailable'); }
+    },
+    sendEmail: async () => { providerCalled = true; },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 503);
+  assert.equal((await response.json()).status, 'storage_failed');
+  assert.equal(providerCalled, false);
+});
+
+test('durable mode returns the original recorded enquiry for a duplicate submission', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let providerCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Idempotency-Key': 'quote/browser-1' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async () => ({
+        correlationId: '00000000-0000-4000-8000-000000000099',
+        jobId: '00000000-0000-4000-8000-000000000100',
+        artworkStatus: 'none',
+        duplicate: true
+      })
+    },
+    sendEmail: async () => { providerCalled = true; },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 200);
+  const outcome = await response.json();
+  assert.equal(outcome.status, 'enquiry_recorded');
+  assert.equal(outcome.correlationId, '00000000-0000-4000-8000-000000000099');
+  assert.equal(providerCalled, false);
+});
+
+test('durable record-only mode discloses that uploaded artwork was not delivered', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+  formData.set('artwork', new File(['artwork'], 'dieline.pdf', { type: 'application/pdf' }));
+
+  let storedRecord;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Idempotency-Key': 'quote/record-only' },
+    body: formData
+  }), {
+    apiKey: '',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async (record) => {
+        storedRecord = record;
+        return {
+          correlationId,
+          jobId: '00000000-0000-4000-8000-000000000109',
+          artworkStatus: record.artworkStatus,
+          duplicate: false
+        };
+      }
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 200);
+  const outcome = await response.json();
+  assert.equal(outcome.status, 'enquiry_recorded');
+  assert.equal(outcome.attachmentOmitted, true);
+  assert.equal(storedRecord.artworkStatus, 'omitted');
+  assert.equal(storedRecord.deliveryEmail.attachments, undefined);
+});
+
+test('durable mode preserves the enquiry and schedules a retry after provider rejection', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let retryRecord;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Idempotency-Key': 'quote/browser-1' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async () => ({
+        correlationId,
+        jobId: '00000000-0000-4000-8000-000000000100',
+        deliveryIdempotencyKey: 'quote/job-100/v1',
+        artworkStatus: 'none',
+        duplicate: false
+      }),
+      markRetry: async (record) => { retryRecord = record; }
+    },
+    sendEmail: async () => {
+      const error = new Error('raw provider response');
+      error.status = 503;
+      throw error;
+    },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 200);
+  const outcome = await response.json();
+  assert.equal(outcome.status, 'enquiry_recorded');
+  assert.ok(retryRecord.nextAttemptAt instanceof Date);
+  assert.equal(retryRecord.errorClass, 'provider_transient_failure');
+  assert.doesNotMatch(JSON.stringify(retryRecord), /raw provider response|alex@example\.com/);
+});
+
+test('durable mode quarantines provider timeout uncertainty and still confirms the recorded enquiry', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let uncertainRecord;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Idempotency-Key': 'quote/browser-timeout' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async () => ({
+        correlationId,
+        jobId: '00000000-0000-4000-8000-000000000101',
+        deliveryIdempotencyKey: 'quote/job-101/v1',
+        artworkStatus: 'none',
+        duplicate: false
+      }),
+      markUncertain: async (record) => { uncertainRecord = record; }
+    },
+    sendEmail: async () => new Promise(() => {}),
+    providerTimeoutMs: 5,
+    minimumProviderTimeoutMs: 1,
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).status, 'enquiry_recorded');
+  assert.equal(uncertainRecord.errorClass, 'provider_timeout_unknown');
+});
+
+test('durable mode never records honeypot spam', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Home Quote Form');
+  formData.set('name', 'Automated Submitter');
+  formData.set('email', 'bot@example.com');
+  formData.set('message', 'Spam');
+  formData.set('website', 'https://spam.example');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let storeCalled = false;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async () => { storeCalled = true; }
+    },
+    sendEmail: async () => {},
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 400);
+  assert.equal((await response.json()).status, 'rejected');
+  assert.equal(storeCalled, false);
+});
+
+test('durable mode does not requeue a provider-accepted message when the status update fails', async () => {
+  const formData = new FormData();
+  formData.set('source', 'Request Quote Contact Form');
+  formData.set('name', 'Alex Buyer');
+  formData.set('email', 'alex@example.com');
+  formData.set('details', 'Need 500 boxes');
+  formData.set('humanConfirmation', 'confirmed');
+
+  let retryCalled = false;
+  let safeLogReference;
+  const response = await handleQuoteRequest(new Request('https://example.com/api/quote', {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Idempotency-Key': 'quote/browser-accepted' },
+    body: formData
+  }), {
+    apiKey: 'test-key',
+    from: 'Apex Packaging <sales@apexpackagingsolutions.com>',
+    to: 'sales@apexpackagingsolutions.com',
+    enquiryStore: {
+      recordEnquiry: async () => ({
+        correlationId,
+        jobId: '00000000-0000-4000-8000-000000000102',
+        deliveryIdempotencyKey: 'quote/job-102/v1',
+        artworkStatus: 'none',
+        duplicate: false
+      }),
+      startDelivery: async () => true,
+      markAccepted: async () => { throw new Error('database write failed'); },
+      markRetry: async () => { retryCalled = true; }
+    },
+    sendEmail: async () => ({ id: 'provider-message-accepted' }),
+    logDeliveryStateFailure: (reference) => { safeLogReference = reference; },
+    createCorrelationId
+  });
+
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).status, 'enquiry_recorded');
+  assert.equal(retryCalled, false);
+  assert.equal(safeLogReference, correlationId);
+});

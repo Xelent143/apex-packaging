@@ -50,6 +50,8 @@ import { siteConfig } from '../../site.config';
 
     const submitLabel = submit.textContent || 'Submit';
     let submissionInFlight = false;
+    const submissionId = globalThis.crypto?.randomUUID?.()
+      || `web-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
     const updateArtworkWarning = () => {
       if (!artwork || !artworkWarning) return;
@@ -97,12 +99,15 @@ import { siteConfig } from '../../site.config';
       try {
         const response = await fetch(form.action, {
           method: 'POST',
-          headers: { Accept: 'application/json' },
+          headers: {
+            Accept: 'application/json',
+            'Idempotency-Key': `quote/${submissionId}`
+          },
           body: new FormData(form)
         });
         const outcome = await response.json().catch(() => ({}));
 
-        if (response.ok && outcome.status === 'provider_accepted' && outcome.redirectTo) {
+        if (response.ok && ['provider_accepted', 'enquiry_recorded'].includes(outcome.status) && outcome.redirectTo) {
           window.location.assign(outcome.redirectTo);
           return;
         }

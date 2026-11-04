@@ -9,6 +9,14 @@ import { handleStripeWebhook } from './server/privatePaymentLinks.mjs';
 import { sendSmtpEmail } from './server/smtpEmail.mjs';
 import { handleCreateCheckoutSession } from './server/stripeCheckout.mjs';
 import { permanentRedirects } from './redirects.mjs';
+import { createDatabasePool, closeDatabasePool, verifyEnquirySchema } from './server/db.mjs';
+import { createPostgresEnquiryStore } from './server/enquiryStore.mjs';
+import { getRuntimeResponseHeaders } from './server/runtimeHeaders.mjs';
+import {
+  createQuoteSubmissionSession,
+  getQuoteSubmissionSession,
+  serializeQuoteSubmissionSession
+} from './server/quoteSubmissionSession.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
@@ -35,9 +43,15 @@ const contentTypes = {
 };
 
 const compressibleExtensions = new Set(['.css', '.html', '.js', '.json', '.svg', '.txt', '.xml']);
+const durableEnquiryStorageEnabled = process.env.ENQUIRY_STORAGE_MODE === 'outbox';
+const databasePool = durableEnquiryStorageEnabled ? createDatabasePool() : null;
+if (databasePool) await verifyEnquirySchema(databasePool);
+const enquiryStore = databasePool ? createPostgresEnquiryStore(databasePool) : null;
+const runtimeResponseHeaders = getRuntimeResponseHeaders(process.env);
 
 const server = createServer(async (req, res) => {
   try {
+    for (const [name, value] of Object.entries(runtimeResponseHeaders)) res.setHeader(name, value);
     const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
     const canonicalRedirect = getCanonicalRedirect(url, req.headers);
 
@@ -57,6 +71,8 @@ const server = createServer(async (req, res) => {
     }
 
     if (req.method === 'POST' && url.pathname === '/api/quote') {
+      const existingSubmissionSession = getQuoteSubmissionSession(req.headers.cookie);
+      const submissionSessionId = existingSubmissionSession || createQuoteSubmissionSession();
       const request = new Request(url, {
         method: 'POST',
         headers: nodeHeadersToWebHeaders(req.headers),
@@ -68,11 +84,22 @@ const server = createServer(async (req, res) => {
         from: getQuoteSender(),
         to: process.env.QUOTE_TO_EMAIL || defaultQuoteRecipient,
         sendEmail: createQuoteEmailSender(),
+        providerName: process.env.SMTP_PASS ? 'smtp' : 'resend',
         providerTimeoutMs: process.env.QUOTE_PROVIDER_TIMEOUT_MS,
-        onDeliveryFailure: recordQuoteDeliveryFailure
+        submissionSessionId,
+        onDeliveryFailure: recordQuoteDeliveryFailure,
+        enquiryStore,
+        logDeliveryStateFailure: (correlationId) => {
+          console.error(`Durable quote status update failed [${correlationId}]`);
+        }
       });
 
-      await writeWebResponse(res, response);
+      const nextSubmissionSession = response.status >= 200 && response.status < 400
+        ? createQuoteSubmissionSession()
+        : existingSubmissionSession ? null : submissionSessionId;
+      await writeWebResponse(res, response, nextSubmissionSession
+        ? { 'Set-Cookie': serializeQuoteSubmissionSession(nextSubmissionSession) }
+        : {});
       return;
     }
 
@@ -116,7 +143,11 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    serveStatic(url.pathname, req, res);
+    const existingSubmissionSession = getQuoteSubmissionSession(req.headers.cookie);
+    const quoteSessionHeaders = isQuoteFormPath(url.pathname) && !existingSubmissionSession
+      ? { 'Set-Cookie': serializeQuoteSubmissionSession(createQuoteSubmissionSession()) }
+      : {};
+    serveStatic(url.pathname, req, res, quoteSessionHeaders);
   } catch (error) {
     console.error(error);
     res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -127,6 +158,15 @@ const server = createServer(async (req, res) => {
 server.listen(port, '0.0.0.0', () => {
   console.log(`Apex Packaging server listening on ${port}`);
 });
+
+for (const signal of ['SIGTERM', 'SIGINT']) {
+  process.once(signal, () => {
+    server.close(async () => {
+      await closeDatabasePool(databasePool).catch(() => {});
+      process.exit(0);
+    });
+  });
+}
 
 function getQuoteSender() {
   if (process.env.SMTP_PASS) return process.env.SMTP_FROM || process.env.QUOTE_FROM_EMAIL || defaultQuoteSender;
@@ -156,11 +196,12 @@ async function recordQuoteDeliveryFailure(failure) {
   await appendFile(quoteFailureLogPath, `${JSON.stringify(record)}\n`);
 }
 
-async function writeWebResponse(res, response) {
+async function writeWebResponse(res, response, extraHeaders = {}) {
   const headers = {};
   response.headers.forEach((value, key) => {
     headers[key] = value;
   });
+  Object.assign(headers, extraHeaders);
   res.writeHead(response.status, headers);
   if (response.body) {
     const buffer = Buffer.from(await response.arrayBuffer());
@@ -170,7 +211,7 @@ async function writeWebResponse(res, response) {
   }
 }
 
-function serveStatic(pathname, req, res) {
+function serveStatic(pathname, req, res, extraHeaders = {}) {
   const filePath = resolveStaticPath(pathname);
   if (!filePath) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -183,7 +224,8 @@ function serveStatic(pathname, req, res) {
   const headers = {
     'Content-Type': contentTypes[ext] || 'application/octet-stream',
     'Cache-Control': getCacheControl(filePath, ext),
-    Vary: 'Accept-Encoding'
+    Vary: 'Accept-Encoding',
+    ...extraHeaders
   };
 
   if (encoding) headers['Content-Encoding'] = encoding;
@@ -203,6 +245,10 @@ function serveStatic(pathname, req, res) {
   } else {
     stream.pipe(res);
   }
+}
+
+function isQuoteFormPath(pathname) {
+  return pathname === '/' || pathname === '/index.html' || pathname === '/contact' || pathname === '/contact/';
 }
 
 function getCacheControl(filePath, ext) {

@@ -47,4 +47,6 @@ test('enhancement script prevents duplicate handlers and preserves explicit retr
   assert.match(feedback, /retry\.classList\.toggle\('hidden', outcome\.retryAllowed === false\)/);
   assert.match(feedback, /form\.requestSubmit\(\)/);
   assert.match(feedback, /email the artwork separately to \$\{artworkEmail\}/);
+  assert.match(feedback, /'Idempotency-Key': `quote\/\$\{submissionId\}`/);
+  assert.match(feedback, /\['provider_accepted', 'enquiry_recorded'\]\.includes\(outcome\.status\)/);
 });

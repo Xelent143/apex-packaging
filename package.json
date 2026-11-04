@@ -10,6 +10,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node --test server/*.test.mjs",
+    "test:native-postgres": "node --test server/enquiryNativePostgres.test.mjs",
+    "db:migrate": "node server/migrations.mjs",
+    "enquiry:worker": "node server/enquiryWorker.mjs",
+    "enquiry:ops": "node scripts/enquiry-ops.mjs",
     "lint:slop": "node scripts/slop-linter.mjs",
     "blog:generate-daily": "node scripts/generate-daily-blog.mjs",
     "payment:create-link": "node scripts/create-private-payment-link.mjs"
@@ -18,11 +22,13 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "astro": "^4.16.18",
+    "pg": "^8.23.1",
     "sirv-cli": "^3.0.1",
     "stripe": "^18.5.0",
     "tailwindcss": "^3.4.16"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.3.16",
     "@types/node": "^22.10.2",
     "typescript": "~5.7.2"
   },

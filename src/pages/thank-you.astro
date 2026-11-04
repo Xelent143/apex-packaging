@@ -23,6 +23,11 @@ import CTABand from '../components/sections/CTABand.astro';
     <p class="mt-2">Please email the artwork separately to <a class="font-bold underline underline-offset-2" href="mailto:sales@apexpackagingsolutions.com">sales@apexpackagingsolutions.com</a> so the team can match it to your request.</p>
   </div>
 
+  <div class="container mt-6 hidden max-w-default rounded-md border border-[#b54708] bg-[#fff4ed] px-5 py-4 text-sm text-[#7a271a]" data-artwork-unconfirmed>
+    <p><strong>Your quote request was recorded, but artwork delivery could not be confirmed.</strong></p>
+    <p class="mt-2">Please email the artwork separately to <a class="font-bold underline underline-offset-2" href="mailto:sales@apexpackagingsolutions.com">sales@apexpackagingsolutions.com</a> and include the reference above.</p>
+  </div>
+
   <CTABand
     eyebrow="Need to add something?"
     heading="Send extra specs, drawings, or artwork by email."
@@ -41,12 +46,15 @@ import CTABand from '../components/sections/CTABand.astro';
 <script>
   const reference = new URLSearchParams(window.location.search).get('reference');
   const artworkOmitted = new URLSearchParams(window.location.search).get('artwork') === 'omitted';
+  const artworkUnconfirmed = new URLSearchParams(window.location.search).get('artwork') === 'unconfirmed';
   const referenceContainer = document.querySelector<HTMLElement>('[data-quote-success-reference]');
   const referenceValue = document.querySelector<HTMLElement>('[data-quote-success-reference-value]');
   const artworkOmittedMessage = document.querySelector<HTMLElement>('[data-artwork-omitted]');
+  const artworkUnconfirmedMessage = document.querySelector<HTMLElement>('[data-artwork-unconfirmed]');
   if (reference && referenceContainer && referenceValue && /^[0-9a-f-]{36}$/i.test(reference)) {
     referenceValue.textContent = reference;
     referenceContainer.classList.remove('hidden');
   }
   if (artworkOmitted && artworkOmittedMessage) artworkOmittedMessage.classList.remove('hidden');
+  if (artworkUnconfirmed && artworkUnconfirmedMessage) artworkUnconfirmedMessage.classList.remove('hidden');
 </script>

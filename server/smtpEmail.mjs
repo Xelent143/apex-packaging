@@ -1,5 +1,6 @@
 import tls from 'node:tls';
 import { Buffer } from 'node:buffer';
+import { createHash, randomUUID } from 'node:crypto';
 import { sanitizeFilename } from './quoteEmail.mjs';
 
 export async function sendSmtpEmail(config, email, operation = {}) {
@@ -30,10 +31,11 @@ export async function sendSmtpEmail(config, email, operation = {}) {
       await smtp.command(`RCPT TO:<${recipient}>`, 250);
     }
     await smtp.command('DATA', 354);
-    await smtp.writeData(buildMimeMessage(email));
+    const messageId = createMessageId(operation.idempotencyKey);
+    await smtp.writeData(buildMimeMessage(email, { messageId }));
     await smtp.expect(250);
     await smtp.command('QUIT', 221).catch(() => {});
-    return { id: 'smtp-sent' };
+    return { id: messageId };
   } finally {
     operation.signal?.removeEventListener('abort', abortSocket);
     socket.end();
@@ -96,7 +98,7 @@ function createSmtpSession(socket) {
   return { command, expect, writeData };
 }
 
-function buildMimeMessage(email) {
+function buildMimeMessage(email, options = {}) {
   const mixedBoundary = `mixed_${cryptoRandom()}`;
   const altBoundary = `alt_${cryptoRandom()}`;
   const headers = [
@@ -104,6 +106,7 @@ function buildMimeMessage(email) {
     `To: ${(email.to || []).join(', ')}`,
     email.reply_to ? `Reply-To: ${email.reply_to}` : '',
     `Subject: ${encodeHeader(email.subject || 'New quote inquiry')}`,
+    `Message-ID: <${options.messageId || createMessageId()}>`,
     'MIME-Version: 1.0',
     `Content-Type: multipart/mixed; boundary="${mixedBoundary}"`
   ].filter(Boolean);
@@ -144,6 +147,13 @@ function buildMimeMessage(email) {
 
   body.push('', `--${mixedBoundary}--`, '');
   return body.join('\r\n');
+}
+
+function createMessageId(idempotencyKey) {
+  if (idempotencyKey) {
+    return `${createHash('sha256').update(String(idempotencyKey)).digest('hex').slice(0, 32)}@apexpackagingsolutions.com`;
+  }
+  return `${randomUUID()}@apexpackagingsolutions.com`;
 }
 
 function dotStuff(message) {

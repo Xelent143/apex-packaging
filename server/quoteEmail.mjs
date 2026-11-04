@@ -1,4 +1,5 @@
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
+import { nextRetryAt, safeErrorDetails } from './deliveryPolicy.mjs';
 
 const RESEND_EMAILS_URL = 'https://api.resend.com/emails';
 export const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024;
@@ -180,7 +181,8 @@ export async function sendQuoteEmail(apiKey, email, operation = {}) {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      ...(operation.idempotencyKey ? { 'Idempotency-Key': operation.idempotencyKey } : {})
     },
     body: JSON.stringify(email),
     signal: operation.signal
@@ -188,7 +190,9 @@ export async function sendQuoteEmail(apiKey, email, operation = {}) {
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Resend email failed with ${response.status}: ${body}`);
+    const error = new Error(`Resend email failed with ${response.status}: ${body}`);
+    error.status = response.status;
+    throw error;
   }
 
   return response.json();
@@ -197,7 +201,7 @@ export async function sendQuoteEmail(apiKey, email, operation = {}) {
 export async function handleQuoteRequest(request, options) {
   const wantsJson = request.headers.get('accept')?.includes('application/json');
   const correlationId = options.createCorrelationId?.() || randomUUID();
-  if (!options.apiKey) {
+  if (!options.apiKey && !options.enquiryStore) {
     return outcomeResponse(request, wantsJson, {
       ok: false,
       status: 'delivery_failed',
@@ -273,10 +277,13 @@ export async function handleQuoteRequest(request, options) {
     submission.fields.attachmentNote = 'The customer submitted the quote request without the artwork file. Ask them to email it separately and match it using the reference.';
   }
   const email = buildQuoteEmail(submission, { from: options.from, to: options.to });
+  if (options.enquiryStore) {
+    return handleDurableQuoteRequest(request, wantsJson, submission, email, skippedFiles, options);
+  }
   let providerAccepted = false;
   let attachmentOmitted = skippedFiles.length > 0;
   try {
-    await sendWithTimeout(options, email);
+    await sendEmailWithTimeout(options, email);
     providerAccepted = true;
   } catch (error) {
     if (error instanceof ProviderTimeoutError) {
@@ -310,7 +317,7 @@ export async function handleQuoteRequest(request, options) {
         { from: options.from, to: options.to }
       );
       try {
-        await sendWithTimeout(options, fallbackEmail);
+        await sendEmailWithTimeout(options, fallbackEmail);
         providerAccepted = true;
         attachmentOmitted = true;
       } catch (fallbackError) {
@@ -363,6 +370,195 @@ export async function handleQuoteRequest(request, options) {
   return redirectResponse(redirectTarget);
 }
 
+async function handleDurableQuoteRequest(request, wantsJson, submission, email, skippedFiles, options) {
+  const originalCorrelationId = submission.correlationId;
+  const hasAttachment = Boolean(email.attachments?.length);
+  const initialArtworkStatus = skippedFiles.length
+    ? 'omitted'
+    : hasAttachment ? (options.apiKey ? 'received_ephemeral' : 'omitted') : 'none';
+  const retryEmail = hasAttachment
+    ? buildQuoteEmail({
+        ...submission,
+        fields: {
+          ...submission.fields,
+          attachmentNote: 'The enquiry was recorded, but artwork delivery was not confirmed. Ask the customer to email the file separately and match it using the reference.'
+        },
+        files: submission.files.map(({ content, ...file }) => file)
+      }, { from: options.from, to: options.to })
+    : email;
+
+  let record;
+  try {
+    record = await options.enquiryStore.recordEnquiry({
+      correlationId: originalCorrelationId,
+      submissionKey: request.headers.get('idempotency-key')
+        || createFallbackSubmissionKey(options.submissionSessionId, submission),
+      submission,
+      deliveryEmail: retryEmail,
+      provider: options.providerName || 'configured_email_provider',
+      artworkStatus: initialArtworkStatus,
+      maxAttempts: options.maxDeliveryAttempts || 5,
+      retentionDueAt: options.retentionDueAt?.(submission) || null
+    });
+  } catch {
+    return outcomeResponse(request, wantsJson, {
+      ok: false,
+      status: 'storage_failed',
+      error: DELIVERY_FAILURE_MESSAGE,
+      correlationId: originalCorrelationId,
+      retryAllowed: true
+    }, 503, options);
+  }
+
+  const correlationId = record.correlationId;
+  if (record.duplicate) {
+    return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+      attachmentState: artworkResponseState(record.artworkStatus)
+    });
+  }
+
+  if (!options.apiKey) {
+    return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+      attachmentState: artworkResponseState(initialArtworkStatus)
+    });
+  }
+
+  try {
+    const started = await options.enquiryStore.startDelivery?.({
+      jobId: record.jobId,
+      workerId: `request-${correlationId}`,
+      leaseMs: Number(options.deliveryLeaseMs || 60_000),
+      now: new Date()
+    });
+    if (started === false) {
+      return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+        attachmentState: artworkResponseState(initialArtworkStatus)
+      });
+    }
+  } catch {
+    return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+      attachmentState: artworkResponseState(initialArtworkStatus)
+    });
+  }
+
+  const startedAt = new Date();
+  let providerResult;
+  try {
+    providerResult = await sendEmailWithTimeout({
+      ...options,
+      idempotencyKey: record.deliveryIdempotencyKey || `quote/${record.jobId}/v1`
+    }, email);
+  } catch (error) {
+    const details = safeErrorDetails(error);
+    const finishedAt = new Date();
+    if (error instanceof ProviderTimeoutError) {
+      await safeDurableStatusUpdate(options, correlationId, () => options.enquiryStore.markUncertain({
+          jobId: record.jobId,
+          ...details,
+          artworkStatus: hasAttachment ? 'delivery_unconfirmed' : initialArtworkStatus,
+          startedAt,
+          finishedAt
+        }));
+      return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+        attachmentState: hasAttachment ? 'unconfirmed' : artworkResponseState(initialArtworkStatus)
+      });
+    }
+
+    const retryAt = details.errorClass === 'provider_permanent_rejection'
+      ? null
+      : nextRetryAt(1, finishedAt);
+    if (retryAt) {
+      await safeDurableStatusUpdate(options, correlationId, () => options.enquiryStore.markRetry({
+        jobId: record.jobId,
+        ...details,
+        nextAttemptAt: retryAt,
+        artworkStatus: hasAttachment ? 'omitted' : initialArtworkStatus,
+        startedAt,
+        finishedAt
+      }));
+    } else {
+      await safeDurableStatusUpdate(options, correlationId, () => options.enquiryStore.markFailed({
+        jobId: record.jobId,
+        ...details,
+        artworkStatus: hasAttachment ? 'omitted' : initialArtworkStatus,
+        startedAt,
+        finishedAt
+      }));
+    }
+    return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+      attachmentState: hasAttachment ? 'omitted' : artworkResponseState(initialArtworkStatus)
+    });
+  }
+
+  const acceptedUpdateSucceeded = await safeDurableStatusUpdate(
+    options,
+    correlationId,
+    () => options.enquiryStore.markAccepted({
+      jobId: record.jobId,
+      providerMessageId: providerResult?.id || null,
+      artworkStatus: hasAttachment ? 'provider_accepted' : initialArtworkStatus,
+      startedAt,
+      finishedAt: new Date()
+    })
+  );
+  return durableSuccessResponse(request, wantsJson, submission, correlationId, {
+    status: acceptedUpdateSucceeded ? 'provider_accepted' : 'enquiry_recorded',
+    attachmentState: skippedFiles.length ? 'omitted' : null
+  });
+}
+
+export function createFallbackSubmissionKey(sessionId, submission) {
+  const normalizedSessionId = String(sessionId || '').trim();
+  if (!/^[a-zA-Z0-9-]{20,128}$/.test(normalizedSessionId)) return null;
+  const fields = Object.fromEntries(
+    Object.entries(submission?.fields || {})
+      .filter(([key]) => key !== 'attachmentNote')
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, value]) => [key, String(value)])
+  );
+  const fingerprint = createHash('sha256')
+    .update(JSON.stringify({ sessionId: normalizedSessionId, source: submission?.source || '', fields }))
+    .digest('hex');
+  return `quote/nonjs/${fingerprint}`;
+}
+
+async function safeDurableStatusUpdate(options, correlationId, operation) {
+  try {
+    await operation();
+    return true;
+  } catch {
+    options.logDeliveryStateFailure?.(correlationId);
+    return false;
+  }
+}
+
+function durableSuccessResponse(request, wantsJson, submission, correlationId, options = {}) {
+  const requestedRedirect = submission.redirectTo;
+  const redirectTarget = addReferenceToPath(
+    isSafeRedirectPath(requestedRedirect) ? requestedRedirect : '/thank-you',
+    correlationId,
+    options.attachmentState
+  );
+  if (wantsJson) {
+    return jsonResponse({
+      ok: true,
+      status: options.status || 'enquiry_recorded',
+      message: SUBMISSION_SUCCESS_MESSAGE,
+      correlationId,
+      attachmentOmitted: options.attachmentState === 'omitted',
+      artworkDeliveryUnconfirmed: options.attachmentState === 'unconfirmed',
+      redirectTo: redirectTarget
+    }, 200);
+  }
+  return redirectResponse(redirectTarget);
+}
+
+function artworkResponseState(artworkStatus) {
+  if (artworkStatus === 'omitted') return 'omitted';
+  if (artworkStatus === 'delivery_unconfirmed') return 'unconfirmed';
+  return null;
+}
+
 export function isSafeRedirectPath(value) {
   if (!value) return false;
   if (!value.startsWith('/')) return false;
@@ -370,11 +566,12 @@ export function isSafeRedirectPath(value) {
   return true;
 }
 
-function addReferenceToPath(path, correlationId, attachmentOmitted = false) {
+function addReferenceToPath(path, correlationId, attachmentState = null) {
   const url = new URL(path, 'https://apex.invalid');
   url.searchParams.set('reference', correlationId);
-  if (attachmentOmitted) {
-    url.searchParams.set('artwork', 'omitted');
+  const normalizedArtworkState = attachmentState === true ? 'omitted' : attachmentState;
+  if (normalizedArtworkState === 'omitted' || normalizedArtworkState === 'unconfirmed') {
+    url.searchParams.set('artwork', normalizedArtworkState);
     url.hash = 'artwork-omitted';
   }
   return `${url.pathname}${url.search}${url.hash}`;
@@ -545,7 +742,7 @@ async function readLimitedRequest(request, maxBytes) {
   });
 }
 
-async function sendWithTimeout(options, email) {
+export async function sendEmailWithTimeout(options, email) {
   const timeoutMs = normalizeProviderTimeout(
     options.providerTimeoutMs,
     options.minimumProviderTimeoutMs
@@ -555,7 +752,7 @@ async function sendWithTimeout(options, email) {
   const providerOperation = Promise.resolve().then(() => options.sendEmail(
     options.apiKey,
     email,
-    { signal: controller.signal, timeoutMs }
+    { signal: controller.signal, timeoutMs, idempotencyKey: options.idempotencyKey }
   ));
   const deadline = new Promise((_, reject) => {
     timer = setTimeout(() => {
@@ -598,9 +795,10 @@ class QuoteRequestError extends Error {
   }
 }
 
-class ProviderTimeoutError extends Error {
+export class ProviderTimeoutError extends Error {
   constructor() {
     super('provider_timeout');
+    this.name = 'ProviderTimeoutError';
   }
 }
 
