@@ -17,3 +17,19 @@ test('D02 bakery duplicates redirect directly to the retained article', () => {
 
   assert.equal(permanentRedirects.has(retainedBakeryArticle), false);
 });
+
+const retainedCorrugatedArticle = '/blog/corrugated-shipping-boxes-for-heavy-ecommerce-orders-2026-09-14';
+const retiredCorrugatedArticles = [
+  '/blog/corrugated-shipping-boxes-for-heavy-ecommerce-orders-cost-and-moq-guide-2026-08-15',
+  '/blog/corrugated-shipping-boxes-for-heavy-ecommerce-orders-procurement-checklist-2026-07-16',
+  '/blog/corrugated-shipping-boxes-for-heavy-ecommerce-orders-shipping-and-damage-guide-2026-10-14'
+];
+
+test('D04 corrugated duplicates redirect directly to the retained article', () => {
+  for (const path of retiredCorrugatedArticles) {
+    assert.equal(permanentRedirects.get(path), retainedCorrugatedArticle);
+    assert.equal(redirectedSitemapPaths.has(path), true);
+  }
+
+  assert.equal(permanentRedirects.has(retainedCorrugatedArticle), false);
+});
