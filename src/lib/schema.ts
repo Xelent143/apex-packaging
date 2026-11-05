@@ -38,7 +38,7 @@ export function buildOrganizationSchema() {
       telephone: siteConfig.phone,
       email: siteConfig.email,
       areaServed: ['CA', 'US', 'Selected international markets'],
-      availableLanguage: ['English', 'French']
+      availableLanguage: ['English']
     }],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
