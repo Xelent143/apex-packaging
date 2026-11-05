@@ -18,6 +18,11 @@ export function buildOrganizationSchema() {
     image: new URL(siteConfig.defaultOgImage, siteConfig.url).href,
     email: siteConfig.email,
     description: siteConfig.description,
+    sameAs: [
+      'https://www.instagram.com/apexpackagingsolutions/',
+      'https://ca.pinterest.com/apackagingsolutions/',
+      'https://www.youtube.com/@APEXPackagingCanada'
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.streetAddress,
