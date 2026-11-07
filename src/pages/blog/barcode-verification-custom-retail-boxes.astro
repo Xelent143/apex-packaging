@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+const title = 'UPC Barcode Verification for Custom Retail Boxes';
+const description = 'Before printing custom retail boxes, learn which barcode proofs, samples and verification checks to request, and what to approve before production begins.';
+const url = '/blog/barcode-verification-custom-retail-boxes';
+const article = buildArticleSchema({ title, description, url, datePublished: '2026-11-07', author: 'Apex Packaging Solutions' });
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+---
+<BaseLayout title={title} description={description} schemaBlocks={[breadcrumb, article]}>
+  <PageHeader eyebrow="Retail packaging approvals" heading={title} lead="What to check, which samples to request, and what evidence to agree on before approving UPC barcode printing." />
+  <article class="py-14 md:py-24">
+    <div class="container max-w-default prose-apex">
+      <p>For Canadian and US retail brands, approving UPC barcode printing on custom retail boxes means confirming three things: the code identifies the correct product, the artwork follows the requirements for its barcode type, and the printed packaging has been checked through an agreed verification process. A successful scan on one device does not establish everything that formal verification assesses.</p>
+      <p>For buyers, the key question is: <strong>What exactly does this approval prove?</strong> A PDF can confirm the intended layout. It cannot establish how the barcode will print on the selected board or appear after the carton is finished and assembled.</p>
+      <p>GS1 Canada states that subscribers in good standing can submit products, print proofs or labels for its Barcode Scan Verification service. It also recommends submitting final packaging to check sizing, positioning and other standards. Its checks include placement, size, quiet zones, agreement between printed digits and encoded data, and print-quality characteristics. See <a href="https://www.gs1ca.org/barcode-scan-verification/">GS1 Canada's verification scope and submission requirements</a>.</p>
+      <h2>Start with the item being scanned</h2>
+      <p>Tell your packaging supplier whether the barcode belongs to an individual retail unit, a multipack or an outer shipping case. Do not assume a symbol prepared for one packaging level is suitable for another.</p>
+      <p>For a retail carton, assemble a brief containing:</p>
+      <ul>
+        <li>The product name, variant and approved GTIN—the number identifying the trade item.</li>
+        <li>The intended barcode type, such as UPC-A.</li>
+        <li>The retailer or sales channel where the carton will be scanned.</li>
+        <li>Any retailer-provided barcode specifications or report requirements.</li>
+        <li>The approved barcode artwork and its revision.</li>
+      </ul>
+      <p>Assign a named person on the buyer's team to confirm the relationship between the product and its identifier. Print approval should not silently become approval of product data.</p>
+      <p>Obtain the receiving retailer's requirements directly. A country name alone is not a complete barcode specification. GS1 Canada and GS1 US both publish guidance, but the verification service used and the evidence requested by a trading partner should be confirmed for the project.</p>
+      <h2>Order a sample that answers the right question</h2>
+      <p>“Sample approved” is too vague when a project includes structure, artwork and barcode printing.</p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Evidence</th><th>Useful for checking</th><th>What it does not establish by itself</th></tr></thead>
+          <tbody>
+            <tr><td>Artwork PDF</td><td>Intended number, panel, orientation and reserved space</td><td>Printed contrast or production print quality</td></tr>
+            <tr><td>Unprinted structural sample</td><td>Carton assembly and available panel space</td><td>Barcode readability</td></tr>
+            <tr><td>Printed mockup made by a different process</td><td>Layout and handling</td><td>Performance of the intended production process</td></tr>
+            <tr><td>Sample using the proposed board, print and finish</td><td>Barcode behaviour on a representative package</td><td>Consistency across the entire production run</td></tr>
+            <tr><td>Verification report tied to an identified sample</td><td>Results for the barcode and sample tested</td><td>Approval of later artwork or material changes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Use this comparison when requesting samples. Ask which board, printing process and finish will be used, and which aspects differ from production.</p>
+      <p>Apex's <a href="/design-support">packaging design support</a> can include coordination of dielines, artwork preparation, proofs, mockups and a sample path, with scope, availability, costs and timing confirmed for the project. This does not establish an in-house barcode-verification service. If verification is required, ask whether it can be coordinated, who would perform it, what it would cost and when results would be available. Do not assume it is included in a standard proof.</p>
+      <h2>Reserve the barcode area before adding finishes</h2>
+      <p>GS1 US advises preserving barcode height rather than shortening the bars to fit a design. It also calls for clear quiet zones and suitable contrast; black bars on a white background are the simplest starting point. See <a href="https://www.gs1us.org/upcs-barcodes-prefixes/how-to-use-your-upc-barcodes/place-barcodes-on-products">GS1 US barcode placement and printing guidance</a>.</p>
+      <p>Ask the designer and production team to identify:</p>
+      <ul>
+        <li>The complete barcode area, including its required quiet zones.</li>
+        <li>Nearby folds, seams, cut edges and overlapping panels.</li>
+        <li>The board surface and background beneath the symbol.</li>
+        <li>Any coating, foil, texture or other finish proposed in that area.</li>
+        <li>Labels or seals that could cover the code after packing.</li>
+      </ul>
+      <p>Do not prescribe one quiet-zone measurement for every barcode. The required dimensions depend on the symbol and its specifications.</p>
+      <p>Position also needs review on the assembled package. <a href="https://www.gs1uk.org/knowledge-hub/barcodes/where-should-a-barcode-be-placed">GS1's placement guidance</a> advises keeping symbols away from features such as folds, seams, perforations and tight curves.</p>
+      <p>For the broader file handoff, use Apex's <a href="/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits">packaging artwork preparation guide</a>.</p>
+      <h2>Worked example: one carton, two artwork versions</h2>
+      <p><strong>Hypothetical example—not an Apex customer project.</strong></p>
+      <p>A personal-care brand plans to order 8,000 folding cartons: 4,000 for each of two product variants. Both use the same structure and board, but each has its own approved product identifier.</p>
+      <p>The supplier provides an unprinted structural sample and a PDF for each variant. The buyer is ready to approve production because the carton fits and both barcode images scan from a screen.</p>
+      <p>Those checks leave two separate questions unanswered: how the codes will print, and whether each artwork version carries the correct identifier.</p>
+      <p>A more useful approval plan is to:</p>
+      <ol>
+        <li>Have the buyer's product-data owner check each identifier against its variant.</li>
+        <li>Confirm the barcode area on both artwork files.</li>
+        <li>Agree on representative printed samples and verification arrangements.</li>
+        <li>Match each report to the relevant artwork revision and sample.</li>
+        <li>Approve production only after the agreed acceptance conditions are met.</li>
+      </ol>
+      <p>Suppose the second variant is then redesigned with a dark background behind the code. The buyer should reopen the barcode review for that version. An unchanged box structure does not make the changed print treatment equivalent.</p>
+      <p>The purchasing lesson is simple: <strong>group structural approvals where appropriate, but keep product identity and barcode artwork approvals specific to each version.</strong></p>
+      <h2>Put the approval conditions in writing</h2>
+      <p>Before ordering <a href="/industries/retail-boxes">custom retail cartons</a>, agree on a short release checklist:</p>
+      <ul>
+        <li><strong>Identity:</strong> Who confirms the product, variant and GTIN?</li>
+        <li><strong>Specification:</strong> Which barcode type and trading-partner requirements apply?</li>
+        <li><strong>Sample:</strong> What materials, process and finishing does the sample represent?</li>
+        <li><strong>Verification:</strong> Who performs it, and what report or acceptance criteria are required?</li>
+        <li><strong>Traceability:</strong> Which artwork revision, sample and production order does the report cover?</li>
+        <li><strong>Changes:</strong> Who reviews revisions to barcode size, placement, board, background or finish?</li>
+        <li><strong>Production:</strong> What checks and records are agreed for the run?</li>
+      </ul>
+      <p>This is a recommended purchasing workflow, not a claim that every retailer requires the same report or approval sequence.</p>
+      <p>Avoid three common shortcuts: treating a screen scan as print verification, approving all variants from one artwork file, and using an old report after changing the barcode's production conditions.</p>
+      <h2>Send Apex the barcode brief with the packaging brief</h2>
+      <p>Apex Packaging Solutions is a Canada-based packaging supplier and project coordinator serving Canadian businesses, with US service available. It coordinates design, artwork, samples, overseas production and delivery.</p>
+      <p>For a useful quotation, send the product's packed dimensions and weight, quantity by artwork version, carton requirements, artwork status and delivery destination. Include the approved barcode files and any retailer verification requirements.</p>
+      <p><a href="/contact">Request a packaging quotation</a> and ask Apex to confirm the sample path and whether barcode-verification arrangements can be coordinated before production approval.</p>
+    </div>
+  </article>
+</BaseLayout>
