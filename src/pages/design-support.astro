@@ -7,10 +7,10 @@ import CTABand from '../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildFAQSchema } from '../lib/schema';
 
 const faqs = [
-  { q: 'Can I keep the dieline file if I work with a different printer?', a: 'For design-only paid engagements, yes — Apex provides the editable file. For design included with a production order, the dieline is licensed to the order; if the buyer wants portable rights, a one-time licensing fee applies.' },
-  { q: 'Do you do graphic design (artwork) too, or only structural?', a: 'Both. Structural (dieline + 3D) is the default included scope. Surface artwork is available at additional cost — typically $400–$1,500 per panel.' },
-  { q: 'What file formats do you produce?', a: 'PDF/X-4 for print production. AI / EPS native files for revisions. PNG / WEBP for 3D mockup previews.' },
-  { q: 'How does this differ from a packaging designer agency?', a: 'Agencies focus on creative direction and brand. Apex\'s design team focuses on manufacturability — making sure the box actually folds, prints, and ships at the spec the agency drew. The two are complementary.' }
+  { q: 'Can I use the dieline file with a different printer?', a: 'File ownership, editable-file delivery, licensing, and reuse rights depend on the agreed design and production scope. Ask Apex to document those terms before design work begins.' },
+  { q: 'Can Apex help with artwork as well as the packaging structure?', a: 'Apex can review structural design, dieline, artwork-preparation, proof, and mockup needs. The available scope and any separate design cost are confirmed after the product and artwork brief is reviewed.' },
+  { q: 'Which file formats should I provide?', a: 'Send editable vector artwork where available, along with any brand, barcode, image, and colour references. Apex will confirm the production and preview formats required for the selected structure, print method, and facility.' },
+  { q: 'Can I enquire before my dimensions or material are final?', a: 'Yes. Send the product information, target use, quantity range, destination, and artwork you have. Apex can identify the missing decisions and confirm the next design or quotation step.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Support',url:'/design-support'}]);
 ---
@@ -27,12 +27,12 @@ const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Su
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">
-      <h2>What's included</h2>
+      <h2>Support that can be scoped for the project</h2>
       <ol>
-        <li><strong>Structural design</strong> — a dieline drawn to your product dimensions and the box style that fits.</li>
-        <li><strong>Print prep</strong> — colour conversion (RGB → CMYK or spot Pantone), bleed and trim allowances, file format ready for plate or digital production.</li>
-        <li><strong>3D mockup</strong> — a rendered visualization of the finished box.</li>
-        <li><strong>Physical pre-production sample</strong> — optional, billed at sample cost, credited to the order on production.</li>
+        <li><strong>Structural design</strong> — dieline requirements can be reviewed against the product dimensions and selected box style.</li>
+        <li><strong>Print preparation</strong> — colour space, bleed, trim, imagery, barcode, and file requirements can be reviewed for the selected production method.</li>
+        <li><strong>Proof or mockup</strong> — the appropriate approval format is confirmed with the design scope.</li>
+        <li><strong>Physical pre-production sample</strong> — availability, specification, cost, and timing are confirmed for the individual project.</li>
       </ol>
 
       <h2>Turnaround</h2>
@@ -44,7 +44,7 @@ const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Su
 
       <h2>What we need from you</h2>
       <ul>
-        <li>Logo as a vector file (AI, EPS, or PDF). Raster (JPG, PNG) is fine — Apex will convert.</li>
+        <li>Logo as a vector file (AI, EPS, or PDF) where available. If only a raster file exists, send the highest-resolution version so Apex can confirm whether conversion or redrawing is required.</li>
         <li>Brand colours as Pantone codes or hex values.</li>
         <li>Product dimensions (length × width × height) and weight.</li>
         <li>Quantity, target lead time, and any sustainability requirements.</li>
@@ -52,12 +52,9 @@ const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Su
       </ul>
       <p>Before releasing files, review the <a href="/blog/packaging-design-services-before-production-2026-08-29">packaging production-approval guide</a> for structure, artwork, proof, and revision-control decisions. If colour consistency matters, the <a href="/blog/printed-packaging-boxes-and-brand-colour-control-2026-08-26">packaging colour-control guide</a> explains how references, substrates, proof limitations, acceptance criteria, and reorder records work together.</p>
 
-      <h2>What it costs</h2>
-      <ul>
-        <li><strong>Free with any order over MOQ.</strong> Two rounds of revision included.</li>
-        <li><strong>$200–$500 flat fee for design-only engagements</strong>, depending on complexity.</li>
-        <li><strong>Custom structural design</strong> (entirely new dieline, no existing reference): quoted separately, typically $400–$1,200 depending on complexity.</li>
-      </ul>
+      <h2>How scope and cost are confirmed</h2>
+      <p>Design and approval requirements depend on the existing files, structural complexity, number of SKUs, revision needs, proof or sample path, production method, and whether the work forms part of a packaging order. Apex confirms the included work, separate charges, file rights, and approval stages in the project-specific quotation before work begins.</p>
+      <p>You may make an initial enquiry without final dimensions, material, or production-ready artwork. Send the information and assets you have; Apex will identify what is still needed for a design scope or packaging quotation.</p>
     </div>
   </section>
 
@@ -70,8 +67,8 @@ const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Design Su
   ]} />
 
   <CTABand
-    heading="To start a design engagement, send your assets."
-    lead="Apex will confirm the design and sampling schedule after reviewing the product, artwork, structure, and destination."
-    primaryCta={{ label: 'Send brand assets', href: '/contact' }}
+    heading="Start with the product and artwork information you have."
+    lead="Final dimensions and material are not required for the first enquiry. Apex will review the brief and confirm the missing inputs, available design or sample path, scope, cost, and next approval step."
+    primaryCta={{ label: 'Request a design review', href: '/contact' }}
   />
 </BaseLayout>

@@ -48,7 +48,7 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'kitchenware-boxes': [{ label: 'Fragile Safe' }, { label: 'Dividers' }, { label: 'Retail Sleeve' }, { label: 'Ship Ready' }],
   'pharma-boxes': [{ label: 'Clean Specs' }, { label: 'Lot Panels' }, { label: 'Tamper Seal' }, { label: 'Device Fit' }],
   'pillow-boxes': [{ label: 'Curved Shape' }, { label: 'Gift Ready' }, { label: 'Window Cut' }, { label: 'Retail Print' }],
-  'pizza-boxes': [{ label: 'Food Grade' }, { label: 'Vent Tabs' }, { label: 'Flat Packed' }, { label: 'Hot Food' }],
+  'pizza-boxes': [{ label: 'Food-Contact Brief' }, { label: 'Vent Planning' }, { label: 'Flat-Pack Setup' }, { label: 'Print & Fit' }],
   'pre-roll-boxes': [{ label: 'Slim Fit' }, { label: 'Copy Panels' }, { label: 'Display Trays' }, { label: 'Tamper Seal' }],
   'product-boxes': [{ label: 'Product Fit' }, { label: 'Custom Size' }, { label: 'Retail Print' }, { label: 'Fast Quote' }],
   'retail-boxes': [{ label: 'Shelf Ready' }, { label: 'Display Angle' }, { label: 'Barcode Space' }, { label: 'Premium Print' }],
@@ -300,10 +300,61 @@ const buyerContentBySlug: Record<string, BuyerContent> = {
     ],
     related: [
       { title: 'Packaging artwork requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare dielines, bleed, barcode zones, colour references, and controlled artwork revisions.' },
-      { title: 'Custom boxes with logo', href: '/custom-boxes-with-logo', description: 'Review branding and print preparation once the product structure and fit are defined.' },
+      { title: 'Plan launch kits and repeat orders', href: '/blog/custom-product-boxes-for-launch-kits-and-reorders-2026-09-02', description: 'Coordinate structure, artwork, sampling, packout records, and reorder control for a product-box program.' },
       { title: 'Retail boxes', href: '/industries/retail-boxes', description: 'Plan shelf, display, information-panel, and retail-channel requirements.' }
     ],
     quoteLead: 'For a complete quotation, send every product and accessory dimension, preferred orientation, complete packed weight, sales and shipping channels, protection or insert requirements, presentation direction, preferred box format, artwork and SKU count, target quantity, packing configuration, destination, and timing context.'
+  },
+  'pizza-boxes': {
+    intro: 'Apex supplies custom printed pizza boxes for restaurant takeout, food-service programs, events, and retail pizza products. Start the quotation with the pizza diameter and maximum packed height, serving condition, holding and delivery route, quantity, artwork, destination, and any required food-contact documentation so structure, ventilation, print, packing, and distribution needs can be reviewed together.',
+    structures: [
+      { option: 'Corrugated takeaway pizza box', application: 'Whole pizzas packed for counter pickup, local delivery, catering, and food-service programs', tradeoff: 'The board, closure, vent pattern, packed temperature, holding time, stacking, grease exposure, and delivery route must be assessed together.' },
+      { option: 'Slice box or compact food-service carton', application: 'Individual slices, small portions, samples, and concession programs', tradeoff: 'A compact footprint can reduce material, but product height, steam release, closure security, and handling still need a representative packout check.' },
+      { option: 'Printed retail pizza carton', application: 'Chilled or frozen retail products where the carton provides brand and product-information panels', tradeoff: 'The primary wrap or tray, temperature route, moisture exposure, required information, case pack, and outer shipping protection remain separate specification inputs.' }
+    ],
+    materials: [
+      { option: 'Kraft corrugated board', application: 'Takeaway and food-service programs using restrained, high-contrast graphics', tradeoff: 'Colour appearance differs from white board, and the complete construction still requires review for the intended food-contact and handling conditions.' },
+      { option: 'White corrugated board', application: 'Programs that prioritize brighter graphics, photography, or stronger colour contrast', tradeoff: 'Print appearance, surface protection, grease exposure, handling, and total specification should be compared with the kraft alternative.' },
+      { option: 'Paperboard retail carton', application: 'Secondary retail packaging for chilled or frozen pizzas with a separate primary wrap or tray', tradeoff: 'The carton alone does not establish food-contact suitability or temperature performance; confirm the complete packaging system and documentation.' }
+    ],
+    measurements: [
+      'Measure the pizza at its maximum diameter and packed height, including crust profile, toppings, liners, boards, or other components that affect clearance.',
+      'Share the packed weight, serving condition, expected temperature at packing, planned holding time, stacking, and pickup or delivery route.',
+      'State whether the box will be filled by hand or equipment, stored flat, pre-folded, or assembled during service, and identify the available counter and storage space.',
+      'For retail products, provide the primary pack, finished product dimensions, case count, storage temperature, display orientation, and outer-distribution plan.',
+      'Identify any direct food-contact surfaces and the documentation your food-safety or regulatory review requires for the actual construction and intended use.'
+    ],
+    printing: [
+      'Build artwork on the supplier-approved dieline and keep critical copy, barcodes, and registration-sensitive details clear of folds, vents, locks, and cut edges.',
+      'Provide vector logos where possible, final copy, colour references, mandatory product information, and clearly named files for every size or artwork version.',
+      'Plan graphics for the selected kraft or white surface; the same ink values will not appear identical on different liners.',
+      'Review ink, coating, and print placement requirements for the intended food-contact surfaces and use rather than relying on a general “food grade” label.'
+    ],
+    sampling: [
+      'Use a dieline proof to confirm dimensions, panel orientation, copy, artwork version, vents, locks, and the current revision.',
+      'Use a structural sample with a representative pizza or retail pack to check clearance, closure, stacking, carrying, assembly, and the intended opening experience.',
+      'Run a representative packout and route review when steam, grease, condensation, holding time, stacking, or delivery handling may affect performance.',
+      'Record the approved dimensions, board construction, liner, vent pattern, artwork revision, packing method, case configuration, and sample decision for repeat orders.'
+    ],
+    commercialFactors: [
+      'box style, finished dimensions, corrugated or paperboard construction, liner, vents, locks, and total material use;',
+      'print method, ink coverage, number of sizes or artwork versions, and required product-information panels;',
+      'food-contact documentation, artwork readiness, tooling, sample and packout route, and approval requirements;',
+      'target quantity by version, flat-pack configuration, case pack, destination, freight plan, and timing context.'
+    ],
+    faqs: [
+      { q: 'How do I measure a pizza for a custom box?', a: 'Send the maximum pizza diameter and packed height, including the crust, toppings, liner, board, or other components that affect clearance. Also provide the packed weight, serving condition, stacking needs, and pickup or delivery route; nominal pizza diameter alone does not define the finished box.' },
+      { q: 'Does the term “food grade” prove a pizza box is suitable?', a: 'No. A broad label does not identify the complete construction, intended food-contact conditions, inks, coatings, documentation, or actual use. State the product, contact surfaces, packing temperature, holding route, and documentation requirements so the proposed specification can be reviewed for the intended program.' },
+      { q: 'How should pizza-box ventilation be specified?', a: 'Vent needs depend on the product, packing temperature, holding time, stacking, delivery route, and expected eating quality. Openings can also affect strength and print layout, so the proposed vent pattern should be assessed with a representative packout rather than copied without testing.' },
+      { q: 'What should a restaurant or wholesaler include in the quotation request?', a: 'Provide every box size, maximum packed height and weight, serving condition, vent and closure needs, print coverage, artwork versions, target quantity by version, flat-pack and case requirements, destination, food-contact documentation needs, and timing context.' },
+      { q: 'What affects pizza-box quantities, price, samples, and timing?', a: 'Structure, dimensions, board and liner, vents and locks, print coverage, number of sizes or artwork versions, tooling, sample route, documentation, artwork readiness, quantity, case pack, destination, and freight plan all affect the project. Apex confirms the project-specific quantity, price, sample path, and schedule in the quotation.' }
+    ],
+    related: [
+      { title: 'Food packaging specification guide', href: '/blog/food-packaging-boxes-corrugated-specs-dry-chilled-bulk-food', description: 'Separate dry, chilled, and distribution requirements when preparing a food-packaging brief.' },
+      { title: 'Packaging artwork requirements', href: '/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits', description: 'Prepare dielines, bleed, barcode zones, colour references, and controlled artwork revisions.' },
+      { title: '12-field packaging RFQ template', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include', description: 'Organize product, structure, print, quantity, testing, and delivery inputs for a comparable quotation.' }
+    ],
+    quoteLead: 'For a complete pizza-box quotation, send every required size, maximum pizza diameter and packed height, packed weight, serving condition, holding and delivery route, vent and closure needs, board or liner direction, print coverage, artwork versions, food-contact documentation requirements, target quantity by version, flat-pack and case configuration, destination, and timing context.'
   },
   'rigid-boxes': {
     intro: 'Apex supplies custom rigid boxes for premium gift sets, cosmetics, tech kits, launch packaging, and retail products that need a stronger presentation format. Send the complete product dimensions, packed weight, preferred opening style, artwork, quantity, destination, and timing context for a project-specific quotation.',
@@ -474,6 +525,8 @@ const quoteHeading = box.slug === 'custom-mylar-bags'
     ? 'Request a Christmas packaging quotation'
   : box.slug === 'gift-boxes'
     ? 'Request a custom gift-box quotation'
+  : box.slug === 'pizza-boxes'
+    ? 'Request a pizza-box quotation'
   : buyerContent
     ? `Request a ${box.label.toLowerCase()} quotation`
     : `Need ${customLabelLower}?`;

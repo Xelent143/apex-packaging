@@ -21,6 +21,16 @@ test('homepage and contact forms align required and optional field markup', asyn
   assert.match(contact, /<input required[^>]+name="email"/);
   assert.match(contact, /<textarea\s+required[\s\S]+?name="details"/);
   assert.match(contact, /<input type="tel"[^>]+name="phone"[^>]+Contact Number \(Optional\)/);
+
+  for (const page of [homepage, contact]) {
+    assert.match(page, /Required to submit: your name, email address, a short project brief, and the human-confirmation checkbox\. All other fields are optional\./);
+    assert.match(page, /Product Name \(Optional\)/);
+    assert.match(page, /Length \(Optional\)/);
+    assert.match(page, /Material \(Optional\)/);
+    assert.match(page, /Quantity \(Optional\)/);
+    assert.match(page, /After a successful submission, keep the reference shown on screen\./);
+    assert.match(page, /Submission does not create a pricing or delivery commitment\./);
+  }
 });
 
 test('both artwork controls expose file guidance and an accessible live warning', async () => {

@@ -28,6 +28,10 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
           </h1>
         </div>
 
+        <div class="border-b border-[#d8cba7] bg-white px-5 py-4 text-sm leading-relaxed text-neutral-700 md:px-8">
+          <p>You may enquire before final dimensions, material, quantity, or artwork are known. Required to submit: your name, email address, a short project brief, and the human-confirmation checkbox. All other fields are optional.</p>
+        </div>
+
         <form
           class="grid gap-5 p-5 md:gap-6 md:p-8"
           action="/api/quote"
@@ -53,8 +57,8 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
             <input
               class="h-14 border border-transparent bg-white px-5 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent"
               name="product"
-              placeholder="Product Name"
-              aria-label="Product name"
+              placeholder="Product Name (Optional)"
+              aria-label="Product name (optional)"
             />
           </fieldset>
 
@@ -66,11 +70,11 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
               Select Sizes
             </legend>
             <div class="grid gap-3 md:grid-cols-[1fr_1fr_1fr_8rem]">
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="unit" aria-label="Measurement unit">
-                <option>Unit</option>
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length (Optional)" aria-label="Package length (optional)" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width (Optional)" aria-label="Package width (optional)" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth (Optional)" aria-label="Package depth (optional)" />
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="unit" aria-label="Measurement unit (optional)">
+                <option value="">Unit (Optional)</option>
                 <option>inch</option>
                 <option>cm</option>
                 <option>mm</option>
@@ -86,8 +90,8 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
               Choose Materials
             </legend>
             <div class="grid gap-3 md:grid-cols-[1fr_1fr_0.9fr]">
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="material" aria-label="Packaging material">
-                <option>Stock</option>
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="material" aria-label="Packaging material (optional)">
+                <option value="">Material (Optional)</option>
                 <option>Cardboard Boxes</option>
                 <option>Kraft Boxes</option>
                 <option>Rigid Boxes</option>
@@ -95,14 +99,14 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
                 <option>Mylar Bags</option>
                 <option>Gable Boxes</option>
               </select>
-              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="printing" aria-label="Printing option">
-                <option>Printing</option>
+              <select class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-800 focus:border-accent" name="printing" aria-label="Printing option (optional)">
+                <option value="">Printing (Optional)</option>
                 <option>Full-color exterior</option>
                 <option>Inside and outside print</option>
                 <option>Black ink only</option>
                 <option>No print</option>
               </select>
-              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
+              <input class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity (Optional)" aria-label="Quantity (optional)" />
             </div>
           </fieldset>
 
@@ -140,7 +144,7 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
                   <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
                 </svg>
               </span>
-              Personal Information
+              Required Contact Information
             </legend>
             <div class="grid gap-3 md:grid-cols-3">
               <input required class="h-14 border border-transparent bg-white px-4 text-base font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
@@ -157,7 +161,7 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
                   <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
                 </svg>
               </span>
-              Additional Information
+              Required Project Brief
             </legend>
             <textarea
               required
@@ -180,6 +184,9 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuer
               Submit
             </button>
           </div>
+          <p class="text-sm leading-relaxed text-neutral-600">
+            After a successful submission, keep the reference shown on screen. Apex will review the brief and use your email address to confirm missing specifications and the next quotation step. Submission does not create a pricing or delivery commitment.
+          </p>
         </form>
       </div>
 

@@ -15,9 +15,9 @@ const categories = featuredIndustryBoxes.map((box) => ({
 }));
 
 const benefitStrip = [
-  { step: 'Quote', title: 'No Die & Plate Charges', stat: 'No setup drag', icon: 'quote-review', body: 'Digital proofs and low-run production keep the first order simple.' },
-  { step: 'Proof', title: 'Free Design Support', stat: 'Dieline included', icon: 'design-proof', body: 'Dielines, print prep, and mockups are included with qualifying orders.' },
-  { step: 'Sample', title: 'Product-Specific Samples', stat: 'Validate first', icon: 'sample-run', body: 'Digital or physical samples help validate fit, print, and finish before a production run.' },
+  { step: 'Quote', title: 'Project-Specific Setup', stat: 'Quoted clearly', icon: 'quote-review', body: 'Tooling, plate, and setup requirements are confirmed for the selected structure, print method, and quantity.' },
+  { step: 'Proof', title: 'Design Support', stat: 'Scope confirmed', icon: 'design-proof', body: 'Dieline, artwork-preparation, proof, and mockup support is scoped after Apex reviews the project brief.' },
+  { step: 'Sample', title: 'Project-Specific Samples', stat: 'Validate first', icon: 'sample-run', body: 'Available digital or physical sample options, costs, and timing are confirmed for the selected specification.' },
   { step: 'Specify', title: 'Customize Size & Style', stat: 'Built to fit', icon: 'custom-spec', body: 'Boxes, bags, trays, sleeves, inserts, and finishes built around your product.' },
   { step: 'Produce', title: 'Managed Production', stat: 'Qualified facilities', icon: 'production-window', body: 'Apex coordinates approved projects through qualified overseas production facilities.' },
   { step: 'Ship', title: 'Doorstep Delivery', stat: 'Global service', icon: 'domestic-shipping', body: 'Shipping is coordinated for Canada, the United States, and international destinations.' }
@@ -38,7 +38,7 @@ const reasons = [
   { title: 'High-End Printing Quality', icon: 'printing-quality', body: 'Flexo, digital, and litho-laminated print options cover short runs, retail graphics, and industrial markings.' },
   { title: 'Premium Finishing Features', icon: 'premium-finishes', body: 'Foil, embossing, spot UV, matte lamination, and soft-touch finishes help retail packaging stand out.' },
   { title: 'Coordinated Delivery', icon: 'canadian-delivery', body: 'Shipping options, delivery terms, and timing are confirmed in the product-specific quotation.' },
-  { title: 'Design Support Included', icon: 'design-support', body: 'Send your logo and product dimensions; Apex returns a dieline, proof, and production-ready artwork.' },
+  { title: 'Design Support Available', icon: 'design-support', body: 'Send the information and assets you have; Apex will confirm the dieline, proof, artwork-preparation, and approval support appropriate to the project.' },
   { title: 'Product-Specific Minimums', icon: 'low-moq', body: 'Minimum order quantities are confirmed for the selected style, material, print method, quantity, and destination.' },
   { title: 'Procurement-Ready Specs', icon: 'procurement-specs', body: 'Quotes include material, board strength, print method, MOQ, lead time, and reorder details.' }
 ];
@@ -349,7 +349,10 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
           <span class="mb-1 rounded-md bg-white px-4 py-2 text-sm font-black uppercase tracking-wide text-success shadow-card">Quote-specific delivery review</span>
         </div>
         <p class="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600 md:mt-4 md:text-lg">
-          Send the package size, material, quantity, and launch timing. Apex reviews the spec and responds with a practical production path.
+          Start with what you know. Final dimensions, material, quantity, and artwork are helpful but not required for the first enquiry. Apex reviews the brief and confirms the information needed to prepare a project-specific quotation.
+        </p>
+        <p class="mt-3 max-w-2xl text-sm font-semibold text-neutral-700">
+          Required to submit: your name, email address, a short project brief, and the human-confirmation checkbox. All other fields are optional.
         </p>
       </div>
 
@@ -373,7 +376,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 </span>
                 Product Information
               </legend>
-              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name" aria-label="Product name" />
+              <input class="h-12 border border-transparent bg-white px-4 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="product" placeholder="Product Name (Optional)" aria-label="Product name (optional)" />
             </fieldset>
 
             <fieldset class="grid gap-3">
@@ -384,11 +387,11 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 Select Sizes
               </legend>
               <div class="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.82fr)]">
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length" aria-label="Package length" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width" aria-label="Package width" />
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth" aria-label="Package depth" />
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit" aria-label="Measurement unit">
-                  <option>Unit</option>
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="length" placeholder="Length (Optional)" aria-label="Package length (optional)" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="width" placeholder="Width (Optional)" aria-label="Package width (optional)" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="depth" placeholder="Depth (Optional)" aria-label="Package depth (optional)" />
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="unit" aria-label="Measurement unit (optional)">
+                  <option value="">Unit (Optional)</option>
                   <option>inch</option>
                   <option>cm</option>
                   <option>mm</option>
@@ -404,20 +407,20 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                 Choose Materials
               </legend>
               <div class="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.85fr)]">
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material" aria-label="Packaging material">
-                  <option>Stock</option>
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="material" aria-label="Packaging material (optional)">
+                  <option value="">Material (Optional)</option>
                   <option>Cardboard Boxes</option>
                   <option>Kraft Boxes</option>
                   <option>Rigid Boxes</option>
                   <option>Corrugated Boxes</option>
                 </select>
-                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing" aria-label="Printing option">
-                  <option>Printing</option>
+                <select class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-700 focus:border-accent" name="printing" aria-label="Printing option (optional)">
+                  <option value="">Printing (Optional)</option>
                   <option>Full-color exterior</option>
                   <option>Inside and outside print</option>
                   <option>No print</option>
                 </select>
-                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity" aria-label="Quantity" />
+                <input class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="quantity" placeholder="Quantity (Optional)" aria-label="Quantity (optional)" />
               </div>
             </fieldset>
 
@@ -455,7 +458,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                     <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
                   </svg>
                 </span>
-                Personal Information
+                Required Contact Information
               </legend>
               <div class="grid min-w-0 gap-2 sm:grid-cols-3">
                 <input required class="h-12 border border-transparent bg-white px-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="name" placeholder="Full Name*" autocomplete="name" aria-label="Full name" />
@@ -472,7 +475,7 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
                     <path d="M11 7h2v2h-2Zm0 4h2v6h-2Zm1-9a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Z"></path>
                   </svg>
                 </span>
-                Additional Information
+                Required Project Brief
               </legend>
               <textarea required class="min-h-28 border border-transparent bg-white px-4 py-3 text-sm font-semibold text-neutral-900 placeholder:text-neutral-400 focus:border-accent" name="message" placeholder="What packaging do you need?*" aria-label="Project details"></textarea>
             </fieldset>
@@ -487,6 +490,9 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
             <div class="flex justify-end pt-1">
               <button class="min-h-12 rounded-md bg-[#c99700] px-10 py-3 font-black text-neutral-950 transition hover:bg-warning" type="submit">Submit</button>
             </div>
+            <p class="text-sm leading-relaxed text-neutral-600">
+              After a successful submission, keep the reference shown on screen. Apex will review the brief and use your email address to confirm missing specifications and the next quotation step. Submission does not create a pricing or delivery commitment.
+            </p>
           </div>
         </form>
 

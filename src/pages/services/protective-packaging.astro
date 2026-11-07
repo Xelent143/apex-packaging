@@ -7,13 +7,13 @@ import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
 const faqs = [
-  { q: 'How are custom foam inserts priced?', a: 'By material grade, density, and cavity complexity. CAD-driven cutting (CNC) on PU and PE; water-jet on cross-linked PE. Setup fee on first design; per-unit pricing on production runs.' },
-  { q: 'Can Apex spec to an ISTA drop-test class?', a: 'Yes — Apex\'s protective-packaging team specs to ISTA 1A, 2A, 3A, and Amazon 6-class on request. Documentation provided with the spec.' },
+  { q: 'How are custom foam inserts quoted?', a: 'Material, density, product dimensions and weight, cavity design, quantity, outer carton, approval requirements, and destination can all affect the quotation. Apex confirms the available material and production method for the exact project.' },
+  { q: 'Can a project be reviewed against a required transit-test protocol?', a: 'Include the protocol, test level, product, route, and documentation requirement in the enquiry. Apex will confirm whether specification, sample, or testing support is available. Compliance should be claimed only after the agreed package has completed the required validation.' },
   { q: 'What is the lead time on custom foam?', a: 'Production and shipping time varies by foam grade, density, cavity complexity, quantity, approvals, and delivery destination. Apex confirms timing in the product-specific quotation.' },
-  { q: 'Do you supply Instapak®?', a: 'Yes — both the equipment and the foam components, on a service agreement.' }
+  { q: 'What information is needed to review cushioning options?', a: 'Send the product dimensions and weight, surface sensitivity, packed orientation, route, handling risks, quantity, and any required validation protocol. Apex will confirm which protective-packaging options and documentation can be included in the project quotation.' }
 ];
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Protective Packaging',url:'/services/protective-packaging'}]);
-const service = buildServiceSchema({ name:'Protective packaging Canada', description:'Custom foam inserts, Instapak, bubble wrap, air pillows, VCI rust-prevention. Specified to protection level and product weight.', url:'/services/protective-packaging'});
+const service = buildServiceSchema({ name:'Protective packaging Canada', description:'Custom foam inserts, void fill, corrosion-protection and cushioning options reviewed against the product, route and required protection level.', url:'/services/protective-packaging'});
 ---
 <BaseLayout
   title="Protective Packaging Canada — Foam Inserts, Void Fill, VCI"
@@ -23,49 +23,54 @@ const service = buildServiceSchema({ name:'Protective packaging Canada', descrip
   <PageHeader
     eyebrow="Service · Protective"
     heading="Protective packaging — engineered to the protection level, not pulled off a shelf."
-    lead="For businesses in Canada, the United States, and international markets moving fragile, high-value, or rust-prone products. Apex specifies and coordinates protective packaging that matches product weight, the required test class, handling conditions, and delivery route."
+    lead="For businesses in Canada, the United States, and international markets moving fragile, high-value, or rust-prone products. Apex reviews and coordinates protective-packaging options around product weight, handling conditions, delivery route, and any buyer-specified validation requirement."
   />
 
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">
       <h2>Custom foam inserts</h2>
+      <p>Common foam families are compared below for specification planning. Exact grade, density, production method, documentation, and availability are confirmed for the individual project.</p>
       <ul>
         <li><strong>PE (polyethylene) foam</strong> — closed-cell, water-resistant, good for general protection at moderate weight.</li>
         <li><strong>PU (polyurethane) foam</strong> — softer, conforms to delicate surfaces.</li>
         <li><strong>ESD / anti-static foam</strong> — for electronics, PCBs, sensitive components.</li>
         <li><strong>Cross-linked PE</strong> — fine-cell foam for premium presentation.</li>
       </ul>
-      <p>Apex's design team converts product CAD or physical samples into a cavity-cut foam insert. Material grade and density are selected to product weight and drop-test requirements. Production and delivery timing is confirmed after the material, cavity design, quantity, approval path, and destination are known.</p>
+      <p>Product CAD, dimensions, weight, surface sensitivity, or a physical sample can inform a cavity brief. Apex confirms the available material, density, production method, approval path, production timing, and delivery plan after reviewing the product, quantity, destination, and protection requirement.</p>
 
       <h2>Void fill</h2>
-      <table>
-        <thead><tr><th>Product</th><th>Use case</th><th>Relative cost</th></tr></thead>
-        <tbody>
-          <tr><td>Air pillows</td><td>Light fragile goods, e-commerce</td><td>low</td></tr>
-          <tr><td>Paper void fill (kraft, honeycomb)</td><td>Sustainable e-commerce</td><td>medium</td></tr>
-          <tr><td>Bubble wrap</td><td>General fragile protection</td><td>low–medium</td></tr>
-          <tr><td>Loose-fill (biodegradable)</td><td>Bulk void fill</td><td>low</td></tr>
-          <tr><td>Inflatable air-column film</td><td>Bottles, jars, heavy fragile</td><td>medium</td></tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Option to review</th><th>Common use</th><th>Selection question</th></tr></thead>
+          <tbody>
+            <tr><td>Air pillows</td><td>Void reduction around lighter goods</td><td>Does the product need blocking, cushioning, or both?</td></tr>
+            <tr><td>Paper void fill or honeycomb paper</td><td>Void fill and wrapping</td><td>What packout speed, compression, and disposal requirements apply?</td></tr>
+            <tr><td>Bubble wrap</td><td>Surface wrapping and cushioning</td><td>Could the material mark the product surface?</td></tr>
+            <tr><td>Loose fill</td><td>Irregular voids</td><td>How will the customer open, contain, and dispose of it?</td></tr>
+            <tr><td>Inflatable air-column film</td><td>Bottles, jars, and shaped products</td><td>What product weight and failure mode must the packout address?</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Cushioning systems</h2>
+      <h2>Cushioning options</h2>
+      <p>Internal cushioning should be selected around the product's weight, fragility, surface sensitivity, packed orientation, handling risks, and delivery route. The product and outer carton need to be reviewed as one packaging system.</p>
       <ul>
-        <li><strong>Instapak®</strong> — foam-in-place urethane that expands around the product.</li>
-        <li><strong>Engineered corner pads</strong> — pre-cut polyethylene corner blocks.</li>
-        <li><strong>Suspension and retention packs</strong> — for premium electronics and instruments.</li>
+        <li><strong>Corner protection</strong> — helps separate vulnerable corners and edges from the outer carton.</li>
+        <li><strong>Fitted cavities or pads</strong> — help control product movement where the shape and packout are consistent.</li>
+        <li><strong>Wrap and void-fill combinations</strong> — may suit irregular products when surface protection and movement control are both required.</li>
       </ul>
 
       <h2>Rust prevention and corrosion protection</h2>
+      <p>Corrosion-control choices depend on the metal, cleaning process, expected exposure, shipment duration, sealing method, and storage environment. Product compatibility and documentation should be confirmed for the specific application.</p>
       <ul>
         <li><strong>VCI paper</strong> — releases corrosion-inhibitor vapour in sealed packaging.</li>
         <li><strong>VCI film bags</strong> — paired with desiccant for marine and humid environments.</li>
         <li><strong>Desiccants</strong> — silica gel, clay, in various sizes.</li>
       </ul>
-      <p>Apex's metal-parts shipping kits combine VCI film, desiccant, foam corner protection, and the appropriate carton — pre-built or designed to spec.</p>
+      <p>A metal-parts shipping specification may combine VCI film, desiccant, corner protection, and an outer carton. Apex confirms which components and documentation are available for the product, route, duration, quantity, and destination before quoting.</p>
 
       <h2>Drop-test and protection-class specification</h2>
-      <p>For high-value shipments, Apex specifies the packaging stack against a drop-test class (ISTA 1A, 2A, 3A, 6-Amazon, etc.). The output is a documented spec — carton + foam + void fill — that meets the test class and is reproducible across all shipments.</p>
+      <p>If a shipment has a required transit-test protocol or retailer program, include the exact protocol, level, product configuration, route, and documentation requirement in the enquiry. Apex will confirm the available specification, sample, and testing path. A proposed carton, foam, and void-fill specification is not evidence that a test class has been met; any compliance or repeatability claim must refer to the agreed package, validation method, result, and controlled production specification.</p>
     </div>
   </section>
 
@@ -78,8 +83,8 @@ const service = buildServiceSchema({ name:'Protective packaging Canada', descrip
   ]} />
 
   <CTABand
-    heading="Need a protective-packaging spec?"
-    lead="Send product weight, dimensions, drop-test requirement, and freight environment."
-    primaryCta={{ label: 'Contact protective team', href: '/contact' }}
+    heading="Need help defining a protective-packaging brief?"
+    lead="Send the product information, route, quantity, known handling risks, and any required validation protocol. Final dimensions or material are not required for the first enquiry; Apex will confirm missing inputs and the next quotation step."
+    primaryCta={{ label: 'Request a protective-packaging review', href: '/contact' }}
   />
 </BaseLayout>
