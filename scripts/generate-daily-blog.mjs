@@ -8,6 +8,7 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const blogDir = join(root, 'src', 'pages', 'blog');
 const blogIndex = join(blogDir, 'index.astro');
 const startDate = '2026-07-14';
+const publishFromDate = process.env.APEX_BLOG_PUBLISH_FROM || startDate;
 const maxCatchUp = Number(process.env.APEX_BLOG_MAX_CATCHUP || 365);
 
 const serviceImages = {
@@ -70,7 +71,7 @@ const today = process.env.APEX_BLOG_TODAY || pakistanDate(new Date());
 const indexSource = await readFile(blogIndex, 'utf8');
 const existingDates = [...indexSource.matchAll(/date: '(\d{4}-\d{2}-\d{2})'/g)].map((m) => m[1]);
 const existingDateSet = new Set(existingDates);
-const datesToPublish = datesBetween(startDate, today)
+const datesToPublish = datesBetween(publishFromDate, today)
   .filter((date) => !existingDateSet.has(date))
   .slice(0, maxCatchUp);
 
