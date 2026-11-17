@@ -60,5 +60,98 @@ const robotsContent = noindex ? 'noindex, follow' : 'index, follow, max-image-pr
     <main id="main"><slot /></main>
     <Footer />
     <TawkToChat />
+    <script is:inline>
+      (() => {
+        const normalize = (value) => value.replace(/\s+/g, ' ').trim().toLowerCase();
+
+        document.querySelectorAll('.prose-apex > h2').forEach((heading, headingIndex) => {
+          if (normalize(heading.textContent || '') !== 'frequently asked questions') return;
+
+          const entries = [];
+          const consumed = [];
+          let node = heading.nextElementSibling;
+
+          while (node && node.tagName !== 'H2') {
+            if (node.tagName === 'H3' && node.nextElementSibling?.tagName === 'P') {
+              entries.push({ question: node.textContent || '', answer: node.nextElementSibling.innerHTML });
+              consumed.push(node, node.nextElementSibling);
+              node = node.nextElementSibling.nextElementSibling;
+              continue;
+            }
+
+            if (node.tagName === 'SECTION') {
+              const question = node.querySelector(':scope > h3');
+              const answer = node.querySelector(':scope > p');
+              if (question && answer) {
+                entries.push({ question: question.textContent || '', answer: answer.innerHTML });
+                consumed.push(node);
+                node = node.nextElementSibling;
+                continue;
+              }
+            }
+
+            break;
+          }
+
+          if (!entries.length) return;
+
+          const section = document.createElement('section');
+          section.className = 'site-faq site-faq--embedded';
+          section.setAttribute('aria-labelledby', `article-faq-heading-${headingIndex + 1}`);
+
+          const container = document.createElement('div');
+          container.className = 'site-faq__container';
+          const headingGrid = document.createElement('div');
+          headingGrid.className = 'site-faq__heading-grid';
+          const headingBlock = document.createElement('div');
+          const eyebrow = document.createElement('p');
+          eyebrow.className = 'site-faq__eyebrow';
+          eyebrow.textContent = 'Buyer questions';
+          const title = document.createElement('h2');
+          title.className = 'site-faq__heading';
+          title.id = section.getAttribute('aria-labelledby');
+          title.textContent = heading.textContent;
+          const intro = document.createElement('p');
+          intro.className = 'site-faq__intro';
+          intro.textContent = 'Clear answers to practical questions about this packaging topic.';
+          headingBlock.append(eyebrow, title);
+          headingGrid.append(headingBlock, intro);
+
+          const panel = document.createElement('div');
+          panel.className = 'site-faq__panel';
+          const panelHeading = document.createElement('p');
+          panelHeading.className = 'site-faq__panel-heading';
+          panelHeading.textContent = 'Packaging guide questions';
+          const items = document.createElement('div');
+          items.className = 'site-faq__items';
+
+          entries.forEach(({ question, answer }) => {
+            const details = document.createElement('details');
+            details.className = 'site-faq__item';
+            const summary = document.createElement('summary');
+            summary.className = 'site-faq__summary';
+            const questionText = document.createElement('span');
+            questionText.className = 'site-faq__question';
+            questionText.textContent = question;
+            const icon = document.createElement('span');
+            icon.className = 'site-faq__icon';
+            icon.setAttribute('aria-hidden', 'true');
+            icon.textContent = '+';
+            const answerText = document.createElement('p');
+            answerText.className = 'site-faq__answer';
+            answerText.innerHTML = answer;
+            summary.append(questionText, icon);
+            details.append(summary, answerText);
+            items.append(details);
+          });
+
+          panel.append(panelHeading, items);
+          container.append(headingGrid, panel);
+          section.append(container);
+          heading.replaceWith(section);
+          consumed.forEach((element) => element.remove());
+        });
+      })();
+    </script>
   </body>
 </html>
