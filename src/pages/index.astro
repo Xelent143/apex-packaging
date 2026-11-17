@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
 import TrustedClients from '../components/trust/TrustedClients.astro';
 import QuoteFormFeedback from '../components/forms/QuoteFormFeedback.astro';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
 import { buildFAQSchema } from '../lib/schema';
 import { featuredIndustryBoxes } from '../data/industryBoxes';
 import { siteConfig } from '../site.config';
@@ -52,9 +53,18 @@ const topBenefits = [
 ];
 
 const faqs = [
-  { q: 'What is the minimum order quantity?', a: 'Minimum order quantities vary by packaging style, size, material, printing method, quantity, and delivery destination. Contact Apex for a product-specific quotation.' },
-  { q: 'What is the typical lead time?', a: 'Production and shipping timelines vary by packaging style, dimensions, material, printing method, quantity, approvals, and delivery destination. Apex confirms the schedule in each product-specific quotation.' },
-  { q: 'Can Apex help with artwork and dielines?', a: 'Yes. Apex can create the dieline, prepare artwork, generate a proof, and keep the final files on record for reorders.' }
+  { q: 'What details should I provide for a custom packaging quote?', a: 'Share the product and intended use, packed dimensions and weight, quantity, artwork status, print or finish needs, delivery destination, and target timing.' },
+  { q: 'Which types of custom packaging can Apex supply?', a: 'Apex coordinates folding cartons, corrugated mailers and shippers, rigid boxes, retail and display packaging, gift packaging, bags, and pouches to an approved project specification.' },
+  { q: 'Can I request a quote if I do not know the final size or material?', a: 'Yes—send the product dimensions, weight, photos, intended use, quantity, and destination, and Apex will help define the structure and material requirements.' },
+  { q: 'How should I measure my product for custom packaging?', a: 'Measure the packed product at its longest, widest, and tallest points, then include the space needed for inserts, cushioning, assembly, and safe removal.' },
+  { q: 'What is the minimum order quantity?', a: 'Minimums are product-specific and depend on the structure, material, print method, finishes, tooling, and production process; the quotation confirms the applicable quantity.' },
+  { q: 'What affects the price of custom packaging?', a: 'Price is shaped by dimensions, material, structure, print coverage, finishes, inserts, quantity, sampling, freight, and the delivery destination.' },
+  { q: 'Can I review a proof or sample before production?', a: 'Yes—Apex confirms the available digital proof or physical sample option, cost, and timing for the selected specification before production approval.' },
+  { q: 'What artwork files should I provide?', a: 'Send editable AI or EPS files or a print-ready PDF when available, plus linked images, fonts, colour references, and any existing dieline; Apex will confirm the final prepress requirements.' },
+  { q: 'Can Apex match brand colours and add premium finishes?', a: 'Apex can review colour references and quote suitable foil, embossing, spot UV, lamination, or other finishes for the approved material and structure.' },
+  { q: 'How long do production and delivery take?', a: 'The schedule depends on structure, material, quantity, artwork and sample approvals, production method, freight, and destination, so Apex confirms production and transit timing in the quotation.' },
+  { q: 'How do I choose recyclable or lower-impact packaging?', a: 'Start with protection, barrier, food-contact, shipping, and local recovery needs, then request material, recycled-content, certification, and end-of-life documentation for the exact specification.' },
+  { q: 'Does Apex serve businesses across Canada and the United States?', a: 'Yes—Apex is based in Canada and coordinates approved packaging projects through qualified overseas production facilities for delivery across Canada, the United States, and international markets.' }
 ];
 
 const heroSlides = [
@@ -339,6 +349,14 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   </section>
 
   <TrustedClients clients={approvedClientLogos} />
+
+  <FAQAccordion
+    eyebrow="Buyer questions"
+    heading="Frequently asked questions about custom packaging"
+    intro="Straight answers to the questions buyers ask before requesting a custom packaging quotation."
+    variant="rfq"
+    faqs={faqs}
+  />
 
   <section id="quote" class="scroll-mt-28 bg-[#f6f1e7] py-12 md:scroll-mt-32 md:py-24">
     <div class="container max-w-wide">
