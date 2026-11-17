@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+const title = 'How Many Corrugated Boxes Can Your Warehouse Store?';
+const description = 'Calculate pallet positions and weeks of stock before ordering corrugated boxes, with receiving and humidity checks for Canadian and US buyers.';
+const url = '/blog/corrugated-box-order-warehouse-capacity';
+const article = buildArticleSchema({ title, description, url, datePublished: '2026-11-17', author: 'Apex Packaging Solutions' });
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+---
+<BaseLayout title={title} description={description} schemaBlocks={[breadcrumb, article]}>
+<PageHeader eyebrow="Corrugated purchasing" heading={title} lead="Set the order quantity using usable storage space, consumption and the conditions your empty boxes will encounter." />
+<section class="section"><div class="container-shell prose prose-slate max-w-4xl">
+<p>Published November 17, 2026</p>
+<p>A quantity discount is only useful if the empty boxes can be received, stored and used in good condition. Before approving a bulk corrugated order, ask for the packed pallet dimensions, boxes per pallet and proposed delivery quantities. Box dimensions alone cannot tell a warehouse how much space the delivery needs.</p>
+<h2>Count usable pallet positions before comparing price tiers</h2>
+<p>Ask operations to identify positions actually available for packaging after reserving receiving, inspection, picking and access space. Do not count an aisle as overflow storage. Record pallet footprint and loaded height, rack compatibility and any handling restrictions. Have the warehouse approve stacking arrangements; a generic pallet count does not establish that loads can be stacked safely.</p>
+<p>For each SKU, request the bundle quantity, bundles per pallet and whether the final pallet will be partial. Mixed pallets can complicate access to a slow-moving size. Compare the supplier's proposed packing plan with the sequence in which your team will consume the boxes.</p>
+<h2>Worked example: the larger tier exceeds capacity</h2>
+<p>Consider a hypothetical buyer using 600 boxes per week, with 1,200 usable boxes already on hand. Assume the proposed packing plan contains 500 flat boxes per pallet and the warehouse has ten approved positions for this SKU, with no double stacking. Actual packing quantities must be confirmed for the chosen box.</p>
+<table><thead><tr><th>Order option</th><th>Incoming pallets</th><th>Total positions including existing stock</th><th>Weeks of stock after receipt</th></tr></thead><tbody>
+<tr><td>3,000 boxes</td><td>6</td><td>9</td><td>7</td></tr>
+<tr><td>5,000 boxes</td><td>10</td><td>13</td><td>10.3</td></tr>
+</tbody></table>
+<p>The existing 1,200 boxes occupy three positions when rounded up to full pallet locations. The smaller order therefore uses nine positions: three existing plus six incoming. Its stock coverage is (1,200 + 3,000) ÷ 600 = seven weeks. The larger order needs thirteen positions, three more than available. These calculations assume immediate receipt and no consolidation of partial pallets.</p>
+<p>Ask for a smaller delivery or a separately quoted split-delivery arrangement before accepting the larger tier. Confirm storage responsibility, release quantities, freight charges and ownership of held stock in writing. Do not assume a supplier offers warehousing. Separately check that the delivery schedule and reorder trigger cover confirmed replenishment time; seven weeks of inventory is not automatically sufficient.</p>
+<h2>Check storage conditions as well as floor space</h2>
+<p>Corrugated is sensitive to moisture. The <a href="https://store.fibrebox.org/products/storage-and-handling-of-corrugated-packaging-materials-pmmi-b155-tr2-3-2011">Fibre Box Association storage and handling report</a> describes recommended conditions of 40–100°F and 30–70% relative humidity. These are general guidelines, not a performance warranty for a particular box.</p>
+<p><a href="https://www.dssmith.com/sheetfeeding/insights/information-downloads/material-guidance/storage-of-corrugated-material">DS Smith's corrugated storage guidance</a> recommends dry, flat pallets and covered storage, and explains how moisture changes board properties. Ask the proposed producer for storage and acclimatisation instructions applicable to the actual construction. Record conditions near the stock rather than relying only on an office thermostat.</p>
+<p>If the available area has leaks, condensation or large environmental swings, resolve that constraint before filling it with extra inventory. Do not treat a higher board grade as a substitute for suitable storage. For material and structure discussions, review Apex's <a href="/services/corrugated-boxes">corrugated box options</a>.</p>
+<h2>Define receiving and release decisions</h2>
+<ul><li>Match pallet and bundle labels to the purchase order, SKU and approved revision.</li><li>Record quantities and photograph visible wetting, crushed edges or damaged wrapping before moving affected stock into use.</li><li>Segregate suspect material and agree inspection or replacement steps with the supplier.</li><li>Keep lots identifiable and rotate usable stock so older approved inventory is consumed first.</li><li>Trial erection, filling and closure with the intended equipment before releasing a questionable lot.</li></ul>
+<p>A receiving check cannot prove transport performance. Where stacking or distribution risk matters, agree relevant testing and acceptance criteria during specification development. Apex's <a href="/design-support">design support</a> can help coordinate sample and specification discussions.</p>
+<h2>Send a capacity-based purchase brief</h2>
+<p>Include weekly usage by SKU, usable stock, approved pallet positions, receiving limits and the delivery destination. Request comparable prices for quantities that fit those constraints, with packing configuration and freight assumptions stated separately.</p>
+<p>Apex Packaging Solutions is a Canada-based supplier and project coordinator serving Canadian and US buyers, with overseas production. <a href="/contact">Contact Apex</a> with your box specification and warehouse capacity to discuss a project quote. Confirm production, delivery and any staged-release arrangements for the individual order.</p>
+</div></section></BaseLayout>
