@@ -35,7 +35,7 @@ jobs:
       - name: Generate and publish daily blog post
         run: |
           PKT_DATE="$(TZ=Asia/Karachi date +%F)"
-          APEX_BLOG_PUBLISH_FROM="$PKT_DATE" +            APEX_BLOG_MAX_CATCHUP=1 +            npm run blog:generate-daily
+          env APEX_BLOG_PUBLISH_FROM="$PKT_DATE" APEX_BLOG_MAX_CATCHUP=1 npm run blog:generate-daily
 
       - name: Verify today's Pakistan-date post exists
         run: |
