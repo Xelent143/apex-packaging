@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+const title = 'Corrugated Box Sample Approval Checklist Before Production';
+const description = 'Approve corrugated box samples with checks for product fit, packed weight, closure, print, handling and documented production specifications.';
+const url = '/blog/corrugated-box-sample-approval-checklist';
+const image = '/images/blog/corrugated-box-sample-approval-checklist.png';
+const article = buildArticleSchema({ title, description, url, datePublished: '2026-11-17', author: 'Apex Packaging Solutions', image });
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+---
+
+<BaseLayout title={title} description={description} image={image} schemaBlocks={[breadcrumb, article]}>
+  <PageHeader eyebrow="Corrugated box quality" heading={title} lead="Approve the packed system, production specification and acceptance record, not just an empty sample that looks correct." image={image} />
+
+  <section class="section">
+    <div class="container-shell prose prose-slate max-w-4xl">
+      <p>Published November 17, 2026</p>
+      <p>A corrugated sample is the last practical opportunity to find a fit, closure or artwork problem before a full production run. The approval should therefore represent the way the box will actually be erected, packed, sealed, handled and identified. An attractive empty sample on a conference table does not prove that the production pack will work.</p>
+
+      <h2>Start with an identified sample and specification</h2>
+      <p>Label the sample with the supplier, sample date, dieline or style reference, inside dimensions, board construction and artwork revision. Record whether it is a plain structural sample, a digitally printed mock-up or a production-equivalent sample. These formats answer different questions. A white sample can confirm fit and assembly, but it may not reproduce production colour, coating, scoring or print registration.</p>
+      <p>Keep the approved specification beside the physical sample. At minimum, it should identify dimensions and their tolerances, flute or board description, closure method, print process, artwork revision and any coating or special feature. For a review of structural options, see Apex's <a href="/services/corrugated-boxes">corrugated box services</a>.</p>
+
+      <h2>Approve fit using the real pack arrangement</h2>
+      <p>Load the sample with production-representative products, inserts, bags, literature and void fill. Check the largest, smallest and heaviest expected product configurations when one box serves several SKUs. Confirm that products can be inserted without forcing the sidewalls and that they cannot move enough to collide, scuff or escape their intended position.</p>
+      <ul>
+        <li>Measure the packed outside dimensions, not only the supplier's stated inside dimensions.</li>
+        <li>Check clearance around closures, caps, corners and fragile projections.</li>
+        <li>Confirm inserts remain seated when the closed box is turned through each orientation.</li>
+        <li>Verify that opening the package does not damage the product or presentation.</li>
+        <li>Repeat the packout with the employees and equipment expected to use it.</li>
+      </ul>
+
+      <h2>Use actual packed weight and the intended closure</h2>
+      <p>Weigh the complete packed sample. Consider a hypothetical shipment containing twelve units at 0.75 kg each. The products weigh 9 kg; if the box, partitions and cushioning add 0.8 kg, the packed test weight is 9.8 kg. Testing an empty box or a lightly loaded substitute would not represent the stresses at the seams, scores and handholds.</p>
+      <p>Close the sample with the specified tape width and pattern, adhesive, staples or locking features. Note the tape grade and application method. Check flap alignment, gaps, bulging and whether the closure can be applied consistently at normal packing speed. If the package is reopened for inspection, use a fresh sample for subsequent handling checks.</p>
+
+      <h2>Inspect print, labels and barcodes separately</h2>
+      <p>Compare printed content with the controlled artwork file. Check orientation, panel placement, legal copy, product codes and version marks. Folded scores, manufacturer joints and tape must not hide important information. Scan each barcode in its final position on a packed box and under representative lighting; visual sharpness alone is not barcode verification.</p>
+      <p>Colour should be approved against an agreed reference under agreed viewing conditions. A monitor, office printer and production press can produce different results. Record acceptable limits before production rather than relying on memory after delivery. The <a href="/blog/packaging-artwork-requirements-bleed-dielines-barcodes-ink-limits">packaging artwork requirements guide</a> covers dielines, bleed, barcode placement and approval controls in more detail.</p>
+
+      <h2>Match handling checks to the distribution route</h2>
+      <p>Document how the package will travel: parcel network, palletized LTL, warehouse transfer or retail replenishment. Then agree a test plan that reflects the actual hazards, product fragility and acceptance criteria. A few informal drops can reveal obvious weaknesses, but they are not a substitute for a controlled validation program.</p>
+      <p><a href="https://store.astm.org/standards/d4169">ASTM D4169</a> provides a framework for laboratory evaluation through a sequence of distribution hazards. The <a href="https://ista.org/getting_started_with_design.php">International Safe Transit Association</a> explains how packaged-product tests support design decisions; ISTA 3A is designed for parcel-delivery shipments weighing 70 kg (150 lb) or less. The correct procedure and assurance level depend on the route and objectives. Passing one procedure is not a universal guarantee for every product or supply chain.</p>
+      <p>For palletized shipments, also check case stacking, pallet pattern, overhang, containment and warehouse conditions. Board grade alone does not establish package performance. For more detail, read the guide to <a href="/blog/custom-shipping-boxes-heavy-products-ect-flute-pallet-stacking">ECT, flute and pallet stacking for heavy products</a>.</p>
+
+      <h2>Record the approval decision</h2>
+      <p>A useful approval record makes the decision reproducible. Attach dated photographs of the empty and packed sample, all six panels, closure and label positions. Record the packed contents, weight, outside dimensions and test observations. List every deviation and state whether it requires a revised sample or a controlled production correction.</p>
+      <ul>
+        <li>Sample and specification identifiers match.</li>
+        <li>Product configuration and packed weight are recorded.</li>
+        <li>Fit, movement, opening and packout checks are complete.</li>
+        <li>Closure material and application pattern are approved.</li>
+        <li>Artwork, colour reference, labels and barcode checks are documented.</li>
+        <li>Route-specific test method and acceptance criteria are agreed.</li>
+        <li>Approver, approval date and approved exceptions are signed off.</li>
+      </ul>
+      <p>Retain one signed sample where practical and protect it from damage or moisture. The <a href="https://www.fibrebox.org/what-is-corrugated">Fibre Box Association's corrugated overview</a> is a useful primer on corrugated construction, but the purchase specification and approved sample remain the controls for the individual order.</p>
+
+      <h2>Send a production-ready approval</h2>
+      <p>Do not approve with a vague email such as “looks good.” Reference the exact sample, specification and artwork revision, list any authorized changes and state whether another sample is required. Ask the supplier to acknowledge the production controls in writing before manufacturing begins.</p>
+      <p>Apex Packaging Solutions supports Canadian and US buyers with corrugated structure, sampling, print and production coordination. <a href="/contact">Contact Apex</a> with the product dimensions, packed weight, quantity, delivery route and artwork requirements to discuss a project-specific quotation.</p>
+    </div>
+  </section>
+</BaseLayout>
