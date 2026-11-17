@@ -1,14 +1,22 @@
-name: Manual blog publisher
+name: Daily blog publisher
 
 on:
+  schedule:
+    # Pakistan is UTC+5 year-round. 09:00 UTC is 2:00 PM PKT.
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: apex-daily-blog-publisher
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -46,10 +54,33 @@ jobs:
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No blog changes to publish."
-            exit 0
+          else
+            git config user.name "Apex Blog Publisher"
+            git config user.email "actions@github.com"
+            git add src/pages/blog public/images/blog
+            git commit -m "Publish scheduled daily blog for $(TZ=Asia/Karachi date +%F)"
+            git push
           fi
-          git config user.name "Apex Blog Publisher"
-          git config user.email "actions@github.com"
-          git add src/pages/blog public/images/blog
-          git commit -m "Publish scheduled daily blog for $(TZ=Asia/Karachi date +%F)"
-          git push
+
+      - name: Wait for Railway deployment and verify the live post
+        env:
+          SITE_URL: https://apexpackagingsolutions.com
+        run: |
+          PKT_DATE="$(TZ=Asia/Karachi date +%F)"
+          SLUG="$(node scripts/blog-slug-for-date.mjs "$PKT_DATE")"
+
+          for attempt in $(seq 1 30); do
+            LISTING="$(curl --fail --silent --show-error --location --max-time 20 "$SITE_URL/blog" || true)"
+            ARTICLE_STATUS="$(curl --silent --location --max-time 20 --output /dev/null --write-out '%{http_code}' "$SITE_URL/blog/$SLUG" || true)"
+            if printf '%s' "$LISTING" | grep -q "$PKT_DATE" &&
+               printf '%s' "$LISTING" | grep -q "$SLUG" &&
+               [ "$ARTICLE_STATUS" = "200" ]; then
+              echo "Verified $PKT_DATE live at $SITE_URL/blog/$SLUG"
+              exit 0
+            fi
+            echo "Deployment not ready (attempt $attempt/30, article HTTP $ARTICLE_STATUS)."
+            sleep 20
+          done
+
+          echo "Railway deployment verification failed for $PKT_DATE and $SLUG."
+          exit 1
