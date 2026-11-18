@@ -1,4 +1,5 @@
 ---
+import PackagingBanner from '../components/sections/PackagingBanner.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema } from '../lib/schema';
@@ -62,31 +63,15 @@ const pageStats = [
   { label: 'Workflow', value: 'End-to-end' }
 ];
 
-const heroSlides = [
-  { src: '/images/apex-update/banners/banner-1.webp', alt: 'Boxes by industry hero banner' },
-  { src: '/images/apex-update/banners/banner-2.webp', alt: 'Retail packaging hero banner' },
-  { src: '/images/apex-update/banners/banner-3.webp', alt: 'Premium custom packaging hero banner' }
-];
 ---
 <BaseLayout
   title="Custom Packaging by Product Category | Apex"
   description="Browse packaging pages for apparel, bakery, cosmetics, food, retail, shipping, pharmaceuticals and other product categories."
-  image="/images/apex-update/banners/banner-1.webp"
+  image="/images/home/hero-ultra/signature-collection-branded.webp"
   schemaBlocks={[breadcrumb]}
 >
-  <section class="overflow-hidden border-b border-neutral-200 bg-white">
-    <h1 class="sr-only">Custom packaging by product category.</h1>
-    <img
-      src={heroSlides[0].src}
-      alt={heroSlides[0].alt}
-      width="2172"
-      height="724"
-      class="block h-auto w-full"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
-  </section>
+  <h1 class="sr-only">Custom packaging by product category.</h1>
+  <PackagingBanner />
   <section id="industries-grid" class="scroll-mt-28 border-b border-neutral-200 bg-white py-10 md:scroll-mt-32 md:py-16">
     <div class="container max-w-wide">
       <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-6">

@@ -1,0 +1,79 @@
+---
+const heroSlides = [
+  {
+    src: '/images/home/hero-ultra/signature-collection-branded.webp',
+    alt: 'Concept banner showing custom rigid boxes, folding carton, corrugated mailer, pouch and tube with fictional QYVORUNE branding'
+  },
+  {
+    src: '/images/home/hero-ultra/food-beverage-branded.webp',
+    alt: 'Concept banner showing custom bakery, pouch, carton, takeout and gift packaging with fictional VYQELORA branding'
+  },
+  {
+    src: '/images/home/hero-ultra/ecommerce-branded.webp',
+    alt: 'Concept banner showing custom corrugated mailers, folding carton and wrapped gift packaging with fictional MYVORIXA branding'
+  },
+  {
+    src: '/images/home/hero-ultra/luxury-beauty-branded.webp',
+    alt: 'Concept banner showing custom rigid presentation boxes, cartons, tube and pillow box with fictional ELZOVIQ branding'
+  }
+];
+
+const heroSlideDurationSeconds = 5;
+
+const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((width) => `${src.replace(/\.(webp|png|jpe?g)$/i, `-${width}.webp`)} ${width}w`).join(', ');
+---
+  <section class="apex-banner-slider overflow-hidden border-b border-[#e2d6bd] bg-[#fffdf8]">
+    <div class="relative aspect-[2172/724] w-full">
+      {heroSlides.map((slide, index) => (
+        <img
+          src={slide.src}
+          srcset={responsiveImageSrcset(slide.src, [721, 1080, 1442])}
+          sizes="100vw"
+          alt=""
+          aria-hidden="true"
+          width="2172"
+          height="724"
+          class="apex-banner-slide absolute inset-0 h-full w-full object-cover object-center"
+          style={`animation-delay: ${index * heroSlideDurationSeconds}s;`}
+          loading={index === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchpriority={index === 0 ? 'high' : 'auto'}
+        />
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .apex-banner-slide {
+      animation: apex-banner-fade 20s infinite;
+      opacity: 0;
+    }
+
+    @keyframes apex-banner-fade {
+      0%,
+      17% {
+        opacity: 1;
+      }
+
+      20%,
+      96% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .apex-banner-slide {
+        animation: none;
+        opacity: 0;
+      }
+
+      .apex-banner-slide:first-child {
+        opacity: 1;
+      }
+    }
+  </style>
+
