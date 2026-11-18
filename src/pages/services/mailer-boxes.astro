@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import CTABand from '../../components/sections/CTABand.astro';
@@ -21,43 +22,7 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: 'Mailer Boxes', url: '/services/mailer-boxes' }
 ]);
 
-const faqs = [
-  {
-    q: 'Which mailer structure is suitable for ecommerce and subscription orders?',
-    a:
-      'A die-cut tuck-top mailer with front locking tabs is a common starting point because it combines presentation with a self-contained corrugated structure. The final dieline should reflect the packed product, inserts, opening experience, shipping route, and any operational features such as a tear strip.',
-  },
-  {
-    q: 'Should I choose E-flute or B-flute corrugated board?',
-    a:
-      'E-flute is slimmer and generally gives a cleaner print surface, which can suit compact retail-style mailers. B-flute adds rigidity and crush resistance but has a more pronounced corrugated profile. Product weight, dimensions, handling, stacking, and route should guide the choice.',
-  },
-  {
-    q: 'How should I measure products for a custom mailer?',
-    a:
-      'Measure the complete packed arrangement, not only the bare product. Include tissue, manuals, dividers, protective fill, samples, or inserts, then share the longest length, width, and depth, packed weight, orientation, and expected shipping route.',
-  },
-  {
-    q: 'Can mailer boxes be printed inside and outside?',
-    a:
-      'Interior, exterior, and two-sided print are common mailer specifications. Buyers should define the required print surfaces, artwork detail, colour expectations, board, and finish before evaluating which production process is suitable.',
-  },
-  {
-    q: 'What files and samples are needed before production?',
-    a:
-      'Provide vector logos where possible, colour references, final copy, barcode requirements, and the current approved dieline revision. A structural sample can confirm fit and assembly; a printed proof or production-representative sample may be appropriate when colour and finish decisions are important.',
-  },
-  {
-    q: 'What affects minimum quantities, pricing, and timing?',
-    a:
-      'The structure, dimensions, board and liner, print process, number of print surfaces, finishes, insert design, artwork readiness, sample route, quantity, packing, and destination all affect the production plan. A complete quotation should state the project-specific minimum, price, and schedule.',
-  },
-  {
-    q: 'How should I compare mailer-box quotations?',
-    a:
-      'Compare quotations using the same finished dimensions, corrugated-board specification, print coverage, inserts, tooling, sampling, packing requirements, and freight assumptions. Separate one-time setup charges from recurring production costs, and compare quantity tiers against the same approved specification so a lower price is not mistaken for an equivalent pack.',
-  },
-];
+const faqs = remainingBuyerFaqs('services/mailer-boxes')!;
 ---
 
 <BaseLayout title={title} description={description} schemaBlocks={[breadcrumb, serviceSchema, buildFAQSchema(faqs)]}>

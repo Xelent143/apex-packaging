@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,12 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'How are custom foam inserts quoted?', a: 'Material, density, product dimensions and weight, cavity design, quantity, outer carton, approval requirements, and destination can all affect the quotation. Apex confirms the available material and production method for the exact project.' },
-  { q: 'Can a project be reviewed against a required transit-test protocol?', a: 'Include the protocol, test level, product, route, and documentation requirement in the enquiry. Apex will confirm whether specification, sample, or testing support is available. Compliance should be claimed only after the agreed package has completed the required validation.' },
-  { q: 'What is the lead time on custom foam?', a: 'Production and shipping time varies by foam grade, density, cavity complexity, quantity, approvals, and delivery destination. Apex confirms timing in the product-specific quotation.' },
-  { q: 'What information is needed to review cushioning options?', a: 'Send the product dimensions and weight, surface sensitivity, packed orientation, route, handling risks, quantity, and any required validation protocol. Apex will confirm which protective-packaging options and documentation can be included in the project quotation.' }
-];
+const faqs = remainingBuyerFaqs('services/protective-packaging')!;
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Protective Packaging',url:'/services/protective-packaging'}]);
 const service = buildServiceSchema({ name:'Protective packaging Canada', description:'Custom foam inserts, void fill, corrosion-protection and cushioning options reviewed against the product, route and required protection level.', url:'/services/protective-packaging'});
 ---

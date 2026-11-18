@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,12 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'Can kraft boxes be printed with my logo?', a: 'Yes. Custom kraft boxes can be printed with one-color, spot-color, or full-color artwork depending on box style, board, and quantity.' },
-  { q: 'What are kraft boxes best for?', a: 'Kraft boxes work well for ecommerce, retail products, gifts, natural brands, subscription kits, food-adjacent packaging, and sustainable presentation.' },
-  { q: 'Are kraft boxes recyclable?', a: 'Most kraft paperboard and corrugated kraft boxes are recyclable. Recycled-content and FSC options can be quoted where required.' },
-  { q: 'Can I choose different kraft box styles?', a: 'Yes. Common formats include mailer-style kraft boxes, tuck cartons, shipping cartons, gift boxes, sleeves, and insert-based kits.' }
-];
+const faqs = remainingBuyerFaqs('services/custom-kraft-boxes')!;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },

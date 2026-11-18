@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,12 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'Can gable boxes be printed with custom artwork?', a: 'Yes. Gable boxes can be produced with exterior print, spot colors, full-color digital graphics, window panels, and premium finishing depending on run size.' },
-  { q: 'What are gable boxes best for?', a: 'Gable boxes are popular for bakery items, gifts, retail kits, event packaging, party favors, food service, and takeaway programs where the built-in handle matters.' },
-  { q: 'Can I add a window or insert?', a: 'Yes. Window cutouts, paperboard dividers, inserts, and product-specific cavities can be quoted with the gable structure.' },
-  { q: 'What materials are available?', a: 'Common options include kraft paperboard, white SBS board, recycled-content board, and coated printable stocks for premium retail graphics.' }
-];
+const faqs = remainingBuyerFaqs('services/gable-boxes')!;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },

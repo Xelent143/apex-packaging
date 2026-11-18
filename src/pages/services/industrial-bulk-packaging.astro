@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,12 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'Do you supply machinery as well as film?', a: 'Apex supplies stretch and shrink film; machinery (stretch wrappers, case sealers) is referred to partner equipment suppliers. The pallet-program team can manage machinery selection alongside the consumables order.' },
-  { q: 'What is the typical lead time on bulk Gaylords?', a: 'Production and shipping time varies by size, board construction, liner requirements, quantity, release schedule, and delivery destination. Apex confirms timing in the quotation.' },
-  { q: 'Can Apex hold inventory against a blanket PO?', a: 'Yes — most bulk customers operate on quarterly blanket POs with scheduled releases. Apex stocks the agreed inventory and ships against release calls.' },
-  { q: 'Where does Apex deliver bulk packaging?', a: 'Apex coordinates bulk-packaging delivery in Canada, the United States, and international markets. Freight method, release schedule, and timing are quoted for the lane.' }
-];
+const faqs = remainingBuyerFaqs('services/industrial-bulk-packaging')!;
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Industrial & Bulk',url:'/services/industrial-bulk-packaging'}]);
 const service = buildServiceSchema({ name:'Industrial and bulk packaging', description:'Gaylord boxes, stretch film, shrink film, liners, strapping, and edge protection for pallet and plant programs in Canada, the United States, and international markets.', url:'/services/industrial-bulk-packaging'});
 ---

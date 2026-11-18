@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,12 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'What gauge do I need?', a: 'Light retail/garment: 1.0–2.0 mil. General shipping: 2.0–4.0 mil. Heavy industrial/furniture/mattress: 4.0–6.0 mil. Apex\'s team recommends a gauge based on product weight, edge sharpness, and stacking pattern.' },
-  { q: 'Can Apex support food-contact packaging requirements?', a: 'Share the intended use and documentation requirement. Material availability and applicable documentation are confirmed for the specific product and destination.' },
-  { q: 'Can polybags include recycled or compostable material options?', a: 'Material and end-of-life options depend on the bag structure, performance requirements, destination and available documentation. Apex confirms applicable options in the quotation.' },
-  { q: 'What is the MOQ on custom print?', a: 'Minimum order quantities vary by pouch or bag style, dimensions, material structure, printing method, quantity, and delivery destination. Contact Apex for a product-specific quotation.' }
-];
+const faqs = remainingBuyerFaqs('services/polybags')!;
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Services',url:'/services'},{name:'Polybags',url:'/services/polybags'}]);
 const service = buildServiceSchema({ name:'Custom pouches, Mylar bags and polybags', description:'Flexible packaging including custom pouches, Mylar bags, polybags, anti-static, food-contact, and specialty structures managed from specification through delivery.', url:'/services/polybags'});
 ---

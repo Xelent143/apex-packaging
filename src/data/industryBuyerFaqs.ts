@@ -1,3 +1,5 @@
+import { remainingBuyerFaqs } from './remainingBuyerFaqs';
+
 type FAQ = { q: string; a: string };
 
 const productQuestions: Record<string, FAQ[]> = {
@@ -323,5 +325,5 @@ const additionalProductQuestions: Record<string, FAQ[]> = {
 
 export function industryBuyerFaqs(slug: string): FAQ[] | undefined {
   const specific = productQuestions[slug];
-  return specific ? [...specific, ...additionalProductQuestions[slug]] : undefined;
+  return specific ? [...specific, ...additionalProductQuestions[slug]] : remainingBuyerFaqs(`industries/${slug}`);
 }

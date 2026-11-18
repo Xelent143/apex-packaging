@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,13 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'What is the minimum order?', a: 'Minimum order quantities vary by box style, dimensions, board grade, print method, quantity, and delivery destination. Contact Apex for a corrugated-box quotation.' },
-  { q: 'What is the lead time?', a: 'Production and shipping timelines depend on the box style, material, print method, quantity, approvals, and delivery destination. Apex confirms timing with the quotation.' },
-  { q: 'Can I get a sample before committing?', a: 'Yes. Apex coordinates pre-production samples to confirm structural fit and print colour. Sample requirements and costs are confirmed for the project.' },
-  { q: 'Where does Apex deliver?', a: 'Apex coordinates delivery across Canada, the United States, and international markets. Freight method and timing are confirmed for the destination.' },
-  { q: 'Can Apex meet certification or documentation requirements?', a: 'Share the requirement with your specification. Availability and supporting documentation are confirmed for the exact product, production facility and destination.' }
-];
+const faqs = remainingBuyerFaqs('services/corrugated-boxes')!;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },

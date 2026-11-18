@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import RelatedContent from '../../components/sections/RelatedContent.astro';
@@ -38,24 +39,7 @@ const packagingGallery = [
     alt: 'Fictional Solace Current CBD cartons in a retail display tray'
   }
 ];
-const faqs = [
-  {
-    q: 'Can Apex make CBD boxes with premium finishes?',
-    a: 'Yes. Apex can quote soft-touch laminate, foil, embossing, spot UV, kraft stocks, rigid gift boxes, sleeves, display trays, and retail tuck cartons.'
-  },
-  {
-    q: 'Can the dieline leave room for client-supplied product information?',
-    a: 'Yes. The print layout can reserve panels for ingredients, warnings, dosage or use notes, batch codes, barcode zones, and other client-supplied content. Apex coordinates panel space and artwork placement; the buyer remains responsible for confirming the content and market requirements.'
-  },
-  {
-    q: 'What CBD box styles are available?',
-    a: 'Common styles include reverse tuck cartons, straight tuck cartons, sleeve boxes, rigid gift boxes, display trays, insert boxes, and mailer kits for ecommerce.'
-  },
-  {
-    q: 'Can I order samples before full production?',
-    a: 'Yes. Apex can prepare digital proofs and quote pre-production samples so fit, material, color, and finish choices are confirmed before the production run.'
-  }
-];
+const faqs = remainingBuyerFaqs('services/cbd-boxes')!;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },

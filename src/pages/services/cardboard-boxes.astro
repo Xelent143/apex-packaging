@@ -1,4 +1,5 @@
 ---
+import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -6,12 +7,7 @@ import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
 
-const faqs = [
-  { q: 'What are cardboard boxes best for?', a: 'Cardboard boxes are ideal for retail cartons, product packaging, sleeves, small ecommerce items, display cartons, and branded shelf-ready packaging.' },
-  { q: 'Can cardboard boxes be custom printed?', a: 'Yes. Apex can quote spot color, full-color print, matte or gloss finishes, foil, embossing, windows, and custom dielines depending on the box structure.' },
-  { q: 'Are cardboard boxes different from corrugated boxes?', a: 'Yes. Cardboard usually refers to paperboard or folding carton stock for retail packaging, while corrugated boxes use fluted board for shipping strength.' },
-  { q: 'Can Apex help choose the right board?', a: 'Yes. Share product size, weight, quantity, artwork, and sales channel. Apex can recommend SBS, kraft, recycled, or coated paperboard options.' }
-];
+const faqs = remainingBuyerFaqs('services/cardboard-boxes')!;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
