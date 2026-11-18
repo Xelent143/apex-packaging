@@ -44,14 +44,18 @@ const questions: Record<string, QuestionPair[]> = {
     ['What should I compare in Canadian and US window-box quotes?', 'Match window size, film specification, patching method and packed freight volume before comparing prices.']
   ],
   'industries/custom-kraft-soap-boxes': [
-    ['How will my soap logo look on brown kraft?', 'Approve an ink drawdown on the selected kraft shade rather than judging colour from a white-screen proof.'],
-    ['Can a kraft sleeve accommodate handmade soap variation?', 'Measure the largest and smallest cured bars and trial a sleeve that holds both without crushing their edges.'],
-    ['Will soap oils mark uncoated kraft packaging?', 'Run a contact trial with your cured formulation before approving uncoated stock or a protective layer.'],
-    ['Should a kraft soap carton include ventilation holes?', 'Discuss the bar’s moisture condition and storage needs before specifying ventilation in the carton.'],
-    ['How can I show soap texture without plastic film?', 'Consider an open die-cut area and review how much of the bar remains protected during handling.'],
-    ['Does brown soap packaging prove recycled content?', 'Request a documented fibre specification before making recycled-content claims about the kraft soap carton.'],
-    ['Can botanical line art print clearly on kraft soap sleeves?', 'Check fine strokes and reversed text on the actual textured board before approving the print file.'],
-    ['What should Canadian artisan brands include in a kraft-soap order?', 'List cured bar sizes, scent-specific artwork quantities and the destination postal code for an accurate carton quotation.']
+    ['Why choose custom kraft soap boxes for my brand?', 'Kraft soap boxes combine a natural appearance with custom branding to give your soap a professional, shelf-ready presentation.'],
+    ['Are kraft boxes suitable for handmade soap and shampoo bars?', 'Kraft boxes can suit handmade soaps and solid shampoo bars, with material and lining choices matched to each product’s moisture and oil content.'],
+    ['How much do custom kraft soap boxes cost in Canada?', 'Pricing depends on box size, board thickness, printing, finishes and quantity—request a tailored quote with delivery costs for your location.'],
+    ['Can I order small quantities of custom soap boxes?', 'Minimum quantities depend on your box specifications and printing method; share your required quantity to explore suitable options.'],
+    ['Can you print my logo and product information on kraft soap boxes?', 'Yes—we can incorporate your logo, artwork and supplied product information into a layout designed around your soap box.'],
+    ['Will my brand colours look different on brown kraft packaging?', 'Brown kraft can change how printed colours appear, so review a representative print sample if colour accuracy is important.'],
+    ['How do I choose the right box size for my soap bars?', 'Measure your ready-to-pack bars at their widest points and allow for handmade variations so the box closes comfortably without excessive movement.'],
+    ['Can kraft soap boxes have a window to show the product?', 'A die-cut window can showcase your soap’s colour and texture, with its size and placement chosen to maintain box strength.'],
+    ['Will kraft soap boxes protect against moisture and oil stains?', 'Plain kraft is not waterproof or greaseproof, so test your soap against the board and consider a suitable inner wrap where needed.'],
+    ['Are kraft soap boxes recyclable in Canada?', 'Clean, uncoated kraft boxes are generally recyclable where accepted locally, while coatings, windows and product residue can affect acceptance.'],
+    ['Can I check a sample before ordering soap boxes in bulk?', 'Digital proofs and optional physical samples help you review artwork, fit and material suitability, with availability and costs confirmed upfront.'],
+    ['How long does production and delivery take across Canada?', 'We confirm production time, estimated delivery and shipping costs based on your approved design, order quantity and Canadian destination.']
   ],
   'industries/chocolate-bar-boxes': [
     ['Should I size a chocolate carton around the wrapped bar?', 'Measure the finished wrapper, folded ends and maximum bar thickness before setting the carton cavity.'],
