@@ -16,7 +16,9 @@ export function getStaticPaths() {
 
 const { box } = Astro.props as { box: IndustryBox; index: number };
 const related = industryBoxes.filter((item) => item.slug !== box.slug).slice(0, 3);
-const heroImage = `/images/industry-hero-banners/${box.slug}.webp`;
+const heroImage = box.slug === 'rigid-boxes'
+  ? '/images/industry-hero-banners/rigid-boxes-apex-open.png'
+  : `/images/industry-hero-banners/${box.slug}.webp`;
 const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'apparel-boxes': [{ label: 'Folded Fit' }, { label: 'Soft Touch' }, { label: 'Mailer Ready' }, { label: 'Boutique Print' }],
   'auto-parts': [{ label: 'Heavy Duty' }, { label: 'Part Labels' }, { label: 'VCI Options' }, { label: 'Insert Ready' }],
