@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { industryBuyerFaqs } from '../../data/industryBuyerFaqs';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import RelatedContent from '../../components/sections/RelatedContent.astro';
 import CTABand from '../../components/sections/CTABand.astro';
@@ -613,7 +614,7 @@ const defaultFaqs = [
   },
   ...(productFAQs[box.slug] ? [productFAQs[box.slug]] : [])
 ];
-const faqs = buyerContent?.faqs ?? defaultFaqs;
+const faqs = industryBuyerFaqs(box.slug) ?? buyerContent?.faqs ?? defaultFaqs;
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
