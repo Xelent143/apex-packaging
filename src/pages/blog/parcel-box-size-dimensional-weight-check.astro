@@ -1,38 +1,18 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHeader from '../../components/sections/PageHeader.astro';
-import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
-const title = 'Check Dimensional Weight Before Approving a Parcel Box';
-const description = 'Compare packed outside dimensions, carrier rounding and protection before ordering custom parcel boxes for Canadian and US ecommerce shipments.';
-const url = '/blog/parcel-box-size-dimensional-weight-check';
-const article = buildArticleSchema({ title, description, url, datePublished: '2026-11-14', author: 'Apex Packaging Solutions' });
-const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url }]);
+import Guide from '../../components/blog/EditorialBuyerGuide.astro';
+const props = {
+  title:'Check Dimensional Weight Before Approving a Parcel Box', description:'Compare packed outside dimensions, carrier rounding and protection before ordering custom parcel boxes for Canadian and US ecommerce shipments.', url:'/blog/parcel-box-size-dimensional-weight-check', date:'November 14, 2026', dateISO:'2026-11-14', eyebrow:'Parcel economics', lead:'A smaller box helps only when packed dimensions, carrier calculation and product protection work together.',
+  hero:'/images/blog/parcel-dimensional-weight-hero.png', heroAlt:'Fictional Luma Goods parcels being measured and weighed for dimensional billing', support:'/images/blog/parcel-size-comparison.png', supportAlt:'Compact fitted Luma Goods parcel compared with an oversized void-filled box', supportCaption:'Measure the sealed parcel. Interior box dimensions do not determine carrier billing dimensions.',
+  intro:'Carrier billing uses the finished parcel, including bulge and rounding. Compare sealed outside dimensions with actual weight, account rules and protection performance.', rule:'Optimize the billed package—not an empty box dimension.',
+  metrics:[{value:'L × W × H',label:'Packed outside volume used in the calculation'},{value:'139',label:'Illustrative US daily-rate divisor'},{value:'2 sizes',label:'Evaluate only when order frequency supports them'}],
+  sections:[
+    {kicker:'ACCOUNT RULES',title:'Start with the actual shipping service',paragraphs:['Confirm origin, destination, service, account terms, units, divisor and rounding method. A divisor copied from one US example is not a universal Canadian rule.','Compare dimensional and actual weight, then price both candidate parcels through the same account and route. Another charge may still determine the total.']},
+    {kicker:'MEASUREMENT',title:'Use several sealed production packouts',paragraphs:['Measure the fullest normal order with the intended insert, closure and product arrangement. Include bulge and ask what production variation the structure can hold.','Reject a reduction that compresses a vulnerable product, removes required clearance or bows the lid. Freight optimization cannot override protection.']},
+    {kicker:'ORDER MIX',title:'Decide whether a second size earns its complexity',paragraphs:['Split recent orders into single-item, normal multi-item and largest regular baskets. Compare frequency, freight, packaging cost, pack time and damage risk.','Apply the verified saving only to orders that actually fit the smaller package, then subtract extra inventory, tooling and obsolescence costs.']}
+  ],
+  table:{title:'Rounding moves one parcel into another billing step',intro:'Hypothetical samples weigh 4 lb. Assume dimensions round up to whole inches, a 139 divisor and dimensional weight rounds up to whole pounds.',columns:['Measure','Sample A','Sample B'],rows:[['Measured outside','12.2 × 9.2 × 4.2 in','11.8 × 8.8 × 3.8 in'],['Rounded size','13 × 10 × 5 in','12 × 9 × 4 in'],['Volume ÷ 139','4.68 lb','3.11 lb'],['Dimensional weight','5 lb','4 lb'],['Billable comparison','5 lb','4 lb']],note:'This demonstrates calculation mechanics, not a freight quote. If actual weight were 6 lb, both would remain 6 lb in this comparison.'},
+  checklistTitle:'Parcel-size approval', checklist:['Internal fit and packed external targets are stated separately.','Product arrangement, insert and closure match the measured sample.','Carrier service, divisor, units and rounding assumptions are attached.','Protection and handling checks pass at the reduced size.','Board, structure or packout changes trigger remeasurement.'],
+  references:[{label:'UPS dimensions and weight guidance',href:'https://www.ups.com/us/en/support/shipping-support/shipping-dimensions-weight'},{label:'Ecommerce packaging format guide',href:'/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers'}], relatedHref:'/services/mailer-boxes', relatedLabel:'Explore mailer boxes'
+};
 ---
-<BaseLayout title={title} description={description} schemaBlocks={[breadcrumb, article]}>
-<PageHeader eyebrow="Parcel packaging decisions" heading={title} lead="A smaller box only improves the purchase when the packed dimensions, freight calculation and product protection all work together." />
-<section class="section"><div class="container-shell prose prose-slate max-w-4xl">
-<p>Published November 14, 2026</p>
-<p>Before approving a custom ecommerce box, compare the outside dimensions of a sealed, filled sample with the dimensions used in your shipping account. A quoted box size may describe the usable interior. Carrier billing depends on the finished parcel, including any bulge. Treat those as separate measurements in the purchasing specification.</p>
-<h2>Start with the actual shipping service</h2>
-<p>Dimensional weight converts parcel volume into a billing weight. UPS explains that its US divisor varies by rate type: 139 for Daily Rates and 166 for Retail Rates. Its current guidance also calls for rounding package dimensions up. Confirm the applicable service, account terms, units and rounding rule before comparing designs; a divisor copied from a US example is not a universal Canadian rule. See <a href="https://www.ups.com/us/en/support/shipping-support/shipping-dimensions-weight">UPS shipping dimensions and weight guidance</a>.</p>
-<p>Ask your shipping team for recent invoices and the calculator used for the relevant origin, destination and service. Record the actual packed weight alongside the dimensional result. A lower dimensional weight may make no difference when actual weight controls billing, or when a different charge determines the total.</p>
-<h2>A worked example: a small dimension change crosses a billing step</h2>
-<p>Consider two hypothetical samples for the same lightweight product. Both weigh 4 lb packed. Assume a service using a 139 cubic-inch divisor, dimensions rounded up to whole inches, and the resulting dimensional weight rounded up to whole pounds. These are calculation assumptions, not a shipping quote.</p>
-<table><thead><tr><th>Measure</th><th>Sample A</th><th>Sample B</th></tr></thead><tbody>
-<tr><td>Measured outside size</td><td>12.2 × 9.2 × 4.2 in</td><td>11.8 × 8.8 × 3.8 in</td></tr>
-<tr><td>Rounded size</td><td>13 × 10 × 5 in</td><td>12 × 9 × 4 in</td></tr>
-<tr><td>Volume ÷ 139</td><td>650 ÷ 139 = 4.68 lb</td><td>432 ÷ 139 = 3.11 lb</td></tr>
-<tr><td>Rounded dimensional weight</td><td>5 lb</td><td>4 lb</td></tr>
-<tr><td>Greater of actual and dimensional weight</td><td>5 lb</td><td>4 lb</td></tr>
-</tbody></table>
-<p>Sample B moves this example down one billing pound. It does not establish a dollar saving. Price both packages through the same account and route, including applicable charges. If both instead weighed 6 lb, this dimensional reduction would not reduce the greater-of comparison below 6 lb.</p>
-<h2>Do not buy a box at the edge of the measurement</h2>
-<p>Measure several packed samples using the intended insert, closure and product arrangement. Include the fullest normal order. A nominal 11.8-inch outside length leaves little room before rounding changes; ask the supplier what dimensional variation the proposed construction can accommodate. Agree a measurable acceptance criterion rather than assuming every production box will match one prototype.</p>
-<p>Reject a size reduction that compresses a vulnerable product, removes necessary clearance or causes the lid to bow. Compare the pack against your handling and damage requirements before approving it. Apex's <a href="/design-support">design support</a> can help coordinate the structural sample and artwork review; confirm project-specific sample scope and testing arrangements.</p>
-<h2>Choose one size or two using order data</h2>
-<p>Split recent orders into single-item, typical multi-item and largest regular baskets. For each group, record quantity shipped, packed weight, outside dimensions and quoted freight for each candidate. A second box size is worth evaluating when a frequent small order otherwise travels in a much larger box. Include extra inventory, packing complexity, tooling and obsolete stock in the comparison.</p>
-<p>For example, if 700 of 1,000 monthly orders fit Sample B, multiply the verified per-shipment freight difference by 700, then subtract the added packaging and operating costs. Do not apply that difference to the 300 orders that still need the larger pack. The <a href="/blog/ecommerce-packaging-canada-mailers-rsc-boxes-poly-mailers">ecommerce format guide</a> helps compare mailers, RSC boxes and poly mailers before settling on a structure.</p>
-<h2>Put the decision into the purchase brief</h2>
-<ul><li>State internal fit requirements separately from packed external measurement targets.</li><li>Identify the product arrangement, insert and closure used for approval.</li><li>Attach the sample measurements and the carrier calculation assumptions.</li><li>Require review if board, structure or packing arrangement changes.</li><li>Confirm quantities, commercial terms and sample approval steps for each size.</li></ul>
-<p>Apex is a Canada-based supplier and project coordinator serving Canadian and US buyers, with production through overseas facilities. Send your order mix, packed product measurements and candidate shipping services through the <a href="/contact">contact page</a> to discuss a box specification and project quote. Manufacturing, freight and delivery details require confirmation for the individual project.</p>
-</div></section></BaseLayout>
+<Guide {...props} />
