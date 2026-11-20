@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'How Many Spare Cartons Should You Order?';
+const description = 'Calculate carton quantities for packing losses, test samples and reserves, and agree delivery quantity tolerances before ordering packaging in Canada or the US.';
+---
+<BaseLayout title={title} description={description}>
+<article class="container max-w-default prose-apex py-12 md:py-20">
+<p>Packaging purchasing · <time datetime="2026-11-20">November 20, 2026</time></p>
+<h1>How Many Spare Cartons Should You Order?</h1>
+<p>A purchase order for 10,000 cartons does not necessarily leave 10,000 cartons available for customer shipments. Packing trials, rejected blanks, retained samples and an agreed delivery quantity tolerance can each change the usable balance. Build the order from those separate quantities before accepting a price break.</p>
+<p>For Canadian and US buyers, the useful question is how many approved cartons must be available at the packing station on the required date. A percentage added to sales demand cannot answer that question unless its purpose and calculation basis are clear.</p>
+<h2>Separate consumption from reserve stock</h2>
+<p>Start with the number of customer units and cartons required per unit, by SKU and artwork revision. Deduct only stock that is physically available, inspected and approved for that revision. Quarantined stock and obsolete printed cartons should not reduce the order.</p>
+<p>List cartons for setup, photography, retention and testing separately. Ask the test laboratory for its sample plan before reserving test units: there is no universal sample count for every package or distribution route. ISTA guidance calls for defining acceptable product damage and package condition before testing. That decision also helps distinguish a cosmetic observation from a carton that must be rejected.</p>
+<p>Then set a packing-loss assumption from a representative trial or measured production history. Record its denominator: losses as a share of cartons issued are different from an extra percentage added to the number of successful packs. Keep a reserve for demand uncertainty separate so that it is not accidentally consumed as the normal spoilage allowance.</p>
+<h2>Worked example: 10,000 customer shipments</h2>
+<p>The following figures are invented planning inputs, not Apex quantity terms or performance expectations. A buyer needs 10,000 successful packs, has 300 usable cartons, reserves 80 new cartons for setup and samples, and wants 200 cartons left untouched after packing. A trial suggests 2% of cartons issued to the packing line will be lost.</p>
+<ul>
+<li>Gross line requirement: 10,000 ÷ 0.98 = 10,204.08, rounded up to 10,205 cartons.</li>
+<li>Total available stock needed: 10,205 + 80 + 200 = 10,485 cartons.</li>
+<li>New usable delivery required: 10,485 − 300 = 10,185 cartons.</li>
+</ul>
+<p>This assumes the 80 sample/setup units are outside the measured line-loss rate. If the trial rate already includes setup waste, remove that duplication. The calculation is a planning estimate; an observed 2% loss rate is not a guarantee for the next run.</p>
+<h2>Translate usable demand into the purchase order</h2>
+<p>Suppose, solely for this example, the proposed contract permits delivery 5% below or above the ordered quantity. To protect a minimum receipt of 10,185 cartons before receipt defects, calculate 10,185 ÷ 0.95 = 10,721.06. The whole-carton order would be at least 10,722, subject to the supplier's actual bundle increments and rounding convention.</p>
+<p>If the agreed increment were 50, the buyer would request 10,750. At a 5% underrun that represents 10,212.5 cartons mathematically; the contract must specify how whole units are rounded. At a 5% overrun, the same order represents 11,287.5 cartons. Plan storage and invoice authorization for the agreed maximum as well as the minimum.</p>
+<p>Do not adopt those percentages as an industry rule. Ask whether the quoted quantity is exact, a target with tolerance, or a minimum usable quantity commitment. Confirm whether tolerance applies to each SKU or the combined order. An excess of one printed SKU cannot fill a shortage of another.</p>
+<h2>Resolve defects and shortages separately</h2>
+<p>A permitted production underrun and a shipment containing unusable cartons are different issues. Write down the inspection period, evidence required, treatment of rejected units, and whether a credit or replacement is available under the agreed terms. A credit can settle an invoice without supplying the cartons needed to finish a launch.</p>
+<p>Use the <a href="/blog/corrugated-box-sample-approval-checklist">sample approval checklist</a> to define the approved specification and acceptance checks. Request carton counts per bundle and pallet, lot identification and a packing list. At receipt, reconcile delivered counts and segregate damaged or incorrect stock before updating the available balance.</p>
+<h2>When a larger reserve is the wrong purchase</h2>
+<p>Extra cartons have carrying costs and can become unusable after an artwork or product change. For a short promotion, compare the cost of an agreed exact quantity with the exposure from a tolerated overrun. For a repeat program, ask whether staged releases are available and clarify who owns stored stock, who pays storage and freight, and what triggers a release. Availability and timing require project confirmation.</p>
+<p>For <a href="/services/corrugated-boxes">corrugated box purchasing</a>, send the demand by SKU, usable inventory, sample allocation, measured loss basis, desired reserve and destination. Apex Packaging Solutions is a Canada-based supplier and project coordinator working with overseas production and serving Canadian and US buyers. Quantity terms, production arrangements and delivery dates must be confirmed for the specific project.</p>
+<p><a href="/contact">Contact Apex</a> with your quantity worksheet and required packing date to discuss a quote that states both the ordered quantity and the acceptable delivery range.</p>
+<h2>Technical source</h2>
+<p><a href="https://ista.org/getting_started_with_design.php">ISTA: Getting Started with Design &amp; Testing</a> explains defining damage criteria and tracking package changes for testing. The purchasing arithmetic above is an illustrative planning method, not an ISTA sampling plan.</p>
+</article>
+</BaseLayout>
