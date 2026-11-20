@@ -1,4 +1,5 @@
 export const permanentRedirects = new Map([
+  ['/about.php', '/about'],
   ['/blog/apparel-packaging-for-ecommerce-and-retail-2026-08-04', '/blog/apparel-packaging-boxes-garment-bags-mailers'],
   ['/blog/apparel-packaging-for-ecommerce-and-retail-2026-09-03', '/blog/apparel-packaging-boxes-garment-bags-mailers'],
   ['/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-08-05', '/blog/bakery-packaging-boxes-for-fresh-and-frozen-programs-2026-09-04'],

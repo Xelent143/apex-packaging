@@ -18,6 +18,12 @@ const defaultQuoteSender = 'Apex Packaging <sales@apexpackagingsolutions.com>';
 const quoteFailureLogPath = resolve(__dirname, 'data', 'quote-email-failures.jsonl');
 const canonicalHost = 'apexpackagingsolutions.com';
 const wwwHost = 'www.apexpackagingsolutions.com';
+const removedLegacyPaths = new Set([
+  '/floor-marking-tape.php',
+  '/duct-tape.php',
+  '/premium-masking-tape.php',
+  '/bopp-printed-tape.php'
+]);
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
   '.gif': 'image/gif',
@@ -49,7 +55,14 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    const redirectTarget = permanentRedirects.get(url.pathname.replace(/\/$/, ''));
+    const legacyPath = url.pathname.replace(/\/$/, '');
+    if (removedLegacyPaths.has(legacyPath)) {
+      res.writeHead(410, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end(req.method === 'HEAD' ? undefined : 'This page has been permanently removed.');
+      return;
+    }
+
+    const redirectTarget = permanentRedirects.get(legacyPath);
     if (redirectTarget) {
       res.writeHead(301, { Location: `${redirectTarget}${url.search}` });
       res.end();
