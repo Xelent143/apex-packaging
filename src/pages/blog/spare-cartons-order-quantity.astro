@@ -1,38 +1,117 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildArticleSchema } from '../../lib/schema';
 const title = 'How Many Spare Cartons Should You Order?';
 const description = 'Calculate carton quantities for packing losses, test samples and reserves, and agree delivery quantity tolerances before ordering packaging in Canada or the US.';
+const image = '/images/blog/spare-cartons-planning.webp';
+const articleSchema = { ...buildArticleSchema({ title, description, url: '/blog/spare-cartons-order-quantity', datePublished: '2026-11-20', author: 'Apex Packaging Solutions' }), image: `https://apexpackagingsolutions.com${image}` };
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={image} schemaBlocks={[articleSchema]}>
+<header class="border-b border-neutral-200 bg-[#f7f2e8] py-10 md:py-16">
+  <div class="container max-w-wide grid items-center gap-8 lg:grid-cols-2">
+    <div>
+      <p class="eyebrow">Packaging purchasing · <time datetime="2026-11-20">November 20, 2026</time></p>
+      <h1 class="mt-4 font-display text-4xl font-extrabold leading-tight md:text-5xl">How Many Spare Cartons Should You Order?</h1>
+      <p class="mt-5 text-lg leading-relaxed text-neutral-600">A practical quantity worksheet for Canadian and US buyers: account for packing losses, samples, reserve stock and the delivery range before placing your order.</p>
+      <a href="#quantity-worksheet" class="btn-primary mt-6 inline-flex">See the worked example</a>
+    </div>
+    <figure>
+      <img src={image} alt="Illustration of Apex-branded corrugated cartons, flat carton bundles and a counting worksheet on a packing bench" width="1200" height="800" loading="eager" fetchpriority="high" class="w-full rounded-xl" />
+      <figcaption class="mt-2 text-sm text-neutral-600">Illustrative Apex packaging scene; not a photograph of a production facility.</figcaption>
+    </figure>
+  </div>
+</header>
 <article class="container max-w-default prose-apex py-12 md:py-20">
-<p>Packaging purchasing · <time datetime="2026-11-20">November 20, 2026</time></p>
-<h1>How Many Spare Cartons Should You Order?</h1>
+<aside class="planning-note" aria-label="Quick answer">
+<strong>Quick answer</strong>
+<p>There is no single spare-carton percentage for every order: calculate your usable requirement first, then adjust for the quantity terms in your supplier’s quote.</p>
+</aside>
 <p>A purchase order for 10,000 cartons does not necessarily leave 10,000 cartons available for customer shipments. Packing trials, rejected blanks, retained samples and an agreed delivery quantity tolerance can each change the usable balance. Build the order from those separate quantities before accepting a price break.</p>
 <p>For Canadian and US buyers, the useful question is how many approved cartons must be available at the packing station on the required date. A percentage added to sales demand cannot answer that question unless its purpose and calculation basis are clear.</p>
 <h2>Separate consumption from reserve stock</h2>
 <p>Start with the number of customer units and cartons required per unit, by SKU and artwork revision. Deduct only stock that is physically available, inspected and approved for that revision. Quarantined stock and obsolete printed cartons should not reduce the order.</p>
 <p>List cartons for setup, photography, retention and testing separately. Ask the test laboratory for its sample plan before reserving test units: there is no universal sample count for every package or distribution route. ISTA guidance calls for defining acceptable product damage and package condition before testing. That decision also helps distinguish a cosmetic observation from a carton that must be rejected.</p>
 <p>Then set a packing-loss assumption from a representative trial or measured production history. Record its denominator: losses as a share of cartons issued are different from an extra percentage added to the number of successful packs. Keep a reserve for demand uncertainty separate so that it is not accidentally consumed as the normal spoilage allowance.</p>
-<h2>Worked example: 10,000 customer shipments</h2>
+<h2 id="quantity-worksheet">Worked example: 10,000 customer shipments</h2>
 <p>The following figures are invented planning inputs, not Apex quantity terms or performance expectations. A buyer needs 10,000 successful packs, has 300 usable cartons, reserves 80 new cartons for setup and samples, and wants 200 cartons left untouched after packing. A trial suggests 2% of cartons issued to the packing line will be lost.</p>
-<ul>
-<li>Gross line requirement: 10,000 ÷ 0.98 = 10,204.08, rounded up to 10,205 cartons.</li>
-<li>Total available stock needed: 10,205 + 80 + 200 = 10,485 cartons.</li>
-<li>New usable delivery required: 10,485 − 300 = 10,185 cartons.</li>
-</ul>
+<div class="table-scroll" role="region" aria-label="Carton quantity worksheet" tabindex="0">
+<table>
+<caption>Illustrative quantity worksheet — all counts are cartons</caption>
+<thead><tr><th scope="col">Planning step</th><th scope="col">Calculation</th><th scope="col">Quantity</th></tr></thead>
+<tbody>
+<tr><th scope="row">Successful customer packs</th><td>One carton per shipment</td><td>10,000</td></tr>
+<tr><th scope="row">Allow for 2% line loss</th><td>10,000 ÷ 0.98, rounded up</td><td>10,205</td></tr>
+<tr><th scope="row">Add setup and sample stock</th><td>10,205 + 80</td><td>10,285</td></tr>
+<tr><th scope="row">Keep a separate reserve</th><td>10,285 + 200</td><td>10,485</td></tr>
+<tr><th scope="row">Deduct approved stock on hand</th><td>10,485 − 300</td><td><strong>10,185</strong></td></tr>
+</tbody>
+</table>
+</div>
 <p>This assumes the 80 sample/setup units are outside the measured line-loss rate. If the trial rate already includes setup waste, remove that duplication. The calculation is a planning estimate; an observed 2% loss rate is not a guarantee for the next run.</p>
 <h2>Translate usable demand into the purchase order</h2>
 <p>Suppose, solely for this example, the proposed contract permits delivery 5% below or above the ordered quantity. To protect a minimum receipt of 10,185 cartons before receipt defects, calculate 10,185 ÷ 0.95 = 10,721.06. The whole-carton order would be at least 10,722, subject to the supplier's actual bundle increments and rounding convention.</p>
 <p>If the agreed increment were 50, the buyer would request 10,750. At a 5% underrun that represents 10,212.5 cartons mathematically; the contract must specify how whole units are rounded. At a 5% overrun, the same order represents 11,287.5 cartons. Plan storage and invoice authorization for the agreed maximum as well as the minimum.</p>
+<div class="table-scroll" role="region" aria-label="Order quantity comparison" tabindex="0">
+<table>
+<caption>From usable requirement to purchase quantity — example terms only</caption>
+<thead><tr><th scope="col">Step</th><th scope="col">Calculation</th><th scope="col">Result</th></tr></thead>
+<tbody>
+<tr><th scope="row">Usable new stock needed</th><td>From the worksheet above</td><td>10,185</td></tr>
+<tr><th scope="row">Cover an illustrative 5% underrun</th><td>10,185 ÷ 0.95, rounded up</td><td>10,722</td></tr>
+<tr><th scope="row">Round to bundles of 50</th><td>Next full bundle</td><td><strong>10,750 ordered</strong></td></tr>
+<tr><th scope="row">Illustrative delivery range</th><td>10,750 × 0.95 to 10,750 × 1.05</td><td>10,212.5–11,287.5 before agreed whole-unit rounding</td></tr>
+</tbody>
+</table>
+</div>
 <p>Do not adopt those percentages as an industry rule. Ask whether the quoted quantity is exact, a target with tolerance, or a minimum usable quantity commitment. Confirm whether tolerance applies to each SKU or the combined order. An excess of one printed SKU cannot fill a shortage of another.</p>
 <h2>Resolve defects and shortages separately</h2>
 <p>A permitted production underrun and a shipment containing unusable cartons are different issues. Write down the inspection period, evidence required, treatment of rejected units, and whether a credit or replacement is available under the agreed terms. A credit can settle an invoice without supplying the cartons needed to finish a launch.</p>
 <p>Use the <a href="/blog/corrugated-box-sample-approval-checklist">sample approval checklist</a> to define the approved specification and acceptance checks. Request carton counts per bundle and pallet, lot identification and a packing list. At receipt, reconcile delivered counts and segregate damaged or incorrect stock before updating the available balance.</p>
+<h2>Record dimensions alongside the quantity</h2>
+<p>Two cartons with the same printed design are not interchangeable if their size or board specification differs. Keep the approved dimensions beside each SKU’s quantity calculation so spare stock is actually usable.</p>
+<div class="table-scroll" role="region" aria-label="Example carton dimensions" tabindex="0">
+<table>
+<caption>Example specification — illustrative dimensions, not a standard Apex box size</caption>
+<thead><tr><th scope="col">Measurement</th><th scope="col">Example</th><th scope="col">What to confirm</th></tr></thead>
+<tbody>
+<tr><th scope="row">Internal length</th><td>300 mm</td><td>Usable space along the approved length axis</td></tr>
+<tr><th scope="row">Internal width</th><td>200 mm</td><td>Space for the complete product and protective packout</td></tr>
+<tr><th scope="row">Internal depth</th><td>150 mm</td><td>Clearance with the carton closed</td></tr>
+<tr><th scope="row">External shipping dimensions</th><td>Supplier to confirm</td><td>Do not treat internal dimensions as freight dimensions</td></tr>
+<tr><th scope="row">Flat bundle and pallet dimensions</th><td>Supplier to confirm</td><td>Use these to plan storage for the maximum agreed receipt</td></tr>
+</tbody>
+</table>
+</div>
+<p>Specify the order as <strong>300 × 200 × 150 mm internal (L × W × D)</strong> in this example, with the board grade, approved drawing revision and dimensional tolerances recorded separately; confirm fit with the intended contents before production.</p>
 <h2>When a larger reserve is the wrong purchase</h2>
 <p>Extra cartons have carrying costs and can become unusable after an artwork or product change. For a short promotion, compare the cost of an agreed exact quantity with the exposure from a tolerated overrun. For a repeat program, ask whether staged releases are available and clarify who owns stored stock, who pays storage and freight, and what triggers a release. Availability and timing require project confirmation.</p>
 <p>For <a href="/services/corrugated-boxes">corrugated box purchasing</a>, send the demand by SKU, usable inventory, sample allocation, measured loss basis, desired reserve and destination. Apex Packaging Solutions is a Canada-based supplier and project coordinator working with overseas production and serving Canadian and US buyers. Quantity terms, production arrangements and delivery dates must be confirmed for the specific project.</p>
 <p><a href="/contact">Contact Apex</a> with your quantity worksheet and required packing date to discuss a quote that states both the ordered quantity and the acceptable delivery range.</p>
+<aside class="planning-note">
+<h2>Before you approve the purchase order</h2>
+<ul>
+<li>Identify each SKU, artwork revision and approved carton size.</li>
+<li>Separate line losses, samples and untouched reserve stock.</li>
+<li>Confirm bundle increments and quantity tolerance per SKU.</li>
+<li>Agree whole-unit rounding, inspection terms and shortage remedies.</li>
+<li>Check storage capacity and the required packing-station arrival date.</li>
+</ul>
+<a class="btn-primary" href="/contact">Request a carton quotation</a>
+</aside>
 <h2>Technical source</h2>
 <p><a href="https://ista.org/getting_started_with_design.php">ISTA: Getting Started with Design &amp; Testing</a> explains defining damage criteria and tracking package changes for testing. The purchasing arithmetic above is an illustrative planning method, not an ISTA sampling plan.</p>
 </article>
+<style>
+  .planning-note { background: #f7f2e8; border-left: 4px solid #aa8118; padding: 1.5rem; border-radius: 0 .75rem .75rem 0; margin: 2rem 0; }
+  .planning-note > :first-child { margin-top: 0; }
+  .planning-note > :last-child { margin-bottom: 0; }
+  .table-scroll { overflow-x: auto; margin: 2rem 0; border: 1px solid #dfd5bf; border-radius: .75rem; }
+  .table-scroll table { margin: 0; min-width: 580px; width: 100%; border-collapse: collapse; font-size: .95rem; }
+  caption { text-align: left; padding: 1rem; background: #f7f2e8; font-weight: 600; }
+  thead { background: #061a2e; color: #f6ce62; }
+  .table-scroll thead th { color: #f6ce62; }
+  th, td { text-align: left; padding: 1rem; border-bottom: 1px solid #e7dfd0; vertical-align: top; }
+  tbody tr:nth-child(even) { background: #faf8f3; }
+  #quantity-worksheet { scroll-margin-top: 8rem; }
+</style>
 </BaseLayout>
