@@ -3,6 +3,7 @@ import PackagingBanner from '../components/sections/PackagingBanner.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackagingIcon from '../components/ui/PackagingIcon.astro';
 import TrustedClients from '../components/trust/TrustedClients.astro';
+import GoogleReviews from '../components/trust/GoogleReviews.astro';
 import QuoteFormFeedback from '../components/forms/QuoteFormFeedback.astro';
 import FAQAccordion from '../components/sections/FAQAccordion.astro';
 import { buildFAQSchema } from '../lib/schema';
@@ -264,6 +265,8 @@ const responsiveImageSrcset = (src: string, widths: number[]) => widths.map((wid
   </section>
 
   <TrustedClients clients={approvedClientLogos} />
+
+  <GoogleReviews />
 
   <FAQAccordion
     eyebrow="Buyer questions"

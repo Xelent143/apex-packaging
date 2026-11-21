@@ -1,0 +1,105 @@
+---
+// Public Google reviews checked against the owner-supplied screenshots and live profile on 22 November 2026.
+// Reviewer photographs are intentionally excluded pending permission for website reuse.
+const profileUrl = 'https://www.google.com/maps/place/Apex+Packaging+Solutions+Canada/data=!4m2!3m1!1s0x0:0x2df69b1fc7d772a5';
+const reviewUrl = 'https://g.page/r/CaVy18cfm_YtEAI/review';
+const reviews = [
+  {
+    name: "Ammi's Kitchen Toronto",
+    initial: 'A',
+    colour: '#c3420b',
+    text: 'Really happy with how our soap boxes turned out. The clean design and window give them a lovely presentation. The boxes feel sturdy and well made, with neat folds and a quality finish. Sam was very helpful, answered our questions clearly, and made the ordering process easy. We appreciate the care and attention throughout. Thank you to Sam and the Apex Packaging Solutions team.',
+    href: 'https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s100887951413127521181!2s0x882ef1b706984217:0x2df69b1fc7d772a5'
+  },
+  {
+    name: 'Hamaad Adil Khan',
+    initial: 'H',
+    colour: '#008c9c',
+    text: 'The boxes turned out just how we wanted, and we were impressed with how quickly everything came together. Andrew was great to deal with, easy to reach and happy to answer our questions. The boxes feel solid, and the print looks clean. A smooth experience from start to finish.',
+    href: 'https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s115306136727550448546!2s0x882ef1b706984217:0x2df69b1fc7d772a5'
+  }
+];
+---
+<section id="google-reviews" class="google-review-section" aria-labelledby="google-reviews-heading">
+  <div class="container max-w-wide">
+    <div class="google-review-summary">
+      <div class="google-review-overview">
+        <h2 id="google-reviews-heading" class="google-review-brand"><span class="google-word" aria-label="Google"><span aria-hidden="true"><span class="google-blue">G</span><span class="google-red">o</span><span class="google-yellow">o</span><span class="google-blue">g</span><span class="google-green">l</span><span class="google-red">e</span></span></span> <span>Reviews</span></h2>
+        <div class="google-review-rating">
+          <strong>5.0<span class="sr-only"> out of 5</span></strong>
+          <span class="google-review-stars" aria-hidden="true">★★★★★</span>
+          <a href={profileUrl} target="_blank" rel="noopener noreferrer">3 reviews<span class="sr-only"> on Google (opens in a new tab)</span></a>
+        </div>
+      </div>
+      <a href={reviewUrl} target="_blank" rel="noopener noreferrer" class="google-review-button">Review us on Google<span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+    <div class="google-review-grid">
+      {reviews.map((review) => {
+        const sentences = review.text.match(/[^.!?]+[.!?]+(?:\s|$)/g) ?? [review.text];
+        const excerpt = sentences.slice(0, 2).join('').trim();
+        const remaining = sentences.slice(2).join('').trim();
+        return (
+          <figure class="google-review-card">
+            <figcaption class="google-review-person">
+              <span class="google-review-avatar" style={{ backgroundColor: review.colour }} aria-hidden="true">{review.initial}</span>
+              <div>
+                <p class="google-review-name">{review.name}</p>
+                <p class="google-review-source">Google review</p>
+              </div>
+            </figcaption>
+            <div class="google-review-copy">
+              <p class="google-review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+              <blockquote>
+                <p>{excerpt}</p>
+                {remaining && <details class="google-review-more"><summary>Read more</summary><p>{remaining}</p></details>}
+              </blockquote>
+              <a href={review.href} target="_blank" rel="noopener noreferrer" class="google-review-original">View original review<span class="sr-only"> by {review.name} on Google (opens in a new tab)</span></a>
+            </div>
+          </figure>
+        );
+      })}
+    </div>
+    <p class="google-review-note">Rating and count checked on 22 November 2026. <a href={profileUrl} target="_blank" rel="noopener noreferrer">See the latest reviews on Google<span class="sr-only"> (opens in a new tab)</span></a>. Share your honest experience; a Google Account is required.</p>
+  </div>
+</section>
+<style>
+  .google-review-section { background: #fff; padding: 3rem 0; }
+  .google-review-summary { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; padding: 1.4rem 1.6rem; border-radius: 1.25rem; background: #f6f6f6; }
+  .google-review-overview, .google-review-rating { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .google-review-overview { gap: 1.5rem; }
+  .google-review-brand { display: flex; align-items: center; gap: .65rem; margin: 0; font-size: 1.4rem; font-weight: 700; line-height: 1.2; color: #292929; }
+  .google-word { font-family: Arial, sans-serif; font-size: 2.9rem; font-weight: 500; letter-spacing: -.12rem; }
+  .google-blue { color: #4285f4; } .google-red { color: #ea4335; } .google-yellow { color: #fbbc05; } .google-green { color: #34a853; }
+  .google-review-rating { color: #4b4b4b; gap: .75rem; font-size: 1.05rem; }
+  .google-review-rating strong { font-size: 1.2rem; }
+  .google-review-rating a { text-underline-offset: .2rem; }
+  .google-review-rating a:hover { text-decoration: underline; }
+  .google-review-stars { color: #fbbc04; letter-spacing: .08rem; font-size: 1.45rem; line-height: 1.4; }
+  .google-review-button { display: inline-flex; justify-content: center; align-items: center; min-height: 3rem; border-radius: .5rem; background: #1d56d9; color: #fff; font-weight: 700; padding: .8rem 1.5rem; text-align: center; }
+  .google-review-button:hover { background: #1546b8; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid #1d56d9; outline-offset: 4px; }
+  .google-review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.6rem; }
+  .google-review-card { min-width: 0; margin: 0; background: #f6f6f6; border-radius: 1.25rem; padding: 1.6rem; }
+  .google-review-person { display: flex; align-items: center; gap: 1rem; }
+  .google-review-avatar { display: grid; place-items: center; flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; color: #fff; font-size: 1.8rem; }
+  .google-review-name { color: #202124; font-size: 1.1rem; font-weight: 700; }
+  .google-review-source { color: #5f6368; font-size: .9rem; margin-top: .2rem; }
+  .google-review-copy { margin-left: 4.5rem; }
+  .google-review-copy > .google-review-stars { margin: .8rem 0 1rem; }
+  blockquote { color: #292929; font-size: 1rem; line-height: 1.65; }
+  .google-review-more summary { cursor: pointer; width: fit-content; padding: .5rem 0; color: #3c4043; text-decoration: underline; text-underline-offset: .2rem; }
+  .google-review-more p { margin-top: .25rem; }
+  .google-review-original { display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: .5rem; color: #174ea6; font-size: .9rem; text-decoration: underline; text-underline-offset: .2rem; }
+  .google-review-note { margin-top: 1rem; color: #5f6368; font-size: .8rem; line-height: 1.6; }
+  .google-review-note a { text-decoration: underline; text-underline-offset: .15rem; }
+  @media (max-width: 639px) {
+    .google-review-section { padding: 2rem 0; }
+    .google-review-summary { padding: 1.25rem; }
+    .google-review-overview { gap: .75rem; }
+    .google-review-button { width: 100%; }
+    .google-review-grid { grid-template-columns: minmax(0, 1fr); }
+    .google-review-card { padding: 1.25rem; }
+    .google-review-copy { margin-left: 0; }
+    .google-word { font-size: 2.5rem; }
+  }
+</style>
