@@ -1,9 +1,30 @@
 ---
-// Public Google reviews checked against the owner-supplied screenshots and live profile on 22 November 2026.
+// Review wording, rating and count updated from owner-supplied Google screenshots dated 24 November 2026.
 // Reviewer photographs are intentionally excluded pending permission for website reuse.
 const profileUrl = 'https://www.google.com/maps/place/Apex+Packaging+Solutions+Canada/data=!4m2!3m1!1s0x0:0x2df69b1fc7d772a5';
 const reviewUrl = 'https://g.page/r/CaVy18cfm_YtEAI/review';
 const reviews = [
+  {
+    name: 'Mary Perque',
+    initial: 'M',
+    colour: '#8d6e63',
+    text: 'We are really happy with our white window donut boxes from Apex Packaging Solutions. The boxes feel sturdy, and the clean white finish gives them a polished look. The clear window shows off the donuts without having to open the lid. Jordan was helpful, quick to respond, and made ordering easy. We appreciated the fast turnaround and the care that went into our order. Thanks, Jordan, we would happily order from Apex again.',
+    href: profileUrl
+  },
+  {
+    name: 'Muhammad Fahid',
+    initial: 'M',
+    colour: '#5365a5',
+    text: 'It was a pleasure connecting with Apex Packaging Solutions. I found them through Instagram and was impressed by the packaging projects they shared. Their customer service has been excellent so far. The team has been helpful, responsive, and easy to deal with. I am planning to order custom boxes for my food products after Christmas and look forward to working with them.',
+    href: profileUrl
+  },
+  {
+    name: 'Ramla Naqvi',
+    initial: 'R',
+    colour: '#c3420b',
+    text: 'Ordered packaging for my small baking business and they did an exceptional job understanding my brand and providing packaging accordingly. Highly recommend for affordable packaging if you are starting a small business.',
+    href: 'https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s105483949896223163654!2s0x882ef1b706984217:0x2df69b1fc7d772a5'
+  },
   {
     name: "Ammi's Kitchen Toronto",
     initial: 'A',
@@ -28,7 +49,7 @@ const reviews = [
         <div class="google-review-rating">
           <strong>5.0<span class="sr-only"> out of 5</span></strong>
           <span class="google-review-stars" aria-hidden="true">★★★★★</span>
-          <a href={profileUrl} target="_blank" rel="noopener noreferrer">3 reviews<span class="sr-only"> on Google (opens in a new tab)</span></a>
+          <a href={profileUrl} target="_blank" rel="noopener noreferrer">{reviews.length} reviews<span class="sr-only"> on Google (opens in a new tab)</span></a>
         </div>
       </div>
       <a href={reviewUrl} target="_blank" rel="noopener noreferrer" class="google-review-button">Review us on Google<span class="sr-only"> (opens in a new tab)</span></a>
@@ -53,13 +74,13 @@ const reviews = [
                 <p>{excerpt}</p>
                 {remaining && <details class="google-review-more"><summary>Read more</summary><p>{remaining}</p></details>}
               </blockquote>
-              <a href={review.href} target="_blank" rel="noopener noreferrer" class="google-review-original">View original review<span class="sr-only"> by {review.name} on Google (opens in a new tab)</span></a>
+              <a href={review.href} target="_blank" rel="noopener noreferrer" class="google-review-original">{review.href === profileUrl ? 'View reviews on Google' : 'View original review'}<span class="sr-only">{review.href === profileUrl ? ` (opens in a new tab)` : ` by ${review.name} on Google (opens in a new tab)`}</span></a>
             </div>
           </figure>
         );
       })}
     </div>
-    <p class="google-review-note">Rating and count checked on 22 November 2026. <a href={profileUrl} target="_blank" rel="noopener noreferrer">See the latest reviews on Google<span class="sr-only"> (opens in a new tab)</span></a>. Share your honest experience; a Google Account is required.</p>
+    <p class="google-review-note">Rating and count as of 24 November 2026. <a href={profileUrl} target="_blank" rel="noopener noreferrer">See the latest reviews on Google<span class="sr-only"> (opens in a new tab)</span></a>. Share your honest experience; a Google Account is required.</p>
   </div>
 </section>
 <style>
