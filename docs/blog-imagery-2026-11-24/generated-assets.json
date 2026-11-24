@@ -1,0 +1,101 @@
+{
+  "assets": [
+    {
+      "id": "wholesale-hero",
+      "src": "/images/blog/2026-11-24-refresh/wholesale-hero.webp",
+      "bytes": 258406,
+      "sha256": "152fc62e7328a7e2d921827ec2642f92a53508635dedbb9d18e9c0ff1eaa1a06"
+    },
+    {
+      "id": "printed-colour-hero",
+      "src": "/images/blog/2026-11-24-refresh/printed-colour-hero.webp",
+      "bytes": 171722,
+      "sha256": "72ec389801233e14c346c7f59d02d9d6e6b99a2f7529770208684639a6b794c7"
+    },
+    {
+      "id": "printed-colour-detail",
+      "src": "/images/blog/2026-11-24-refresh/printed-colour-detail.webp",
+      "bytes": 253334,
+      "sha256": "7a0404bc39689225f96cad6ea1e0460373d026453573483f207410a805c531b0"
+    },
+    {
+      "id": "wholesale-detail",
+      "src": "/images/blog/2026-11-24-refresh/wholesale-detail.webp",
+      "bytes": 255198,
+      "sha256": "c95418ab257ae4aab38faa915a071d1a99984974ea87f5ec382e50e4208d6fa4"
+    },
+    {
+      "id": "gift-hero",
+      "src": "/images/blog/2026-11-24-refresh/gift-hero.webp",
+      "bytes": 154228,
+      "sha256": "70a67cbcb85a42275fd77cd5433c6734b2e42399a96eee363336f76a932ab306"
+    },
+    {
+      "id": "gift-detail",
+      "src": "/images/blog/2026-11-24-refresh/gift-detail.webp",
+      "bytes": 194184,
+      "sha256": "b823f328b6f227d1d163590064b058ce65948ab0ff884cf7074a552e58003b8f"
+    },
+    {
+      "id": "tea-hero",
+      "src": "/images/blog/2026-11-24-refresh/tea-hero.webp",
+      "bytes": 204706,
+      "sha256": "9381b3e3cc7d800d61d7e757047ba4bd836c1050be364f6b6f7714920526c703"
+    },
+    {
+      "id": "tea-detail",
+      "src": "/images/blog/2026-11-24-refresh/tea-detail.webp",
+      "bytes": 289476,
+      "sha256": "fc4f89f522c2c22c71f4a929f8aa801e00ed883f78fce8d4ac1f7c5afe7f1760"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "printed-colour-hero",
+      "title": "Printed Packaging Boxes and Brand Colour Control",
+      "prompt": "A sculptural still life of three premium ivory, coral and ink-blue folding cartons with the identical clear fictional wordmark ZYVONEL, a fan of large ink swatches beside them, against a soft cool-grey studio backdrop. Low three-quarter camera, strong side lighting, authentic printed paper texture. Show consistent brand colors across differently sized boxes.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "printed-colour-detail",
+      "title": "Artwork and print approval for custom boxes",
+      "prompt": "An extreme close-up editorial photo of a flat printed paperboard box sheet with die-cut tabs, folded sample carton and a loupe inspecting registration marks. Overhead on a lightbox with a large green color swatch and a simple pencil. Fictional wordmark ZYVONEL on the paperboard. Dominant ivory and forest green, crisp close detail distinct from any boxed-product still life.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "wholesale-detail",
+      "title": "Wholesale carton artwork and reorder consistency",
+      "prompt": "A warehouse receiving-bench close-up of two successive batches of flat corrugated carton blanks being compared, an open physical sample carton, a simple blank batch tag on each stack. Oblique close camera, natural kraft and terracotta, a steel caliper measuring the box tab. Small fictional geometric monogram K on carton print, no real brands. Clear focus on consistent panels and dimensions.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "gift-hero",
+      "title": "Gift Boxes for Premium Product Bundles: Artwork and Print Guide",
+      "prompt": "A premium plum-purple hinged rigid gift box with an open lid, pearl paper insert holding a candle jar and a small perfume carton, beside a closed matching gift box with copper foil fictional wordmark VYRELUNE. Sculptural rose-grey background with angled plinths, elegant studio photography. Camera at eye level, packaging is the subject, no molded-pulp packaging.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "gift-detail",
+      "title": "Gift packaging foil, wrap and artwork placement",
+      "prompt": "Macro photography of the corner of an ivory rigid gift box with dark blue wrapped paper, fine copper foil geometric emblem and the clear small fictional wordmark VYRELUNE. Next to it on a rose-grey worktop are two actual foil sample swatches and folded printed paper wrap; shallow depth of field and raking light clearly show paper seams and foil texture, no skincare bottles.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "tea-hero",
+      "title": "Tea Packaging Boxes for Cartons, Tins, and Pouches: Artwork and Print Guide",
+      "prompt": "A botanical editorial still life of sage-green tea cartons, a cylindrical ivory tea tin and a stand-up refill pouch on staggered stone-grey blocks; all carry fictional wordmark QELVORA and delicate illustrative ginkgo leaves. Loose dry tea in a small ceramic spoon at the foreground, soft window light, diagonal composition. No shipping cartons, no real brands.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "tea-detail",
+      "title": "Tea carton artwork proof and packaging panels",
+      "prompt": "Top-down editorial photograph of an unfolded sage-green tea carton with illustrated ginkgo leaves, a built tea carton and cream refill pouch set beside a printed color proof, a metal ruler and scattered dry tea leaves on charcoal table. The fictional wordmark QELVORA appears sparingly; legible broad marks only, no text document paragraphs, rich material detail.",
+      "mode": "built-in image_gen"
+    },
+    {
+      "id": "wholesale-hero",
+      "prompt": "Overhead print approval desk: three sizes of kraft corrugated cartons, flat printed blank, ink swatches, rolled dieline and steel ruler; QYVORUNE fictional wordmark, navy and gold print; photorealistic wide editorial photograph. No Apex or real brands.",
+      "mode": "built-in image_gen"
+    }
+  ]
+}

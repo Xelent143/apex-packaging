@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { requireFreshBlogArtwork } from './lib/blog-artwork.mjs';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const blogDir = join(root, 'src', 'pages', 'blog');
@@ -10,18 +11,6 @@ const blogIndex = join(blogDir, 'index.astro');
 const startDate = '2026-07-14';
 const publishFromDate = process.env.APEX_BLOG_PUBLISH_FROM || startDate;
 const maxCatchUp = Number(process.env.APEX_BLOG_MAX_CATCHUP || 365);
-
-const serviceImages = {
-  'mailer-boxes': '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp',
-  'custom-kraft-boxes': '/images/blog/custom-kraft-boxes-natural-product-brands-banner-v2.webp',
-  'corrugated-boxes': '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp',
-  polybags: '/images/blog/poly-mailers-apparel-soft-goods-banner-v2.webp',
-  'protective-packaging': '/images/blog/protective-packaging-insert-sample-kit-generated.png',
-  'industrial-bulk-packaging': '/images/blog/gaylord-boxes-procurement-generated.png',
-  'cbd-boxes': '/images/apex-update/styles/cbd-boxes-premium.png'
-};
-
-const fallbackImage = '/images/blog/ecommerce-packaging-canada-generated.png';
 
 const topics = [
   ['custom mailer boxes', 'Custom Mailer Boxes for Subscription Brands', 'subscription launches, inserts, and repeat shipments', 'mailer-boxes', 'subscriptions'],
@@ -86,6 +75,11 @@ let nextIndex = indexSource;
 const published = [];
 for (const date of datesToPublish) {
   const post = buildPost(date);
+  const artwork = await requireFreshBlogArtwork(root, post.slug);
+  post.image = artwork.hero.src;
+  post.imageAlt = artwork.hero.alt;
+  post.insideImage = artwork.inside.src;
+  post.insideAlt = artwork.inside.alt;
   const articlePath = join(blogDir, `${post.slug}.astro`);
 
   if (!existsSync(articlePath)) {
@@ -125,7 +119,6 @@ function buildPost(date) {
     description,
     slug,
     url: `/blog/${slug}`,
-    image: serviceImages[service] || fallbackImage,
     service: `/services/${service}`,
     category,
     location,
@@ -147,6 +140,7 @@ const description = '${escapeJs(post.description)}';
 const url = '${post.url}';
 const datePublished = '${post.date}';
 const image = '${post.image}';
+const insideImage = '${post.insideImage}';
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -180,7 +174,7 @@ const faq = buildFAQSchema([
     heading="${escapeAttr(post.indexTitle)}."
     lead="A practical procurement guide for buyers comparing materials, print, protection, lead time, and reorder planning before approving production."
     imageSrc={image}
-    imageAlt="${escapeAttr(post.titleBase)} premium Apex Packaging banner image with product mockups, cartons, and RFQ planning details."
+    imageAlt="${escapeAttr(post.imageAlt)}"
   />
 
   <section class="py-12 md:py-20">
@@ -189,7 +183,7 @@ const faq = buildFAQSchema([
       <p>Apex Packaging Solutions supports buyers in ${escapeHtml(post.location)} with custom packaging programs that connect structure, material, print, and delivery planning. This guide explains the practical details to confirm before approving ${escapeHtml(post.keyword)} for a launch, reorder, or multi-SKU program.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
-        <img src={image} alt="${escapeAttr(imageAltFor(post.image))}" width="1600" height="720" loading="eager" decoding="async" class="w-full" />
+        <img src={insideImage} alt="${escapeAttr(post.insideAlt)}" width="1536" height="1024" loading="lazy" decoding="async" class="w-full" />
         <figcaption class="px-5 py-4 text-sm text-neutral-600">A cleaner RFQ starts with the product, dimensions, material target, artwork state, quantity, and delivery route.</figcaption>
       </figure>
 
@@ -237,67 +231,6 @@ const faq = buildFAQSchema([
   />
 </BaseLayout>
 `;
-}
-
-function renderBanner(post) {
-  const safeTitle = escapeHtml(post.titleBase);
-  const safeKeyword = escapeHtml(post.keyword);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-label="${safeTitle} packaging banner">
-  <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="0.58" stop-color="#f6f1e8"/>
-      <stop offset="1" stop-color="#e5dfd3"/>
-    </linearGradient>
-    <linearGradient id="shadow" x1="0" x2="1">
-      <stop offset="0" stop-color="#000" stop-opacity="0.16"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#111" flood-opacity="0.18"/>
-    </filter>
-  </defs>
-  <rect width="1600" height="720" fill="url(#bg)"/>
-  <rect x="0" y="0" width="760" height="720" fill="#fff" opacity="0.72"/>
-  <circle cx="1380" cy="610" r="230" fill="${post.accent}" opacity="0.10"/>
-  <g opacity="0.10" stroke="#111" stroke-width="3" fill="none">
-    <path d="M156 162 L222 124 L288 162 L288 238 L222 276 L156 238 Z"/>
-    <path d="M222 124 L222 276 M156 162 L222 200 L288 162"/>
-  </g>
-  <g transform="translate(880 155)" filter="url(#soft)">
-    <rect x="42" y="110" width="400" height="270" rx="20" fill="#111"/>
-    <path d="M42 110 L112 58 H510 L442 110 Z" fill="#2b2b2b"/>
-    <path d="M442 110 L510 58 V320 L442 380 Z" fill="#3b3325"/>
-    <rect x="92" y="155" width="118" height="154" rx="12" fill="#fff"/>
-    <rect x="238" y="155" width="118" height="154" rx="12" fill="#f5f0e6"/>
-    <path d="M142 208 h68 M142 244 h86 M142 280 h52" stroke="${post.accent}" stroke-width="12" stroke-linecap="round"/>
-    <path d="M288 208 h68 M288 244 h86 M288 280 h52" stroke="#111" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
-    <rect x="-82" y="240" width="210" height="190" rx="18" fill="#c9a45b"/>
-    <path d="M-82 240 L-24 200 H184 L128 240 Z" fill="#e0bf74"/>
-    <path d="M128 240 L184 200 V384 L128 430 Z" fill="#9d762d"/>
-  </g>
-  <g transform="translate(126 180)">
-    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="7" fill="${post.accent}">APEX PACKAGING</text>
-    <text x="0" y="78" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#111">${safeTitle}</text>
-    <text x="0" y="138" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600" fill="#444">${safeKeyword} buyer guide</text>
-    <rect x="0" y="190" width="430" height="6" rx="3" fill="${post.accent}"/>
-    <text x="0" y="260" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#555">Specs, materials, samples, and reorder planning.</text>
-  </g>
-</svg>
-`;
-}
-
-function imageAltFor(image) {
-  const alternatives = {
-    '/images/blog/custom-mailer-boxes-subscription-brands-banner-v2.webp': 'Open branded corrugated mailer filled with boxed products, tissue, and paper void fill',
-    '/images/blog/custom-kraft-boxes-natural-product-brands-banner-v2.webp': 'Natural kraft product boxes with printed branding and retail packaging details',
-    '/images/blog/corrugated-shipping-boxes-heavy-ecommerce-banner-v2.webp': 'Kraft corrugated shipping boxes with dividers, board samples, tape, and handling labels',
-    '/images/blog/poly-mailers-apparel-soft-goods-banner-v2.webp': 'Branded poly mailers with folded clothing, gauge samples, shipping labels, and a return strip',
-    '/images/blog/protective-packaging-insert-sample-kit-generated.png': 'Protective packaging sample kit with foam, moulded fibre, and corrugated inserts',
-    '/images/blog/gaylord-boxes-procurement-generated.png': 'Lined corrugated bulk containers secured on pallets in a warehouse',
-    '/images/apex-update/styles/cbd-boxes-premium.png': 'Black, kraft, and white CBD presentation boxes with gold botanical details'
-  };
-  return alternatives[image] || 'Assorted custom packaging materials and branded product boxes';
 }
 
 function pakistanDate(date) {
