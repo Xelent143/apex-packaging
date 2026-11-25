@@ -15,9 +15,54 @@ const finishes = [
   { title: 'Custom spot UV box packaging Canada', body: 'Spot UV adds gloss to selected artwork areas over a contrasting surface. It should be planned with the final dieline and print file.' }
 ];
 const faqs = [
-  { q: 'Which packaging finish is right for my box?', a: 'The suitable finish depends on the product, box structure, board, artwork, sales channel, quantity and brand direction. Send reference images and the product brief so Apex can confirm the available options.' },
-  { q: 'Can finishes be combined on one custom box?', a: 'Potentially. Combinations such as matte lamination with foil or spot UV depend on the selected material, artwork and production route.' },
-  { q: 'Do premium finishes change the quote or production schedule?', a: 'Yes. Finishes are part of the product specification, so they can affect minimum order quantity, pricing, sample requirements and production timing.' }
+  {
+    "q": "Which packaging finish should I choose for retail, gifting or ecommerce boxes?",
+    "a": "Start with the box structure, board, artwork and handling route. Decide whether your priority is surface protection, a low-glare appearance, tactile detail or a reflective accent. Share reference packs, budget and quantity with Apex so the options can be reviewed together. Compare physical samples under realistic lighting and handling conditions rather than choosing a finish from a screen alone."
+  },
+  {
+    "q": "What is the difference between matte, gloss and soft-touch lamination?",
+    "a": "Gloss creates a shiny surface, matte gives a lower-sheen appearance, and soft-touch adds a velvety feel. They can change how printed colours appear and how the box feels in the hand. Ask which treatments suit the proposed stock, then compare production-representative samples. Confirm the exact material and performance requirement rather than assuming every finish with the same name behaves identically."
+  },
+  {
+    "q": "How is spot UV different from foil stamping?",
+    "a": "Spot UV applies a selective gloss effect, often to contrast with a low-sheen background. Foil stamping transfers a foil effect onto chosen artwork areas, such as a logo or border. The choice depends on whether you want gloss contrast or a metallic or other foil appearance. Review the design, surface compatibility and sample with Apex before specifying either treatment."
+  },
+  {
+    "q": "Can I request gold, silver or holographic foil on custom packaging?",
+    "a": "Share a foil reference and mark the areas to be treated. Apex can review available colours and effects against the selected board and production route. Holographic and metallic effects change with light and viewing angle, so a photograph or digital proof is insufficient for final appearance approval. Confirm a physical reference, coverage, detail limits and quoted availability before production."
+  },
+  {
+    "q": "What is the difference between embossing and debossing, and will my logo work?",
+    "a": "Embossing raises selected detail; debossing presses it into the surface. Suitability depends on the artwork, board, structure and tooling. Fine lettering, closely spaced elements and areas near folds need technical review. Send vector artwork and request advice on achievable detail. Approve the effect on an appropriate sample rather than assuming the same logo will reproduce equally on every box material."
+  },
+  {
+    "q": "Can I combine soft touch, foil, embossing and spot UV on one box?",
+    "a": "Combinations may be possible, but the finishes must be reviewed as one specification. Surface treatments can affect how subsequent foil, coatings or glue bond, and additional operations introduce alignment considerations. Identify the main visual feature and mark the required effects on the dieline. Ask Apex to confirm compatibility, tooling and a suitable combined sample before approving the full order."
+  },
+  {
+    "q": "How should I prepare artwork for foil, embossing or spot UV?",
+    "a": "Use the final approved dieline and identify each finish separately with clearly named vector layers or masks, following the production team's file instructions. Keep finish artwork aligned with the print and distinguish it from cut, crease and glue guides. Confirm minimum detail, spacing, registration allowances and areas to avoid. Do not rely on a flattened preview to communicate manufacturing instructions."
+  },
+  {
+    "q": "Will lamination or premium finishes stop scratches, fingerprints or moisture damage?",
+    "a": "A finish may improve surface protection, but it does not make every carton scratch-proof or waterproof. Performance depends on the treatment, printed colour, board and exposure. Ask for samples and agree relevant checks for rubbing, folding, stacking and expected handling. Review edges and folds as well as flat panels; choose structural or shipping protection separately when the route requires it."
+  },
+  {
+    "q": "How much do premium packaging finishes cost, and do they affect minimum orders or lead times?",
+    "a": "Coverage, number of effects, tooling, material, artwork versions and quantity influence cost and timing. Request a like-for-like quote with optional finish alternatives and ask which setup or tooling costs recur on reorders. Minimum quantities and sample requirements depend on the production route. Give the Canadian postal code or US ZIP code and in-hand date so Apex can confirm freight and the complete project schedule."
+  },
+  {
+    "q": "Can I approve a finish sample before placing a bulk order?",
+    "a": "Ask which stock samples, printed proofs or pre-production samples are available, including cost, timing and what each represents. A screen proof can check placement and copy but cannot demonstrate texture, reflectivity or handling performance. Review the proposed board, colour and finish together, including an assembled box where folds or closures matter. Retain an agreed reference and artwork revision for production and repeat orders."
+  },
+  {
+    "q": "Can foil, gloss or embossing affect barcode, QR-code or label readability?",
+    "a": "Reflective surfaces, low contrast and physical distortion can interfere with scanning or reading. Reserve a suitable area for codes and essential text, with the required clear space, and keep disruptive effects away from it. Check code size and placement on the final packaging. Verify printed codes after finishing and assembly rather than relying solely on a digital artwork scan."
+  },
+  {
+    "q": "Are foil-stamped, laminated or spot-UV boxes recyclable in Canada and the USA?",
+    "a": "Assess the complete pack, including board, film, coatings, foil coverage, adhesives and inserts. A finish name alone does not establish recyclability or compostability. Request available documentation for the actual specification and check collection and processing acceptance in the receiving community. Recycled content is a separate claim. Use qualified disposal instructions supported by the finished materials and local access, rather than a blanket environmental promise."
+  }
 ];
 const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }]);
 const service = buildServiceSchema({ name: 'Custom packaging finishes', description: 'Custom embossed, foil-stamped, matte, soft-touch and spot-UV packaging finishes for product-specific packaging projects.', url: '/packaging-finishes' });
