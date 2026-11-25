@@ -22,24 +22,28 @@ const service = buildServiceSchema({ name:'Industrial and bulk packaging', descr
     lead="Apex supplies bulk corrugated, stretch film, shrink film, liners, strapping, edge protectors, and related supplies for automotive, food, electronics, pharmaceutical, and industrial programs. Project specifications, release schedules, freight, and delivery are coordinated for Canada, the United States, and international destinations."
   />
 
+  <section class="container max-w-wide py-8" aria-label="Packaging examples">
+    <img src="/images/blog/stretch-vs-shrink-film-pallet-protection-generated.png" alt="Palletized cartons with stretch wrap, shrink film, wrapping equipment and film rolls for industrial load protection." width="1800" height="600" class="block h-auto w-full rounded-md" loading="eager" decoding="async" />
+  </section>
+
   <section class="py-16 md:py-24">
     <div class="container max-w-default prose-apex">
       <h2>Bulk corrugated containers</h2>
       <ul>
-        <li><strong>Gaylord boxes</strong> — common sizes 40×48×36 to 48×40×42, plus custom dimensions.</li>
+        <li><strong>Gaylord boxes</strong> — dimensions selected around the pallet footprint, contents, fill weight and handling method.</li>
         <li><strong>Triple-wall corrugated</strong> for stacking and freight resilience.</li>
         <li><strong>Octagonal Gaylords</strong> for bulk powder, granulate, and free-flowing materials.</li>
-        <li><strong>Liner bags</strong> for Gaylords — FDA-grade where food contact applies.</li>
+        <li><strong>Liner bags</strong> for Gaylords — specify contents, contact conditions and required food-contact documentation where applicable.</li>
       </ul>
 
       <h2>Stretch and shrink film</h2>
       <table>
-        <thead><tr><th>Product</th><th>Use case</th><th>Gauge</th></tr></thead>
+        <thead><tr><th>Product</th><th>Use case</th><th>Specification to confirm</th></tr></thead>
         <tbody>
-          <tr><td>Hand stretch film</td><td>Manual palletizing</td><td>70 – 100 gauge</td></tr>
-          <tr><td>Machine stretch film</td><td>Auto / semi-auto stretch wrappers</td><td>60 – 80 gauge</td></tr>
-          <tr><td>Pre-stretched film</td><td>Reduces material use 30–40%</td><td>30 – 50 gauge</td></tr>
-          <tr><td>Shrink film (PVC, POF, PE)</td><td>Bundling, retail packs</td><td>varies</td></tr>
+          <tr><td>Hand stretch film</td><td>Manual palletizing</td><td>Film thickness, load and application method</td></tr>
+          <tr><td>Machine stretch film</td><td>Auto / semi-auto stretch wrappers</td><td>Wrapper compatibility and containment performance</td></tr>
+          <tr><td>Pre-stretched film</td><td>Material-use comparison through a load trial</td><td>Film construction and validated application settings</td></tr>
+          <tr><td>Shrink film (PVC, POF, PE)</td><td>Bundling, retail packs</td><td>Equipment, heat exposure and product compatibility</td></tr>
         </tbody>
       </table>
 
@@ -53,16 +57,16 @@ const service = buildServiceSchema({ name:'Industrial and bulk packaging', descr
 
       <h2>Custom pallet packaging programs</h2>
       <ol>
-        <li><strong>Audit</strong> — site visit, line walk-through, current spec review.</li>
-        <li><strong>Spec proposal</strong> — material recommendations, machine compatibility check, drop-test scenarios.</li>
-        <li><strong>Pilot</strong> — small-batch trial with measurement of damage rate, wrap consumption, and labour time.</li>
-        <li><strong>Rollout</strong> — blanket PO with scheduled releases, single point of contact.</li>
+        <li><strong>Audit</strong> — review the current specification, load photographs, equipment and handling route; confirm any on-site scope separately.</li>
+        <li><strong>Spec proposal</strong> — compare materials, machine requirements and the agreed validation plan.</li>
+        <li><strong>Pilot</strong> — agree a trial scope to measure pack stability, material consumption and packing time.</li>
+        <li><strong>Rollout</strong> — confirm approved specifications, order quantities, receiving requirements and any scheduled releases in the quotation.</li>
       </ol>
       <p>For palletized programs, use the <a href="/blog/pallet-packaging-for-ltl-and-warehouse-loads-2026-09-10">LTL pallet-packaging planning guide</a> to document unit-load geometry, containment, handling points, and route-validation requirements.</p>
     </div>
   </section>
 
-  <FAQAccordion faqs={faqs} />
+  <FAQAccordion faqs={faqs} heading="Industrial and bulk packaging FAQs for Canada and USA buyers" panelHeading="Industrial and bulk packaging buyer questions" />
 
   <RelatedContent items={[
     { title:'Corrugated Boxes', href:'/services/corrugated-boxes', description:'Single- and double-wall corrugated for general shipping.' },

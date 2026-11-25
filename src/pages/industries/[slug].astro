@@ -24,23 +24,23 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'apparel-boxes': [{ label: 'Folded Fit' }, { label: 'Soft Touch' }, { label: 'Mailer Ready' }, { label: 'Boutique Print' }],
   'auto-parts': [{ label: 'Heavy Duty' }, { label: 'Part Labels' }, { label: 'VCI Options' }, { label: 'Insert Ready' }],
   'bakery-boxes': [{ label: 'Material Review' }, { label: 'Window Cut' }, { label: 'Product Fit' }, { label: 'Bakery Ready' }],
-  'bottle-boxes': [{ label: 'Bottle Fit' }, { label: 'Insert Lock' }, { label: 'Fragile Safe' }, { label: 'Gift Ready' }],
+  'bottle-boxes': [{ label: 'Bottle Fit' }, { label: 'Insert Lock' }, { label: 'Protection Review' }, { label: 'Gift Ready' }],
   'candle-boxes': [{ label: 'Jar Protection' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }, { label: 'Giftable' }],
   'cbd-boxes': [{ label: 'CBD Retail' }, { label: 'Copy Panels' }, { label: 'Tuck Cartons' }, { label: 'Display Ready' }],
   'cbd-gift-boxes': [{ label: 'CBD Retail' }, { label: 'Insert Trays' }, { label: 'Gift Ready' }, { label: 'Compliance Space' }],
-  'cereal-boxes': [{ label: 'Food Grade' }, { label: 'Large Panels' }, { label: 'Liner Ready' }, { label: 'Shelf Ready' }],
-  'chocolate-bar-boxes': [{ label: 'Bar Sleeves' }, { label: 'Food Safe' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }],
-  'chocolate-boxes': [{ label: 'Food Safe' }, { label: 'Gift Finish' }, { label: 'Insert Trays' }, { label: 'Foil Detail' }],
+  'cereal-boxes': [{ label: 'Food-Contact Review' }, { label: 'Large Panels' }, { label: 'Liner Ready' }, { label: 'Shelf Ready' }],
+  'chocolate-bar-boxes': [{ label: 'Bar Sleeves' }, { label: 'Material Review' }, { label: 'Foil Detail' }, { label: 'Retail Ready' }],
+  'chocolate-boxes': [{ label: 'Material Review' }, { label: 'Gift Finish' }, { label: 'Insert Trays' }, { label: 'Foil Detail' }],
   'christmas-boxes': [{ label: 'Holiday Print' }, { label: 'Gift Ready' }, { label: 'Foil Detail' }, { label: 'Seasonal Planning' }],
   'cigarette-boxes': [{ label: 'Small Format' }, { label: 'Copy Zones' }, { label: 'Display Trays' }, { label: 'Batch Space' }],
-  'coffee-packaging': [{ label: 'Freshness' }, { label: 'Valve Options' }, { label: 'Retail Ready' }, { label: 'Custom Print' }],
+  'coffee-packaging': [{ label: 'Barrier Review' }, { label: 'Valve Options' }, { label: 'Retail Ready' }, { label: 'Custom Print' }],
   'cosmetic-boxes': [{ label: 'Beauty Retail' }, { label: 'Soft Touch' }, { label: 'Foil Options' }, { label: 'Custom Inserts' }],
   'custom-kraft-soap-boxes': [{ label: 'Kraft Board' }, { label: 'Soap Sleeves' }, { label: 'Eco Options' }, { label: 'Window Cut' }],
-  'custom-tuck-boxes': [{ label: 'Tuck Carton' }, { label: 'Auto Bottom' }, { label: 'Retail Ready' }, { label: 'Low MOQ' }],
+  'custom-tuck-boxes': [{ label: 'Tuck Carton' }, { label: 'Auto Bottom' }, { label: 'Retail Ready' }, { label: 'Quantity Tiers' }],
   'custom-mylar-bags': [{ label: 'Barrier Film' }, { label: 'Resealable' }, { label: 'Spec Review' }, { label: 'Custom Print' }],
   'display-boxes': [{ label: 'Counter Ready' }, { label: 'Shelf Impact' }, { label: 'Open Display' }, { label: 'Retail Print' }],
   'electronics-boxes': [{ label: 'ESD Options' }, { label: 'Foam Inserts' }, { label: 'Device Fit' }, { label: 'Handling Icons' }],
-  'food-boxes': [{ label: 'Food Safe' }, { label: 'Meal Kits' }, { label: 'Fresh Print' }, { label: 'Retail Ready' }],
+  'food-boxes': [{ label: 'Material Review' }, { label: 'Meal Kits' }, { label: 'Fresh Print' }, { label: 'Retail Ready' }],
   'gift-boxes': [{ label: 'Gift Ready' }, { label: 'Ribbon Detail' }, { label: 'Rigid Feel' }, { label: 'Custom Print' }],
   'hair-extension-boxes': [{ label: 'Beauty Retail' }, { label: 'Drawer Style' }, { label: 'Silk Finish' }, { label: 'Custom Logo' }],
   'hardware-boxes': [{ label: 'Dense Parts' }, { label: 'Hang Tabs' }, { label: 'SKU Panels' }, { label: 'Partitions' }],
@@ -48,7 +48,7 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'hemp-boxes': [{ label: 'Kraft Look' }, { label: 'Retail Carton' }, { label: 'Copy Panels' }, { label: 'Display Ready' }],
   'holiday-boxes': [{ label: 'Seasonal Art' }, { label: 'Gift Insert' }, { label: 'Short Runs' }, { label: 'Retail Ready' }],
   'jewelry-boxes': [{ label: 'Luxury Fit' }, { label: 'Velvet Insert' }, { label: 'Foil Stamp' }, { label: 'Gift Ready' }],
-  'kitchenware-boxes': [{ label: 'Fragile Safe' }, { label: 'Dividers' }, { label: 'Retail Sleeve' }, { label: 'Ship Ready' }],
+  'kitchenware-boxes': [{ label: 'Protection Review' }, { label: 'Dividers' }, { label: 'Retail Sleeve' }, { label: 'Ship Ready' }],
   'pharma-boxes': [{ label: 'Clean Specs' }, { label: 'Lot Panels' }, { label: 'Tamper Seal' }, { label: 'Device Fit' }],
   'pillow-boxes': [{ label: 'Curved Shape' }, { label: 'Gift Ready' }, { label: 'Window Cut' }, { label: 'Retail Print' }],
   'pizza-boxes': [{ label: 'Food-Contact Brief' }, { label: 'Vent Planning' }, { label: 'Flat-Pack Setup' }, { label: 'Print & Fit' }],
@@ -59,7 +59,7 @@ const heroFeatureItemsBySlug: Record<string, { label: string }[]> = {
   'shipping-boxes': [{ label: 'ECT Rated' }, { label: 'Parcel Ready' }, { label: 'Void Control' }, { label: 'Stack Safe' }],
   'soap-boxes': [{ label: 'Soap Bars' }, { label: 'Window Cut' }, { label: 'Kraft Options' }, { label: 'Retail Ready' }],
   'software-boxes': [{ label: 'Tech Retail' }, { label: 'Insert Ready' }, { label: 'Rigid Options' }, { label: 'Premium Print' }],
-  'spice-packaging': [{ label: 'Aroma Safe' }, { label: 'Jar Sleeves' }, { label: 'Food Grade' }, { label: 'Display Ready' }],
+  'spice-packaging': [{ label: 'Aroma Safe' }, { label: 'Jar Sleeves' }, { label: 'Food-Contact Review' }, { label: 'Display Ready' }],
   'sports-boxes': [{ label: 'Gear Fit' }, { label: 'Insert Kits' }, { label: 'Team Print' }, { label: 'Ship Ready' }],
   'stationery-boxes': [{ label: 'Paper Safe' }, { label: 'Flat Mailer' }, { label: 'Pen Inserts' }, { label: 'Gift Ready' }],
   'tea-packaging': [{ label: 'Aroma Safe' }, { label: 'Pouches' }, { label: 'Retail Cartons' }, { label: 'Natural Look' }],
@@ -615,6 +615,9 @@ const defaultFaqs = [
   ...(productFAQs[box.slug] ? [productFAQs[box.slug]] : [])
 ];
 const faqs = industryBuyerFaqs(box.slug) ?? buyerContent?.faqs ?? defaultFaqs;
+if (faqs.length !== 12 || new Set(faqs.map(({ q }) => q)).size !== 12) {
+  throw new Error(`Expected exactly 12 distinct buyer FAQs for ${box.slug}`);
+}
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -950,7 +953,7 @@ const service = buildServiceSchema({
     </div>
   </section>}
 
-  <FAQAccordion faqs={faqs} />
+  <FAQAccordion faqs={faqs} heading={`${box.label} FAQs for Canada and USA buyers`} panelHeading={`${box.label} buyer questions`} />
 
   <RelatedContent
     heading={relatedHeading}

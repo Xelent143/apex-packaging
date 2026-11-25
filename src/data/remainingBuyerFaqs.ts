@@ -1,3 +1,4 @@
+import { buyerFaqSupplements } from './buyerFaqSupplements';
 type FAQ = { q: string; a: string };
 type QuestionPair = readonly [question: string, answer: string];
 
@@ -470,5 +471,6 @@ const questions: Record<string, QuestionPair[]> = {
 };
 
 export function remainingBuyerFaqs(route: string): FAQ[] | undefined {
-  return questions[route]?.map(([q, a]) => ({ q, a }));
+  const base = questions[route];
+  return base ? [...base.map(([q, a]) => ({ q, a })), ...(buyerFaqSupplements[route] ?? [])] : undefined;
 }
