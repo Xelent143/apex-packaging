@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+const faqs = [
+  {
+    "q": "What is a soft-touch finish, and how does it feel on packaging?",
+    "a": "Soft touch describes a tactile surface often compared with velvet, suede or a smooth petal. It can add a distinct feel to a box without relying on a highly reflective appearance. The exact texture varies by treatment and material. Share a physical reference with Apex and approve an appropriate sample; a photograph cannot communicate the final feel."
+  },
+  {
+    "q": "Is soft-touch coating the same as soft-touch lamination?",
+    "a": "No. A coating and a laminated film use different constructions, even when both are described as soft touch. They can differ in feel, handling performance, processing and disposal requirements. Ask the quotation to identify the treatment and material clearly. Compare representative samples before substituting one for another, particularly when a previous pack is the reference for a reorder."
+  },
+  {
+    "q": "How is soft touch different from standard matte packaging?",
+    "a": "Matte describes a low-sheen appearance, while soft touch adds a particular tactile quality. A standard matte surface should not be assumed to feel velvety. Choose around the intended opening experience, artwork and handling needs. Review the actual material by touch and under retail lighting rather than selecting solely from the finish name or a digital mockup."
+  },
+  {
+    "q": "Can soft touch be used on folding cartons, rigid boxes or mailers?",
+    "a": "Availability depends on the board, print surface, box construction and production route. The same treatment may behave differently on a folding carton and a wrapped rigid box. Send the structure, dimensions, artwork and any assembly requirements so Apex can review suitability. Check the finished sample, including folds and glue areas, before extending a finish approved on one format to another."
+  },
+  {
+    "q": "Will soft touch change my printed colours or dark background?",
+    "a": "The surface treatment and lighting can change how colour, contrast and sheen are perceived. Review critical brand colours on the intended board after the proposed finish is applied, especially for large dark areas. Agree an approved physical reference and acceptance criteria. A screen proof can check content and layout but cannot demonstrate the final texture or appearance in every environment."
+  },
+  {
+    "q": "Does soft touch resist fingerprints, scratches and rubbing during shipping?",
+    "a": "Performance varies by the exact coating or film; the name soft touch is not a universal resistance rating. Discuss expected handling, packing, storage and contact with other surfaces. Agree suitable marking and rubbing checks on a representative finished sample. If enhanced resistance is required, request a specification that addresses it explicitly rather than assuming every soft-touch treatment is scratch-proof or fingerprint-free."
+  },
+  {
+    "q": "Can soft touch be combined with foil, Spot UV or embossing?",
+    "a": "Combinations may be possible, but the surface must suit the subsequent operation. Identify each effect on the dieline and ask Apex to review adhesion, alignment and the complete production sequence. Request an appropriate combined sample on the proposed board. Approval of a treatment on its own does not establish compatibility with every foil, selective gloss coating or relief design."
+  },
+  {
+    "q": "Can I add labels, variable printing or handwritten details to a soft-touch box?",
+    "a": "Describe the marking or labelling method before approval. A tactile surface does not establish that every adhesive, pen, stamp or ink will bond or reproduce reliably. Trial the actual label or marking process on the finished material and check durability. Keep codes legible with suitable contrast and clear space, then verify scanning after finishing and assembly."
+  },
+  {
+    "q": "Can I approve a soft-touch sample before ordering in bulk?",
+    "a": "Ask which finish swatches, printed proofs or finished pre-production samples are available, with their costs, timing and limitations. Review texture, colour, handling marks, folds and any additional effects together. A structural sample may omit the finish entirely. Retain the approved material specification, artwork revision and sample reference so the agreed tactile result can be reviewed on production and reorders."
+  },
+  {
+    "q": "How much do soft-touch boxes cost, and what is the minimum order?",
+    "a": "Cost and minimum quantity depend on the box dimensions, board, treatment, covered surfaces, artwork versions and other finishes. Send quantities per design and the Canadian postal code or US ZIP code. Request a clear scope for samples, tooling and freight, then confirm currency, taxes, duties and delivery responsibilities. Apex quotes the complete specification rather than one universal soft-touch price or minimum."
+  },
+  {
+    "q": "How long does soft-touch packaging take, and can Apex deliver to Canada and the USA?",
+    "a": "Apex's Canada-based team coordinates approvals, samples, qualified overseas production and delivery. Timing depends on artwork readiness, material availability, quantity, additional finishes and freight method. Provide the receiving location and required in-hand date early. Confirm production and transit separately in the quotation, and review any material or finish changes before assuming the original launch schedule remains achievable."
+  },
+  {
+    "q": "Is soft-touch packaging recyclable, plastic-free or compostable?",
+    "a": "Soft touch is a surface description, not an environmental certification. Ask for the actual coating or film specification and assess the complete box, including adhesives, laminates, foil, windows and inserts. Request evidence for proposed claims and check collection and processing acceptance in the receiving Canadian or US community. Recycled content, recyclability and compostability are different properties; use qualified disposal instructions supported by the finished materials."
+  }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }, { name: 'Soft Touch', url: '/packaging-finishes/soft-touch' }]);
+const service = buildServiceSchema({ name: 'Soft-touch custom packaging', description: 'Tactile soft-touch packaging with material, artwork, sample and quotation support for Canadian and US buyers.', url: '/packaging-finishes/soft-touch' });
+---
+<BaseLayout
+  title="Soft Touch Packaging Canada & USA | Tactile Finishes | Apex"
+  description="Plan soft-touch packaging: coating versus lamination, feel, colour, handling, samples and twelve buyer FAQs for Canada and the USA."
+  image="/images/home/finishes/soft-touch.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Soft touch · Custom packaging"
+    heading="Soft Touch"
+    lead="Make the first touch part of your brand. Plan a tactile finish around your box, artwork and customer experience, with project-specific support for Canadian and US packaging buyers."
+    imageSrc="/images/home/finishes/soft-touch.webp"
+    imageAlt="Eloria packaging with a deep green low-sheen surface and metallic brand detail, matching the Soft Touch card."
+  />
+  <section class="bg-neutral-50 py-12 md:py-20">
+    <div class="container max-w-wide grid gap-6 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">A finish customers can feel</h2><p class="mt-3 leading-relaxed text-neutral-600">Bring a tactile quality to the opening experience. Choose the desired softness using a physical reference, then review its appearance and feel on the proposed pack.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Specify more than the texture</h2><p class="mt-3 leading-relaxed text-neutral-600">Coatings and laminates are different constructions. Match the treatment to the board, print process, packing route and handling requirements before approving the finish.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Review the complete experience</h2><p class="mt-3 leading-relaxed text-neutral-600">Check texture, colour, marks and additional effects together. Approve a suitable finished sample rather than treating a screen preview as evidence of the final feel.</p></article>
+    </div>
+  </section>
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>Prepare your soft-touch packaging brief</h2>
+      <p>Start with the product, box and tactile reference. Apex reviews the proposed surface treatment, artwork and finish combinations before confirming samples, production and delivery arrangements.</p>
+      <ul>
+        <li>Provide the structure, dimensions, board and final dieline where available.</li>
+        <li>Share a physical reference for the feel and identify critical brand colours.</li>
+        <li>Describe handling, surface-marking, label or variable-printing requirements.</li>
+        <li>Mark additional finishes, codes, essential text and glue areas for review.</li>
+        <li>Include quantities per design, receiving postal or ZIP code and required in-hand date.</li>
+      </ul>
+      <p>Texture alone does not establish durability, product-contact suitability or environmental properties. Confirm those requirements against the exact material and complete packaging specification.</p>
+    </div>
+  </section>
+  <FAQAccordion faqs={faqs} heading="Soft Touch: Buyer FAQs" intro="Practical answers for Canadian and US buyers planning soft-touch packaging." panelHeading="Soft touch buyer questions" />
+  <CTABand heading="Request a soft-touch packaging quotation." lead="Share your box, artwork, tactile reference, quantity and destination for a project-specific proposal." primaryCta={{ label: 'Quote soft touch', href: '/contact' }} />
+</BaseLayout>
