@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+const faqs = [
+  {
+    "q": "What is gold foiling, and how is it different from gold ink?",
+    "a": "Gold foiling transfers a decorative metallic effect onto selected areas of the packaging. Gold-coloured process printing or metallic ink uses a different production method and will not necessarily reproduce the same reflection. Choose using physical references rather than a monitor colour. Tell Apex whether you want a foil-stamped logo, lettering or a larger design area so the quotation specifies the intended treatment."
+  },
+  {
+    "q": "Can I choose a bright, matte, champagne or warmer gold foil shade?",
+    "a": "Share a physical swatch or reference pack and describe the desired tone and sheen. Gold foils are available in different appearances, but the exact selection depends on the material and production route. Apex confirms the proposed reference and availability before approval. A Pantone colour, photograph or digital gold effect alone does not fully describe how a reflective foil will look under store lighting."
+  },
+  {
+    "q": "Can gold foiling be used on kraft, black or textured packaging?",
+    "a": "The result depends on the precise board surface, foil grade, inks and coatings. A dark background can give strong visual contrast, while texture may affect coverage and fine detail. Ask Apex to assess the actual stock and finish combination and request a suitable sample. Do not assume that a gold foil approved on smooth white board will perform identically on a different substrate."
+  },
+  {
+    "q": "How small can my gold-foil logo, lettering or border be?",
+    "a": "Achievable detail depends on the artwork, spacing, tooling, substrate and production process. Fine lines and small reversed-out areas need review to avoid losing definition. Supply vector artwork at its intended size and ask for project-specific minimum detail and registration guidance. Keep critical elements away from folds and cuts, and approve a representative result rather than relying on a universal minimum font size."
+  },
+  {
+    "q": "Can gold foil be combined with embossing, debossing or soft-touch finishes?",
+    "a": "Combinations may be possible, but the complete specification needs review. Relief changes the surface shape; coatings or laminates affect the surface onto which foil must bond. Identify each effect separately and confirm the production sequence, tooling and alignment requirements. Ask for a combined sample on the proposed material, especially where foil is intended to follow a raised logo or printed detail."
+  },
+  {
+    "q": "What artwork files should I send for gold-foiled packaging?",
+    "a": "Use the final approved dieline and editable vector artwork. Identify gold-foil areas on a separate, clearly named layer or mask following the production team's instructions. Confirm safe distances, solid shapes, spacing and registration allowances before release. Keep cut and crease guides distinct from the foil artwork, and mark any glue areas or essential copy that must remain clear. A flattened mockup is a visual reference, not a complete manufacturing file."
+  },
+  {
+    "q": "How much do gold-foiled boxes cost for Canadian and US buyers?",
+    "a": "Price depends on box size, board, foil shade, coverage, tooling, artwork versions, quantity and other finishes. Send the artwork, desired gold reference, quantities per design and receiving postal or ZIP code. Ask which setup, sample and tooling costs are included or recur on reorders. Confirm currency, freight, duties, taxes and delivery responsibilities so quotations compare the same finished specification and delivered scope."
+  },
+  {
+    "q": "What is the minimum order and lead time for gold-foiled packaging?",
+    "a": "Minimum quantities and timing depend on the structure, foil supply, material, tools, approvals and production setup. Give Apex your launch quantity, likely reorder needs and required in-hand date. Its Canada-based team coordinates qualified overseas production and delivery for Canadian and US projects. Confirm production and transit separately in the quotation; multiple sizes or artwork versions may have separate setup requirements."
+  },
+  {
+    "q": "Can I approve a gold-foil sample before placing a bulk order?",
+    "a": "Ask which foil swatches, flat proofs and finished pre-production samples are available, including their costs, timing and limitations. Review the selected gold on the actual board and printed background, together with any coating or embossing. Check it under realistic lighting and after assembly. Retain the approved reference and artwork revision; a screen proof can confirm placement but cannot establish the final metallic appearance."
+  },
+  {
+    "q": "Will gold foil scratch, peel or crack at the box folds?",
+    "a": "Performance depends on the foil, substrate, adhesion, processing and handling. Artwork across a crease or close to an edge needs particular assessment. Review the finished sample for transfer quality and agree relevant folding and rubbing checks for the intended use. Decorative gold foil does not make a box scratch-proof or waterproof. Discuss protective packing separately where shipping or storage could mark the surface."
+  },
+  {
+    "q": "Can gold foil affect barcodes, QR codes or required product information?",
+    "a": "Reflective areas can reduce reading or scanning contrast. Reserve suitable non-disruptive areas for codes and essential text, with the required clear space and final-size artwork. Keep foil borders and decorative details from crowding those areas. Verify printed codes and check label readability on the finished assembled box rather than relying only on a digital proof or screen scan."
+  },
+  {
+    "q": "Are gold-foiled boxes recyclable in Canada and the USA?",
+    "a": "Assess the full construction, including board, transferred foil decoration, any film laminate, coatings, adhesives and inserts. A gold foil accent is a different specification from a fully metallized or film-laminated surface. Ask for evidence supporting the proposed materials and check collection and processing acceptance in the receiving community. Recycled content is a separate property; avoid an unqualified recycling or composting claim based on appearance alone."
+  }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }, { name: 'Gold Foiling', url: '/packaging-finishes/gold-foiling' }]);
+const service = buildServiceSchema({ name: 'Holographic foiling for custom packaging', description: 'Project-specific gold foil effects for branded packaging, with material review, artwork, samples and quotation support for Canada and the USA.', url: '/packaging-finishes/gold-foiling' });
+---
+<BaseLayout
+  title="Gold Foiling Packaging Canada & USA | Apex"
+  description="Explore gold foiling for custom boxes: effects, compatible materials, artwork, samples, costs and twelve buyer FAQs for Canada and the USA."
+  image="/images/home/finishes/gold-foiling.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Gold foiling · Custom packaging"
+    heading="Gold Foiling"
+    lead="Give your packaging a distinctive metallic accent. Plan gold-foil logos, lettering and borders around your box, artwork and brand, with project-specific support for Canadian and US buyers."
+    imageSrc="/images/home/finishes/gold-foiling.webp"
+    imageAlt="Veridan Chocolate packaging with a gold-foil logo, lettering and flowing gold lines, matching the Gold Foiling card."
+  />
+  <section class="bg-neutral-50 py-12 md:py-20">
+    <div class="container max-w-wide grid gap-6 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Make your brand mark shine</h2><p class="mt-3 leading-relaxed text-neutral-600">Use gold foil to draw attention to a logo, product name or selected pattern. Plan the coverage around the panel layout so the metallic detail has a clear role in the design.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Choose your gold in person</h2><p class="mt-3 leading-relaxed text-neutral-600">Tone and sheen change how the foil works with the background. Compare a physical reference on the proposed board before approving a shade or combining it with other finishes.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Check detail and durability</h2><p class="mt-3 leading-relaxed text-neutral-600">Review transfer quality, lettering, alignment and folded edges on an appropriate sample. Agree the handling checks that matter for your retail display, gifting or delivery route.</p></article>
+    </div>
+  </section>
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>Plan your gold-foil packaging before artwork approval</h2>
+      <p>Start with the product, box structure and gold reference. Apex reviews the proposed board, printed background, foil coverage and other finishes together before confirming the production route and sample requirements.</p>
+      <ul>
+        <li>Provide the box dimensions, stock preference and final dieline where available.</li>
+        <li>Send vector artwork with the gold-foil areas identified separately.</li>
+        <li>Mark folds, glue areas, required text and codes that need clear space.</li>
+        <li>State quantity per design, receiving postal or ZIP code and required in-hand date.</li>
+      </ul>
+      <p>Gold foiling is a decorative treatment. Product-contact suitability and environmental claims require review of the complete packaging specification and supporting documentation.</p>
+    </div>
+  </section>
+  <FAQAccordion faqs={faqs} heading="Gold Foiling: Buyer FAQs" intro="Practical answers for Canadian and US buyers planning gold-foiled packaging." panelHeading="Gold foiling buyer questions" />
+  <CTABand heading="Request a gold foiling quotation." lead="Share your box, artwork, gold reference, quantity and destination for a project-specific proposal." primaryCta={{ label: 'Quote gold foiling', href: '/contact' }} />
+</BaseLayout>
