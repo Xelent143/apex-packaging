@@ -9,10 +9,55 @@ const productQuestions: Record<string, FAQ[]> = {
     { q: 'Can I ship a rigid box without an outer carton?', a: 'Request a protective outer shipper unless the complete rigid-box packout has been validated for your delivery route.' }
   ],
   'custom-tuck-boxes': [
-    { q: 'Should I choose straight tuck, reverse tuck or auto-lock bottom boxes?', a: 'Choose the closure around product weight, shelf presentation and how your team will assemble the carton.' },
-    { q: 'How do I choose the right tuck-box size?', a: 'Provide the maximum product dimensions, packed weight and insert requirements so a sample can confirm clearance and closure fit.' },
-    { q: 'Will my tuck boxes arrive flat or assembled?', a: 'Confirm the delivery format and required assembly steps in the quotation before ordering.' }
-  ],
+  {
+    "q": "What is the difference between straight tuck, reverse tuck, snap-lock and auto-bottom boxes?",
+    "a": "Straight-tuck cartons have top and bottom tuck flaps closing toward the same side; reverse-tuck cartons close in opposite directions. A snap-lock, or 1-2-3 bottom, is folded and interlocked during packing, while an auto-bottom uses a pre-glued base designed to open into position. Compare presentation, product load, assembly time and filling equipment. Closure names do not establish a safe load: approve the actual structure and board with your filled product before choosing."
+  },
+  {
+    "q": "How do I choose the correct custom tuck-box dimensions?",
+    "a": "Measure the finished product at its widest points, including caps, wrappers, labels and any inner tray or insert. Specify length, width and height in consistent units and identify whether they are usable internal or external dimensions. Leave practical clearance for loading and closing without excessive movement. For handmade variations, irregular products or tight fits, provide representative samples and check the assembled carton before finalizing the dieline."
+  },
+  {
+    "q": "Which paperboard and thickness should I use for tuck cartons?",
+    "a": "Specify product weight, carton size, display method, handling conditions and print expectations before selecting the board. White paperboard can provide a bright print surface, while kraft gives a brown base that changes colour appearance. Board grade and thickness influence folding, stiffness and closure fit, but a thicker board is not automatically the right solution. Ask Apex to compare appropriate materials and evaluate the crease, glue seam and bottom on a filled sample."
+  },
+  {
+    "q": "Can tuck boxes hold bottles, jars or other heavy and fragile products?",
+    "a": "They can be considered when the board, bottom construction and internal support are appropriate for the actual load. A tuck flap should not be assumed to support a dense bottle simply because the carton fits. Review locking or glued-bottom options and any insert with the filled product. Glass and other fragile items may also need cushioning and a corrugated outer shipper for parcel delivery. Agree on relevant packing and handling trials before approving the complete packaging system."
+  },
+  {
+    "q": "What is the minimum order, and can different sizes or designs share a tuck-box run?",
+    "a": "Minimums depend on the dimensions, board, print process, cutting tools, finishes and assembly operations. A change in size, material or artwork can create a separate production requirement, even within one order. Send the quantity for each version and identify which products could use a common structure. Apex confirms available quantity tiers, minimums and any shared-production options in a project-specific quotation rather than applying one minimum to every tuck carton."
+  },
+  {
+    "q": "How much do printed tuck boxes cost in Canada or the USA, and what should my quote include?",
+    "a": "Pricing depends on material use, board grade, dieline and tooling, print coverage, artwork versions, finishes, windows, inserts and quantity. Provide the packed product dimensions and weight, approved artwork requirements, quantity per version, receiving postal or ZIP code and target arrival date. Ask which artwork preparation, proofs, samples, tooling and freight charges are included. Confirm the quotation currency and responsibility for duties, taxes, customs clearance and final delivery before comparing total delivered cost."
+  },
+  {
+    "q": "Can you print my logo, inside panels, foil, embossing or a window on tuck boxes?",
+    "a": "Share your logo, desired printed surfaces, colour references and finish or window requirements. Apex reviews the available options against the board, structure, quantity and production route. A window removes supporting material, and foil, embossing or coatings need suitable space around folds, glue areas and closures. Interior printing can add production steps and requires application review where product contact is involved. Check an assembled proof or appropriate sample so important details are not hidden by the tuck flap."
+  },
+  {
+    "q": "What artwork, barcode and Canadian or US label information should I provide?",
+    "a": "Use the current dieline and supply vector logos where available, final copy, colour references and barcode files. Keep essential graphics away from cut edges, folds and glue areas; barcodes need suitable size, contrast and clear space on an appropriate panel. Plan room for destination-specific text before approving the layout. Canadian consumer prepackaged food generally needs mandatory information in English and French, with exceptions. Requirements for other products and US markets vary, so have the responsible reviewer approve the final label copy."
+  },
+  {
+    "q": "Can I approve a structural sample or printed proof before a bulk tuck-box order?",
+    "a": "Ask which digital proofs, structural samples and printed samples are available, with their cost and timing. Digital proofs help check text, layout and panel orientation; structural samples help assess clearance, closure engagement, bottom fit and packing steps. A printed or production-representative sample may be needed for colour, board and finish decisions. Check the actual products and any insert, then record the approved specification, artwork revision and sample reference before production release."
+  },
+  {
+    "q": "Will tuck cartons arrive flat, and can they work with my packing equipment?",
+    "a": "Confirm the delivery format, pre-gluing, case quantities and assembly steps in the quotation. Many folding cartons are supplied flat, but straight tuck, snap-lock and auto-bottom formats have different erection and closing steps. Share your manual packing process or cartoner specifications, including loading direction and closure requirements. Request suitable trial cartons when equipment compatibility matters, and assess feeding, opening, filling and closing with the proposed board and actual product before committing to a production run."
+  },
+  {
+    "q": "How long do custom tuck boxes take, and can Apex deliver to Canada and the USA?",
+    "a": "Apex's Canada-based team coordinates design, proofs, samples, qualified overseas production and delivery for Canadian and US buyers. Timing depends on artwork readiness, material, tooling, finishes, quantity, approvals and freight method. Production and transit are separate stages. Give the receiving postal or ZIP code, delivery requirements and in-hand date before approval. Apex confirms the project schedule and delivery responsibilities in the quotation; a seasonal launch should be planned around the complete process, not printing time alone."
+  },
+  {
+    "q": "Are tuck boxes food-safe or recyclable, and what documentation should I request?",
+    "a": "Treat these as separate requirements. For food use, identify direct or indirect contact, the food type and storage or filling conditions, then request appropriate documentation for the board, inks, adhesives, coatings and any window or inner wrap. A printed carton is not automatically suitable for direct food contact. For recycling, assess the complete finished pack and local collection options; kraft appearance does not prove recycled content or recyclability. Request evidence for the specific material and claim before approving it."
+  }
+],
   'cbd-gift-boxes': [
     { q: 'Can one CBD gift box hold bottles, jars and accessories?', a: 'Provide each component’s dimensions and weight so a fitted insert can separate and secure the complete set.' },
     { q: 'Does a CBD gift box automatically qualify as compliant packaging?', a: 'No, have your compliance adviser approve the packaging requirements and artwork for the product and destination before production.' },
@@ -79,36 +124,6 @@ const additionalProductQuestions: Record<string, FAQ[]> = {
     {
       "q": "What determines the minimum quantity for wrapped rigid boxes?",
       "a": "The minimum depends on the selected construction, wrap printing, closure components and assembly requirements."
-    }
-  ],
-  "custom-tuck-boxes": [
-    {
-      "q": "Can a tuck carton support a heavy bottle?",
-      "a": "Confirm the filled bottle weight and test the bottom closure before choosing a tuck flap instead of a locking base."
-    },
-    {
-      "q": "What paperboard should I specify for a printed tuck carton?",
-      "a": "Request a board grade and thickness suited to the product load, folding behaviour and required print finish."
-    },
-    {
-      "q": "Where should the barcode go on a tuck box?",
-      "a": "Place the barcode on a flat panel clear of seams, folds and cut edges, then verify scanning on a printed sample."
-    },
-    {
-      "q": "Can tuck cartons run through my packing equipment?",
-      "a": "Share the machine specifications and request trial cartons to confirm feeding, opening and closure performance."
-    },
-    {
-      "q": "Will inside printing affect tuck-carton pricing?",
-      "a": "Include interior print coverage in the quotation because it can add print passes and change the production plan."
-    },
-    {
-      "q": "What affects the minimum run for multiple tuck-box designs?",
-      "a": "Artwork versions, shared dimensions, board choice and print setup determine the minimum quantity for each design."
-    },
-    {
-      "q": "What delivery details should Canadian and US tuck-box buyers confirm?",
-      "a": "Confirm flat-pack case quantities, carton weights, freight charges and the delivery postal or ZIP code before approving the order."
     }
   ],
   "cbd-gift-boxes": [
@@ -325,5 +340,5 @@ const additionalProductQuestions: Record<string, FAQ[]> = {
 
 export function industryBuyerFaqs(slug: string): FAQ[] | undefined {
   const specific = productQuestions[slug];
-  return specific ? [...specific, ...additionalProductQuestions[slug]] : remainingBuyerFaqs(`industries/${slug}`);
+  return specific ? [...specific, ...(additionalProductQuestions[slug] ?? [])] : remainingBuyerFaqs(`industries/${slug}`);
 }
