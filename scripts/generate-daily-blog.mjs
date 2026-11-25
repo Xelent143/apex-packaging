@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync } from 'node:fs';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { requireFreshBlogArtwork } from './lib/blog-artwork.mjs';
@@ -83,7 +83,9 @@ for (const date of datesToPublish) {
   const articlePath = join(blogDir, `${post.slug}.astro`);
 
   if (!existsSync(articlePath)) {
-    await writeFile(articlePath, renderArticle(post), 'utf8');
+    const articleSource = renderArticle(post);
+    await requireFreshBlogCopy(post.slug, articleSource);
+    await writeFile(articlePath, articleSource, 'utf8');
   }
   if (!nextIndex.includes(`slug: '${post.slug}'`)) {
     const entry = `  { slug: '${post.slug}', title: '${post.indexTitle}', description: '${post.description}', date: '${post.date}', read: '7 min' },\n`;
@@ -121,6 +123,8 @@ function buildPost(date) {
     url: `/blog/${slug}`,
     service: `/services/${service}`,
     category,
+    edition,
+    editionAngle,
     location,
     angle,
     accent: dayNumber % 3 === 0 ? '#d39a00' : dayNumber % 3 === 1 ? '#111111' : '#6f7f73'
@@ -147,7 +151,7 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: 'Blog', url: '/blog' },
   { name: '${escapeJs(post.titleBase)}', url }
 ]);
-const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions' });
+const article = buildArticleSchema({ title, description, url, datePublished, author: 'Apex Packaging Solutions', image });
 const faq = buildFAQSchema([
   {
     q: 'What should buyers include in a ${escapeJs(post.keyword)} quote request?',
@@ -179,27 +183,27 @@ const faq = buildFAQSchema([
 
   <section class="py-12 md:py-20">
     <div class="container max-w-default prose-apex">
-      <p><strong>${escapeHtml(post.keyword)}</strong> decisions work best when the buyer defines the product, the sales channel, and the handling route before asking for pricing. A low first quote can become expensive if the material scuffs, the carton is hard to pack, the artwork needs revision, or the package fails during shipping.</p>
-      <p>Apex Packaging Solutions supports buyers in ${escapeHtml(post.location)} with custom packaging programs that connect structure, material, print, and delivery planning. This guide explains the practical details to confirm before approving ${escapeHtml(post.keyword)} for a launch, reorder, or multi-SKU program.</p>
+      <p><strong>${escapeHtml(post.keyword)}</strong> for ${escapeHtml(post.angle)} should be specified around the packed product and the evidence this ${escapeHtml(post.edition.toLowerCase())} needs to produce. A quotation is only comparable when size, versions, route, approval stage, and delivery scope are stated on the same basis.</p>
+      <p>For this ${escapeHtml(post.date)} guide, the working question is how ${escapeHtml(post.editionAngle)} affect a ${escapeHtml(post.keyword)} program serving buyers in ${escapeHtml(post.location)}. The sections below turn that question into decisions that can be recorded before production.</p>
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
         <img src={insideImage} alt="${escapeAttr(post.insideAlt)}" width="1536" height="1024" loading="lazy" decoding="async" class="w-full" />
-        <figcaption class="px-5 py-4 text-sm text-neutral-600">A cleaner RFQ starts with the product, dimensions, material target, artwork state, quantity, and delivery route.</figcaption>
+        <figcaption class="px-5 py-4 text-sm text-neutral-600">Use the physical ${escapeHtml(post.keyword)} sample to connect ${escapeHtml(post.angle)} with the quoted production specification.</figcaption>
       </figure>
 
-      <h2>Start with the product and the route</h2>
-      <p>The product shape, weight, surface finish, and fragility should guide the packaging format. A small retail product, a subscription shipment, a palletized industrial part, and a premium gift set each need a different balance of protection and presentation. Buyers should also identify whether the package ships parcel, LTL, pallet, courier, or retail distribution.</p>
-      <p>That route affects board grade, film gauge, closure method, insert style, and label placement. When the route is unclear, suppliers have to guess, and those guesses usually create revisions later.</p>
+      <h2>Define the ${escapeHtml(post.keyword)} job before quoting</h2>
+      <p>Record the product dimensions, packed weight, contact surfaces, vulnerable areas, sales channel, and handling sequence. For ${escapeHtml(post.titleBase)}, the brief should also explain which part of ${escapeHtml(post.angle)} is fixed and which part is still being evaluated.</p>
+      <p>Name the route that ${escapeHtml(post.keyword)} follows from packing bench to customer or retail shelf. Parcel, courier, LTL, pallet and store replenishment expose this pack to different compression, movement, labels and handling; the recommendation is not defensible when that route is implicit.</p>
 
-      <h2>Confirm material and print expectations early</h2>
-      <p>Material choice affects cost, strength, appearance, and lead time. Corrugated board, paperboard, rigid board, LDPE film, HDPE film, molded pulp, and foam each solve different problems. Print method also matters. A simple one-colour shipper is not quoted the same way as a full-colour retail carton with coating, foil, or tight colour matching.</p>
-      <p>If artwork is already prepared, send dielines, colour references, barcode locations, and any finish notes. If artwork is not prepared, review <a href="/design-support">packaging design support</a> before finalizing the quote so the structure and design are built together.</p>
+      <h2>Match material and print to ${escapeHtml(post.angle)}</h2>
+      <p>For ${escapeHtml(post.keyword)}, ask the supplier to identify the proposed substrate, grade or gauge, print process, coatings, finishes and performance assumptions. The combination must support ${escapeHtml(post.angle)}; visual finish does not compensate for weak fit, and excess material does not replace a tested specification.</p>
+      <p>Send the ${escapeHtml(post.titleBase)} dieline and artwork revision with colour references, barcode zones and finish notes. When those files are not ready, use <a href="/design-support">packaging design support</a> to coordinate structure and graphics before treating this price as final.</p>
 
-      <h2>Use samples when fit or presentation matters</h2>
-      <p>Samples are helpful when the product is fragile, the insert fit is close, the retail face must be checked, or the package is a first launch. A sample can reveal packing friction, label conflicts, weak closure points, or artwork issues before production. It is also useful when a buyer is comparing two material options that look similar on paper.</p>
-      <p>For repeat orders, the approved sample becomes the benchmark. Keep notes on board grade, dimensions, print method, finish, and packing instructions so reorders do not drift from the original approval.</p>
+      <h2>Approve evidence for ${escapeHtml(post.editionAngle)}</h2>
+      <p>Choose ${escapeHtml(post.keyword)} samples and trials that answer how ${escapeHtml(post.editionAngle)} affect this job. Check fit, assembly, closure, label space, visual hierarchy and packed handling; note which attributes the prototype proves and which still depend on production materials or process.</p>
+      <p>Retain the approved ${escapeHtml(post.titleBase)} sample with its dimensions, material callout, print method, finish, artwork revision and packing notes. That dated record becomes the comparison point for the next delivery instead of an undocumented assumption.</p>
 
-      <h2>What to send before requesting a quote</h2>
+      <h2>Quote inputs for ${escapeHtml(post.titleBase)}</h2>
       <ul>
         <li>Product dimensions, weight, photos, and any fragile or scuff-sensitive areas.</li>
         <li>Preferred packaging format, or permission for Apex to recommend one.</li>
@@ -209,12 +213,12 @@ const faq = buildFAQSchema([
         <li>Shipping route, pallet pattern, carrier method, and whether samples are needed.</li>
       </ul>
 
-      <h2>How to compare quotes fairly</h2>
-      <p>Packaging quotes should be compared by total fit, not just unit price. Check whether each quote includes the same material, size, print coverage, tooling, sampling, freight assumptions, and lead time. A lower unit price may not help if it excludes a needed insert, uses a weaker board, or assumes a higher MOQ than the buyer can actually use.</p>
-      <p>Buyers can also review the related guide to <a href="/blog/custom-packaging-rfq-template-12-specs-buyers-include">custom packaging RFQ details</a> to reduce back-and-forth before production approval.</p>
+      <h2>Compare ${escapeHtml(post.keyword)} offers on one basis</h2>
+      <p>Normalize every ${escapeHtml(post.keyword)} offer for size, material, print coverage, artwork versions, tooling, samples, packing, freight scope and approval timing. Record exclusions beside the unit price; a cheaper line is not a saving when it moves a requirement outside the supplier's scope.</p>
+      <p>For the ${escapeHtml(post.date)} buying record, use the related <a href="/blog/custom-packaging-rfq-template-12-specs-buyers-include">custom packaging RFQ details</a> to keep supplier responses tied to the same inputs.</p>
 
-      <h2>Conclusion</h2>
-      <p>Strong ${escapeHtml(post.keyword)} programs come from clear specifications. When buyers define the product, route, material, print, samples, and reorder plan before asking for pricing, Apex can recommend packaging that protects the product, presents the brand clearly, and supports repeatable purchasing.</p>
+      <h2>Release ${escapeHtml(post.keyword)} with a controlled record</h2>
+      <p>Close the ${escapeHtml(post.date)} decision by saving the approved specification, sample identity, artwork revision, quoted assumptions and named approver. That record connects ${escapeHtml(post.angle)} to a repeatable order instead of leaving the next buyer to reconstruct the project.</p>
     </div>
   </section>
 
@@ -287,4 +291,30 @@ function escapeHtml(value) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+}
+
+async function requireFreshBlogCopy(slug, source) {
+  const normalize = (value) => value
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+  const paragraphs = [...source.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/gi)]
+    .map((match) => normalize(match[1]))
+    .filter((text) => text.length >= 140);
+  const existing = new Map();
+  for (const filename of await readdir(blogDir)) {
+    if (!filename.endsWith('.astro') || filename === `${slug}.astro`) continue;
+    const other = await readFile(join(blogDir, filename), 'utf8');
+    for (const match of other.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/gi)) {
+      const text = normalize(match[1]);
+      if (text.length >= 140 && !existing.has(text)) existing.set(text, filename);
+    }
+  }
+  for (const paragraph of paragraphs) {
+    if (existing.has(paragraph)) {
+      throw new Error(`${slug}: repeats a long paragraph already published in ${existing.get(paragraph)}.`);
+    }
+  }
 }

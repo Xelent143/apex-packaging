@@ -1,0 +1,65 @@
+---
+import Guide from '../../components/blog/EditorialBuyerGuide.astro';
+
+const props = {
+  title: 'Low-MOQ Custom Packaging: Test the System Before Scale',
+  description: 'Plan a low-MOQ packaging test launch around learning goals, artwork readiness, samples, quantity breaks and a controlled path to reorder.',
+  url: '/blog/low-moq-custom-packaging-for-test-launches-artwork-and-print-guide-2026-11-25',
+  date: 'November 25, 2026', dateISO: '2026-11-25', eyebrow: 'Test-launch planning',
+  lead: 'A small first order should buy evidence, not merely fewer boxes. Decide what the run must prove before choosing the quantity or print method.',
+  hero: '/images/blog/2026-11-25-low-moq/low-moq-test-launch-hero.png',
+  heroAlt: 'Fictional Nora Test Lab short-run mailer, folding carton, pouch and sleeve prototypes in a packaging studio',
+  support: '/images/blog/2026-11-25-low-moq/low-moq-sample-approval.png',
+  supportAlt: 'Fictional Circa Goods carton and mailer samples being measured beside a dieline and staged quantity cards',
+  supportCaption: 'Separate structural approval from print approval, then record what must remain unchanged for the reorder.',
+  intro: 'Low MOQ is useful when demand, product fit or artwork is still uncertain. It becomes expensive when a buyer pays short-run pricing without defining the questions the test must answer or preserving an approved specification for the next order.',
+  rule: 'Choose the smallest run that can produce a reliable packing, shipping and customer-use decision.',
+  metrics: [
+    { value: '1 brief', label: 'One controlled specification for every supplier quote' },
+    { value: '3 gates', label: 'Structure, print and packed-performance approval' },
+    { value: '1 reorder path', label: 'Known changes, quantity breaks and ownership' }
+  ],
+  sections: [
+    { kicker: 'TEST OBJECTIVE', title: 'Name the uncertainty before naming the quantity', paragraphs: [
+      'A market test, structural trial and print trial are different jobs. A digital sample may answer questions about colour hierarchy and copy, while a plain structural sample is better for checking loading, closure and insert fit. Neither automatically proves the economics or consistency of a longer production run.',
+      'Write the decision the launch team must make after the test. Examples include whether the product survives parcel handling, whether staff can assemble the pack inside a target time, or whether customers understand the opening sequence. That decision determines the sample, quantity and evidence worth paying for.'
+    ]},
+    { kicker: 'COST CONTROL', title: 'Compare usable learning, not unit price alone', paragraphs: [
+      'Short runs often carry setup, proofing, tooling or freight costs across fewer units. Ask suppliers to separate one-time charges from repeatable unit costs and to show at least two quantity breaks. A lower first-run unit price can be misleading when the process cannot reproduce the approved appearance at the intended reorder volume.',
+      'Include spoilage, approval samples and internal retention samples in the quantity plan. Keep one signed reference sample and the corresponding artwork revision so a later reorder can be checked against evidence rather than memory.'
+    ]},
+    { kicker: 'SCALE PATH', title: 'Design the pilot so the reorder is controlled', paragraphs: [
+      'Document which features are temporary and which are locked. A hand-applied label may be acceptable for a demand test, but the final printed pack still needs a defined label zone, barcode quiet area and production artwork path.',
+      'Before approving the pilot, record the expected reorder window, target quantity, artwork owner and any conversion that will occur at scale. If the next run changes print process, board, film, tooling or pack configuration, plan a new approval gate rather than assuming the pilot automatically transfers.'
+    ]}
+  ],
+  table: {
+    title: 'Match the run to the question',
+    intro: 'Illustrative planning framework only. Actual minimums and economics depend on structure, material, print process, versions, supplier capability and delivery route.',
+    columns: ['Run type', 'Primary question', 'Useful evidence', 'Release condition'],
+    rows: [
+      ['Prototype set', 'Does the structure and insert fit?', 'Packed samples, measurements, assembly notes', 'Critical dimensions and product revision recorded'],
+      ['Test launch', 'Does the pack work with real orders?', 'Damage, packing time, feedback and scan results', 'Issues classified before replenishment'],
+      ['Validation reorder', 'Can the approved result be repeated?', 'Golden sample, artwork revision and incoming checks', 'Production specification signed off']
+    ],
+    note: 'Do not treat these labels as standard order quantities. Request quote-specific minimums and state every artwork version.'
+  },
+  checklistTitle: 'Low-MOQ release record',
+  checklist: [
+    'The test question, success measure and responsible reviewer are written down.',
+    'Product revision, packed dimensions and intended distribution route are confirmed.',
+    'Structural sample and print proof approvals are recorded separately.',
+    'One-time charges, unit costs, freight and two reorder quantities are compared.',
+    'Approved sample, dieline, artwork revision and change notes are retained.',
+    'Any process or material change at scale triggers a defined reapproval step.'
+  ],
+  references: [
+    { label: 'Apex low-MOQ packaging guide', href: '/blog/low-moq-custom-packaging-100-500-units-without-waste' },
+    { label: 'Packaging design support', href: '/design-support' },
+    { label: 'Custom packaging RFQ fields', href: '/blog/custom-packaging-rfq-template-12-specs-buyers-include' }
+  ],
+  relatedHref: '/services/mailer-boxes', relatedLabel: 'Explore custom mailer boxes'
+};
+---
+
+<Guide {...props} />
