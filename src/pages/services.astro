@@ -4,7 +4,8 @@ import PageHeader from '../components/sections/PageHeader.astro';
 import ServiceMatrix from '../components/sections/ServiceMatrix.astro';
 import RelatedContent from '../components/sections/RelatedContent.astro';
 import CTABand from '../components/sections/CTABand.astro';
-import { buildBreadcrumbSchema } from '../lib/schema';
+import { buildBreadcrumbSchema, buildFAQSchema } from '../lib/schema';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
 
 const services = [
   { title: 'Corrugated Boxes', href: '/services/corrugated-boxes', meta: 'RSC · FOL · die-cut', description: 'Single-wall, double-wall, RSC, FOL, die-cut, display, and mailer formats quoted to the product and shipping route.' },
@@ -15,6 +16,57 @@ const services = [
   { title: 'Design Support', href: '/design-support', meta: 'Dieline · 3D · print prep', description: 'Structural design, dielines, artwork preparation, proofing, samples, and production-ready files.' }
 ];
 
+const buyerFaqs = [
+  {
+    "q": "Which Apex packaging service should I choose for my product?",
+    "a": "Choose around the product, sales channel and handling route. Corrugated cartons and mailers suit many parcel and distribution programs; rigid boxes and folding cartons support retail presentation. Polybags, pouches and paper bags serve different containment or carrying needs. Industrial and bulk packaging addresses pallet loads, while protective packaging adds cushioning, separation or corrosion control. Send the product dimensions, weight and use so Apex can compare the complete packaging system, including any design support required."
+  },
+  {
+    "q": "What details are needed to quote custom packaging for delivery in Canada or the USA?",
+    "a": "Provide product photos, dimensions, packed weight, quantity per size or artwork version, material preference, print coverage, required features and the receiving postal or ZIP code. State whether dimensions are internal or external and use consistent units. Include your required arrival date, packing process and any material or testing requirements. If the specification is incomplete, send what you have; Apex can identify what must be confirmed before preparing a product-specific quotation."
+  },
+  {
+    "q": "What are the minimum order quantities, and can different products or designs share an order?",
+    "a": "Minimums vary by packaging structure, material, manufacturing process, printing and tooling. A corrugated carton, rigid gift box, printed bag and custom insert do not necessarily have the same minimum. Different dimensions or artwork versions may require separate setups even when ordered together. List each product and quantity, then ask which specifications can share materials or production arrangements. Apex confirms minimums, quantity tiers and any combined-order options in the quotation."
+  },
+  {
+    "q": "How should I compare packaging prices, setup charges and delivered costs?",
+    "a": "Compare the same usable dimensions, material grade, print surfaces, finish, insert scope and quantity. Ask which tooling, plates, artwork preparation, proofs or samples are included and which are charged separately. For Canadian and US deliveries, confirm the quotation currency and responsibility for freight, customs clearance, duties, taxes and final delivery. Compare total delivered cost per usable package, including assembly and storage needs, rather than a unit price that leaves important items out."
+  },
+  {
+    "q": "Where is packaging produced, how long does it take, and can Apex deliver across Canada and the USA?",
+    "a": "Apex is Canada-based and coordinates approved projects through qualified overseas production facilities, with delivery available to Canada, the United States and international destinations. The schedule depends on specification review, artwork approval, samples, production and the selected freight route. Production time and transit time are separate. Share your receiving location and required in-hand date before approval; Apex confirms project timing, delivery terms and responsibilities in the quotation rather than applying one turnaround promise to every service."
+  },
+  {
+    "q": "Can Apex help with structural design, dielines, logo printing and premium finishes?",
+    "a": "Yes. Share the product, existing packaging, brand assets and the information you already have. Apex confirms the scope for structural design, dielines, artwork preparation, mockups, proofing and sampling for that project. Print method and available finishes depend on the board or film, graphic detail, coverage and quantity. Use the current approved dieline, provide vector logos where available, and identify colour references, barcode locations and final label copy. Any design or setup charges should be confirmed before work begins."
+  },
+  {
+    "q": "Can I check a proof, structural sample or printed sample before production?",
+    "a": "Ask which proof and sample options are available, along with their cost, timing and what each represents. Digital proofs help check panel layout, text and artwork placement; structural samples help assess fit, closures and assembly. Printed or production-representative samples can help evaluate colour, material and finish. For fragile goods or industrial loads, agree on appropriate packing and performance trials. Record the approved material, dimensions, artwork revision and packing method so reorders have a clear reference."
+  },
+  {
+    "q": "How do I specify polybags, flexible pouches and other bag formats?",
+    "a": "Start with the product dimensions or fill volume, weight, packing equipment and intended use. For polybags, confirm usable width and length, gussets, film type, gauge, seal and closure requirements; thickness alone does not establish suitability. For pouches, specify the proposed laminate, barrier needs, seal area and opening features. Wicket, zipper, slider and other formats should suit the filling process. For paper bags, discuss carrying load and handle requirements. Trial the actual product and request application-specific documentation where needed."
+  },
+  {
+    "q": "What information is needed for bulk containers, pallet wrap and industrial packaging?",
+    "a": "Provide load weight, footprint, stacking height, product form, any liner requirement and the warehouse or transport route. Bulk corrugated containers, edge protectors, strapping and wrapping should be considered as one load-protection system. Stretch film contains a load through wrapping; shrink film requires a compatible shrinking process. Specify manual or machine application and trial the proposed material on the intended equipment. Confirm pallet quantities, receiving access, storage conditions and any planned release schedule before relying on a supply arrangement."
+  },
+  {
+    "q": "How do I choose foam, inserts, void fill, ESD or corrosion protection?",
+    "a": "Identify the risks first: movement, impact, abrasion, sharp edges, moisture, static discharge or corrosion. Select the outer box and protective components together around product weight, geometry and distribution conditions. Foam, corrugated inserts and void fill solve different problems; ordinary cushioning does not automatically provide static control or corrosion protection. Supply the relevant product sensitivities and performance requirements, then confirm material compatibility, sample packouts and any required test evidence before approval."
+  },
+  {
+    "q": "Can food-contact, pharmaceutical, medical or other regulated packaging be supplied?",
+    "a": "Requirements must be reviewed for the exact product and intended application. For food-contact packaging, identify the food type, direct or indirect contact, filling temperature and storage conditions, and request appropriate material and component documentation. For pharmaceutical, medical or other regulated uses, provide the required material, cleanliness, tamper-evidence, barrier or validation specifications. A carton or pouch description alone does not establish compliance or sterility. Have the responsible product or regulatory reviewer approve the specification and final Canadian or US label copy before production."
+  },
+  {
+    "q": "Can I request recycled-content or recyclable packaging across these services?",
+    "a": "Yes. Describe the material or environmental requirement precisely so Apex can review available options and documentation for the chosen specification. Recycled content, recyclability and compostability are different claims. Coatings, windows, laminates, inks, adhesives, inserts and film combinations can change the finished pack's disposal options. Kraft appearance or a paper outer layer is not proof of recyclability. Check collection and processing availability in the intended Canadian or US market, and use environmental claims supported by evidence for the complete packaging."
+  }
+];
+
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Services', url: '/services' }
@@ -23,14 +75,29 @@ const breadcrumb = buildBreadcrumbSchema([
 <BaseLayout
   title="Packaging Products & Box Styles Canada | Apex"
   description="Explore corrugated boxes, mailers, cartons, rigid boxes, pouches, bags, inserts, printing and finishing for custom packaging projects."
-  schemaBlocks={[breadcrumb]}
+  schemaBlocks={[breadcrumb, buildFAQSchema(buyerFaqs)]}
 >
   <PageHeader
     eyebrow="Services"
     heading="Custom packaging and custom boxes in Canada, managed from brief to delivery."
     lead="Apex supplies folding cartons, retail boxes, corrugated mailers, rigid boxes, flexible pouches, paper bags, food packaging, inserts, printing, and premium finishes. Projects are produced through qualified overseas facilities and managed by Apex for customers in Canada, the United States, and international markets."
   />
+  <div class="container max-w-wide pt-6">
+    <p class="text-sm leading-relaxed text-neutral-600">Comparing packaging services for Canada or the USA? <a href="#services-buyer-faqs" class="font-semibold text-accent underline underline-offset-4">Read 12 buyer FAQs</a> about specifications, costs, samples and delivery.</p>
+  </div>
   <ServiceMatrix heading="Pick the service that fits the job." services={services} />
+  <div id="services-buyer-faqs" class="scroll-mt-28 md:scroll-mt-32">
+    <FAQAccordion
+      heading="Packaging service FAQs for Canada and USA buyers"
+      eyebrow="Before you request a quote"
+      intro="Twelve practical answers covering corrugated, mailer and rigid boxes, bags, industrial packaging, protective materials and design support."
+      panelHeading="Compare services and plan your order"
+      faqs={buyerFaqs}
+    />
+    <div class="container max-w-wide pb-10">
+      <p class="text-sm leading-relaxed text-neutral-600">Buyer resources: <a href="https://www.ups.com/ca/en/support/shipping-support/packaging-tips" class="underline underline-offset-4">UPS packaging guidance</a> · <a href="https://www.canada.ca/en/health-canada/services/food-nutrition/food-safety/packaging-materials.html" class="underline underline-offset-4">Health Canada food packaging</a> · <a href="https://www.fda.gov/food/packaging-food-contact-substances-fcs/determining-regulatory-status-components-food-contact-material" class="underline underline-offset-4">FDA food-contact materials</a> · <a href="https://www.ftc.gov/business-guidance/resources/environmental-claims-summary-green-guides" class="underline underline-offset-4">FTC environmental claims</a>.</p>
+    </div>
+  </div>
   <RelatedContent
     heading="Custom packaging across Canada"
     items={[
