@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+const faqs = [
+  {
+    "q": "What is embossing, and how does it improve the feel of a box?",
+    "a": "Embossing forms raised detail in the packaging surface, adding a texture that can be seen and felt. It can highlight a logo, brand name or pattern through light and shadow. The result depends on the board, artwork and tooling. Share the intended effect and approve a physical sample; a flat digital image cannot establish the final depth or tactile impression."
+  },
+  {
+    "q": "Should I choose embossing or debossing for my packaging?",
+    "a": "Embossing raises the design above the surface; debossing creates a recessed impression. Choose the effect around the artwork, panel layout and desired presentation. Neither is automatically suitable for every board or box structure. Ask Apex to review the proposed direction and a representative sample so the relief stays legible and does not interfere with assembly or the product inside."
+  },
+  {
+    "q": "What is blind embossing, and does it need ink or foil?",
+    "a": "A blind emboss creates raised detail without aligning that detail to a printed or foil graphic. Its appearance comes from the material, shape and lighting. It can suit understated branding, but visibility should be assessed on the proposed stock. If the raised mark must follow printed artwork or foil, specify that separately because alignment and tooling requirements change."
+  },
+  {
+    "q": "Which materials and box structures work best with embossing?",
+    "a": "Paperboard thickness, surface texture and ability to form the relief all affect the result. A folding carton, a wrapped rigid box and a corrugated mailer are different constructions; the same design may have different prominence on each. Ask Apex to review the exact material and assembly method. Test the finished structure rather than assuming thicker board always gives a deeper or cleaner emboss."
+  },
+  {
+    "q": "Can small lettering, fine lines or detailed logos be embossed clearly?",
+    "a": "Fine strokes, closely spaced elements and small gaps can lose definition. Send vector artwork at final size and ask for the production team's minimum detail and spacing guidance. A bolder or simplified version may reproduce more reliably. Confirm which areas should be raised and review an actual impression; there is no universal minimum font size that suits every typeface, material and embossing process."
+  },
+  {
+    "q": "Can I combine embossing with printed artwork, foil or lamination?",
+    "a": "Combinations may be possible, but the board, surface treatment and effects need review together. Registered embossing must align with the graphic it follows, and separate operations introduce tolerances. Specify each effect separately on the dieline. Ask Apex to confirm the tooling, sequence and appropriate sample rather than assuming an embossed print or foil logo will align without allowance."
+  },
+  {
+    "q": "How deep can the emboss be, and will it show on the reverse side?",
+    "a": "Depth depends on the board, design area, tool profile and complete box construction. More depth is not always better: it can affect the surface, reverse impression, folding or product clearance. State whether the inner face must remain smooth or hidden by another component. Approve a formed and assembled sample so the visible relief and any reverse-side effect are acceptable before production."
+  },
+  {
+    "q": "How much do embossed boxes cost, and what is the minimum order?",
+    "a": "Price and minimum quantity depend on the box size, stock, embossed area, tooling, artwork versions and other finishes. Send the design, quantities per version and receiving postal or ZIP code. Request a clear scope for tooling, samples and freight, including which setup costs recur on reorders. Confirm currency, duties, taxes and delivery responsibilities; Apex quotes the complete specification rather than a single universal embossing price."
+  },
+  {
+    "q": "What lead time should Canadian and US buyers allow for embossed packaging?",
+    "a": "Allow for artwork review, tooling, samples, approval, production and transit. Apex's Canada-based team coordinates qualified overseas production and delivery, with timing determined by the material, design complexity, quantity and freight route. Provide the destination and required in-hand date early. Confirm production and shipping separately in the quotation, especially for seasonal launches or a change to an existing emboss design."
+  },
+  {
+    "q": "Can I approve an embossed sample before ordering in bulk?",
+    "a": "Ask about available stock examples, embossed proofs and finished pre-production samples, including cost, timing and limitations. Review the actual board, relief, placement, surface quality and assembly. Check the result under realistic lighting and by touch. Retain the approved specification, sample reference and artwork revision; a screen proof can confirm layout but cannot validate emboss depth or the finished feel."
+  },
+  {
+    "q": "Can embossing crack near folds, flatten in transit or affect barcode readability?",
+    "a": "Relief near scores, cuts or loaded contact areas needs assessment. Review folded samples and agree handling, stacking and packing checks that reflect the delivery route. Keep barcodes and essential text in suitable areas clear of disruptive relief, then verify readability on the finished box. Embossing is decorative; it does not make the structure stronger or replace protective shipping packaging."
+  },
+  {
+    "q": "Are embossed boxes recyclable in Canada and the USA?",
+    "a": "Embossing reshapes the material, but recyclability depends on the complete pack, including board, coatings, laminates, foil, windows, adhesives and inserts. A blind embossed appearance does not establish recycled content or compostability. Request evidence for the actual specification and check collection and processing acceptance in the receiving community. Use disposal instructions supported by the finished materials and local access rather than an unqualified environmental claim."
+  }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }, { name: 'Embossing', url: '/packaging-finishes/embossing' }]);
+const service = buildServiceSchema({ name: 'Embossing for custom packaging', description: 'Project-specific embossed logos and tactile packaging detail, with artwork, material, sampling and quotation support for Canada and the USA.', url: '/packaging-finishes/embossing' });
+---
+<BaseLayout
+  title="Embossed Packaging Canada & USA | Custom Embossing | Apex"
+  description="Plan embossing for custom boxes: blind and registered relief, board choice, artwork, samples and twelve buyer FAQs for Canada and the USA."
+  image="/images/home/finishes/embossing.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Embossing · Custom packaging"
+    heading="Embossing"
+    lead="Let your brand take shape. Add raised logos, lettering and tactile patterns to custom packaging, with material review and project-specific support for Canadian and US buyers."
+    imageSrc="/images/home/finishes/embossing.webp"
+    imageAlt="Calmera Skincare packaging with embossed lettering and a botanical brand mark, matching the Embossing card."
+  />
+  <section class="bg-neutral-50 py-12 md:py-20">
+    <div class="container max-w-wide grid gap-6 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Branding you can feel</h2><p class="mt-3 leading-relaxed text-neutral-600">Use raised detail to give a logo or pattern a tactile presence. A blind emboss lets the board, light and shadow carry the design; registered relief can follow an approved graphic.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Match the relief to the board</h2><p class="mt-3 leading-relaxed text-neutral-600">Artwork, material and tool profile determine how the impression forms. Review fine lines, spacing, depth and reverse-side effects together with the box structure.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Approve the actual impression</h2><p class="mt-3 leading-relaxed text-neutral-600">Check a representative embossed sample by touch and under realistic lighting. Review it after folding and assembly so the relief works with the finished package.</p></article>
+    </div>
+  </section>
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>Prepare your embossed packaging brief</h2>
+      <p>Start with the product, box construction and desired raised effect. Apex reviews the board, artwork, placement and sample requirements before confirming the production route and quotation.</p>
+      <ul>
+        <li>Provide the box dimensions, stock preference and final dieline where available.</li>
+        <li>Send final-size vector artwork with emboss areas on a clearly identified layer.</li>
+        <li>State whether the effect is blind or aligned with a printed or foil graphic.</li>
+        <li>Identify folds, glue areas, inner-face requirements and codes that need clear space.</li>
+        <li>Include quantity per design, receiving postal or ZIP code and required in-hand date.</li>
+      </ul>
+      <p>Emboss depth and detail are confirmed for the complete specification. Review the sample before committing to tooling or a bulk run, particularly when the material or artwork changes.</p>
+    </div>
+  </section>
+  <FAQAccordion faqs={faqs} heading="Embossing: Buyer FAQs" intro="Practical answers for Canadian and US buyers planning embossed packaging." panelHeading="Embossing buyer questions" />
+  <CTABand heading="Request an embossed packaging quotation." lead="Share your box, artwork, relief reference, quantity and destination for a project-specific proposal." primaryCta={{ label: 'Quote embossing', href: '/contact' }} />
+</BaseLayout>
