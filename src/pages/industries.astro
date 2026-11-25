@@ -2,7 +2,8 @@
 import PackagingBanner from '../components/sections/PackagingBanner.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
-import { buildBreadcrumbSchema } from '../lib/schema';
+import { buildBreadcrumbSchema, buildFAQSchema } from '../lib/schema';
+import FAQAccordion from '../components/sections/FAQAccordion.astro';
 import { industryBoxes } from '../data/industryBoxes';
 const breadcrumb = buildBreadcrumbSchema([{name:'Home',url:'/'},{name:'Industries',url:'/industries'}]);
 
@@ -57,6 +58,57 @@ const verticals = [
   }
 ];
 
+const buyerFaqs = [
+  {
+    "q": "Which packaging format is right for my product: folding carton, rigid box, corrugated box or pouch?",
+    "a": "Start with the product dimensions, packed weight, sales channel and handling route. Tuck cartons, pillow boxes and sleeves suit many lightweight retail products; rigid and gift boxes add presentation; corrugated mailers and shippers provide transit protection. Display boxes need a retail footprint and replenishment plan, while window packaging needs a suitable opening and film. Share the product and how it will be sold or shipped so Apex can compare structures, materials and inserts for the actual use."
+  },
+  {
+    "q": "What information do I need for a custom packaging quote in Canada or the USA?",
+    "a": "Send the product name, photos, dimensions, packed weight, preferred structure, quantity per size or artwork version, printing and finish requirements, delivery postal or ZIP code, and required arrival date. Identify whether dimensions are internal or external and use consistent units; allow for inserts and product clearance. If the final specification is undecided, send what you know. Ask the quotation to identify currency, setup or tooling, samples, freight, taxes and any import charges or responsibilities so prices can be compared on the same basis."
+  },
+  {
+    "q": "What is the minimum order quantity, and can I combine different sizes, designs or seasonal products?",
+    "a": "Minimums depend on the structure, material, print method and manufacturing setup; there is no single minimum covering every listed product. Different sizes, inserts or printed designs can have separate setup costs and minimums. For small launches, Christmas or holiday boxes, and multi-SKU retail ranges, ask Apex to compare available options such as a shared structure with different sleeves or labels. Quantity tiers and whether designs can be combined are confirmed in the project quotation."
+  },
+  {
+    "q": "Can you print my logo, brand colours, barcodes and Canadian or US label information?",
+    "a": "Share vector artwork where available, fonts, colour references, barcode files and approved label copy. Apex confirms the dieline and artwork-preparation scope before production. Foil, embossing, windows and coatings need suitable panel space and material. Screen colours are not a printed colour standard, and barcodes need appropriate size, contrast and clear space. Canadian food labels generally require English and French, subject to exemptions; other product and market rules vary. Have your responsible reviewer approve the final market-specific text before print approval."
+  },
+  {
+    "q": "Can I approve a proof or physical packaging sample before placing the production order?",
+    "a": "Ask which digital proofs, structural samples or printed samples are available for your specification, along with their cost and timing. A digital proof helps check artwork placement and wording; a physical sample helps assess product fit, closures, inserts, assembly and presentation. They answer different questions. Where colour, shelf display or transit performance matters, agree on the appropriate sample and testing steps before production release. Keep the approved specification and sample reference for reorders."
+  },
+  {
+    "q": "How long does custom packaging take, and can you deliver to Canada and the USA?",
+    "a": "Apex serves Canadian and US buyers through its Canada-based project team and qualified overseas production facilities. Timing depends on the structure, materials, artwork approval, sampling, production and freight method; it is confirmed for the project rather than promised as one standard turnaround. Provide the destination and required in-hand date before approval. Confirm whether the quotation includes freight, customs clearance, duties, taxes and final delivery, and who handles each step. Production time and shipping time should be shown separately."
+  },
+  {
+    "q": "What should I check for food, bakery, pizza, chocolate, cereal, coffee, tea and spice packaging?",
+    "a": "Identify whether food touches the packaging directly or sits inside a separate primary pack. Tell Apex the food type, grease and moisture exposure, filling temperature, storage conditions and intended use. Request material and component documentation appropriate to that use, including relevant coatings, inks, adhesives, windows or liners. A retail carton alone does not establish food-contact suitability, shelf life, freezer performance or heat resistance. Review the finished pack against the applicable Canadian or US food-contact and labelling requirements before approval."
+  },
+  {
+    "q": "How do I choose a Mylar bag or pouch, including its size, barrier and closure features?",
+    "a": "Start with the product form, fill amount or volume, target shelf life and filling or sealing process. Compare the proposed film structure and required moisture, oxygen or light protection; the name Mylar alone is not a complete material specification. Confirm usable dimensions, gusset, seal area, zipper, tear notch, window and hang-hole needs. For food, supplements or wellness products, request documentation for the intended application and validate the pack with the actual product before relying on a shelf-life or compatibility claim."
+  },
+  {
+    "q": "How can packaging protect bottles, candles, kitchenware, electronics, auto parts and hardware during shipping?",
+    "a": "Choose the outer carton and internal protection together around the packed weight, fragility, sharp edges and delivery route. Dividers, corrugated inserts, foam, cushioning and suitable closures can limit movement and contact between items. Liquids may need separate leak containment. Electronics may require specified static-control protection, while metal parts may need corrosion protection. A decorative retail or rigid box may still need an outer shipper. Agree on sample packing and any handling, drop, vibration or compression checks needed for the intended shipment."
+  },
+  {
+    "q": "Can rigid, gift and retail boxes be customized for cosmetics, soap, apparel, hair extensions and other premium products?",
+    "a": "Share the product layout, retail or gifting use and desired opening experience. Rigid, drawer, sleeve, pillow, tuck and window formats can be compared for cosmetics, soap, apparel, hair extensions, jewellery, software kits, stationery and sports products. Inserts and dividers should fit the actual items, and windows or finishes should support the selected structure. Check for scent, oil, moisture or scuff exposure where relevant. Apex confirms available materials, finishes, assembly requirements and costs for the chosen design; presentation packaging and shipping protection should be reviewed separately."
+  },
+  {
+    "q": "What extra specifications apply to CBD, hemp, pre-roll, vape, cigarette, pharmaceutical and health-product packaging?",
+    "a": "Identify the exact product category and every country, province or state where it will be sold before artwork or structure is approved. Depending on the product and market, requirements can include child resistance, tamper evidence, warnings, label content, branding limits or documented material performance. A magnetic closure, gift format or tamper seal does not by itself demonstrate child resistance or regulatory compliance. Supply approved label copy and required specifications or test evidence, and have the responsible product or regulatory reviewer approve the finished packaging."
+  },
+  {
+    "q": "Are kraft boxes, paperboard, windows and pouches recyclable or available with recycled content?",
+    "a": "Ask about the complete finished pack, including coatings, laminates, windows, foil, adhesives and inserts. Kraft appearance does not establish recycled content, and a paper outer layer does not make a laminated pouch recyclable. Recycled content, recyclability and compostability are different claims and need appropriate evidence. Collection and processing options vary by Canadian municipality and US community. Ask Apex to review material options and available documentation for the exact specification, then use disposal instructions and environmental claims that match the material and intended market."
+  }
+];
+
 const pageStats = [
   { label: 'Verticals pictured', value: '06' },
   { label: 'Markets served', value: 'Global' },
@@ -68,12 +120,13 @@ const pageStats = [
   title="Custom Packaging by Product Category | Apex"
   description="Browse packaging pages for apparel, bakery, cosmetics, food, retail, shipping, pharmaceuticals and other product categories."
   image="/images/home/hero-ultra/signature-collection-branded.webp"
-  schemaBlocks={[breadcrumb]}
+  schemaBlocks={[breadcrumb, buildFAQSchema(buyerFaqs)]}
 >
   <h1 class="sr-only">Custom packaging by product category.</h1>
   <PackagingBanner />
   <section id="industries-grid" class="scroll-mt-28 border-b border-neutral-200 bg-white py-10 md:scroll-mt-32 md:py-16">
     <div class="container max-w-wide">
+      <p class="mb-6 text-sm text-neutral-600">Buying packaging in Canada or the USA? <a href="#industry-buyer-faqs" class="font-semibold text-accent underline underline-offset-4">Read 12 buyer FAQs</a> about choosing, quoting and ordering the products below.</p>
       <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-6">
         {industryBoxes.map((box) => (
           <a href={`/industries/${box.slug}`} class="group overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-card">
@@ -95,6 +148,18 @@ const pageStats = [
       </div>
     </div>
   </section>
+  <div id="industry-buyer-faqs" class="scroll-mt-28 md:scroll-mt-32">
+    <FAQAccordion
+      heading="Packaging FAQs for buyers in Canada and the USA"
+      eyebrow="Before you order"
+      intro="Twelve practical answers covering the product categories above, from custom sizes and print approval to food-contact requirements, transit protection and material choices."
+      panelHeading="Choose, specify and order"
+      faqs={buyerFaqs}
+    />
+    <div class="container max-w-wide pb-10">
+      <p class="text-sm leading-relaxed text-neutral-600">Buyer resources: <a href="https://www.canada.ca/en/health-canada/services/food-nutrition/food-safety/packaging-materials.html" class="underline underline-offset-4">Health Canada food packaging</a> · <a href="https://www.fda.gov/food/packaging-food-contact-substances-fcs/determining-regulatory-status-components-food-contact-material" class="underline underline-offset-4">FDA food-contact materials</a> · <a href="https://inspection.canada.ca/en/food-labels/labelling/consumers/understanding-food-labels" class="underline underline-offset-4">Canadian food labels</a> · <a href="https://www.ftc.gov/business-guidance/resources/environmental-claims-summary-green-guides" class="underline underline-offset-4">FTC environmental claims</a> · <a href="https://competition-bureau.canada.ca/en/how-we-foster-competition/education-and-outreach/environmental-claims-and-greenwashing" class="underline underline-offset-4">Competition Bureau environmental claims</a>.</p>
+    </div>
+  </div>
   <section class="border-b border-neutral-200 bg-[#f7f2e8] py-8 md:py-10">
     <div class="container max-w-wide">
       <div class="grid gap-5 md:grid-cols-[1.2fr_0.8fr] md:items-end">
