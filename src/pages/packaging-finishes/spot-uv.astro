@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+const faqs = [
+  {
+    "q": "What is Spot UV, and how does it change the look of a box?",
+    "a": "Spot UV is a coating cured with ultraviolet light and applied to selected artwork areas rather than the whole panel. It can give a logo, lettering or pattern a glossy accent. The visual result depends on the surrounding surface, design and lighting. Share your intended effect with Apex and review a physical sample rather than relying on a flat screen preview."
+  },
+  {
+    "q": "Should I choose Spot UV or a full gloss coating?",
+    "a": "Spot UV highlights selected elements; a full-surface gloss treatment has a different purpose and appearance. If you want a logo or pattern to stand out, plan the contrast between coated and surrounding areas. Specify the process and coverage rather than asking only for a shiny finish. Apex reviews the desired look against the complete material and artwork brief."
+  },
+  {
+    "q": "Is standard Spot UV the same as raised Spot UV or embossing?",
+    "a": "These terms should not be treated as interchangeable. A standard selective coating, a deliberately raised coating and formed relief can produce different height and feel. Describe the tactile effect you expect and provide a reference sample. Ask Apex to confirm the available process and sample limitations before approval; ordinary Spot UV should not be assumed to create a deep raised logo."
+  },
+  {
+    "q": "Does Spot UV work best over matte or soft-touch packaging?",
+    "a": "A lower-sheen surrounding surface can make selective gloss easier to notice. Compatibility still depends on the exact board, inks and coating or laminate beneath it. Send the complete proposed finish combination for review. Confirm adhesion and appearance on a representative sample rather than assuming every matte or soft-touch material accepts the same Spot UV treatment."
+  },
+  {
+    "q": "What artwork files do I need for Spot UV packaging?",
+    "a": "Supply the final approved dieline, print artwork and a clearly identified mask defining the Spot UV areas. Follow the production team's instructions for separate layers or files and keep them aligned at final size. Distinguish the coating from cuts, scores and glue areas. A visual mockup is useful for intent, but it should not replace the production mask and written finish specification."
+  },
+  {
+    "q": "Can small text, thin lines and intricate patterns have Spot UV?",
+    "a": "Fine detail and small gaps need technical review because the coating must reproduce and align with the design. Provide vector artwork at the intended size and ask for project-specific minimum line, spacing and registration guidance. A simplified pattern or larger feature may work better. Approve an appropriate sample rather than assuming one minimum font size applies to every design and surface."
+  },
+  {
+    "q": "Can Spot UV be combined with foil stamping or embossing?",
+    "a": "Combinations may be possible, but the effects, board and underlying surface must be assessed together. Identify each treatment separately and decide which feature should lead the design. Ask Apex to confirm the production sequence, alignment requirements and sample approach. A treatment approved on its own does not establish that it will work in the proposed layered combination."
+  },
+  {
+    "q": "Will Spot UV crack at folds or make the box scratch-proof?",
+    "a": "Coating near creases, cuts and loaded contact areas needs assessment. Agree suitable artwork clearances and inspect folded samples rather than judging only a flat sheet. Review handling and rubbing performance for the intended packing and delivery route. Spot UV is a selective decorative treatment; it does not make the entire box scratch-proof, waterproof or a substitute for protective shipping packaging."
+  },
+  {
+    "q": "Can Spot UV affect QR codes, barcodes or required label information?",
+    "a": "Gloss and reflections can interfere with contrast and readability. Reserve suitable areas for codes and essential text, preserve their required clear space and keep decorative gloss from disrupting them. Verify printed codes and check text on the finished assembled pack under realistic conditions. A successful scan from a digital proof does not establish production performance after finishing."
+  },
+  {
+    "q": "How much does Spot UV cost, and what minimum order or lead time should I expect?",
+    "a": "Cost, minimums and timing depend on coverage, box dimensions, material, artwork versions, setup and other finishes. Send quantities per design, the receiving Canadian postal code or US ZIP code and the required in-hand date. Request a clear scope for samples, tooling and freight, including currency, taxes and duties. Apex's Canada-based team coordinates qualified overseas production and delivery; confirm production and transit separately in the quotation."
+  },
+  {
+    "q": "Can I approve a Spot UV sample before placing a bulk order?",
+    "a": "Ask which finish examples, coated proofs or finished pre-production samples are available, including cost, timing and limitations. A structural or simplified printed sample may omit decorative treatments entirely. Review the actual coating, background, registration and folded pack where relevant. Retain the approved sample reference, artwork revision and material specification; a screen proof can check placement but cannot validate gloss or feel."
+  },
+  {
+    "q": "Are boxes with Spot UV recyclable in Canada and the USA?",
+    "a": "Assess the complete pack, including coating formulation and coverage, board, any laminate, foil, windows, adhesives and inserts. The term Spot UV alone does not establish recyclability or compostability. Request evidence for the actual specification and check local collection and processing acceptance. Recycled content is a separate property. Use qualified disposal instructions supported by the finished materials and access in the receiving community."
+  }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }, { name: 'Spot UV', url: '/packaging-finishes/spot-uv' }]);
+const service = buildServiceSchema({ name: 'Spot UV for custom packaging', description: 'Selective gloss Spot UV packaging with artwork, material, sampling and quotation support for Canadian and US buyers.', url: '/packaging-finishes/spot-uv' });
+---
+<BaseLayout
+  title="Spot UV Packaging Canada & USA | Selective Gloss | Apex"
+  description="Plan Spot UV for custom boxes: gloss contrast, artwork masks, finish compatibility, samples and twelve buyer FAQs for Canada and the USA."
+  image="/images/home/finishes/spot-uv.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Spot UV · Custom packaging"
+    heading="Spot UV"
+    lead="Put the spotlight on your brand. Add selective gloss to logos, lettering and patterns, with material review and project-specific support for Canadian and US packaging buyers."
+    imageSrc="/images/home/finishes/spot-uv.webp"
+    imageAlt="Nexora Curated Living packaging with selective glossy lettering and flowing lines on a dark surface, matching the Spot UV card."
+  />
+  <section class="bg-neutral-50 py-12 md:py-20">
+    <div class="container max-w-wide grid gap-6 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Give one detail the spotlight</h2><p class="mt-3 leading-relaxed text-neutral-600">Use selective gloss to draw attention to a logo, product name or graphic pattern. Plan its contrast with the surrounding finish so the effect is clear under display lighting.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Build the effect into the artwork</h2><p class="mt-3 leading-relaxed text-neutral-600">A separate coating mask defines where the gloss lands. Review detail, spacing, registration and fold clearances before approval, with codes and essential copy in suitable areas.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Approve the finished contrast</h2><p class="mt-3 leading-relaxed text-neutral-600">Compare an appropriate coated sample on the proposed material. Review gloss, feel and alignment after folding and assembly, especially when combining treatments.</p></article>
+    </div>
+  </section>
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>Prepare your Spot UV packaging brief</h2>
+      <p>Start with the box, printed background and elements you want to highlight. Apex reviews the artwork, underlying surface and finish combinations before confirming the sampling and production route.</p>
+      <ul>
+        <li>Provide the structure, dimensions, board and final dieline where available.</li>
+        <li>Send print artwork with the Spot UV areas clearly separated and aligned.</li>
+        <li>Share a reference showing the desired gloss and tactile effect.</li>
+        <li>Identify folds, glue areas, codes and essential text that need clear space.</li>
+        <li>Include quantities per design, receiving postal or ZIP code and required in-hand date.</li>
+      </ul>
+      <p>Spot UV describes a selective finish, not a guarantee of raised relief, barrier protection or recyclability. Confirm those requirements against the actual materials and complete pack.</p>
+    </div>
+  </section>
+  <FAQAccordion faqs={faqs} heading="Spot UV: Buyer FAQs" intro="Practical answers for Canadian and US buyers planning Spot UV packaging." panelHeading="Spot UV buyer questions" />
+  <CTABand heading="Request a Spot UV quotation." lead="Share your box, artwork, finish reference, quantity and destination for a project-specific proposal." primaryCta={{ label: 'Quote Spot UV', href: '/contact' }} />
+</BaseLayout>
