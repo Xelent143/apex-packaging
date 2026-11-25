@@ -1,5 +1,4 @@
 ---
-import { remainingBuyerFaqs } from '../../data/remainingBuyerFaqs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import CTABand from '../../components/sections/CTABand.astro';
@@ -22,7 +21,56 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: 'Mailer Boxes', url: '/services/mailer-boxes' }
 ]);
 
-const faqs = remainingBuyerFaqs('services/mailer-boxes')!;
+const faqs = [
+  {
+    "q": "What is the difference between a corrugated mailer, a shipping carton and a rigid gift box?",
+    "a": "A die-cut corrugated mailer combines a presentation-led opening with a structure that can be developed for parcel shipping. A regular corrugated shipping carton often suits larger or heavier packouts, while a rigid gift box prioritizes presentation and may need a separate outer shipper. Choose around the product, packed weight, protection and fulfilment process. A premium appearance or tuck-top closure alone does not demonstrate that a box will protect its contents in transit."
+  },
+  {
+    "q": "How do I measure the correct custom mailer size?",
+    "a": "Measure the complete packed arrangement, including tissue, inserts, manuals, samples and any cushioning. State length, width and depth in consistent units, and identify whether the requested dimensions are usable internal dimensions or finished external dimensions. Allow clearance for loading and closing without forcing the lid or bowing the panels. For irregular shapes or close fits, provide product samples or a representative packout and approve a structural sample before the dieline is finalized."
+  },
+  {
+    "q": "Should I choose E-flute, B-flute, kraft or white board for my mailer?",
+    "a": "Compare the complete board specification against packed weight, box size, handling and print expectations. E-flute offers a slimmer profile; B-flute has a thicker profile, but flute type alone does not establish a safe load or shipping performance. Kraft liners provide a brown base that changes colour appearance, while white liners give a brighter print base. Ask Apex to review board strength, liner, print method and sample performance together rather than selecting by appearance or flute name alone."
+  },
+  {
+    "q": "What is the minimum order for custom mailer boxes, and can I order multiple designs?",
+    "a": "The minimum depends on dimensions, board, print process, tooling and any additional operations. Different sizes, inserts or artwork versions can require separate setups and minimums, even when ordered together. Send the quantity for each version and explain whether it is a test launch, subscription program or recurring order. Apex confirms project-specific minimums and quantity tiers in the quotation; there is no single minimum that applies to every custom mailer."
+  },
+  {
+    "q": "What affects mailer-box pricing for Canadian and US buyers?",
+    "a": "Key variables include board area and grade, custom cutting tools, print surfaces and coverage, artwork versions, coatings, inserts, closure features and quantity. Ask whether artwork preparation, tooling, proofs or samples are included or charged separately. Compare the same packout and specification, then confirm quotation currency, freight, customs responsibilities, duties, taxes and final delivery scope. Assembly labour, flat-pack storage and finished parcel size can also affect the total cost of using the packaging."
+  },
+  {
+    "q": "Can my mailer have inside and outside printing, brand colours and premium finishes?",
+    "a": "Share vector logos where available, final copy, colour references and barcode files, then use the current approved dieline. Apex confirms print and finish options against the selected liner, structure, quantity and production route. Check front locks, opening flaps, folds and panel orientation so important artwork remains legible when assembled. Screen colours are not a physical print standard, and the same ink can look different on kraft and white stock. Agree on the proof or sample needed for colour-critical work."
+  },
+  {
+    "q": "Can I approve a digital proof or physical mailer sample before production?",
+    "a": "Ask which digital, structural or printed sample options are available, what they cost and how they affect timing. A digital proof helps check artwork layout and text; a structural sample helps assess usable size, locks, folds, inserts and assembly. A printed or production-representative sample may be needed for critical colour, finish or material decisions. Test the intended packed products, record the approved specification and artwork revision, and confirm the approval steps before production release."
+  },
+  {
+    "q": "Do fragile products or subscription kits need inserts inside a mailer?",
+    "a": "An insert is useful when products can collide, move, scuff or load one panel unevenly. Develop the outer mailer and insert together using the actual items and packed weight. Corrugated inserts, paperboard dividers, suitable foam or void fill serve different protection and presentation needs. Bottles may also need leak containment, and electronics can need specified static-control materials. Trial packing, opening and removal, and agree on appropriate transit checks before assuming that a good-looking insert provides adequate protection."
+  },
+  {
+    "q": "Can I ship a mailer directly, and do I need tape, an adhesive strip or an outer box?",
+    "a": "Direct shipping depends on the complete packout, board, closures and distribution conditions. Tuck locks, adhesive strips, tear strips and shipping tape should be evaluated with the actual product; a self-locking lid is not a universal transit seal. An outer shipper may be appropriate for fragile items, demanding routes or presentation surfaces that need protection. For returns, specify a second closure method and test the box after the first opening. Confirm the carrier's packaging and label requirements before shipping."
+  },
+  {
+    "q": "Can a smaller mailer reduce dimensional-weight shipping charges in Canada and the USA?",
+    "a": "It can, if the finished parcel becomes smaller while retaining adequate protection. Carriers may rate parcels using dimensional weight rather than actual weight when it is greater. Measure the outside of the fully packed and closed mailer, including any bulging or outer shipper, then check the carrier's current service rules, rounding and applicable rates. There is no one divisor or saving that applies to every carrier and contract. Compare proposed sizes with representative shipments before approving a change."
+  },
+  {
+    "q": "How long do custom mailers take, and can Apex deliver to Canada and the USA?",
+    "a": "Apex's Canada-based team coordinates design, proofs, samples, qualified overseas production and delivery for Canadian and US buyers. Timing depends on artwork readiness, sample approvals, board and finishing requirements, quantity and freight method. Production and transit are separate stages. Provide the receiving postal or ZIP code, delivery access requirements and required in-hand date before approval. Apex confirms the schedule and delivery responsibilities in the quotation rather than promising one standard turnaround for all custom mailers."
+  },
+  {
+    "q": "Are printed corrugated mailers recyclable, and can they use recycled-content board?",
+    "a": "Ask about the exact finished pack, including liners, coatings, laminates, tape, labels and inserts. Recycled content describes what goes into the board; recyclability concerns collection and processing after use, and the two claims are different. Kraft colour alone proves neither. Ask Apex to review available board options and supporting documentation, and confirm disposal guidance for the intended Canadian municipality or US community. Environmental claims should reflect the complete specification and actual local recycling access."
+  }
+];
 ---
 
 <BaseLayout title={title} description={description} schemaBlocks={[breadcrumb, serviceSchema, buildFAQSchema(faqs)]}>
@@ -35,6 +83,9 @@ const faqs = remainingBuyerFaqs('services/mailer-boxes')!;
     imageIsFullBanner={true}
   />
 
+  <div class="container max-w-wide py-6">
+    <p class="text-sm leading-relaxed text-neutral-600">Planning a mailer order for Canada or the USA? <a href="#mailer-buyer-faqs" class="font-semibold text-accent underline underline-offset-4">Read 12 mailer-box FAQs</a> about sizing, printing, samples, protection and delivery.</p>
+  </div>
   <section class="border-b border-neutral-200 bg-white py-14">
     <div class="container max-w-wide prose-apex">
       <p class="eyebrow">Structure and application</p>
@@ -172,7 +223,18 @@ const faqs = remainingBuyerFaqs('services/mailer-boxes')!;
     </div>
   </section>
 
-  <FAQAccordion heading="Mailer box buyer FAQs" faqs={faqs} />
+  <div id="mailer-buyer-faqs" class="scroll-mt-28 md:scroll-mt-32">
+    <FAQAccordion
+      heading="Mailer-box FAQs for Canada and USA buyers"
+      eyebrow="Before you order"
+      intro="Twelve practical answers for ecommerce, subscription and retail mailer projects, from usable dimensions and print approvals to transit protection and delivered cost."
+      panelHeading="Specify, sample and ship your mailer"
+      faqs={faqs}
+    />
+    <div class="container max-w-wide pb-10">
+      <p class="text-sm leading-relaxed text-neutral-600">Buyer resources: <a href="https://www.ups.com/ca/en/support/shipping-support/packaging-tips" class="underline underline-offset-4">UPS packaging guidance</a> · <a href="https://www.fedex.com/en-us/shipping/packaging/what-is-dimensional-weight.html" class="underline underline-offset-4">FedEx dimensional weight</a> · <a href="https://www.ftc.gov/business-guidance/resources/environmental-claims-summary-green-guides" class="underline underline-offset-4">FTC environmental claims</a>.</p>
+    </div>
+  </div>
 
   <RelatedContent
     heading="Plan the mailer before requesting production"
