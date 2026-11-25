@@ -7,9 +7,54 @@ import CTABand from '../components/sections/CTABand.astro';
 import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../lib/schema';
 
 const faqs = [
-  { q: 'What do I need to quote custom boxes with a logo?', a: 'Send the packed product dimensions, preferred box style, artwork or logo files, print and finish preferences, quantity, delivery destination and required in-hand date. Apex confirms the suitable production path in a product-specific quotation.' },
-  { q: 'Can a logo be printed inside and outside a box?', a: 'Interior and exterior print can be discussed as part of the project specification. The available print method, coverage, cost and production considerations depend on the selected structure and quantity.' },
-  { q: 'Do custom printed boxes require a minimum order?', a: 'Yes, but there is no universal minimum. It depends on the box structure, dimensions, material, printing method, finishing, quantity and delivery destination.' }
+  {
+    "q": "Which custom box style is best for my logo and product?",
+    "a": "Choose the structure around the product before the decoration. Folding cartons suit many retail presentation needs; corrugated mailers and shippers address different handling requirements; rigid structures offer another opening experience for premium sets. Share the product weight, fragility, sales channel and desired presentation. Apex can review suitable options, then plan logo placement and printing around the actual panels, closures and protection needs."
+  },
+  {
+    "q": "How do I choose the right size for custom printed boxes?",
+    "a": "Measure the complete packed product, including any primary container, wrap, inserts and accessories. Specify usable internal dimensions and allow room for loading, closure and removal without excessive movement. For sets, provide the planned arrangement and total weight. Test the proposed structure with the actual contents before approving production; outside dimensions or a product's stated volume alone do not establish fit."
+  },
+  {
+    "q": "What logo and artwork files do I need to order custom boxes?",
+    "a": "Send an editable vector logo where available, brand-colour references, approved copy and any images. Ask for the final dieline and production file instructions before placing artwork. Confirm bleed, safe areas, image quality and separately identified finish layers with Apex. Keep essential text and barcode clear space away from folds, cuts and closures, and review the assembled layout rather than relying only on a flat preview."
+  },
+  {
+    "q": "Can you match my brand colours, including on brown kraft boxes?",
+    "a": "Provide an agreed physical colour reference or Pantone specification and identify which colours are critical. CMYK, spot-colour printing, board colour and coatings can produce different appearances; artwork on brown kraft will not necessarily resemble the same print on white stock. Discuss the available production method and proof options. Agree acceptance criteria on the proposed material rather than treating a monitor image as a guaranteed colour match."
+  },
+  {
+    "q": "Can my logo be printed inside and outside the box?",
+    "a": "Interior and exterior printing can be reviewed for the selected structure, material and production route. Mark the panels that should carry the logo, message or pattern, and show which surfaces are visible when the box is closed and opened. Confirm coverage, orientation, additional cost and any areas that must remain clear for gluing. Availability is project-specific, so include two-sided print in the original quotation request."
+  },
+  {
+    "q": "Can I add foil, embossing, soft touch or spot UV to my logo?",
+    "a": "Share reference packaging and identify the effect you want: reflective detail, raised or recessed branding, tactile texture or selective gloss. Apex reviews the artwork, stock and structure to confirm suitable options. Fine details, folds and combinations need technical assessment. Ask for a representative sample and separate finish pricing before approval; a digital mockup cannot demonstrate the final texture or reflectivity."
+  },
+  {
+    "q": "How much do custom boxes with a logo cost in Canada and the USA?",
+    "a": "Cost depends on box dimensions, structure, board, print coverage, artwork versions, finishes, inserts and quantity. Send the product brief, quantities per design, artwork status, receiving postal or ZIP code and required arrival date. Request a clear scope for tooling, samples and freight, then confirm currency, taxes, duties and delivery responsibilities. Compare total delivered costs for the same specification rather than headline unit prices alone."
+  },
+  {
+    "q": "What is the minimum order for logo-printed boxes, and can I start with a small run?",
+    "a": "There is no universal minimum across all custom structures and print methods. The material, dimensions, colour requirements, finishes and setup affect available quantities. Tell Apex your launch quantity and likely reorder needs so suitable tiers or specification alternatives can be reviewed. Confirm the minimum per size and artwork version in the quotation; another supplier's stock-box minimum should not be assumed to apply to a fully custom project."
+  },
+  {
+    "q": "Can I approve a sample or printed proof before ordering in bulk?",
+    "a": "Ask which digital proofs, structural samples and printed samples are available, including their cost, timing and limitations. A structural sample checks fit and assembly; a digital proof checks layout and copy; an appropriate printed sample helps assess colour and finishes. Use the actual product during fit review. Retain the approved specification, artwork revision and sample reference before authorizing the production run."
+  },
+  {
+    "q": "Can one order include different logos, product sizes or seasonal designs?",
+    "a": "List each version with its structure, size, artwork and quantity. A shared box design may simplify planning, but separate sizes, print files or finishes can involve additional setups and minimums. Ask Apex to confirm whether production can be combined and how bundles will be identified. For reorders, reference the approved specification and flag any change so old artwork or product information is not reused by mistake."
+  },
+  {
+    "q": "How long do custom logo boxes take, and can Apex deliver across Canada and the USA?",
+    "a": "Apex's Canada-based team coordinates design, approvals, samples, qualified overseas production and delivery. Timing depends on artwork readiness, material, tooling, finishes, quantity and freight. Provide the receiving postal or ZIP code and required in-hand date, then confirm production and transit separately in the quotation. Plan launches around the full approval-to-delivery schedule; a rush request needs confirmation against the actual project and capacity."
+  },
+  {
+    "q": "Are printed logo boxes recyclable, and can I request recycled-content board?",
+    "a": "Ask about the complete specification, including inks, coatings, laminates, foil, windows, adhesives and inserts. Recycled content and recyclability are separate properties, and kraft colour alone proves neither. Request documentation for proposed material claims and check whether components need separation. Recycling access differs by Canadian municipality and US community. Choose environmental wording and disposal instructions supported by the finished pack and local acceptance."
+  }
 ];
 const breadcrumb = buildBreadcrumbSchema([
   { name: 'Home', url: '/' },
