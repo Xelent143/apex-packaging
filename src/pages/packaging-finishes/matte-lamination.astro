@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+const faqs = [
+  {
+    "q": "What is matte lamination, and why choose it for custom packaging?",
+    "a": "Matte lamination bonds a thin, low-sheen film over the printed surface. It can reduce glare and give graphics a quieter appearance while providing a protective surface layer. Suitability depends on the box, material and handling route. Share your design and a reference pack with Apex, then compare an appropriate sample under the lighting where customers will see it."
+  },
+  {
+    "q": "Is matte lamination the same as matte varnish or an aqueous coating?",
+    "a": "No. Lamination applies a film, while varnish or aqueous coating is a different surface treatment. Similar sheen does not establish the same feel, protection, production requirements or disposal options. Ask the quotation to identify the proposed finish clearly. Compare representative samples and the full material specification before substituting one treatment for another."
+  },
+  {
+    "q": "How is standard matte lamination different from soft-touch lamination?",
+    "a": "Matte describes the low-sheen appearance; soft touch adds a particular tactile quality. A standard matte film should not be assumed to have a velvety feel. Different products also have different handling characteristics. Tell Apex whether appearance, texture or surface durability is the priority, and approve a physical reference for the exact treatment being quoted."
+  },
+  {
+    "q": "Will matte lamination show scratches or fingerprints on dark boxes?",
+    "a": "Dark or solid-colour artwork can make surface marks noticeable. Standard matte and specialist scuff-resistant films are different specifications, so discuss the required handling performance before choosing. Review samples with the intended printed colour and agree relevant rubbing, packing and handling checks. Do not assume every matte finish is fingerprint-resistant or scratch-proof, or that a supplier's branded film claim applies to the proposed box."
+  },
+  {
+    "q": "Does matte lamination make a box waterproof or suitable for chilling?",
+    "a": "A laminated surface may improve resistance to some exposure, but the complete carton has edges, folds, seams and other materials. It is not automatically waterproof, leakproof or suitable for refrigeration. Describe moisture, condensation, temperature and holding conditions, then assess the proposed pack under the intended use. Any direct food-contact or barrier requirement needs its own specification and documentation."
+  },
+  {
+    "q": "Will matte lamination change my printed colours or logo appearance?",
+    "a": "The low-sheen surface can change how colour and contrast are perceived compared with a gloss surface or screen image. Review critical brand colours on the intended board after the proposed finish has been applied. Agree a physical reference and acceptance criteria with Apex. A digital artwork proof can check content and layout but cannot reproduce the finished surface's appearance under every lighting condition."
+  },
+  {
+    "q": "Can I combine matte lamination with foil, spot UV or embossing?",
+    "a": "Combinations may be possible, but the selected film, inks and subsequent processes must be compatible. Spot gloss can contrast with a matte background, while foil and relief need separate technical review. Mark each effect on the dieline and ask Apex to confirm adhesion, alignment and tooling requirements. Approve an appropriate combined sample rather than assuming every matte film accepts every additional finish."
+  },
+  {
+    "q": "Can labels, barcodes or handwritten details be added to matte-laminated boxes?",
+    "a": "Specify any label adhesive, variable printing or writing requirement before approval. A matte appearance does not establish that a surface accepts every pen, stamp, ink or adhesive. Trial the actual label or marking method on the finished material. Keep codes at the correct size with suitable contrast and clear space, and verify scanning after finishing and assembly."
+  },
+  {
+    "q": "Can I approve a matte-laminated sample before ordering in bulk?",
+    "a": "Ask which material samples, printed proofs and finished pre-production samples are available, including costs, timing and limitations. Check sheen, colour, feel, surface marks and the assembled folds and closures. Use the actual product and planned packing method where relevant. Retain the approved film specification, artwork revision and sample reference so production and repeat orders follow the agreed finish."
+  },
+  {
+    "q": "How much does matte lamination cost, and what is the minimum order?",
+    "a": "Cost and minimum quantity depend on box dimensions, board, film specification, laminated surfaces, print versions, other finishes and production setup. Send quantities per design and the Canadian postal code or US ZIP code. Request a clear scope for samples, tooling and freight, and confirm currency, duties, taxes and delivery responsibilities. Apex quotes the complete pack rather than one universal lamination price or minimum."
+  },
+  {
+    "q": "How long do matte-laminated boxes take, and can Apex deliver in Canada and the USA?",
+    "a": "Apex's Canada-based team coordinates approvals, sampling, qualified overseas production and delivery. Timing depends on material availability, artwork readiness, quantity, finish combinations and freight method. Provide the receiving location and required in-hand date, then confirm production and transit separately in the quotation. Changes to a film or additional finish should be reviewed before assuming the original launch schedule still applies."
+  },
+  {
+    "q": "Are matte-laminated boxes recyclable or plastic-free in Canada and the USA?",
+    "a": "Matte is an appearance, not an environmental certification. Many laminating films contain plastic; ask for the actual material specification instead of assuming otherwise. Assess the complete pack, including board, film, adhesives and other components, and request evidence for proposed claims. Recycling access and processing vary by community. Recycled content, recyclability and compostability are separate properties requiring appropriate support and qualified disposal instructions."
+  }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }, { name: 'Matte Lamination', url: '/packaging-finishes/matte-lamination' }]);
+const service = buildServiceSchema({ name: 'Matte lamination for custom packaging', description: 'Low-sheen matte-laminated packaging with material, colour, sampling and quotation support for Canadian and US buyers.', url: '/packaging-finishes/matte-lamination' });
+---
+<BaseLayout
+  title="Matte Lamination Packaging Canada & USA | Apex"
+  description="Explore matte lamination for custom boxes: appearance, scuff resistance, colour, finish compatibility and twelve buyer FAQs for Canada and the USA."
+  image="/images/home/finishes/matte-lamination.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Matte lamination · Custom packaging"
+    heading="Matte Lamination"
+    lead="A considered finish with less glare. Plan matte-laminated packaging around your artwork, surface feel and handling needs, with project-specific support for Canadian and US buyers."
+    imageSrc="/images/home/finishes/matte-lamination.webp"
+    imageAlt="Ocevan Eau de Parfum packaging with a dark low-sheen surface, matching the Matte Lamination card."
+  />
+  <section class="bg-neutral-50 py-12 md:py-20">
+    <div class="container max-w-wide grid gap-6 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Let the artwork set the tone</h2><p class="mt-3 leading-relaxed text-neutral-600">A low-sheen surface can reduce distracting reflections. Review your colours and graphic detail on a finished sample under the lighting used for retail display or unboxing.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Specify the surface performance</h2><p class="mt-3 leading-relaxed text-neutral-600">Standard matte and specialist resistant films are different choices. Tell Apex how the box will be packed, shipped and handled so the material and sample checks match the brief.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Review the complete finish</h2><p class="mt-3 leading-relaxed text-neutral-600">Check film, board and print together, including any foil, spot gloss, labels or relief. Approve appearance and compatibility before releasing the full production run.</p></article>
+    </div>
+  </section>
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>Prepare your matte-lamination brief</h2>
+      <p>Start with the box, artwork and intended use. Apex reviews the material, laminated surfaces and finish combinations before confirming sampling, production and delivery arrangements.</p>
+      <ul>
+        <li>Provide the structure, dimensions, board preference and approved dieline where available.</li>
+        <li>Share a physical finish reference and identify any critical brand colours.</li>
+        <li>State scuff, moisture, label-adhesion or variable-printing requirements.</li>
+        <li>Mark additional finishes, glue areas, codes and surfaces that need separate review.</li>
+        <li>Include quantities per design, receiving postal or ZIP code and required in-hand date.</li>
+      </ul>
+      <p>Matte lamination is a surface treatment. Protective performance and environmental claims need review of the exact materials and complete pack rather than assumptions based on the finish name.</p>
+    </div>
+  </section>
+  <FAQAccordion faqs={faqs} heading="Matte Lamination: Buyer FAQs" intro="Practical answers for Canadian and US buyers planning matte-laminated packaging." panelHeading="Matte lamination buyer questions" />
+  <CTABand heading="Request a matte-lamination quotation." lead="Share your box, artwork, surface requirements, quantity and destination for a project-specific proposal." primaryCta={{ label: 'Quote matte lamination', href: '/contact' }} />
+</BaseLayout>
