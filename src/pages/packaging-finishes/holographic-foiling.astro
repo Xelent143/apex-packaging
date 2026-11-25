@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTABand from '../../components/sections/CTABand.astro';
+import { buildBreadcrumbSchema, buildFAQSchema, buildServiceSchema } from '../../lib/schema';
+const faqs = [
+  {
+    "q": "What is holographic foiling, and how will it look on my packaging?",
+    "a": "Holographic foiling adds a diffractive decorative effect that changes with the light and viewing angle. It can highlight a logo, lettering or a pattern without covering the entire box. The result depends on the foil design, background, board and application method. Review a physical swatch and an appropriate sample under your intended retail lighting; a screen image cannot reproduce the full effect."
+  },
+  {
+    "q": "Can I choose a rainbow, patterned or custom holographic effect?",
+    "a": "Share a physical reference or clear photographs and explain the effect you want. Stock patterns, their direction, repeat and visible joins may differ, while a custom origination is a separate project with its own feasibility, cost and timing. Apex confirms available options before quoting. A decorative stock holographic finish should not be treated as an authenticated security feature or a guarantee against counterfeiting."
+  },
+  {
+    "q": "Which box materials work with holographic foiling?",
+    "a": "Compatibility depends on the exact foil grade, board surface, inks, coatings and production process. Smooth coated stock, textured paper and laminated surfaces can require different approaches. Send the complete material and finish brief rather than specifying foil independently. Ask for testing on the proposed substrate, especially where fine details or broad coverage matter; approval on one material does not establish suitability for another."
+  },
+  {
+    "q": "Can holographic foil cover my whole box or just the logo?",
+    "a": "Selective logos, borders and patterns and larger decorative areas have different coverage requirements. Large areas can make surface variation or pattern repeats more noticeable, while small details need suitable definition. Provide the intended coverage on the final dieline. Apex reviews the production route and samples with you before approval; a foil-stamped accent and a full holographic substrate or laminate are different specifications."
+  },
+  {
+    "q": "Can holographic foiling be combined with matte, soft touch or embossing?",
+    "a": "Combinations may be possible, but the complete layer sequence needs review. The selected coating or laminate affects adhesion and appearance, and embossing introduces additional tooling and alignment considerations. Identify the foil and relief areas separately on the dieline. Ask Apex to confirm compatibility and an appropriate combined sample, rather than assuming two individually available finishes will work together on your chosen board."
+  },
+  {
+    "q": "What artwork files do I need for holographic foil packaging?",
+    "a": "Supply the approved dieline and editable vector artwork, with the foil area identified on a separate, clearly named layer or mask following production instructions. Confirm minimum line thickness, spacing, registration allowances and clearance from scores, cuts and glue areas. Keep the printed artwork and foil instructions aligned. A rainbow-coloured digital mockup communicates a visual idea but is not a substitute for a production-ready foil mask."
+  },
+  {
+    "q": "How much does holographic foiling cost for custom boxes in Canada or the USA?",
+    "a": "Cost depends on the foil pattern and availability, coverage, board, artwork detail, tooling, box structure, quantity and any additional finishes. Send your artwork, reference effect, quantities and receiving postal or ZIP code. Request an itemized scope for tooling, samples and freight, and confirm currency, duties, taxes and delivery responsibilities. Compare the same material, effect and coverage rather than generic foil unit prices."
+  },
+  {
+    "q": "What is the minimum order and lead time for holographic-foiled boxes?",
+    "a": "Minimums and timing depend on the structure, foil supply, tooling, material, approval process and production setup. Multiple designs or sizes can have separate requirements. Give Apex your launch quantity, likely reorder volume and required in-hand date. The Canada-based team coordinates qualified overseas production and delivery; confirm production and transit separately in the quotation instead of assuming one minimum or turnaround applies to every project."
+  },
+  {
+    "q": "Can I approve a holographic foil sample before bulk production?",
+    "a": "Ask which foil swatches, flat proofs or finished pre-production samples are available and what their cost, timing and limitations are. Review the chosen effect with the actual board, printed background and other finishes. Check the result from several angles and under realistic lighting, then retain the approved reference and artwork revision. A digital proof can confirm placement but cannot establish the final optical effect."
+  },
+  {
+    "q": "Will holographic foil scratch, peel or crack when the box is folded?",
+    "a": "Performance depends on adhesion, the substrate, artwork placement, processing and handling. Discuss suitable checks for rubbing, folding and the intended packing route. Inspect the actual finished sample, including scores and edges, and avoid assuming a decorative finish makes the pack scratch-proof or waterproof. Artwork crossing a crease needs particular review; agree acceptance criteria and any outer shipping protection before production."
+  },
+  {
+    "q": "Can holographic foil affect barcode, QR-code or product-label readability?",
+    "a": "Reflective and changing backgrounds can interfere with contrast and scanning. Reserve a suitable area for codes and essential text, keep the required clear space and avoid decorative foil within those areas unless the design has been assessed. Check readability and verify printed codes on the finished, assembled pack. A successful scan from a screen does not validate the production result."
+  },
+  {
+    "q": "Is holographic-foiled packaging recyclable in Canada and the USA?",
+    "a": "Evaluate the whole specification: board, transferred decoration, any laminate, coatings, windows, adhesives and inserts. A transferred foil effect and a full film laminate are different constructions. Request evidence for the proposed materials and check acceptance in the receiving Canadian municipality or US community. Recycled content and recyclability are separate claims; neither the holographic appearance nor a supplier's general statement establishes the finished box's disposal route."
+  }
+];
+const breadcrumb = buildBreadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Packaging Finishes', url: '/packaging-finishes' }, { name: 'Holographic Foiling', url: '/packaging-finishes/holographic-foiling' }]);
+const service = buildServiceSchema({ name: 'Holographic foiling for custom packaging', description: 'Project-specific holographic foil effects for branded packaging, with material review, artwork, samples and quotation support for Canada and the USA.', url: '/packaging-finishes/holographic-foiling' });
+---
+<BaseLayout
+  title="Holographic Foiling Packaging Canada & USA | Apex"
+  description="Explore holographic foiling for custom boxes: effects, compatible materials, artwork, samples, costs and twelve buyer FAQs for Canada and the USA."
+  image="/images/home/finishes/holographic-foiling.webp"
+  schemaBlocks={[breadcrumb, service, buildFAQSchema(faqs)]}
+>
+  <PageHeader
+    eyebrow="Holographic foiling · Custom packaging"
+    heading="Holographic Foiling"
+    lead="Give your packaging a shifting play of light. Plan holographic foil logos, lettering and patterns around your box, artwork and retail presentation, with project-specific support for Canadian and US buyers."
+    imageSrc="/images/home/finishes/holographic-foiling.webp"
+    imageAlt="Lunessa cosmetics packaging with holographic foil logo and flowing rainbow-reflective lines, matching the Holographic Foiling card."
+  />
+  <section class="bg-neutral-50 py-12 md:py-20">
+    <div class="container max-w-wide grid gap-6 md:grid-cols-3">
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">A logo that catches the light</h2><p class="mt-3 leading-relaxed text-neutral-600">Use selective holographic accents to draw attention to a brand mark, border or illustration. Choose the effect with a physical reference so its movement complements the printed design.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">The right effect on the right board</h2><p class="mt-3 leading-relaxed text-neutral-600">The foil pattern, stock, surface treatment and application route work together. Apex reviews the proposed construction before confirming detail, coverage and combinations.</p></article>
+      <article class="rounded-md border border-neutral-200 bg-white p-6"><h2 class="font-display text-2xl font-bold">Approve the finished impression</h2><p class="mt-3 leading-relaxed text-neutral-600">Judge reflectivity, pattern direction and contrast on an appropriate sample. Review it under your display lighting and after folding, rather than approving the optical effect from a monitor.</p></article>
+    </div>
+  </section>
+  <section class="border-y border-neutral-200 bg-white py-12 md:py-20">
+    <div class="container max-w-default prose-apex">
+      <h2>Plan your holographic foil packaging before production</h2>
+      <p>Start with the product, box structure and intended customer experience. Share a foil reference and mark the areas that should reflect light. Apex can then review the artwork, material compatibility, sample requirements and production route for the complete specification.</p>
+      <ul>
+        <li>Provide the box dimensions, material preference and final dieline where available.</li>
+        <li>Supply vector artwork with a separate holographic foil mask and the desired pattern reference.</li>
+        <li>Identify critical text, barcodes, folds and glue areas that need clear space.</li>
+        <li>State quantity per design, destination postal or ZIP code and required in-hand date.</li>
+      </ul>
+      <p>Holographic foiling is a decorative choice. Any security function, product-contact requirement or environmental claim needs its own specification and supporting evidence.</p>
+    </div>
+  </section>
+  <FAQAccordion faqs={faqs} heading="Holographic Foiling: Buyer FAQs" />
+  <CTABand heading="Request a holographic foiling quotation." lead="Share your box, artwork, foil reference, quantity and destination so Apex can review the effect and confirm a project-specific proposal." primaryCta={{ label: 'Quote holographic foiling', href: '/contact' }} />
+</BaseLayout>
