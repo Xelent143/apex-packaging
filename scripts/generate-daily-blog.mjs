@@ -188,7 +188,6 @@ const faq = buildFAQSchema([
 
       <figure class="my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-card">
         <img src={insideImage} alt="${escapeAttr(post.insideAlt)}" width="1536" height="1024" loading="lazy" decoding="async" class="w-full" />
-        <figcaption class="px-5 py-4 text-sm text-neutral-600">Use the physical ${escapeHtml(post.keyword)} sample to connect ${escapeHtml(post.angle)} with the quoted production specification.</figcaption>
       </figure>
 
       <h2>Define the ${escapeHtml(post.keyword)} job before quoting</h2>

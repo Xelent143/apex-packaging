@@ -73,6 +73,14 @@
     @apply border-b border-neutral-200 py-3 pr-4 align-top;
   }
 
+  /* Blog artwork is presented without visible captions. Descriptive alt text
+     remains on each image for assistive technology. */
+  main .prose-apex figure figcaption,
+  main .guide-shell figure figcaption,
+  main > header figure figcaption {
+    display: none;
+  }
+
   .btn-primary {
     @apply inline-flex min-h-12 items-center justify-center gap-2 bg-neutral-900 text-neutral-50 px-6 py-3 rounded-md font-medium hover:bg-accent hover:text-neutral-900 transition-colors duration-150;
   }
